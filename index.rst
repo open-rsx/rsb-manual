@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the RSB Manual
-=========================
+Welcome to the RSB Manual (Version |version|)
+=============================================
 
 Contents:
 
@@ -14,6 +14,7 @@ Contents:
    introduction
    concepts
    tutorial
+   tools
 
 Indices and tables
 ==================
