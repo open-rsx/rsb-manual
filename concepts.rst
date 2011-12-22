@@ -43,5 +43,8 @@ Destination Scope
     Specifies the recipients of the event notification by restricting
     the visibility of event notifications [Muehl2006-DEB]_.
 
+Filter
+======
+
 Connector
 =========
