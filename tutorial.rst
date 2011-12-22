@@ -4,23 +4,39 @@ Tutorial
 Getting Started
 ===============
 
-Installing RSB
---------------
+Installing |project|
+--------------------
 
-SVN URLs for Implementations of RSB
+There are currently two ways to install |project|:
+
+* From source
+* Debian Packages
+
+From Source
+^^^^^^^^^^^
+
+SVN URLs for Implementations of |project|
 
 =========== =============================
-C++         |repository-versioned|/cpp
-Java        |repository-versioned|/java
-Python      |repository-versioned|/python
-Common Lisp |repository-versioned|/cl
+C++         |repository_versioned|/cpp
+Java        |repository_versioned|/java
+Python      |repository_versioned|/python
+Common Lisp |repository_versioned|/cl
 =========== =============================
-Matlab      |repository-versioned|/matlab
+Matlab      |repository_versioned|/matlab
 =========== =============================
 
-Debian repository server::
+Debian Packages
+^^^^^^^^^^^^^^^
+
+Debian packages for several versions of Ubuntu Linux are available
+from the `CoR-Lab package repository
+<http://packages.cor-lab.de/ubuntu/dists/>`_. Repository source line::
 
   deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
+
+Usage instructions can be found in the `wiki
+<https://support.cor-lab.org/projects/ciserver/wiki/RepositoryUsage>`_.
 
 Running the Examples
 --------------------
@@ -70,6 +86,9 @@ Extension Points
 
 Writing Converters
 ------------------
+
+Writing Filters
+---------------
 
 Writing Connectors
 ------------------
