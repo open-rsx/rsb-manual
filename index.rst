@@ -15,6 +15,7 @@ Contents:
    concepts
    tutorial
    tools
+   glossary
 
 Indices and tables
 ==================
