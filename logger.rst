@@ -6,28 +6,20 @@ Logger
 Synopsis
 ^^^^^^^^
 
-:samp:`logger {[OPTIONS]} {[URI]}`
+:samp:`|logger_binary| {[OPTIONS]} {[URI]}`
 
 Description
 ^^^^^^^^^^^
 
 The :program:`logger` participates in the :term:`channel` designated
-by :samp:`{URI}` using one or more :term:`transports` and displays all
-:term:`events` published on the channel using a configurable style.
+by :samp:`{URI}` (see `URIs`_) using one or more :term:`transports`
+and displays all :term:`events` published on the channel using a
+configurable style.
 
-.. option:: --version
+The :ref:`usual commandline options <common-options>` are
+accepted. Specialized commandline options:
 
-   Display version information.
-
-.. option:: --help
-
-   Display help.
-
-.. option:: --help-for THING
-
-   Display help for :samp:`{THING}`.
-
-.. option:: --filter SPEC, -f
+.. option:: --filter SPEC, -f SPEC
 
    Specify a :term:`filter` that received :term:`events` have to match
    in order to be processed rather than discarded. This option can be
@@ -35,7 +27,9 @@ by :samp:`{URI}` using one or more :term:`transports` and displays all
    all specified :term:`filters`. Each :samp:`{SPEC}` has to be of one
    of the forms::
 
-     KIND | KIND SINGLE-VALUE | KIND KEY1 VALUE1 KEY2 VALUE2 ...
+     KIND
+     KIND SINGLE-VALUE
+     KIND KEY1 VALUE1 KEY2 VALUE2 ...
 
    where keys and values depend on :samp:`{KIND}` and may be mandatory
    in some cases. Examples (note that the single quotes have to be
@@ -46,10 +40,13 @@ by :samp:`{URI}` using one or more :term:`transports` and displays all
      --filter 'regex :regex ".*foo[0-9]+"' (equivalent)
      -f 'xpath :xpath "node()/@foo" :fallback-policy :do-not-match'
 
-   Use :option:`--help-for` to display the full help text for this
-   item.
+   .. tip::
 
-.. option:: --style SPEC, -s
+      Use the :option:`common --help-for` ``filter`` or
+      :option:`common --help-for` ``all`` options to display the full
+      help text for this item.
+
+.. option:: --style SPEC, -s SPEC
 
    Specify a formatting style that should be used to print
    :term:`events`. :samp:`{SPEC}` has to be of the form::
@@ -65,15 +62,16 @@ by :samp:`{URI}` using one or more :term:`transports` and displays all
      --style 'compact :separator "|"'
      --style 'columns :columns (:now (:scope :width 12) :id :newline)'
 
-   .. Tip::
+   .. tip::
 
-      See extended help, enable with :option:`--help-for` ``columns``,
-      for an explanation of the ``:columns`` argument.
+      Use the :option:`common --help-for` ``styles`` or
+      :option:`common --help-for` ``all`` options to display the full
+      help text for this item.
 
-   Use the :option:`--help-for` ``styles`` or :option:`--help-for`
-   ``columns`` or :option:`--help-for` ``quantities`` or
-   :option:`--help-for` ``all`` options to display the full help text
-   for this item.
+      Use :option:`common --help-for` ``columns`` and
+      :option:`common --help-for` ``quantities`` for explanations of
+      the ``:columns`` argument and quantity columns used in the
+      ``columns`` and ``statistics`` styles.
 
 .. option:: --idl-path DIRECTORIES, -I DIRECTORIES
 
@@ -103,9 +101,10 @@ instructed to participate in the :term:`channel` designated by the
 root :term:`scope` ``/``. This means that the :program:`logger` will
 display all :term:`events` which are receivable using its configured
 :term:`transports`. In this example, the configured :term:`transports`
-depend on the RSB configuration file and environment variables.::
+depend on the |project| configuration file and environment
+variables.::
 
-  $ ./rsblogger --format detailed /
+  $ |logger_binary| --style detailed /
   Event
     Scope  /
     Id     ac5f449c-4aa1-4b03-a9e2-3fac7d38e651
@@ -148,9 +147,9 @@ example), or compiled, binary descriptions (not shown).::
 
   $ ls ~/projects/talk-rsb-data/code/*.proto
   /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
-  $ ./logger-builtin-spread --style detailed                                     \
-                            --load-idl ~/projects/talk-rsb/data/code/Image.proto \
-                            spread:
+  $ |logger_binary| --style detailed                                     \
+                    --load-idl ~/projects/talk-rsb/data/code/Image.proto \
+                    spread:
   Event
     Scope : /
     Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
@@ -180,13 +179,14 @@ repository. Note the use of the :option:`--idl-path` option for import
 resolution and the use of wildcards to load all definitions at
 once. Also note that loading all definitions takes a few seconds.::
 
-  $ ./logger-builtin-spread --idl-path "~/code/cor-lab/rst/trunk/rst/proto/sandbox/"   \
-                            --idl-path "~/code/cor-lab/rst/trunk/rst/proto/stable/"    \
-                            --load-idl '~/code/cor-lab/rst/trunk/rst/proto/**/*.proto' \
-                            --style detailed spread:
+  $ |logger_binary| --idl-path "~/code/cor-lab/rst/trunk/rst/proto/sandbox/"   \
+                    --idl-path "~/code/cor-lab/rst/trunk/rst/proto/stable/"    \
+                    --load-idl '~/code/cor-lab/rst/trunk/rst/proto/**/*.proto' \
+                    --style detailed                                           \
+                    spread:
 
 Implementations
----------------
+^^^^^^^^^^^^^^^
 
 ======================= ============= ====================================== ===============
 Implementation Language Project       Repository Link                        Compiled Binary

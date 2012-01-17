@@ -11,28 +11,41 @@ Synopsis
 Description
 ^^^^^^^^^^^
 
-Version, Plugins and Configuration Query
+The |project| information query tool can be used to display
+information regarding
 
-The RSB information query tool can used to display information
-regarding
+* |project| library version
+* effective configuration
+* available :term:`connectors`
+* available :term:`converters`
+* available :term:`filters`
 
-* the RSB library version
-* the set of registered :term:`connectors`
-* the set of available :term:`converters`
+The :ref:`usual commandline options <common-options>` are
+accepted. Specialized commandline options:
 
-.. option:: --version
+.. option:: --configuration
 
-   Display version information.
+   Display the current default configuration.
 
-.. option:: --help
+.. option:: --connectors
 
-   Display help.
+   Display list of available :term:`connectors`.
 
-.. option:: --help-for THING
+.. option:: --converters
 
-   Display help for :samp:`{THING}`.
+   Display list of available :term:`converters`.
+
+.. option:: --filters
+
+   Display list of available :term:`filters`.
+
+   .. Note::
+
+      Only available in the Common Lisp implementation.
 
 .. option:: --verbose
+
+   Display all available information.
 
 Examples
 ^^^^^^^^

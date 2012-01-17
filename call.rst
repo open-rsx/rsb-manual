@@ -6,25 +6,27 @@ RPC Call
 Synopsis
 ^^^^^^^^
 
-:samp:`call {[OPTIONS]} {METHOD}({[ARGUMENT]})`
+:samp:`|call_binary| {[OPTIONS]} {SERVER-URI}{METHOD}({[ARGUMENT]})`
 
 Description
 ^^^^^^^^^^^
 
-The :program:`call` tool can be used to invoke methods of RSB RPC
-servers.
+The :program:`call` tool can be used to invoke methods of |project|
+RPC servers.
 
-.. option:: --version
+The :ref:`usual commandline options <common-options>` are
+accepted. Specialized commandline options:
 
-   Display version information.
+.. option:: --timeout SPEC, -t SPEC
 
-.. option:: --help
+   If the result of the method call does not arrive within the amount
+   of time specified by :samp:`{SPEC}`, consider the call to have
+   failed and exit with non-zero status.
 
-   Display help.
+.. option:: --no-wait
 
-.. option:: --help-for THING
-
-   Display help for :samp:`{THING}`.
+   Do not wait for the result of the method call. Immediately return
+   with zero status without printing a result to standard output.
 
 Examples
 ^^^^^^^^
