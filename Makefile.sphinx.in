@@ -2,8 +2,8 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXOPTS    = @RSB_MANUAL_SPHINX_OPTIONS@
+SPHINXBUILD   = @RSB_MANUAL_SPHINX_BUILD@
 PAPER         =
 BUILDDIR      = _build
 
