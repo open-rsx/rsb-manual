@@ -1,5 +1,6 @@
-Concepts
-********
+==========
+ Concepts
+==========
 
 Scope
 =====
@@ -48,6 +49,8 @@ Filter
 
 Connector
 =========
+
+.. _uri-schema:
 
 URIs
 ====
@@ -168,3 +171,8 @@ Examples for specifying bus connections when creating participants::
 .. Python      *not yet implemented*
 .. Common Lisp |repository_versioned|/cl/cl-rsb/src/uris.lisp
 .. =========== ==============================================
+
+.. _configuration:
+
+Configuration
+=============

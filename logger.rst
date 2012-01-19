@@ -1,20 +1,23 @@
-Logger
-------
+.. _logger:
+
+========
+ Logger
+========
 
 .. program:: logger
 
 Synopsis
-^^^^^^^^
+========
 
 :samp:`|logger_binary| {[OPTIONS]} {[URI]}`
 
 Description
-^^^^^^^^^^^
+===========
 
 The :program:`logger` participates in the :term:`channel` designated
-by :samp:`{URI}` (see `URIs`_) using one or more :term:`transports`
-and displays all :term:`events` published on the channel using a
-configurable style.
+by :samp:`{URI}` (see :ref:`uri-schema`) using one or more
+:term:`transports` and displays all :term:`events` published on the
+:term:`channel` using a configurable style.
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -33,12 +36,14 @@ accepted. Specialized commandline options:
 
    where keys and values depend on :samp:`{KIND}` and may be mandatory
    in some cases. Examples (note that the single quotes have to be
-   included only when used within a shell)::
+   included only when used within a shell)
 
-     --filter 'origin "EAEE2B00-AF4B-11E0-8930-001AA0342D7D"'
-     --filter 'regex ".*foo[0-9]+"'
-     --filter 'regex :regex ".*foo[0-9]+"' (equivalent)
-     -f 'xpath :xpath "node()/@foo" :fallback-policy :do-not-match'
+   .. code-block:: sh
+
+      --filter 'origin "EAEE2B00-AF4B-11E0-8930-001AA0342D7D"'
+      --filter 'regex ".*foo[0-9]+"'
+      --filter 'regex :regex ".*foo[0-9]+"' (equivalent)
+      -f 'xpath :xpath "node()/@foo" :fallback-policy :do-not-match'
 
    .. tip::
 
@@ -55,7 +60,9 @@ accepted. Specialized commandline options:
 
    where keys and values are optional and depend on
    :samp:`{KIND}`. Examples (note that the single quotes have to be
-   included only when used within a shell)::
+   included only when used within a shell)
+
+   .. code-block:: sh
 
      --style detailed
      -s compact
@@ -75,8 +82,9 @@ accepted. Specialized commandline options:
 
 .. option:: --idl-path DIRECTORIES, -I DIRECTORIES
 
-   A list of paths from which data definitions should be loaded. This
-   option can be supplied multiple times.
+   :samp:`{DIRECTORIES}` is a list of paths from which data
+   definitions should be loaded. This option can be supplied multiple
+   times.
 
 .. option:: --load-idl FILE-OR-GLOB-EXPRESSION, -l FILE-OR-GLOB-EXPRESSION
 
@@ -94,15 +102,20 @@ accepted. Specialized commandline options:
    option can be supplied multiple times.
 
 Examples
-^^^^^^^^
+========
+
+Bla
+---
 
 In the following example, the C++ version of the :program:`logger` is
 instructed to participate in the :term:`channel` designated by the
 root :term:`scope` ``/``. This means that the :program:`logger` will
 display all :term:`events` which are receivable using its configured
 :term:`transports`. In this example, the configured :term:`transports`
-depend on the |project| configuration file and environment
-variables.::
+depend on the |project| :ref:`configuration file and environment
+variables <configuration>`.
+
+.. code-block:: sh
 
   $ |logger_binary| --style detailed /
   Event
@@ -135,6 +148,9 @@ variables.::
     foo
   -------------------------------------------------------------------------------
 
+Bla
+---
+
 Inspection of protocol buffer :term:`event` :term:`payloads`: In this
 example, the Common Lisp version of the :program:`logger` is used to
 display protocol buffer :term:`event` :term:`payloads`. This only
@@ -143,50 +159,56 @@ IDL definitions of the :term:`event` :term:`payloads` it should
 display (in this example: the ``running.example.Image`` message from
 the slides used in this meeting). These definitions can either be
 textual definitions, typically found in .proto files (as in this
-example), or compiled, binary descriptions (not shown).::
+example), or compiled, binary descriptions (not shown).
 
-  $ ls ~/projects/talk-rsb-data/code/*.proto
-  /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
-  $ |logger_binary| --style detailed                                     \
-                    --load-idl ~/projects/talk-rsb/data/code/Image.proto \
-                    spread:
-  Event
-    Scope : /
-    Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
-    Type  : T
-    Origin: ABB03F86-655A-42EE-9D5B-26D34C922A3A
-  Timestamps
-    Create : 2011-07-16T00:28:52.123994+02:00
-    Send   : 2011-07-16T00:28:52.124095+02:00
-    Receive: 2011-07-16T00:28:52.235294+02:00
-    Deliver: 2011-07-16T00:28:52.243197+02:00
-  Payload (RUNNING.EXAMPLE:IMAGE)
-    #<IMAGE {1005B10C81}>
-      Meta-Data: #<META-DATA {10063AF2B1}>
-                   Key  : "foo"
-                   Value: "bar"
-      Width    : 20
-      Height   : 30
-      Depths   : 20
-                 10
-      Data     : 01 02 03 04
-  -------------------------------------------------------------------------------
+.. code-block:: sh
 
+   $ ls ~/projects/talk-rsb-data/code/*.proto
+   /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
+   $ |logger_binary| --style detailed                                     \
+                     --load-idl ~/projects/talk-rsb/data/code/Image.proto \
+                     spread:
+   Event
+     Scope : /
+     Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
+     Type  : T
+     Origin: ABB03F86-655A-42EE-9D5B-26D34C922A3A
+   Timestamps
+     Create : 2011-07-16T00:28:52.123994+02:00
+     Send   : 2011-07-16T00:28:52.124095+02:00
+     Receive: 2011-07-16T00:28:52.235294+02:00
+     Deliver: 2011-07-16T00:28:52.243197+02:00
+   Payload (RUNNING.EXAMPLE:IMAGE)
+     #<IMAGE {1005B10C81}>
+       Meta-Data: #<META-DATA {10063AF2B1}>
+                    Key  : "foo"
+                    Value: "bar"
+       Width    : 20
+       Height   : 30
+       Depths   : 20
+                  10
+       Data     : 01 02 03 04
+   -------------------------------------------------------------------------------
+
+Bla
+---
 
 Here is another example which loads all definitions contained in the
 `Robotics Systems Types <https://code.cor-lab.org/projects/rst>`_
 repository. Note the use of the :option:`--idl-path` option for import
 resolution and the use of wildcards to load all definitions at
-once. Also note that loading all definitions takes a few seconds.::
+once. Also note that loading all definitions takes a few seconds.
 
-  $ |logger_binary| --idl-path "~/code/cor-lab/rst/trunk/rst/proto/sandbox/"   \
-                    --idl-path "~/code/cor-lab/rst/trunk/rst/proto/stable/"    \
-                    --load-idl '~/code/cor-lab/rst/trunk/rst/proto/**/*.proto' \
-                    --style detailed                                           \
-                    spread:
+.. code-block:: sh
+
+   $ |logger_binary| --idl-path "~/code/cor-lab/rst/trunk/rst/proto/sandbox/"   \
+                     --idl-path "~/code/cor-lab/rst/trunk/rst/proto/stable/"    \
+                     --load-idl '~/code/cor-lab/rst/trunk/rst/proto/**/*.proto' \
+                     --style detailed                                           \
+                     spread:
 
 Implementations
-^^^^^^^^^^^^^^^
+===============
 
 ======================= ============= ====================================== ===============
 Implementation Language Project       Repository Link                        Compiled Binary

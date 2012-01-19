@@ -5,7 +5,8 @@ Common Commandline Options
 
 .. program:: common
 
-The following commandline options are accepted by all tools:
+Unless stated otherwise, the following commandline options are
+accepted by all tools:
 
 .. option:: --version
 

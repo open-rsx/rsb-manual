@@ -1,18 +1,42 @@
-RPC Call
---------
+.. _call:
+
+==========
+ RPC Call
+==========
 
 .. program:: call
 
 Synopsis
-^^^^^^^^
+========
 
-:samp:`|call_binary| {[OPTIONS]} {SERVER-URI}{METHOD}({[ARGUMENT]})`
+:samp:`|call_binary| {[OPTIONS]} {SERVER-URI}/{METHOD}({[ARGUMENT]})`
 
 Description
-^^^^^^^^^^^
+===========
 
-The :program:`call` tool can be used to invoke methods of |project|
-RPC servers.
+Call :samp:`{METHOD}` of the |project| RPC server at
+:samp:`{SERVER-URI}` with argument :samp:`{ARGUMENT}` and print the
+result to standard output, if any.
+
+:samp:`{SERVER-URI}` designates the root :term:`scope` of the remote
+server and the :term:`transport` that should be used.
+
+.. tip::
+
+   For details regarding the URI syntax involved in :term:`transport`
+   and :term:`channel` specifications, see :ref:`uri-schema`.
+
+:samp:`{ARGUMENT}` is treated as follows:
+
+* As string when surrounded with double-quotes (``"``)
+* As integer number when consisting of digits without decimal point
+* As float number when consisting of digits with decimal point
+* If :samp:`{ARGUMENT}` is the single character ``-``, the entire
+  "contents" of standard input (until end of file) is read as a string
+  and used as argument for the method call
+* If :samp:`{ARGUMENT}` is the empty string, i.e. the call
+  specification is of the form :samp:`{SERVER-URI}/{METHOD}()`, the
+  method is called without argument
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -29,19 +53,21 @@ accepted. Specialized commandline options:
    with zero status without printing a result to standard output.
 
 Examples
-^^^^^^^^
+========
 
 In this example, the :program:`call` tool is used to invoke the
-terminate method of the remote server at :term:`scope` ``/control``
-without an argument.::
+``status`` and ``terminate`` methods of the remote server at
+:term:`scope` ``/mycomponent/control`` without an argument.
 
-  $ ./call 'spread:/mycomponent/control/status()'
+.. code-block:: sh
+
+  $ call 'spread:/mycomponent/control/status()'
   "running" # prints return value, if any
-  $ ./call 'spread:/mycomponent/control/terminate()'
+  $ call 'spread:/mycomponent/control/terminate()'
   $ # returns once the method call completes
 
 Implementations
-^^^^^^^^^^^^^^^
+===============
 
 ======================= ============= ====================================== ===============
 Implementation Language Project       Repository Link                        Compiled Binary
