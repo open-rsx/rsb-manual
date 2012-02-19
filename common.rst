@@ -1,3 +1,9 @@
+.. _common:
+
+========
+ Common
+========
+
 .. _common-options:
 
 Common Commandline Options
@@ -35,7 +41,7 @@ accepted by all tools:
 
       Only available in the Common Lisp implementation.
 
-.. option:: --trace SPEC, -t SPEC
+.. option:: --trace SPEC
 
    Trace specified things. This option can be supplied multiple times
    to trace multiple things. Each occurrence takes an individual
@@ -50,13 +56,14 @@ accepted by all tools:
 
       Only available in the Common Lisp implementation.
 
-.. option:: --debug, -d
+.. option:: --debug
 
    Enable debugging. This does the following things:
 
    * Set the log level such that debug output is emitted
    * Enable printing backtraces instead of just condition reports in
-     case of unhandled error conditions.
+     case of unhandled error conditions
+   * Optionally, application-specific debugging
 
    .. note::
 
