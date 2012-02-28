@@ -1,15 +1,19 @@
-Introspection
--------------
+.. _info:
+
+======
+ Info
+======
 
 .. program:: info
 
 Synopsis
-^^^^^^^^
+========
+
 
 :samp:`info {[OPTIONS]}`
 
 Description
-^^^^^^^^^^^
+===========
 
 The |project| information query tool can be used to display
 information regarding
@@ -48,16 +52,16 @@ accepted. Specialized commandline options:
    Display all available information.
 
 Examples
-^^^^^^^^
+========
 
 Version only example: ::
 
-  $ ./rsb-info
+  $ rsb-info
   Version: |release|, build 1911 (DATE 2011-06-30 15:14:46 +0200 (Thu, 30 Jun 2011)), abi 2
 
 Verbose mode example::
 
-  $ ./rsb-info --verbose
+  $ rsb-info --verbose
   Version: |release|, build 1911 (DATE 2011-06-30 15:14:46 +0200 (Thu, 30 Jun 2011)), abi 2
 
   Connectors
@@ -80,7 +84,7 @@ Verbose mode example::
   ]
 
 Implementations
-^^^^^^^^^^^^^^^
+===============
 
 ======================= ============= ======================================
 Implementation Language Project       Repository Link
