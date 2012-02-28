@@ -59,6 +59,8 @@ rst_prolog = """
 
 .. |call_binary| replace::
    call
+
+.. _Spread: http://www.spread.org
 """
 
 # List of patterns, relative to source directory, that match files and
@@ -82,8 +84,6 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output ---------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
 html_theme = 'nature'
 #html_theme_options = {}
 #html_theme_path = []
