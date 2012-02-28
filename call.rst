@@ -55,16 +55,16 @@ accepted. Specialized commandline options:
 Examples
 ========
 
-In this example, the :program:`call` tool is used to invoke the
-``status`` and ``terminate`` methods of the remote server at
-:term:`scope` ``/mycomponent/control`` without an argument.
+* .. code-block:: sh
 
-.. code-block:: sh
+     $ call 'spread:/mycomponent/control/status()'
+     "running" # prints return value, if any
+     $ call 'spread:/mycomponent/control/terminate()'
+     $ # returns once the method call completes
 
-  $ call 'spread:/mycomponent/control/status()'
-  "running" # prints return value, if any
-  $ call 'spread:/mycomponent/control/terminate()'
-  $ # returns once the method call completes
+  In the above example, the :program:`call` tool is used to invoke the
+  ``status`` and ``terminate`` methods of the remote server at
+  :term:`scope` ``/mycomponent/control`` without an argument.
 
 Implementations
 ===============

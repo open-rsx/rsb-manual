@@ -19,7 +19,8 @@ by :samp:`{URI}` (see :ref:`uri-schema`) using one or more
 :term:`transports` and displays all :term:`events` published on the
 :term:`channel` using a configurable style.
 
-The :ref:`usual commandline options <common-options>` are
+The usual :ref:`commandline options <common-options>` and
+:ref:`environment variables <common-environment-variables>` are
 accepted. Specialized commandline options:
 
 .. option:: --filter SPEC, -f SPEC
@@ -80,11 +81,19 @@ accepted. Specialized commandline options:
       the ``:columns`` argument and quantity columns used in the
       ``columns`` and ``statistics`` styles.
 
+   See :ref:`formatting` for a detailed discussion of :term:`event`
+   formatting options.
+
 .. option:: --idl-path DIRECTORIES, -I DIRECTORIES
 
    :samp:`{DIRECTORIES}` is a list of paths from which data
    definitions should be loaded. This option can be supplied multiple
    times.
+
+   .. note::
+
+      This option is only available in the Common Lisp implementation
+      of the :ref:`logger` program.
 
 .. option:: --load-idl FILE-OR-GLOB-EXPRESSION, -l FILE-OR-GLOB-EXPRESSION
 
@@ -101,111 +110,110 @@ accepted. Specialized commandline options:
    :option:`--idl-path` option is consulted to find these files. This
    option can be supplied multiple times.
 
+   .. note::
+
+      This option is only available in the Common Lisp implementation
+      of the :ref:`logger` program.
+
 Examples
 ========
 
-Bla
----
+* .. code-block:: sh
 
-In the following example, the C++ version of the :program:`logger` is
-instructed to participate in the :term:`channel` designated by the
-root :term:`scope` ``/``. This means that the :program:`logger` will
-display all :term:`events` which are receivable using its configured
-:term:`transports`. In this example, the configured :term:`transports`
-depend on the |project| :ref:`configuration file and environment
-variables <configuration>`.
+     $ |logger_binary| --style detailed /
+     Event
+       Scope  /
+       Id     ac5f449c-4aa1-4b03-a9e2-3fac7d38e651
+       Type   bytearray
+       Origin ab6e3a17-e11f-4c89-8c07-606a009e8439
+     Timestamps
+       Create  2011-Jul-03 12:51:11.802849+??:??
+       Send    2011-Jul-03 12:51:11.802950+??:??
+       Receive 2011-Jul-03 12:51:11.810332+??:??
+       Deliver 2011-Jul-03 12:51:11.810572+??:??
+     Payload (bytearray, length 100000)
+       0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+       0x0017 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+       0x002e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+       0x0045 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
+     -------------------------------------------------------------------------------
+     Event
+       Scope  /
+       Id     3fd721ef-6e7c-4e81-bd5f-ff215b2b965f
+       Type   std::string
+       Origin 8e07e02a-0dee-44a2-8926-cc65c0285410
+     Timestamps
+       Create  2011-Jul-03 12:51:20.102403+??:??
+       Send    2011-Jul-03 12:51:20.102482+??:??
+       Receive 2011-Jul-03 12:51:20.105319+??:??
+       Deliver 2011-Jul-03 12:51:20.105404+??:??
+     Payload (std::string, length 3)
+       foo
+     -------------------------------------------------------------------------------
 
-.. code-block:: sh
+  In the above example, the C++ version of the :program:`logger` is
+  instructed to participate in the :term:`channel` designated by the
+  root :term:`scope` ``/``. This means that the :program:`logger` will
+  display all :term:`events` which are receivable using its configured
+  :term:`transports`. In this example, the configured
+  :term:`transports` depend on the |project| :ref:`configuration file
+  and environment variables <configuration>`.
+* .. code-block:: sh
 
-  $ |logger_binary| --style detailed /
-  Event
-    Scope  /
-    Id     ac5f449c-4aa1-4b03-a9e2-3fac7d38e651
-    Type   bytearray
-    Origin ab6e3a17-e11f-4c89-8c07-606a009e8439
-  Timestamps
-    Create  2011-Jul-03 12:51:11.802849+??:??
-    Send    2011-Jul-03 12:51:11.802950+??:??
-    Receive 2011-Jul-03 12:51:11.810332+??:??
-    Deliver 2011-Jul-03 12:51:11.810572+??:??
-  Payload (bytearray, length 100000)
-    0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-    0x0017 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-    0x002e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-    0x0045 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
-  -------------------------------------------------------------------------------
-  Event
-    Scope  /
-    Id     3fd721ef-6e7c-4e81-bd5f-ff215b2b965f
-    Type   std::string
-    Origin 8e07e02a-0dee-44a2-8926-cc65c0285410
-  Timestamps
-    Create  2011-Jul-03 12:51:20.102403+??:??
-    Send    2011-Jul-03 12:51:20.102482+??:??
-    Receive 2011-Jul-03 12:51:20.105319+??:??
-    Deliver 2011-Jul-03 12:51:20.105404+??:??
-  Payload (std::string, length 3)
-    foo
-  -------------------------------------------------------------------------------
+     $ ls ~/projects/talk-rsb-data/code/*.proto
+     /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
+     $ |logger_binary| --style detailed                                     \
+                       --load-idl ~/projects/talk-rsb/data/code/Image.proto \
+                       spread:
+     Event
+       Scope : /
+       Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
+       Type  : T
+       Origin: ABB03F86-655A-42EE-9D5B-26D34C922A3A
+     Timestamps
+       Create : 2011-07-16T00:28:52.123994+02:00
+       Send   : 2011-07-16T00:28:52.124095+02:00
+       Receive: 2011-07-16T00:28:52.235294+02:00
+       Deliver: 2011-07-16T00:28:52.243197+02:00
+     Payload (RUNNING.EXAMPLE:IMAGE)
+       #<IMAGE {1005B10C81}>
+         Meta-Data: #<META-DATA {10063AF2B1}>
+                      Key  : "foo"
+                      Value: "bar"
+         Width    : 20
+         Height   : 30
+         Depths   : 20
+                    10
+         Data     : 01 02 03 04
+     -------------------------------------------------------------------------------
 
-Bla
----
+  In the above example, the Common Lisp version of the
+  :program:`logger` is used to display protocol buffer :term:`event`
+  :term:`payloads`. This only works, if the :program:`logger` is
+  provided with the protocol buffer IDL definitions of the
+  :term:`event` :term:`payloads` it should display (in this example:
+  the ``running.example.Image`` message from the slides used in this
+  meeting). These definitions can either be textual definitions,
+  typically found in ``.proto`` files (as in this example), or
+  compiled, binary descriptions (not shown).
+* .. code-block:: sh
 
-Inspection of protocol buffer :term:`event` :term:`payloads`: In this
-example, the Common Lisp version of the :program:`logger` is used to
-display protocol buffer :term:`event` :term:`payloads`. This only
-works, if the :program:`logger` is provided with the protocol buffer
-IDL definitions of the :term:`event` :term:`payloads` it should
-display (in this example: the ``running.example.Image`` message from
-the slides used in this meeting). These definitions can either be
-textual definitions, typically found in .proto files (as in this
-example), or compiled, binary descriptions (not shown).
+     $ |logger_binary| --idl-path "rst/trunk/rst/proto/sandbox/"   \
+                       --idl-path "rst/trunk/rst/proto/stable/"    \
+                       --load-idl 'rst/trunk/rst/proto/**/*.proto' \
+                       --style detailed                            \
+                       spread:
 
-.. code-block:: sh
+  Here is another example which loads all definitions contained in the
+  `Robotics Systems Types <https://code.cor-lab.org/projects/rst>`_
+  repository.
 
-   $ ls ~/projects/talk-rsb-data/code/*.proto
-   /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
-   $ |logger_binary| --style detailed                                     \
-                     --load-idl ~/projects/talk-rsb/data/code/Image.proto \
-                     spread:
-   Event
-     Scope : /
-     Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
-     Type  : T
-     Origin: ABB03F86-655A-42EE-9D5B-26D34C922A3A
-   Timestamps
-     Create : 2011-07-16T00:28:52.123994+02:00
-     Send   : 2011-07-16T00:28:52.124095+02:00
-     Receive: 2011-07-16T00:28:52.235294+02:00
-     Deliver: 2011-07-16T00:28:52.243197+02:00
-   Payload (RUNNING.EXAMPLE:IMAGE)
-     #<IMAGE {1005B10C81}>
-       Meta-Data: #<META-DATA {10063AF2B1}>
-                    Key  : "foo"
-                    Value: "bar"
-       Width    : 20
-       Height   : 30
-       Depths   : 20
-                  10
-       Data     : 01 02 03 04
-   -------------------------------------------------------------------------------
+  .. note::
 
-Bla
----
+     The :option:`--idl-path` option for import resolution and
+     wildcards are used to load all definitions at once.
 
-Here is another example which loads all definitions contained in the
-`Robotics Systems Types <https://code.cor-lab.org/projects/rst>`_
-repository. Note the use of the :option:`--idl-path` option for import
-resolution and the use of wildcards to load all definitions at
-once. Also note that loading all definitions takes a few seconds.
-
-.. code-block:: sh
-
-   $ |logger_binary| --idl-path "~/code/cor-lab/rst/trunk/rst/proto/sandbox/"   \
-                     --idl-path "~/code/cor-lab/rst/trunk/rst/proto/stable/"    \
-                     --load-idl '~/code/cor-lab/rst/trunk/rst/proto/**/*.proto' \
-                     --style detailed                                           \
-                     spread:
+     Loading all definitions takes a few seconds.
 
 Implementations
 ===============
