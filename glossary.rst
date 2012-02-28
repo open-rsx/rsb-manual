@@ -58,7 +58,7 @@
 
    notification
 
-     Transport-specific message that contains
+     :term:`Transport`-specific message that contains
 
      * event meta-data
      * wire schema
@@ -85,3 +85,18 @@
      broadcast communication style. Channels form a tree with respect
      to set-inclusion relations of their respective sets of
      participants. Channels are designated by scopes.
+
+   transport
+
+     TODO
+
+   Spread
+
+     The `Spread`_ group communication framework is one the
+     :term:`transports` RSB can use.
+
+   Spread daemon
+
+     A network server used by :term:`Spread` to coordinate
+     communication of clients and exchange data. Usually installed
+     under the name :samp:`{PREFIX}/sbin/spread`.
