@@ -79,3 +79,50 @@ accepted by all tools:
    .. note::
 
       Only available in the Common Lisp implementation.
+
+.. _common-environment-variables:
+
+Common Environment Variables
+============================
+
+.. envvar:: RSB_TRANSPORT_INPROCESS_ENABLED
+
+   ``1``: enable in-process :term:`transport` in this process; ``0``:
+   disabled in-process :term:`transport` in this process.
+
+.. envvar:: RSB_TRANSPORT_SPREAD_ENABLED
+
+   ``1``: enable :term:`Spread` :term:`transport` in this process;
+   ``0``: disabled :term:`Spread` :term:`transport` in this process.
+
+.. envvar:: RSB_TRANSPORT_SPREAD_HOST
+
+   Name or IP-address of the machine running the :term:`Spread
+   daemon`.
+
+.. envvar:: RSB_TRANSPORT_SPREAD_PORT
+
+   Port on which the :term:`Spread daemon` listens.
+
+.. envvar:: RSB_TRANSPORT_SOCKET_ENABLED
+
+   ``1``: enable TCP-socket-based :term:`transport` in this process; ``0``:
+   disabled TCP-socket-based :term:`transport` in this process.
+
+.. envvar:: RSB_TRANSPORT_SOCKET_HOST
+
+   Name or IP-address of the machine running the |project|
+   TCP-socket-based server component.
+
+.. envvar:: RSB_TRANSPORT_SOCKET_PORT
+
+   Port on which the Socket daemon listens.
+
+.. envvar:: RSB_TRANSPORT_SOCKET_SERVER
+
+   ``1``: this process should act the |project| TCP-socket-based
+   server component; ``0``: this process should connect to the
+   TCP-socket-based server; ``auto``: this process should try to
+   determine whether there already is a TCP-socket-based server for
+   the configured host-port combination and act as a server or client
+   accordingly.
