@@ -105,44 +105,51 @@ accepted by all tools:
 Common Environment Variables
 ============================
 
-.. envvar:: RSB_TRANSPORT_INPROCESS_ENABLED
+In-process Transport
 
-   ``1``: enable in-process :term:`transport` in this process; ``0``:
-   disabled in-process :term:`transport` in this process.
+  .. envvar:: RSB_TRANSPORT_INPROCESS_ENABLED
 
-.. envvar:: RSB_TRANSPORT_SPREAD_ENABLED
+     ``1``: enable in-process :term:`transport` in this process; ``0``:
+     disabled in-process :term:`transport` in this process.
 
-   ``1``: enable :term:`Spread` :term:`transport` in this process;
-   ``0``: disabled :term:`Spread` :term:`transport` in this process.
+Spread Transport
 
-.. envvar:: RSB_TRANSPORT_SPREAD_HOST
+  .. envvar:: RSB_TRANSPORT_SPREAD_ENABLED
 
-   Name or IP-address of the machine running the :term:`Spread
-   daemon`.
+     ``1``: enable :term:`Spread` :term:`transport` in this process;
+     ``0``: disabled :term:`Spread` :term:`transport` in this process.
 
-.. envvar:: RSB_TRANSPORT_SPREAD_PORT
+  .. envvar:: RSB_TRANSPORT_SPREAD_HOST
 
-   Port on which the :term:`Spread daemon` listens.
+     Name or IP-address of the machine running the :term:`Spread
+     daemon`.
 
-.. envvar:: RSB_TRANSPORT_SOCKET_ENABLED
+  .. envvar:: RSB_TRANSPORT_SPREAD_PORT
 
-   ``1``: enable TCP-socket-based :term:`transport` in this process; ``0``:
-   disabled TCP-socket-based :term:`transport` in this process.
+     Port on which the :term:`Spread daemon` listens.
 
-.. envvar:: RSB_TRANSPORT_SOCKET_HOST
+TCP-socket-based Transport
 
-   Name or IP-address of the machine running the |project|
-   TCP-socket-based server component.
+  .. envvar:: RSB_TRANSPORT_SOCKET_ENABLED
 
-.. envvar:: RSB_TRANSPORT_SOCKET_PORT
+     ``1``: enable TCP-socket-based :term:`transport` in this process; ``0``:
+     disabled TCP-socket-based :term:`transport` in this process.
 
-   Port on which the Socket daemon listens.
+  .. envvar:: RSB_TRANSPORT_SOCKET_HOST
 
-.. envvar:: RSB_TRANSPORT_SOCKET_SERVER
+     Name or IP-address of the machine running the |project|
+     TCP-socket-based server component.
 
-   ``1``: this process should act the |project| TCP-socket-based
-   server component; ``0``: this process should connect to the
-   TCP-socket-based server; ``auto``: this process should try to
-   determine whether there already is a TCP-socket-based server for
-   the configured host-port combination and act as a server or client
-   accordingly.
+  .. envvar:: RSB_TRANSPORT_SOCKET_PORT
+
+     Port on which the |project| TCP-socket-based server component
+     listens.
+
+  .. envvar:: RSB_TRANSPORT_SOCKET_SERVER
+
+     ``1``: this process should act the |project| TCP-socket-based
+     server component; ``0``: this process should connect to the
+     TCP-socket-based server; ``auto``: this process should try to
+     determine whether there already is a TCP-socket-based server for
+     the configured host-port combination and act as a server or client
+     accordingly.
