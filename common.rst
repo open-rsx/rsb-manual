@@ -80,6 +80,26 @@ accepted by all tools:
 
       Only available in the Common Lisp implementation.
 
+.. option:: --eval SEXP
+
+   Evaluate :samp:`{SEXP}` as Lisp code. This option can be supplied
+   multiple times. Code fragments are evaluated in the order in which
+   they appear on the commandline.
+
+   .. note::
+
+      Only available in the Common Lisp implementation.
+
+.. option:: --load FILE
+
+   Load :samp:`{FILE}`. This option can be supplied multiple
+   times. Files are loaded in the order in which they appear on the
+   commandline.
+
+   .. note::
+
+      Only available in the Common Lisp implementation.
+
 .. _common-environment-variables:
 
 Common Environment Variables
