@@ -49,7 +49,7 @@ rst_prolog = """
    https://code.cor-lab.org/svn/rsb/
 
 .. |repository_versioned| replace::
-   https://code.cor-lab.org/svn/rsb/trunk
+   https://code.cor-lab.org/svn/rsb/branches/%s
 
 .. |info_binary| replace::
    info
@@ -61,7 +61,10 @@ rst_prolog = """
    call
 
 .. _Spread: http://www.spread.org
-"""
+
+.. |ubuntu| replace::
+   Ubuntu GNU/Linux
+""" % version
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
