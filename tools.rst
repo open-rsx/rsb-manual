@@ -1,10 +1,13 @@
-Tools
-*****
+.. _tools:
+
+=======
+ Tools
+=======
 
 .. toctree::
    :maxdepth: 1
 
-   common
+   Common Commandline Options and Environment Variables <common>
    info
    logger
    call
