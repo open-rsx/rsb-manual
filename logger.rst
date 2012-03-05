@@ -19,9 +19,10 @@ by :samp:`{URI}` (see :ref:`uri-schema`) using one or more
 :term:`transports` and displays all :term:`events` published on the
 :term:`channel` using a configurable style.
 
-The usual :ref:`commandline options <common-options>` and
-:ref:`environment variables <common-environment-variables>` are
-accepted. Specialized commandline options:
+The usual :ref:`commandline options <common-options>`,
+:ref:`IDL-related options <idl-options>` and :ref:`environment
+variables <common-environment-variables>` are accepted. Specialized
+commandline options:
 
 .. option:: --filter SPEC, -f SPEC
 
@@ -83,37 +84,6 @@ accepted. Specialized commandline options:
 
    See :ref:`formatting` for a detailed discussion of :term:`event`
    formatting options.
-
-.. option:: --idl-path DIRECTORIES, -I DIRECTORIES
-
-   :samp:`{DIRECTORIES}` is a list of paths from which data
-   definitions should be loaded. This option can be supplied multiple
-   times.
-
-   .. note::
-
-      This option is only available in the Common Lisp implementation
-      of the :ref:`logger` program.
-
-.. option:: --load-idl FILE-OR-GLOB-EXPRESSION, -l FILE-OR-GLOB-EXPRESSION
-
-   Load data definition from :samp:`{FILE-OR-GLOB-EXPRESSION}`. If a
-   glob expression is specified, in addition to the canonical globbing
-   syntax, expressions of the form::
-
-     SOMESTUFF/**/MORESTUFF
-
-   can be used to search directories recursively. If the file
-   designated by :samp:`{FILE-OR-GLOB-EXPRESSION}` depend on
-   additional data definition files (i.e. contain ``import``
-   statements), the list of directories supplied via the
-   :option:`--idl-path` option is consulted to find these files. This
-   option can be supplied multiple times.
-
-   .. note::
-
-      This option is only available in the Common Lisp implementation
-      of the :ref:`logger` program.
 
 Examples
 ========

@@ -29,7 +29,7 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
 
 .. option:: --log-level LEVEL
 
@@ -39,7 +39,7 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
 
 .. option:: --trace SPEC
 
@@ -54,7 +54,7 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
 
 .. option:: --debug
 
@@ -67,7 +67,7 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
 
 .. option:: --swank
 
@@ -78,7 +78,7 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
 
 .. option:: --eval SEXP
 
@@ -88,7 +88,7 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
 
 .. option:: --load FILE
 
@@ -98,7 +98,41 @@ accepted by all tools:
 
    .. note::
 
-      Only available in the Common Lisp implementation.
+      This option is only available in the Common Lisp implementation.
+
+.. _idl-options:
+
+IDL-related Commandline Options
+===============================
+
+.. option:: --idl-path DIRECTORIES, -I DIRECTORIES
+
+   :samp:`{DIRECTORIES}` is a list of paths from which data
+   definitions should be loaded. This option can be supplied multiple
+   times.
+
+   .. note::
+
+      This option is only available in the Common Lisp implementation.
+
+.. option:: --load-idl FILE-OR-GLOB-EXPRESSION, -l FILE-OR-GLOB-EXPRESSION
+
+   Load data definition from :samp:`{FILE-OR-GLOB-EXPRESSION}`. If a
+   glob expression is specified, in addition to the canonical globbing
+   syntax, expressions of the form::
+
+     SOMESTUFF/**/MORESTUFF
+
+   can be used to search directories recursively. If the file
+   designated by :samp:`{FILE-OR-GLOB-EXPRESSION}` depend on
+   additional data definition files (i.e. contain ``import``
+   statements), the list of directories supplied via the
+   :option:`--idl-path` option is consulted to find these files. This
+   option can be supplied multiple times.
+
+   .. note::
+
+      This option is only available in the Common Lisp implementation.
 
 .. _common-environment-variables:
 
