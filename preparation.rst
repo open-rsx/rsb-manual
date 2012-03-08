@@ -10,8 +10,39 @@ Installing |project|
 There are currently two ways to install the |version| version of
 |project|:
 
-* From source
+* Binary downloads (only for :ref:`tools <tools>`)
 * Debian packages
+* From source
+
+Binary Downloads of |project| Tools
+-----------------------------------
+
+#. Download the ``tools`` binary from the appropriate location:
+
+   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_lucid_32bit/>`_
+   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_lucid_64bit/>`_
+   * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=MAC_OS_lion_64bit/>`_
+   * `Windows 7 i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-windows/label=192.168.100.120>`_
+
+#. After the download, the ``tools`` file has to be made executable in
+   most cases. This can be done for example by executing
+
+   .. code-block:: sh
+
+     chmod +x bag
+
+   in the download directory.
+
+#. The various ``tools-*`` tools are provided as `symbolic links
+   <http://en.wikipedia.org/wiki/Symbolic_link>`_ to the single
+   ``tools`` binary. When invoked, it prints a list of these links and
+   instructions on how to create them.
+
+   The links can be created as follows:
+
+   .. code-block:: sh
+
+      $ for alias in info logger call ; do ln -s tools ${alias} ; done
 
 From Source
 -----------
@@ -57,3 +88,5 @@ where :samp:`RELEASENAME` is the appropriate Ubuntu release name.
 
 Running the Examples
 ====================
+
+TODO
