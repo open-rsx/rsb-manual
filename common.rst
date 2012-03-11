@@ -47,10 +47,21 @@ accepted by all tools:
    to trace multiple things. Each occurrence takes an individual
    :samp:`{SPEC}` which has to have one of the following forms:
 
-   * ``"PACKAGE"`` (note the double quotes and uppercase): trace all
-     functions in the package named :samp:`{PACKAGE}`.
-   * ``FUNCTION-NAME`` (note: no quotes, actual case of the function
-     name): trace the named function.
+   ``"PACKAGE"``
+
+     Trace all functions in the package named :samp:`{PACKAGE}`.
+
+     .. note::
+
+        The double quotes and uppercase.
+
+   ``FUNCTION-NAME``
+
+     Trace the function named :samp:`{FUNCTION-NAME}`.
+
+     .. note::
+
+        No quotes, actual case of the function name.
 
    .. note::
 
