@@ -107,3 +107,28 @@ Running the Examples
 ====================
 
 TODO
+
+.. _troubleshooting:
+
+Troubleshooting
+===============
+
+#. Problem
+
+     Calling any of the :ref:`tools <tools>`, the following happens:
+
+     .. code-block:: sh
+
+        $ logger socket://localhost:7777
+        WARNING:
+          Failed to load Spread library: Unable to load any of the alternatives:
+          ("libspread-without-signal-blocking.so" "libspread.so" "libspread.so.2"
+           "libspread.so.2.0" "libspread.so.1").
+          Did you set LD_LIBRARY_PATH?
+          Spread transport will now be disabled.
+        [execution continues, but Spread transport does not work]
+
+   Solution
+
+     Place one of the mentioned :term:`Spread` libraries on the system
+     library search path or set ``LD_LIBRARY_PATH`` appropriately.
