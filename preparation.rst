@@ -34,14 +34,32 @@ Binary Downloads of |project| Tools
 
 #. The various ``tools-*`` tools are provided as `symbolic links
    <http://en.wikipedia.org/wiki/Symbolic_link>`_ to the single
-   ``tools`` binary. When invoked, it prints a list of these links and
-   instructions on how to create them.
-
-   The links can be created as follows:
+   |main_binary| binary. When invoked, it prints a list of these links
+   and offers to create them:
 
    .. code-block:: sh
 
-      $ for alias in info logger call ; do ln -s tools ${alias} ; done
+      $ ./tools
+      [...]
+      Create missing links now [yes/no]? y
+      Creating symbolic link info -> tools
+      [...]
+
+   .. note::
+
+      The links can also be created as follows:
+
+      Non-interactively
+
+        .. code-block:: sh
+
+           $ ./tools create-links
+
+      Manually
+
+        .. code-block:: sh
+
+           $ for alias in info logger call ; do ln -s tools ${alias} ; done
 
 From Source
 -----------
