@@ -52,14 +52,26 @@ rst_prolog = """
 .. |repository_versioned| replace::
    https://code.cor-lab.org/svn/rsb/branches/%s
 
+.. |info| replace::
+   program:`info`
+
 .. |info_binary| replace::
-   info
+   ``info``
+
+.. |logger| replace::
+   :program:`logger`
 
 .. |logger_binary| replace::
-   logger
+   ``logger``
+
+.. |call| replace::
+   :program:`call`
 
 .. |call_binary| replace::
-   call
+   ``call``
+
+.. |main_binary| replace::
+   ``tools``
 
 .. _sbcl: http://sbcl.org
 

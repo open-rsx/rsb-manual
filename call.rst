@@ -9,7 +9,7 @@
 Synopsis
 ========
 
-:samp:`|call_binary| {[OPTIONS]} {SERVER-URI}/{METHOD}({[ARGUMENT]})`
+:samp:`call {[OPTIONS]} {SERVER-URI}/{METHOD}({[ARGUMENT]})`
 
 Description
 ===========

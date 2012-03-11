@@ -9,13 +9,13 @@
 Synopsis
 ========
 
-:samp:`|logger_binary| {[OPTIONS]} {[URI]}`
+:samp:`logger {[OPTIONS]} {[URI]}`
 
 Description
 ===========
 
-The :program:`logger` participates in the :term:`channel` designated
-by :samp:`{URI}` (see :ref:`uri-schema`) using one or more
+The |logger| participates in the :term:`channel` designated by
+:samp:`{URI}` (see :ref:`uri-schema`) using one or more
 :term:`transports` and displays all :term:`events` published on the
 :term:`channel` using a configurable style.
 
@@ -90,7 +90,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ |logger_binary| --style detailed /
+     $ logger --style detailed /
      Event
        Scope  /
        Id     ac5f449c-4aa1-4b03-a9e2-3fac7d38e651
@@ -132,9 +132,9 @@ Examples
 
      $ ls ~/projects/talk-rsb-data/code/*.proto
      /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
-     $ |logger_binary| --style detailed                                     \
-                       --load-idl ~/projects/talk-rsb/data/code/Image.proto \
-                       spread:
+     $ logger --style detailed                                     \
+              --load-idl ~/projects/talk-rsb/data/code/Image.proto \
+              spread:
      Event
        Scope : /
        Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
@@ -168,11 +168,11 @@ Examples
   compiled, binary descriptions (not shown).
 * .. code-block:: sh
 
-     $ |logger_binary| --idl-path "rst/trunk/rst/proto/sandbox/"   \
-                       --idl-path "rst/trunk/rst/proto/stable/"    \
-                       --load-idl 'rst/trunk/rst/proto/**/*.proto' \
-                       --style detailed                            \
-                       spread:
+     $ logger --idl-path "rst/trunk/rst/proto/sandbox/"   \
+              --idl-path "rst/trunk/rst/proto/stable/"    \
+              --load-idl 'rst/trunk/rst/proto/**/*.proto' \
+              --style detailed                            \
+              spread:
 
   Here is another example which loads all definitions contained in the
   `Robotics Systems Types <https://code.cor-lab.org/projects/rst>`_
