@@ -118,9 +118,144 @@ TODO
 Troubleshooting
 ===============
 
-#. Problem
+#. Problem *(applies to C++, Python)*
 
-     Calling any of the :ref:`tools <tools>`, the following happens:
+     I compiled and installed successfully, but communication does not
+     work.
+
+   Solution
+
+     Starting with version 0.5, |project| uses a :term:`transport`
+     that implements communication within a single process by
+     default. In other words, network communication is disabled by
+     default.
+
+     This can be changed in three ways:
+
+     #. Globally for all |project| programs (or running under a
+        particular UNIX user)
+
+        Create or modify a |project| :ref:`configuration file
+        <configuration>` |system_config_file| or |user_config_file| to
+        contain the following lines:
+
+        .. code-block:: ini
+           :linenos:
+
+           [transport.spread]
+           enabled = 1
+           [transport.inprocess]
+           enabled = 0
+
+        Lines 3 and 4 can be omitted to enable both :term:`transports`
+        in parallel.
+
+     #. Locally for the current directory
+
+        Create a |project| :ref:`configuration file <configuration>`
+        |pwd_config_file| with the same contents as described above.
+
+     #. For the current shell
+
+        Set and export :ref:`environment variables
+        <common-environment-variables>` as follows:
+
+        .. code-block:: sh
+
+           $ export RSB_TRANSPORT_SPREAD_ENABLED=1
+           $ export RSB_TRANSPORT_INPROCESS_ENABLED=0
+
+#. Problem *(applies to C++)*
+
+     I compiled and installed successfully, but |project|
+     binaries/libraries produce linker errors at runtime.
+
+   Solution
+
+     The C++ implementation of |project| is built without fixed `rpath
+     <http://en.wikipedia.org/wiki/Rpath>`_ by default. As a result,
+     installed |project| binaries and libraries do not contain
+     information regarding the location of their dependencies. This
+     potentially causes runtime linking to fail because the
+     dependencies cannot be located.
+
+     There are two possible solutions:
+
+     #. Building and installing |project| with fixed rpath
+
+        This can be achieved by configuring |project| with
+
+        .. code-block:: sh
+
+           $ cmake -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=TRUE
+
+        This instructs `CMake`_ to set the rpath of installed
+        libraries and executables to the values used for building
+        them. Normally the rpath is stripped at installation time.
+
+     #. Use of the :envvar:`LD_LIBRARY_PATH` environment variable
+
+        When the value of :envvar:`LD_LIBRARY_PATH` contains the
+        directory/directories into which |project| (and its
+        dependencies) have been installed, these dependencies can be
+        located at runtime. :envvar:`LD_LIBRARY_PATH` can be set, for
+        example, like this:
+
+        .. code-block:: sh
+
+           $ export LD_LIBRARY_PATH=PREFIX/lib
+
+        where :samp:`{PREFIX}` is the prefix directory into which
+        |project| and its dependencies have been installed.
+
+        .. warning::
+
+           This workaround is not permanent and has to be repeated for
+           each new shell that should be able to execute |project|
+           binaries or |project|-based programs.
+
+#. Problem *(applies to C++,Common Lisp)*
+
+     How can I use the TCP-based transport?
+
+     .. note::
+
+        The TCP-based :term:`transport` is experimental and currently
+        only available in the C++ and Common Lisp implementations.
+
+   Solution
+
+     The TCP-based transport can be activated locally or globally by
+     placing the following content in |system_config_file|,
+     |user_config_file| or |pwd_config_file|:
+
+     .. code-block:: ini
+
+        [transport.inprocess]
+        enabled = 0
+
+        [transport.spread]
+        enabled = 0
+
+        [transport.socket]
+        enabled = 1
+        host    = HOSTNAME
+        port    = 4444
+        server  = auto
+
+     :samp:`{HOST}` can be ``localhost`` (if all processes are going
+     to run on the same node), a host name of an IP address.
+
+     .. note::
+
+        The above configuration uses ``server = auto`` which causes
+        the initial |project| process to create the specified server
+        and subsequent processes to connect to that server.
+
+#. Problem *(applies to Common Lisp)*
+
+     When I start any of the :ref:`tools <tools>`, the following
+     happens:
 
      .. code-block:: sh
 
@@ -136,4 +271,5 @@ Troubleshooting
    Solution
 
      Place one of the mentioned :term:`Spread` libraries on the system
-     library search path or set ``LD_LIBRARY_PATH`` appropriately.
+     library search path or set :envvar:`LD_LIBRARY_PATH`
+     appropriately.

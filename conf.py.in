@@ -73,6 +73,15 @@ rst_prolog = """
 .. |main_binary| replace::
    ``tools``
 
+.. |system_config_file| replace::
+   ``/etc/rsb.conf``
+
+.. |user_config_file| replace::
+   ``~/.config/rsb.conf``
+
+.. |pwd_config_file| replace::
+   ``$(pwd)/rsb.conf``
+
 .. _sbcl: http://sbcl.org
 
 .. _common lisp: http://common-lisp.org
