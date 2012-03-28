@@ -4,6 +4,19 @@
  Specification
 ===============
 
+.. _specification-scope:
+
+Scopes
+======
+
+Scopes designate :term:`channels` on the unified bus. :term:`Channels`
+are themselves hierarchical, hence scopes also reflect this
+structure.
+
+There is a string-based notation for scopes:
+``/parent/sub/subsubscope/``. A scope is valid if it matches the
+regular expression: ``/([a-zA-Z0-9]+/)*``.
+
 .. _specification-uris:
 
 URIs
