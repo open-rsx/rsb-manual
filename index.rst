@@ -44,6 +44,7 @@ Contents:
    preparation
    tutorial
    tools
+   specification
 
 .. toctree::
    :hidden:
