@@ -60,19 +60,12 @@ Examples
 
 * .. code-block:: sh
 
-     $ send 'spread:/mycomponent/control/status()'
-     "running" # prints return value, if any
+     $ send '"running"' 'spread:/mycomponent/state'
 
-  In the above example, the :program:`send` tool is used to invoke the
-
-* .. code-block:: sh
-
-     $ send 'spread:/mycomponent/control/terminate()'
-
-  Returns once the method send completes.
-
-
-
+  In the above example, the :program:`send` tool is used to send an
+  :term:`event` whose payload is the string ``running`` to the
+  :term:`channel` designated by the :term:`scope`
+  ``/mycomponent/state``.
 
 Implementations
 ===============
