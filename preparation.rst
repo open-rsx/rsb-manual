@@ -4,6 +4,8 @@
  Preparation
 =============
 
+.. _install:
+
 Installing |project|
 ====================
 
@@ -92,12 +94,20 @@ Debian Packages
 
 Debian packages for several versions of |ubuntu| are available from
 the `CoR-Lab package repository
-<http://packages.cor-lab.de/ubuntu/dists/>`_. The following repository
-source line has to be added to ``/etc/apt/sources.list``::
+<http://packages.cor-lab.de/ubuntu/dists/>`_.
 
-  deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
+#. The following repository source line has to be added to
+   ``/etc/apt/sources.list``::
 
-where :samp:`RELEASENAME` is the appropriate Ubuntu release name.
+     deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
+
+   where :samp:`RELEASENAME` is the appropriate Ubuntu release name.
+
+#. After that, packages can be installed via
+
+   .. code-block:: sh
+
+      $ sudo apt-get install rsb|version| rsb-tools-cpp|version| rsb-tools-cl|version|
 
 .. warning::
 

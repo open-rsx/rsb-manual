@@ -4,27 +4,38 @@
  Tutorial
 ==========
 
+This section assumes a functional |project| installation for at least
+one programming language.
+
+.. seealso::
+
+   :ref:`install`
+     Installing |project| from source or using a package manager.
+
+   :ref:`troubleshooting`
+     Solving common problems.
+
 Basic Communication
 ===================
 
-Creating an Informer and Sending Data
--------------------------------------
+Sending Data
+------------
 
 .. literalinclude:: /../python/core/examples/informer.py
    :language: python
    :lines:    24-
    :linenos:
 
-Creating a Listener and Receiving Data
---------------------------------------
+Receiving Data
+--------------
 
 .. literalinclude:: /../python/core/examples/listener.py
    :language: python
    :lines:    24-
    :linenos:
 
-RPC Communication
------------------
+RPC
+---
 
 .. literalinclude:: /../python/core/examples/client.py
    :language: python
@@ -44,8 +55,8 @@ RPC Communication
    :lines:    25-
    :linenos:
 
-Writing a Simple Chat System
-============================
+A Chat System
+=============
 
 Chat 1
 ------
