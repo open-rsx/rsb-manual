@@ -1,45 +1,8 @@
-Tutorial
-********
+.. _tutorial:
 
-Getting Started
-===============
-
-Installing |project|
---------------------
-
-There are currently two ways to install |project|:
-
-* From source
-* Debian Packages
-
-From Source
-^^^^^^^^^^^
-
-SVN URLs for Implementations of |project|
-
-=========== =============================
-C++         |repository_versioned|/cpp
-Java        |repository_versioned|/java
-Python      |repository_versioned|/python
-Common Lisp |repository_versioned|/cl
-=========== =============================
-Matlab      |repository_versioned|/matlab
-=========== =============================
-
-Debian Packages
-^^^^^^^^^^^^^^^
-
-Debian packages for several versions of Ubuntu Linux are available
-from the `CoR-Lab package repository
-<http://packages.cor-lab.de/ubuntu/dists/>`_. Repository source line::
-
-  deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
-
-Usage instructions can be found in the `wiki
-<https://support.cor-lab.org/projects/ciserver/wiki/RepositoryUsage>`_.
-
-Running the Examples
---------------------
+==========
+ Tutorial
+==========
 
 Basic Communication
 ===================
@@ -79,6 +42,21 @@ RPC Communication
 .. literalinclude:: /../cl/cl-rsb/examples/server.lisp
    :language: cl
    :lines:    25-
+   :linenos:
+
+Writing a Simple Chat System
+============================
+
+Chat 1
+------
+
+.. literalinclude:: /../tutorials/chat-1/python/solution/chat1.py
+   :lines:    19-
+   :language: python
+   :linenos:
+.. literalinclude:: /../tutorials/chat-1/cl/solution/chat.lisp
+   :lines:    20-
+   :language: cl
    :linenos:
 
 Extension Points
