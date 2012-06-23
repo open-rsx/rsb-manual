@@ -5,6 +5,8 @@
 Scope
 =====
 
+.. _event:
+
 Event
 =====
 

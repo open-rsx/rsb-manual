@@ -6,6 +6,10 @@
 
 .. glossary::
 
+   event
+
+     See :ref:`event`.
+
    event payload
 
      Domain object (programming language dependent) that is associated
@@ -49,8 +53,8 @@
 
      Example(C++,protocol buffers,spread): ``AbstractConverter<std::string>?``
 
-     See :ref:`types` for a list of well-known wire schema <-> data type
-     mappings.
+     See :ref:`type` s for a list of well-known wire schema <-> data
+     type mappings.
 
    wire->domain converter
 
@@ -58,7 +62,7 @@
 
    notification
 
-     :term:`Transport`-specific message that contains
+     :term:`transport` -specific message that contains
 
      * event meta-data
      * wire schema
@@ -68,8 +72,18 @@
    participant
 
      Any entity that communicates via the bus is called a
-     participant. Typical participants are listeners which receive
-     events and informers which publish events.
+     participant. Typical participants are :term:`listener` s which receive
+     :term:`event` s and :term:`informer` s which publish
+     :term:`event` s.
+
+   listener
+
+     A kind of :term:`participant` which (asynchronously) receives
+     :term:`event` s.
+
+   informer
+
+     A kind of :term:`participant` which publishes :term:`event` s.
 
    scope
 
@@ -93,7 +107,7 @@
    Spread
 
      The `Spread`_ group communication framework is one the
-     :term:`transports` RSB can use.
+     :term:`transport` s |project| can use.
 
    Spread daemon
 
