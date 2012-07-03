@@ -31,6 +31,17 @@ accepted by all tools:
 
       This option is only available in the Common Lisp implementation.
 
+.. option:: --info-stream STREAM-NAME
+
+   Stream to which information messages should be sent.  Allowed
+   values for :samp:`{STREAM-NAME}`: ``stdout``, ``standard-output``,
+   ``stderr``, ``error-output``, ``none``.  Default info stream is:
+   ``error-output``
+
+   .. note::
+
+      This option is only available in the Common Lisp implementation.
+
 .. option:: --log-level LEVEL
 
    Controls the amount of generated log output. Allowed values for
