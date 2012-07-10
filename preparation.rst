@@ -9,11 +9,12 @@
 Installing |project|
 ====================
 
-There are currently two ways to install the |version| version of
+There are currently 3 ways to install the |version| version of
 |project|:
 
 * Binary downloads (only for :ref:`tools <tools>`)
 * Debian packages
+* PyPi package (python)
 * From source
 
 Binary Downloads of |project| Tools
@@ -118,6 +119,43 @@ the `CoR-Lab package repository
    More information can be found `here
    <https://support.cor-lab.org/projects/ciserver/wiki/RepositoryUsage>`_.
 
+PyPI Packages
+-------------
+
+For python, platform-unspecific packages are pushed to the central repository
+server and can hence be installed with ``pip`` or ``easy_install``.
+
+Depending on the availability of ``easy_install`` or ``pip`` do one ofthe following to
+install rsb-python:
+
+.. code-block:: sh
+  
+  easy_install rsb-python
+  
+.. code-block:: sh
+
+  pip install rsb-python
+  
+.. note::
+  
+  These commands will install rsb-python for the whole system and require root
+  permissions. If you only want to install rsb-python for your local user, add
+  the ``--user`` option to the call of ``easy_install`` or ``pip install``.
+  
+.. note::
+
+  rsb-python is currently only available for Python 2.X. If your linux distribution
+  already contains Python 3, ensure that you call the respective ``easy_install``
+  or ``pip`` version. These usually contain the Python version as a suffix to the
+  name, e.g.: ``easy_install-2.7``.
+  
+.. note::
+
+  If you plan to use the spread transport, you need to additionally install the python
+  spread module which is available at: http://www.spread.org/files/SpreadModule-1.5spread4.tgz
+  The version of this module which is pushed to the PyPI is outdated and does not work
+  with spread version 4. You need to compile this module on your own.
+   
 Running the Examples
 ====================
 
