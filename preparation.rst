@@ -125,7 +125,19 @@ PyPI Packages
 For python, platform-unspecific packages are pushed to the central repository
 server and can hence be installed with ``pip`` or ``easy_install``.
 
-Depending on the availability of ``easy_install`` or ``pip`` do one ofthe following to
+.. note::
+
+  The installation of rsb-python requires the `Google Protocol Buffers <http://code.google.com/p/protobuf/>`_ compiler (``protoc``)
+  on your system. Before starting the installation of rsb-python, install ``protoc``
+  and ensure that this binary can be found from the ``PATH`` environment variable.
+
+.. note::
+
+  ``pip`` is the recommended way of installing Python packages since some time and
+  perferred over ``easy_install``. On Ubuntu system ``pip`` can be install from the
+  package ``python-pip``.
+
+Depending on the availability of ``pip`` or ``easy_install`` do one ofthe following to
 install rsb-python:
 
 .. code-block:: sh
