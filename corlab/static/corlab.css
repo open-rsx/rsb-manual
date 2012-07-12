@@ -1,7 +1,7 @@
 @import url("nature.css");
 
 div.related {
-    background-color: #0068b4;
+    background-color: #0168b5; /* official CoR-Lab blue*/
 }
 
 div.related a {
@@ -27,5 +27,5 @@ div.body h1, div.body h2, div.body h3, div.body h4, div.body h5, div.body h6 {
 }
 
 a {
-    color: #0068b4;
+    color: #0168b5; /* official CoR-Lab blue*/
 }
