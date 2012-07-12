@@ -21,7 +21,7 @@ Basic Communication
 Sending Data
 ------------
 
-.. literalinclude:: /../python/core/examples/informer.py
+.. literalinclude:: /../rsb-python/examples/informer.py
    :language: python
    :lines:    24-
    :linenos:
@@ -29,7 +29,7 @@ Sending Data
 Receiving Data
 --------------
 
-.. literalinclude:: /../python/core/examples/listener.py
+.. literalinclude:: /../rsb-python/examples/listener.py
    :language: python
    :lines:    24-
    :linenos:
@@ -37,20 +37,20 @@ Receiving Data
 RPC
 ---
 
-.. literalinclude:: /../python/core/examples/client.py
+.. literalinclude:: /../rsb-python/examples/client.py
    :language: python
    :lines:    24-
    :linenos:
-.. literalinclude:: /../python/core/examples/server.py
+.. literalinclude:: /../rsb-python/examples/server.py
    :language: python
    :lines:    24-
    :linenos:
 
-.. literalinclude:: /../cl/cl-rsb/examples/client.lisp
+.. literalinclude:: /../rsb-cl/examples/client.lisp
    :language: cl
    :lines:    25-
    :linenos:
-.. literalinclude:: /../cl/cl-rsb/examples/server.lisp
+.. literalinclude:: /../rsb-cl/examples/server.lisp
    :language: cl
    :lines:    25-
    :linenos:
@@ -61,11 +61,11 @@ A Chat System
 Chat 1
 ------
 
-.. literalinclude:: /../tutorials/chat-1/python/solution/chat1.py
+.. literalinclude:: /../rsb-tutorials/chat-1/python/solution/chat1.py
    :lines:    19-
    :language: python
    :linenos:
-.. literalinclude:: /../tutorials/chat-1/cl/solution/chat.lisp
+.. literalinclude:: /../rsb-tutorials/chat-1/cl/solution/chat.lisp
    :lines:    20-
    :language: cl
    :linenos:
