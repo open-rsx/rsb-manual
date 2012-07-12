@@ -16,4 +16,9 @@ systems in diverse environments.
    tutorial
    tools
    specification
+
+.. toctree::
+   :hidden:
+
    glossary
+   literature
