@@ -22,8 +22,8 @@ regular expression: ``/([a-zA-Z0-9]+/)*``.
 Events
 ======
 
-Conceptually and when represented in programs, |project|
-:term:`events` consist of the following components:
+Conceptually and when represented in programs, |project| :term:`event`
+s consist of the following components:
 
 +------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
 | Name                   | Type                                                                 | Comment                       | Required       |
@@ -83,7 +83,7 @@ Examples / Test Cases::
 Meta Data
 ---------
 
-:term:`Events` carry a set of meta data with themselves. Some meta
+:term:`Event` s carry a set of meta data with themselves. Some meta
 data items are specified and processed by |project| while others are
 user-defined and not interpreted by |project|.
 
@@ -235,7 +235,7 @@ The following examples demonstrate generic URIs:
     ``10838319-09A4-4D15-BD59-5E054CDB4403``.
 
 The following example demonstrate how to specify bus connections when
-creating :term:`participants`:
+creating :term:`participant` s:
 
   `` ``
     Participate in :term:`channel` with :term:`scope` ``/`` using the
@@ -296,7 +296,7 @@ on top of ordinary TCP sockets:
   :term:`notification` s which are sent and received by
   :term:`participant` s in the respective processes.
 * Each process may host zero, one or many
-  :term:`participant` s. Within a process, the :term:`participants`
+  :term:`participant` s. Within a process, the :term:`participant` s
   share a connection.
 
 The following messages are exchanged:
@@ -319,7 +319,7 @@ The following messages are exchanged:
    #. A client process connects to the TCP-socket of the server
       (without handshake)
    #. The client process creates a :term:`listener` waiting for
-      events from some remote :term:`participant`
+      :term:`event` s from some remote :term:`participant`
    #. The client process causes some remote :term:`participant` to send
       an :term:`event` which the :term:`listener` should receive
    #. The :term:`event` is not delivered to the :term:`listener` since

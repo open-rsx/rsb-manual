@@ -20,9 +20,9 @@ information regarding
 
 * |project| library version
 * effective configuration
-* available :term:`connectors`
-* available :term:`converters`
-* available :term:`filters`
+* available :term:`connector` s
+* available :term:`converter` s
+* available :term:`filter` s
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -33,15 +33,15 @@ accepted. Specialized commandline options:
 
 .. option:: --connectors
 
-   Display list of available :term:`connectors`.
+   Display list of available :term:`connector` s.
 
 .. option:: --converters
 
-   Display list of available :term:`converters`.
+   Display list of available :term:`converter` s.
 
 .. option:: --filters
 
-   Display list of available :term:`filters`.
+   Display list of available :term:`filter` s.
 
    .. Note::
 
