@@ -103,7 +103,7 @@ URIs or URLs are used in the following situations
 
   * A :term:`channel`
 
-    * Multiple :term:`participants`
+    * Multiple :term:`participant` s
     * A single :term:`participant`
   * A :term:`service`
 
