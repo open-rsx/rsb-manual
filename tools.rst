@@ -5,11 +5,38 @@
 =======
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
-   Common Commandline Options and Environment Variables <common>
-   info: version and configuration information <info>
-   logger: console run-time logging of events <logger>
-   send: command-line based event sending <send>
-   call: command-line based calling of RPC servers <call>
-   timesync: Synchronization of events on different scopes based on timestamps <timesync>
+   info
+   logger
+   send
+   call
+   timesync
+
+.. seealso::
+
+   :ref:`common`
+     For a description of common options accepted by more than one program.
+
+The following tools are available:
+
+* :ref:`info <info>`
+
+  Inspection of version and configuration information.
+
+* :ref:`logger <logger>`
+
+  Console-based realtime logging of :term:`event` s.
+
+* :ref:`send <send>`
+
+  Command-line based sending of :term:`event` s.
+
+* :ref:`call <call>`
+
+  Command-line based calling of RPC server methods.
+
+* :ref:`timesync <timesync>`
+
+  Synchronization of :term:`event` s on different :term:`scope` s
+  based on timestamps.

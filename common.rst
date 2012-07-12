@@ -1,8 +1,8 @@
 .. _common:
 
-========
- Common
-========
+======================================================
+ Common Commandline Options and Environment Variables
+======================================================
 
 .. _common-options:
 
