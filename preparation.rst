@@ -9,12 +9,12 @@
 Installing |project|
 ====================
 
-There are currently 3 ways to install the |version| version of
-|project|:
+Currently, the |version| version of |project| can be installed in the
+following ways :
 
 * Binary downloads (only for :ref:`tools <tools>`)
 * Debian packages
-* PyPi package (python)
+* PyPi package (Python implementation)
 * From source
 
 Binary Downloads of |project| Tools
@@ -141,33 +141,33 @@ Depending on the availability of ``pip`` or ``easy_install`` do one ofthe follow
 install rsb-python:
 
 .. code-block:: sh
-  
+
   easy_install rsb-python
-  
+
 .. code-block:: sh
 
   pip install rsb-python
-  
+
 .. note::
-  
+
   These commands will install rsb-python for the whole system and require root
   permissions. If you only want to install rsb-python for your local user, add
   the ``--user`` option to the call of ``easy_install`` or ``pip install``.
-  
+
 .. note::
 
   rsb-python is currently only available for Python 2.X. If your linux distribution
   already contains Python 3, ensure that you call the respective ``easy_install``
   or ``pip`` version. These usually contain the Python version as a suffix to the
   name, e.g.: ``easy_install-2.7``.
-  
+
 .. note::
 
   If you plan to use the spread transport, you need to additionally install the python
   spread module which is available at: http://www.spread.org/files/SpreadModule-1.5spread4.tgz
   The version of this module which is pushed to the PyPI is outdated and does not work
   with spread version 4. You need to compile this module on your own.
-   
+
 Running the Examples
 ====================
 
@@ -225,7 +225,7 @@ Troubleshooting
            $ export RSB_TRANSPORT_SPREAD_ENABLED=1
            $ export RSB_TRANSPORT_SOCKET_ENABLED=0
 
-#. Problem *(applies to C++,Common Lisp)*
+#. Problem *(applies to C++,Common Lisp,Python)*
 
      How can I configure the TCP-based transport?
 
@@ -243,15 +243,15 @@ Troubleshooting
         port    = 4444
         server  = auto
 
-     :samp:`{HOST}` can be ``localhost`` (if all processes are going
-     to run on the same node), a host name of an IP address.
+     :samp:`{HOSTNAME}` can be ``localhost`` (if all processes are
+     going to run on the same node), a host name of an IP address.
 
      .. note::
 
         The above configuration uses ``server = auto`` which causes
         the initial |project| process to create the specified server
         and subsequent processes to connect to that server.
-           
+
 #. Problem *(applies to C++)*
 
      I compiled and installed successfully, but |project|
