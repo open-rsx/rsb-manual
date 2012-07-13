@@ -12,7 +12,7 @@ Supported Java Version
 
 * Oracle Java Platform, Standard Edition 6
 
-Other combinations may be possible but are currently untested.
+Other Java platform SDKs may be applicable but are currently untested.
 
 Required Dependencies
 -------------------------
