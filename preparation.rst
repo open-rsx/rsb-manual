@@ -180,15 +180,15 @@ Troubleshooting
 
 #. Problem *(applies to C++, Python)*
 
-     I compiled and installed successfully, but communication does not
-     work.
+     Communication over spread does not work anymore. Spread settings are ignored.
 
    Solution
 
-     Starting with version 0.5, |project| uses a :term:`transport`
-     that implements communication within a single process by
-     default. In other words, network communication is disabled by
-     default.
+     Starting with version 0.7, |project| uses a :term:`transport`
+     that implements a custom TPC-based protocol to facilitate
+     the easy use of the framework without dependencies on 3rd party
+     libraries. In order to use to the old spread transport the
+     configuration needs to be changed.
 
      This can be changed in three ways:
 
@@ -204,7 +204,7 @@ Troubleshooting
 
            [transport.spread]
            enabled = 1
-           [transport.inprocess]
+           [transport.socket]
            enabled = 0
 
         Lines 3 and 4 can be omitted to enable both :term:`transports`
@@ -223,7 +223,7 @@ Troubleshooting
         .. code-block:: sh
 
            $ export RSB_TRANSPORT_SPREAD_ENABLED=1
-           $ export RSB_TRANSPORT_INPROCESS_ENABLED=0
+           $ export RSB_TRANSPORT_SOCKET_ENABLED=0
 
 #. Problem *(applies to C++)*
 
@@ -273,44 +273,6 @@ Troubleshooting
            This workaround is not permanent and has to be repeated for
            each new shell that should be able to execute |project|
            binaries or |project|-based programs.
-
-#. Problem *(applies to C++,Common Lisp)*
-
-     How can I use the TCP-based transport?
-
-     .. note::
-
-        The TCP-based :term:`transport` is experimental and currently
-        only available in the C++ and Common Lisp implementations.
-
-   Solution
-
-     The TCP-based transport can be activated locally or globally by
-     placing the following content in |system_config_file|,
-     |user_config_file| or |pwd_config_file|:
-
-     .. code-block:: ini
-
-        [transport.inprocess]
-        enabled = 0
-
-        [transport.spread]
-        enabled = 0
-
-        [transport.socket]
-        enabled = 1
-        host    = HOSTNAME
-        port    = 4444
-        server  = auto
-
-     :samp:`{HOST}` can be ``localhost`` (if all processes are going
-     to run on the same node), a host name of an IP address.
-
-     .. note::
-
-        The above configuration uses ``server = auto`` which causes
-        the initial |project| process to create the specified server
-        and subsequent processes to connect to that server.
 
 #. Problem *(applies to Common Lisp)*
 
