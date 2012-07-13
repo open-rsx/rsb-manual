@@ -225,6 +225,33 @@ Troubleshooting
            $ export RSB_TRANSPORT_SPREAD_ENABLED=1
            $ export RSB_TRANSPORT_SOCKET_ENABLED=0
 
+#. Problem *(applies to C++,Common Lisp)*
+
+     How can I configure the TCP-based transport?
+
+   Solution
+
+     The TCP-based transport can be configured locally or globally by
+     placing the following content in |system_config_file|,
+     |user_config_file| or |pwd_config_file|:
+
+     .. code-block:: ini
+
+        [transport.socket]
+        enabled = 1
+        host    = HOSTNAME
+        port    = 4444
+        server  = auto
+
+     :samp:`{HOST}` can be ``localhost`` (if all processes are going
+     to run on the same node), a host name of an IP address.
+
+     .. note::
+
+        The above configuration uses ``server = auto`` which causes
+        the initial |project| process to create the specified server
+        and subsequent processes to connect to that server.
+           
 #. Problem *(applies to C++)*
 
      I compiled and installed successfully, but |project|
