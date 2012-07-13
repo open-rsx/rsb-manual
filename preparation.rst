@@ -89,6 +89,7 @@ From Source
 
      install-cpp
      install-cl
+     install-java
 
 Debian Packages
 ---------------
