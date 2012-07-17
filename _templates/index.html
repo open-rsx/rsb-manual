@@ -1,0 +1,94 @@
+{% extends "defindex.html" %}
+
+{% block tables %}
+  <table class="contentstable" align="center">
+    <tr>
+      <td width="50%">
+        <p class="biglink">
+          <a class="biglink" href="{{ pathto("news") }}">What's new in
+          {{project}} {{version}}?</a>
+          <br/>
+          <span class="linkdescr">The latest updates of the
+          middleware</span>
+        </p>
+      </td>
+      <td width="50%">
+        <p class="biglink">
+          <a class="biglink" href="{{ pathto("concepts") }}">What is
+            {{project}}?</a>
+          <br/>
+          <span class="linkdescr">Get an overview of {{project}}
+          concepts</span>
+        </p>
+      </td>
+      <!-- <td width="20%" rowspan="3"> -->
+      <!--   <h2>Linear Index</h2> -->
+      <!--   <br/> -->
+      <!--   {{toctree()}} -->
+      <!-- </td> -->
+    </tr>
+    <tr>
+      <td width="50%">
+        <p class="biglink">
+          <a class="biglink" href="{{ pathto("preparation")}}#install">Installation</a>
+          <br/>
+          <span class="linkdescr">Install {{project}} on your
+          platform</span>
+        </p>
+      </td>
+
+      <td width="50%">
+        <p class="biglink">
+          <a class="biglink" href="{{ pathto("tutorial")}}">Tutorial</a>
+          <br/>
+          <span class="linkdescr">Learn how to use {{project}}</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <p class="biglink">
+          <a class="biglink" href="{{ pathto("tools") }}">Tools</a>
+          <br/>
+          <span class="linkdescr">Tools that come with
+          {{project}}</span>
+        </p>
+      </td>
+      <td width="50%">
+        <p class="biglink">
+          <a class="biglink" href="{{ pathto("specification")}}">Specification</a>
+          <br/>
+          <span class="linkdescr">Detailed descriptions of the
+          protocols used by {{project}}</span>
+        </p>
+      </td>
+    </tr>
+</table>
+
+{{ super() }}
+
+<div class="admonition note">
+  <p>
+    For questions and feedback regarding {{project}}, you can write a
+    mail to the
+    mailing-list <a href="mailto:rsb@lists.cor-lab.uni-bielefeld.de">rsb@lists.cor-lab.uni-bielefeld.de</a>.
+    
+    You can subscribe to the mailing-list
+    <a href="https://lists.techfak.uni-bielefeld.de/cor-lab/mailman/listinfo/rsb">here</a>.
+  </p>
+
+  <p>
+    Bug reports are always welcome
+    on <a href="https://code.cor-lab.org/issues">our bug-tracker</a>.
+  </p>
+</div>
+
+<div class="admonition note">
+  <p>
+    The design of this page has been lifted from the documentation of
+    the <a href="https://www.openrobots.org/wiki/morse">MORSE</a>
+    project.
+  </p>
+</div>
+
+{% endblock %}
