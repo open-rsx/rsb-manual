@@ -4,8 +4,9 @@
   <table class="contentstable" align="center">
     <tr>
       <td width="50%">
+        <p class="icon"><img src="{{ '_static/news.svg' }}"/></p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto("news") }}">What's new in
+          <a href="{{ pathto('news', 1) }}">What's new in
           {{project}} {{version}}?</a>
           <br/>
           <span class="linkdescr">The latest updates of the
@@ -13,24 +14,21 @@
         </p>
       </td>
       <td width="50%">
+        <p class="icon"><img src="{{ '_static/whatis.svg' }}"/></p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto("concepts") }}">What is
+          <a href="{{ pathto("concepts") }}">What is
             {{project}}?</a>
           <br/>
           <span class="linkdescr">Get an overview of {{project}}
           concepts</span>
         </p>
       </td>
-      <!-- <td width="20%" rowspan="3"> -->
-      <!--   <h2>Linear Index</h2> -->
-      <!--   <br/> -->
-      <!--   {{toctree()}} -->
-      <!-- </td> -->
     </tr>
     <tr>
       <td width="50%">
+        <p class="icon"><img src="{{ '_static/install.svg' }}"/></p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto("preparation")}}#install">Installation</a>
+          <a href="{{ pathto("preparation")}}#install">Installation</a>
           <br/>
           <span class="linkdescr">Install {{project}} on your
           platform</span>
@@ -38,8 +36,9 @@
       </td>
 
       <td width="50%">
+        <p class="icon"><img src="{{ '_static/tutorial.svg' }}"/></p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto("tutorial")}}">Tutorial</a>
+          <a href="{{ pathto("tutorial")}}">Tutorial</a>
           <br/>
           <span class="linkdescr">Learn how to use {{project}}</span>
         </p>
@@ -47,14 +46,16 @@
     </tr>
     <tr>
       <td width="50%">
+        <p class="icon"><img src="{{ '_static/tools.svg' }}"/></p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto("tools") }}">Tools</a>
+          <a href="{{ pathto("tools") }}">Tools</a>
           <br/>
           <span class="linkdescr">Tools that come with
           {{project}}</span>
         </p>
       </td>
       <td width="50%">
+        <p class="icon"><img src="{{ '_static/specification.svg' }}"/></p>
         <p class="biglink">
           <a class="biglink" href="{{ pathto("specification")}}">Specification</a>
           <br/>
