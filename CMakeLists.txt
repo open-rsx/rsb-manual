@@ -15,8 +15,8 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
 configure_file(conf.py.in
                "${CMAKE_BINARY_DIR}/conf.py"
                @ONLY)
-configure_file(_templates/rsblinks.html.in
-               "${CMAKE_BINARY_DIR}/_templates/rsblinks.html"
+configure_file(_templates/links.html.in
+               "${CMAKE_BINARY_DIR}/_templates/links.html"
                @ONLY)
 configure_file(_templates/layout.html.in
                "${CMAKE_BINARY_DIR}/_templates/layout.html"
@@ -37,5 +37,5 @@ add_custom_target(pdf
                   WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/latex"
                   DEPENDS           latex)
 
-install(DIRECTORY _build/html
+install(DIRECTORY "${CMAKE_BINARY_DIR}/html"
         DESTINATION "share/doc/rsb-manual/")

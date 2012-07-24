@@ -163,7 +163,7 @@ html_static_path = [ '@CMAKE_SOURCE_DIR@/_static' ]
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-    '**': [ 'globaltoc.html', 'rsblinks.html', 'sourcelink.html', 'searchbox.html' ]
+    '**': [ 'globaltoc.html', 'links.html', 'sourcelink.html', 'searchbox.html' ]
 }
 
 # Additional templates that should be rendered to pages, maps page names to
