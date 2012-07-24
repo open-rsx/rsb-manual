@@ -104,13 +104,15 @@ rst_prolog = """
 .. _boost: http://www.boost.org/
 .. _boost.uuid: http://www.boost.org/doc/libs/1_42_0/libs/uuid/uuid.html
 
+.. _lgplv3: http://www.gnu.org/licenses/lgpl.html
+
 .. |ubuntu| replace::
    Ubuntu GNU/Linux
 """ % version
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = [ 'build' ]
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
@@ -166,14 +168,8 @@ html_sidebars = {
     '**': [ 'globaltoc.html', 'links.html', 'sourcelink.html', 'searchbox.html' ]
 }
 
-# Additional templates that should be rendered to pages, maps page names to
-# template names.
-html_additional_pages = {
-    'index': 'index.html'
-}
-
-# If false, no module index is generated.
-#html_domain_indices = True
+# Do not generate a module index.
+html_domain_indices = False
 
 # If false, no index is generated.
 #html_use_index = True
@@ -213,7 +209,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index', 'rsb-manual.tex', u'RSB Manual', u'Jan Moringen', 'manual'),
-    ]
+]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
@@ -245,7 +241,7 @@ man_pages = [
     ('logger', 'logger', u'logger Program', [u'Jan Moringen'], 1),
     ('send',   'send',   u'send Progam',    [u'Jan Moringen'], 1),
     ('call',   'call',   u'call Progam',    [u'Jan Moringen'], 1)
-    ]
+]
 
 # If true, show URL addresses after external links.
 #man_show_urls = False
