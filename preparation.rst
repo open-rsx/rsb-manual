@@ -22,10 +22,10 @@ Binary Downloads of |project| Tools
 
 #. Download the |main_binary| binary from the appropriate location:
 
-   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_lucid_32bit/>`_
-   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_lucid_64bit/>`_
-   * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=MAC_OS_lion_64bit/>`_
-   * `Windows 7 i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-windows/label=192.168.100.120>`_
+   * `Linux i686 <https://ci.cor-lab.org/job/rsb-tools-cl-0.7/label=ubuntu_lucid_32bit/>`_
+   * `Linux x86_64 <https://ci.cor-lab.org/job/rsb-tools-cl-0.7/label=ubuntu_lucid_64bit/>`_
+   * `MacOS x86_64 <https://ci.cor-lab.org/job/rsb-tools-cl-0.7/label=MAC_OS_lion_64bit/>`_
+   * `Windows 7 i686 <https://ci.cor-lab.org/job/rsb-tools-cl-0.7-windows/label=192.168.100.120>`_
 
 #. After the download, the |main_binary| file has to be made
    executable in most cases. This can be done for example by executing
