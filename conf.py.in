@@ -51,7 +51,10 @@ rst_prolog = """
    https://code.cor-lab.org/svn/rsb/
 
 .. |repository_versioned| replace::
-   https://code.cor-lab.org/svn/rsb/branches/%s
+   https://code.cor-lab.org/svn/rsb/branches/{version}
+
+.. |package_names| replace::
+   {package_names}
 
 .. |info| replace::
    program:`info`
@@ -106,7 +109,9 @@ rst_prolog = """
 
 .. |ubuntu| replace::
    Ubuntu GNU/Linux
-""" % version
+""".format(version       = version,
+           release       = release,
+           package_names = 'rsb{version} rsb-tools-cpp{version} rsb-tools-cl{version}'.format(version = version))
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.

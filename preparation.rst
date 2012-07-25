@@ -109,15 +109,15 @@ the `CoR-Lab package repository
 
    .. code-block:: sh
 
-      $ sudo apt-get install rsb|version| rsb-tools-cpp|version| rsb-tools-cl|version|
+      $ sudo apt-get install PACKAGES
 
-.. warning::
-
-   This installation method only works with |ubuntu|.
+   where :samp:`{PACKAGES}` is the appropriate subset of
+   |package_names|.
 
 .. note::
 
-   More information can be found `here
+   This installation method only works with |ubuntu|. More information
+   can be found `here
    <https://support.cor-lab.org/projects/ciserver/wiki/RepositoryUsage>`_.
 
 PyPI Packages
@@ -208,8 +208,8 @@ Troubleshooting
            [transport.socket]
            enabled = 0
 
-        Lines 3 and 4 can be omitted to enable both :term:`transports`
-        in parallel.
+        Lines 3 and 4 can be omitted to enable both :term:`transport`
+        s in parallel.
 
      #. Locally for the current directory
 
