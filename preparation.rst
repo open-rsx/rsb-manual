@@ -32,7 +32,7 @@ Binary Downloads of |project| Tools
 
    .. code-block:: sh
 
-      chmod +x tools
+      $ chmod +x tools
 
    in the download directory.
 
@@ -103,7 +103,7 @@ the `CoR-Lab package repository
 
      deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
 
-   where :samp:`RELEASENAME` is the appropriate Ubuntu release name.
+   where :samp:`{RELEASENAME}` is the appropriate Ubuntu release name.
 
 #. After that, packages can be installed via
 
@@ -123,51 +123,54 @@ the `CoR-Lab package repository
 PyPI Packages
 -------------
 
-For python, platform-unspecific packages are pushed to the central repository
-server and can hence be installed with ``pip`` or ``easy_install``.
+For Python, platform-independent packages are pushed to the central
+repository server and can be installed with ``pip`` or
+``easy_install``.
 
 .. note::
 
-  The installation of rsb-python requires the `Google Protocol Buffers <http://code.google.com/p/protobuf/>`_ compiler (``protoc``)
-  on your system. Before starting the installation of rsb-python, install ``protoc``
-  and ensure that this binary can be found from the ``PATH`` environment variable.
+  ``pip`` is the recommended way of installing Python packages since
+  some time and perferred over ``easy_install``. On |ubuntu| systems,
+  ``pip`` can be installed via the package ``python-pip``.
 
 .. note::
 
-  ``pip`` is the recommended way of installing Python packages since some time and
-  perferred over ``easy_install``. On Ubuntu system ``pip`` can be install from the
-  package ``python-pip``.
+   The Python implementation of |project| is currently only available
+   for Python 2.X. If the default Python version on your system is
+   Python 3, ensure that you call the respective ``easy_install`` or
+   ``pip`` version. These usually contain the Python version as a
+   suffix to the name, e.g.: ``easy_install-2.7``.
 
-Depending on the availability of ``pip`` or ``easy_install`` do one ofthe following to
-install rsb-python:
+#. The installation of the Python implementation of |project| requires
+   the `Google Protocol Buffers`_ compiler (``protoc``) on your
+   system. Before starting the installation, install ``protoc`` and
+   ensure that this binary can be found from the ``PATH`` environment
+   variable.
 
-.. code-block:: sh
+#. Depending on whether ``pip`` or ``easy_install`` is used do one
+   of the following
 
-  easy_install rsb-python
+   .. code-block:: sh
 
-.. code-block:: sh
+      $ easy_install rsb-python
 
-  pip install rsb-python
+   .. code-block:: sh
 
-.. note::
+      $ pip install rsb-python
 
-  These commands will install rsb-python for the whole system and require root
-  permissions. If you only want to install rsb-python for your local user, add
-  the ``--user`` option to the call of ``easy_install`` or ``pip install``.
+   .. note::
 
-.. note::
+      These commands will install rsb-python for the whole system and
+      require root permissions. If you only want to install rsb-python
+      for your local user, add the ``--user`` option to the call of
+      ``easy_install`` or ``pip install``.
 
-  rsb-python is currently only available for Python 2.X. If your linux distribution
-  already contains Python 3, ensure that you call the respective ``easy_install``
-  or ``pip`` version. These usually contain the Python version as a suffix to the
-  name, e.g.: ``easy_install-2.7``.
-
-.. note::
-
-  If you plan to use the spread transport, you need to additionally install the python
-  spread module which is available at: http://www.spread.org/files/SpreadModule-1.5spread4.tgz
-  The version of this module which is pushed to the PyPI is outdated and does not work
-  with spread version 4. You need to compile this module on your own.
+#. If you plan to use the :term:`Spread` :term:`transport`, you need
+   to additionally install the Python :term:`Spread` module which is
+   available at: |spread_python_tarball|. The version of this module
+   which is pushed to the PyPI is outdated and does not work with
+   :term:`Spread` version 4. You need to compile this module on your
+   own.
 
 Running the Examples
 ====================

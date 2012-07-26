@@ -24,13 +24,14 @@ Required Dependencies
 
 * `Apache Ant`_
 
-* Daemon program of the `Spread`_ group communication system
+* :term:`Spread daemon`
 
-  * Version 4.0 or newer to utilize the Spread :term:`transport`
+  * Version 4.0 or newer to utilize the :term:`Spread`
+    :term:`transport`
   * The |ubuntu| (Lucid) package does **not** work (since it contains
     the outdated version 3)
 
-* `CMake`_, Version 2.8 or newer for |project| protocol compilation
+* `CMake`_, version 2.8 or newer for |project| protocol compilation
 
 Optional Dependencies
 ---------------------
@@ -73,63 +74,59 @@ easy-to-use package manager for MacOS.
 Installation of the Spread Toolkit
 ----------------------------------
 
-`Spread`_, a group communication framework for reliable multicast
-communication, is a powerful transport layer which is natively
-supported in |project|.  To install Spread, source archives are
-available after registration for download `here
-<http://www.spread.org/download/spread-src-4.1.0.tar.gz>`_. Installation
-of the Spread Toolkit is straightforward on MacOS and Linux as it has
-no external dependencies and comes with a standard configuration
-script.
+To install :term:`Spread`, source archives are available after
+registration for download at |spread_tarball|. Installation of
+:term:`Spread` is straightforward on MacOS and Linux as it has no
+external dependencies and comes with a standard configuration script.
 
 .. note::
 
-   In the following sections, :samp:`{prefix}` specifies the target
+   In the following sections, :samp:`{PREFIX}` specifies the target
    directory of the installation.
 
 .. code-block:: sh
 
    $ tar xzf spread-src-4.1.0.tar.gz
    $ cd spread-src-4.1.0
-   $ ./configure --prefix=$prefix
+   $ ./configure --prefix=PREFIX
    $ make
    $ make install
 
 Installation of RSC and RSBProtocol
 -----------------------------------
 
+#. Obtain the source code:
+
    RSC
      https://code.cor-lab.org/svn/rsc/trunk/rsc
+
    |project| Protocol
      |repository_versioned|/protocol
 
-#. Build and install the RSC C++ library and the |project| Protocol
-   library in the order given below:
+#. Build and install RSC Library
 
-   #. Build and install RSC Library
+   .. code-block:: sh
 
-      .. code-block:: sh
+      $ cd rsc/build
+      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX \
+              ..
+      $ make
+      $ make install
 
-         $ cd rsc/build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix \
-                 ..
-         $ make
-         $ make install
+#. Install |project| Protocol Definitions
 
-   #. Install |project| Protocol Definitions
+   .. code-block:: sh
 
-      .. code-block:: sh
+      $ cd protocol/build
+      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX \
+              ..
+      $ make
+      $ make install
 
-         $ cd protocol/build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix \
-                 ..
-         $ make
-         $ make install
+   .. note::
 
-      .. note::
-
-         These protocol definitions are shared across programming
-         languages.
+      These protocol definitions are shared across programming
+      languages.
 
 
 Installation of RSBJava
@@ -156,15 +153,19 @@ Installation of RSBJava
    ==================  ===================================================================  ================================
 
    All properties can be supplied on the ``ant`` commandline using the
-   ``-DNAME=VALUE`` syntax or by creating a ``build.properties`` file
-   containing lines of the form ``NAME = VALUE``.
+   :samp:`-D{NAME}={VALUE}` syntax or by creating a
+   ``build.properties`` file containing lines of the form
+   :samp:`{NAME} = {VALUE}`.
 
    An exemplary ``ant dist`` command, which builds the |project| jar
    library, may look as follows:
 
    .. code-block:: sh
 
-      $ ant -Dpbuf.protoc=/usr/bin/protoc -Dpbuf.protopath=/vol/cit/share/rsbprotocol -Dpbuf.lib=/usr/share/java/protobuf.jar -Dspread.daemon=/vol/cit/sbin/spread dist
+      $ ant -Dpbuf.protoc=/usr/bin/protoc               \
+            -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
+            -Dpbuf.lib=/usr/share/java/protobuf.jar     \
+            -Dspread.daemon=/vol/cit/sbin/spread dist
 
    The equivalent ``build.properties`` file looks like this:
 
@@ -181,7 +182,7 @@ Installation of RSBJava
 #. Installation of Java archive
 
    To install |project| jars into the configured prefix (e.g., into
-   ``${prefix}/share/java``), the following ``ant`` command can be
+   :samp:`{PREFIX}/share/java`), the following ``ant`` command can be
    used:
 
    .. code-block:: sh
@@ -191,10 +192,10 @@ Installation of RSBJava
 Testing the Installation
 ========================
 
-RSBJava comes with a set of unit tests, which you may use to check
-your freshly compiled RSBJava version. Executing the test suite is
-straightforward.  To do so, the following ``ant`` target needs to be
-invoked (please note that a :term:`Spread daemon` is automatically
+The Java implementation of |project| comes with a set of unit tests,
+which you may use to check the compiled code. Executing the test suite
+is straightforward.  To do so, the following ``ant`` target needs to
+be invoked (please note that a :term:`Spread daemon` is automatically
 started by the ``ant`` script):
 
 .. code-block:: sh
@@ -206,7 +207,11 @@ excerpt):
 
 .. code-block:: sh
 
-   $ ant -Dpbuf.protoc=/opt/local/bin/protoc -Dpbuf.protopath=/vol/cit/share/RSBProtocol -Dpbuf.lib=/opt/local/share/java/protobuf.jar -Dspread.daemon=/vol/cit/sbin/spread test
+   $ ant -Dpbuf.protoc=/opt/local/bin/protoc           \
+         -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
+         -Dpbuf.lib=/opt/local/share/java/protobuf.jar \
+         -Dspread.daemon=/vol/cit/sbin/spread          \
+         test
    Buildfile: /Users/swrede/Workspace/RSBJava/build.xml
 
    init:
@@ -249,5 +254,5 @@ excerpt):
    BUILD SUCCESSFUL
    Total time: 48 seconds
 
-If no failed test cases are reported, RSBJava works correctly on your
-machine.
+If no failed test cases are reported, the Java implementation of
+|project| is likely to work correctly on your machine.

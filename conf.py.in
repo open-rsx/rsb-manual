@@ -53,6 +53,12 @@ rst_prolog = """
 .. |repository_versioned| replace::
    https://code.cor-lab.org/svn/rsb/branches/{version}
 
+.. |spread_python_tarball| replace::
+   http://www.spread.org/files/SpreadModule-1.5spread4.tgz
+
+.. |spread_tarball| replace::
+   http://www.spread.org/download/spread-src-4.1.0.tar.gz
+
 .. |package_names| replace::
    {package_names}
 
@@ -106,6 +112,9 @@ rst_prolog = """
 
 .. _boost: http://www.boost.org/
 .. _boost.uuid: http://www.boost.org/doc/libs/1_42_0/libs/uuid/uuid.html
+
+.. _apache ant: http://ant.apache.org/
+.. _javadoc: http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
 
 .. _lgplv3: http://www.gnu.org/licenses/lgpl.html
 
