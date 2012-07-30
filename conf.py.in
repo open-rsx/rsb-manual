@@ -48,10 +48,10 @@ rst_prolog = """
    RSB
 
 .. |repository| replace::
-   https://code.cor-lab.org/svn/rsb/
+   https://code.cor-lab.org/git/rsb.git
 
 .. |repository_versioned| replace::
-   https://code.cor-lab.org/svn/rsb/branches/{version}
+   "{version}" branch of https://code.cor-lab.org/git/rsb.git.
 
 .. |package_names| replace::
    {package_names}

@@ -75,11 +75,11 @@ From Source
    =========== =============================
    Language    Repository URL
    =========== =============================
-   C++         |repository_versioned|/cpp
-   Java        |repository_versioned|/java
-   Python      |repository_versioned|/python
-   Common Lisp |repository_versioned|/cl
-   Matlab      |repository_versioned|/matlab
+   C++         |repository_versioned| cpp
+   Java        |repository_versioned| java
+   Python      |repository_versioned| python
+   Common Lisp |repository_versioned| cl
+   Matlab      |repository_versioned| matlab
    =========== =============================
 
 #. Build and install an implementation
