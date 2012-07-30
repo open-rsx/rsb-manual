@@ -74,6 +74,12 @@ rst_prolog = """
 .. |logger_binary| replace::
    ``logger``
 
+.. |timesync| replace::
+   :program:`timesync`
+
+.. |timesync_binary| replace::
+   ``rsb_timesync``
+   
 .. |call| replace::
    :program:`call`
 
@@ -251,10 +257,11 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('info',   'info',   u'info Program',   [u'Jan Moringen'], 1),
-    ('logger', 'logger', u'logger Program', [u'Jan Moringen'], 1),
-    ('send',   'send',   u'send Progam',    [u'Jan Moringen'], 1),
-    ('call',   'call',   u'call Progam',    [u'Jan Moringen'], 1)
+    ('info',     'info',       u'info Program',                     [u'Jan Moringen'], 1),
+    ('logger',   'logger',     u'logger Program',                   [u'Jan Moringen'], 1),
+    ('send',     'send',       u'send Progam',                      [u'Jan Moringen'], 1),
+    ('call',     'call',       u'call Progam',                      [u'Jan Moringen'], 1),
+    ('timesync', 'timesync',   u'time-based event synchronizer',    [u'Johannes Wienke'], 1)
 ]
 
 # If true, show URL addresses after external links.
