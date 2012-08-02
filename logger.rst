@@ -188,9 +188,9 @@ Examples
 Implementations
 ===============
 
-======================= ============= ====================================== ===============
-Implementation Language Project       Repository Link                        Compiled Binary
-======================= ============= ====================================== ===============
-C++                     rsb-cpp-tools |repository_versioned|/cpp/tools       Artifacts of this Jenkins job
-Common Lisp             cl-rsb-tools  |repository_versioned|/cl/cl-rsb-tools Linux i686, Linux x86_64, MacOS x86_64
-======================= ============= ====================================== ===============
+======================= ============= ======================================
+Implementation Language Project       Repository Link
+======================= ============= ======================================
+C++                     rsb-tools-cpp |repository_versioned| rsb-tools-cpp
+Common Lisp             rsb-tools-cl  |repository_versioned| rsb-tools-cl
+======================= ============= ======================================

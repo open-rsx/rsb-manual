@@ -272,14 +272,14 @@ creating :term:`participant` s:
 Implementations
 ---------------
 
-=========== ==============================================
+=========== ===========================================
 Language    File(s)
-=========== ==============================================
+=========== ===========================================
 C++         *not yet implemented*
 Java        *not yet implemented*
 Python      *not yet implemented*
-Common Lisp |repository_versioned|/cl/cl-rsb/src/uris.lisp
-=========== ==============================================
+Common Lisp |repository_versioned| rsb-cl/src/uris.lisp
+=========== ===========================================
 
 Spread Transport
 ================
@@ -435,11 +435,11 @@ Example
 Implementations
 ---------------
 
-=========== ===================================================================
+=========== =======================================================================
 Language    File(s)
-=========== ===================================================================
-C++         |repository_versioned|/cpp/core/src/rsb/transport/socket
+=========== =======================================================================
+C++         |repository_versioned| rsb-cpp/src/rsb/transport/socket
 Java        *not yet implemented*
-Python      |repository_versioned|/python/core/rsb/transport/socket/__init__.py
-Common Lisp |repository_versioned|/cl/cl-rsb/src/transport/socket
-=========== ===================================================================
+Python      |repository_versioned| rsb-python/core/rsb/transport/socket/__init__.py
+Common Lisp |repository_versioned| rsb-cl/src/transport/socket
+=========== =======================================================================
