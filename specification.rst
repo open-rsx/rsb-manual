@@ -22,3 +22,8 @@ Transports
 
    specification-spread
    specification-socket
+
+.. toctree::
+   :maxdepth: 1
+
+   specification-multiple-transports
