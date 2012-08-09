@@ -269,3 +269,40 @@ TCP-socket-based Transport
      ``auto``: This process should try to determine whether there
      already is a TCP-socket-based server for the configured host-port
      combination and act as a server or client accordingly.
+
+ØMQ-based Transport
+
+  .. note::
+
+     This :term:`transport` is currently only available in the Common
+     Lisp implementations of |project|.
+
+  .. note::
+
+     All environment variables related to the `ØMQ`_ :term:`transport`
+     are of the form :samp:`RSB_TRANSPORT_ZMQ_{SUBTRANSPORT}_{THING}`
+     where :samp:`{SUBTRANSPORT}` is the name of a ØMQ transport such
+     as ``TCP`` or ``EPGM``. We use the placeholder ``SUBTRANSPORT``
+     below instead of enumerating all alternatives.
+
+  .. envvar:: RSB_TRANSPORT_ZMQ_SUBTRANSPORT_ENABLED
+
+     ``1``: enable ØMQ-based :term:`transport` for
+     :samp:`{SUBTRANSPORT}` in this process.
+
+     ``0``: disable the :term:`transport` in this process.
+
+  .. envvar:: RSB_TRANSPORT_ZMQ_SUBTRANSPORT_HOST
+
+     Passed to ØMQ. Meaning depends on :samp:`{SUBTRANSPORT}`,
+     i.e. the selected ØMQ transport, see ØMQ documentation.
+
+     Allowed values: a hostname or IP-address.
+
+  .. envvar:: RSB_TRANSPORT_ZMQ_SUBTRANSPORT_PORT
+
+     Passed to ØMQ. Meaning depends on :samp:`{SUBTRANSPORT}`,
+     i.e. the selected ØMQ transport, see ØMQ documentation.
+
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].
