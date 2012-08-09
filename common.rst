@@ -122,6 +122,35 @@ accepted by all tools:
 
       This option is only available in the Common Lisp implementation.
 
+.. _error-options:
+
+Error-handling-related Commandline Options
+==========================================
+
+.. option:: --on-error
+
+   Specifies the high-level policy for handling errors. Possible
+   policies are:
+
+   abort
+
+     Save and cleanup as much as possible, then terminate with
+     unsuccessful result indication.
+
+   continue
+
+     Try to recover from errors and produce best-effort results.
+
+     .. warning::
+
+        This policy should only be used when the ongoing execution of
+        some program is most important since it can lead to errors
+        being overlooked.
+
+   .. note::
+
+      This option is only available in the Common Lisp implementation.
+
 .. _idl-options:
 
 IDL-related Commandline Options
