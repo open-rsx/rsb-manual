@@ -137,24 +137,25 @@ Installation of RSBJava
 
    |repository_versioned|/java/core
 
-#. Invoke ``ant`` supplying build properties on the commandline or via
-   ``build.properties`` (see below)
+#. Invoke :program:`ant` supplying build properties on the commandline
+   or via file:`build.properties` (see below)
 
    The following properties are used to configure the build:
 
-   ==================  ===================================================================  ================================
-   Ant Property        Meaning                                                              Example
-   ==================  ===================================================================  ================================
-   ``env.prefix``      Location into which |project| should be installed                    ``/vol/cit/share``
-   ``pbuf.protoc``     Location of protocol buffer compiler (``protoc`` or ``protoc.exe``)  ``/usr/bin/protoc``
-   ``pbuf.protopath``  Location of |project| protocol IDL files (see TODO)                  ``/vol/cit/share/rsbprotocol``
-   ``pbuf.lib``        Location of Java protocol buffer runtime library                     ``/usr/share/java/protobuf.jar``
-   ``spread.daemon``   Location of :term:`Spread daemon` executable                         ``/vol/cit/sbin/spread``
-   ==================  ===================================================================  ================================
+   ==================  =================================================================================  ====================================
+   Ant Property        Meaning
+   Example
+   ==================  =================================================================================  ====================================
+   ``env.prefix``      Location into which |project| should be installed                                  :file:`/vol/cit/share`
+   ``pbuf.protoc``     Location of protocol buffer compiler (:program:`protoc` or :program:`protoc.exe`)  :file:`/usr/bin/protoc`
+   ``pbuf.protopath``  Location of |project| protocol IDL files (see TODO)                                :file:`/vol/cit/share/rsbprotocol`
+   ``pbuf.lib``        Location of Java protocol buffer runtime library                                   :file:`/usr/share/java/protobuf.jar`
+   ``spread.daemon``   Location of :term:`Spread daemon` executable                                       :file:`/vol/cit/sbin/spread`
+   ==================  =================================================================================  ====================================
 
-   All properties can be supplied on the ``ant`` commandline using the
-   :samp:`-D{NAME}={VALUE}` syntax or by creating a
-   ``build.properties`` file containing lines of the form
+   All properties can be supplied on the :program:`ant` commandline
+   using the :samp:`-D{NAME}={VALUE}` syntax or by creating a
+   :file:`build.properties` file containing lines of the form
    :samp:`{NAME} = {VALUE}`.
 
    An exemplary ``ant dist`` command, which builds the |project| jar
@@ -165,25 +166,26 @@ Installation of RSBJava
       $ ant -Dpbuf.protoc=/usr/bin/protoc               \
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
             -Dpbuf.lib=/usr/share/java/protobuf.jar     \
-            -Dspread.daemon=/vol/cit/sbin/spread dist
+            -Dspread.daemon=/vol/cit/sbin/spread        \
+            dist
 
-   The equivalent ``build.properties`` file looks like this:
+   The equivalent :file:`build.properties` file looks like this:
 
-   .. code-block:: sh
+   .. code-block:: ini
 
       pbuf.protoc = /usr/bin/protoc
       pbuf.protopath = /vol/cit/share/rsbprotocol
       pbuf.lib = /usr/share/java/protobuf.jar
       spread.daemon = /vol/cit/sbin/spread
 
-   In the presence of this file, the ``ant`` command reduces to ``ant
-   dist``.
+   In the presence of this file, the :program:`ant` command reduces to
+   ``ant dist``.
 
 #. Installation of Java archive
 
    To install |project| jars into the configured prefix (e.g., into
-   :samp:`{PREFIX}/share/java`), the following ``ant`` command can be
-   used:
+   :samp:`{PREFIX}/share/java`), the following :program:`ant` command
+   can be used:
 
    .. code-block:: sh
 
@@ -194,9 +196,9 @@ Testing the Installation
 
 The Java implementation of |project| comes with a set of unit tests,
 which you may use to check the compiled code. Executing the test suite
-is straightforward.  To do so, the following ``ant`` target needs to
-be invoked (please note that a :term:`Spread daemon` is automatically
-started by the ``ant`` script):
+is straightforward.  To do so, the following :program:`ant` target
+needs to be invoked (please note that a :term:`Spread daemon` is
+automatically started by the :program:`ant` script):
 
 .. code-block:: sh
 

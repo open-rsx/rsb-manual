@@ -82,13 +82,13 @@ rst_prolog = """
    ``tools``
 
 .. |system_config_file| replace::
-   ``/etc/rsb.conf``
+   :file:`/etc/rsb.conf`
 
 .. |user_config_file| replace::
-   ``~/.config/rsb.conf``
+   :file:`~/.config/rsb.conf`
 
 .. |pwd_config_file| replace::
-   ``$(pwd)/rsb.conf``
+   :file:`$(pwd)/rsb.conf`
 
 .. _continuous integration server: https://ci.cor-lab.org
 
@@ -104,11 +104,13 @@ rst_prolog = """
 
 .. _asdf: http://common-lisp.net/project/asdf/
 
+.. _slime: http://common-lisp.net/project/slime/
+
 .. _spread: http://www.spread.org
 
-.. _cmake: http://www.cmake.org/
-
 .. _git: http://git-scm.org
+
+.. _cmake: http://www.cmake.org/
 
 .. _google protocol buffers: http://code.google.com/p/protobuf/
 

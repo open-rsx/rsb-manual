@@ -99,7 +99,7 @@ the `CoR-Lab package repository
 <http://packages.cor-lab.de/ubuntu/dists/>`_.
 
 #. The following repository source line has to be added to
-   ``/etc/apt/sources.list``::
+   :file:`/etc/apt/sources.list`::
 
      deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
 
@@ -124,31 +124,33 @@ PyPI Packages
 -------------
 
 For Python, platform-independent packages are pushed to the central
-repository server and can be installed with ``pip`` or
-``easy_install``.
+repository server and can be installed with :program:`pip` or
+:program:`easy_install`.
 
 .. note::
 
-  ``pip`` is the recommended way of installing Python packages since
-  some time and perferred over ``easy_install``. On |ubuntu| systems,
-  ``pip`` can be installed via the package ``python-pip``.
+  :program:`pip` is the recommended way of installing Python packages
+  since some time and preferred over :program:`easy_install`. On
+  |ubuntu| systems, :program:`pip` can be installed via the package
+  ``python-pip``.
 
 .. note::
 
    The Python implementation of |project| is currently only available
    for Python 2.X. If the default Python version on your system is
-   Python 3, ensure that you call the respective ``easy_install`` or
-   ``pip`` version. These usually contain the Python version as a
-   suffix to the name, e.g.: ``easy_install-2.7``.
+   Python 3, ensure that you call the respective
+   :program:`easy_install` or :program:`pip` version. These usually
+   contain the Python version as a suffix to the name, e.g.:
+   ``easy_install-2.7``.
 
 #. The installation of the Python implementation of |project| requires
-   the `Google Protocol Buffers`_ compiler (``protoc``) on your
-   system. Before starting the installation, install ``protoc`` and
-   ensure that this binary can be found from the ``PATH`` environment
-   variable.
+   the `Google Protocol Buffers`_ compiler (:program:`protoc`) on your
+   system. Before starting the installation, install :program:`protoc`
+   and ensure that this binary can be found from the :envvar:`PATH`
+   environment variable.
 
-#. Depending on whether ``pip`` or ``easy_install`` is used do one
-   of the following
+#. Depending on whether :program:`pip` or :program:`easy_install` is
+   used do one of the following
 
    .. code-block:: sh
 
@@ -163,7 +165,7 @@ repository server and can be installed with ``pip`` or
       These commands will install rsb-python for the whole system and
       require root permissions. If you only want to install rsb-python
       for your local user, add the ``--user`` option to the call of
-      ``easy_install`` or ``pip install``.
+      :program:`easy_install` or ``pip install``.
 
 #. If you plan to use the :term:`Spread` :term:`transport`, you need
    to additionally install the Python :term:`Spread` module which is
@@ -184,14 +186,16 @@ Troubleshooting
 
 #. Problem *(applies to C++, Python)*
 
-     Communication over spread does not work anymore. Spread settings are ignored.
+     Communication over :term:`spread` does not work
+     anymore. :term:`Spread` settings are ignored.
 
    Solution
 
      Starting with version 0.7, |project| uses a :term:`transport`
-     that implements a custom TPC-based protocol to facilitate
-     the easy use of the framework without dependencies on 3rd party
-     libraries. In order to use to the old spread transport the
+     that implements a :ref:`custom TPC-based protocol
+     <specification-socket>` to facilitate the easy use of the
+     framework without dependencies on 3rd party libraries. In order
+     to use to the old :term:`Spread` :term:`transport` the
      configuration needs to be changed.
 
      This can be changed in three ways:
@@ -221,8 +225,9 @@ Troubleshooting
 
      #. For the current shell
 
-        Set and export :ref:`environment variables
-        <common-environment-variables>` as follows:
+        Set and export :envvar:`RSB_TRANSPORT_SPREAD_ENABLED` and
+        :envvar:`RSB_TRANSPORT_SOCKET_ENABLED` :ref:`environment
+        variables <common-environment-variables>` as follows:
 
         .. code-block:: sh
 
@@ -231,13 +236,15 @@ Troubleshooting
 
 #. Problem *(applies to C++,Common Lisp,Python)*
 
-     How can I configure the TCP-based transport?
+     How can I :ref:`configure <configuration>` the TCP-based
+     :term:`transport`?
 
    Solution
 
-     The TCP-based transport can be configured locally or globally by
-     placing the following content in |system_config_file|,
-     |user_config_file| or |pwd_config_file|:
+     The TCP-based :term:`transport` can be :ref:`configured
+     <configuration>` locally or globally by placing the following
+     content in |system_config_file|, |user_config_file| or
+     |pwd_config_file|:
 
      .. code-block:: ini
 
@@ -248,7 +255,7 @@ Troubleshooting
         server  = auto
 
      :samp:`{HOSTNAME}` can be ``localhost`` (if all processes are
-     going to run on the same node), a host name of an IP address.
+     going to run on the same node), a hostname or an IP address.
 
      .. note::
 
@@ -323,6 +330,6 @@ Troubleshooting
 
    Solution
 
-     Place one of the mentioned :term:`Spread` libraries on the system
-     library search path or set :envvar:`LD_LIBRARY_PATH`
-     appropriately.
+     Place one of the mentioned :term:`Spread` libraries (typically
+     :file:`libspread.so.2.0`) on the system library search path or
+     set :envvar:`LD_LIBRARY_PATH` appropriately.

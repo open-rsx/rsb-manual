@@ -93,10 +93,9 @@ accepted by all tools:
 
 .. option:: --swank
 
-   Start a `swank <http://common-lisp.net/project/slime/>`_
-   listener. Swank will print the port it listens on. In addition, a
-   file named ``./swank-port.txt`` containing the port number is
-   written.
+   Start a `slime`_ listener. Swank will print the port it listens
+   on. In addition, a file named :file:`./swank-port.txt` containing
+   the port number is written.
 
    .. note::
 
