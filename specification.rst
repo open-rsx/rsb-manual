@@ -27,3 +27,11 @@ Transports
    :maxdepth: 1
 
    specification-multiple-transports
+
+Higher-Level Communication Patterns
+===================================
+
+.. toctree::
+   :maxdepth: 1
+
+   specification-request-reply
