@@ -6,6 +6,10 @@
 
 .. glossary::
 
+   causal vector
+
+     See :ref:`event`.
+
    channel
 
      A communication domain :term:`participant` s of which exchange

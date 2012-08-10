@@ -48,6 +48,9 @@ rst_prolog = """
 .. |spread_tarball| replace::
    http://www.spread.org/download/spread-src-4.1.0.tar.gz
 
+.. |documentation_root| replace::
+   @DOCUMENTATION_ROOT_DIR@
+
 .. |package_names| replace::
    {package_names}
 
@@ -87,6 +90,12 @@ rst_prolog = """
 .. |pwd_config_file| replace::
    ``$(pwd)/rsb.conf``
 
+.. _continuous integration server: https://ci.cor-lab.org
+
+.. _repository server: http://packages.cor-lab.org
+
+.. _issue tracker: https://code.cor-lab.org/projects/rsb/issues
+
 .. _sbcl: http://sbcl.org
 
 .. _common lisp: http://common-lisp.org
@@ -98,6 +107,8 @@ rst_prolog = """
 .. _spread: http://www.spread.org
 
 .. _cmake: http://www.cmake.org/
+
+.. _git: http://git-scm.org
 
 .. _google protocol buffers: http://code.google.com/p/protobuf/
 
