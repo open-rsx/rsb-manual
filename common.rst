@@ -303,3 +303,77 @@ TCP-socket-based Transport
      latency for (potentially) decreased throughput.
 
      ``0``: The ``TCP_NODELAY`` flag should not be used.
+
+TCP `YARP`_ Transport
+
+  .. seealso::
+
+     :ref:`specification-tcpyarp`
+        Details about the `YARP`_ :term:`transport` **without**
+        nameservice operations
+
+  .. note::
+
+     This :term:`transport` is currently available in the C++ and
+     Common Lisp implementations of |project|.
+
+  .. note::
+
+     The URL schema for this :term:`transport` is ``tcp+yarp`` which
+     is mapped to ``TCP_YARP`` (note the underscore) in environment
+     variable names.
+
+  .. envvar:: RSB_TRANSPORT_TCP_YARP_ENABLED
+
+     ``1``: enable low-level TCP `YARP`_ :term:`transport` in this
+     process.
+
+     ``0``: disable the :term:`transport` in this process.
+
+  .. envvar:: RSB_TRANSPORT_TCP_YARP_HOST
+
+     Name or IP-address of the `YARP`_ port to which a connection
+     should be established.
+
+     Allowed values: a hostname or IP-address.
+
+  .. envvar:: RSB_TRANSPORT_TCP_YARP_PORT
+
+     TCP port of the `YARP`_ port to which a connection should be
+     established.
+
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].
+
+`YARP`_ Transport with Nameservice Lookup
+
+  .. seealso::
+
+     :ref:`specification-yarp-nameservice`
+        Details about the `YARP`_ :term:`transport` **with**
+        nameservice operations
+
+  .. note::
+
+     This :term:`transport` is currently only available in the Common
+     Lisp implementations of |project|.
+
+  .. envvar:: RSB_TRANSPORT_YARP_ENABLED
+
+     ``1``: enable `YARP`_ :term:`transport` with nameservice lookup
+     in this process.
+
+     ``0``: disable the :term:`transport` in this process.
+
+  .. envvar:: RSB_TRANSPORT_YARP_HOST
+
+     Name or IP-address of the `YARP`_ **nameserver**.
+
+     Allowed values: a hostname or IP-address.
+
+  .. envvar:: RSB_TRANSPORT_YARP_PORT
+
+     TCP port on which the `YARP`_ **nameserver** listens.
+
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].

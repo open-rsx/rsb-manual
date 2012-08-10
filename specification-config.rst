@@ -42,6 +42,12 @@ Name-value Pairs
    :ref:`Specification of TCP-socket-based Transport <specification-socket-options>`
      Options accepted by the TCP-socket-based :term:`transport`.
 
+   :ref:`Specification of TCP+YARP Transport <specification-tcpyarp-options>`
+     Options accepted by TCP+YARP :term:`transport`.
+
+   :ref:`Specification of YARP Transport <specification-yarp-nameservice-options>`
+     Options accepted by YARP :term:`transport`.
+
 Option names consist of multiple components which are specified in
 configuration-source-dependent syntax. For example, in `configuration
 files`_ section names like ``[transport.spread]`` are concatenated

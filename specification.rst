@@ -43,6 +43,8 @@ There are two kinds of :term:`transport` implementations in |project|:
    .. toctree::
       :maxdepth: 1
 
+      specification-yarp
+
 Other :term:`transport`-related topics:
 
 .. toctree::
