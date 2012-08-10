@@ -194,15 +194,15 @@ In-process Transport
 
   .. envvar:: RSB_TRANSPORT_INPROCESS_ENABLED
 
-     ``1``: enable in-process :term:`transport` in this process; ``0``:
-     disabled in-process :term:`transport` in this process.
+     ``1``: enable in-process :term:`transport` in this process;
+     ``0``: disable in-process :term:`transport` in this process.
 
 Spread Transport
 
   .. envvar:: RSB_TRANSPORT_SPREAD_ENABLED
 
      ``1``: enable :term:`Spread` :term:`transport` in this process;
-     ``0``: disabled :term:`Spread` :term:`transport` in this process.
+     ``0``: disable :term:`Spread` :term:`transport` in this process.
 
   .. envvar:: RSB_TRANSPORT_SPREAD_HOST
 
@@ -217,8 +217,9 @@ TCP-socket-based Transport
 
   .. envvar:: RSB_TRANSPORT_SOCKET_ENABLED
 
-     ``1``: enable TCP-socket-based :term:`transport` in this process; ``0``:
-     disabled TCP-socket-based :term:`transport` in this process.
+     ``1``: enable TCP-socket-based :term:`transport` in this process;
+     ``0``: disable TCP-socket-based :term:`transport` in this
+     process.
 
   .. envvar:: RSB_TRANSPORT_SOCKET_HOST
 
