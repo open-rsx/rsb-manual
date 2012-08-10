@@ -15,6 +15,16 @@ on top of ordinary TCP sockets:
   :term:`participant` s. Within a process, the :term:`participant` s
   share a connection.
 
+Schema
+------
+
+.. seealso::
+
+   :ref:`specification-uris`
+     Use of URIs in |project|.
+
+The TCP-socket-based :term:`transport` uses the ``tcp`` URI schema.
+
 Addresses and Ports
 -------------------
 

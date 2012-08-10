@@ -4,6 +4,16 @@
  Spread Transport
 ==================
 
+Schema
+------
+
+.. seealso::
+
+   :ref:`specification-uris`
+     Use of URIs in |project|.
+
+The :term:`Spread` :term:`transport` used the ``spread`` URI schema.
+
 Implementations
 ---------------
 
