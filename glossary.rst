@@ -8,7 +8,10 @@
 
    causal vector
 
-     See :ref:`event`.
+     A list of references to :term:`event` s (via their :term:`event
+     id` s) which caused a given :term:`event`.
+
+     See :ref:`event` for more.
 
    channel
 
@@ -56,7 +59,15 @@
 
    event
 
-     See :ref:`event`.
+     For events in |project|, see :ref:`event`.
+
+     See [Luckham2001PEI]_ for a general treatment.
+
+   event id
+
+     Unique identifier of an :ref:`event`.
+
+     See :ref:`event` for more.
 
    filter
 
@@ -140,6 +151,8 @@
      Mechanism for transporting :term:`notification` s from their
      origin to their destinations. Most transports correspond to a
      network protocol.
+
+     See :ref:`specification-transports`.
 
    wire schema
 
