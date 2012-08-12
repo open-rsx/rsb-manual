@@ -67,10 +67,25 @@
 
      A kind of :term:`participant` which publishes :term:`event` s.
 
+   handler
+
+     A piece of client code attached to a :term:`listener` which is
+     called by |project| to process received :term:`event` s.
+
    listener
 
      A kind of :term:`participant` which (asynchronously) receives
      :term:`event` s.
+
+   method field
+
+     A data field in |project| :term:`event` s which specifies the
+     role of a given :term:`event` within a communication pattern. For
+     example, the :ref:`request/reply communication pattern
+     <specification-request-reply>` uses the values ``REQUEST`` and
+     ``REPLY``.
+
+     See :ref:`event` for more.
 
    notification
 
