@@ -47,7 +47,7 @@ Basic Communication
 Creating an Informer and Sending Data
 -------------------------------------
 
-.. literalinclude:: /../python/core/examples/informer.py
+.. literalinclude:: /../rsb-python/examples/informer.py
    :language: python
    :lines:    24-
    :linenos:
@@ -55,7 +55,7 @@ Creating an Informer and Sending Data
 Creating a Listener and Receiving Data
 --------------------------------------
 
-.. literalinclude:: /../python/core/examples/listener.py
+.. literalinclude:: /../rsb-python/examples/listener.py
    :language: python
    :lines:    24-
    :linenos:
@@ -63,20 +63,20 @@ Creating a Listener and Receiving Data
 RPC Communication
 -----------------
 
-.. literalinclude:: /../python/core/examples/client.py
+.. literalinclude:: /../rsb-python/examples/client.py
    :language: python
    :lines:    24-
    :linenos:
-.. literalinclude:: /../python/core/examples/server.py
+.. literalinclude:: /../rsb-python/examples/server.py
    :language: python
    :lines:    24-
    :linenos:
 
-.. literalinclude:: /../cl/cl-rsb/examples/client.lisp
+.. literalinclude:: /../rsb-cl/examples/client.lisp
    :language: cl
    :lines:    25-
    :linenos:
-.. literalinclude:: /../cl/cl-rsb/examples/server.lisp
+.. literalinclude:: /../rsb-cl/examples/server.lisp
    :language: cl
    :lines:    25-
    :linenos:
