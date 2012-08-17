@@ -13,6 +13,7 @@ systems in diverse environments.
    news
    concepts
    preparation
+   troubleshooting
    tutorial
    tools
    specification
