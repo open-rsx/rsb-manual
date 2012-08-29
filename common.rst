@@ -377,3 +377,74 @@ TCP `YARP`_ Transport
 
      Allowed values: a port number, i.e. an integer in the range [1,
      65535].
+
+TCP ROS Transport
+
+  .. seealso::
+
+     :ref:`specification-tcpros`
+        Details about the `ROS`_ :term:`transport` **without**
+        nameservice (aka master) operations
+
+  .. note::
+
+     This :term:`transport` is currently available in the Common Lisp
+     implementation of |project|.
+
+  .. note::
+
+     The URL schema for this transport is ``tcp+ros`` which is mapped
+     to ``TCP_ROS`` (note the underscore) in environment variable
+     names.
+
+  .. envvar:: RSB_TRANSPORT_TCP_ROS_ENABLED
+
+     ``1``: enable low-level TCP `ROS`_ :term:`transport` in this
+     process; ``0``: disable the :term:`transport` in this process.
+
+  .. envvar:: RSB_TRANSPORT_TCP_ROS_HOST
+
+     Name or IP-address of the `ROS`_ node to which a connection
+     should be established.
+
+     Allowed values: a hostname or IP-address.
+
+  .. envvar:: RSB_TRANSPORT_TCP_ROS_PORT
+
+     TCP port of the `ROS`_ node to which a connection should be
+     established.
+
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].
+
+ROS Transport with Nameservice Lookup
+
+  .. seealso::
+
+     :ref:`specification-ros-nameservice`
+        Details about the `ROS`_ :term:`transport` **with**
+        nameservice (aka master) operations
+
+  .. note::
+
+     This :term:`transport` is currently only available in the Common
+     Lisp implementations of |project|.
+
+  .. envvar:: RSB_TRANSPORT_ROS_ENABLED
+
+     ``1``: enable `ROS`_ :term:`transport` with nameservice lookup in
+     this process; ``0``: disable the :term:`transport` in this
+     process.
+
+  .. envvar:: RSB_TRANSPORT_ROS_HOST
+
+     Name or IP-address of the `ROS`_ **master**.
+
+     Allowed values: a hostname or IP-address.
+
+  .. envvar:: RSB_TRANSPORT_ROS_PORT
+
+     TCP port on which the `ROS`_ **master** listens.
+
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].

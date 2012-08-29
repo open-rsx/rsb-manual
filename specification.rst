@@ -44,6 +44,7 @@ There are two kinds of :term:`transport` implementations in |project|:
       :maxdepth: 1
 
       specification-yarp
+      specification-ros
 
 Other :term:`transport`-related topics:
 

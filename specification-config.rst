@@ -48,6 +48,12 @@ Name-value Pairs
    :ref:`Specification of YARP Transport <specification-yarp-nameservice-options>`
      Options accepted by YARP :term:`transport`.
 
+   :ref:`Specification of TCP+ROS Transport <specification-tcpros-options>`
+     Options accepted by TCP+ROS :term:`transport`.
+
+   :ref:`Specification of ROS Transport <specification-ros-nameservice-options>`
+     Options accepted by ROS :term:`transport`.
+
 Option names consist of multiple components which are specified in
 configuration-source-dependent syntax. For example, in `configuration
 files`_ section names like ``[transport.spread]`` are concatenated
