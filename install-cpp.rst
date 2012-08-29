@@ -52,13 +52,13 @@ Installation of Dependencies on Debian-based Systems
 .. code-block:: sh
 
    $ sudo apt-get install libprotobuf-dev protobuf-compiler build-essential libboost-dev
-   
-   
+
+
 Installation of Dependencies on MacOS using Homebrew
 ----------------------------------------------------
 
-For installing RSB and its dependencies from source on Darwin, 
-we recommend to use `Homebrew <http://mxcl.github.com/homebrew/>`_, 
+For installing RSB and its dependencies from source on Darwin,
+we recommend to use `Homebrew <http://mxcl.github.com/homebrew/>`_,
 an easy-to-use package manager for MacOS.
 
 .. code-block:: sh
@@ -68,11 +68,11 @@ an easy-to-use package manager for MacOS.
 Installation of the Spread Toolkit
 ----------------------------------
 
-`The Spread Toolkit <http://www.spread.org/>`_, a group communication framework 
-for reliable multicast communication, is a powerful transport layer which is natively supported in RSB. 
-To install Spread, source archives are available after registration for download 
-`here <http://www.spread.org/download/spread-src-4.1.0.tar.gz>`_. Installation of the Spread Toolkit 
-is straightforward on MacOS and Linux as it has no external dependencies and comes with a standard 
+`The Spread Toolkit <http://www.spread.org/>`_, a group communication framework
+for reliable multicast communication, is a powerful transport layer which is natively supported in RSB.
+To install Spread, source archives are available after registration for download
+`here <http://www.spread.org/download/spread-src-4.1.0.tar.gz>`_. Installation of the Spread Toolkit
+is straightforward on MacOS and Linux as it has no external dependencies and comes with a standard
 configuration script.
 
 .. note::
@@ -95,11 +95,11 @@ Installation of RSC, RSBProtocol and |project|
    Subversion repository
 
    RSC
-     https://code.cor-lab.org/svn/rsc/trunk/rsc
+     https://code.cor-lab.org/git/rsc.git
    |project| Protocol
-     |repository_versioned|/protocol
+     |repository_versioned|/rsb-protocol
    |project| C++
-     |repository_versioned|/cpp/core
+     |repository_versioned|/rsb-cpp
 
 
 #. Build and install the |project| C++ core and its dependencies in
