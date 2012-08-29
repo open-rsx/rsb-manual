@@ -211,3 +211,43 @@ Solution
      :term:`listener` only receives expected :term:`event` s, it may
      be missing a suitable converter. This problem can be solved by
      registering a suitable :term:`converter`.
+
+.. _polymorphic-informers:
+
+Polymorphic Informers
+=====================
+
+Problem *(applies to C++)*
+
+  I thought it is possible, to send different :term:`data type` s
+  through the same :term:`informer`. However, I get this error (also
+  using ``InformerBase``)::
+
+    terminate called after throwing an instance of 'std::invalid_argument'
+    what(): Specified event type PAYLOAD-TYPE does not match informer type INFORMER-TYPE.
+    Aborted (core dumped)
+
+  .. note::
+
+     In the actual error message, :samp:`{PAYLOAD-TYPE}` and
+     :samp:`{INFORMER-TYPE}` would be the :term:`data type` of the
+     :term:`payload` attempted to send and the specified :term:`data
+     type` of the :term:`informer` respectively.
+
+Solution
+
+  This can be achieved by specifying the pseudo-type ``rsb::AnyType``
+  as the :term:`data type` of the created :term:`informer`:
+
+  .. literalinclude:: /../rsb-cpp/examples/informer/anyInformer.cpp
+     :language:        c++
+     :lines:           49-57
+     :emphasize-lines: 51-21
+     :linenos:
+
+.. note::
+
+   In all other |project| implementations, this kind of
+   :term:`informer` can be created by specifying a builtin supertype
+   such as ``Object`` (Java), ``object`` (Python) or ``t`` (Common
+   Lisp) as the :term:`data type` of the :term:`informer`.
