@@ -82,8 +82,12 @@ commandline options:
       the ``:columns`` argument and quantity columns used in the
       ``columns`` and ``statistics`` styles.
 
-   See :ref:`formatting` for a detailed discussion of :term:`event`
-   formatting options.
+   .. only:: html
+
+      .. seealso::
+
+         :ref:`formatting`
+           For a detailed discussion of :term:`event` formatting options.
 
 Examples
 ========

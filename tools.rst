@@ -13,10 +13,17 @@
    call
    timesync
 
+   formatting
+
 .. seealso::
 
    :ref:`common`
-     For a description of common options accepted by more than one program.
+     For a description of common options accepted by more than one
+     program.
+
+   :ref:`formatting`
+     For a description of formatting of :term:`event` s in tools such
+     as :ref:`logger <logger>` or :ref:`call <call>`.
 
 The following tools are available:
 
