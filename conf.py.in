@@ -130,7 +130,7 @@ rst_prolog = """
    Ubuntu GNU/Linux
 """.format(version       = version,
            release       = release,
-           package_names = 'rsb{version} rsb-tools-cpp{version} rsb-tools-cl{version}'.format(version = version))
+           package_names = 'librsb{version} cl-rsb rsb-tools-cpp{version} rsb-tools-cl{version}'.format(version = version))
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
