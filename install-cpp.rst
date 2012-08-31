@@ -91,15 +91,15 @@ configuration script.
 Installation of RSC, RSBProtocol and |project|
 ==============================================
 
-#. Checkout |project| and its immediate dependencies from the
-   Subversion repository
+#. Clone |project| and its immediate dependencies from the `git`_
+   repository
 
    RSC
-     https://code.cor-lab.org/git/rsc.git
+     "|version|" branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
-     |repository_versioned|/rsb-protocol
+     |repository_versioned| protocol
    |project| C++
-     |repository_versioned|/rsb-cpp
+     |repository_versioned| cpp
 
 
 #. Build and install the |project| C++ core and its dependencies in
@@ -109,19 +109,17 @@ Installation of RSC, RSBProtocol and |project|
 
       .. code-block:: sh
 
-         $ cd rsc/build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix \
-                 ..
-         $ make
+         $ cd rsc
+         $ mkdir -p build && cd build
+         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
          $ make install
    #. Install |project| Protocol Definitions
 
       .. code-block:: sh
 
-         $ cd protocol/build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix \
-                 ..
-         $ make
+         $ cd rsb.git.protocol
+         $ mkdir -p build && cd build
+         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
          $ make install
 
       .. note::
@@ -129,27 +127,25 @@ Installation of RSC, RSBProtocol and |project|
          These protocol definitions are shared across programming
          languages.
 
-   #. Build and install |project| C++ Core
+   #. Build and install the C++ implementation of |project|
 
       .. code-block:: sh
 
-         $ cd core/build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix \
-                 -DRSC_DIR=$prefix/share/rsc    \
-                 ..
-         $ make
+         $ cd rsb.git.cpp
+         $ mkdir -p build && cd build
+         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
          $ make install
 
    .. important::
 
       The commands above only work, if all projects are installed into
-      a common prefix (i.e. :samp:`{$prefix}`). Otherwise, locations of
-      required dependencies have to be specified explicitly. For
+      a common prefix (i.e. :samp:`{$prefix}`). Otherwise, locations
+      of required dependencies have to be specified explicitly. For
       example:
 
       .. code-block:: sh
 
          $ cmake -DCMAKE_INSTALL_PREFIX=/opt/rsb                          \
                  -DRSC_DIR=/opt/rsc/share/rsc                             \
-                 -DRSB_PROTOCOL_DIR=/opt/rsb-prototcol/share/rsb-protocol
+                 -DRSB_PROTOCOL_DIR=/opt/rsb-prototcol/share/rsb-protocol \
                  ..

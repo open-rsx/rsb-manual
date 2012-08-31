@@ -98,29 +98,27 @@ Installation of RSC and RSBProtocol
 #. Obtain the source code:
 
    RSC
-     https://code.cor-lab.org/svn/rsc/trunk/rsc
+     "0.8" branch of https://code.cor-lab.org/git/rsc.git
 
    |project| Protocol
-     |repository_versioned|/protocol
+     |repository_versioned| protocol
 
 #. Build and install RSC Library
 
    .. code-block:: sh
 
-      $ cd rsc/build
-      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX \
-              ..
-      $ make
+      $ cd rsc
+      $ mkdir -p build && cd build
+      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX ..
       $ make install
 
 #. Install |project| Protocol Definitions
 
    .. code-block:: sh
 
-      $ cd protocol/build
-      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX \
-              ..
-      $ make
+      $ cd rsb.git.protocol
+      $ mkdir -p build && cd build
+      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX ..
       $ make install
 
    .. note::
@@ -135,7 +133,7 @@ Installation of RSBJava
 #. Checkout |project| and its immediate dependencies from the
    Subversion repository
 
-   |repository_versioned|/java/core
+   |repository_versioned| rsb-java
 
 #. Invoke :program:`ant` supplying build properties on the commandline
    or via file:`build.properties` (see below)
