@@ -36,8 +36,7 @@ This |project| release is available in the following forms:
 These can be downloaded from the `0.7 jobs continuous integration
 server <https://ci.cor-lab.org/view/rsb-0.7>`_ or `repository server`_
 respectively.  :ref:`Installation instructions <install>` and links
-for downloading can be found on the :ref:`preparation page
-<preparation>` of the |project| :ref:`manual <rsb>`.
+for downloading can be found in the |project| :ref:`manual <rsb>`.
 
 Changes
 

@@ -12,7 +12,7 @@ systems in diverse environments.
 
    news
    concepts
-   preparation
+   install
    troubleshooting
    tutorial
    tools
