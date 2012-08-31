@@ -4,11 +4,8 @@
  Installing the C++ Implementation of |project|
 ================================================
 
-Prerequisites
-=============
-
 Supported Operating Systems and Compilers
------------------------------------------
+=========================================
 
 * Linux (GCC 4.x)
 * MacOS (GCC 4.x, LLVM/clang 3.1)
@@ -17,34 +14,34 @@ Supported Operating Systems and Compilers
 
 Other combinations may be possible but are currently untested.
 
+Dependencies
+============
+
 Required Dependencies
--------------------------
 
-* `Boost`_, Version 1.38 or newer
-* `Boost.UUID`_
+  * `Boost`_, Version 1.38 or newer
+  * `Boost.UUID`_
 
-  * Header-only library
-  * Included in `Boost`_ since version 1.42
-  * Headers from this version can be used with all older versions of
-    `Boost`_
-* `Google Protocol Buffers`_
+    * Header-only library
+    * Included in `Boost`_ since version 1.42
+    * Headers from this version can be used with all older versions of
+      `Boost`_
+  * `Google Protocol Buffers`_
 
-  * |ubuntu| (Lucid) packages (``libprotobuf-dev``,
-    ``protobuf-compiler``) are ok
-* `Spread`_, Version 4.0 or newer
+    * |ubuntu| (Lucid) packages (``libprotobuf-dev``,
+      ``protobuf-compiler``) are ok
+  * `Spread`_, Version 4.0 or newer
 
-  * The |ubuntu| (Lucid) package does **not** work (since it contains
-    the outdated version 3)
-* `CMake`_, Version 2.8 or newer
+    * The |ubuntu| (Lucid) package does **not** work (since it contains
+      the outdated version 3)
+  * `CMake`_, Version 2.8 or newer
 
-Optional Dependencies
----------------------
+Optional Dependencies (building without these is possible, but some
+features will be missing)
 
-Building without these is possible, but some features will be missing.
-
-* `Doxygen`_ for generation of API documentation
-* `Lcov`_ for code coverage analysis
-* `cppcheck`_ for static code analysis
+  * `Doxygen`_ for generation of API documentation
+  * `Lcov`_ for code coverage analysis
+  * `cppcheck`_ for static code analysis
 
 Installation of Dependencies on Debian-based Systems
 ----------------------------------------------------

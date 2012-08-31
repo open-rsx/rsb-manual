@@ -4,23 +4,22 @@
  Installing the Java Implementation of |project|
 ================================================
 
-Prerequisites
-=============
-
 Supported Java Version
-----------------------
+======================
 
 * Oracle Java Platform, Standard Edition 6
 
 Other Java platform SDKs may be applicable but are currently untested.
 
+Dependencies
+============
+
 Required Dependencies
----------------------
 
 * `Google Protocol Buffers`_
 
-  * |ubuntu| (Lucid) packages (``libprotobuf-dev``,
-    ``protobuf-compiler``) are ok
+  * |ubuntu| (Lucid) packages (``libprotobuf-java``,
+    ``protobuf-compiler``) are OK
 
 * `Apache Ant`_
 
@@ -28,44 +27,41 @@ Required Dependencies
 
   * Version 4.0 or newer to utilize the :term:`Spread`
     :term:`transport`
-  * The |ubuntu| (Lucid) package does **not** work (since it contains
-    the outdated version 3)
+  * The |ubuntu| (Lucid) package does **not** work (since it
+    contains the outdated version 3)
 
 * `CMake`_, version 2.8 or newer for |project| protocol compilation
 
-Optional Dependencies
----------------------
-
-Building without these is possible, but some features will be missing.
+Optional Dependencies (building without these is possible, but some
+features will be missing)
 
 * `Javadoc`_
 
-.. note::
+.. important::
 
-  The Java implementation of |project| depends on |project|'s language
-  independent network protocol specification. This specification is
-  maintained in the |project| protocol sub-project. This project and
-  its transitive dependencies (except Spread) should already be
-  installed on your system if you followed the :ref:`C++ installation
-  guidelines <install-cpp>` . If the C++ implementation of |project|
-  is already installed, you can skip the section `Installation of
-  Dependencies on Debian-based Systems`_ and proceed to the
-  `Installation of RSBJava`_ section.
-
+   The Java implementation of |project| depends on |project|'s
+   language independent network protocol specification. This
+   specification is maintained in the |project| protocol
+   sub-project. This project and its transitive dependencies should
+   already be installed on your system if you followed the :ref:`C++
+   installation guidelines <install-cpp>` . If the C++ implementation
+   of |project| is already installed, you can skip the section
+   `Installation of Dependencies on Debian-based Systems`_ and proceed
+   to the `Installation of RSBJava`_ section.
 
 Installation of Dependencies on Debian-based Systems
 ----------------------------------------------------
 
 .. code-block:: sh
 
-   $ sudo apt-get install libprotobuf-dev protobuf-compiler build-essential cmake
+   $ sudo apt-get install libprotobuf-java protobuf-compiler build-essential cmake
 
 Installation of Dependencies on MacOS using Homebrew
 ----------------------------------------------------
 
 For installing |project| and its dependencies from source on Darwin,
-we recommend to use `Homebrew <http://mxcl.github.com/homebrew/>`_, an
-easy-to-use package manager for MacOS.
+we recommend to use `Homebrew`_, an easy-to-use package manager for
+MacOS.
 
 .. code-block:: sh
 

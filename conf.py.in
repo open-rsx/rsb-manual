@@ -112,6 +112,8 @@ rst_prolog = """
 
 .. _cmake: http://www.cmake.org/
 
+.. _homebrew: http://mxcl.github.com/homebrew/
+
 .. _google protocol buffers: http://code.google.com/p/protobuf/
 
 .. _Doxygen: http://www.doxygen.nl/
