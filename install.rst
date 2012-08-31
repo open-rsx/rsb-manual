@@ -10,10 +10,11 @@ following ways :
 * :ref:`From source <install-from-source>`
 * :ref:`Debian packages <install-debian>`
 * :ref:`PyPi package (Python implementation) <install-pypi>`
+* :ref:`Homebrew (C++ implementation) <install-homebrew>`
 * :ref:`Binary downloads <install-binary-download>` (only for :ref:`tools <tools>`)
 
 .. _install-from-source:
-  
+
 From Source
 ===========
 
@@ -41,7 +42,7 @@ From Source
      install-java
 
 .. _install-debian:
-     
+
 Debian Packages
 ===============
 
@@ -73,7 +74,7 @@ the `CoR-Lab package repository
    <https://support.cor-lab.org/projects/ciserver/wiki/RepositoryUsage>`_.
 
 .. _install-pypi:
-   
+
 PyPI Packages
 =============
 
@@ -128,8 +129,27 @@ repository server and can be installed with :program:`pip` or
    :term:`Spread` version 4. You need to compile this module on your
    own.
 
+.. _install-homebrew:
+
+Homebrew
+========
+
+.. code-block:: sh
+
+   $ brew tap swrede/homebrew-formulas
+   $ brew install rsb
+
+If the formula conflicts with one from ``mxcl/master`` or another tap,
+you can ``brew install swrede/homebrew-formulas/<formula>``.
+
+You can also install via URL:
+
+.. code-block:: sh
+
+   $ brew install https://raw.github.com/swrede/homebrew-formulae/master/rsb.rb
+
 .. _install-binary-download:
-   
+
 Binary Downloads of Tools
 =========================
 
