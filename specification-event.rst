@@ -26,11 +26,44 @@ s consist of the following components:
 | cause vector           | set of EventIds                                                      | see below                     | no             |
 +------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
 
-The id component of an :term:`event` is derived from the sequence
-number of the :term:`event` and the id of the :term:`participant` that
-sent the :term:`event` as follows:
+.. _specification-sequence-number:
 
-#. Construct a string representation of the sequence number
+Sequence Number
+---------------
+
+:term:`Event` sequence numbers are 32-bit unsigned integers which
+indicate the order of :term:`event` s published by a particular
+:term:`informer`. Sequence numbers start at 0 corresponding to the
+first :term:`event` and are incremented by 1 for each subsequent
+:term:`event`. Sequence numbers wrap around to 0 at 4294967296 (that
+is, the largest sequence number is 4294967295).
+
+.. important::
+
+   :term:`Participant` s which receive :term:`event` s cannot
+   generally rely on
+
+   #. receiving *all* :term:`event` s (according to :term:`sequence
+      number` s) published by a particular :term:`informer`. This
+      assumption may hold, however, if the :term:`informer` in
+      question behaves according to some constraints (i.e. publishing
+      only to one particular :term:`scope`).
+   #. receiving :term:`event` s published by a particular
+      :term:`informer` *in order* (according to :term:`sequence
+      number` s).
+
+      TODO cress-reference quality of service
+
+.. _specification-event-id:
+
+Event ID
+--------
+
+The id component of an :term:`event` is derived from the
+:term:`sequence number` of the :term:`event` and the id of the
+:term:`participant` that sent the :term:`event` as follows:
+
+#. Construct a string representation of the :term:`sequence number`
 
    * Radix 16
    * Lower-case letters

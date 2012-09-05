@@ -134,6 +134,14 @@
 
      TODO
 
+   sequence number
+
+     A positive integer associated to each :term:`event` which
+     indicates the order of all :term:`event` s published by a
+     particular :term:`informer`.
+
+     See :ref:`specification-sequence-number`.
+
    Spread
 
      The `Spread`_ group communication framework is one the

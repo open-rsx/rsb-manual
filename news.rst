@@ -244,8 +244,8 @@ reported in the `issue tracker`_.
 Network Protocol for :term:`Spread`-based Communication
 
 * The eagerly computed, mandatory unique id field of :term:`event` s
-  is now lazily computed from a static id and a sequence
-  number. :term:`Event` s can be transmitted without computing
+  is now lazily computed from a static id and a :term:`sequence
+  number`. :term:`Event` s can be transmitted without computing
   the id. This change saves 12 bytes in each :term:`notification` sent
   over the wire. (Thanks: Stefan Herbrechtsmeier)
 * Incompatible wire format versions can now be detected by means of a
