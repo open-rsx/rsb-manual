@@ -126,9 +126,9 @@
 
      Descriptor for a :term:`channel` of the unified bus. The
      :term:`channel` is itself hierarchical, hence the scope also
-     reflects this structure. There is a string-based notation for
-     scopes: ``/parent/sub/subsubscope/``. A scope is valid if it
-     matches the given regular expression: :regexp:`/([a-zA-Z0-9]+/)*`
+     reflects this structure.
+
+     See :ref:`specification-scope`.
 
    service
 
