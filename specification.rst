@@ -4,8 +4,7 @@
  Specification
 ===============
 
-Concepts
-========
+Concepts:
 
 .. toctree::
    :maxdepth: 1
@@ -41,6 +40,7 @@ There are two kinds of :term:`transport` implementations in |project|:
    .. toctree::
       :maxdepth: 1
 
+Other :term:`transport`-related topics:
 
 .. toctree::
    :maxdepth: 1
