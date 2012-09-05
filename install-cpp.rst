@@ -19,29 +19,29 @@ Dependencies
 
 Required Dependencies
 
-  * `Boost`_, Version 1.38 or newer
-  * `Boost.UUID`_
+* `Boost`_, Version 1.38 or newer
+* `Boost.UUID`_
 
-    * Header-only library
-    * Included in `Boost`_ since version 1.42
-    * Headers from this version can be used with all older versions of
-      `Boost`_
-  * `Google Protocol Buffers`_
+  * Header-only library
+  * Included in `Boost`_ since version 1.42
+  * Headers from this version can be used with all older versions of
+    `Boost`_
+* `Google Protocol Buffers`_
 
-    * |ubuntu| (Lucid) packages (``libprotobuf-dev``,
-      ``protobuf-compiler``) are ok
-  * `Spread`_, Version 4.0 or newer
+  * |ubuntu| (Lucid) packages (``libprotobuf-dev``,
+    ``protobuf-compiler``) are ok
+* `Spread`_, Version 4.0 or newer
 
-    * The |ubuntu| (Lucid) package does **not** work (since it contains
-      the outdated version 3)
-  * `CMake`_, Version 2.8 or newer
+  * The |ubuntu| (Lucid) package does **not** work (since it contains
+    the outdated version 3)
+* `CMake`_, Version 2.8 or newer
 
 Optional Dependencies (building without these is possible, but some
 features will be missing)
 
-  * `Doxygen`_ for generation of API documentation
-  * `Lcov`_ for code coverage analysis
-  * `cppcheck`_ for static code analysis
+* `Doxygen`_ for generation of API documentation
+* `Lcov`_ for code coverage analysis
+* `cppcheck`_ for static code analysis
 
 Installation of Dependencies on Debian-based Systems
 ----------------------------------------------------
@@ -54,22 +54,24 @@ Installation of Dependencies on Debian-based Systems
 Installation of Dependencies on MacOS using Homebrew
 ----------------------------------------------------
 
-For installing RSB and its dependencies from source on Darwin,
-we recommend to use `Homebrew <http://mxcl.github.com/homebrew/>`_,
-an easy-to-use package manager for MacOS.
+For installing |project| and its dependencies from source on Darwin,
+we recommend to use `Homebrew`_, an easy-to-use package manager for
+MacOS.
 
 .. code-block:: sh
 
    $ brew install cmake boost protobuf
 
+.. _install-spread:
+
 Installation of the Spread Toolkit
 ----------------------------------
 
-`The Spread Toolkit <http://www.spread.org/>`_, a group communication framework
-for reliable multicast communication, is a powerful transport layer which is natively supported in RSB.
-To install Spread, source archives are available after registration for download
-`here <http://www.spread.org/download/spread-src-4.1.0.tar.gz>`_. Installation of the Spread Toolkit
-is straightforward on MacOS and Linux as it has no external dependencies and comes with a standard
+:term:`Spread`, is a powerful transport layer which is natively
+supported in |project|. To install :term:`Spread`, source archives are
+available after registration for download
+|spread_tarball|. Installation of Spread is straightforward on MacOS
+and Linux as it has no external dependencies and comes with a standard
 configuration script.
 
 .. note::
@@ -85,6 +87,8 @@ configuration script.
    $ make
    $ make install
 
+.. _install-cpp-rsb:
+
 Installation of RSC, RSBProtocol and |project|
 ==============================================
 
@@ -99,8 +103,8 @@ Installation of RSC, RSBProtocol and |project|
      |repository_versioned| cpp
 
 
-#. Build and install the |project| C++ core and its dependencies in
-   the order given below:
+#. Build and install the C++ implementation of |project| and its
+   dependencies in the order given below:
 
    #. Build and install RSC Library
 
