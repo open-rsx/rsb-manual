@@ -40,6 +40,7 @@ From Source
      install-cpp
      install-cl
      install-java
+     install-python
 
 .. _install-debian:
 
