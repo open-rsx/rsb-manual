@@ -150,6 +150,14 @@
 
      Example(C++,protocol buffers,spread): an object of type ``IplImage*``
 
+   plugin
+
+     A particular extension of |project|'s functionality, such as a
+     :term:`transport` implementation or a :term:`converter`, packaged
+     as runtime-loadable code.
+
+     See :ref:`specification-plugin`.
+
    reader
 
      A kind of :term:`participant` which *synchronously* receives

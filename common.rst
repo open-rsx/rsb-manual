@@ -189,6 +189,25 @@ IDL-related Commandline Options
 Common Environment Variables
 ============================
 
+Plugins
+
+  .. seealso::
+
+     :ref:`specification-plugin`
+        Details about :term:`plugins <plugin>`
+
+  .. envvar:: RSB_PLUGINS_CPP_PATH
+
+     A list of ``:``-separated directory names which should be
+     searched to locate |project| :term:`plugins <plugin>`.
+
+  .. envvar:: RSB_PLUGINS_CPP_LOAD
+
+     A list of ``:``-separated :term:`plugin` names which should be
+     loaded during |project| initialization.
+
+  TODO other languages
+
 In-process Transport
 
   .. seealso::
