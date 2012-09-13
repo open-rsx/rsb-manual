@@ -1,7 +1,8 @@
 .. _specification-socket:
 
-TCP-Socket Transport
-====================
+======================
+ TCP-Socket Transport
+======================
 
 The TCP-socket-based :term:`transport` layers a very simple protocol
 on top of ordinary TCP sockets:
@@ -16,7 +17,7 @@ on top of ordinary TCP sockets:
   share a connection.
 
 Schema
-------
+======
 
 .. seealso::
 
@@ -26,7 +27,7 @@ Schema
 The TCP-socket-based :term:`transport` uses the ``tcp`` URI schema.
 
 Addresses and Ports
--------------------
+===================
 
 +---------------+---------+-------+
 |               |Server   |Client |
@@ -51,7 +52,7 @@ mode. In that case the following actions are performed:
 
 
 Messages
---------
+========
 
 The following messages are exchanged:
 
@@ -82,7 +83,7 @@ The following messages are exchanged:
       caused.
 
 Client Perspective
-------------------
+==================
 
 From the client's perspective, the protocol consist of
 
@@ -125,7 +126,7 @@ From the client's perspective, the protocol consist of
    };
 
 Server Perspective
-------------------
+==================
 
 The server establishes a listening TCP socket on the configured
 port. When a connection is accepted, the server continues to accept
@@ -172,7 +173,7 @@ the new connection:
    };
 
 Example
--------
+=======
 
 ::
 
@@ -187,7 +188,7 @@ Example
    ...
 
 Implementations
----------------
+===============
 
 =========== ==================================================================
 Language    File(s)

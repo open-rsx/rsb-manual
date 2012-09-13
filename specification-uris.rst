@@ -5,7 +5,7 @@
 ======
 
 Generic URIs
-------------
+============
 
 Syntax::
 
@@ -40,7 +40,7 @@ This may resolve to:
 These generic URIs require a global naming service.
 
 Transport-specific URLs
------------------------
+=======================
 
 Syntax::
 
@@ -65,7 +65,7 @@ Components of the URL are interpreted as follows:
   * ID of a :term:`participant` otherwise
 
 Examples
---------
+========
 
 The following examples demonstrate generic URIs:
 
@@ -118,7 +118,7 @@ creating :term:`participant` s:
     Likewise, but in addition with tcpnodelay option set to ``yes``.
 
 Implementations
----------------
+===============
 
 =========== ===========================================
 Language    File(s)

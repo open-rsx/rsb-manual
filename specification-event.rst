@@ -1,7 +1,8 @@
 .. _specification-event:
 
-Event
-=====
+=======
+ Event
+=======
 
 Conceptually and when represented in programs, |project| :term:`event`
 s consist of the following components:
@@ -29,7 +30,7 @@ s consist of the following components:
 .. _specification-sequence-number:
 
 Sequence Number
----------------
+===============
 
 :term:`Event` sequence numbers are 32-bit unsigned integers which
 indicate the order of :term:`event` s published by a particular
@@ -57,7 +58,7 @@ is, the largest sequence number is 4294967295).
 .. _specification-event-id:
 
 Event ID
---------
+========
 
 The id component of an :term:`event` is derived from the
 :term:`sequence number` of the :term:`event` and the id of the
@@ -95,7 +96,7 @@ Examples / Test Cases::
   => BD27BE7D-87DE-5336-BECA-44FC60DE46A0
 
 Meta Data
----------
+=========
 
 :term:`Event` s carry a set of meta data with themselves. Some meta
 data items are specified and processed by |project| while others are
@@ -154,7 +155,7 @@ The following meta data items are user-defined:
    process.
 
 Cause Vector
-------------
+============
 
 Each :term:`event` can have a set of causing :term:`event` ids (the
 idea is based on [Luckham2001PEI]_).  The user who sends an
@@ -166,7 +167,7 @@ used. Especially the handling of questions related to transitivity has
 not yet been solved.
 
 Implementations
----------------
+===============
 
 =========== ====================================================
 Language    File(s)
