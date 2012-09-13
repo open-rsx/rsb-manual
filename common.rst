@@ -198,6 +198,11 @@ In-process Transport
 
 Spread Transport
 
+  .. seealso::
+
+     :ref:`specification-spread`
+        Details about the :term:`Spread` :term:`transport`
+
   .. envvar:: RSB_TRANSPORT_SPREAD_ENABLED
 
      ``1``: enable :term:`Spread` :term:`transport` in this process;
@@ -213,6 +218,11 @@ Spread Transport
      Port on which the :term:`Spread daemon` listens.
 
 TCP-socket-based Transport
+
+  .. seealso::
+
+     :ref:`specification-socket`
+        Details about the socket :term:`transport`
 
   .. envvar:: RSB_TRANSPORT_SOCKET_ENABLED
 
