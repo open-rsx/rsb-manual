@@ -29,13 +29,13 @@ Getting Source Code: Cloning a Repository
 
 For a simple repository:
 
-.. code:: sh
-
+.. code-block:: sh
+	
    git clone https://code.cor-lab.org/git/rsc.git rsc
 
 For a repository containing submodules:
 
-.. code:: sh
+.. code-block:: sh
 
    git clone --recursive https://code.cor-lab.org/git/rsb.git rsb
 
@@ -48,19 +48,19 @@ needs to ``checkout`` the respective branch.
 
 Listing available branches:
 
-.. code:: sh
+.. code-block:: sh
 
    git branch -a
 
 For a simple repository (e.g. rsc):
 
-.. code:: sh
+.. code-block:: sh
 
    git checkout 0.7 # 0.7 being the branch name
 
 For a repository containing submodules (e.g. rsb, rst) this can be done recursively:
 
-.. code:: sh
+.. code-block:: sh
 
    git submodule foreach git checkout 0.7
    git submodule foreach git pull --rebase
@@ -73,7 +73,7 @@ General Tasks with GIT
 
 * Getting the latest changes from the server
    
-  .. code:: sh
+  .. code-block:: sh
        
      git pull --rebase
      
@@ -85,7 +85,7 @@ General Tasks with GIT
 
 * Commiting changes
 
-  .. code:: sh
+  .. code-block:: sh
      
      git add {files to commit}
      git commit
@@ -99,7 +99,7 @@ General Tasks with GIT
 
 * Pushing local changes back to the remote repository
 
-  .. code:: sh
+   .. code-block:: sh
 
      git push
 
