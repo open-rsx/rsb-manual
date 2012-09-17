@@ -68,6 +68,10 @@ Binary Downloads of |project| Tools
 From Source
 -----------
 
+.. note::
+
+   In case you are unfamiliar with the git version control system, have a look at our short :ref:`GIT primer <git-primer>`.
+
 #. The whole source tree of |project| can be obtained from the
    repository located at |repository_versioned|. URLs of individual
    implementations:
