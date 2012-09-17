@@ -126,10 +126,8 @@ Installation of RSC and RSBProtocol
 Installation of RSBJava
 =======================
 
-#. Checkout |project| and its immediate dependencies from the
-   Subversion repository
-
-   |repository_versioned| rsb-java
+#. Checkout |project| and its immediate dependencies from
+   |repository_versioned| rsb-java.
 
 #. Invoke :program:`ant` supplying build properties on the commandline
    or via file:`build.properties` (see below)
@@ -137,8 +135,7 @@ Installation of RSBJava
    The following properties are used to configure the build:
 
    ==================  =================================================================================  ====================================
-   Ant Property        Meaning
-   Example
+   Ant Property        Meaning                                                                            Example
    ==================  =================================================================================  ====================================
    ``env.prefix``      Location into which |project| should be installed                                  :file:`/vol/cit/share`
    ``pbuf.protoc``     Location of protocol buffer compiler (:program:`protoc` or :program:`protoc.exe`)  :file:`/usr/bin/protoc`

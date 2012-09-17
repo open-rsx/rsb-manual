@@ -48,36 +48,20 @@ cl-spread            for Spread transport      |repository_versioned|/cl-spread/
 Installation
 ============
 
-#. Download systems from Subversion repository:
+#. Checkout ``cl-rsb`` system from |repository_versioned| cl
 
-   * ``cl-rsb``
 
-     .. code-block:: sh
-
-        svn export |repository_versioned|/cl/cl-rsb/
-   * ``cl-dynamic-classes``
-
-     .. code-block:: sh
-
-        svn export |repository_versioned|/cl/cl-dynamic-classes/
-   * ``cl-protobuf``
-
-     .. code-block:: sh
-
-        svn export |repository_versioned|/cl/cl-protobuf/
-   * ``cl-spread``
-
-     .. code-block:: sh
-
-        svn export |repository_versioned|/cl/cl-spread/
-
-#. Download other required systems:
+#. Install other required systems:
 
    * ``cl-hooks``
 
      .. code-block:: sh
 
         bzr branch lp:cl-hooks
+
+   * ``cl-dynamic-classes``
+   * ``cl-protobuf``
+   * ``cl-spread``
 
 #. Load ``cl-rsb`` with `Quicklisp`_ to pull in remaining dependencies
 
