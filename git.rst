@@ -7,11 +7,11 @@
 GIT is a distributed version control system.
 
 * Comparable idea to SVN: preserve all revisions of source code
-* Cowever: not a client-server architecture like SVN with a repository server and a degraded working copies
+* Cowever: not a client-server architecture like SVN with a repository server and client-side working copies
 
 Core concepts:
 
-* Everyone has a full repository with all branches and revisions
+* Everyone has a full repository with all branches and revisions (cloned from a remote server)
 
   * Checkout -> clone
 
@@ -42,7 +42,7 @@ For a repository containing submodules:
 Getting the Correct Software Version in a Repository
 ----------------------------------------------------
 
-A cloned repository contains all revisions of the contained software with all branches and
+A cloned repository contains all revisions of its software with all branches and
 the user needs to select a branch he wants to have available at the moment. Therefore, he
 needs to ``checkout`` the respective branch.
 
@@ -66,7 +66,8 @@ For a repository containing submodules (e.g. rsb, rst) this can be done recursiv
    git submodule foreach git pull --rebase
 
 The additional pull step (see below) is necessary as the repository containing the submodules
-points to a specific revision and not the latest one in each branch.
+points to a specific revision and not the latest one in each branch. Therefore, we need to get
+the most recent changes in the branch.
 
 General Tasks with GIT
 ----------------------
@@ -79,7 +80,7 @@ General Tasks with GIT
      
   .. note::
   
-     By using ``--rebase`` local changes to the files contained in the repository are applied
+     By using ``--rebase`` local commits (not yet pushed to the remote server) are applied
      again after fetching all revisions from the remote repository. Otherwise and intermediate
      branch would be created and merged back directly.
 
