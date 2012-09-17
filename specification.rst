@@ -53,6 +53,7 @@ Other :term:`transport`-related topics:
 
    specification-multiple-transports
    specification-inter-transport-communication
+   specification-transport-level-filtering
 
 Higher-Level Communication Patterns
 ===================================
