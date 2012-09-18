@@ -95,7 +95,7 @@ Installation of RSC, RSBProtocol and |project|
    Subversion repository
 
    RSC
-     https://code.cor-lab.org/svn/rsc/trunk/rsc
+     “0.7” branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
      |repository_versioned|/protocol
    |project| C++
