@@ -7,7 +7,7 @@
 GIT is a distributed version control system.
 
 * Comparable idea to SVN: preserve all revisions of source code
-* Cowever: not a client-server architecture like SVN with a repository server and client-side working copies
+* However: not a client-server architecture like SVN with a repository server and client-side working copies
 
 Core concepts:
 
