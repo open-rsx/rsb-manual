@@ -49,6 +49,7 @@ Other :term:`transport`-related topics:
    :maxdepth: 1
 
    specification-multiple-transports
+   specification-inter-transport-communication
 
 Higher-Level Communication Patterns
 ===================================
