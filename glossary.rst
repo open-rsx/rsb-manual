@@ -78,6 +78,14 @@
 
      A kind of :term:`participant` which publishes :term:`event` s.
 
+   inprocess
+
+     A kind of :term:`transport`, which delivers :term:`event` s
+     within one process (i.e. no inter-process or network
+     communication).
+
+     See :ref:`specification-inprocess`.
+
    handler
 
      A piece of client code attached to a :term:`listener` which is

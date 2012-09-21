@@ -191,6 +191,11 @@ Common Environment Variables
 
 In-process Transport
 
+  .. seealso::
+
+     :ref:`specification-inprocess`
+        Details about the inprocess :term:`transport`
+
   .. envvar:: RSB_TRANSPORT_INPROCESS_ENABLED
 
      ``1``: enable in-process :term:`transport` in this process;
