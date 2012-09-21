@@ -61,7 +61,7 @@ multiple streams are freed from the task of synchronizing
       when an :term:`event` on a sub- :term:`scope` of a configured
       :term:`scope` arrives. Strategies may treat this as an error or
       continue processing as if the :term:`event` was received on the
-      super- :term:`scope` that was configured.
+      :term:`superscope` that was configured.
 
 .. option:: --strategy NAME
 

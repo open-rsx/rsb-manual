@@ -153,6 +153,19 @@
      communication of clients and exchange data. Usually installed
      under the name :samp:`{PREFIX}/sbin/spread`.
 
+   superscope
+
+     A given :term:`scope` has zero or more proper superscopes. Each
+     superscope has the property that all :term:`event` s visible in
+     the original :term:`scope` are also visible in the superscope.
+
+     For example, ``/`` is a superscope of all :term:`scope` s and
+     proper superscope of all :term:`scope` s except ``/``
+     itself. ``/a/b`` is a proper superscope of ``/a/b/c``,
+     ``/a/b/d``, ``/a/b/c/d``, etc but not ``/a`` or ``/a/c``.
+
+     See :ref:`specification-scope`.
+
    transport
    transport mechanism
 
