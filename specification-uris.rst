@@ -120,11 +120,11 @@ creating :term:`participant` s:
 Implementations
 ===============
 
-=========== ===========================================
+=========== ====================================
 Language    File(s)
-=========== ===========================================
+=========== ====================================
 C++         *not yet implemented*
 Java        *not yet implemented*
 Python      *not yet implemented*
-Common Lisp |repository_versioned| rsb-cl/src/uris.lisp
-=========== ===========================================
+Common Lisp :download:`/../rsb-cl/src/uris.lisp`
+=========== ====================================

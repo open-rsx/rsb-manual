@@ -190,11 +190,11 @@ Example
 Implementations
 ===============
 
-=========== ==================================================================
+=========== ===========================================================
 Language    File(s)
-=========== ==================================================================
+=========== ===========================================================
 C++         |repository_versioned| rsb-cpp/src/rsb/transport/socket
 Java        |repository_versioned| rsb-java/src/rsb/transport/socket
-Python      |repository_versioned| rsb-python/rsb/transport/socket/__init__.py
+Python      :download:`/../rsb-python/rsb/transport/socket/__init__.py`
 Common Lisp |repository_versioned| rsb-cl/src/transport/socket
-=========== ==================================================================
+=========== ===========================================================

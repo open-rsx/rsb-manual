@@ -40,3 +40,15 @@ expression :regexp:`/([a-zA-Z0-9]+/)*`.
 
    Scope strings are currently case-sensitive, but this may change in
    future releases. We recommend using all-lowercase scope strings.
+
+Implementations
+===============
+
+=========== ====================================================
+Language    File(s)
+=========== ====================================================
+C++         |repository_versioned| rsb-cpp/src/rsb/Scope.{h,cpp}
+Java        :download:`/../rsb-java/src/rsb/Scope.java`
+Python      :download:`/../rsb-python/rsb/__init__.py`
+Common Lisp :download:`/../rsb-cl/src/scope.lisp`
+=========== ====================================================

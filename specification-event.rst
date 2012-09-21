@@ -173,7 +173,7 @@ Implementations
 Language    File(s)
 =========== ====================================================
 C++         |repository_versioned| rsb-cpp/src/rsb/Event.{h,cpp}
-Java        |repository_versioned| rsb-java/src/rsb/Event.java
-Python      |repository_versioned| rsb-python/rsb/__init__.py
-Common Lisp |repository_versioned| rsb-cl/src/event.lisp
+Java        :download:`/../rsb-java/src/rsb/Event.java`
+Python      :download:`/../rsb-python/rsb/__init__.py`
+Common Lisp :download:`/../rsb-cl/src/event.lisp`
 =========== ====================================================
