@@ -198,8 +198,9 @@ In-process Transport
 
   .. envvar:: RSB_TRANSPORT_INPROCESS_ENABLED
 
-     ``1``: enable in-process :term:`transport` in this process;
-     ``0``: disable in-process :term:`transport` in this process.
+     ``1``: Enable in-process :term:`transport` in this process;
+
+     ``0``: Disable in-process :term:`transport` in this process.
 
 Spread Transport
 
@@ -210,17 +211,23 @@ Spread Transport
 
   .. envvar:: RSB_TRANSPORT_SPREAD_ENABLED
 
-     ``1``: enable :term:`Spread` :term:`transport` in this process;
-     ``0``: disable :term:`Spread` :term:`transport` in this process.
+     ``1``: Enable :term:`Spread` :term:`transport` in this process.
+
+     ``0``: Disable :term:`Spread` :term:`transport` in this process.
 
   .. envvar:: RSB_TRANSPORT_SPREAD_HOST
 
      Name or IP-address of the machine running the :term:`Spread
      daemon`.
 
+     Allowed values: a hostname or IP-address.
+
   .. envvar:: RSB_TRANSPORT_SPREAD_PORT
 
      Port on which the :term:`Spread daemon` listens.
+
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].
 
 TCP-socket-based Transport
 
@@ -231,8 +238,9 @@ TCP-socket-based Transport
 
   .. envvar:: RSB_TRANSPORT_SOCKET_ENABLED
 
-     ``1``: enable TCP-socket-based :term:`transport` in this process;
-     ``0``: disable TCP-socket-based :term:`transport` in this
+     ``1``: Enable TCP-socket-based :term:`transport` in this process.
+
+     ``0``: Disable TCP-socket-based :term:`transport` in this
      process.
 
   .. envvar:: RSB_TRANSPORT_SOCKET_HOST
@@ -240,16 +248,24 @@ TCP-socket-based Transport
      Name or IP-address of the machine running the |project|
      TCP-socket-based server component.
 
+     Allowed values: a hostname or IP-address.
+
   .. envvar:: RSB_TRANSPORT_SOCKET_PORT
 
      Port on which the |project| TCP-socket-based server component
      listens.
 
+     Allowed values: a port number, i.e. an integer in the range [1,
+     65535].
+
   .. envvar:: RSB_TRANSPORT_SOCKET_SERVER
 
-     ``1``: this process should act the |project| TCP-socket-based
-     server component; ``0``: this process should connect to the
-     TCP-socket-based server; ``auto``: this process should try to
-     determine whether there already is a TCP-socket-based server for
-     the configured host-port combination and act as a server or client
-     accordingly.
+     ``1``: This process should act the |project| TCP-socket-based
+     server component.
+
+     ``0``: This process should connect to the TCP-socket-based
+     server.
+
+     ``auto``: This process should try to determine whether there
+     already is a TCP-socket-based server for the configured host-port
+     combination and act as a server or client accordingly.
