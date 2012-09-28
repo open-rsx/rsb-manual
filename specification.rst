@@ -12,6 +12,7 @@ Concepts:
    specification-scope
    specification-event
    specification-uris
+   specification-config
 
 .. _specification-transports:
 
