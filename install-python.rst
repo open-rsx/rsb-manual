@@ -39,7 +39,8 @@ MacOS.
 
 .. code-block:: sh
 
-   $ brew install TODO
+   $ brew install cmake boost protobuf
+
 
 Installation
 ============
