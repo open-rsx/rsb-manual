@@ -104,28 +104,42 @@ repository server and can be installed with :program:`pip` or
    ``easy_install-2.7``.
 
 #. The installation of the Python implementation of |project| requires
-   the `Google Protocol Buffers`_ compiler (:program:`protoc`) on your
-   system. Before starting the installation, install :program:`protoc`
-   and ensure that this binary can be found from the :envvar:`PATH`
-   environment variable.
-
-#. Depending on whether :program:`pip` or :program:`easy_install` is
-   used do one of the following
+   the `Google Protocol Buffers`_ module on your system. Depending on
+   whether :program:`pip` or :program:`easy_install` is
+   used do one of the following:
 
    .. code-block:: sh
 
-      $ easy_install rsb-python
+      $ easy_install protobuf
 
    .. code-block:: sh
 
-      $ pip install rsb-python
+      $ pip install protobuf
 
    .. note::
 
-      These commands will install rsb-python for the whole system and
-      require root permissions. If you only want to install rsb-python
+      These commands will install protobuf for the whole system and
+      require root permissions. If you only want to install protobuf
       for your local user, add the ``--user`` option to the call of
-      :program:`easy_install` or ``pip install``.
+      :program:`easy_install` or ``pip install``. The same applies for
+      the subsequently described installation of rsb-python itself.
+
+#. The rsb-python module can be installed by using one of the following
+   funtions:
+
+   .. code-block:: sh
+
+      $ easy_install "rsb-python<0.8"
+
+   .. code-block:: sh
+
+      $ pip install "rsb-python<0.8"
+
+   .. note::
+
+      These commands will currently install rsb-python in version 0.7 as
+      this is at the time of writing the stable version. This will be
+      changed once the backport of this rst file was done.
 
 #. If you plan to use the :term:`Spread` :term:`transport`, you need
    to additionally install the Python :term:`Spread` module which is
