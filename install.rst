@@ -89,10 +89,10 @@ repository server and can be installed with :program:`pip` or
 
 .. note::
 
-  :program:`pip` is the recommended way of installing Python packages
-  since some time and preferred over :program:`easy_install`. On
-  |ubuntu| systems, :program:`pip` can be installed via the package
-  ``python-pip``.
+   :program:`pip` is the recommended way of installing Python packages
+   since some time and preferred over :program:`easy_install`. On
+   |ubuntu| systems, :program:`pip` can be installed via the package
+   ``python-pip``.
 
 .. note::
 
@@ -104,9 +104,27 @@ repository server and can be installed with :program:`pip` or
    ``easy_install-2.7``.
 
 #. The installation of the Python implementation of |project| requires
+   the `Google Protocol Buffers`_ compiler (:program:`protoc`) on your
+   system. Before starting the installation, install :program:`protoc`
+   and ensure that this binary can be found from the :envvar:`PATH`
+   environment variable.
+
+   To install :program:`protoc` we recommend to use Debian packages on
+   |ubuntu| and `Homebrew`_ on MacOS. The respective installation
+   commands are:
+
+   .. code-block:: sh
+
+      $ sudo apt-get install protobuf-compiler
+
+   .. code-block:: sh
+
+      $ brew install protobuf
+
+#. The installation of the Python implementation of |project| requires
    the `Google Protocol Buffers`_ module on your system. Depending on
-   whether :program:`pip` or :program:`easy_install` is
-   used do one of the following:
+   whether :program:`pip` or :program:`easy_install` is used, do one
+   of the following:
 
    .. code-block:: sh
 
