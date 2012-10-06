@@ -42,3 +42,13 @@ div.important {
 a {
     color: #0168b5; /* official CoR-Lab blue*/
 }
+
+.multi {
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
+
+.multi .switcher {
+    font-size: small;
+    font-style: italic;
+}
