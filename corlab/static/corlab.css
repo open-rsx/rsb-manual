@@ -9,3 +9,13 @@ table.contentstable p.icon img {
     width: 48px;
     height: 48px;
 }
+
+.multi {
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
+
+.multi .switcher {
+    font-size: small;
+    font-style: italic;
+}
