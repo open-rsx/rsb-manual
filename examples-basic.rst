@@ -87,19 +87,21 @@ data then has to be passed to it.
 
    .. container:: sending-data-java
 
-      A ``rsb.Informer`` object is created by obtaining the |project|
-      factory via ``rsb.Factory.getInstance`` and then calling its
-      ``rsb.Factory.createInformer`` method with the desired
-      :term:`scope` (which can be specified as a string literal). The
-      generic parameter of the ``rsb.Informer`` class determines the
-      :term:`data type` of the :term:`informer`.
+      A :java:class:`rsb.Informer` object is created by obtaining the
+      |project| factory via :java:method:`rsb.Factory.getInstance` and
+      then calling its :java:method:`rsb.Factory.createInformer`
+      method with the desired :term:`scope` (which can be specified as
+      a string literal). The generic parameter of the
+      :java:method:`rsb.Informer` class determines the :term:`data
+      type` of the :term:`informer`.
 
-      The ``rsb.Informer`` has to activated before and deactivated
-      after use via the ``rsb.Informer.activate`` and
-      ``rsb.Informer.deactivate`` methods.
+      The :java:class:`rsb.Informer` has to activated before and
+      deactivated after use via the
+      :java:method:`rsb.Informer.activate` and
+      :java:method:`rsb.Informer.deactivate` methods.
 
       Once the :term:`informer` has been created and activated, data
-      is published by calling ``rsb.Informer.send``.
+      is published by calling :java:method:`rsb.Informer.send`.
 
       .. literalinclude:: /../rsb-java/examples/InformerExample.java
          :language:        java
@@ -112,11 +114,12 @@ data then has to be passed to it.
 
    .. container:: sending-data-cl:
 
-      The macro ``rsb:with-informer`` can be used to create an
-      :term:`informer` for a particular :term:`scope` and :term:`data
-      type` (which can be ``cl:t``). The method ``rsb:send`` can then
-      be used to send data. ``rsb:with-informer`` takes care of
-      destroying the :term:`informer` after use.
+      The macro :cl:symbol:`rsb:with-informer` can be used to create
+      an :term:`informer` for a particular :term:`scope` and
+      :term:`data type` (which can be :cl:symbol:`cl:t`). The method
+      :cl:symbol:`rsb:send` can then be used to send
+      data. :cl:symbol:`rsb:with-informer` takes care of destroying
+      the :term:`informer` after use.
 
       .. literalinclude:: /../rsb-cl/examples/informer.lisp
          :language:    cl
@@ -124,8 +127,8 @@ data then has to be passed to it.
          :end-before:  mark-end::with-informer
          :linenos:
 
-      Alternatively, ``rsb:make-informer`` can be used to obtain an
-      :term:`informer` without automatic destruction:
+      Alternatively, :cl:symbol:`rsb:make-informer` can be used to
+      obtain an :term:`informer` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/informer.lisp
          :language:    cl
@@ -204,11 +207,11 @@ receiving.
 
    .. container:: receive-data-sync-cl
 
-      The macro ``rsb:with-reader`` can be used to create a
+      The macro :cl:symbol:`rsb:with-reader` can be used to create a
       :term:`reader` for a particular :term:`scope`. The method
-      ``rsb:receive`` can then be used to receive individual
-      :term:`events <event>` data. ``rsb:with-reader`` takes care of
-      destroying the :term:`reader` after use.
+      :cl:symbol:`rsb:receive` can then be used to receive individual
+      :term:`events <event>` data. :cl:symbol:`rsb:with-reader` takes
+      care of destroying the :term:`reader` after use.
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
          :language:    cl
@@ -216,8 +219,8 @@ receiving.
          :end-before:  mark-end::with-reader
          :linenos:
 
-      Alternatively, ``rsb:make-reader`` can be used to obtain a
-      :term:`reader` without automatic destruction:
+      Alternatively, :cl:symbol:`rsb:make-reader` can be used to
+      obtain a :term:`reader` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
          :language:    cl
@@ -296,21 +299,23 @@ and in parallel to the execution of the program. For each received
 
    .. container:: receive-data-async-java
 
-      A ``rsb.Listener`` object is created by obtaining the |project|
-      factory via ``rsb.Factory.getInstance`` (line 18) and then
-      calling its ``rsb.Factory.createListener`` method with the
+      A :java:class:`rsb.Listener` object is created by obtaining the
+      |project| factory via :java:method:`rsb.Factory.getInstance`
+      (line 18) and then calling its
+      :java:method:`rsb.Factory.createListener` method with the
       desired :term:`scope` (which can be specified as a string
       literal, line 23).
 
-      The ``rsb.Listener`` has to activated before and deactivated
-      after use via the ``rsb.Listener.activate`` (line 24) and
-      ``rsb.Listener.deactivate`` (line 37) methods.
+      The :java:class:`rsb.Listener` has to activated before and
+      deactivated after use via the
+      :java:method:`rsb.Listener.activate` (line 24) and
+      :java:method:`rsb.Listener.deactivate` (line 37) methods.
 
       Once the :term:`listener` has been created and activated,
       :term:`handlers <handler>` can be added by calling the
-      ``rsb.Listener.addHandler`` method (line 29). Objects
-      implementing the ``rsb.Handler`` interface can be used as
-      :term:`handlers <handler>`.
+      :java:method:`rsb.Listener.addHandler` method (line 29). Objects
+      implementing the :java:class:`rsb.Handler` interface can be used
+      as :term:`handlers <handler>`.
 
       .. literalinclude:: /../rsb-java/examples/EventListenerExample.java
          :language:        java
@@ -323,14 +328,14 @@ and in parallel to the execution of the program. For each received
 
    .. container:: receive-data-async-cl
 
-      The macro ``rsb:with-listener`` can be used to create a
+      The macro :cl:symbol:`rsb:with-listener` can be used to create a
       :term:`listener` for a particular :term:`scope`. Inside the
-      lexical scope of ``rsb:with-listener`` (or for :term:`listeners
-      <listener>` created differently), the macro ``rsb:with-handler``
-      can be used to add a :term:`handler` to the
-      :term:`listener`. While the body of ``rsb:with-handler``
-      executes, :term:`events <event>` are handled by the supplied
-      code.
+      lexical scope of :cl:symbol:`rsb:with-listener` (or for
+      :term:`listeners <listener>` created differently), the macro
+      :cl:symbol:`rsb:with-handler` can be used to add a
+      :term:`handler` to the :term:`listener`. While the body of
+      :cl:symbol:`rsb:with-handler` executes, :term:`events <event>`
+      are handled by the supplied code.
 
       .. literalinclude:: /../rsb-cl/examples/listener.lisp
          :language:    cl
@@ -338,8 +343,8 @@ and in parallel to the execution of the program. For each received
          :end-before:  mark-end::with-listener
          :linenos:
 
-      Alternatively, ``rsb:make-listener`` can be used to obtain a
-      :term:`listener` without automatic destruction:
+      Alternatively, :cl:symbol:`rsb:make-listener` can be used to
+      obtain a :term:`listener` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/listener.lisp
          :language:    cl
@@ -452,12 +457,13 @@ called in blocking and non-blocking way:
 
    .. container:: rpc-client-java
 
-      A ``rsb.patterns.RemoteServer`` object is created by calling
-      ``rsb.Factory.createRemoteServer`` with the :term:`scope` on
-      which the service is provided (line 16). Remote methods can then
-      be called using the ``rsb.patterns.RemoteServer.call`` method
-      (see line 21) and the ``rsb.patterns.RemoteServer.callAsync``
-      method.
+      A :java:class:`rsb.patterns.RemoteServer` object is created by
+      calling :java:method:`rsb.Factory.createRemoteServer` with the
+      :term:`scope` on which the service is provided (line 16). Remote
+      methods can then be called using the
+      :java:method:`rsb.patterns.RemoteServer.call` method (see
+      line 21) and the
+      :java:method:`rsb.patterns.RemoteServer.callAsync` method.
 
       .. literalinclude:: /../rsb-java/examples/ClientExample.java
          :language:        java
@@ -471,11 +477,11 @@ called in blocking and non-blocking way:
    .. container:: rpc-client-cl
 
       A :term:`remote server` can be created and managed with the
-      ``rsb.patterns:with-remote-server`` macro. The
-      ``rsb.patterns:call`` method can be used on the :term:`remote
-      server` object to call remote methods. The method name and the
-      argument of the call have to be passed as the second and third
-      argument respectively.
+      :cl:symbol:`rsb.patterns:with-remote-server` macro. The
+      :cl:symbol:`rsb.patterns:call` method can be used on the
+      :term:`remote server` object to call remote methods. The method
+      name and the argument of the call have to be passed as the
+      second and third argument respectively.
 
       .. literalinclude:: /../rsb-cl/examples/client.lisp
          :language:    cl
@@ -483,8 +489,8 @@ called in blocking and non-blocking way:
          :end-before:  mark-end::with-remote-server
          :linenos:
 
-      Alternatively, ``rsb:make-remote-server`` can be used to obtain
-      a :term:`remote server` without automatic destruction:
+      Alternatively, :cl:symbol:`rsb:make-remote-server` can be used
+      to obtain a :term:`remote server` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/client.lisp
          :language:    cl
@@ -556,13 +562,14 @@ callback function which implements the desired behavior of the method.
 
    .. container:: rpc-server-java
 
-      A ``rsb.patterns.LocalServer`` object is created by calling
-      ``rsb.Factory.createLocalServer`` with the :term:`scope` on
-      which server should provide its service (line 22). Methods are
-      registered by calling the ``rsb.patterns.LocalServer.addMethod``
-      method (see line 26) with a suitable callback object. The
-      callback class supplies the behavior of server methods by
-      overriding the ``rsb.patterns.EventCallback.invoke`` method (see
+      A :java:class:`rsb.patterns.LocalServer` object is created by
+      calling :java:method:`rsb.Factory.createLocalServer` with the
+      :term:`scope` on which server should provide its service (line
+      22). Methods are registered by calling the
+      :java:method:`rsb.patterns.LocalServer.addMethod` method (see
+      line 26) with a suitable callback object. The callback class
+      supplies the behavior of server methods by overriding the
+      :java:method:`rsb.patterns.EventCallback.invoke` method (see
       lines 9 to 17).
 
       .. literalinclude:: /../rsb-java/examples/ServerExample.java
@@ -577,9 +584,10 @@ callback function which implements the desired behavior of the method.
    .. container:: rpc-server-cl
 
       A :term:`local server` can be created and managed with the
-      ``rsb.patterns:with-local-server`` macro. The
-      ``rsb.patterns:with-methods`` macro can be used to register
-      methods and their implementations in the :term:`local server`.
+      :cl:symbol:`rsb.patterns:with-local-server` macro. The
+      :cl:symbol:`rsb.patterns:with-methods` macro can be used to
+      register methods and their implementations in the :term:`local
+      server`.
 
       .. literalinclude:: /../rsb-cl/examples/server.lisp
          :language:    cl
@@ -587,10 +595,10 @@ callback function which implements the desired behavior of the method.
          :end-before:  mark-end::with-local-server
          :linenos:
 
-      Alternatively, ``rsb.patterns:make-local-server`` can be used to
-      obtain a :term:`local server` without automatic
+      Alternatively, :cl:symbol:`rsb.patterns:make-local-server` can
+      be used to obtain a :term:`local server` without automatic
       destruction. Similarly, methods can be added without the
-      ``rsb.patterns:with-methods`` macro:
+      :cl:symbol:`rsb.patterns:with-methods` macro:
 
       .. literalinclude:: /../rsb-cl/examples/server.lisp
          :language:    cl
