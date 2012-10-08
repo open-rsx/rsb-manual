@@ -53,35 +53,104 @@ data then has to be passed to it.
 
    .. container:: sending-data-python
 
+      A :py:class:`rsb.Informer` object is created by calling
+      :py:func:`rsb.createInformer` with
+
+      * the desired :term:`scope` (which can be specified as :ref:`str
+        <typesseq>` object, for example, a string literal)
+      * a :term:`data type` (which can be :py:class:`object` to allow
+        any kind of data)
+
+      Once the :term:`informer` has been created, data is published by
+      calling :py:meth:`rsb.Informer.publishData`.
+
+      After use, the :py:class:`rsb.Informer` object has to be
+      deactivated using its `:py:meth:`rsb.Informer.deactivate`
+      method.
+
       .. literalinclude:: /../rsb-python/examples/informer.py
-         :language:    python
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        python
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 10,13,16
          :linenos:
+
+      :download:`Download this example </../rsb-python/examples/informer.py>`
 
    .. container:: sending-data-cpp:
 
+      A :cpp:class:`rsb::Informer` object is created by calling
+      obtaining the |project| factory via
+      :cpp:member:`rsb::Factory::getInstance` and then calling its
+      :cpp:member:`rsb::Factory::createInformer` with
+
+      * the desired :term:`scope` (which can be specified as
+        :cpp:class:`std::string` object, for example, a string
+        literal)
+      * a :term:`data type` (which can be :cpp:class:`rsb::AnyType` to
+        allow any kind of data)
+
+      Once the :term:`informer` has been created, data is published by
+      calling :cpp:member:`rsb::Informer::publish`.
+
       .. literalinclude:: /../rsb-cpp/examples/informer/informer.cpp
-         :language:    cpp
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        cpp
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 13,17,18,24,27
          :linenos:
+
+      :download:`Download this example </../rsb-cpp/examples/informer/informer.cpp>`
 
    .. container:: sending-data-java
 
+      A ``rsb.Informer`` object is created by calling obtaining the
+      |project| factory via ``rsb.Factory.getInstance`` and then
+      calling its ``rsb.Factory.createInformer`` with the desired
+      :term:`scope` (which can be specified as a string literal). The
+      generic parameter of the ``rsb.Informer`` class determines the
+      :term:`data type` of the :term:`informer`.
+
+      The ``rsb.Informer`` has to activated before and deactivated
+      after use via the ``rsb.Informer.activate`` and
+      ``rsb.Informer.deactivate`` methods.
+
+      Once the :term:`informer` has been created and activated, data
+      is published by calling ``rsb.Informer.send``.
+
       .. literalinclude:: /../rsb-java/examples/InformerExample.java
-         :language:    java
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        java
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 12,15,19,23
          :linenos:
+
+      :download:`Download this example </../rsb-java/examples/InformerExample.java>`
 
    .. container:: sending-data-cl:
 
+      The macro ``rsb:with-informer`` can be used to create an
+      :term:`informer` for a particular :term:`scope` and :term:`data
+      type` (which can be ``cl:t``). The method ``rsb:send`` can then
+      be used to send data. ``rsb:with-informer`` takes care of
+      destroying the :term:`informer` after use.
+
       .. literalinclude:: /../rsb-cl/examples/informer.lisp
          :language:    cl
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :start-after: mark-start::with-informer
+         :end-before:  mark-end::with-informer
          :linenos:
+
+      Alternatively, ``rsb:make-informer`` can be used to obtain an
+      :term:`informer` without automatic destruction:
+
+      .. literalinclude:: /../rsb-cl/examples/informer.lisp
+         :language:    cl
+         :start-after: mark-start::variable
+         :end-before:  mark-end::variable
+         :linenos:
+
+      :download:`Download this example </../rsb-cl/examples/informer.lisp>`
 
 .. _tutorial-receive:
 
