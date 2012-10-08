@@ -15,6 +15,25 @@ one programming language.
    :ref:`troubleshooting`
      Solving common problems.
 
+The goal of this tutorial is teaching you how to accomplish some basic
+tasks using |project|:
+
+* :ref:`Basic Communication <tutorial-basic>`
+
+  * :ref:`Sending <tutorial-send>` and :ref:`receiving data
+    <tutorial-receive>`
+  * Making :ref:`Remote Procedure Calls <tutorial-rpc>`
+* :ref:`Building a simple chat system <tutorial-chat>` using the above
+  techniques
+
+.. note::
+
+   Depending on your |project| configuration, the following examples
+   may require a running :term:`Spread daemon` for successful
+   execution.
+
+.. _tutorial-basic:
+
 Basic Communication
 ===================
 
