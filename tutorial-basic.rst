@@ -4,8 +4,24 @@
  Basic Communication
 =====================
 
-The essential form of communication in |project| consists in sending
-and receiving :term:`event` s.
+The essential form of communication in |project| consists in
+:term:`participant` s sending and receiving :term:`event` s. The
+following sections explain:
+
+* :ref:`Sending events <tutorial-send>` and the :term:`informer`
+  :term:`participant`
+* :ref:`Receiving events <tutorial-receive>`
+
+  * :ref:`Receiving events synchronously <tutorial-receive-sync>` and
+    the :term:`reader` :term:`participant`
+  * :ref:`Receiving events asynchronously <tutorial-receive-async>`
+    and the :term:`listener` :term:`participant`
+* :ref:`tutorial-rpc`
+
+  * :ref:`Calling provided methods <tutorial-rpc-client>` and the
+    :term:`remote server` :term:`participant`
+  * :ref:`Providing methods <tutorial-rpc-server>` and the
+    :term:`local server` :term:`participant`
 
 .. _tutorial-send:
 
