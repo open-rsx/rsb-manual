@@ -11,12 +11,12 @@ scopes also reflect this structure.
 Scope Strings
 =============
 
-There is a string-based notation for scopes based UNIX/URL paths. For
-example::
+There is a string-based notation for scopes based on UNIX/URL
+paths. For example::
 
   /a/b/c/
 
-This scope designates the :term:`channel` ``/a/b/c/`` which is
+This scope designates the :term:`channel` ``/a/b/c/`` which is a
 sub-:term:`channel` of the :term:`channel` s designated by::
 
   /a/b/
