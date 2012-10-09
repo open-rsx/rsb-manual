@@ -56,6 +56,13 @@
      See :ref:`type` s for a list of well-known wire schema <-> data
      type mappings.
 
+   local server
+
+     A kind of :term:`participant` which provides methods that can be
+     called by other :term:`participant` s.
+
+     See also :term:`remote server`.
+
    wire->domain converter
 
      Similar
@@ -80,6 +87,20 @@
 
      A kind of :term:`participant` which (asynchronously) receives
      :term:`event` s.
+
+   reader
+
+     A kind of :term:`participant` which *synchronously* receives
+     :term:`event` s.
+
+     See also :term:`listener`.
+
+   remote server
+
+     A kind of :term:`participant` which is able to call methods
+     provided by :term:`local server` s.
+
+     See also :term:`local server`.
 
    informer
 
