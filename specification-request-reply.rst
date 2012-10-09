@@ -40,11 +40,18 @@ For example:
    "remoteserver" -> "server" [label="request: call method foo"];
    "server" -> "remoteserver" [label="reply: for foo call"];
 
-.. note::
+.. important::
 
    If a single service is provided by more than one server, requests
    will be processed in all servers, but the client will only receive
    one, arbitrarily selected, reply.
+
+   Conversely, if service is not provided by any server, the request
+   part of method calls is performed, but a reply is never
+   received. This situation is indistinguishable from a server which
+   takes an infinitely long time to process request and can therefore
+   not be detected by the caller. However, timeouts can be used handle
+   absent and slow servers uniformly.
 
 ``Server``
 ==========
