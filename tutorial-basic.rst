@@ -279,6 +279,25 @@ and in parallel to the execution of the program. For each received
 Remote Procedure Calls
 ======================
 
+.. seealso::
+
+   :ref:`specification-request-reply`
+     For a detailed description of the underlying implementation.
+
+Remote procedure calls (RPCs) execute methods of objects located in
+different processes, and potentially different computers, than the
+calling entity. Some things are easier to implement using RPCs than
+using :term:`event` s. However, using RPCs generally makes a system
+less flexible and often more error-prone. |project| includes means for
+providing and using a simple form of remote procedure calls.
+
+The following two sections describe
+
+* the :ref:`client perspective <tutorial-rpc-client>` (calling remote
+  methods)
+* and the :ref:`server perspective <tutorial-rpc-server>` (providing
+  remote methods).
+
 .. _tutorial-rpc-client:
 
 Client
@@ -300,41 +319,88 @@ called in blocking and non-blocking way:
   immediately and the result can be obtained later, when the server
   completes its processing.
 
+.. important::
+
+   When a non-existent method is called (for example, because the name
+   of the method has been misspelled), nothing happens: blocking calls
+   block forever and non-blocking calls never provide a result.
+
+   Conversely, if a method is provided by multiple servers, all
+   servers process the request but only one reply is returned to the
+   caller. It is unspecified, which reply is received by the caller,
+   in such a situation.
+
 .. container:: rpc-client-multi
 
    .. container:: rpc-client-python
 
+      A :py:class:`rsb.patterns.RemoteServer` object is created by
+      calling :py:meth:`rsb.Factory.createRemoteServer` with the
+      :term:`scope` on which the service is provided (line 12). Remote
+      methods can then be called on the
+      :py:class:`rsb.patterns.RemoteServer` object as if they were
+      ordinary Python methods using the function call syntax
+      :samp:`{OBJECT}.{METHOD}({ARGUMENTS})` (see line
+      17). Asynchronous calls can be made by using the syntax
+      :samp:`{OBJECT}.{METHOD}.async({ARGUMENTS})` (see line 20).
+
       .. literalinclude:: /../rsb-python/examples/client.py
-         :language:    python
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        python
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 12,17,20
          :linenos:
 
       :download:`Download this example </../rsb-python/examples/client.py>`
 
    .. container:: rpc-client-cpp
 
+      A :cpp:class:`rsb::patterns::RemoteServer` object is created by
+      calling :cpp:member:`rsb::Factory::createRemoteServer` with the
+      :term:`scope` on which the service is provided (lines 12 and
+      13). Remote methods can then be called using the
+      :cpp:member:`rsb::patterns::RemoteServer::call` method (see
+      line 21) and the
+      :cpp:member:`rsb::patterns::RemoteServer::callAsync` method. The
+      expected return type is specified as a template argument to the
+      function call while the argument type is derived from the
+      supplied argument.
+
       .. literalinclude:: /../rsb-cpp/examples/server/client.cpp
-         :language:    c++
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        c++
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 12,13,21
          :linenos:
 
       :download:`Download this example </../rsb-cpp/examples/server/client.cpp>`
 
    .. container:: rpc-client-java
 
+      A ``rsb.patterns.RemoteServer`` object is created by calling
+      ``rsb.Factory.createRemoteServer`` with the :term:`scope` on
+      which the service is provided (line 16). Remote methods can then
+      be called using the ``rsb.patterns.RemoteServer.call`` method
+      (see line 21) and the ``rsb.patterns.RemoteServer.callAsync``
+      method.
+
       .. literalinclude:: /../rsb-java/examples/ClientExample.java
-         :language:    java
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        java
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 16,21
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/ClientExample.java>`
 
    .. container:: rpc-client-cl
 
-      ``rsb.patterns:with-remote-server``
+      A :term:`remote server` can be created and managed with the
+      ``rsb.patterns:with-remote-server`` macro. The
+      ``rsb.patterns:call`` method can be used on the :term:`remote
+      server` object to call remote methods. The method name and the
+      argument of the call have to be passed as the second and third
+      argument respectively.
 
       .. literalinclude:: /../rsb-cl/examples/client.lisp
          :language:    cl
@@ -342,7 +408,8 @@ called in blocking and non-blocking way:
          :end-before:  mark-end::with-remote-server
          :linenos:
 
-      Alternatively
+      Alternatively, ``rsb:make-remote-server`` can be used to obtain
+      a :term:`remote server` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/client.lisp
          :language:    cl
@@ -369,35 +436,75 @@ callback function which implements the desired behavior of the method.
 
    .. container:: rpc-server-python
 
+      A :py:class:`rsb.patterns.LocalServer` object is created by
+      calling :py:meth:`rsb.Factory.createLocalServer` with the
+      :term:`scope` on which the service is provided (line 12). Remote
+      methods can then be called on the
+      :py:class:`rsb.patterns.RemoteServer` object as if they were
+      ordinary Python methods using the function call syntax
+      :samp:`{OBJECT}.{METHOD}({ARGUMENTS})` (see line
+      17). Asynchronous calls can be made by using the syntax
+      :samp:`{OBJECT}.{METHOD}.async({ARGUMENTS})` (see line 20).
+
       .. literalinclude:: /../rsb-python/examples/server.py
-         :language:    python
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        python
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 12,17-18,21
          :linenos:
 
       :download:`Download this example </../rsb-python/examples/server.py>`
 
    .. container:: rpc-server-cpp
 
+      A :cpp:class:`rsb::patterns::Server` object is created by
+      calling :cpp:member:`rsb::Factory::createServer` with the
+      :term:`scope` on which the server should provide its service
+      (line 20). Methods and the callback objects implementing their
+      behavior can be registered using the
+      :cpp:member:`rsb::patterns::LocalServer::registerMethod` method
+      (see line 23). Callback classes are derived from
+      :cpp:class:`rsb::patterns::Server::Callback` (with template
+      arguments specifying the request and reply :term:`data type` s)
+      and override the
+      :cpp:member:`rsb::patterns::Server::Callback::call` method (see
+      lines 8 to 14).
+
       .. literalinclude:: /../rsb-cpp/examples/server/server.cpp
          :language:    c++
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
+         :emphasize-lines: 8-14,20,23
          :linenos:
 
       :download:`Download this example </../rsb-cpp/examples/server/server.cpp>`
 
    .. container:: rpc-server-java
 
+      A ``rsb.patterns.LocalServer`` object is created by calling
+      ``rsb.Factory.createLocalServer`` with the :term:`scope` on
+      which server should provide its service (line 22). Methods are
+      registered by calling the ``rsb.patterns.LocalServer.addMethod``
+      method (see line 26) with a suitable callback object. The
+      callback class supplies the behavior of server methods by
+      overriding the ``rsb.patterns.EventCallback.invoke`` method (see
+      lines 9 to 17).
+
       .. literalinclude:: /../rsb-java/examples/ServerExample.java
          :language:    java
          :start-after: mark-start::body
          :end-before:  mark-end::body
+         :emphasize-lines: 22,26,9-17
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/ServerExample.java>`
 
    .. container:: rpc-server-cl
+
+      A :term:`local server` can be created and managed with the
+      ``rsb.patterns:with-local-server`` macro. The
+      ``rsb.patterns:with-methods`` macro can be used to register
+      methods and their implementations in the :term:`local server`.
 
       .. literalinclude:: /../rsb-cl/examples/server.lisp
          :language:    cl
@@ -405,13 +512,10 @@ callback function which implements the desired behavior of the method.
          :end-before:  mark-end::with-local-server
          :linenos:
 
-      .. literalinclude:: /../rsb-cl/examples/server.lisp
-         :language:    cl
-         :start-after: mark-start::setf-method
-         :end-before:  mark-end::setf-method
-         :linenos:
-
-      Alternatively
+      Alternatively, ``rsb.patterns:make-local-server`` can be used to
+      obtain a :term:`local server` without automatic
+      destruction. Similarly, methods can be added without the
+      ``rsb.patterns:with-methods`` macro:
 
       .. literalinclude:: /../rsb-cl/examples/server.lisp
          :language:    cl
