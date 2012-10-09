@@ -161,10 +161,6 @@
 
      See :ref:`specification-scope`.
 
-   service
-
-     TODO
-
    sequence number
 
      A positive integer associated to each :term:`event` which

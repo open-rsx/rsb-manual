@@ -19,7 +19,6 @@ Components of the URL are interpreted as follows:
   * A :term:`channel`
   * A :term:`participant`
 
-    * A :term:`service` (which is-a :term:`participant`)
 * :samp:`{FRAGMENT}` ->
 
   * Not allowed when designating a :term:`channel`
@@ -27,7 +26,7 @@ Components of the URL are interpreted as follows:
 
 This may resolve to:
 
-* :term:`Service` and/or :term:`Participant`
+* :term:`Participant`
 
   * If there is only one of these entities this is enough for
     resolving it
@@ -35,6 +34,7 @@ This may resolve to:
     single instance can be selected using their ID::
 
       rsb:/hierarchical/service/definition/further/to/participant#UniqueIDOfParticipant[UUID]
+
 * Nothing
 
 These generic URIs require a global naming service.
@@ -57,7 +57,6 @@ Components of the URL are interpreted as follows:
   * A :term:`channel`
   * A :term:`participant`
 
-    * A :term:`service` (which is-a :term:`participant`)
 * :samp:`{QUERY}`    -> "freestyle" transport-specific options
 * :samp:`{FRAGMENT}` ->
 

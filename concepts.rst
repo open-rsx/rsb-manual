@@ -181,7 +181,6 @@ URIs or URLs are used in the following situations
 
     * Multiple :term:`participant` s
     * A single :term:`participant`
-  * A :term:`service`
 
 .. _configuration:
 
