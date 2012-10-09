@@ -93,8 +93,17 @@
 
    listener
 
-     A kind of :term:`participant` which (asynchronously) receives
+     A kind of :term:`participant` which *asynchronously* receives
      :term:`event` s.
+
+     See also :term:`reader`.
+
+   local server
+
+     A kind of :term:`participant` which provides methods that can be
+     called by other :term:`participant` s.
+
+     See also :term:`remote server`.
 
    method field
 
@@ -129,6 +138,20 @@
      with an :term:`event`.
 
      Example(C++,protocol buffers,spread): an object of type ``IplImage*``
+
+   reader
+
+     A kind of :term:`participant` which *synchronously* receives
+     :term:`event` s.
+
+     See also :term:`listener`.
+
+   remote server
+
+     A kind of :term:`participant` which is able to call methods
+     provided by :term:`local server` s.
+
+     See also :term:`local server`.
 
    scope
 

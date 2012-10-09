@@ -9,12 +9,13 @@ Overview
 
 The Request/Reply communication pattern consists of two roles:
 
-  ``Server`` (or ``LocalServer``)
+  ``Server`` (or ``LocalServer``), :term:`local server`
+  :term:`participant`
 
     This class is instantiated in the service-providing |project|
     process. Provided methods are registered by name and signature.
 
-  ``RemoteServer``
+  ``RemoteServer``, :term:`remote server` :term:`participant`
 
     This class is instantiated in the service-using |project|
     process. Each ``RemoteServer`` instance has one or more
