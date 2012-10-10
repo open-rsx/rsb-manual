@@ -25,6 +25,7 @@ organize into the following three parts:
 
    tutorial-basic
    tutorial-chat
+   tutorial-converters
    tutorial-extension-points
 
 #. :ref:`Basic Communication <tutorial-basic>`
@@ -40,6 +41,13 @@ organize into the following three parts:
 
    This part is concerned with designing and building a slightly more
    complex system applying the techniques of the first part.
+
+#. :ref:`Sending and Receiving Custom Data Types
+   <tutorial-converters>`
+
+   This part demonstrates sending and receiving of custom
+   (non-builtin) :term:`data type` s using |project| :term:`converter`
+   s.
 
 #. :ref:`Extending |project| <tutorial-extension-points>`
 
