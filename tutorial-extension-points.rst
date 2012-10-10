@@ -4,6 +4,8 @@
  Extension Points
 ==================
 
+.. _tutorial-writing-converters:
+
 Writing Converters
 ==================
 
