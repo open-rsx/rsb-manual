@@ -1,7 +1,7 @@
 .. _tutorial:
 
 ==========
- Tutorial
+ Examples
 ==========
 
 This section assumes a functional |project| installation for at least
@@ -15,18 +15,18 @@ one programming language.
    :ref:`troubleshooting`
      Solving common problems.
 
-The goal of this tutorial is teaching you how to accomplish some basic
-and some more advanced tasks using |project|. This tutorial is
-organize into the following three parts:
+The goal of this section is teaching you how to accomplish some basic
+and some more advanced tasks using |project|. It is organize into the
+following parts:
 
 .. toctree::
    :hidden:
    :maxdepth: 1
 
-   tutorial-basic
-   tutorial-chat
-   tutorial-converters
-   tutorial-extension-points
+   examples-basic
+   examples-chat
+   examples-converters
+   examples-extension-points
 
 #. :ref:`Basic Communication <tutorial-basic>`
 
