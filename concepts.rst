@@ -34,9 +34,8 @@ and timing requirements than other robotics middlewares. Additionally,
 implementation enable its use with small entry barriers and little
 framework lock-in.
 
-
-Scope
-=====
+For a concise introduction to the basic concepts of RSB, we refer 
+the interested reader to the initial RSB publication [Wienke2011-AMC]_.
 
 .. _event:
 
@@ -86,7 +85,37 @@ requirements, our event model consists of the following components:
   Destination :term:`Scope`
 
     Specifies the recipients of the event notification by restricting
-    the visibility of event notifications [Muehl2006-DEB]_.
+    the visibility of event notifications [Muehl2006-DEB]_. 
+    
+    The next section explains this concept in greater detail.
+
+
+.. _scope:
+
+Scope
+=====
+
+RSB forms a logically unified bus across different transport mechanisms. Different Participants connect to this bus. 
+Informers send events, whereas Listeners receive events. From a logical perspective, no point-to-point connections 
+are established.
+
+In order to structure the communication via the bus – or stated differently, restrict the visibility of events for 
+participants – RSB utilizes a hierarchical channelization scheme. This scheme is best explained by it’s declarative 
+representation as a Scope, which is represented in RSB with a hierarchical notation compatible with the path component of URIs [RFC2396-URI]_. 
+E.g. sending an event with destination scope ``/robot/camera/left/`` will make this event visible in the channels represented by scopes 
+``/robot/camera/left/``, ``/robot/camera/``, ``/robot/``, and ``/``. Consequently, ``/`` represents a channel where all events of 
+the system are visible. Each participant is associated to one channel, but multiple participants can participate at the same channel 
+(m : n semantics). 
+
+The chosen hierarchical channel layout provides benefits for logging purposes and provides a first-class means of the framework to 
+structure the data space, e.g. with subscopes for different services. However, it also increases the chance that a listener 
+receives unexpected data, because a new informer appeared on a sub-scope of the listener’s scope. RSB’s filter mechanism allows clients 
+to efficiently specify which events they expect and will be explained in the following section.
+
+.. _filter:
+
+Filter
+======
 
 .. _types:
 
@@ -154,9 +183,6 @@ Designators" of :term:`wire schema` s here.
   Structured Data
 
     TODO
-
-Filter
-======
 
 Connector
 =========
