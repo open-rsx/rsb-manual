@@ -62,3 +62,4 @@ Higher-Level Communication Patterns
 
    specification-request-reply
    specification-introspection
+   specification-flow-control

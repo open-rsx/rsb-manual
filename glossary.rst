@@ -76,6 +76,18 @@
      A mechanism for selecting :term:`events <event>` which comply to
      some criterion from a set of :term:`events <event>`.
 
+   flow control
+
+     In the context of |project|, refers to controlling flows of
+     :term:`events <event>` between :term:`participants <participant>`
+     according to certain criteria. Examples of exerting control
+     include queuing or dropping :term:`events <event>` or slowing
+     down :term:`sources <source>`. Examples of flow control criteria
+     include congestion on the :term:`transport` layer, computational
+     load in :term:`sinks <sink>` or metrics on :term:`event` queues.
+
+     See :ref:`specification-flow-control`.
+
    informer
 
      A kind of :term:`participant` which publishes :term:`events
@@ -204,6 +216,21 @@
      particular :term:`informer`.
 
      See :ref:`specification-sequence-number`.
+
+   sink
+
+     A kind of :term:`event`-receiving :term:`participant`, similar to
+     the :term:`listener` and :term:`reader`, but with :term:`flow
+     control` capabilities.
+
+     See :ref:`specification-flow-control`.
+
+   source
+
+     A kind of :term:`event`-receiving :term:`participant`, similar to
+     the :term:`informer`, but with :term:`flow control` capabilities.
+
+     See :ref:`specification-flow-control`.
 
    Spread
 
