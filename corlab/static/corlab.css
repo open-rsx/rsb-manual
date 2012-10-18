@@ -43,6 +43,15 @@ a {
     color: #0168b5; /* official CoR-Lab blue*/
 }
 
+table.citation {
+    border-left: none;
+    width: 100%;
+}
+
+.citation .label {
+    width: 20%;
+}
+
 .multi {
     border: 1px dashed #ccc;
     padding: 10px;
