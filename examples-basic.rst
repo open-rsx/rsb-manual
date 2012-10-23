@@ -65,7 +65,7 @@ data then has to be passed to it.
       A :cpp:class:`rsb::Informer` object is created by calling
       obtaining the |project| factory via
       :cpp:member:`rsb::Factory::getInstance` and then calling its
-      :cpp:member:`rsb::Factory::createInformer` with
+      :cpp:member:`rsb::Factory::createInformer` method with
 
       * the desired :term:`scope` (which can be specified as
         :cpp:class:`std::string` object, for example, a string
@@ -151,7 +151,7 @@ Receiving data can be performed in two different ways in |project|:
   Continue execution and execute a callback function (called
   :term:`handler` in |project|) when :term:`event` s are received.
 
-The following two sections explains the two ways of receiving data.
+The following two sections explain the two ways of receiving data.
 
 .. _tutorial-receive-sync:
 
@@ -173,26 +173,42 @@ receiving.
          Synchronous receiving of data is not currently implemented in
          Python.
 
-   .. container:: receive-data-cpp
+   .. container:: receive-data-sync-cpp
+
+      A :term:`reader` is created by obtaining the |project| factory
+      via :cpp:member:`rsb::Factory::getInstance` (line 16) and then
+      calling its :cpp:member:`rsb::Factory::createReader` method with
+      the desired :term:`scope` (which can be specified as
+      :cpp:class:`std::string` object, for example, a string literal,
+      line 17).
+
+      Once the :term:`reader` has been created, individual
+      :term:`events <event>` are received by calling the
+      :cpp:member:`rsb::Reader::read` method (line 21).
 
       .. literalinclude:: /../rsb-cpp/examples/reader/reader.cpp
-         :language:    c++
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        c++
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
          :linenos:
+         :emphasize-lines: 16,17,21
 
       :download:`Download this example </../rsb-cpp/examples/reader/reader.cpp>`
 
-   .. container:: receive-data-java
+   .. container:: receive-data-sync-java
 
       .. note::
 
          Synchronous receiving of data is not currently implemented in
          Java.
 
-   .. container:: receive-data-cl
+   .. container:: receive-data-sync-cl
 
-      ``with-reader``
+      The macro ``rsb:with-reader`` can be used to create a
+      :term:`reader` for a particular :term:`scope`. The method
+      ``rsb:receive`` can then be used to receive individual
+      :term:`events <event>` data. ``rsb:with-reader`` takes care of
+      destroying the :term:`reader` after use.
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
          :language:    cl
@@ -200,7 +216,8 @@ receiving.
          :end-before:  mark-end::with-reader
          :linenos:
 
-      Alternatively
+      Alternatively, ``rsb:make-reader`` can be used to obtain an
+      :term:`reader` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
          :language:    cl
