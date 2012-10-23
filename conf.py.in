@@ -96,6 +96,8 @@ rst_prolog = """
 
 .. _spread: http://www.spread.org
 
+.. _Apache Ant: http://ant.apache.org/
+
 .. _cmake: http://www.cmake.org/
 
 .. _google protocol buffers: http://code.google.com/p/protobuf/

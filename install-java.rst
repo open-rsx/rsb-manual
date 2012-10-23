@@ -27,7 +27,7 @@ Required Dependencies
 * Daemon program of the `Spread`_ group communication system
 
   * Version 4.0 or newer to utilize the Spread :term:`transport`
-  * The |ubuntu| (Lucid) package does **not** work (since it contains
+  * The |ubuntu| package does **not** work (since it contains
     the outdated version 3)
 
 * `CMake`_, Version 2.8 or newer for |project| protocol compilation
@@ -99,9 +99,9 @@ Installation of RSC and RSBProtocol
 -----------------------------------
 
    RSC
-     https://code.cor-lab.org/svn/rsc/trunk/rsc
+     "0.7" branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
-     |repository_versioned|/protocol
+     |repository_versioned| protocol
 
 #. Build and install the RSC C++ library and the |project| Protocol
    library in the order given below:
@@ -138,7 +138,7 @@ Installation of RSBJava
 #. Checkout |project| and its immediate dependencies from the
    Subversion repository
 
-   |repository_versioned|/java/core
+   |repository_versioned| java
 
 #. Invoke ``ant`` supplying build properties on the commandline or via
    ``build.properties`` (see below)
