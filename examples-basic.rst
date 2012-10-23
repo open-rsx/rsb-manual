@@ -87,9 +87,9 @@ data then has to be passed to it.
 
    .. container:: sending-data-java
 
-      A ``rsb.Informer`` object is created by calling obtaining the
-      |project| factory via ``rsb.Factory.getInstance`` and then
-      calling its ``rsb.Factory.createInformer`` with the desired
+      A ``rsb.Informer`` object is created by obtaining the |project|
+      factory via ``rsb.Factory.getInstance`` and then calling its
+      ``rsb.Factory.createInformer`` method with the desired
       :term:`scope` (which can be specified as a string literal). The
       generic parameter of the ``rsb.Informer`` class determines the
       :term:`data type` of the :term:`informer`.
@@ -216,7 +216,7 @@ receiving.
          :end-before:  mark-end::with-reader
          :linenos:
 
-      Alternatively, ``rsb:make-reader`` can be used to obtain an
+      Alternatively, ``rsb:make-reader`` can be used to obtain a
       :term:`reader` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
@@ -243,37 +243,94 @@ and in parallel to the execution of the program. For each received
 
    .. container:: receive-data-async-python
 
+      A :py:class:`rsb.Listener` object is created by calling
+      :py:func:`rsb.createListener` with the desired :term:`scope`
+      (which can be specified as :ref:`str <typesseq>` object, for
+      example, a string literal, line 16)
+
+      Once the :term:`listener` has been created, :term:`handlers
+      <handler>` can be added by calling
+      :py:meth:`rsb.Listener.addHandler` (line 20). Any
+      :py:func:`callable` can be used as a :term:`handler`.
+
+      After use, the :py:class:`rsb.Listener` object has to be
+      deactivated using its :py:meth:`rsb.Listener.deactivate` method
+      (line 27).
+
       .. literalinclude:: /../rsb-python/examples/listener.py
-         :language:    python
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        python
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
          :linenos:
+         :emphasize-lines: 16,20,27
 
       :download:`Download this example </../rsb-python/examples/listener.py>`
 
    .. container:: receive-data-async-cpp
 
+      A :term:`listener` is created by obtaining the |project| factory
+      via :cpp:member:`rsb::Factory::getInstance` (line 19) and then
+      calling its :cpp:member:`rsb::Factory::createListener` method
+      with the desired :term:`scope` (which can be specified as
+      :cpp:class:`std::string` object, for example, a string literal,
+      line 27).
+
+      Once the :term:`listener` has been created, individual
+      :term:`handlers <handler>` can be added by calling the
+      :cpp:member:`rsb::Listener::addHandler` method (line 36). In
+      general, :term:`handlers <handler>` are objects which implement
+      the :cpp:class:`rsb::Handler` interface. However, there are
+      specialized :term:`handlers <handler>` such as
+      :cpp:class:`rsb::DataFunctionHandler` which allow using
+      different things such as ordinary functions as :term:`handlers
+      <handler>`.
+
       .. literalinclude:: /../rsb-cpp/examples/listener/listener.cpp
-         :language:    c++
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        c++
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
          :linenos:
+         :emphasize-lines: 19,27,36
 
       :download:`Download this example </../rsb-cpp/examples/listener/listener.cpp>`
 
    .. container:: receive-data-async-java
 
+      A ``rsb.Listener`` object is created by obtaining the |project|
+      factory via ``rsb.Factory.getInstance`` (line 18) and then
+      calling its ``rsb.Factory.createListener`` method with the
+      desired :term:`scope` (which can be specified as a string
+      literal, line 23).
+
+      The ``rsb.Listener`` has to activated before and deactivated
+      after use via the ``rsb.Listener.activate`` (line 24) and
+      ``rsb.Listener.deactivate`` (line 37) methods.
+
+      Once the :term:`listener` has been created and activated,
+      :term:`handlers <handler>` can be added by calling the
+      ``rsb.Listener.addHandler`` method (line 29). Objects
+      implementing the ``rsb.Handler`` interface can be used as
+      :term:`handlers <handler>`.
+
       .. literalinclude:: /../rsb-java/examples/EventListenerExample.java
-         :language:    java
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         :language:        java
+         :start-after:     mark-start::body
+         :end-before:      mark-end::body
          :linenos:
+         :emphasize-lines: 18,23,24,29,37
 
       :download:`Download this example </../rsb-java/examples/EventListenerExample.java>`
 
    .. container:: receive-data-async-cl
 
-      ``with-listener`` ``with-handler``
+      The macro ``rsb:with-listener`` can be used to create a
+      :term:`listener` for a particular :term:`scope`. Inside the
+      lexical scope of ``rsb:with-listener`` (or for :term:`listeners
+      <listener>` created differently), the macro ``rsb:with-handler``
+      can be used to add a :term:`handler` to the
+      :term:`listener`. While the body of ``rsb:with-handler``
+      executes, :term:`events <event>` are handled by the supplied
+      code.
 
       .. literalinclude:: /../rsb-cl/examples/listener.lisp
          :language:    cl
@@ -281,7 +338,8 @@ and in parallel to the execution of the program. For each received
          :end-before:  mark-end::with-listener
          :linenos:
 
-      Alternatively
+      Alternatively, ``rsb:make-listener`` can be used to obtain a
+      :term:`listener` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/listener.lisp
          :language:    cl
