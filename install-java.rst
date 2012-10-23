@@ -18,7 +18,7 @@ Required Dependencies
 
 * `Google Protocol Buffers`_
 
-  * |ubuntu| (Lucid) packages (``libprotobuf-java``,
+  * |ubuntu| packages (``libprotobuf-java``,
     ``protobuf-compiler``) are OK
 
 * `Apache Ant`_
@@ -27,7 +27,7 @@ Required Dependencies
 
   * Version 4.0 or newer to utilize the :term:`Spread`
     :term:`transport`
-  * The |ubuntu| (Lucid) package does **not** work (since it
+  * The |ubuntu| package does **not** work (since it
     contains the outdated version 3)
 
 * `CMake`_, version 2.8 or newer for |project| protocol compilation
@@ -94,7 +94,7 @@ Installation of RSC and RSBProtocol
 #. Obtain the source code:
 
    RSC
-     "0.8" branch of https://code.cor-lab.org/git/rsc.git
+     "|version|" branch of https://code.cor-lab.org/git/rsc.git
 
    |project| Protocol
      |repository_versioned| protocol
@@ -127,7 +127,7 @@ Installation of RSBJava
 =======================
 
 #. Checkout |project| and its immediate dependencies from
-   |repository_versioned| rsb-java.
+   |repository_versioned| java.
 
 #. Invoke :program:`ant` supplying build properties on the commandline
    or via file:`build.properties` (see below)
