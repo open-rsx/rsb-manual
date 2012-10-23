@@ -89,6 +89,12 @@ From Source
    Additionally, the internal protocol, which is required for a from-source
    installation is available at |repository_versioned| protocol.
    
+   .. note::
+   
+      There is currently an issue with the automatic replacement of the git URLs
+      in this documentation. For all URLs there should not be a space between
+      ``git.`` and the specific suffix.
+      
 #. Build and install an implementation
 
    .. toctree::
