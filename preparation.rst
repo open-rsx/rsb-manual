@@ -85,7 +85,10 @@ From Source
    Common Lisp |repository_versioned| cl
    Matlab      |repository_versioned| matlab
    =========== =============================
-
+   
+   Additionally, the internal protocol, which is required for a from-source
+   installation is available at |repository_versioned| protocol.
+   
 #. Build and install an implementation
 
    .. toctree::
