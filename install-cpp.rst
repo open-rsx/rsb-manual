@@ -1,8 +1,8 @@
 .. _install-cpp:
 
-================================================
- Installing the C++ Implementation of |project|
-================================================
+====================
+ C++ Implementation
+====================
 
 Supported Operating Systems and Compilers
 =========================================

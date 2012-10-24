@@ -1,8 +1,8 @@
 .. _install-cl:
 
-========================================================
- Installing the Common Lisp Implementation of |project|
-========================================================
+============================
+ Common Lisp Implementation
+============================
 
 Prerequisites
 =============

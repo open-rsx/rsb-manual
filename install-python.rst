@@ -1,8 +1,8 @@
 .. _install-python:
 
-===================================================
- Installing the Python Implementation of |project|
-===================================================
+=======================
+ Python Implementation
+=======================
 
 Supported Interpreters
 ======================

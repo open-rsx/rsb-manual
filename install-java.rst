@@ -1,8 +1,8 @@
 .. _install-java:
 
-================================================
- Installing the Java Implementation of |project|
-================================================
+=====================
+ Java Implementation
+=====================
 
 Supported Java Version
 ======================
