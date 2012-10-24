@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
+# Options.
 set(SPHINX_BUILD_NAME "sphinx-build"
     CACHE STRING "name of the sphinx-build program to use")
 
@@ -16,6 +17,7 @@ set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
     CACHE STRINGS
     "URL of the RSB repository base")
 
+# Configure sphinx configuration file.
 set(REPOSITORIES cpp java python protocol cl matlab tools-cpp tools-cl tutorials talks manual integrationtest)
 set(REPOSITORY_REPLACES)
 set(REPOSITORY_VERSIONED_REPLACES)
@@ -36,6 +38,8 @@ endforeach()
 configure_file(conf.py.in
                "${CMAKE_BINARY_DIR}/conf.py"
                @ONLY)
+
+# Configure sphinx template files.
 configure_file(_templates/links.html.in
                "${CMAKE_BINARY_DIR}/_templates/links.html"
                @ONLY)
@@ -43,14 +47,15 @@ configure_file(_templates/layout.html.in
                "${CMAKE_BINARY_DIR}/_templates/layout.html"
                @ONLY)
 
+# Add targets for generating HTML, LaTeX, PDF and man output.
 foreach(KIND html latex man)
-  set(ALL)
-  if(KIND STREQUAL "html")
-    set(ALL ALL)
-  endif()
-  add_custom_target(${KIND} ${ALL}
-                    ${SPHINX_BUILD} ${SPHINX_OPTIONS} -b ${KIND} -c "${CMAKE_BINARY_DIR}"
-                                    ${CMAKE_SOURCE_DIR} "${CMAKE_BINARY_DIR}/${KIND}")
+    set(ALL)
+    if(KIND STREQUAL "html")
+        set(ALL ALL)
+    endif()
+    add_custom_target(${KIND} ${ALL}
+                      ${SPHINX_BUILD} ${SPHINX_OPTIONS} -b ${KIND} -c "${CMAKE_BINARY_DIR}"
+                                      ${CMAKE_SOURCE_DIR} "${CMAKE_BINARY_DIR}/${KIND}")
 endforeach()
 
 add_custom_target(pdf
