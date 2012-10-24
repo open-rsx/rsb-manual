@@ -89,9 +89,9 @@ Examples
 Implementations
 ===============
 
-======================= ============= ==============================================
+======================= ============= =================================================
 Implementation Language Project       Repository Link
-======================= ============= ==============================================
-C++                     rsb-cpp       |repository_versioned| rsb-cpp/apps/rsbversion
-Common Lisp             rsb-tools-cl  |repository_versioned| rsb-tools-cl
-======================= ============= ==============================================
+======================= ============= =================================================
+C++                     rsb-cpp       |repository_versioned_cpp| at ``apps/rsbversion``
+Common Lisp             rsb-tools-cl  |repository_versioned_tools_cl|
+======================= ============= =================================================

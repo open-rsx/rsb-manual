@@ -193,8 +193,8 @@ Implementations
 =========== ===========================================================
 Language    File(s)
 =========== ===========================================================
-C++         |repository_versioned| rsb-cpp/src/rsb/transport/socket
-Java        |repository_versioned| rsb-java/src/rsb/transport/socket
+C++         |repository_versioned_cpp| at ``src/rsb/transport/socket``
+Java        |repository_versioned_java| at ``src/rsb/transport/socket``
 Python      :download:`/../rsb-python/rsb/transport/socket/__init__.py`
-Common Lisp |repository_versioned| rsb-cl/src/transport/socket
+Common Lisp |repository_versioned_cl| at ``src/transport/socket``
 =========== ===========================================================

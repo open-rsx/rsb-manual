@@ -36,19 +36,19 @@ puri                 yes                       Quicklisp
 uuid                 yes                       Quicklisp
 local-time           yes                       Quicklisp
 cl-hooks             yes                       https://launchpad.net/cl-hooks
-cl-dynamic-classes   yes                       |repository_versioned|/cl/cl-dynamic-classes/
+cl-dynamic-classes   yes                       |repository_versioned_cl| at ``cl-dynamic-classes``
 cl-ppcre             for Regexp filtering      Quicklisp
 cxml-stp             for XML event data        Quicklisp
 xpath                for XPath event filtering Quicklisp
-cl-protobuf          for Spread transport      |repository_versioned|/cl/cl-protobuf/
-cl-spread            for Spread transport      |repository_versioned|/cl-spread/
+cl-protobuf          for Spread transport      |repository_versioned_cl| at ``cl-protobuf``
+cl-spread            for Spread transport      |repository_versioned_cl| at ``cl-spread``
 -- libspread         for Spread transport      See :ref:`C++ installation instructions <install-cpp>`
 ==================== ========================= ===============
 
 Installation
 ============
 
-#. Checkout ``cl-rsb`` system from |repository_versioned| cl
+#. Checkout ``cl-rsb`` system from |repository_versioned_cl|
 
 
 #. Install other required systems:

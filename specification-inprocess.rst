@@ -52,11 +52,11 @@ Example for :term:`scope` ``/foo/bar/``::
 Implementations
 ===============
 
-=========== ==========================================================
+=========== =============================================================
 Language    File(s)
-=========== ==========================================================
-C++         |repository_versioned| rsb-cpp/src/rsb/transport/inprocess
+=========== =============================================================
+C++         |repository_versioned_cpp| at ``src/rsb/transport/inprocess``
 Java        *not yet implemented*
 Python      :download:`/../rsb-python/rsb/transport/local/__init__.py`
-Common Lisp |repository_versioned| rsb-cl/src/transport/inprocess
-=========== ==========================================================
+Common Lisp |repository_versioned_cl| at ``src/transport/inprocess``
+=========== =============================================================

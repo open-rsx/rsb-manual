@@ -44,11 +44,11 @@ expression :regexp:`/([a-zA-Z0-9]+/)*`.
 Implementations
 ===============
 
-=========== ====================================================
+=========== =======================================================
 Language    File(s)
-=========== ====================================================
-C++         |repository_versioned| rsb-cpp/src/rsb/Scope.{h,cpp}
+=========== =======================================================
+C++         |repository_versioned_cpp| at ``src/rsb/Scope.{h,cpp}``
 Java        :download:`/../rsb-java/src/rsb/Scope.java`
 Python      :download:`/../rsb-python/rsb/__init__.py`
 Common Lisp :download:`/../rsb-cl/src/scope.lisp`
-=========== ====================================================
+=========== =======================================================

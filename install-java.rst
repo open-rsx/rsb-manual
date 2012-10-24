@@ -97,7 +97,7 @@ Installation of RSC and RSBProtocol
      "|version|" branch of https://code.cor-lab.org/git/rsc.git
 
    |project| Protocol
-     |repository_versioned| protocol
+     |repository_versioned_protocol|
 
 #. Build and install RSC Library
 
@@ -127,7 +127,7 @@ Installation of RSBJava
 =======================
 
 #. Checkout |project| and its immediate dependencies from
-   |repository_versioned| java.
+   |repository_versioned_java|.
 
 #. Invoke :program:`ant` supplying build properties on the commandline
    or via file:`build.properties` (see below)

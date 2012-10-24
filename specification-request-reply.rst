@@ -145,11 +145,11 @@ TODO: include examples or link to tutorial?
 Implementations
 ===============
 
-=========== =================================================
+=========== ====================================================
 Language    File(s)
-=========== =================================================
-C++         |repository_versioned| rsb-cpp/src/rsb/patterns/
-Java        |repository_versioned| rsb-java/src/rsb/patterns/
-Python      |repository_versioned| rsb-python/rsb/patterns/
-Common Lisp |repository_versioned| rsb-cl/src/patterns/
-=========== =================================================
+=========== ====================================================
+C++         |repository_versioned_cpp| at ``src/rsb/patterns/``
+Java        |repository_versioned_java| at ``src/rsb/patterns/``
+Python      |repository_versioned_python| at ``rsb/patterns/``
+Common Lisp |repository_versioned_cl| at ``src/patterns/``
+=========== ====================================================

@@ -12,6 +12,27 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     CACHE STRING
     "The directory or URL corresponding to the root of all documentation.")
 
+set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
+    CACHE STRINGS
+    "URL of the RSB repository base")
+
+set(REPOSITORIES cpp java python protocol cl matlab tools-cpp tools-cl tutorials talks manual integrationtest)
+set(REPOSITORY_REPLACES)
+set(REPOSITORY_VERSIONED_REPLACES)
+foreach(REPOSITORY ${REPOSITORIES})
+    string(REPLACE "-" "_" REPOSITORY_UNDERSCORED ${REPOSITORY})
+
+    set(REPOSITORY_REPLACES "${REPOSITORY_REPLACES}
+
+.. |repository_${REPOSITORY_UNDERSCORED}| replace::
+   ${REPOSITORY_BASE_URL}.${REPOSITORY}")
+
+    set(REPOSITORY_VERSIONED_REPLACES "${REPOSITORY_VERSIONED_REPLACES}
+
+.. |repository_versioned_${REPOSITORY_UNDERSCORED}| replace::
+   \"{version}\" branch of ${REPOSITORY_BASE_URL}.${REPOSITORY}")
+endforeach()
+
 configure_file(conf.py.in
                "${CMAKE_BINARY_DIR}/conf.py"
                @ONLY)

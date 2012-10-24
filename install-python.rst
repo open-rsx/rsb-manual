@@ -51,9 +51,9 @@ Installation
    RSC
      "|version|" branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
-     |repository_versioned| protocol
+     |repository_versioned_protocol|
    |project| Python
-     |repository_versioned| python
+     |repository_versioned_python|
 
 #. Install RSC and the |project| protocol definitions as described
    :ref:`in the C++ installation instructions <install-cpp-rsb>`.

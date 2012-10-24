@@ -125,8 +125,8 @@ Implementations
 =========== ==============================================================
 Language    File(s)
 =========== ==============================================================
-C++         |repository_versioned| rsb-cpp/src/rsb/transport/spread
-Java        |repository_versioned| rsb-java/src/rsb/transport/spread
+C++         |repository_versioned_cpp| at ``src/rsb/transport/spread``
+Java        |repository_versioned_java| at ``src/rsb/transport/spread``
 Python      :download:`/../rsb-python/rsb/transport/rsbspread/__init__.py`
-Common Lisp |repository_versioned| rsb-cl/src/transport/spread
+Common Lisp |repository_versioned_cl| at ``src/transport/spread``
 =========== ==============================================================

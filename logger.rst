@@ -188,9 +188,9 @@ Examples
 Implementations
 ===============
 
-======================= ============= ======================================
+======================= ============= ================================
 Implementation Language Project       Repository Link
-======================= ============= ======================================
-C++                     rsb-tools-cpp |repository_versioned| rsb-tools-cpp
-Common Lisp             rsb-tools-cl  |repository_versioned| rsb-tools-cl
-======================= ============= ======================================
+======================= ============= ================================
+C++                     rsb-tools-cpp |repository_versioned_tools_cpp|
+Common Lisp             rsb-tools-cl  |repository_versioned_tools_cl|
+======================= ============= ================================

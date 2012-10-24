@@ -139,9 +139,9 @@ reported in the `issue tracker`_.
 General Changes
 
 * A tutorial is now included in the |project| source tree:
-  "0.5" branch of |repository| .tutorials
+  "0.5" branch of |repository_tutorials|
 * Several introductory talks are now included in the |project| source tree:
-  "0.5" branch of |repository| .talks
+  "0.5" branch of |repository_talks|
 * "RSB-related build jobs":https://ci.cor-lab.de/view/rsb-0.5 on the
   continuous integration sever have been reorganized.
 * Simple benchmarking tools are available in the ``rsbench`` project.

@@ -29,11 +29,11 @@ From Source
    =========== =============================
    Language    Repository URL
    =========== =============================
-   C++         |repository_versioned| cpp
-   Java        |repository_versioned| java
-   Python      |repository_versioned| python
-   Common Lisp |repository_versioned| cl
-   Matlab      |repository_versioned| matlab
+   C++         |repository_versioned_cpp|
+   Java        |repository_versioned_java|
+   Python      |repository_versioned_python|
+   Common Lisp |repository_versioned_cl|
+   Matlab      |repository_versioned_matlab|
    =========== =============================
 
 #. Build and install an implementation

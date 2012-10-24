@@ -169,11 +169,11 @@ not yet been solved.
 Implementations
 ===============
 
-=========== ====================================================
+=========== =======================================================
 Language    File(s)
-=========== ====================================================
-C++         |repository_versioned| rsb-cpp/src/rsb/Event.{h,cpp}
+=========== =======================================================
+C++         |repository_versioned_cpp| at ``src/rsb/Event.{h,cpp}``
 Java        :download:`/../rsb-java/src/rsb/Event.java`
 Python      :download:`/../rsb-python/rsb/__init__.py`
 Common Lisp :download:`/../rsb-cl/src/event.lisp`
-=========== ====================================================
+=========== =======================================================

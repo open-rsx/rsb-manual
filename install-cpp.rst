@@ -98,9 +98,9 @@ Installation of RSC, RSBProtocol and |project|
    RSC
      "|version|" branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
-     |repository_versioned| protocol
+     |repository_versioned_protocol|
    |project| C++
-     |repository_versioned| cpp
+     |repository_versioned_cpp|
 
 
 #. Build and install the C++ implementation of |project| and its

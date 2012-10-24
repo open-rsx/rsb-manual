@@ -37,10 +37,12 @@ rst_prolog = """
    RSB
 
 .. |repository| replace::
-   https://code.cor-lab.org/git/rsb.git
+   @REPOSITORY_BASE_URL@
+@REPOSITORY_REPLACES@
 
 .. |repository_versioned| replace::
-   "{version}" branch of https://code.cor-lab.org/git/rsb.git.
+   "{version}" branch of https://code.cor-lab.org/git/rsb.git
+@REPOSITORY_VERSIONED_REPLACES@
 
 .. |spread_python_tarball| replace::
    http://www.spread.org/files/SpreadModule-1.5spread4.tgz
