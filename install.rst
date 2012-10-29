@@ -11,7 +11,12 @@ following ways :
 * :ref:`Debian packages <install-debian>`
 * :ref:`PyPi package (Python implementation) <install-pypi>`
 * :ref:`Homebrew (C++ implementation) <install-homebrew>`
-* :ref:`Binary downloads <install-binary-download>` (only for :ref:`tools <tools>`)
+* Binary downloads
+
+  * :ref:`Binary download for Java implementation (JAR files)
+    <install-binary-java>`
+  * :ref:`Binary download <install-binary-download>` of :ref:`tools
+    <tools>`
 
 .. _install-from-source:
 
@@ -184,6 +189,21 @@ You can also install via URL:
 .. code-block:: sh
 
    $ brew install https://raw.github.com/swrede/homebrew-formulae/master/rsb.rb
+
+.. _install-binary-java:
+
+Binary Downloads for Java
+=========================
+
+Archives containing pre-built JAR-files of the Java implementation and
+required dependencies can be `downloaded
+<https://ci.cor-lab.de/job/rsb-java-trunk/lastSuccessfulBuild/artifact/rsb-java.zip>`_
+from the continuous integration server.
+
+After downloading the archive, several JAR-files can be extracted from
+it. These files have to be placed on the Java classpath. Afterwards,
+the Java implementation of |project| should be usable in any Java
+program.
 
 .. _install-binary-download:
 
