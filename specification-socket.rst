@@ -95,6 +95,11 @@ From the client's perspective, the protocol consist of
 
 .. digraph:: client_states
 
+   fontname=Arial
+   fontsize=11
+   node [fontsize=11,fontname=Arial]
+   edge [fontsize=11,fontname=Arial]
+
    "new";
    "handshake-in-progress";
    "closed";
@@ -140,6 +145,11 @@ the new connection:
    encoding via m\ :sub:`size` and m\ :sub:`payload`
 
 .. digraph:: server_states
+
+   fontname=Arial
+   fontsize=11
+   node [fontsize=11,fontname=Arial]
+   edge [fontsize=11,fontname=Arial]
 
    "new";
    "handshake-in-progress";

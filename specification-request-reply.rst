@@ -28,6 +28,11 @@ For example:
 
 .. digraph:: rpc_example
 
+   fontname=Arial
+   fontsize=11
+   node [fontsize=11,fontname=Arial]
+   edge [fontsize=11,fontname=Arial]
+
    subgraph cluster_process1 {
      label="process 1";
      "remoteserver" [shape=rectangle];
