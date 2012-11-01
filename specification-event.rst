@@ -4,28 +4,30 @@
  Event
 =======
 
-Conceptually and when represented in programs, |project| :term:`event`
-s consist of the following components:
+Conceptually and when represented in programs, |project| :term:`events
+<event>` consist of the following components:
 
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| Name                   | Type                                                                 | Comment                       | Required       |
-+========================+======================================================================+===============================+================+
-| sequence number        | 32-bit unsigned integer                                              | Assigned by informer          | yes            |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| id                     | `UUID <http://en.wikipedia.org/wiki/Universally_unique_identifier>`_ | Unique Id of the event        | lazily derived |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| :term:`scope`          | Scope object                                                         | Destination scope             | yes            |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| method                 | ASCII string                                                         |                               | no             |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| :term:`data type`      |                                                                      |                               | no?            |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| :term:`event payload`  | Domain-specific object                                               |                               | no             |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| meta-data              | (see below)                                                          | see below                     | no             |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
-| cause vector           | set of EventIds                                                      | see below                     | no             |
-+------------------------+----------------------------------------------------------------------+-------------------------------+----------------+
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| Name                   | Type                                                                 | Comment                           | Required       |
++========================+======================================================================+===================================+================+
+| `Sequence number`_     | 32-bit unsigned integer                                              | Assigned by :term:`informer`      | yes            |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| `Sender id`_           | `UUID <http://en.wikipedia.org/wiki/Universally_unique_identifier>`_ | Unique Id of the :term:`informer` | yes            |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| `Event id`_            | `UUID <http://en.wikipedia.org/wiki/Universally_unique_identifier>`_ | Unique Id of the :term:`event`    | lazily derived |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| :term:`Scope`          | :term:`Scope` object                                                 | Destination :term:`scope`         | yes            |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| Method                 | ASCII string                                                         |                                   | no             |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| :term:`Data type`      |                                                                      |                                   | no?            |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| :term:`Event payload`  | Domain-specific object                                               |                                   | no             |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| `Timestamps`_          | multiple named 64-bit integers                                       | see below                         | no             |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
+| `Cause vector`_        | set of EventIds                                                      | see below                         | no             |
++------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 
 .. _specification-sequence-number:
 
@@ -33,7 +35,7 @@ Sequence Number
 ===============
 
 :term:`Event` sequence numbers are 32-bit unsigned integers which
-indicate the order of :term:`event` s published by a particular
+indicate the order of :term:`events <event>` published by a particular
 :term:`informer`. Sequence numbers start at 0 corresponding to the
 first :term:`event` and are incremented by 1 for each subsequent
 :term:`event`. Sequence numbers wrap around to 0 at 4294967296 (that
@@ -41,19 +43,27 @@ is, the largest sequence number is 4294967295).
 
 .. important::
 
-   :term:`Participant` s which receive :term:`event` s cannot
-   generally rely on
+   :term:`Participants <participant>` which receive :term:`events
+   <event>` cannot generally rely on
 
-   #. receiving *all* :term:`event` s (according to :term:`sequence
-      number` s) published by a particular :term:`informer`. This
-      assumption may hold, however, if the :term:`informer` in
-      question behaves according to some constraints (i.e. publishing
-      only to one particular :term:`scope`).
-   #. receiving :term:`event` s published by a particular
-      :term:`informer` *in order* (according to :term:`sequence
-      number` s).
+   #. receiving *all* :term:`events <event>` (according to
+      :term:`sequence numbers <sequence number>`) published by a
+      particular :term:`informer`. This assumption may hold, however,
+      if the :term:`informer` in question behaves according to some
+      constraints (i.e. publishing only to one particular
+      :term:`scope`).
+   #. receiving :term:`events <event>` published by a particular
+      :term:`informer` *in order* (according to :term:`sequence numbers
+      <sequence number>`).
 
-      TODO cress-reference quality of service
+      TODO cross-reference quality of service
+
+.. _specification-event-sender-id:
+
+Sender Id
+=========
+
+ID (a UUID) of the sending :term:`participant`.
 
 .. _specification-event-id:
 
@@ -95,64 +105,137 @@ Examples / Test Cases::
   event id               v5-uuid(BF948D47-618F-4B04-AAC5-0AB5A1A79267, "0000017a")
   => BD27BE7D-87DE-5336-BECA-44FC60DE46A0
 
-Meta Data
-=========
+.. _specification-event-timestamps:
 
-:term:`Event` s carry a set of meta data with themselves. Some meta
-data items are specified and processed by |project| while others are
-user-defined and not interpreted by |project|.
+Timestamps
+==========
 
-All timestamps are expressed in `Coordinated Universal Time (UTC)
-<http://en.wikipedia.org/wiki/Coordinated_Universal_Time>`_ and stored
-with microsecond precision (even if the clock source used by |project|
-cannot actually provide microsecond precision).
+:term:`Events <event>` carry a set of timestamps. All timestamps are
+expressed in
 
-The current set of specified, required meta data items is given below:
+#. `Coordinated Universal Time (UTC)
+   <http://en.wikipedia.org/wiki/Coordinated_Universal_Time>`_
+#. since `UNIX epoch <http://en.wikipedia.org/wiki/Unix_time#Encoding_time_as_a_number>`_
+#. and stored with microsecond precision
 
-  sender id
-
-    ID (a UUID) of the sending participant.
-
-  create time
-
-    A timestamp that is automatically filled with the time the
-    :term:`event` object was in the client program. This should usually
-    reflect the time at which the notified condition most likely
-    occurred in the sender. If :term:`event` objects are reused, this
-    timestamp has to be reset manually by the client.
-
-  send time
-
-    The time at which the generated :term:`notification` for an
-    :term:`event` was sent on the bus (after serialization).
-
-  receive time
-
-    The time at which an :term:`event` is received by a listener in its
-    encoded form.
-
-  deliver time
-
-    The time at which an :term:`event` was decoded and will be
-    dispatched to the client as soon as possible (set directly before
-    passing it to the client handler).
-
-The following meta data items are user-defined:
-
-  user times
-
-    A set of user-defined keys and associated timestamps
-
-  user infos
-
-    A set of key-value user-defined options with string keys and values.
+(even if the clock source used by |project| cannot actually provide
+microsecond precision).
 
 .. note::
 
-   create time, send time and user times are computed using the clock
-   source of the sending process, whereas receive time and deliver
-   time are filled using the clock source of receiving participant's
-   process.
+   When considering the issue of representing time rigorously, the
+   above description is far from unambiguous. Since we are no experts
+   with respect to representing time, we just say "convert your UTC
+   time to UNIX time keeping up to 6 decimals of the remainder".
+
+For each :term:`event`, the following timestamps are maintained by
+|project|:
+
+create time
+
+  A timestamp that is automatically filled with the time at which the
+  :term:`event` object was created in the client program. This should
+  usually reflect the time at which the notified condition most likely
+  occurred in the sending process. If :term:`event` objects are
+  reused, this timestamp has to be reset manually by the client.
+
+send time
+
+  The time at which the generated :term:`notification` for an
+  :term:`event` was sent on the bus (after serialization).
+
+receive time
+
+  The time at which an :term:`event` is received by a :term:`listener`
+  in its serialized form (before deserialization).
+
+deliver time
+
+  The time at which an :term:`event` is dispatched to the client
+  (after deserialization). The timestamp is set directly before
+  passing the :term:`event` to the :term:`handler`.
+
+The relation between the various timestamps is illustrated in the
+below figure:
+
+.. digraph:: timestamps
+
+   fontname=Arial
+   fontsize=11
+   node [fontsize=11,fontname=Arial]
+   edge [fontsize=11,fontname=Arial]
+
+   rankdir=LR
+   node [shape="rect"]
+
+   subgraph cluster_informer {
+     label = "Informer"
+
+     event
+     node [style="rounded,filled",fillcolor="#ffc0c0"]
+     create
+     serialize
+     send
+   }
+
+   subgraph cluster_in_flight {
+     label = "In-flight"
+
+     helper [shape=none,label=""]
+   }
+
+   subgraph cluster_listener {
+     label = "Listener"
+
+     node [style="rounded,filled",fillcolor="#c0c0ff"]
+     receive
+     deserialize
+     dispatch
+   }
+
+   create -> event
+   event -> serialize
+   serialize -> send
+   send -> helper
+   helper -> receive
+   receive -> deserialize
+   deserialize -> dispatch
+
+   node [shape=note,style="filled",fillcolor="#ffffe0"]
+   create_time [label="attach create time"]
+   create_time -> create
+   send_time [label="attach send time"]
+   send_time -> send
+   receive_time [label="attach receive time"]
+   receive_time -> receive
+   dispatch_time [label="attach dispatch time"]
+   dispatch_time -> dispatch
+
+.. important::
+
+   As indicated in the above figure, create time, send time and user
+   times are computed using the clock source of the sending process,
+   whereas receive time and deliver time are filled using the clock
+   source of receiving :term:`participant's <participant>` process.
+
+.. _specification-event-user-meta-data:
+
+User-defined Meta Data
+======================
+
+The following meta data items are user-defined:
+
+user times
+
+  A set of user-defined keys and associated timestamps. These
+  timestamps use the same encoding as the :ref:`framework-maintained
+  timestamps <specification-event-timestamps>`.
+
+user infos
+
+  A set of key-value user-defined options with string keys and values.
+
+.. _specification-event-cause-vector:
 
 Cause Vector
 ============
@@ -162,9 +245,11 @@ idea is based on [Luckham2001PEI]_).  The user who sends an
 :term:`event` needs to insert the respective :term:`event` ids
 manually if required.
 
-Currently, there is no specification regarding how these ids shall be
-used. Especially the handling of questions related to transitivity has
-not yet been solved.
+.. important::
+
+   Currently, there is no specification regarding how these ids shall
+   be used. Especially the handling of questions related to
+   transitivity has not yet been solved.
 
 Implementations
 ===============
