@@ -105,15 +105,26 @@
 
      See also :term:`remote server`.
 
+   meta-data
+   event meta-data
+
+     In the context of |project|, meta-data refers pieces of data
+     attached to :term:`events <event>` in addition to the
+     :term:`payload`.
+
+     See :ref:`specification-event-timestamps`,
+     :ref:`specification-event-user-meta-data`,
+     :ref:`specification-event-cause-vector`.
+
    method field
 
-     A data field in |project| :term:`event` s which specifies the
-     role of a given :term:`event` within a communication pattern. For
-     example, the :ref:`request/reply communication pattern
-     <specification-request-reply>` uses the values ``REQUEST`` and
-     ``REPLY``.
+     A data field in |project| :term:`events <event>` which specifies
+     the role of a given :term:`event` within a communication
+     pattern. For example, the :ref:`request/reply communication
+     pattern <specification-request-reply>` uses the values
+     ``"REQUEST"`` and ``"REPLY"``.
 
-     See :ref:`event` for more.
+     See :ref:`specification-event-method` for more.
 
    notification
 

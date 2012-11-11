@@ -18,15 +18,15 @@ Conceptually and when represented in programs, |project| :term:`events
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 | :term:`Scope`          | :term:`Scope` object                                                 | Destination :term:`scope`         | yes            |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| Method                 | ASCII string                                                         |                                   | no             |
+| `Method`_              | ASCII string                                                         |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| :term:`Data type`      |                                                                      |                                   | no?            |
+| :term:`Data type`      | ASCII string                                                         | Specifies type of :term:`payload` | no?            |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 | :term:`Event payload`  | Domain-specific object                                               |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| `Timestamps`_          | multiple named 64-bit integers                                       | see below                         | no             |
+| `Timestamps`_          | Multiple named 64-bit integers                                       |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| `Cause vector`_        | set of EventIds                                                      | see below                         | no             |
+| `Cause vector`_        | Set of :term:`event ids <event id>`                                  |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 
 .. _specification-sequence-number:
@@ -104,6 +104,33 @@ Examples / Test Cases::
 
   event id               v5-uuid(BF948D47-618F-4B04-AAC5-0AB5A1A79267, "0000017a")
   => BD27BE7D-87DE-5336-BECA-44FC60DE46A0
+
+.. _specification-event-method:
+
+Method
+======
+
+:term:`Events <event>` can carry an optional method string which
+indicates the role of the :term:`event` in a particular communication
+pattern or some kind of action performed by the respective
+:term:`event`.
+
+Currently, the following method strings are defined:
+
++---------------+-----------------------------------------------------------------------------+
+| String        | Meaning                                                                     |
++===============+=============================================================================+
+| ``"REQUEST"`` | Request :term:`event` of a :ref:`method call <specification-request-reply>` |
++---------------+-----------------------------------------------------------------------------+
+| ``"REPLY"``   | Reply :term:`event` of a :ref:`method call <specification-request-reply>`   |
++---------------+-----------------------------------------------------------------------------+
+
+.. note::
+
+   The values mentioned above should not be used to indicate
+   application-level semantics. Further, it has not yet been decided,
+   whether new values should be introduced as needed or if some kind
+   of coordination is required.
 
 .. _specification-event-timestamps:
 
