@@ -2,26 +2,28 @@
 <ul>
   <li>
     <a class="reference external"
-       href="@CPP_API_DIR@">
-      C++ API Documentation
-    </a>
-  </li>
-  <li>
-    <a class="reference external"
-       href="@JAVA_API_DIR@">
-      Java API Documentation
-    </a>
-  </li>
-  <li>
-    <a class="reference external"
-       href="@PYTHON_API_DIR@">
-      Python API Documentation
-    </a>
-  </li>
-  <li>
-    <a class="reference external"
        href="@DOCUMENTATION_ROOT_DIR@">
       Documentation root
     </a>
   </li>
+  <ul>
+    <li>
+      <a class="reference external"
+         href="@CPP_API_DIR@">
+        C++ API Documentation
+      </a>
+    </li>
+    <li>
+      <a class="reference external"
+         href="@JAVA_API_DIR@">
+        Java API Documentation
+      </a>
+    </li>
+    <li>
+      <a class="reference external"
+         href="@PYTHON_API_DIR@">
+        Python API Documentation
+      </a>
+    </li>
+  </ul>
 </ul>
