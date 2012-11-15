@@ -11,7 +11,7 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     "The directory or URL corresponding to the root of all documentation.")
 
 set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
-    CACHE STRINGS
+    CACHE STRING
     "URL of the RSB repository base")
 
 # Configure sphinx configuration file.
