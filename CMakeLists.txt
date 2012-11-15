@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Options.
-set(SPHINX_BUILD_NAME "sphinx-build"
-    CACHE STRING "name of the sphinx-build program to use")
-
-find_program(SPHINX_BUILD ${SPHINX_BUILD_NAME})
+find_program(SPHINX_BUILD NAMES sphinx-build2 sphinx-build)
 set(SPHINX_OPTIONS ""
     CACHE STRING
     "Options to pass to the sphinx-build program.")
