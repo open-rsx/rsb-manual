@@ -13,6 +13,16 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
 set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
     CACHE STRING
     "URL of the RSB repository base")
+    
+set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/trunk/html"
+    CACHE STRINGS
+    "URL of the cpp API documentation.")
+set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/trunk/html"
+    CACHE STRINGS
+    "URL of the java API documentation.")
+set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/trunk/html"
+    CACHE STRINGS
+    "URL of the python API documentation.")
 
 # Configure sphinx configuration file.
 set(REPOSITORIES cpp java python protocol cl matlab tools-cpp tools-cl tutorials talks manual integrationtest)
