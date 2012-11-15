@@ -12,6 +12,16 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     CACHE STRING
     "The directory or URL corresponding to the root of all documentation.")
 
+set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/0.7/html"
+    CACHE STRINGS
+    "URL of the cpp API documentation.")
+set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/0.7/html"
+    CACHE STRINGS
+    "URL of the java API documentation.")
+set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/0.7/html"
+    CACHE STRINGS
+    "URL of the python API documentation.")
+
 configure_file(conf.py.in
                "${CMAKE_BINARY_DIR}/conf.py"
                @ONLY)
