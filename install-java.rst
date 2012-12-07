@@ -80,11 +80,11 @@ external dependencies and comes with a standard configuration script.
    In the following sections, :samp:`{PREFIX}` specifies the target
    directory of the installation.
 
-.. code-block:: sh
+.. parsed-literal::
 
    $ tar xzf spread-src-4.1.0.tar.gz
    $ cd spread-src-4.1.0
-   $ ./configure --prefix=PREFIX
+   $ ./configure --prefix=\ :samp:`{PREFIX}`
    $ make
    $ make install
 
@@ -101,20 +101,20 @@ Installation of RSC and RSBProtocol
 
 #. Build and install RSC Library
 
-   .. code-block:: sh
+   .. parsed-literal::
 
       $ cd rsc
       $ mkdir -p build && cd build
-      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX ..
+      $ cmake -DCMAKE_INSTALL_PREFIX=\ :samp:`{PREFIX}` ..
       $ make install
 
 #. Install |project| Protocol Definitions
 
-   .. code-block:: sh
+   .. parsed-literal::
 
       $ cd rsb.git.protocol
       $ mkdir -p build && cd build
-      $ cmake -DCMAKE_INSTALL_PREFIX=PREFIX ..
+      $ cmake -DCMAKE_INSTALL_PREFIX=\ :samp:`{PREFIX}` ..
       $ make install
 
    .. note::

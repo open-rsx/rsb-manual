@@ -110,11 +110,11 @@ Installation
 
 #. Start building and installation
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ export PYTHONPATH=$prefix/lib/python2.X/site-packages # if you are install to /usr or /usr/local it must be dist-packages
+      $ export PYTHONPATH=\ :samp:`{PREFIX}`/lib/python2.:samp:`{VERSION}`/site-packages # if you are install to /usr or /usr/local it must be dist-packages
       $ python setup.py build
-      $ python setup.py install --prefix=$prefix
+      $ python setup.py install --prefix=\ :samp:`{PREFIX}`
 
 Adding Support for Spread
 =========================
@@ -136,10 +136,10 @@ Installation of the Spread module for Python
    prefix (e.g., :file:`/usr` or :file:`/your/prefix`)
 #. Build and install
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ python setup.py build_ext --rpath $(prefix)/lib
-      $ python setup.py install --prefix=$(prefix)
+      $ python setup.py build_ext --rpath :samp:`{PREFIX}`/lib
+      $ python setup.py install --prefix=\ :samp:`{PREFIX}`
 
 
 Testing the Installation

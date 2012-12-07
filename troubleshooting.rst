@@ -154,8 +154,7 @@ Spread Warning in Tools
 
 Problem *(applies to Common Lisp)*
 
-  When I start any of the :ref:`tools <tools>`, the following
-  happens:
+  When I start any of the :ref:`tools`, the following happens:
 
   .. code-block:: sh
 
@@ -179,20 +178,25 @@ Solution
 Missing Converters
 ==================
 
+.. seealso::
+
+  :ref:`tutorial-converters-register`
+     Registering additional :term:`converters <converter>`
+
 Problem *(applies to all implementations)*
 
   When a :term:`listener` in my component receives certain
-  :term:`event` s, it crashes and complains about missing
-  :term:`converter` s. For example like this:
+  :term:`events <event>`, it crashes and complains about missing
+  :term:`converters <converter>`. For example like this:
 
-  .. code-block:: sh
+  .. parsed-literal::
 
      $ ./myconponent
      [...]
-     terminate called after throwing an instance of 'rsc::runtime::NoSuchObject'
-       what():  No converter for wire-schema or data-type `.rst.vision.Image'.
-     Available converters: {
-       bool: *rsb::converter::BoolConverter[wireType = std::string, wireSchema = bool, dataType = bool] at 0x9d0b80
+     terminate called after throwing an instance of '\ :cpp:class:`rsc::runtime::NoSuchObject`\ '
+       what():  No :term:`converter` for :term:`wire-schema <wire schema>` or :term:`data-type <data type>` \`.rst.vision.Image'.
+     Available :term:`converters <converter>`: {
+       bool: \*rsb::converter::BoolConverter[wireType = std::string, wireSchema = bool, dataType = bool] at 0x9d0b80
        [...]
      }
 
@@ -200,17 +204,22 @@ Solution
 
   There can be several solutions to this problem.
 
-  #. The :term:`listener` could receive unexpected
-     :term:`event` s. This can be diagnosed using the :ref:`logger
+  #. The :term:`listener` could receive unexpected :term:`events
+     <event>`. This can be diagnosed using the :ref:`logger
      <logger>`. If the :term:`listener` does indeed receive unexpected
-     :term:`event` s, the problem can be fixed by letting the offending
-     :term:`informer` or the :term:`listener` itself operate on a
-     different :term:`scope`.
+     :term:`events <event>`, the problem can be fixed by letting the
+     offending :term:`informer` or the :term:`listener` itself operate
+     on a different :term:`scope`.
 
   #. The :term:`converter` configuration could be wrong. If the
-     :term:`listener` only receives expected :term:`event` s, it may
-     be missing a suitable converter. This problem can be solved by
+     :term:`listener` only receives expected :term:`events <event>`, it
+     may be missing a suitable converter. This problem can be solved by
      registering a suitable :term:`converter`.
+
+  #. The :term:`converter` registration could happen after the
+     :term:`listener` has already been created. In that case, the
+     :term:`listener` would use the "old" set of :term:`converters
+     <converter>`.
 
 .. _polymorphic-informers:
 
@@ -219,13 +228,15 @@ Polymorphic Informers
 
 Problem *(applies to C++)*
 
-  I thought it is possible, to send different :term:`data type` s
-  through the same :term:`informer`. However, I get this error (also
-  using ``InformerBase``)::
+  I thought it is possible, to send different :term:`data types <data
+  type>` through the same :term:`informer`. However, I get this error
+  (also using :cpp:class:`rsb::InformerBase`)
 
-    terminate called after throwing an instance of 'std::invalid_argument'
-    what(): Specified event type PAYLOAD-TYPE does not match informer type INFORMER-TYPE.
-    Aborted (core dumped)
+   .. parsed-literal::
+
+      terminate called after throwing an instance of '\ :cpp:class:`std::invalid_argument`\ '
+      what(): Specified :term:`event` type :samp:`{PAYLOAD-TYPE}` does not match :term:`informer` type :samp:`{INFORMER-TYPE}`.
+      Aborted (core dumped)
 
   .. note::
 
@@ -236,8 +247,9 @@ Problem *(applies to C++)*
 
 Solution
 
-  This can be achieved by specifying the pseudo-type ``rsb::AnyType``
-  as the :term:`data type` of the created :term:`informer`:
+  This can be achieved by specifying the pseudo-type
+  :cpp:class:`rsb::AnyType` as the :term:`data type` of the created
+  :term:`informer`:
 
   .. literalinclude:: /../rsb-cpp/examples/informer/anyInformer.cpp
      :language:        c++

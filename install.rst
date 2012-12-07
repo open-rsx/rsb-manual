@@ -61,21 +61,20 @@ the `CoR-Lab package repository
 <http://packages.cor-lab.de/ubuntu/dists/>`_.
 
 #. The following repository source line has to be added to
-   :file:`/etc/apt/sources.list`::
+   :file:`/etc/apt/sources.list`
 
-     deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
+   .. parsed-literal::
+
+      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` testing
 
    where :samp:`{RELEASENAME}` is the appropriate release name such as
    "lucid", "precise" etc.
 
 #. After that, packages can be installed via
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ sudo apt-get install PACKAGES
-
-   where :samp:`{PACKAGES}` is the appropriate subset of
-   |package_names|.
+      $ sudo apt-get install |package_names|
 
 .. note::
 
@@ -147,16 +146,16 @@ repository server and can be installed with :program:`pip` or
       :program:`easy_install` or ``pip install``. The same applies for
       the subsequently described installation of rsb-python itself.
 
-#. The rsb-python module can be installed by using one of the following
-   funtions:
+#. The rsb-python module can be installed by using one of the
+   following functions:
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ easy_install "rsb-python<0.8"
+      $ easy_install "rsb-python<|version|"
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ pip install "rsb-python<0.8"
+      $ pip install "rsb-python<|version|"
 
    .. note::
 

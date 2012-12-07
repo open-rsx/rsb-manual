@@ -13,10 +13,12 @@
 In principle, projects using |project| can exchange data of arbitrary
 types. However, in order to send and receive custom :term:`data type`
 s, |project| has to know how to serialize and deserialize data of
-these types. This task is performed by
-:term:`converter` s. :term:`Converter` s are maintained in a
-repository at runtime. New :term:`converter` s can be registered to
-add support for new :term:`data type` s.
+these types. This task is performed by :term:`converters
+<converter>`. :term:`Converters <converter>` are maintained in a
+repository at runtime. New :term:`converters <converter>` can be
+registered to add support for new :term:`data types <data type>`.
+
+.. _tutorial-converters-register:
 
 Registering Converters
 ======================
@@ -27,20 +29,20 @@ obtained. The following example demonstrates this.
 
 .. important::
 
-   :term:`Converter` s have to be registered before
-   :term:`participant` s are created. Otherwise, the
-   :term:`participant` s can still be created, but do not use the
-   desired :term:`converter` s.
+   :term:`Converters <converter>` have to be registered before
+   :term:`participants <participant>` are created. Otherwise, the
+   :term:`participants <participant>` can still be created, but do not
+   use the desired :term:`converters <converter>`.
 
 .. container:: converter-registration-multi
 
    .. container:: converter-registration-python
 
       The function :py:func:`rsb.converter.registerGlobalConverter` is
-      used to register new :term:`converter` s (line 26). After that,
-      the value of :py:data:`rsb.__defaultParticipantConfig` has to be
-      updated to pick up the newly registered :term:`converter` (line
-      37).
+      used to register new :term:`converters <converter>` (line
+      26). After that, the value of
+      :py:data:`rsb.__defaultParticipantConfig` has to be updated to
+      pick up the newly registered :term:`converter` (line 37).
 
       .. literalinclude:: /../rsb-python/examples/protobuf/registration.py
          :language:        python
