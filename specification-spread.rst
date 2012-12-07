@@ -26,10 +26,12 @@ Data exchanged on the wire by the :term:`Spread`-based
 :term:`notification` elementary communication unit:
 
 .. literalinclude:: ../rsb-protocol/rsb/protocol/FragmentedNotification.proto
+   :language: protobuf
    :lines:    26-
    :linenos:
 
 .. literalinclude:: ../rsb-protocol/rsb/protocol/Notification.proto
+   :language: protobuf
    :lines:    26-
    :linenos:
 
