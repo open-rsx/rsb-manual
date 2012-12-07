@@ -43,6 +43,10 @@ a {
     color: #0168b5; /* official CoR-Lab blue*/
 }
 
+.samp em {
+    background-color: #ffe0e0;
+}
+
 table.citation {
     border-left: none;
     width: 100%;
@@ -51,6 +55,8 @@ table.citation {
 .citation .label {
     width: 20%;
 }
+
+/* Alternative switcher */
 
 .multi {
     border: 1px dashed #ccc;
