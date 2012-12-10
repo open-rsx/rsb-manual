@@ -217,7 +217,7 @@ below figure:
      node [style="rounded,filled",fillcolor="#c0c0ff"]
      receive
      deserialize
-     dispatch
+     deliver
    }
 
    create -> event
@@ -226,7 +226,7 @@ below figure:
    send -> helper
    helper -> receive
    receive -> deserialize
-   deserialize -> dispatch
+   deserialize -> deliver
 
    node [shape=note,style="filled",fillcolor="#ffffe0"]
    create_time [label="attach create time"]
@@ -235,8 +235,8 @@ below figure:
    send_time -> send
    receive_time [label="attach receive time"]
    receive_time -> receive
-   dispatch_time [label="attach dispatch time"]
-   dispatch_time -> dispatch
+   deliver_time [label="attach deliver time"]
+   deliver_time -> deliver
 
 .. important::
 
