@@ -221,7 +221,7 @@ Solution
      :term:`listener` would use the "old" set of :term:`converters
      <converter>`.
 
-.. _polymorphic-informers:
+.. _troubleshooting-polymorphic-informers:
 
 Polymorphic Informers
 =====================
