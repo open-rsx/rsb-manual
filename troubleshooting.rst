@@ -263,3 +263,55 @@ Solution
    :term:`informer` can be created by specifying a builtin supertype
    such as ``Object`` (Java), ``object`` (Python) or ``t`` (Common
    Lisp) as the :term:`data type` of the :term:`informer`.
+
+.. _troubleshooting-multiple-rpc-arguments:
+
+Multiple Arguments in RPC Calls
+===============================
+
+.. seealso::
+
+   :ref:`tutorial-rpc`
+     Examples about using remote procedure calls
+
+   :ref:`specification-request-reply`
+     Specification of remote procedure calls
+
+Problem *(applies to all implementations)*
+
+  I would like to :ref:`call an RPC method <tutorial-rpc-client>` with
+  two :term:`payloads <payload>`. |project| seems to only support a
+  single argument in RPC calls, so what is the most elegant way to do
+  this?
+
+Solution
+
+  Currently, |project| only supports a single :term:`payload` for each
+  :term:`event`. Since RPC calls are implemented in terms of
+  :term:`events <event>`, the same limitation applies. As a
+  consequence, multiple arguments for a method call have to be
+  collected into a single :term:`payload`.
+
+  Assuming `Google Protocol Buffers`_ are used and the method in
+  question should have the signature ``add(ComplexNumber,
+  ComplexNumber)``, a definition like the following could be used:
+
+  .. code-block:: protobuf
+
+     message AdditionRequest {
+
+         required ComplexNumber x = 1;
+         required ComplexNumber y = 2;
+
+     }
+
+  For Python, the code implementing this method would then be
+
+  .. code-block:: python
+
+     def add(request):
+       result = ComplexNumber()
+       result.real = request.x.real + request.y.real
+       result.imag = request.x.imag + request.y.imag
+       return result
+     server.addMethod('add', add)
