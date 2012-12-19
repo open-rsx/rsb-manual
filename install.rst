@@ -65,16 +65,18 @@ the `CoR-Lab package repository
 
    .. parsed-literal::
 
-      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` testing
+      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main
 
-   where :samp:`{RELEASENAME}` is the appropriate release name such as
-   "lucid", "precise" etc.
+   where :samp:`{RELEASENAME}` is one of |debian_versions|.
 
 #. After that, packages can be installed via
 
    .. parsed-literal::
 
-      $ sudo apt-get install |package_names|
+      $ sudo apt-get install |debian_package_names|
+
+   Of course, it also possible to only install a subset of the above
+   packages.
 
 .. note::
 

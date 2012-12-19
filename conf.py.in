@@ -53,8 +53,11 @@ rst_prolog = """
 .. |documentation_root| replace::
    @DOCUMENTATION_ROOT_DIR@
 
-.. |package_names| replace::
-   {package_names}
+.. |debian_versions| replace::
+   {debian_versions}
+
+.. |debian_package_names| replace::
+   {debian_package_names}
 
 .. |info| replace::
    program:`info`
@@ -132,9 +135,11 @@ rst_prolog = """
 
 .. |ubuntu| replace::
    Ubuntu GNU/Linux
-""".format(version       = version,
-           release       = release,
-           package_names = 'librsb{version} cl-rsb rsb-tools-cpp{version} rsb-tools-cl{version}'.format(version = version))
+""".format(project              = project,
+           version              = version,
+           release              = release,
+           debian_versions      = 'lucid, precise',
+           debian_package_names = 'librsb{version} cl-rsb rsb-tools-cpp{version} rsb-tools-cl{version}'.format(version = version))
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
