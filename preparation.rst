@@ -114,7 +114,7 @@ the `CoR-Lab package repository
 #. The following repository source line has to be added to
    ``/etc/apt/sources.list``::
 
-     deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
+     deb http://packages.cor-lab.de/ubuntu/ RELEASENAME main
 
    where :samp:`RELEASENAME` is the appropriate Ubuntu release name.
 
