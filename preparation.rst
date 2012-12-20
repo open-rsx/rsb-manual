@@ -338,3 +338,41 @@ Troubleshooting
      Place one of the mentioned :term:`Spread` libraries on the system
      library search path or set :envvar:`LD_LIBRARY_PATH`
      appropriately.
+
+#. Problem *(applies to all implementations)*
+
+   When a :term:`listener` in my component receives certain
+   :term:`event` s, it crashes and complains about missing
+   :term:`converter` s. For example like this:
+
+   .. code-block:: sh
+
+      $ ./myconponent
+      [...]
+      terminate called after throwing an instance of 'rsc::runtime::NoSuchObject'
+        what():  No converter for wire-schema or data-type `.rst.vision.Image'.
+      Available converters: {
+        bool: *rsb::converter::BoolConverter[wireType = std::string, wireSchema = bool, dataType = bool] at 0x9d0b80
+        [...]
+      }
+
+   Solution
+
+   There can be several solutions to this problem.
+
+   #. The :term:`listener` could receive unexpected :term:`events
+      <event>`. This can be diagnosed using the :ref:`logger
+      <logger>`. If the :term:`listener` does indeed receive
+      unexpected :term:`events <event>`, the problem can be fixed by
+      letting the offending :term:`informer` or the :term:`listener`
+      itself operate on a different :term:`scope`.
+
+   #. The :term:`converter` configuration could be wrong. If the
+      :term:`listener` only receives expected :term:`events <event>`, it
+      may be missing a suitable converter. This problem can be solved by
+      registering a suitable :term:`converter`.
+
+   #. The :term:`converter` registration could happen after the
+      :term:`listener` has already been created. In that case, the
+      :term:`listener` would use the "old" set of :term:`converters
+      <converter>`.
