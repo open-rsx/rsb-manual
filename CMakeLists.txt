@@ -1,6 +1,16 @@
 cmake_minimum_required(VERSION 2.8)
 
+# Project meta-data.
+
+project("rsb-manual")
+
+set(RSB_MANUAL_VERSION_MAJOR "0")
+set(RSB_MANUAL_VERSION_MINOR "9")
+set(RSB_MANUAL_VERSION_PATCH "0")
+set(RSB_MANUAL_VERSION       "${RSB_MANUAL_VERSION_MAJOR}.${RSB_MANUAL_VERSION_MINOR}.${RSB_MANUAL_VERSION_PATCH}")
+
 # Options.
+
 find_program(SPHINX_BUILD NAMES sphinx-build2 sphinx-build)
 set(SPHINX_OPTIONS ""
     CACHE STRING
@@ -13,7 +23,7 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
 set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
     CACHE STRING
     "URL of the RSB repository base")
-    
+
 set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/trunk/html"
     CACHE STRINGS
     "URL of the cpp API documentation.")
