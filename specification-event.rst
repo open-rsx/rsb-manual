@@ -257,22 +257,28 @@ user times
   A set of user-defined keys and associated timestamps. These
   timestamps use the same encoding as the :ref:`framework-maintained
   timestamps <specification-event-timestamps>`.
-  
-  The benefit of maintaining all timestamps the user has to deal with inside the
-  events is that the timestamps can be read and manipulated by our tools. E.g.
-  when replaying a recorded data set, a replay tool can automatically adapt all
-  timestamps to the current date, so that it appears as if the data was really
-  sent at the current moment in time.
-  
+
   .. note::
-     
-     A drawback of maintaining timestamps inside events instead of the payload
-     is that client programs need to extract information from two different
-     sources: the event for the timestamp information and the payload for
-     remaining data. A case to case decision needs to be made whether automated
-     handling of timestamps might be beneficial or not. Generally, at least
-     timestamps relevant to the communication should be maintained in the user
-     timestamp structures of events.
+
+     The benefit of storing timestamps inside :term:`events <event>`
+     (as opposed to within :term:`payloads <payload>`) is that these
+     timestamps can be read and manipulated by framework-level
+     tools. E.g. when replaying a recorded data set, the replay tool
+     can automatically adapt all timestamps to the current date, so
+     that it appears as if the data was really sent at the current
+     moment in time.
+
+     A drawback of maintaining timestamps inside :term:`events
+     <event>` instead of :term:`payloads <payload>` is that client
+     programs need to extract information from two different sources:
+     the :term:`event` for the timestamp information and the
+     :term:`payload` for remaining data.
+
+     Case by case decisions need to be made regarding whether
+     automated handling of timestamps might be beneficial or
+     not. Generally, at least timestamps relevant to the communication
+     should be maintained in the user timestamp structures of
+     :term:`events <event>`.
 
 user infos
 
