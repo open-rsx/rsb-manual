@@ -90,13 +90,13 @@
 
      A piece of client code attached to a :term:`listener` which is
      called by |project| to process received :term:`event` s.
-     
+
    homebrew
-   
-      A package manager simplifying the configuration, 
-      compilation and installation process for 
-      Unixoid software packages on Mac OS X. Further information is
-      available at: http://mxcl.github.com/homebrew/ 
+
+      A package manager simplifying the configuration, compilation and
+      installation process for Unixoid software packages on
+      MacOS X. Further information is available at:
+      http://mxcl.github.com/homebrew/
 
    listener
 

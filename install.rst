@@ -177,35 +177,40 @@ repository server and can be installed with :program:`pip` or
 Homebrew
 ========
 
-|project| uses :term:`homebrew` for installation on MacOS. Homebrew is a package manager 
-simplifying the configuration, compilation and installation process for 
-Unixoid software packages on Mac OS X. For futher information on the 
-ideas behind homebrew please check `this blog post <http://blog.engineyard.com/2010/homebrew-os-xs-missing-package-manager>`_. 
-To install RSB from source on Max OS the following steps are required:
+|project| uses :term:`homebrew` for installation on MacOS. For further
+information on the ideas behind homebrew please check `this blog post
+<http://blog.engineyard.com/2010/homebrew-os-xs-missing-package-manager>`_.
+To install |project| from source on MaxOS the following steps are
+required:
 
 .. note::
 
-   As precondition `XCode <http://developer.apple.com/xcode/>`_ needs to installed. This can be esaily achieved through the MacOS X App Store. 
-   A further requirement for installing Unixoid software components are the XCode Command Line Tools. They can be installed from within 
-   XCode (:menuselection:`XCode --> Preferences --> Downloads`) and install ``Command Line Tools``.
- 
+   As precondition `XCode <http://developer.apple.com/xcode/>`_ needs
+   to installed. This can be easily achieved through the MacOS X App
+   Store. A further requirement for installing Unixoid software
+   components are the XCode Command Line Tools. They can be installed
+   from within XCode (:menuselection:`XCode --> Preferences -->
+   Downloads`) and install ``Command Line Tools``.
+
 #. Bootstrapping :term:`homebrew` itself:
 
    Installing :term:`homebrew` on MacOS is simple as that:
-   
+
    .. code-block:: sh
-   
+
       $ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 
    .. note::
-   
-      After the installation, you can run the following command to check if homebrew was correctly installed:
-   
-      .. code-block:: sh
-         
-         brew doctor
 
-#. Install RSB-C++ (core library and tools) with :term:`homebrew`:
+      After the installation, you can run the following command to
+      check if :term:`homebrew` was installed correctly:
+
+      .. code-block:: sh
+
+         $ brew doctor
+
+#. Install the C++ implementation of |project| (core library and
+   tools) with :term:`homebrew`:
 
    .. code-block:: sh
 
@@ -213,17 +218,19 @@ To install RSB from source on Max OS the following steps are required:
       $ brew install rsb rsb-tools
 
    .. note::
-   
-      After the installation, you can run the following command to check if |project| was correctly installed:
-   
+
+      After the installation, you can run the following command to
+      check if |project| was installed correctly:
+
       .. code-block:: sh
-         
+
          $ rsb_version
 
-.. note:: 
-   
-   If the formula conflicts with one from ``mxcl/master`` or another tap,
-   you can ``brew install swrede/homebrew-formulas/<formula>``.
+.. note::
+
+   If the formula conflicts with one from ``mxcl/master`` or another
+   tap, you can :samp:`brew install
+   swrede/homebrew-formulas/{FORMULA}`.
 
    You can also install via URL:
 
@@ -233,9 +240,13 @@ To install RSB from source on Max OS the following steps are required:
 
 .. note::
 
-   For MacOS X 10.8 users: on mountain lion X11 is not provided anymore. For the core library of |project|, X11 is not needed but by many downstream
-   projects. So, if you need to install XQuartz you can get it from http://xquartz.macosforge.org/landing/. This is recommended (but not neccessary)
-   also on earlier MacOS versions as XQuartz is more robust and up-to-date than the system-provided X11.   
+   For MacOS X 10.8 users: on mountain lion, X11 is not provided
+   anymore. For the core library of |project|, X11 is not needed, but
+   many downstream projects require it. So, if you need to install
+   XQuartz you can get it from
+   http://xquartz.macosforge.org/landing/. This is recommended (but
+   not necessary) also on earlier MacOS versions as XQuartz is more
+   robust and up-to-date than the system-provided X11.
 
 .. _install-binary-java:
 
