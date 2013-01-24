@@ -5,8 +5,8 @@
 =====================
 
 The essential form of communication in |project| consists in
-:term:`participant` s sending and receiving :term:`event` s. The
-following sections explain:
+:term:`participants <participant>` sending and receiving :term:`events
+<event>`. The following sections explain:
 
 * :ref:`Sending events <tutorial-send>` and the :term:`informer`
   :term:`participant`
@@ -149,7 +149,8 @@ Receiving data can be performed in two different ways in |project|:
 :ref:`Asynchronous <tutorial-receive-async>`
 
   Continue execution and execute a callback function (called
-  :term:`handler` in |project|) when :term:`event` s are received.
+  :term:`handler` in |project|) when :term:`events <event>` are
+  received.
 
 The following two sections explain the two ways of receiving data.
 
@@ -159,9 +160,9 @@ Receiving Data Synchronously
 ----------------------------
 
 To receive data synchronously, a :term:`reader` object has to be
-created for the :term:`scope` from which :term:`event` s should be
-received. Then, individual :term:`event` s have to be retrieved
-explicitly from the :term:`reader` object, hence synchronous
+created for the :term:`scope` from which :term:`events <event>` should
+be received. Then, individual :term:`events <event>` have to be
+retrieved explicitly from the :term:`reader` object, hence synchronous
 receiving.
 
 .. container:: receive-data-sync-multi
@@ -233,11 +234,12 @@ Receiving Data Asynchronously
 -----------------------------
 
 To receive data asynchronously, a :term:`listener` object has to be
-created for the :term:`scope` from which :term:`event` s should be
-received. Then, individual :term:`event` s are received automatically
-and in parallel to the execution of the program. For each received
-:term:`event`, a user-supplied callback function (a :term:`handler` in
-|project| terminology) is executed to process the :term:`event`.
+created for the :term:`scope` from which :term:`events <event>` should
+be received. Then, individual :term:`events <event>` are received
+automatically and in parallel to the execution of the program. For
+each received :term:`event`, a user-supplied callback function (a
+:term:`handler` in |project| terminology) is executed to process the
+:term:`event`.
 
 .. container:: receive-data-async-multi
 
@@ -362,9 +364,9 @@ Remote Procedure Calls
 Remote procedure calls (RPCs) execute methods of objects located in
 different processes, and potentially different computers, than the
 calling entity. Some things are easier to implement using RPCs than
-using :term:`event` s. However, using RPCs generally makes a system
-less flexible and often more error-prone. |project| includes means for
-providing and using a simple form of remote procedure calls.
+using :term:`events <event>`. However, using RPCs generally makes a
+system less flexible and often more error-prone. |project| includes
+means for providing and using a simple form of remote procedure calls.
 
 The following two sections describe
 
@@ -380,8 +382,9 @@ Client
 
 The RPC client calls methods provided by one or more RPC servers. In
 |project|, such an RPC client is implemented as a :term:`remote
-server` object which is similar to other :term:`participant` s . Such
-an object has to be created in order to perform method calls.
+server` object which is similar to other :term:`participants
+<participant>`. Such an object has to be created in order to perform
+method calls.
 
 After the :term:`remote server` object has been created, a method can
 be called by supplying its name as string and, optionally, the
@@ -500,8 +503,9 @@ Server
 ------
 
 Methods which are callable via RPC are provided by :term:`local
-server` objects which are similar to other :term:`participant` s. To
-provide such methods a :term:`local server` object has be created.
+server` objects which are similar to other :term:`participants
+<participant>`. To provide such methods a :term:`local server` object
+has be created.
 
 After the :term:`local server` object has been created, methods have
 to be registered, supplying the desired method name as a string and a
@@ -513,13 +517,11 @@ callback function which implements the desired behavior of the method.
 
       A :py:class:`rsb.patterns.LocalServer` object is created by
       calling :py:meth:`rsb.Factory.createLocalServer` with the
-      :term:`scope` on which the service is provided (line 12). Remote
-      methods can then be called on the
-      :py:class:`rsb.patterns.RemoteServer` object as if they were
-      ordinary Python methods using the function call syntax
-      :samp:`{OBJECT}.{METHOD}({ARGUMENTS})` (see line
-      17). Asynchronous calls can be made by using the syntax
-      :samp:`{OBJECT}.{METHOD}.async({ARGUMENTS})` (see line 20).
+      :term:`scope` on which the service is provided (line
+      12). Methods with their request and reply :term:`data types
+      <data type>` and the :py:func:`callable` s implementing their
+      behavior are registered using the
+      :py:meth:`rsb.patterns.LocalServer.addMethod` method (line 21).
 
       .. literalinclude:: /../rsb-python/examples/server.py
          :language:        python
@@ -540,8 +542,8 @@ callback function which implements the desired behavior of the method.
       :cpp:member:`rsb::patterns::LocalServer::registerMethod` method
       (see line 23). Callback classes are derived from
       :cpp:class:`rsb::patterns::Server::Callback` (with template
-      arguments specifying the request and reply :term:`data type` s)
-      and override the
+      arguments specifying the request and reply :term:`data types
+      <data type>`) and override the
       :cpp:member:`rsb::patterns::Server::Callback::call` method (see
       lines 8 to 14).
 
