@@ -40,9 +40,10 @@ obtained. The following example demonstrates this.
 
       The function :py:func:`rsb.converter.registerGlobalConverter` is
       used to register new :term:`converters <converter>` (line
-      26). After that, the value of
-      :py:data:`rsb.__defaultParticipantConfig` has to be updated to
-      pick up the newly registered :term:`converter` (line 37).
+      26). After that, the global default :term:`participant`
+      configuration has to be updated using
+      :py:func:`rsb.setDefaultParticipantConfig` to pick up the newly
+      registered :term:`converter` (line 37).
 
       .. literalinclude:: /../rsb-python/examples/protobuf/registration.py
          :language:        python
