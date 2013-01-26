@@ -215,7 +215,7 @@ required:
    .. code-block:: sh
 
       $ brew tap swrede/homebrew-formulas
-      $ brew install rsb rsb-tools
+      $ brew install rsb-tools-cpp
 
    .. note::
 
