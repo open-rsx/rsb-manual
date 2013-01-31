@@ -49,7 +49,7 @@ $(document).ready(function () {
                .join(', ')
              + '], \'' + nameAndLabel.name + '\')">' + nameAndLabel.label + '</a>';
     }).join('&nbsp;|&nbsp;');
-    $(parent).prepend('<div class="switcher">Show ' + code + '</div>');
+    $(parent).prepend('<div class="switcher"><img class="switchicon" alt="language symbol" src="_static/langswitch.svg"/>Show ' + code + '</div>');
 
     parent.className += ' multi';
     switchMulti(parentName, allNames, allNames[0])

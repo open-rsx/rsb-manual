@@ -67,3 +67,8 @@ table.citation {
     font-size: small;
     font-style: italic;
 }
+
+img.switchicon {
+    vertical-align: middle;
+    padding-right: 10px;
+}
