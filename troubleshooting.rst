@@ -42,6 +42,11 @@ Solution
 
      Lines 3 and 4 can be omitted to enable both :term:`transport`
      s in parallel.
+     
+     .. note:
+
+        On windows it might be necessary to also set ``host = localhost`` and
+        ``port = 4803`` explicitly in the spread transport section.
 
   #. Locally for the current directory
 
