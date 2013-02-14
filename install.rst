@@ -5,7 +5,7 @@
 ======================
 
 Currently, the |version| version of |project| can be installed in the
-following ways :
+following ways:
 
 * :ref:`From source <install-from-source>`
 * :ref:`Debian packages <install-debian>`

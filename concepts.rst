@@ -113,7 +113,7 @@ destination :term:`scope` ``/robot/camera/left/`` will make this
 :term:`event` visible in the :term:`channels <channel>` represented by
 :term:`scopes <scope>` ``/robot/camera/left/``, ``/robot/camera/``,
 ``/robot/``, and ``/``. Consequently, ``/`` represents a
-:term:`channel` where all :term:`events <event6>` of the system are
+:term:`channel` where all :term:`events <event>` of the system are
 visible. Each participant is associated to one :term:`channel`, but
 multiple :term:`participants <participant>` can participate at the
 same :term:`channel` (m : n semantics).

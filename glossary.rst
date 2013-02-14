@@ -209,11 +209,12 @@
    superscope
 
      A given :term:`scope` has zero or more proper superscopes. Each
-     superscope has the property that all :term:`event` s visible in
-     the original :term:`scope` are also visible in the superscope.
+     superscope has the property that all :term:`events <event>`
+     visible in the original :term:`scope` are also visible in the
+     superscope.
 
-     For example, ``/`` is a superscope of all :term:`scope` s and
-     proper superscope of all :term:`scope` s except ``/``
+     For example, ``/`` is a superscope of all :term:`scopes <scope>`
+     and proper superscope of all :term:`scopes <scope>` except ``/``
      itself. ``/a/b`` is a proper superscope of ``/a/b/c``,
      ``/a/b/d``, ``/a/b/c/d``, etc but not ``/a`` or ``/a/c``.
 

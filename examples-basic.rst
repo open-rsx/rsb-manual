@@ -110,7 +110,7 @@ data then has to be passed to it.
 
       :download:`Download this example </../rsb-java/examples/InformerExample.java>`
 
-   .. container:: sending-data-cl:
+   .. container:: sending-data-cl
 
       The macro ``rsb:with-informer`` can be used to create an
       :term:`informer` for a particular :term:`scope` and :term:`data
