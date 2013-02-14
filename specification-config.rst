@@ -11,12 +11,12 @@ principles:
   languages
 
 * We cannot (and do not want) to handle configuration of individual
-  :term:`participant` s:
+  :term:`participants <participant>`:
 
   * The configuration mechanism is intended to provide process-wide
     defaults.
 
-  * :term:`Participant` s that require individual configurations have
+  * :term:`Participants <participant>` that require individual configurations have
     to be configured programmatically.
 
 * Configuration options are obtained from multiple configuration
@@ -24,7 +24,7 @@ principles:
 
   * `Configuration files`_
   * `Environment variables`_
-  * `Commandline options`_
+..  * `Commandline options`_
 
 * Configuration options are organized in a tree of `name-value pairs`_
 
@@ -55,15 +55,14 @@ components are placeholders, :samp:`{LANGUAGE}` refers to the
 implementation language, e.g. ``cpp``, ``java``, etc.)::
 
   Name                                Type                      Comment
+  ----                                ----                      -------
+  
   + qualityofservice
   +-- reliability                     { UNRELIABLE, RELIABLE }
   +-- ordering                        { UNORDERED, ORDERED }
 
   + errorhandling
   +-- onhandlererror                  { LOG, PRINT, EXIT }
-
-  + renaming
-    TODO
 
   + plugins
   +-- LANGUAGE
@@ -95,12 +94,13 @@ options from sources which are processed earlier:
       ("Merge 2")
 #. Merge with :ref:`options supplied via environment variables
    <specification-config-environment-variables>` ("Merge 4")
-#. Merge with :ref:`commandline options
-   <specification-config-commandline-options>` ("Merge 5")
 #. Merge with :ref:`programatically supplied options
    <specification-config-programmatic-options>` ("Merge 6")
-#. Merge with :ref:`options supplied via URI
-   <specification-config-uri-options>` ("Merge 7")
+
+.. #. Merge with :ref:`commandline options
+      <specification-config-commandline-options>` ("Merge 5")
+   #. Merge with :ref:`options supplied via URI
+      <specification-config-uri-options>` ("Merge 7")
 
 .. digraph:: configuration_processing
    :caption: Computation of effective transport configuration. In
@@ -179,7 +179,7 @@ options from sources which are processed earlier:
    step_3_options -> step_4_options [style="dashed"]
    environment_options -> step_4_options
 
-   subgraph cluster_commandline_options {
+   /* subgraph cluster_commandline_options {
      label = "Commandline"
 
      commandline_options [label="options"]
@@ -199,7 +199,7 @@ options from sources which are processed earlier:
      label = "Programmatic Options"
 
      programmatic_options [label="options"]
-   }
+   } */
 
    subgraph cluster_step_6 {
      label = "Merge 6"
@@ -208,10 +208,10 @@ options from sources which are processed earlier:
      step_6_options [label = "options", fillcolor = "white", style="filled"]
    }
 
-   step_5_options -> step_6_options [style="dashed"]
+   step_4_options -> step_6_options [style="dashed"]
    programmatic_options -> step_6_options
 
-   subgraph cluster_uri {
+   /* subgraph cluster_uri {
      label = "URI"
 
      uri_schema [label="schema"]
@@ -232,7 +232,7 @@ options from sources which are processed earlier:
    }
 
    step_6_options -> step_7_options [style="dashed"]
-   uri_transports -> step_7_options
+   uri_transports -> step_7_options */
 
 
 Sources
@@ -310,33 +310,39 @@ Examples:
 * :envvar:`RSB_PLUGINS_CPP_LOAD`      -> ``plugins.cpp.load``
 * :envvar:`RSB_TRANSPORT_SPREAD_PORT` -> ``transport.spread.port``
 
-.. _specification-config-commandline-options:
+..
 
-Commandline Options
--------------------
+  .. _specification-config-commandline-options:
 
-Commandline options are processed according to the following rules:
+  Commandline Options (TODO this was a section but sections cannot appear in comments)
 
-#. Options whose names start with ``rsb-`` are processed
-#. Language-specific name components (such as ``plugins.cpp.load``)
-   are dropped. For example, the option named ``plugin.cpp.load``
-   corresponds to the ``--rsb-plugins-load`` commandline option
-#. Components are joined with/strings are split at ``-`` characters
+  Commandline options are processed according to the following rules:
 
-Examples:
+  #. Options whose names start with ``rsb-`` are processed
+  #. Language-specific name components (such as ``plugins.cpp.load``)
+     are dropped. For example, the option named ``plugin.cpp.load``
+     corresponds to the ``--rsb-plugins-load`` commandline option
+  #. Components are joined with/strings are split at ``-`` characters
 
-* :option:`--rsb-plugins-load`          -> ``plugins.cpp.load``
-* :option:`--rsb-transport-spread-port` -> ``transport.spread.port``
+  Examples:
+
+  * :option:`--rsb-plugins-load`          -> ``plugins.cpp.load``
+  * :option:`--rsb-transport-spread-port` -> ``transport.spread.port``
 
 .. _specification-config-programmatic-options:
 
 Programmatic Options
 --------------------
 
-.. _specification-config-uri-options:
+Please have a look at the API documentation for ParticipantConfig (C++, Python)
+or Properties (Java). Links to the API documentation can be found in the left
+sidebar.
 
-URI Options
------------
+..
+
+  .. _specification-config-uri-options:
+
+  URI Options
 
 Example and Test Case
 =====================
