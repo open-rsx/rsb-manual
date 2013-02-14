@@ -41,6 +41,28 @@ MacOS.
 
    $ brew install cmake boost protobuf
 
+Installation of Dependencies on Windows Systems
+-----------------------------------------------
+
+Install Microsoft Visual Studio. If you are planning to use the Python
+implementation of |project|, only version 2008 currently works.
+
+In order to install `Spread`_ a source-based installation is required.
+The visual studio solution for `Spread`_ 4.2 is currently broken. Hence only
+version 4.1 can be used.
+
+In detail, perform the following steps:
+
+#. Open :file:`spread.sln` in the ``win32`` folder of the spread archive with
+   Visual Studio.
+#. Set the active configuration to ``release``.
+#. Build ``libspread`` and ``spread``. If you build the whole solution errors
+   might appear. However, only the aforementioned artifacts are required.
+#. Optionally, manually copy the generated ``.lib`` and ``.exe`` to an
+   installation prefix.
+
+Python can be installed using the binary installer. A 32 bit version is
+recommended.
 
 Installation
 ============
@@ -110,11 +132,11 @@ Installation
 
 #. Start building and installation
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ export PYTHONPATH=$prefix/lib/python2.X/site-packages # if you are install to /usr or /usr/local it must be dist-packages
+      $ export PYTHONPATH=\ :samp:`{PREFIX}`/lib/python2.:samp:`{VERSION}`/site-packages # if you are install to /usr or /usr/local it must be dist-packages
       $ python setup.py build
-      $ python setup.py install --prefix=$prefix
+      $ python setup.py install --prefix=\ :samp:`{PREFIX}`
 
 Adding Support for Spread
 =========================
@@ -127,20 +149,38 @@ Installation of the Spread module for Python
 
 .. warning::
 
-   The version automatically installed by setuptools is not working.
+   The `Spread`_ Python version automatically installed by setuptools is not
+   working.
 
 #. Download sources from |spread_python_tarball|.
 #. Extract the downloaded archive file and change to the
    :file:`SpreadModule-1.5spread4` directory
 #. Edit :file:`setup.py` and set ``SPREAD_DIR`` to your installation
-   prefix (e.g., :file:`/usr` or :file:`/your/prefix`)
+   prefix (e.g., :file:`/usr`, :file:`/your/prefix` or :file:`c:\\code\\spread`)
+
+   .. note::
+
+      On Windows it might also be necessary to change the following aspects of
+      the :file:`setup.py`:
+
+      .. code-block:: python
+
+         include_dirs = [SPREAD_DIR + r"\include"],
+         library_dirs = [SPREAD_DIR + r"\lib\win32"],
+         libraries = ['libspread', 'wsock32'],
+         # comment out
+         #extra_link_args = ['/NODEFAULTLIB:libcmt'],
+
 #. Build and install
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ python setup.py build_ext --rpath $(prefix)/lib
-      $ python setup.py install --prefix=$(prefix)
+      $ python setup.py build_ext --rpath :samp:`{PREFIX}`/lib
+      $ python setup.py install --prefix=\ :samp:`{PREFIX}`
 
+   .. note::
+      
+      It might be that the ``--rpath`` option needs to be removed on Windows.
 
 Testing the Installation
 ========================

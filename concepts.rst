@@ -34,7 +34,7 @@ and timing requirements than other robotics middlewares. Additionally,
 implementation enable its use with small entry barriers and little
 framework lock-in.
 
-For a concise introduction to the basic concepts of RSB, we refer 
+For a concise introduction to the basic concepts of RSB, we refer
 the interested reader to the initial RSB publication [Wienke2011-AMC]_.
 
 .. _event:
@@ -85,8 +85,8 @@ requirements, our event model consists of the following components:
   Destination :term:`Scope`
 
     Specifies the recipients of the event notification by restricting
-    the visibility of event notifications [Muehl2006-DEB]_. 
-    
+    the visibility of event notifications [Muehl2006-DEB]_.
+
     The next section explains this concept in greater detail.
 
 
@@ -95,27 +95,45 @@ requirements, our event model consists of the following components:
 Scope
 =====
 
-RSB forms a logically unified bus across different transport mechanisms. Different Participants connect to this bus. 
-Informers send events, whereas Listeners receive events. From a logical perspective, no point-to-point connections 
-are established.
+|project| forms a logically unified bus across different
+:term:`transport` mechanisms. Different :term:`participants
+<participant>` connect to this bus.  :term:`Informers <informer>` send
+:term:`events <event>`, whereas :term:`listeners <listener>` receive
+:term:`events <event>`. From a logical perspective, no point-to-point
+connections are established.
 
-In order to structure the communication via the bus – or stated differently, restrict the visibility of events for 
-participants – RSB utilizes a hierarchical channelization scheme. This scheme is best explained by it’s declarative 
-representation as a Scope, which is represented in RSB with a hierarchical notation compatible with the path component of URIs [RFC2396-URI]_. 
-E.g. sending an event with destination scope ``/robot/camera/left/`` will make this event visible in the channels represented by scopes 
-``/robot/camera/left/``, ``/robot/camera/``, ``/robot/``, and ``/``. Consequently, ``/`` represents a channel where all events of 
-the system are visible. Each participant is associated to one channel, but multiple participants can participate at the same channel 
-(m : n semantics). 
+In order to structure the communication via the bus – or stated
+differently, restrict the visibility of :term:`events <event>` for
+:term:`participants <participant>` – |project| utilizes a hierarchical
+channelization scheme. This scheme is best explained by its
+declarative representation as a :term:`scope`, which is represented in
+|project| with a hierarchical notation compatible with the path
+component of URIs [RFC2396-URI]_.  E.g. sending an :term:`event` with
+destination :term:`scope` ``/robot/camera/left/`` will make this
+:term:`event` visible in the :term:`channels <channel>` represented by
+:term:`scopes <scope>` ``/robot/camera/left/``, ``/robot/camera/``,
+``/robot/``, and ``/``. Consequently, ``/`` represents a
+:term:`channel` where all :term:`events <event6>` of the system are
+visible. Each participant is associated to one :term:`channel`, but
+multiple :term:`participants <participant>` can participate at the
+same :term:`channel` (m : n semantics).
 
-The chosen hierarchical channel layout provides benefits for logging purposes and provides a first-class means of the framework to 
-structure the data space, e.g. with subscopes for different services. However, it also increases the chance that a listener 
-receives unexpected data, because a new informer appeared on a sub-scope of the listener’s scope. RSB’s filter mechanism allows clients 
-to efficiently specify which events they expect and will be explained in the following section.
+The chosen hierarchical :term:`channel` layout provides benefits for
+logging purposes and provides a first-class means of the framework to
+structure the data space, e.g. with :term:`subscopes <subscope>` for
+different services. However, it also increases the chance that a
+:term:`listener` receives unexpected data, because a new
+:term:`informer` appeared on a :term:`subscope` of the
+:term:`listener’s <listener>` :term:`scope`. |project|’s
+:term:`filter` mechanism allows clients to efficiently specify which
+:term:`events <event>` which to receive.
 
 .. _filter:
 
 Filter
 ======
+
+TODO
 
 .. _types:
 
@@ -205,7 +223,7 @@ URIs or URLs are used in the following situations
 
   * A :term:`channel`
 
-    * Multiple :term:`participant` s
+    * Multiple :term:`participants <participant>`
     * A single :term:`participant`
 
 .. _configuration:
@@ -217,3 +235,80 @@ Configuration
 
    :ref:`specification-config`
      Specification for the configuration of |project|.
+
+Quality of Service
+==================
+
+For :term:`listeners <listener>`, any guarantee applies to the stream
+of :term:`events <event>` received from the bus (not to the entire
+processing of a given :term:`event`). In particular, it is possibly
+that the effective guarantees are weaker than those specified for the
+:term:`listener` (if the :term:`informer` has weaker guarantees than
+the :term:`listener`).
+
+For :term:`informer`, any guarantee applies to the submitting of
+:term:`events <event>` to the bus. Guarantees at the receiving end may
+effectively be weakened depending on the :term:`listener`
+configuration.
+
+.. note::
+
+   In the following lists of guarantees, subsequent items include all
+   guarantees given by preceding items.
+
+Ordering
+--------
+
+Unordered
+
+  :term:`Events <event>` are delivered in (potentially) arbitrary
+  order.
+
+Ordered
+
+  Every :term:`listener` receives the :term:`events <event>` of one
+  :term:`informer` in the order the :term:`informer` sent the
+  :term:`events <event>`. No guarantees are given for :term:`events
+  <event>` of multiple :term:`informers <informer>`.
+
+Independently of the requested ordering, no relations are guaranteed
+between :term:`events <event>` arriving at distinct :term:`listeners
+<listener>`.
+
+Reliability
+-----------
+
+Unreliable
+
+  :term:`Events <event>` may be dropped and not be visible to a
+  :term:`listener`.
+
+Reliable
+
+  :term:`Events <event>` are guaranteed to be delivered. An error is
+  signaled when :term:`events <event>` cannot be delivered.
+
+Threading
+=========
+
+:term:`Informers <informer>` are thread-safe.
+
+:term:`Listener` are thread-safe. This implies:
+
+* Adding/Removing :term:`filters <filter>` from arbitrary threads is
+  allowed, but does not affect already registered :term:`handlers
+  <handler>`.
+
+  The changed :term:`filters <filter>` will be applied at some point
+  in time, which may be much later than the method call.
+
+* Adding/Removing :term:`handlers <handler>` from arbitrary threads is
+  possible.
+
+  Existing :term:`handlers <handler>` will not notice any effect with
+  respect to the stream of incoming :term:`events <event>`.
+
+  For the added/removed :term:`handler`, there is no guarantee that it
+  will be called immediately / will not be called anymore when the
+  add/remove method call returns. However, a flag can be set to
+  achieve these guarantees.

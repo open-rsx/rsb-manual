@@ -61,21 +61,22 @@ the `CoR-Lab package repository
 <http://packages.cor-lab.de/ubuntu/dists/>`_.
 
 #. The following repository source line has to be added to
-   :file:`/etc/apt/sources.list`::
+   :file:`/etc/apt/sources.list`
 
-     deb http://packages.cor-lab.de/ubuntu/ RELEASENAME testing
+   .. parsed-literal::
 
-   where :samp:`{RELEASENAME}` is the appropriate release name such as
-   "lucid", "precise" etc.
+      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main
+
+   where :samp:`{RELEASENAME}` is one of |debian_versions|.
 
 #. After that, packages can be installed via
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ sudo apt-get install PACKAGES
+      $ sudo apt-get install |debian_package_names|
 
-   where :samp:`{PACKAGES}` is the appropriate subset of
-   |package_names|.
+   Of course, it also possible to only install a subset of the above
+   packages.
 
 .. note::
 
@@ -147,16 +148,16 @@ repository server and can be installed with :program:`pip` or
       :program:`easy_install` or ``pip install``. The same applies for
       the subsequently described installation of rsb-python itself.
 
-#. The rsb-python module can be installed by using one of the following
-   funtions:
+#. The rsb-python module can be installed by using one of the
+   following functions:
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ easy_install "rsb-python<0.8"
+      $ easy_install "rsb-python<|version|"
 
-   .. code-block:: sh
+   .. parsed-literal::
 
-      $ pip install "rsb-python<0.8"
+      $ pip install "rsb-python<|version|"
 
    .. note::
 
@@ -176,19 +177,76 @@ repository server and can be installed with :program:`pip` or
 Homebrew
 ========
 
-.. code-block:: sh
+|project| uses :term:`homebrew` for installation on MacOS. For further
+information on the ideas behind homebrew please check `this blog post
+<http://blog.engineyard.com/2010/homebrew-os-xs-missing-package-manager>`_.
+To install |project| from source on MaxOS the following steps are
+required:
 
-   $ brew tap swrede/homebrew-formulas
-   $ brew install rsb
+.. note::
 
-If the formula conflicts with one from ``mxcl/master`` or another tap,
-you can ``brew install swrede/homebrew-formulas/<formula>``.
+   As precondition `XCode <http://developer.apple.com/xcode/>`_ needs
+   to installed. This can be easily achieved through the MacOS X App
+   Store. A further requirement for installing Unixoid software
+   components are the XCode Command Line Tools. They can be installed
+   from within XCode (:menuselection:`XCode --> Preferences -->
+   Downloads`) and install ``Command Line Tools``.
 
-You can also install via URL:
+#. Bootstrapping :term:`homebrew` itself:
 
-.. code-block:: sh
+   Installing :term:`homebrew` on MacOS is simple as that:
 
-   $ brew install https://raw.github.com/swrede/homebrew-formulae/master/rsb.rb
+   .. code-block:: sh
+
+      $ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+
+   .. note::
+
+      After the installation, you can run the following command to
+      check if :term:`homebrew` was installed correctly:
+
+      .. code-block:: sh
+
+         $ brew doctor
+
+#. Install the C++ implementation of |project| (core library and
+   tools) with :term:`homebrew`:
+
+   .. code-block:: sh
+
+      $ brew tap swrede/homebrew-formulas
+      $ brew install rsb-tools-cpp
+
+   .. note::
+
+      After the installation, you can run the following command to
+      check if |project| was installed correctly:
+
+      .. code-block:: sh
+
+         $ rsb_version
+
+.. note::
+
+   If the formula conflicts with one from ``mxcl/master`` or another
+   tap, you can :samp:`brew install
+   swrede/homebrew-formulas/{FORMULA}`.
+
+   You can also install via URL:
+
+   .. code-block:: sh
+
+      $ brew install https://raw.github.com/swrede/homebrew-formulae/master/rsb.rb
+
+.. note::
+
+   For MacOS X 10.8 users: on mountain lion, X11 is not provided
+   anymore. For the core library of |project|, X11 is not needed, but
+   many downstream projects require it. So, if you need to install
+   XQuartz you can get it from
+   http://xquartz.macosforge.org/landing/. This is recommended (but
+   not necessary) also on earlier MacOS versions as XQuartz is more
+   robust and up-to-date than the system-provided X11.
 
 .. _install-binary-java:
 

@@ -46,8 +46,8 @@ following parts:
    <tutorial-converters>`
 
    This part demonstrates sending and receiving of custom
-   (non-builtin) :term:`data type` s using |project| :term:`converter`
-   s.
+   (non-builtin) :term:`data types <data type>` using |project|
+   :term:`converters <converter>`.
 
 #. :ref:`Extending |project| <tutorial-extension-points>`
 
@@ -59,3 +59,10 @@ following parts:
    Depending on your |project| configuration, the following examples
    may require a running :term:`Spread daemon` for successful
    execution.
+
+   If only a single machine is involved, the :term:`Spread daemon` can
+   be started using the following command:
+
+   .. parsed-literal::
+
+      $ :samp:`{SPREAD_INSTALL_PREFIX}/sbin/spread` -n localhost

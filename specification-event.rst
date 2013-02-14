@@ -18,15 +18,15 @@ Conceptually and when represented in programs, |project| :term:`events
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 | :term:`Scope`          | :term:`Scope` object                                                 | Destination :term:`scope`         | yes            |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| Method                 | ASCII string                                                         |                                   | no             |
+| `Method`_              | ASCII string                                                         |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| :term:`Data type`      |                                                                      |                                   | no?            |
+| :term:`Data type`      | ASCII string                                                         | Specifies type of :term:`payload` | no?            |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 | :term:`Event payload`  | Domain-specific object                                               |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| `Timestamps`_          | multiple named 64-bit integers                                       | see below                         | no             |
+| `Timestamps`_          | Multiple named 64-bit integers                                       |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
-| `Cause vector`_        | set of EventIds                                                      | see below                         | no             |
+| `Cause vector`_        | Set of :term:`event ids <event id>`                                  |                                   | no             |
 +------------------------+----------------------------------------------------------------------+-----------------------------------+----------------+
 
 .. _specification-sequence-number:
@@ -104,6 +104,33 @@ Examples / Test Cases::
 
   event id               v5-uuid(BF948D47-618F-4B04-AAC5-0AB5A1A79267, "0000017a")
   => BD27BE7D-87DE-5336-BECA-44FC60DE46A0
+
+.. _specification-event-method:
+
+Method
+======
+
+:term:`Events <event>` can carry an optional method string which
+indicates the role of the :term:`event` in a particular communication
+pattern or some kind of action performed by the respective
+:term:`event`.
+
+Currently, the following method strings are defined:
+
++---------------+-----------------------------------------------------------------------------+
+| String        | Meaning                                                                     |
++===============+=============================================================================+
+| ``"REQUEST"`` | Request :term:`event` of a :ref:`method call <specification-request-reply>` |
++---------------+-----------------------------------------------------------------------------+
+| ``"REPLY"``   | Reply :term:`event` of a :ref:`method call <specification-request-reply>`   |
++---------------+-----------------------------------------------------------------------------+
+
+.. note::
+
+   The values mentioned above should not be used to indicate
+   application-level semantics. Further, it has not yet been decided,
+   whether new values should be introduced as needed or if some kind
+   of coordination is required.
 
 .. _specification-event-timestamps:
 
@@ -190,7 +217,7 @@ below figure:
      node [style="rounded,filled",fillcolor="#c0c0ff"]
      receive
      deserialize
-     dispatch
+     deliver
    }
 
    create -> event
@@ -199,7 +226,7 @@ below figure:
    send -> helper
    helper -> receive
    receive -> deserialize
-   deserialize -> dispatch
+   deserialize -> deliver
 
    node [shape=note,style="filled",fillcolor="#ffffe0"]
    create_time [label="attach create time"]
@@ -208,8 +235,8 @@ below figure:
    send_time -> send
    receive_time [label="attach receive time"]
    receive_time -> receive
-   dispatch_time [label="attach dispatch time"]
-   dispatch_time -> dispatch
+   deliver_time [label="attach deliver time"]
+   deliver_time -> deliver
 
 .. important::
 
@@ -230,6 +257,28 @@ user times
   A set of user-defined keys and associated timestamps. These
   timestamps use the same encoding as the :ref:`framework-maintained
   timestamps <specification-event-timestamps>`.
+
+  .. note::
+
+     The benefit of storing timestamps inside :term:`events <event>`
+     (as opposed to within :term:`payloads <payload>`) is that these
+     timestamps can be read and manipulated by framework-level
+     tools. E.g. when replaying a recorded data set, the replay tool
+     can automatically adapt all timestamps to the current date, so
+     that it appears as if the data was really sent at the current
+     moment in time.
+
+     A drawback of maintaining timestamps inside :term:`events
+     <event>` instead of :term:`payloads <payload>` is that client
+     programs need to extract information from two different sources:
+     the :term:`event` for the timestamp information and the
+     :term:`payload` for remaining data.
+
+     Case by case decisions need to be made regarding whether
+     automated handling of timestamps might be beneficial or
+     not. Generally, at least timestamps relevant to the communication
+     should be maintained in the user timestamp structures of
+     :term:`events <event>`.
 
 user infos
 

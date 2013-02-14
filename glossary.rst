@@ -91,6 +91,13 @@
      A piece of client code attached to a :term:`listener` which is
      called by |project| to process received :term:`event` s.
 
+   homebrew
+
+      A package manager simplifying the configuration, compilation and
+      installation process for Unixoid software packages on
+      MacOS X. Further information is available at:
+      http://mxcl.github.com/homebrew/
+
    listener
 
      A kind of :term:`participant` which *asynchronously* receives
@@ -105,15 +112,26 @@
 
      See also :term:`remote server`.
 
+   meta-data
+   event meta-data
+
+     In the context of |project|, meta-data refers pieces of data
+     attached to :term:`events <event>` in addition to the
+     :term:`payload`.
+
+     See :ref:`specification-event-timestamps`,
+     :ref:`specification-event-user-meta-data`,
+     :ref:`specification-event-cause-vector`.
+
    method field
 
-     A data field in |project| :term:`event` s which specifies the
-     role of a given :term:`event` within a communication pattern. For
-     example, the :ref:`request/reply communication pattern
-     <specification-request-reply>` uses the values ``REQUEST`` and
-     ``REPLY``.
+     A data field in |project| :term:`events <event>` which specifies
+     the role of a given :term:`event` within a communication
+     pattern. For example, the :ref:`request/reply communication
+     pattern <specification-request-reply>` uses the values
+     ``"REQUEST"`` and ``"REPLY"``.
 
-     See :ref:`event` for more.
+     See :ref:`specification-event-method` for more.
 
    notification
 
@@ -138,6 +156,14 @@
      with an :term:`event`.
 
      Example(C++,protocol buffers,spread): an object of type ``IplImage*``
+
+   plugin
+
+     A particular extension of |project|'s functionality, such as a
+     :term:`transport` implementation or a :term:`converter`, packaged
+     as runtime-loadable code.
+
+     See :ref:`specification-plugin`.
 
    reader
 

@@ -13,6 +13,7 @@ Concepts:
    specification-event
    specification-uris
    specification-config
+   specification-plugin
 
 .. _specification-transports:
 

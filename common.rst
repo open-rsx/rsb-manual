@@ -189,6 +189,25 @@ IDL-related Commandline Options
 Common Environment Variables
 ============================
 
+Plugins
+
+  .. seealso::
+
+     :ref:`specification-plugin`
+        Details about :term:`plugins <plugin>`
+
+  .. envvar:: RSB_PLUGINS_CPP_PATH
+
+     A list of ``:``-separated directory names which should be
+     searched to locate |project| :term:`plugins <plugin>`.
+
+  .. envvar:: RSB_PLUGINS_CPP_LOAD
+
+     A list of ``:``-separated :term:`plugin` names which should be
+     loaded during |project| initialization.
+
+  TODO other languages
+
 In-process Transport
 
   .. seealso::
@@ -260,7 +279,7 @@ TCP-socket-based Transport
 
   .. envvar:: RSB_TRANSPORT_SOCKET_SERVER
 
-     ``1``: This process should act the |project| TCP-socket-based
+     ``1``: This process should act as the |project| TCP-socket-based
      server component.
 
      ``0``: This process should connect to the TCP-socket-based
@@ -269,3 +288,10 @@ TCP-socket-based Transport
      ``auto``: This process should try to determine whether there
      already is a TCP-socket-based server for the configured host-port
      combination and act as a server or client accordingly.
+
+  .. envvar:: RSB_TRANSPORT_SOCKET_NODELAY
+
+     ``1``: The ``TCP_NODELAY`` flag should be used to trade reduced
+     latency for (potentially) decreased throughput.
+
+     ``0``: The ``TCP_NODELAY`` flag should not be used.

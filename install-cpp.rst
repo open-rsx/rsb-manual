@@ -108,19 +108,19 @@ Installation of RSC, RSBProtocol and |project|
 
    #. Build and install RSC Library
 
-      .. code-block:: sh
+      .. parsed-literal::
 
          $ cd rsc
          $ mkdir -p build && cd build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
+         $ cmake -DCMAKE_INSTALL_PREFIX=\ :samp:`{PREFIX}` ..
          $ make install
    #. Install |project| Protocol Definitions
 
-      .. code-block:: sh
+      .. parsed-literal::
 
          $ cd rsb.git.protocol
          $ mkdir -p build && cd build
-         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
+         $ cmake -DCMAKE_INSTALL_PREFIX=\ :samp:`{PREFIX}` ..
          $ make install
 
       .. note::
@@ -140,8 +140,8 @@ Installation of RSC, RSBProtocol and |project|
    .. important::
 
       The commands above only work, if all projects are installed into
-      a common prefix (i.e. :samp:`{$prefix}`). Otherwise, locations
-      of required dependencies have to be specified explicitly. For
+      a common prefix (i.e. :samp:`{PREFIX}`). Otherwise, locations of
+      required dependencies have to be specified explicitly. For
       example:
 
       .. code-block:: sh

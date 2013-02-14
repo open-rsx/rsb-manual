@@ -1,10 +1,17 @@
 cmake_minimum_required(VERSION 2.8)
 
-# Options.
-set(SPHINX_BUILD_NAME "sphinx-build"
-    CACHE STRING "name of the sphinx-build program to use")
+# Project meta-data.
 
-find_program(SPHINX_BUILD ${SPHINX_BUILD_NAME})
+project("rsb-manual")
+
+set(RSB_MANUAL_VERSION_MAJOR "0")
+set(RSB_MANUAL_VERSION_MINOR "9")
+set(RSB_MANUAL_VERSION_PATCH "0")
+set(RSB_MANUAL_VERSION       "${RSB_MANUAL_VERSION_MAJOR}.${RSB_MANUAL_VERSION_MINOR}.${RSB_MANUAL_VERSION_PATCH}")
+
+# Options.
+
+find_program(SPHINX_BUILD NAMES sphinx-build2 sphinx-build)
 set(SPHINX_OPTIONS ""
     CACHE STRING
     "Options to pass to the sphinx-build program.")
@@ -14,8 +21,18 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     "The directory or URL corresponding to the root of all documentation.")
 
 set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
-    CACHE STRINGS
+    CACHE STRING
     "URL of the RSB repository base")
+
+set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/trunk/html"
+    CACHE STRINGS
+    "URL of the cpp API documentation.")
+set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/trunk/html"
+    CACHE STRINGS
+    "URL of the java API documentation.")
+set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/trunk/html"
+    CACHE STRINGS
+    "URL of the python API documentation.")
 
 # Configure sphinx configuration file.
 set(REPOSITORIES cpp java python protocol cl matlab tools-cpp tools-cl tutorials talks manual integrationtest)

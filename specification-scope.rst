@@ -26,7 +26,7 @@ sub-:term:`channel` of the :term:`channel` s designated by::
 ``/`` is sometimes called "root-scope".
 
 Generally, a scope string is valid if it matches the regular
-expression :regexp:`/([a-zA-Z0-9]+/)*`.
+expression :regexp:`/([-_a-zA-Z0-9]+/)*`.
 
 .. note::
 
