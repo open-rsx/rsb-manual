@@ -212,3 +212,82 @@ URIs or URLs are used in the following situations
 
 Configuration
 =============
+
+TODO
+
+Quality of Service
+==================
+
+For :term:`listeners <listener>`, any guarantee applies to the stream
+of :term:`events <event>` received from the bus (not to the entire
+processing of a given :term:`event`). In particular, it is possibly
+that the effective guarantees are weaker than those specified for the
+:term:`listener` (if the :term:`informer` has weaker guarantees than
+the :term:`listener`).
+
+For :term:`informer`, any guarantee applies to the submitting of
+:term:`events <event>` to the bus. Guarantees at the receiving end may
+effectively be weakened depending on the :term:`listener`
+configuration.
+
+.. note::
+
+   In the following lists of guarantees, subsequent items include all
+   guarantees given by preceding items.
+
+Ordering
+--------
+
+Unordered
+
+  :term:`Events <event>` are delivered in (potentially) arbitrary
+  order.
+
+Ordered
+
+  Every :term:`listener` receives the :term:`events <event>` of one
+  :term:`informer` in the order the :term:`informer` sent the
+  :term:`events <event>`. No guarantees are given for :term:`events
+  <event>` of multiple :term:`informers <informer>`.
+
+Independently of the requested ordering, no relations are guaranteed
+between :term:`events <event>` arriving at distinct :term:`listeners
+<listener>`.
+
+Reliability
+-----------
+
+Unreliable
+
+  :term:`Events <event>` may be dropped and not be visible to a
+  :term:`listener`.
+
+Reliable
+
+  :term:`Events <event>` are guaranteed to be delivered. An error is
+  signaled when :term:`events <event>` cannot be delivered.
+
+Threading
+=========
+
+:term:`Informers <informer>` are thread-safe.
+
+:term:`Listener` are thread-safe. This implies:
+
+* Adding/Removing :term:`filters <filter>` from arbitrary threads is
+  allowed, but does not affect already registered :term:`handlers
+  <handler>`.
+
+  The changed :term:`filters <filter>` will be applied at some point
+  in time, which may be much later than the method call.
+
+* Adding/Removing :term:`handlers <handler>` from arbitrary threads is
+  possible.
+
+  Existing :term:`handlers <handler>` will not notice any effect with
+  respect to the stream of incoming :term:`events <event>`.
+
+  For the added/removed :term:`handler`, there is no guarantee that it
+  will be called immediately / will not be called anymore when the
+  add/remove method call returns. However, a flag can be set to
+  achieve these guarantees.
