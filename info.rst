@@ -20,9 +20,9 @@ information regarding
 
 * |project| library version
 * effective configuration
-* available :term:`connector` s
-* available :term:`converter` s
-* available :term:`filter` s
+* available :term:`connectors <connector>`
+* available :term:`converters <converter>`
+* available :term:`filters <filter>`
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -33,15 +33,15 @@ accepted. Specialized commandline options:
 
 .. option:: --connectors
 
-   Display list of available :term:`connector` s.
+   Display list of available :term:`connectors <connector>`.
 
 .. option:: --converters
 
-   Display list of available :term:`converter` s.
+   Display list of available :term:`converters <converter>`.
 
 .. option:: --filters
 
-   Display list of available :term:`filter` s.
+   Display list of available :term:`filters <filter>`.
 
    .. Note::
 
@@ -89,9 +89,9 @@ Examples
 Implementations
 ===============
 
-======================= ============= =================================================
+======================= ============= ===========================================
 Implementation Language Project       Repository Link
-======================= ============= =================================================
-C++                     rsb-cpp       |repository_versioned_cpp| at ``apps/rsbversion``
+======================= ============= ===========================================
+C++                     rsb-cpp       |repository_versioned_cpp| at ``apps/info``
 Common Lisp             rsb-tools-cl  |repository_versioned_tools_cl|
-======================= ============= =================================================
+======================= ============= ===========================================
