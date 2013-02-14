@@ -52,11 +52,13 @@ with names of contained options like ``port`` to obtain
 
 Currently the following option tree is defined (uppercase option name
 components are placeholders, :samp:`{LANGUAGE}` refers to the
-implementation language, e.g. ``cpp``, ``java``, etc.)::
+implementation language, e.g. ``cpp``, ``java``, etc.)
+
+.. parsed-literal::
 
   Name                                Type                      Comment
   ----                                ----                      -------
-  
+
   + qualityofservice
   +-- reliability                     { UNRELIABLE, RELIABLE }
   +-- ordering                        { UNORDERED, ORDERED }
@@ -65,18 +67,18 @@ implementation language, e.g. ``cpp``, ``java``, etc.)::
   +-- onhandlererror                  { LOG, PRINT, EXIT }
 
   + plugins
-  +-- LANGUAGE
+  +-- :samp:`{LANGUAGE}`
   +---- path                          list of strings
   +---- load                          list of strings
 
   + transport
 
-  +-- NAME                                                      #
+  +-- :samp:`{NAME}`                                                     #
   +---- enabled                       bool                      #
-  +---- TRANSPORT_SPECIFIC_OPTION     ?                         # Subtree is valid
+  +---- :samp:`{TRANSPORT_SPECIFIC_OPTION}` ?                         # Subtree is valid
   +---- converter                                               # for all transports
-  +------ LANGUAGE                                              #
-  +-------- WIRE-SCHEMA               string                    #
+  +------ :samp:`{LANGUAGE}`                                             #
+  +-------- :samp:`{WIRE-SCHEMA}`              string                    #
 
 Effective Configuration
 =======================
@@ -86,19 +88,26 @@ options from sources which are processed later take precedence over
 options from sources which are processed earlier:
 
 #. Start with **Global Defaults**
+
 #. Merge with **Config Files** ("Merge 3"), being the result of:
 
    #. Start with **System Config** file |system_config_file|
+
    #. Merge with **User Config** file |user_config_file| ("Merge 1")
+
    #. Merge with **Current Directory Config** file |pwd_config_file|
       ("Merge 2")
+
 #. Merge with :ref:`options supplied via environment variables
    <specification-config-environment-variables>` ("Merge 4")
+
 #. Merge with :ref:`programatically supplied options
    <specification-config-programmatic-options>` ("Merge 6")
 
-.. #. Merge with :ref:`commandline options
+..
+   #. Merge with :ref:`commandline options
       <specification-config-commandline-options>` ("Merge 5")
+
    #. Merge with :ref:`options supplied via URI
       <specification-config-uri-options>` ("Merge 7")
 
@@ -117,7 +126,7 @@ options from sources which are processed earlier:
    subgraph cluster_global_defaults {
      label = "Global Defaults"
 
-     global_transports [label="transports"]
+     global_transports [label="options"]
    }
 
    subgraph cluster_config_files {
@@ -148,9 +157,9 @@ options from sources which are processed earlier:
      pwd_config -> config_2_options
 
      config_2_options [label="options"]
-     config_transports [label="transports"]
+     /* config_transports [label="options"] */
 
-     config_2_options -> config_transports
+     /* config_2_options -> config_transports */
    }
 
    subgraph cluster_step_3 {
@@ -161,7 +170,7 @@ options from sources which are processed earlier:
    }
 
    global_transports -> step_3_options [style="dashed"]
-   config_transports -> step_3_options
+   config_2_options -> step_3_options
 
    subgraph cluster_environment_variables_options {
      label = "Environment Variables"
@@ -193,13 +202,13 @@ options from sources which are processed earlier:
    }
 
    step_4_options -> step_5_options [style="dashed"]
-   commandline_options -> step_5_options
+   commandline_options -> step_5_options */
 
    subgraph cluster_programmatic_options {
      label = "Programmatic Options"
 
      programmatic_options [label="options"]
-   } */
+   }
 
    subgraph cluster_step_6 {
      label = "Merge 6"
@@ -250,14 +259,18 @@ Configuration files use the following syntax, which is similar to
 
 * Comments are initiated by the ``#`` character and extend to the end
   of the current line
+
 * After removing comments, all lines have to be of one of the
   following forms:
 
   * empty
+
   * :samp:`[{NAME}]` where :samp:`NAME` consists of alphanumeric
     characters and colons
+
   * :samp:`{NAME} = {VALUE}` where :samp:`NAME` consists of
     alphanumeric characters
+
   * Double quotes (``"``) can be used in :samp:`{NAME}` to avoid
     splitting at ``.`` characters. E.g ``[transport."socket.new"]``
     would interpreted as the section name ``(transport, socket.new)``.
@@ -301,17 +314,19 @@ Environment Variables
 Environment variables are processed according to the following rules:
 
 #. Variables whose names start with ``RSB_`` are processed
+
 #. The ``RSB_`` prefix is stripped form the name
+
 #. To obtain the name of the corresponding option, the remainder of
    the name is converted to lower case and split at ``_`` characters
 
 Examples:
 
 * :envvar:`RSB_PLUGINS_CPP_LOAD`      -> ``plugins.cpp.load``
+
 * :envvar:`RSB_TRANSPORT_SPREAD_PORT` -> ``transport.spread.port``
 
 ..
-
   .. _specification-config-commandline-options:
 
   Commandline Options (TODO this was a section but sections cannot appear in comments)
@@ -319,14 +334,17 @@ Examples:
   Commandline options are processed according to the following rules:
 
   #. Options whose names start with ``rsb-`` are processed
+
   #. Language-specific name components (such as ``plugins.cpp.load``)
      are dropped. For example, the option named ``plugin.cpp.load``
      corresponds to the ``--rsb-plugins-load`` commandline option
+
   #. Components are joined with/strings are split at ``-`` characters
 
   Examples:
 
   * :option:`--rsb-plugins-load`          -> ``plugins.cpp.load``
+
   * :option:`--rsb-transport-spread-port` -> ``transport.spread.port``
 
 .. _specification-config-programmatic-options:
@@ -339,7 +357,6 @@ or Properties (Java). Links to the API documentation can be found in the left
 sidebar.
 
 ..
-
   .. _specification-config-uri-options:
 
   URI Options
@@ -371,6 +388,7 @@ Consider the following situation:
 This should result in the following effective option values:
 
 * ``transport.spread.host = localhost``
+
 * ``transport.spread.port = 4444``
 
 Implementations
