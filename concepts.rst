@@ -34,7 +34,7 @@ and timing requirements than other robotics middlewares. Additionally,
 implementation enable its use with small entry barriers and little
 framework lock-in.
 
-For a concise introduction to the basic concepts of RSB, we refer 
+For a concise introduction to the basic concepts of RSB, we refer
 the interested reader to the initial RSB publication [Wienke2011-AMC]_.
 
 .. _event:
@@ -85,8 +85,8 @@ requirements, our event model consists of the following components:
   Destination :term:`Scope`
 
     Specifies the recipients of the event notification by restricting
-    the visibility of event notifications [Muehl2006-DEB]_. 
-    
+    the visibility of event notifications [Muehl2006-DEB]_.
+
     The next section explains this concept in greater detail.
 
 
@@ -95,27 +95,45 @@ requirements, our event model consists of the following components:
 Scope
 =====
 
-RSB forms a logically unified bus across different transport mechanisms. Different Participants connect to this bus. 
-Informers send events, whereas Listeners receive events. From a logical perspective, no point-to-point connections 
-are established.
+|project| forms a logically unified bus across different
+:term:`transport` mechanisms. Different :term:`participants
+<participant>` connect to this bus.  :term:`Informers <informer>` send
+:term:`events <event>`, whereas :term:`listeners <listener>` receive
+:term:`events <event>`. From a logical perspective, no point-to-point
+connections are established.
 
-In order to structure the communication via the bus – or stated differently, restrict the visibility of events for 
-participants – RSB utilizes a hierarchical channelization scheme. This scheme is best explained by it’s declarative 
-representation as a Scope, which is represented in RSB with a hierarchical notation compatible with the path component of URIs [RFC2396-URI]_. 
-E.g. sending an event with destination scope ``/robot/camera/left/`` will make this event visible in the channels represented by scopes 
-``/robot/camera/left/``, ``/robot/camera/``, ``/robot/``, and ``/``. Consequently, ``/`` represents a channel where all events of 
-the system are visible. Each participant is associated to one channel, but multiple participants can participate at the same channel 
-(m : n semantics). 
+In order to structure the communication via the bus – or stated
+differently, restrict the visibility of :term:`events <event>` for
+:term:`participants <participant>` – |project| utilizes a hierarchical
+channelization scheme. This scheme is best explained by its
+declarative representation as a :term:`scope`, which is represented in
+|project| with a hierarchical notation compatible with the path
+component of URIs [RFC2396-URI]_.  E.g. sending an :term:`event` with
+destination :term:`scope` ``/robot/camera/left/`` will make this
+:term:`event` visible in the :term:`channels <channel>` represented by
+:term:`scopes <scope>` ``/robot/camera/left/``, ``/robot/camera/``,
+``/robot/``, and ``/``. Consequently, ``/`` represents a
+:term:`channel` where all :term:`events <event6>` of the system are
+visible. Each participant is associated to one :term:`channel`, but
+multiple :term:`participants <participant>` can participate at the
+same :term:`channel` (m : n semantics).
 
-The chosen hierarchical channel layout provides benefits for logging purposes and provides a first-class means of the framework to 
-structure the data space, e.g. with subscopes for different services. However, it also increases the chance that a listener 
-receives unexpected data, because a new informer appeared on a sub-scope of the listener’s scope. RSB’s filter mechanism allows clients 
-to efficiently specify which events they expect and will be explained in the following section.
+The chosen hierarchical :term:`channel` layout provides benefits for
+logging purposes and provides a first-class means of the framework to
+structure the data space, e.g. with :term:`subscopes <subscope>` for
+different services. However, it also increases the chance that a
+:term:`listener` receives unexpected data, because a new
+:term:`informer` appeared on a :term:`subscope` of the
+:term:`listener’s <listener>` :term:`scope`. |project|’s
+:term:`filter` mechanism allows clients to efficiently specify which
+:term:`events <event>` which to receive.
 
 .. _filter:
 
 Filter
 ======
+
+TODO
 
 .. _types:
 
@@ -205,7 +223,7 @@ URIs or URLs are used in the following situations
 
   * A :term:`channel`
 
-    * Multiple :term:`participant` s
+    * Multiple :term:`participants <participant>`
     * A single :term:`participant`
 
 .. _configuration:
