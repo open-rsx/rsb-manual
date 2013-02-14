@@ -7,6 +7,8 @@
 This page describes the protocol used by the :term:`Spread`-based
 :term:`transport`.
 
+.. _specification-spread-schema:
+
 Schema
 ======
 
@@ -16,6 +18,27 @@ Schema
      Use of URIs in |project|.
 
 The :term:`Spread` :term:`transport` uses the ``spread`` URI schema.
+
+.. _specification-spread-options:
+
+Options
+=======
+
+.. seealso::
+
+   :ref:`specification-config`
+     Specification of configuration mechanism.
+
+The following :ref:`configuration <specification-config>`
+options are accepted by the :term:`Spread`-based :term:`transport`::
+
+  Name                   Type     Comment
+  + transport
+  +-- spread
+  +---- host             string   Name of the host running the Spread daemon
+  +---- port             uint     Port on which Spread daemon runs
+  +---- maxfragmentsize  uint     Maximum Spread message size
+  +---- tcpnodelay       boolean  Implementation detail
 
 Notification Format
 ===================

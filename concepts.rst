@@ -231,7 +231,10 @@ URIs or URLs are used in the following situations
 Configuration
 =============
 
-TODO
+.. seealso::
+
+   :ref:`specification-config`
+     Specification for the configuration of |project|.
 
 Quality of Service
 ==================

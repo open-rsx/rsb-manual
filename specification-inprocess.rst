@@ -9,6 +9,8 @@ This page describes the inprocess transport which delivers
 :term:`participant` s in the same process (i.e. inter-process or
 network communication does not occur).
 
+.. _specification-inprocess-schema:
+
 Schema
 ======
 
@@ -18,6 +20,23 @@ Schema
      Use of URIs in |project|.
 
 The inprocess :term:`transport` uses the ``inprocess`` URI schema.
+
+.. _specification-inprocess-options:
+
+Options
+=======
+
+.. seealso::
+
+   :ref:`specification-config`
+     Specification of configuration mechanism.
+
+The following :ref:`configuration <specification-config>` options are
+accepted by the inprocess :term:`transport`::
+
+  Name           Type  Comment
+  + transport
+  +-- inprocess        No options
 
 Notification Format
 ===================

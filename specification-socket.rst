@@ -16,6 +16,8 @@ on top of ordinary TCP sockets:
   :term:`participant` s. Within a process, the :term:`participant` s
   share a connection.
 
+.. _specification-socket-schema:
+
 Schema
 ======
 
@@ -25,6 +27,27 @@ Schema
      Use of URIs in |project|.
 
 The TCP-socket-based :term:`transport` uses the ``tcp`` URI schema.
+
+.. _specification-socket-options:
+
+Options
+=======
+
+.. seealso::
+
+   :ref:`specification-config`
+     Specification of configuration mechanism.
+
+The following :ref:`configuration <specification-config>` options are
+accepted by the TCP-socket-based :term:`transport`::
+
+  Name              Type            Comment
+  + transport
+  +-- socket
+  +---- host        string          Name of host running server
+  +---- port        uint            Port on which server listens
+  +---- server      { 0, 1, auto }  Act as server?
+  +---- tcpnodelay  boolean         Implementation detail
 
 Addresses and Ports
 ===================
