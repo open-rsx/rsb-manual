@@ -212,3 +212,8 @@ URIs or URLs are used in the following situations
 
 Configuration
 =============
+
+.. seealso::
+
+   :ref:`specification-config`
+     Specification for the configuration of |project|.
