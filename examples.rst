@@ -59,3 +59,10 @@ following parts:
    Depending on your |project| configuration, the following examples
    may require a running :term:`Spread daemon` for successful
    execution.
+
+   If only a single machine is involved, the :term:`Spread daemon` can
+   be started using the following command:
+
+   .. parsed-literal::
+
+      $ :samp:`{SPREAD_INSTALL_PREFIX}/sbin/spread` -n localhost
