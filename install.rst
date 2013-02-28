@@ -57,8 +57,7 @@ Debian Packages
 ===============
 
 Debian packages for several versions of |ubuntu| are available from
-the `CoR-Lab package repository
-<http://packages.cor-lab.de/ubuntu/dists/>`_.
+the CoR-Lab `repository server`_.
 
 #. The following repository source line has to be added to
    :file:`/etc/apt/sources.list`
