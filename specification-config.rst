@@ -89,17 +89,20 @@ options from sources which are processed earlier:
 
 #. Start with **Global Defaults**
 
-#. Merge with **Config Files** ("Merge 3"), being the result of:
+#. Merge with **Config Files** ("Merge 4"), being the result of:
 
    #. Start with **System Config** file |system_config_file|
+   
+   #. Merge with **Installation Prefix Config** file, e.g. |prefix_config_file|
+      if installed to :path:`/usr/local` ("Merge 1")
 
-   #. Merge with **User Config** file |user_config_file| ("Merge 1")
+   #. Merge with **User Config** file |user_config_file| ("Merge 2")
 
    #. Merge with **Current Directory Config** file |pwd_config_file|
-      ("Merge 2")
+      ("Merge 3")
 
 #. Merge with :ref:`options supplied via environment variables
-   <specification-config-environment-variables>` ("Merge 4")
+   <specification-config-environment-variables>` ("Merge 5")
 
 #. Merge with :ref:`programatically supplied options
    <specification-config-programmatic-options>` ("Merge 6")
@@ -133,6 +136,7 @@ options from sources which are processed earlier:
      label = "Config Files"
 
      system_config [label="System Config\ne.g. /etc/rsb.conf"]
+     prefix_config [label="Prefix Config\ne.g. /usr/local/etc/rsb.conf"]
      user_config [label="User Config\ne.g. $HOME/.config/rsb.conf"]
      pwd_config [label="Current Dir. Config\ne.g. $(pwd)/rsb.conf"]
 
@@ -144,8 +148,8 @@ options from sources which are processed earlier:
      }
 
      system_config -> config_1_options [style="dashed"]
-     user_config -> config_1_options
-
+     prefix_config -> config_1_options
+     
      subgraph cluster_config_merge_2 {
        label = "Merge 2"
        style = "rounded,filled"
@@ -154,23 +158,33 @@ options from sources which are processed earlier:
      }
 
      config_1_options -> config_2_options [style="dashed"]
-     pwd_config -> config_2_options
+     user_config -> config_2_options
 
-     config_2_options [label="options"]
+     subgraph cluster_config_merge_3 {
+       label = "Merge 3"
+       style = "rounded,filled"
+
+       config_3_options [label = "options", fillcolor = "white", style="filled"]
+     }
+
+     config_2_options -> config_3_options [style="dashed"]
+     pwd_config -> config_3_options
+
+     config_3_options [label="options"]
      /* config_transports [label="options"] */
 
      /* config_2_options -> config_transports */
    }
 
    subgraph cluster_step_3 {
-     label = "Merge 3"
+     label = "Merge 4"
      style = "rounded,filled"
 
      step_3_options [label = "options", fillcolor = "white", style="filled"]
    }
 
    global_transports -> step_3_options [style="dashed"]
-   config_2_options -> step_3_options
+   config_3_options -> step_3_options
 
    subgraph cluster_environment_variables_options {
      label = "Environment Variables"
@@ -179,7 +193,7 @@ options from sources which are processed earlier:
    }
 
    subgraph cluster_step_4 {
-     label = "Merge 4"
+     label = "Merge 5"
      style = "rounded,filled"
 
      step_4_options [label = "options", fillcolor = "white", style="filled"]
@@ -195,7 +209,7 @@ options from sources which are processed earlier:
    }
 
    subgraph cluster_step_5 {
-     label = "Merge 5"
+     label = "Merge 6"
      style = "rounded,filled"
 
      step_5_options [label = "options", fillcolor = "white", style="filled"]
