@@ -8,28 +8,30 @@
 
    causal vector
 
-     A list of references to :term:`event` s (via their :term:`event
-     id` s) which caused a given :term:`event`.
+     A list of references to :term:`events <event>` (via their
+     :term:`event ids <event id>`) which caused a given :term:`event`.
 
      See :ref:`event` for more.
 
    channel
 
-     A communication domain :term:`participant` s of which exchange
-     events in a broadcast communication style. :term:`Channel` s form
-     a tree with respect to set-inclusion relations of their
-     respective sets of :term:`participant` s. :term:`Channel` s are
-     designated by :term:`scope` s.
+     A communication domain :term:`participants <participant>` of
+     which exchange :term:`events <event>` in a broadcast
+     communication style. :term:`Channels <channel>` form a tree with
+     respect to set-inclusion relations of their respective sets of
+     :term:`participants <participant>`. :term:`Channels <channel>`
+     are designated by :term:`scopes <scope>`.
 
    connector
 
      Implementation of one function, e.g. sending of
-     :term:`notification` s, for a particular :term:`transport`.
+     :term:`notifications <notification>`, for a particular
+     :term:`transport`.
 
    converter
 
-     Mechanism that transforms :term:`event payload` s into data of
-     a particular :term:`wire type` and vice-versa.
+     Mechanism that transforms :term:`event payloads <payload>` into
+     data of a particular :term:`wire type` and vice-versa.
 
      See :term:`domain->wire converter` and :term:`wire->domain
      converter`.
@@ -44,18 +46,18 @@
 
    domain->wire converter
 
-     Mechanism that transforms :term:`event payload` s into data of
-     the wire type that has an interpretation w.r.t. the :term:`wire
-     schema`. Uniquely identified by the triple
+     Mechanism that transforms :term:`event payloads <payload>` into
+     data of the :term:`wire type` that has an interpretation
+     w.r.t. the :term:`wire schema`. Uniquely identified by the triple
 
      1. domain type
-     2. wire type
-     3. wire schema
+     2. :term:`wire type`
+     3. :term:`wire schema`
 
      Example(C++,protocol buffers,spread): ``AbstractConverter<std::string>?``
 
      See :ref:`types` for a list of well-known :term:`wire schema` <->
-     data type mappings.
+     :term:`data type` mappings.
 
    event
 
@@ -71,17 +73,18 @@
 
    filter
 
-     A mechanism for selecting :term:`event` s which comply to some
-     criterion from a set of :term:`event` s.
+     A mechanism for selecting :term:`events <event>` which comply to
+     some criterion from a set of :term:`events <event>`.
 
    informer
 
-     A kind of :term:`participant` which publishes :term:`event` s.
+     A kind of :term:`participant` which publishes :term:`events
+     <event>`.
 
    inprocess
 
-     A kind of :term:`transport`, which delivers :term:`event` s
-     within one process (i.e. no inter-process or network
+     A kind of :term:`transport`, which delivers :term:`events
+     <event>` within one process (i.e. no inter-process or network
      communication).
 
      See :ref:`specification-inprocess`.
@@ -89,7 +92,7 @@
    handler
 
      A piece of client code attached to a :term:`listener` which is
-     called by |project| to process received :term:`event` s.
+     called by |project| to process received :term:`events <event>`.
 
    homebrew
 
@@ -101,14 +104,14 @@
    listener
 
      A kind of :term:`participant` which *asynchronously* receives
-     :term:`event` s.
+     :term:`events <event>`.
 
      See also :term:`reader`.
 
    local server
 
      A kind of :term:`participant` which provides methods that can be
-     called by other :term:`participant` s.
+     called by other :term:`participants <participant>`.
 
      See also :term:`remote server`.
 
@@ -145,9 +148,10 @@
    participant
 
      Any entity that communicates via the bus is called a
-     participant. Typical participants are :term:`listener` s which receive
-     :term:`event` s and :term:`informer` s which publish
-     :term:`event` s.
+     participant. Typical participants are :term:`listeners
+     <listener>` which receive :term:`events <event>` and
+     :term:`informers <informer>` which publish :term:`events
+     <event>`.
 
    payload
    event payload
@@ -168,14 +172,14 @@
    reader
 
      A kind of :term:`participant` which *synchronously* receives
-     :term:`event` s.
+     :term:`events <event>`.
 
      See also :term:`listener`.
 
    remote server
 
      A kind of :term:`participant` which is able to call methods
-     provided by :term:`local server` s.
+     provided by :term:`local servers <local server>`.
 
      See also :term:`local server`.
 
@@ -190,7 +194,7 @@
    sequence number
 
      A positive integer associated to each :term:`event` which
-     indicates the order of all :term:`event` s published by a
+     indicates the order of all :term:`events <event>` published by a
      particular :term:`informer`.
 
      See :ref:`specification-sequence-number`.
@@ -198,7 +202,7 @@
    Spread
 
      The `Spread`_ group communication framework is one the
-     :term:`transport` s |project| can use.
+     :term:`transports <transport>` |project| can use.
 
    Spread daemon
 
@@ -223,9 +227,9 @@
    transport
    transport mechanism
 
-     Mechanism for transporting :term:`notification` s from their
-     origin to their destinations. Most transports correspond to a
-     network protocol.
+     Mechanism for transporting :term:`notifications <notification>`
+     from their origin to their destinations. Most transports
+     correspond to a network protocol.
 
      See :ref:`specification-transports`.
 
