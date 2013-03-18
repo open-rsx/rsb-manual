@@ -17,7 +17,7 @@ paths. For example::
   /a/b/c/
 
 This scope designates the :term:`channel` ``/a/b/c/`` which is a
-sub-:term:`channel` of the :term:`channel` s designated by::
+sub-:term:`channel` of the :term:`channels <channel>` designated by::
 
   /a/b/
   /a/

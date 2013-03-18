@@ -27,8 +27,9 @@ listeners on scopes specified by :samp:`{DESTINATION-URI}`.
   and used as argument for the method send
 
 :samp:`{DESTINATION-URI}` designates the destination :term:`scope` to
-which the :term:`event` should be sent and the :term:`transport`
-configuration which should be used for sending the :term:`event`.
+which the :term:`events <event>` should be sent and the
+:term:`transport` configuration which should be used for sending the
+:term:`event`.
 
 .. only:: html
 

@@ -82,7 +82,7 @@ The following examples demonstrate generic URIs:
     ``10838319-09A4-4D15-BD59-5E054CDB4403``.
 
 The following example demonstrate how to specify bus connections when
-creating :term:`participant` s:
+creating :term:`participants <participant>`:
 
   `` ``
     Participate in :term:`channel` with :term:`scope` ``/`` using the

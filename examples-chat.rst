@@ -103,7 +103,7 @@ chat program
 * creates a :term:`local server` providing the avatar image of the
   participant via a method ``get`` method under the :term:`scope`
   :samp:`/chat/avatar/{NICKNAME}`.
-* creates a :term:`remote server` s for downloading avatar images from
+* creates a :term:`remote server` for downloading avatar images from
   other participants by calling the methods mentioned above.
 
 .. container:: chat-2-multi

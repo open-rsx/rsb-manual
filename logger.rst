@@ -16,8 +16,8 @@ Description
 
 The |logger| participates in the :term:`channel` designated by
 :samp:`{URI}` (see :ref:`uri-schema`) using one or more
-:term:`transport` s and displays all :term:`event` s published on the
-:term:`channel` using a configurable style.
+:term:`transports <transport>` and displays all :term:`events <event>`
+published on the :term:`channel` using a configurable style.
 
 The usual :ref:`commandline options <common-options>`,
 :ref:`IDL-related options <idl-options>` and :ref:`environment
@@ -26,11 +26,11 @@ commandline options:
 
 .. option:: --filter SPEC, -f SPEC
 
-   Specify a :term:`filter` that received :term:`event` s have to
-   match in order to be processed rather than discarded. This option
-   can be supplied multiple times in which case :term:`event` s have
-   to match all specified :term:`filter` s. Each :samp:`{SPEC}` has to
-   be of one of the forms::
+   Specify a :term:`filter` that received :term:`events <event>` have
+   to match in order to be processed rather than discarded. This
+   option can be supplied multiple times in which case :term:`events
+   <event>` have to match all specified :term:`filters <filter>`. Each
+   :samp:`{SPEC}` has to be of one of the forms::
 
      KIND
      KIND SINGLE-VALUE
@@ -56,7 +56,7 @@ commandline options:
 .. option:: --style SPEC, -s SPEC
 
    Specify a formatting style that should be used to print
-   :term:`event` s. :samp:`{SPEC}` has to be of the form::
+   :term:`events <event>`. :samp:`{SPEC}` has to be of the form::
 
      KIND KEY1 VALUE1 KEY2 VALUE2 ...
 
@@ -124,10 +124,10 @@ Examples
   In the above example, the C++ version of the :program:`logger` is
   instructed to participate in the :term:`channel` designated by the
   root :term:`scope` ``/``. This means that the :program:`logger` will
-  display all :term:`event` s which are receivable using its configured
-  :term:`transport` s. In this example, the configured
-  :term:`transport` s depend on the |project| :ref:`configuration file
-  and environment variables <configuration>`.
+  display all :term:`events <event>` which are receivable using its
+  configured :term:`transports <transport>`. In this example, the
+  configured :term:`transports <transport>` depend on the |project|
+  :ref:`configuration file and environment variables <configuration>`.
 * .. code-block:: sh
 
      $ ls ~/projects/talk-rsb-data/code/*.proto
@@ -159,13 +159,13 @@ Examples
 
   In the above example, the Common Lisp version of the
   :program:`logger` is used to display protocol buffer :term:`event`
-  :term:`payload` s. This only works, if the :program:`logger` is
-  provided with the protocol buffer IDL definitions of the
-  :term:`event` :term:`payload` s it should display (in this example:
-  the ``running.example.Image`` message from the slides used in this
-  meeting). These definitions can either be textual definitions,
-  typically found in ``.proto`` files (as in this example), or
-  compiled, binary descriptions (not shown).
+  :term:`payloads <payload>`. This only works, if the
+  :program:`logger` is provided with the protocol buffer IDL
+  definitions of the :term:`event` :term:`payloads <payload>` it
+  should display (in this example: the ``running.example.Image``
+  message from the slides used in this meeting). These definitions can
+  either be textual definitions, typically found in ``.proto`` files
+  (as in this example), or compiled, binary descriptions (not shown).
 * .. code-block:: sh
 
      $ logger --idl-path "rst/trunk/rst/proto/sandbox/"   \

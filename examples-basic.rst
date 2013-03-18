@@ -144,7 +144,7 @@ Receiving data can be performed in two different ways in |project|:
 
 :ref:`Synchronous <tutorial-receive-sync>`
 
-  Wait until :term:`event` s are received.
+  Wait until :term:`events <event>` are received.
 
 :ref:`Asynchronous <tutorial-receive-async>`
 

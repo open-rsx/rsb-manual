@@ -142,21 +142,22 @@ Types
 
 |project| is concerned with two kinds of types:
 
-* :term:`wire schema` s which describe data being exchanged through
-  :term:`transport mechanism` s
-* :term:`data type` s which are restricted to individual clients,
-  depend on the respective programming languages and describe domain
-  objects before they get passed to |project| or after they have been
-  obtained from |project|
+* :term:`wire schemas <wire schema>` which describe data being
+  exchanged through :term:`transport mechanisms <transport mechanism>`
+* :term:`data types <data type>` which are restricted to individual
+  clients, depend on the respective programming languages and describe
+  domain objects before they get passed to |project| or after they
+  have been obtained from |project|
 
 Mapping between Wire Schema and Programming Language Types
 ----------------------------------------------------------
 
-This section documents the mapping between :term:`wire schema` s,
-designators of which are included in |project| :term:`notification` s,
-and corresponding programming language types. The values that are
-actually contained in :term:`notification` s are called "String
-Designators" of :term:`wire schema` s here.
+This section documents the mapping between :term:`wire schemas <wire
+schema>`, designators of which are included in |project|
+:term:`notifications <notification>`, and corresponding programming
+language types. The values that are actually contained in
+:term:`notifications <notification>` are called "String Designators"
+of :term:`wire schemas <wire schema>` here.
 
   Fundamental Types
 

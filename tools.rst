@@ -26,11 +26,11 @@ The following tools are available:
 
 * :ref:`logger <logger>`
 
-  Console-based realtime logging of :term:`event` s.
+  Console-based realtime logging of :term:`events <event>`.
 
 * :ref:`send <send>`
 
-  Command-line based sending of :term:`event` s.
+  Command-line based sending of :term:`events <event>`.
 
 * :ref:`call <call>`
 
@@ -38,5 +38,5 @@ The following tools are available:
 
 * :ref:`timesync <timesync>`
 
-  Synchronization of :term:`event` s on different :term:`scope` s
-  based on timestamps.
+  Synchronization of :term:`events <event>` on different :term:`scopes
+  <scope>` based on timestamps.

@@ -118,10 +118,10 @@ Tools
    * The API is in some parts not backwards-compatible.
 
 The development activities in this cycle focused primarily on API
-improvements and the integration of :term:`causal vector` s. Moreover,
-complete compatibility for MSVC 2010 is now ensured and MacOS
-compatibility has been improved. In the process, about 60 issues have
-been created and subsequently resolved.
+improvements and the integration of :term:`causal vectors <causal
+vector>`. Moreover, complete compatibility for MSVC 2010 is now
+ensured and MacOS compatibility has been improved. In the process,
+about 60 issues have been created and subsequently resolved.
 
 This |project| release is available in the following forms:
 
@@ -151,9 +151,9 @@ General Changes
 
 Network Protocol and Configuration
 
-* :term:`Causal vector` s have been added to the network
-  protocol. They allow to tag which :term:`event` or :term:`event` s
-  caused a given :term:`event`.
+* :term:`Causal vectors <causal vector>` have been added to the
+  network protocol. They allow to tag which :term:`event` or
+  :term:`events <event>` caused a given :term:`event`.
 * The default :term:`transport` configuration has been changed:
 
   * The inprocess :term:`transport` is now enabled by default
@@ -172,9 +172,10 @@ Network Protocol and Configuration
 
 Tools
 
-* The C++ :ref:`logger <logger>` now displays :term:`causal vector` s.
+* The C++ :ref:`logger <logger>` now displays :term:`causal vectors
+  <causal vector>`.
 * The Common Lisp :ref:`logger <logger>` now displays :term:`causal
-  vector` s.
+  vectors <causal vector>`.
 * The Common Lisp :ref:`logger <logger>` now displays configurable
   statistics.
 * The Common Lisp :ref:`logger <logger>` now allows configuring the
@@ -184,9 +185,9 @@ Tools
 
 C++
 
-* Support for :term:`causal vector` s has been added.
-* The client API for creation and configuration of :term:`participant`
-  s and :term:`event` s has been simplified.
+* Support for :term:`causal vectors <causal vector>` has been added.
+* The client API for creation and configuration of :term:`participants
+  <participant>` and :term:`events <event>` has been simplified.
 * Convenience functions for participant creation without the factory
   have been added. (Suggested by: Robert Haschke)
 * ``OriginFilter`` has been added.
@@ -200,17 +201,17 @@ C++
 
 Java
 
-* Support for :term:`causal vector` s has been added.
+* Support for :term:`causal vectors <causal vector>` has been added.
 * ``OriginFilter`` has been added.
 
 Python
 
-* Support for :term:`causal vector` s has been added.
+* Support for :term:`causal vectors <causal vector>` has been added.
 * ``OriginFilter`` has been added.
 
 Common Lisp
 
-* Support for :term:`causal vector` s has been added.
+* Support for :term:`causal vectors <causal vector>` has been added.
 
 .. note::
 
@@ -243,18 +244,19 @@ reported in the `issue tracker`_.
 
 Network Protocol for :term:`Spread`-based Communication
 
-* The eagerly computed, mandatory unique id field of :term:`event` s
-  is now lazily computed from a static id and a :term:`sequence
-  number`. :term:`Event` s can be transmitted without computing
-  the id. This change saves 12 bytes in each :term:`notification` sent
-  over the wire. (Thanks: Stefan Herbrechtsmeier)
+* The eagerly computed, mandatory unique id field of :term:`events
+  <event>` is now lazily computed from a static id and a
+  :term:`sequence number`. :term:`Events <event>` can be transmitted
+  without computing the id. This change saves 12 bytes in each
+  :term:`notification` sent over the wire. (Thanks: Stefan
+  Herbrechtsmeier)
 * Incompatible wire format versions can now be detected by means of a
   trick which does not incur any runtime overhead in space or
   time. This enabled removal of the ``version`` field in
-  :term:`notification` s, saving four bytes in each notification sent
-  over the wire.
-* The method field of :term:`event` s is now fully specified and used
-  in request/reply communication.
+  :term:`notifications <notification>`, saving four bytes in each
+  notification sent over the wire.
+* The method field of :term:`events <event>` is now fully specified
+  and used in request/reply communication.
 
 C++
 

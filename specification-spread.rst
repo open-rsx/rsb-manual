@@ -101,9 +101,9 @@ Hierarchical Bus
 
 The hierarchical bus is created by sending each message to a
 :term:`Spread`-group corresponding to its :term:`scope` as well as to
-:term:`Spread`-groups corresponding to all :term:`superscope` s
-including the root-:term:`scope` (``/``) (In :term:`Spread`
-terminology this is called "multigroup mulitcast").
+:term:`Spread`-groups corresponding to all :term:`superscopes
+<superscope>` including the root-:term:`scope` (``/``) (In
+:term:`Spread` terminology this is called "multigroup mulitcast").
 
 Example for :term:`scope` ``/foo/bar/``::
 

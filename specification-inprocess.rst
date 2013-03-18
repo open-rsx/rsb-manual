@@ -5,9 +5,9 @@
 =====================
 
 This page describes the inprocess transport which delivers
-:term:`event` s published by :term:`informer` s in a process to
-:term:`participant` s in the same process (i.e. inter-process or
-network communication does not occur).
+:term:`events <event>` published by :term:`informers <informer>` in a
+process to :term:`participants <participant>` in the same process
+(i.e. inter-process or network communication does not occur).
 
 .. _specification-inprocess-schema:
 
@@ -41,28 +41,31 @@ accepted by the inprocess :term:`transport`::
 Notification Format
 ===================
 
-Since :term:`event` s are transported within a single process, there
-is no need for serializing them into :term:`notification` s and hence
-no need to apply :term:`converter` s as well. Instead, :term:`event`
-objects published by :term:`informer` s are just passed to the
-appropriate :term:`participant` s after necessary meta-data has been
+Since :term:`events <event>` are transported within a single process,
+there is no need for serializing them into :term:`notifications
+<notification>` and hence no need to apply :term:`converters
+<converter>` as well. Instead, :term:`event` objects published by
+:term:`informers <informer>` are just passed to the appropriate
+:term:`participants <participant>` after necessary meta-data has been
 added.
 
 .. important::
 
    This implementation requires that client code is forbidden to
-   modify received :term:`event` s.
+   modify received :term:`events <event>`.
 
 Hierarchical Bus
 ================
 
-Distribution of :term:`event` s *can* be implemented as follows
+Distribution of :term:`events <event>` *can* be implemented as follows
 
-* An associative array maps :term:`scope` s to receiving
-  :term:`participant` s, listening on the respective :term:`scope`
-* An :term:`event` is delivered to the list of :term:`participant` s
-  obtained by concatenating the :term:`participant` lists of all
-  :term:`superscope` s of the :term:`event`'s :term:`scope`.
+* An associative array maps :term:`scopes <scope>` to receiving
+  :term:`participants <participant>`, listening on the respective
+  :term:`scope`
+* An :term:`event` is delivered to the list of :term:`participants
+  <participant>` obtained by concatenating the :term:`participant`
+  lists of all :term:`superscopes <superscope>` of the :term:`event`'s
+  :term:`scope`.
 
 Example for :term:`scope` ``/foo/bar/``::
 

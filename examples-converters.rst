@@ -6,14 +6,13 @@
 
 .. seealso::
 
-   :ref:`tutorial-writing-converters`
-     Writing new :term:`converter` s instead of registering existing
-     ones.
+   :ref:`tutorial-writing-converters` Writing new :term:`converters
+   <converter>` instead of registering existing ones.
 
 In principle, projects using |project| can exchange data of arbitrary
-types. However, in order to send and receive custom :term:`data type`
-s, |project| has to know how to serialize and deserialize data of
-these types. This task is performed by :term:`converters
+types. However, in order to send and receive custom :term:`data types
+<data type>`, |project| has to know how to serialize and deserialize
+data of these types. This task is performed by :term:`converters
 <converter>`. :term:`Converters <converter>` are maintained in a
 repository at runtime. New :term:`converters <converter>` can be
 registered to add support for new :term:`data types <data type>`.
