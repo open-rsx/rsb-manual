@@ -56,6 +56,31 @@ which the :term:`events <event>` should be sent and the
       :start-line: 115
       :end-line:   147
 
+.. option:: --method METHOD
+
+   Set the :term:`method field` of the :term:`event` being sent to
+   :samp:`{METHOD}`. Default behavior is sending an :term:`event`
+   without :term:`method field`.
+
+.. option:: --meta-data, -D NAME=VALUE
+
+   Set the :term:`meta-data` item :samp:`{NAME}` to :samp:`{VALUE}` in
+   the :term:`event` being sent. This option can be specified multiple
+   times for distinct :samp:`{NAME}` s.
+
+.. option:: --timestamp, -T NAME=YYYY-MM-DD[THH:MM:SS[.µµµµµµ[+ZH:ZM]]]
+
+   Set the :ref:`timestamp <meta-data>` named :samp:`{NAME}` to
+   :samp:`{VALUE}` in the :term:`event` being sent. This option can be
+   specified multiple times for distinct :samp:`{NAME}` s.
+
+.. option:: --cause, -c PARTICIPANT-ID:SEQUENCE-NUMBER
+
+   Add the :term:`event id` specified by
+   :samp:`{PARTICIPANT-ID:SEQUENCE-NUMBER}` to the :ref:`cause vector
+   <meta-data>` of the :term:`event` being sent. This option can be
+   specified multiple times.
+
 Examples
 ========
 
