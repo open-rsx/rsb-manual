@@ -23,6 +23,7 @@ information regarding
 * available :term:`connectors <connector>`
 * available :term:`converters <converter>`
 * available :term:`filters <filter>`
+* available :term:`plugins <plugin>`
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -46,6 +47,15 @@ accepted. Specialized commandline options:
    .. Note::
 
       Only available in the Common Lisp implementation.
+
+.. option:: --plugins
+
+   Display :term:`plugin` search path and list of available
+   :term:`plugins <plugin>`.
+
+   .. Note::
+
+      Only available in the C++ implementation.
 
 .. option:: --verbose
 
