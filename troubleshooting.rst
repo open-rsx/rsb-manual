@@ -42,7 +42,7 @@ Solution
 
      Lines 3 and 4 can be omitted to enable both :term:`transport`
      s in parallel.
-     
+
      .. note:
 
         On windows it might be necessary to also set ``host = localhost`` and
@@ -320,3 +320,33 @@ Solution
        result.imag = request.x.imag + request.y.imag
        return result
      server.addMethod('add', add)
+
+.. _troubleshooting-no-handler-for-logger:
+
+A Message about no Handlers being found appears
+===============================================
+
+Problem *(applies to Python)*
+
+  When I import the :py:mod:`rst` or :py:mod:`rstsandbox` module, a
+  message like::
+
+    No handlers could be found for logger "rstsandbox"
+
+  appears. Am I doing something wrong?
+
+Solution
+
+  Everything is fine. The output is produced by Python's
+  :py:mod:`logging` module when logging has not been
+  configured. |project| uses this module to log messages.
+
+  If you find these messages annoying, add the following code fragment
+  to your program:
+
+  .. code-block:: python
+
+     import logging
+     logging.basicConfig(level = logging.WARNING)
+
+  See :py:func:`logging.basicConfig` for more configuration options.
