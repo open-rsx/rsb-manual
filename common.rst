@@ -289,7 +289,7 @@ TCP-socket-based Transport
      already is a TCP-socket-based server for the configured host-port
      combination and act as a server or client accordingly.
 
-  .. envvar:: RSB_TRANSPORT_SOCKET_NODELAY
+  .. envvar:: RSB_TRANSPORT_SOCKET_TCPNODELAY
 
      ``1``: The ``TCP_NODELAY`` flag should be used to trade reduced
      latency for (potentially) decreased throughput.
