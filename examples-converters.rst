@@ -38,11 +38,7 @@ obtained. The following example demonstrates this.
    .. container:: converter-registration-python
 
       The function :py:func:`rsb.converter.registerGlobalConverter` is
-      used to register new :term:`converters <converter>` (line
-      26). After that, the global default :term:`participant`
-      configuration has to be updated using
-      :py:func:`rsb.setDefaultParticipantConfig` to pick up the newly
-      registered :term:`converter` (line 37).
+      used to register new :term:`converters <converter>` (line 26).
 
       .. literalinclude:: /../rsb-python/examples/protobuf/registration.py
          :language:        python
@@ -50,6 +46,17 @@ obtained. The following example demonstrates this.
          :end-before:      mark-end::body
          :emphasize-lines: 25,26
          :linenos:
+         
+      .. note::
+      
+         In previous versions of |project| the default :term:`participant` configuration
+         had to be recreated after adding a :term:`converter` by calling
+         ``rsb.setDefaultParticipantConfig(rsb.ParticipantConfig.fromDefaultSources())``.
+         This is not required anymore starting with |project| 0.9. Additionally,
+         it is explicitly discouraged now since multiple libraries using this
+         strategy might conflict by erasing :term:`converters <converter>`
+         previously registered by other libraries. Please remove these lines
+         from your existing code.
 
       :download:`Download this example </../rsb-python/examples/protobuf/registration.py>`
 
