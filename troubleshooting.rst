@@ -16,53 +16,76 @@ Problem *(applies to C++, Python)*
 
 Solution
 
-  Starting with version 0.7, |project| uses a :term:`transport`
-  that implements a :ref:`custom TPC-based protocol
-  <specification-socket>` to facilitate the easy use of the
-  framework without dependencies on 3rd party libraries. In order
-  to restore the previous behavior of using the :term:`Spread`
-  :term:`transport`, the configuration needs to be changed.
+  #. :term:`Spread` :term:`plugin` *(applies to C++)*
 
-  This can be changed in three ways:
+     .. seealso::
 
-  #. Globally for all |project| programs (or running under a
-     particular UNIX user)
+        :ref:`specification-plugin`
+          Specification of |project| plugins
 
-     Create or modify a |project| :ref:`configuration file
-     <configuration>` |system_config_file| or |user_config_file| to
-     contain the following lines:
+     Starting with version 0.9, the C++ implementation does no longer
+     include the :term:`Spread`-based :term:`transport` in the
+     |project| core. Instead, the :term:`transport` is available as a
+     :term:`plugin` which has to be loaded explicitly. This can, for
+     example, be done by including the following fragment in one of
+     the |project| :ref:`configuration files <configuration>`
+     |system_config_file|, |user_config_file| or |pwd_config_file|:
 
      .. code-block:: ini
-        :linenos:
 
-        [transport.spread]
-        enabled = 1
-        [transport.socket]
-        enabled = 0
+        [plugins.cpp]
+        load = rsbspread
 
-     Lines 3 and 4 can be omitted to enable both :term:`transport`
-     s in parallel.
+  #. :ref:`Configuration`
 
-     .. note:
+     Starting with version 0.7, |project| uses a :term:`transport`
+     that implements a :ref:`custom TPC-based protocol
+     <specification-socket>` to facilitate the easy use of the
+     framework without dependencies on 3rd party libraries. In order
+     to restore the previous behavior of using the :term:`Spread`
+     :term:`transport`, the configuration needs to be changed.
 
-        On windows it might be necessary to also set ``host = localhost`` and
-        ``port = 4803`` explicitly in the spread transport section.
+     This can be changed in three ways:
 
-  #. Locally for the current directory
+     #. Globally for all |project| programs (or running under a
+        particular UNIX user)
 
-     Create a |project| :ref:`configuration file <configuration>`
-     |pwd_config_file| with the same contents as described above.
+        Create or modify a |project| :ref:`configuration file
+        <configuration>` |system_config_file| or |user_config_file| to
+        contain the following lines:
 
-  #. For the current shell
+        .. code-block:: ini
+           :linenos:
 
-     Set and export :envvar:`RSB_TRANSPORT_SPREAD_ENABLED` and
-     :envvar:`RSB_TRANSPORT_SOCKET_ENABLED` :ref:`environment
-     variables <common-environment-variables>` as follows:
+           [transport.spread]
+           enabled = 1
+           [transport.socket]
+           enabled = 0
 
-     .. code-block:: sh
+        Lines 3 and 4 can be omitted to enable both :term:`transports
+        <transport>` in parallel.
 
-        $ export RSB_TRANSPORT_SPREAD_ENABLED=1
-        $ export RSB_TRANSPORT_SOCKET_ENABLED=0
+        .. note::
+
+           On windows it might be necessary to also set ``host =
+           localhost`` and ``port = 4803`` explicitly in the
+           :term:`Spread` :term:`transport` section.
+
+     #. Locally for the current directory
+
+        Create a |project| :ref:`configuration file <configuration>`
+        |pwd_config_file| with the same contents as described above.
+
+     #. For the current shell
+
+        Set and export :envvar:`RSB_TRANSPORT_SPREAD_ENABLED` and
+        :envvar:`RSB_TRANSPORT_SOCKET_ENABLED` :ref:`environment
+        variables <common-environment-variables>` as follows:
+
+        .. code-block:: sh
+
+           $ export RSB_TRANSPORT_SPREAD_ENABLED=1
+           $ export RSB_TRANSPORT_SOCKET_ENABLED=0
 
 .. _troubleshooting-configuring-the-tcp-based-transport:
 

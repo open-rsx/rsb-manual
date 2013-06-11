@@ -7,6 +7,13 @@
 This page describes the protocol used by the :term:`Spread`-based
 :term:`transport`.
 
+.. note::
+
+   Starting with version 0.9 of |project|, the C++ implementation does
+   no longer include the :term:`Spread`-based :term:`transport` in the
+   |project| core. Instead, the :term:`transport` is available as a
+   :term:`plugin`.
+
 .. _specification-spread-schema:
 
 Schema

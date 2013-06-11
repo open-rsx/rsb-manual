@@ -30,15 +30,15 @@ Required Dependencies
 
   * |ubuntu| (Lucid) packages (``libprotobuf-dev``,
     ``protobuf-compiler``) are ok
-* `Spread`_, Version 4.0 or newer
-
-  * The |ubuntu| (Lucid) package does **not** work (since it contains
-    the outdated version 3)
 * `CMake`_, Version 2.8 or newer
 
 Optional Dependencies (building without these is possible, but some
 features will be missing)
 
+* `Spread`_, Version 4.0 or newer
+
+  * The |ubuntu| (Lucid) package does **not** work (since it contains
+    the outdated version 3)
 * `Doxygen`_ for generation of API documentation
 * `Lcov`_ for code coverage analysis
 * `cppcheck`_ for static code analysis

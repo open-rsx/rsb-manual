@@ -202,7 +202,8 @@
    Spread
 
      The `Spread`_ group communication framework is one the
-     :term:`transports <transport>` |project| can use.
+     :term:`transports <transport>` |project| can use. It is available
+     as a :term:`plugin`.
 
    Spread daemon
 
