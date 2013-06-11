@@ -87,7 +87,7 @@ rst_prolog = """
    ``tools``
 
 .. |system_config_file| replace::
-   :file:`/etc/rsb.conf`
+   :file:`{{PREFIX}}/etc/rsb.conf`
 
 .. |user_config_file| replace::
    :file:`~/.config/rsb.conf`

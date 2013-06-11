@@ -209,7 +209,7 @@
 
      A network server used by :term:`Spread` to coordinate
      communication of clients and exchange data. Usually installed
-     under the name :samp:`{PREFIX}/sbin/spread`.
+     under the name :file:`{PREFIX}/sbin/spread`.
 
    superscope
 

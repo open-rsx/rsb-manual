@@ -43,7 +43,7 @@ a {
     color: #0168b5; /* official CoR-Lab blue*/
 }
 
-.samp em {
+.samp em, .file em {
     background-color: #ffe0e0;
 }
 
