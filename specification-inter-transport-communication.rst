@@ -11,9 +11,11 @@ mechanisms.
 
 .. note::
 
-   This description assumes that you have the :term:`Spread` :term:`transport`
-   enabled and the TCP-based transport disabled. You can achieve this e.g.
-   by changing your global configuration file to:
+   This description assumes that you have the :term:`Spread`
+   :term:`transport` enabled and the TCP-based :term:`transport`
+   disabled. You can achieve this by, for example, including the
+   following fragment in a |project| :ref:`configuration file
+   <configuration-files>`:
 
    .. code-block:: ini
 
@@ -22,8 +24,9 @@ mechanisms.
       [transport.socket]
       enabled = 0
 
-   Without this configuration the TCP-based transport would be used instead
-   of :term:`Spread` but all other remarks would still be valid.
+   Without this :ref:`configuration <configuration>` the TCP-based
+   :term:`transport` would be used instead of :term:`Spread` but all
+   other remarks would still be valid.
 
 Inter-Transport Setup
 =====================
@@ -106,8 +109,9 @@ is illustrated in the above figure:
 
 .. note::
 
-   With this setup, the :term:`listener` in the :program:`inprocess-and-spread`
-   process will currently receive all events twice.
+   With this setup, the :term:`listener` in the
+   :program:`inprocess-and-spread` process will currently receive all
+   :term:`events <event>` twice.
 
 There are two ways to attach multiple :term:`transports <transport>` to
 :term:`participants <participant>`:
@@ -121,15 +125,16 @@ These two alternatives are described below.
 Via Configuration Options
 -------------------------
 
-When configured via the configuration mechanism, the
-multi-:term:`transport` setup will have a global effect in the
-following sense: it will affect all :term:`participants <participant>` in all
-processes which are not explicitly instantiated with a different set
-of :term:`connectors <connector>`.
+When configured via the :ref:`configuration mechanism
+<configuration>`, the multi-:term:`transport` setup will have a global
+effect in the following sense: it will affect all :term:`participants
+<participant>` in all processes which are not explicitly instantiated
+with a different set of :term:`connectors <connector>`.
 
 In addition to the :term:`Spread` :term:`transport` which is
-(currently) enabled by default, other :term:`transports <transport>` can be
-enabled globally using a configuration file fragment like this:
+(currently) enabled by default, other :term:`transports <transport>`
+can be enabled globally using a :ref:`configuration file
+<configuration-files>` fragment like this:
 
 .. code-block:: ini
 
@@ -158,7 +163,7 @@ Globally for a Process
   :program:`inprocess-and-spread` process to include the
   :term:`inprocess` :term:`transport`.
 
-Locally for a Participant
+Locally for a :term:`Participant`
 
   In order to use a prepared :cpp:class:`rsb::ParticipantConfig`
   object only locally instead of installing it as a global default, it

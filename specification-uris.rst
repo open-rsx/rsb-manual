@@ -49,15 +49,21 @@ Syntax::
 
 Components of the URL are interpreted as follows:
 
-* :samp:`{SCHEME}`   -> :term:`transport` name (e.g spread)
-* :samp:`{HOST}`     -> Transport-specific "host" option (e.g. host that runs the daemon for Spread :term:`transport`)
-* :samp:`{PORT}`     -> Transport-specific "port" option (e.g. port on which daemon listens for Spread :term:`transport`)
-* :samp:`{PATH}`     -> A :term:`scope` which designates one of the following things
+* :samp:`{SCHEME}`   -> :term:`transport` name (e.g ``spread``)
+* :samp:`{HOST}`     -> :term:`Transport`-specific "host" option
+                        (e.g. host that runs the :term:`daemon <spread
+                        daemon>` for :term:`Spread` :term:`transport`)
+* :samp:`{PORT}`     -> :term:`Transport`-specific "port" option
+                        (e.g. port on which :term:`daemon <spread
+                        daemon>` listens for :term:`Spread`
+                        :term:`transport`)
+* :samp:`{PATH}`     -> A :term:`scope` which designates one of the
+                        following things
 
   * A :term:`channel`
   * A :term:`participant`
 
-* :samp:`{QUERY}`    -> "freestyle" transport-specific options
+* :samp:`{QUERY}`    -> "freestyle" :term:`transport`-specific options
 * :samp:`{FRAGMENT}` ->
 
   * Not allowed when designating a :term:`channel`

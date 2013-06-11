@@ -242,7 +242,8 @@ Solution
   #. The :term:`converter` configuration could be wrong. If the
      :term:`listener` only receives expected :term:`events <event>`, it
      may be missing a suitable converter. This problem can be solved by
-     registering a suitable :term:`converter`.
+     registering a suitable :term:`converter`. Registering a
+     :term:`converter` may be achieved by loading a :term:`plugin`.
 
   #. The :term:`converter` registration could happen after the
      :term:`listener` has already been created. In that case, the
