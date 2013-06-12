@@ -250,7 +250,7 @@ Sources
 The following sections briefly explain the currently defined
 configuration sources.
 
-.. _configuration-files:
+.. _specification-config-files:
 
 Configuration Files
 -------------------

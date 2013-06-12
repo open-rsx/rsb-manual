@@ -11,22 +11,8 @@ mechanisms.
 
 .. note::
 
-   This description assumes that you have the :term:`Spread`
-   :term:`transport` enabled and the TCP-based :term:`transport`
-   disabled. You can achieve this by, for example, including the
-   following fragment in a |project| :ref:`configuration file
-   <configuration-files>`:
-
-   .. code-block:: ini
-
-      [transport.spread]
-      enabled = 1
-      [transport.socket]
-      enabled = 0
-
-   Without this :ref:`configuration <configuration>` the TCP-based
-   :term:`transport` would be used instead of :term:`Spread` but all
-   other remarks would still be valid.
+   This description describes the TCP-based :term:`transport` but also
+   applies to the :term:`Spread` :term:`transport`.
 
 Inter-Transport Setup
 =====================
@@ -35,18 +21,18 @@ Inter-Transport Setup
 
    resolution=60
 
-   subgraph clusterInprocessAndSpread {
-     label="inprocess-and-spread : Process"
+   subgraph clusterInprocessAndSocket {
+     label="inprocess-and-socket : Process"
 
      l1 [label="Listener", shape=box, style=filled, fillcolor="#c0ffc0"]
-     sic1 [label="Spread In Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
+     sic1 [label="Socket In Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
      iic1 [label="Inprocess In Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
 
      sic1 -> l1
      iic1 -> l1
 
      i1 [label="Informer", shape=box, style=filled, fillcolor="#c0ffc0"]
-     soc1 [label="Spread Out Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
+     soc1 [label="Socket Out Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
      ioc1 [label="Inprocess Out Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
 
      i1 -> soc1
@@ -58,31 +44,31 @@ Inter-Transport Setup
      ioc1 -> ib
    }
 
-   subgraph clusterSpreadOnly {
-     label="spread-only : Process"
+   subgraph clusterSocketOnly {
+     label="socket-only : Process"
 
      l2 [label="Listener", shape=box, style=filled, fillcolor="#c0ffc0"]
-     sic2 [label="Spread In Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
+     sic2 [label="Socket In Connector", shape=octagon, style=filled, fillcolor="#ffc0c0"]
 
      sic2 -> l2
    }
 
-   sb [label="Spread Bus", shape=ellipse, style=filled, fillcolor="#c0c0ff"]
+   sb [label="Socket Bus", shape=ellipse, style=filled, fillcolor="#c0c0ff"]
 
    sb -> sic1
    soc1 -> sb
    sb -> sic2
 
-This page describes how to setup :term:`participants <participant>` for
-inter-:term:`transport` communication using following scenario which
-is illustrated in the above figure:
+This page describes how to setup :term:`participants <participant>`
+for inter-:term:`transport` communication using the following scenario
+which is illustrated in the above figure:
 
 :term:`Participants <participant>` reside in two separate processes
 
 * One process is an instance of the program
-  :program:`inprocess-and-spread` (source:
-  :download:`inprocess-and-spread.cpp
-  </../rsb-cpp/examples/inter_transport/inprocessAndSpread.cpp>`)
+  :program:`inprocess-and-socket` (source:
+  :download:`inprocess-and-socket.cpp
+  </../rsb-cpp/examples/inter_transport/inprocess-and-socket.cpp>`)
 
   * There is one :term:`informer` in the process. It has two
     :term:`connectors <connector>`
@@ -101,8 +87,8 @@ is illustrated in the above figure:
       :term:`transport`
 
 * The other process is an instance of the program
-  :program:`spread-only` (source: :download:`spread-only.cpp
-  </../rsb-cpp/examples/inter_transport/spreadOnly.cpp>`)
+  :program:`socket-only` (source: :download:`socket-only.cpp
+  </../rsb-cpp/examples/inter_transport/socket-only.cpp>`)
 
   * There is one :term:`listener` in the process. It has a single
     :term:`connector` for the :term:`Spread` :term:`transport`.
@@ -110,14 +96,16 @@ is illustrated in the above figure:
 .. note::
 
    With this setup, the :term:`listener` in the
-   :program:`inprocess-and-spread` process will currently receive all
+   :program:`inprocess-and-socket` process will currently receive all
    :term:`events <event>` twice.
 
 There are two ways to attach multiple :term:`transports <transport>` to
 :term:`participants <participant>`:
 
-#. Via :ref:`configuration options <configuration>` (config file,
-   environment variables, etc.)
+#. Via :ref:`configuration options <configuration>`
+   (:ref:`configuration file <specification-config-files>`,
+   :ref:`environment variables
+   <specification-config-environment-variables>`, etc.)
 #. Programmatically
 
 These two alternatives are described below.
@@ -134,7 +122,7 @@ with a different set of :term:`connectors <connector>`.
 In addition to the :term:`Spread` :term:`transport` which is
 (currently) enabled by default, other :term:`transports <transport>`
 can be enabled globally using a :ref:`configuration file
-<configuration-files>` fragment like this:
+<specification-config-files>` fragment like this:
 
 .. code-block:: ini
 
@@ -154,13 +142,13 @@ controls whether a particular :term:`transport` is enabled. A modified
 
 Globally for a Process
 
-  The example programs :download:`inprocess-and-spread.cpp
-  </../rsb-cpp/examples/inter_transport/inprocessAndSpread.cpp>` and
-  :download:`spread-only.cpp
-  </../rsb-cpp/examples/inter_transport/spreadOnly.cpp>` implement the
-  inter-:term:`transport` setup described above by modifying the
+  The example programs :download:`inprocess-and-socket.cpp
+  </../rsb-cpp/examples/inter_transport/inprocess-and-socket.cpp>` and
+  :download:`socket-only.cpp
+  </../rsb-cpp/examples/inter_transport/socket-only.cpp>` implement
+  the inter-:term:`transport` setup described above by modifying the
   default :term:`participant` configuration in the
-  :program:`inprocess-and-spread` process to include the
+  :program:`inprocess-and-socket` process to include the
   :term:`inprocess` :term:`transport`.
 
 Locally for a :term:`Participant`
