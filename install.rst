@@ -152,11 +152,11 @@ repository server and can be installed with :program:`pip` or
 
    .. parsed-literal::
 
-      $ easy_install "rsb-python<|version|"
+      $ easy_install "rsb-python<=|version|.99999"
 
    .. parsed-literal::
 
-      $ pip install "rsb-python<|version|"
+      $ pip install "rsb-python<=|version|.99999"
 
    .. note::
 
