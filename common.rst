@@ -289,6 +289,14 @@ TCP-socket-based Transport
      already is a TCP-socket-based server for the configured host-port
      combination and act as a server or client accordingly.
 
+     .. warning::
+
+        Generally, the "auto" option only works and makes sense for
+        setups confined to a single computer.
+
+        For details of the underlying mechanism, see
+        :ref:`specification-socket-addresses-and-ports`.
+
   .. envvar:: RSB_TRANSPORT_SOCKET_TCPNODELAY
 
      ``1``: The ``TCP_NODELAY`` flag should be used to trade reduced

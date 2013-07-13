@@ -117,9 +117,10 @@ Solution
 
   .. note::
 
-     The above configuration uses ``server = auto`` which causes
-     the initial |project| process to create the specified server
-     and subsequent processes to connect to that server.
+     The above configuration uses ``server = auto`` which causes the
+     initial |project| process to create the specified server and
+     subsequent processes to connect to that server, see
+     :envvar:`RSB_TRANSPORT_SOCKET_SERVER`.
 
 .. _troubleshooting-linker-errors-at-runtime:
 
@@ -374,3 +375,65 @@ Solution
      logging.basicConfig(level = logging.WARNING)
 
   See :py:func:`logging.basicConfig` for more configuration options.
+
+.. _troubleshooting-socket-auto-mode-multiple-machines:
+
+I cannot make the Socket Transport with "auto" Mode work across multiple Machines
+=================================================================================
+
+Problem *(applies to all implementations)*
+
+  I want to connect processes on two or more machines and use the
+  "auto" mode of the socket :term:`transport` with a
+  :ref:`configuration <configuration>` like this:
+
+  .. code-block:: ini
+
+     [transport.socket]
+     hostname = SOMEHOST
+     server = auto
+
+  where :samp:`{SOMEHOST}` is the name of one of the hosts or
+  ``localhost``. If I start my processes in a particular order,
+  communication sometimes works, but generally I only get failed
+  connection attempts.
+
+Solution
+
+  The "auto" mode of the :ref:`socket <specification-socket>`
+  :term:`transport` is intended to be used with simple setups confined
+  to a single computer. It can be used to make such setups "just
+  work". For other setups, it is only usable with severe restrictions
+  and should probably be avoided.
+
+  If you want to connect processes across multiple machines:
+
+  * Consider switching to the :term:`Spread` :term:`transport` if you
+    want to connect very many processes or restart all processes
+    arbitrarily.
+
+  * If you want to use the :ref:`socket <specification-socket>`
+    :term:`transport`
+
+    #. Determine one particular process that should always act as the
+       server. This can also be an additional process like the
+       :ref:`logger`. Note that this choice can impact the performance
+       of your setup very much.
+
+       * :ref:`Configure <configuration>` this (and only this) process
+         to act as server (for example using the environment variable
+         :envvar:`RSB_TRANSPORT_SOCKET_SERVER`).
+
+       * Leave this process running all the time.
+
+    #. Configure all other processes to act as clients, for example
+       with this :ref:`configuration <configuration>` snippet
+
+       .. code-block:: ini
+
+          [transport.socket]
+          hostname = THE-SERVER-HOST
+          server = 0
+
+    #. You can add client processes or restart them arbitrarily and
+       also share the above configuration among all client processes.

@@ -49,6 +49,8 @@ accepted by the TCP-socket-based :term:`transport`::
   +---- server      { 0, 1, auto }  Act as server?
   +---- tcpnodelay  boolean         Implementation detail
 
+.. _specification-socket-addresses-and-ports:
+
 Addresses and Ports
 ===================
 
@@ -73,6 +75,16 @@ mode. In that case the following actions are performed:
    * If this succeeds, act as client
    * If this fails, give up
 
+.. note::
+
+   This "auto" mode can only work properly for connections on a single
+   computer: if a host other than the local host was used, it would be
+   impossible to act as server when required.
+
+   In special cases, "auto" may still be useful for setups distributed
+   over multiple computers but these cases require a detailed
+   understanding of the above protocol and should generally be
+   avoided.
 
 Messages
 ========
