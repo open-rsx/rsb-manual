@@ -58,7 +58,7 @@ synchronizing :term:`events <event>`.
    .. note::
 
       Currently, there is no specified behavior of what should happen
-      when an :term:`event` on a sub- :term:`scope` of a configured
+      when an :term:`event` on a :term:`subscope` of a configured
       :term:`scope` arrives. Strategies may treat this as an error or
       continue processing as if the :term:`event` was received on the
       :term:`superscope` that was configured.

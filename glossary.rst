@@ -211,6 +211,16 @@
      communication of clients and exchange data. Usually installed
      under the name :file:`{PREFIX}/sbin/spread`.
 
+   subscope
+
+     A given :term:`scope` has a potentially infinite number
+     subscopes. All :term:`events <event>` visible in a subscope of a
+     :term:`scope` are visible in the :term:`scope` itself.
+
+     For example, ``/a/b`` is a subscope of the :term:`scope` ``/a``.
+
+     See :term:`superscope`, :ref:`specification-scope`.
+
    superscope
 
      A given :term:`scope` has zero or more proper superscopes. Each
@@ -223,7 +233,7 @@
      itself. ``/a/b`` is a proper superscope of ``/a/b/c``,
      ``/a/b/d``, ``/a/b/c/d``, etc but not ``/a`` or ``/a/c``.
 
-     See :ref:`specification-scope`.
+     See :term:`subscope`, :ref:`specification-scope`.
 
    transport
    transport mechanism
