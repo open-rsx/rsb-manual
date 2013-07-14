@@ -437,3 +437,47 @@ Solution
 
     #. You can add client processes or restart them arbitrarily and
        also share the above configuration among all client processes.
+
+.. _troubleshooting-number-of-spread-daemons:
+
+How many Spread Daemons do I need?
+==================================
+
+Problem *(applies to all implementations)*
+
+  I want to have multiple processes communicate using the
+  :term:`Spread` :term:`transport`. Do I need this :term:`Spread
+  daemon` and if so, how many instances do I have to start and on
+  which machines? I heard that running multiple :term:`Spread daemons
+  <spread daemon>` can even cause severe network problems.
+
+Solution
+
+  First of all, :term:`Spread daemons <spread daemon>` really can
+  cause severe network problems when configured incorrectly. We
+  therefore recommend to always start with a single :term:`Spread
+  daemon` using the default configuration unless a different setup is
+  absolutely necessary. Beyond this simple advice, unfortunately,
+  there are several different possibilities for setting up one or more
+  :term:`Spread daemons <spread daemon>`. In any case, you always need
+  at least one :term:`Spread daemon`.
+
+  If all processes run on a single machine, you can start a single
+  :term:`Spread daemon` using the default configuration like this:
+
+  .. parsed-literal::
+
+     $ :samp:`{SPREAD_INSTALL_PREFIX}/sbin/spread` -n localhost
+
+  This is a simple and safe configuration and should already cover
+  many simple setups.
+
+  If multiple computers are involved, a single :term:`Spread daemon`
+  with the above configuration may still be sufficient since it can be
+  contacted by clients on remote hosts (see
+  :envvar:`RSB_TRANSPORT_SPREAD_HOST`). However, this configuration
+  may not achieve the best performance the :term:`Spread` framework is
+  capable of. If you need better performance and thus more
+  sophisticated configurations, consult the :term:`Spread`
+  documentation or write to the |project| `mailing list
+  <https://lists.techfak.uni-bielefeld.de/cor-lab/mailman/listinfo/rsb>`_.
