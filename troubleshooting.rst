@@ -1,8 +1,8 @@
 .. _troubleshooting:
 
-=================
- Troubleshooting
-=================
+===============
+Troubleshooting
+===============
 
 .. _troubleshooting-spread-does-not-work:
 
@@ -376,6 +376,29 @@ Solution
 
   See :py:func:`logging.basicConfig` for more configuration options.
 
+.. _troubleshooting-tcp-transport-java-bind:
+
+Java programs using the TCP-transport do not communicate with other languages
+=============================================================================
+
+Problem *(applies to Java)*
+
+  Events from a Java process using the TCP-transport are not received by other
+  languages or vice versa.
+
+Solution
+
+  The Java runtime sometime prefers to bind against IPv6 addresses even if
+  IPv4 addresses are specified. This seems to be an internal behavior of the
+  Java runtime. Other implementations use IPv4 as the default. As a consequence,
+  Java operates on IPv6 and the other languages on IPv4 and no connection
+  exists. To force Java to use IPv4, specify the following JVM property for
+  your Java applications:
+
+  .. parsed-literal::
+
+     -Djava.net.preferIPv4Stack=true
+
 .. _troubleshooting-socket-auto-mode-multiple-machines:
 
 I cannot make the Socket Transport with "auto" Mode work across multiple Machines
@@ -437,6 +460,8 @@ Solution
 
     #. You can add client processes or restart them arbitrarily and
        also share the above configuration among all client processes.
+
+
 
 .. _troubleshooting-number-of-spread-daemons:
 
