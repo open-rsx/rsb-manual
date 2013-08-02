@@ -123,8 +123,7 @@ Client Perspective
 From the client's perspective, the protocol consist of
 
 #. connect to the server socket
-#. send m\ :sub:`zero`
-#. receiving m\ :sub:`zero` and
+#. receive m\ :sub:`zero` from the server
 #. concurrently send and receive length-delimited (via m\ :sub:`size`)
    notification messages m\ :sub:`payload`
 
@@ -138,7 +137,7 @@ From the client's perspective, the protocol consist of
    "new";
    "handshake-in-progress";
    "closed";
-   "new" -> "handshake-in-progress" [label="send(m_zero)"];
+   "new" -> "handshake-in-progress";
    "handshake-in-progress" -> "established" [label="receive() : m_zero"];
    "handshake-in-progress" -> "closed" [label="reset | error"];
    "established" -> "closed" [label="reset | error"];
@@ -154,7 +153,7 @@ From the client's perspective, the protocol consist of
      "size-sent" -> "closed-send" [label="reset | error"];
    };
 
-    subgraph cluster_established_receive {
+   subgraph cluster_established_receive {
      label="receiving states when in state \"established\""
      "established-receive" [label="established"];
      "size-received";
@@ -174,8 +173,7 @@ other connections and concurrently performs the following protocol on
 the new connection:
 
 #. accept client connection
-#. receive m\ :sub:`zero` from the client
-#. send m\ :sub:`zero` in reply
+#. send m\ :sub:`zero` in to the client
 #. concurrently send and received notifications using length-delimited
    encoding via m\ :sub:`size` and m\ :sub:`payload`
 
@@ -190,7 +188,7 @@ the new connection:
    "handshake-in-progress";
    "established";
    "closed";
-   "new" -> "handshake-in-progress" [label="receive() : m_zero"];
+   "new" -> "handshake-in-progress";
    "handshake-in-progress" -> "established" [label="send(m_zero)"];
    "handshake-in-progress" -> "closed" [label="reset | error"];
    "established" -> "closed" [label="reset | error"];
