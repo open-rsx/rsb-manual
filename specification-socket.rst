@@ -126,6 +126,25 @@ From the client's perspective, the protocol consist of
 #. receive m\ :sub:`zero` from the server
 #. concurrently send and receive length-delimited (via m\ :sub:`size`)
    notification messages m\ :sub:`payload`
+#. shutdown; one of:
+
+   #. error shutdown
+
+      #. error in send or receive operation
+      #. close socket
+
+   #. passive orderly shutdown
+
+      #. "end of file" in receive operation
+      #. shutdown socket for writing
+      #. close socket
+
+   #. active orderly shutdown
+
+      #. termination request from client program
+      #. shutdown socket for writing
+      #. wait for "end of file" from server
+      #. close socket
 
 .. digraph:: client_states
 
@@ -135,12 +154,19 @@ From the client's perspective, the protocol consist of
    edge [fontsize=11,fontname=Arial]
 
    "new";
-   "handshake-in-progress";
+   "setup-handshake";
+   "established";
+   "shutdown-handshake-active" [label="shutdown-handshake[active]"];
+   "shutdown-handshake-passive" [label="shutdown-handshake[passive]"];
    "closed";
-   "new" -> "handshake-in-progress";
-   "handshake-in-progress" -> "established" [label="receive() : m_zero"];
-   "handshake-in-progress" -> "closed" [label="reset | error"];
-   "established" -> "closed" [label="reset | error"];
+   "new" -> "setup-handshake";
+   "setup-handshake" -> "established" [label="receive() : m_zero"];
+   "setup-handshake" -> "closed" [label="error"];
+   "established" -> "closed" [label="error"];
+   "established" -> "shutdown-handshake-active" [label="program shutdown => shutdown(socket)"];
+   "shutdown-handshake-active" -> "closed" [label="error | receive() : end-of-file"];
+   "established" -> "shutdown-handshake-passive" [label="receive() : end-of-file"];
+   "shutdown-handshake-passive" -> "closed" [label="error | shutdown(socket)"];
 
    subgraph cluster_established_send {
      label="sending states when in state \"established\""
@@ -149,8 +175,8 @@ From the client's perspective, the protocol consist of
      "closed-send" [label="closed"];
      "established-send" -> "size-sent" [label="send(m_size)"];
      "size-sent" -> "established-send" [label="send(m_payload)"];
-     "established-send" -> "closed-send" [label="reset | error"];
-     "size-sent" -> "closed-send" [label="reset | error"];
+     "established-send" -> "closed-send" [label="error"];
+     "size-sent" -> "closed-send" [label="error"];
    };
 
    subgraph cluster_established_receive {
@@ -158,10 +184,12 @@ From the client's perspective, the protocol consist of
      "established-receive" [label="established"];
      "size-received";
      "closed-receive" [label="closed"];
+     "shutdown-handshake-receive" [label="shutdown-handshake[passive]"];
      "established-receive" -> "size-received" [label="receive() : m_size"];
      "size-received" -> "established-receive" [label="receive() : m_payload"];
-     "established-receive" -> "closed-receive" [label="reset | error"];
-     "size-received" -> "closed-receive" [label="reset | error"];
+     "established-receive" -> "closed-receive" [label="error"];
+     "size-received" -> "closed-receive" [label="error"];
+     "established-receive" -> "shutdown-handshake-receive" [label="receive() : end-of-file"];
    };
 
 Server Perspective
@@ -176,6 +204,25 @@ the new connection:
 #. send m\ :sub:`zero` in to the client
 #. concurrently send and received notifications using length-delimited
    encoding via m\ :sub:`size` and m\ :sub:`payload`
+#. shutdown; one of:
+
+   #. error shutdown
+
+      #. error in send or receive operation
+      #. close socket
+
+   #. passive orderly shutdown
+
+      #. "end of file" in receive operation
+      #. shutdown socket for writing
+      #. close socket
+
+   #. active orderly shutdown
+
+      #. termination request from client program
+      #. shutdown socket for writing
+      #. wait for "end of file" from client
+      #. close socket
 
 .. digraph:: server_states
 
@@ -185,34 +232,42 @@ the new connection:
    edge [fontsize=11,fontname=Arial]
 
    "new";
-   "handshake-in-progress";
+   "setup-handshake";
    "established";
+   "shutdown-handshake-active" [label="shutdown-handshake[active]"];
+   "shutdown-handshake-passive" [label="shutdown-handshake[passive]"];
    "closed";
-   "new" -> "handshake-in-progress";
-   "handshake-in-progress" -> "established" [label="send(m_zero)"];
-   "handshake-in-progress" -> "closed" [label="reset | error"];
-   "established" -> "closed" [label="reset | error"];
+   "new" -> "setup-handshake";
+   "setup-handshake" -> "established" [label="send(m_zero)"];
+   "setup-handshake" -> "closed" [label="error"];
+   "established" -> "closed" [label="error"];
+   "established" -> "shutdown-handshake-active" [label="program shutdown => shutdown(socket)"];
+   "shutdown-handshake-active" -> "closed" [label="error | receive() : end-of-file"];
+   "established" -> "shutdown-handshake-passive" [label="receive() : end-of-file"];
+   "shutdown-handshake-passive" -> "closed" [label="error | shutdown(socket)"];
 
-    subgraph cluster_established_send {
+   subgraph cluster_established_send {
      label="sending states when in state \"established\""
      "established-send" [label="established"];
      "size-sent";
      "closed-send" [label="closed"];
      "established-send" -> "size-sent" [label="send(m_size)"];
      "size-sent" -> "established-send" [label="send(m_payload)"];
-     "established-send" -> "closed-send" [label="reset | error"];
-     "size-sent" -> "closed-send" [label="reset | error"];
+     "established-send" -> "closed-send" [label="error"];
+     "size-sent" -> "closed-send" [label="error"];
    };
 
-    subgraph cluster_established_receive {
+   subgraph cluster_established_receive {
      label="receiving states when in state \"established\""
      "established-receive" [label="established"];
      "size-received";
      "closed-receive" [label="closed"];
+     "shutdown-handshake-receive" [label="shutdown-handshake[passive]"];
      "established-receive" -> "size-received" [label="receive() : m_size"];
      "size-received" -> "established-receive" [label="receive() : m_payload"];
-     "established-receive" -> "closed-receive" [label="reset | error"];
-     "size-received" -> "closed-receive" [label="reset | error"];
+     "established-receive" -> "closed-receive" [label="error"];
+     "size-received" -> "closed-receive" [label="error"];
+     "established-receive" -> "shutdown-handshake-receive" [label="receive() : end-of-file"];
    };
 
 Example
