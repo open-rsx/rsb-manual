@@ -276,14 +276,16 @@ Example
 ::
 
    # handshake
-   C -> S 0x00 0x00 0x00 0x00
-   S -> C                     0x00 0x00 0x00 0x00 0x00
+   S -> C 0x00 0x00 0x00 0x00 0x00
    # established
    C -> S 0x23 0x00 0x00 0x00                          # 35-byte payload follows
    C -> S 0x12 0x34 0x56 0x78 0x9a ...                 # 35-byte payload blob
    C -> S 0x03 0x00 0x00 0x00                          # 3-byte payload follows
    C -> S 0x12 0x34 0x56                               # 3-byte payload blob
    ...
+   # shutdown
+   C -> S end-of-file
+   S -> C end-of-file
 
 Implementations
 ===============
