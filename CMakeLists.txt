@@ -25,13 +25,13 @@ set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
     CACHE STRING
     "URL of the RSB repository base")
 
-set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/trunk/html"
+set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/${VERSION_SUFFIX}/html"
     CACHE STRINGS
     "URL of the cpp API documentation.")
-set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/trunk/html"
+set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/${VERSION_SUFFIX}/html"
     CACHE STRINGS
     "URL of the java API documentation.")
-set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/trunk/html"
+set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/${VERSION_SUFFIX}/html"
     CACHE STRINGS
     "URL of the python API documentation.")
 
