@@ -4,6 +4,71 @@
  News
 ======
 
+|project| 0.9
+=============
+
+.. note::
+
+   * In the C++ implementation, the :term:`Spread` :term:`transport`
+     is now implemented as a :term:`plugin`. In case of problems, see
+     :ref:`troubleshooting-spread-does-not-work`.
+
+This |project| release is available in the following forms:
+
+* Source archives
+* Pre-compiled self-installing archives or executable binaries
+* Debian packages for different |ubuntu| versions
+
+  * Starting with this release, the development version of |project|
+    is packaged in the "testing" repository of our Debian `repository
+    server`_ (as opposed to the "main" repository). So you need to add
+    this repository to your apt sources list in case you want to
+    install the development version via Debian packages.
+
+* :term:`Homebrew` recipes and pypi packages
+* Maven package for rsb-java
+
+These can be downloaded from the `0.9 jobs continuous integration
+server <https://ci.cor-lab.org/view/rsb-0.9>`_ or `repository server`_
+respectively.  :ref:`Installation instructions <install>` and links
+for downloading can be found in the |project| :ref:`manual <rsb>`.
+
+Changes
+
+* Integration of the new RSC :term:`plugin` mechanism in the C++
+  implementation for :term:`transports <transport>` and
+  :term:`converters <converter>`
+
+* Encapsulation of the :term:`spread` :term:`transport` into a
+  separate :term:`plugin`
+
+* Complete overhaul of the Java implementation to be in line with the
+  remaining implementations
+
+  * As a consequence, the public API has slightly changed, especially
+    with respect to thrown exceptions
+
+  * Implementation of the :ref:`socket <specification-socket>`
+    :term:`transport`
+
+* Fixes in all implementations of the :ref:`socket
+  <specification-socket>` :term:`transport`
+
+* The :ref:`RPC API <specification-request-reply>` now supports some
+  method signatures that did not work previously
+
+* Fixes for Windows compatibility
+
+* Documentation improvements
+
+As always, bugs, feature requests and enhancement proposals can be
+reported in the `issue tracker`_.
+
+.. note::
+
+   For a more detailed list of fixed bugs, added features and other
+   enhancements, see https://code.cor-lab.org/versions/12.
+
 |project| 0.7
 =============
 
