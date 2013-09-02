@@ -1,8 +1,8 @@
 .. _install:
 
-======================
- Installing |project|
-======================
+====================
+Installing |project|
+====================
 
 Currently, the |version| version of |project| can be installed in the
 following ways:
@@ -254,7 +254,7 @@ Binary Downloads for Java
 
 Archives containing pre-built JAR-files of the Java implementation and
 required dependencies can be `downloaded
-<https://ci.cor-lab.de/job/rsb-java-trunk/lastSuccessfulBuild/artifact/rsb-java.zip>`_
+<https://ci.cor-lab.de/job/rsb-java-0.9/lastSuccessfulBuild/artifact/rsb-java.zip>`_
 from the continuous integration server.
 
 After downloading the archive, several JAR-files can be extracted from
