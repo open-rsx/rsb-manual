@@ -1,8 +1,8 @@
 .. _install:
 
-======================
- Installing |project|
-======================
+====================
+Installing |project|
+====================
 
 Currently, the |version| version of |project| can be installed in the
 following ways:
@@ -67,6 +67,13 @@ the CoR-Lab `repository server`_.
       deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main
 
    where :samp:`{RELEASENAME}` is one of |debian_versions|.
+   
+   .. note::
+   
+      In case you add this line using a graphical package manager, some of these
+      tools also propose to add a second line for source packages starting with
+      ``deb-src``. As we do not provide source packages, this line should not be
+      added or needs to be removed manually.
 
 #. After that, packages can be installed via
 
