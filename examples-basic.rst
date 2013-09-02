@@ -47,15 +47,20 @@ data then has to be passed to it.
       Once the :term:`informer` has been created, data is published by
       calling :py:meth:`rsb.Informer.publishData`.
 
-      After use, the :py:class:`rsb.Informer` object has to be
-      deactivated using its `:py:meth:`rsb.Informer.deactivate`
-      method.
+      .. note::
+
+         The :ref:`context manager protocol <python:typecontextmanager>`
+         implementation of |project| takes care of correctly deactivating the
+         :term:`informer` at the end of the :keyword:`with`
+         statement. In case you are not using a :keyword:`with` statement,
+         the :py:class:`rsb.Informer` object has to be deactivated
+         using its :py:meth:`rsb.Informer.deactivate` method at the end of use.
 
       .. literalinclude:: /../rsb-python/examples/informer.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
-         :emphasize-lines: 10,13,16
+         :emphasize-lines: 10,13
          :linenos:
 
       :download:`Download this example </../rsb-python/examples/informer.py>`
@@ -255,16 +260,21 @@ each received :term:`event`, a user-supplied callback function (a
       :py:meth:`rsb.Listener.addHandler` (line 20). Any
       :py:func:`callable` can be used as a :term:`handler`.
 
-      After use, the :py:class:`rsb.Listener` object has to be
-      deactivated using its :py:meth:`rsb.Listener.deactivate` method
-      (line 27).
+      .. note::
+
+         The :ref:`context manager protocol <python:typecontextmanager>`
+         implementation of |project| takes care of correctly deactivating the
+         :term:`listener` at the end of the :keyword:`with`
+         statement. In case you are not using a :keyword:`with` statement,
+         the :py:class:`rsb.Listener` object has to be deactivated
+         using its :py:meth:`rsb.Listener.deactivate` method at the end of use.
 
       .. literalinclude:: /../rsb-python/examples/listener.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
-         :emphasize-lines: 16,20,27
+         :emphasize-lines: 16,20
 
       :download:`Download this example </../rsb-python/examples/listener.py>`
 
@@ -422,6 +432,16 @@ called in blocking and non-blocking way:
       17). Asynchronous calls can be made by using the syntax
       :samp:`{OBJECT}.{METHOD}.async({ARGUMENTS})` (see line 20).
 
+      .. note::
+
+         The :ref:`context manager protocol <python:typecontextmanager>`
+         implementation of |project| takes care of correctly deactivating the
+         :term:`remote server` at the end of the :keyword:`with`
+         statement. In case you are not using a :keyword:`with` statement,
+         the :py:class:`rsb.patterns.RemoteServer` object has to be deactivated
+         using its :py:meth:`rsb.patterns.RemoteServer.deactivate` method at
+         the end of use.
+
       .. literalinclude:: /../rsb-python/examples/client.py
          :language:        python
          :start-after:     mark-start::body
@@ -522,6 +542,16 @@ callback function which implements the desired behavior of the method.
       <data type>` and the :py:func:`callable` s implementing their
       behavior are registered using the
       :py:meth:`rsb.patterns.LocalServer.addMethod` method (line 21).
+
+      .. note::
+
+         The :ref:`context manager protocol <python:typecontextmanager>`
+         implementation of |project| takes care of correctly deactivating the
+         :term:`local server` at the end of the :keyword:`with`
+         statement. In case you are not using a :keyword:`with` statement,
+         the :py:class:`rsb.patterns.LocalServer` object has to be deactivated
+         using its :py:meth:`rsb.patterns.LocalServer.deactivate` method at
+         the end of use.
 
       .. literalinclude:: /../rsb-python/examples/server.py
          :language:        python
