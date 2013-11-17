@@ -226,7 +226,7 @@ html_domain_indices = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'rsb-manual'
+htmlhelp_basename = '@CMAKE_PROJECT_NAME@'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -239,7 +239,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'rsb-manual.tex', u'RSB Manual', u'Jan Moringen', 'manual'),
+    ('index', '@CMAKE_PROJECT_NAME@.tex', u'RSB Manual', u'Jan Moringen', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
