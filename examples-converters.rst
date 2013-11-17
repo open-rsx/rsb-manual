@@ -46,17 +46,19 @@ obtained. The following example demonstrates this.
          :end-before:      mark-end::body
          :emphasize-lines: 25,26
          :linenos:
-         
+
       .. note::
-      
-         In previous versions of |project| the default :term:`participant` configuration
-         had to be recreated after adding a :term:`converter` by calling
+
+         In previous versions of |project| the default
+         :term:`participant` configuration had to be recreated after
+         adding a :term:`converter` by calling
          ``rsb.setDefaultParticipantConfig(rsb.ParticipantConfig.fromDefaultSources())``.
-         This is not required anymore starting with |project| 0.9. Additionally,
-         it is explicitly discouraged now since multiple libraries using this
-         strategy might conflict by erasing :term:`converters <converter>`
-         previously registered by other libraries. Please remove these lines
-         from your existing code.
+         This is not required anymore starting with |project|
+         0.9. Additionally, it is explicitly discouraged now since
+         multiple libraries using this strategy might conflict by
+         erasing :term:`converters <converter>` previously registered
+         by other libraries. Please remove these lines from your
+         existing code.
 
       :download:`Download this example </../rsb-python/examples/protobuf/registration.py>`
 
