@@ -85,8 +85,19 @@ the CoR-Lab `repository server`_.
 
       $ sudo apt-get install |debian_package_names|
 
-   Of course, it also possible to only install a subset of the above
-   packages.
+   The above command installs the C++ and Common Lisp implementations
+   of |project|. Of course, it also possible to only install a subset
+   of the above packages.
+
+   .. note::
+
+      Support for the :term:`Spread` :term:`transport` is no longer
+      automatically installed with |project|. Support for
+      :term:`Spread` can be installed by executing
+
+      .. parsed-literal::
+
+         $ sudo apt-get install |debian_package_names_spread|
 
 .. note::
 
