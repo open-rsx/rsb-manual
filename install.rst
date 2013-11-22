@@ -291,10 +291,14 @@ Binary Downloads of Tools
 
 #. Download the |main_binary| binary from the appropriate location:
 
-   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-0.9/label=ubuntu_precise_32bit/>`_
-   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-0.9/label=ubuntu_precise_64bit/>`_
-   * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-0.9-macos/label=MAC_OS_lion_64bit/>`_
-   * `Windows 7 i686 <https://ci.cor-lab.de/job/rsb-tools-cl-0.9-windows/label=Windows_7_32bit>`_
+   ..
+      edit-on-version-bump:
+      adapt URLs
+
+   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_precise_32bit/>`_
+   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_precise_64bit/>`_
+   * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-macos/label=MAC_OS_lion_64bit/>`_
+   * `Windows 7 i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-windows/label=Windows_7_32bit>`_
 
 #. After the download, the |main_binary| file has to be made
    executable in most cases. This can be done for example by executing
