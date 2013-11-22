@@ -62,14 +62,18 @@ the CoR-Lab `repository server`_.
 #. The following repository source line has to be added to
    :file:`/etc/apt/sources.list`
 
+   ..
+      edit-on-version-bump
+      replace "main testing" with "main" in the released version
+
    .. parsed-literal::
 
-      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main
+      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main testing
 
    where :samp:`{RELEASENAME}` is one of |debian_versions|.
-   
+
    .. note::
-   
+
       In case you add this line using a graphical package manager, some of these
       tools also propose to add a second line for source packages starting with
       ``deb-src``. As we do not provide source packages, this line should not be
