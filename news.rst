@@ -4,6 +4,97 @@
  News
 ======
 
+|project| 0.10
+==============
+
+.. note::
+
+   Starting with this release, |ubuntu| lucid is no longer officially
+   supported. At least for C++, the `CMake`_ scripts will not work.
+
+This |project| release is available in the following forms:
+
+* Source archives
+* Pre-compiled self-installing archives or executable binaries
+* Debian packages for different |ubuntu| versions (currently C++ and
+  Common Lisp implementations only)
+* :term:`Homebrew` recipes
+* Pypi packages for the |python| implementation
+* Maven package for the Java implementation
+
+These can be downloaded from the `0.10 jobs continuous integration
+server <https://ci.cor-lab.org/view/rsb-0.10>`_ or `repository
+server`_ respectively.  :ref:`Installation instructions <install>` and
+links for downloading can be found in the |project| :ref:`manual
+<rsb>`.
+
+Changes
+
+* C++
+
+  * Special `CMake`_ -level support for the Boost.UUID library no in
+    recent Boost versions and has been removed
+
+  * Incompatible API change: Move ``EventQueuePushHandler`` and
+    ``QueuePushHandler`` to ``util`` namespace
+
+  * Improved logging, error messages and API for :term:`converter`
+    selection, configuration and registration
+
+  * :term:`Converter` registration is no longer necessary for the
+    inprocess :term:`transport`
+
+  * Zip archive for Windows
+
+* Java
+
+  * Fixed implementation of :term:`sequence number` generation
+
+  * Added inprocess :term:`transport`
+
+  * Fixed ``LocalServer`` interface
+
+  * Some thread-safety and shutdown issues in the socket
+    :term:`transport` have been fixed
+
+  * Default :term:`participant` configuration is now available via
+    ``getDefaulParticipantConfig``
+
+  * Updated :term:`Spread` Java bindings to version 4.3
+
+* Python
+
+  * :term:`Participants <participant>` now support the context manager
+    protocol
+
+  * :term:`Configuration` file :samp:`{PREFIX}/etc/rsb.conf` is now
+    processed
+
+* Common Lisp
+
+  * Socket :term:`transport` now listens on all interfaces in server
+    mode
+
+  * Socket :term:`transport` now handles disconnected clients better
+    while under load
+
+  * Logging is now implemented using a more robust and more efficient
+    implementation. The user-visible interface remains unchanged.
+
+* Tools
+
+  * The Common Lisp implementation of the tools now comes with scripts
+    for analyzing some timing-related aspects of system. These scripts
+    can be used by the :ref:`logger` as well as the RSBag tools.
+
+As always, bugs, feature requests and enhancement proposals can be
+reported in the `issue tracker`_.
+
+.. note::
+
+   For a more detailed list of fixed bugs, added features and other
+   enhancements, see https://code.cor-lab.org/versions/11.
+
 |project| 0.9
 =============
 
