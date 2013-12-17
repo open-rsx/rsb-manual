@@ -85,18 +85,18 @@ obtained. The following example demonstrates this.
 
    .. container:: converter-registration-java
 
-      After creating the :term:`converter` object (lines 16 and 17),
+      After creating the :term:`converter` object (lines 14 and 15),
       it is globally registered using the
       ``rsb.converter.ConverterRepository.addConverter`` method (line
-      20). The repository is obtained by calling
+      19). The repository is obtained by calling
       ``rsb.converter.DefaultConverterRepository.getDefaultConverterRepository``
-      (line 20).
+      (line 18).
 
       .. literalinclude:: /../rsb-java/examples/tutorial/protobuf/RegistrationExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
-         :emphasize-lines: 16-17,20
+         :emphasize-lines: 14-15,18-19
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/tutorial/protobuf/RegistrationExample.java>`
