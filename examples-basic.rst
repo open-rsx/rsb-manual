@@ -110,7 +110,7 @@ data then has to be passed to it.
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
-         :emphasize-lines: 12,15,19,23
+         :emphasize-lines: 12-13,16,20,24
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/InformerExample.java>`
@@ -309,18 +309,18 @@ each received :term:`event`, a user-supplied callback function (a
    .. container:: receive-data-async-java
 
       A ``rsb.Listener`` object is created by obtaining the |project|
-      factory via ``rsb.Factory.getInstance`` (line 18) and then
+      factory via ``rsb.Factory.getInstance`` (line 15) and then
       calling its ``rsb.Factory.createListener`` method with the
       desired :term:`scope` (which can be specified as a string
-      literal, line 23).
+      literal, line 20).
 
       The ``rsb.Listener`` has to activated before and deactivated
-      after use via the ``rsb.Listener.activate`` (line 24) and
-      ``rsb.Listener.deactivate`` (line 37) methods.
+      after use via the ``rsb.Listener.activate`` (line 21) and
+      ``rsb.Listener.deactivate`` (line 34) methods.
 
       Once the :term:`listener` has been created and activated,
       :term:`handlers <handler>` can be added by calling the
-      ``rsb.Listener.addHandler`` method (line 29). Objects
+      ``rsb.Listener.addHandler`` method (line 26). Objects
       implementing the ``rsb.Handler`` interface can be used as
       :term:`handlers <handler>`.
 
@@ -329,7 +329,7 @@ each received :term:`event`, a user-supplied callback function (a
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
-         :emphasize-lines: 18,23,24,29,37
+         :emphasize-lines: 15,20-21,26,34
 
       :download:`Download this example </../rsb-java/examples/EventListenerExample.java>`
 
@@ -477,16 +477,16 @@ called in blocking and non-blocking way:
 
       A ``rsb.patterns.RemoteServer`` object is created by calling
       ``rsb.Factory.createRemoteServer`` with the :term:`scope` on
-      which the service is provided (line 16). Remote methods can then
+      which the service is provided (line 9). Remote methods can then
       be called using the ``rsb.patterns.RemoteServer.call`` method
-      (see line 21) and the ``rsb.patterns.RemoteServer.callAsync``
+      (see line 16) and the ``rsb.patterns.RemoteServer.callAsync``
       method.
 
       .. literalinclude:: /../rsb-java/examples/ClientExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
-         :emphasize-lines: 16,21
+         :emphasize-lines: 9,16
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/ClientExample.java>`
@@ -590,18 +590,18 @@ callback function which implements the desired behavior of the method.
 
       A ``rsb.patterns.LocalServer`` object is created by calling
       ``rsb.Factory.createLocalServer`` with the :term:`scope` on
-      which server should provide its service (line 22). Methods are
+      which server should provide its service (line 20). Methods are
       registered by calling the ``rsb.patterns.LocalServer.addMethod``
-      method (see line 26) with a suitable callback object. The
+      method (see line 25) with a suitable callback object. The
       callback class supplies the behavior of server methods by
       overriding the ``rsb.patterns.EventCallback.invoke`` method (see
-      lines 9 to 17).
+      lines 8 to 15).
 
       .. literalinclude:: /../rsb-java/examples/ServerExample.java
          :language:    java
          :start-after: mark-start::body
          :end-before:  mark-end::body
-         :emphasize-lines: 22,26,9-17
+         :emphasize-lines: 20-21,25,8-15
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/ServerExample.java>`
