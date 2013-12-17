@@ -10,7 +10,8 @@
 .. note::
 
    Starting with this release, |ubuntu| lucid is no longer officially
-   supported. At least for C++, the `CMake`_ scripts will not work.
+   supported. At least for C++, the `CMake`_ scripts will most likely
+   not work.
 
 This |project| release is available in the following forms:
 
@@ -32,10 +33,11 @@ Changes
 
 * C++
 
-  * Special `CMake`_ -level support for the Boost.UUID library no in
-    recent Boost versions and has been removed
+  * Special `CMake`_ -level support for finding custom installations
+    of the Boost.UUID library has been dropped as this library is a
+    standard part of Boost since some time now.
 
-  * Incompatible API change: Move ``EventQueuePushHandler`` and
+  * Incompatible API change: Moved ``EventQueuePushHandler`` and
     ``QueuePushHandler`` to ``util`` namespace
 
   * Improved logging, error messages and API for :term:`converter`
@@ -48,11 +50,9 @@ Changes
 
 * Java
 
-  * Fixed implementation of :term:`sequence number` generation
-
   * Added inprocess :term:`transport`
 
-  * Fixed ``LocalServer`` interface
+  * Fixed implementation of :term:`sequence number` generation
 
   * Some thread-safety and shutdown issues in the socket
     :term:`transport` have been fixed
@@ -60,14 +60,15 @@ Changes
   * Default :term:`participant` configuration is now available via
     ``getDefaulParticipantConfig``
 
-  * Updated :term:`Spread` Java bindings to version 4.3
+  * Updated internal :term:`Spread` Java implementation to version 4.3.
+    This still allows communication with all 4.x :term:`Spread` daemons.
 
 * Python
 
   * :term:`Participants <participant>` now support the context manager
-    protocol
+    protocol (``with`` statements)
 
-  * :term:`Configuration` file :samp:`{PREFIX}/etc/rsb.conf` is now
+  * The :term:`Configuration` file at :samp:`{PREFIX}/etc/rsb.conf` is now
     processed
 
 * Common Lisp
