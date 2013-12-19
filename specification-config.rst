@@ -243,6 +243,9 @@ options from sources which are processed earlier:
    step_6_options -> step_7_options [style="dashed"]
    uri_transports -> step_7_options */
 
+.. note::
+
+   On Windows the configuration file is located at ``%userprofile%\.config\rsb.conf``.
 
 Sources
 =======
