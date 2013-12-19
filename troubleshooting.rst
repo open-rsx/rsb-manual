@@ -4,6 +4,11 @@
 Troubleshooting
 ===============
 
+.. seealso::
+
+   :ref:`support`
+     If this page doesn't help
+
 .. _troubleshooting-spread-does-not-work:
 
 Spread Does not Work
