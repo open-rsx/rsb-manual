@@ -95,6 +95,9 @@ rst_prolog = """
 .. |user_config_file| replace::
    :file:`~/.config/rsb.conf`
 
+.. |python| replace::
+   Python
+
 .. |pwd_config_file| replace::
    :file:`$(pwd)/rsb.conf`
 
