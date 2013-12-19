@@ -288,3 +288,50 @@ Binary Downloads of Tools
         .. code-block:: sh
 
            $ for alias in info logger call send ; do ln -s tools ${alias} ; done
+
+Pre-Compiled Windows Archive
+============================
+
+As compiling cross-platform C++ code on Windows can easily become a nightmare,
+we provide a ZIP archive with |project| for C++ as well as all other
+RSX-related software pre-compiled for Windows in 32 bit mode using different
+Visual Studio versions.
+
+#. Download the artifact for your Visual Studio version
+
+   In order to install the complete collection of RSX C++ software, you first
+   need to know the numeric version of the Visual Studio version you want to
+   work with. E.g. Visual Studio 2010 corresponds to version 100 and Visual
+   Studio 2012 corresponds to numeric version 110. As soon as you know this you
+   can select the appropriate configuration from this CI server job:
+   https://ci.cor-lab.org/view/windows/job/rsx-trunk-windows-package/ (by
+   clicking on the circular icon in the matrix). You can choose any of the
+   Windows versions in the matrix because currently all software is built in 32
+   bit mode. After selecting the appropriate configuration, download the latest
+   successful artifact (a zip file).
+
+#. Extract the archive
+
+   Extract the archive to your desired target destination on your hard drive.
+
+You end up with a folder containing one subfolder for each RSX project and all
+dependencies like the boost libraries.
+
+Executing Programs Against the Archive
+--------------------------------------
+
+In order to execute programs that use software provided in the archive you need
+to extend the Windows ``PATH`` environment variable to point to all folders in
+the archive structure that contain DLL files. Otherwise you will receiving
+missing DLL warnings when trying to execute programs.
+
+Please ensure that you do not have other Boost version etc. in your ``PATH``
+than the ones provided in the archive.
+
+Compiling Against the Archive
+-----------------------------
+
+Windows is very picky about mixing different runtime libraries. All software
+provided in the archive is compiled in multi-threaded debug mode. Your client
+software should be compiled with exactly these settings to prevent
+unpredictable errors.
