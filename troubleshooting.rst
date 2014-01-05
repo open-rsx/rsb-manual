@@ -383,22 +383,24 @@ Solution
 
 .. _troubleshooting-tcp-transport-java-bind:
 
-Java programs using the TCP-transport do not communicate with other languages
-=============================================================================
+Java Programs using the Socket Transport do not communicate with other Languages
+================================================================================
 
 Problem *(applies to Java)*
 
-  Events from a Java process using the TCP-transport are not received by other
-  languages or vice versa.
+  :term:`Events <event>` sent from a Java |project| process using the
+  socket :term:`transport` are not received by |project| processes
+  written in other languages or vice versa.
 
 Solution
 
-  The Java runtime sometime prefers to bind against IPv6 addresses even if
-  IPv4 addresses are specified. This seems to be an internal behavior of the
-  Java runtime. Other implementations use IPv4 as the default. As a consequence,
-  Java operates on IPv6 and the other languages on IPv4 and no connection
-  exists. To force Java to use IPv4, specify the following JVM property for
-  your Java applications:
+  The Java runtime sometime prefers bind sockets to IPv6 addresses
+  even if IPv4 addresses are specified. This seems to be an internal
+  behavior of the Java runtime. Other |project| implementations use
+  IPv4 addresses by default. As a consequence, Java operates on IPv6
+  and the other languages on IPv4 and connections cannot be
+  established. To force Java to use IPv4, specify the following JVM
+  property (e.g. on the commandline) for |project| Java programs:
 
   .. parsed-literal::
 
