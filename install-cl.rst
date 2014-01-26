@@ -22,28 +22,32 @@ Required Infrastructure
 External Dependencies
 ---------------------
 
-==================== ========================= ===============
-System               Required                  Obtainable From
-==================== ========================= ===============
-alexandria           yes                       Quicklisp
-split-sequence       yes                       Quicklisp
-iterate              yes                       Quicklisp
-metabang-bind        yes                       Quicklisp
-bordeaux-threads     yes                       Quicklisp
-closer-mop           yes                       Quicklisp
-log5                 yes                       Quicklisp
-puri                 yes                       Quicklisp
-uuid                 yes                       Quicklisp
-local-time           yes                       Quicklisp
-cl-hooks             yes                       https://launchpad.net/cl-hooks
-cl-dynamic-classes   yes                       |repository_versioned_cl| at ``cl-dynamic-classes``
-cl-ppcre             for Regexp filtering      Quicklisp
-cxml-stp             for XML event data        Quicklisp
-xpath                for XPath event filtering Quicklisp
-cl-protobuf          for Spread transport      |repository_versioned_cl| at ``cl-protobuf``
-cl-spread            for Spread transport      |repository_versioned_cl| at ``cl-spread``
--- libspread         for Spread transport      See :ref:`C++ installation instructions <install-cpp>`
-==================== ========================= ===============
+==================== ==================================== ======================================================
+System               Required?                            Obtainable From
+==================== ==================================== ======================================================
+alexandria           yes                                  Quicklisp
+split-sequence       yes                                  Quicklisp
+iterate              yes                                  Quicklisp
+let-plus             yes                                  Quicklisp
+more-conditions      yes                                  Quicklisp
+bordeaux-threads     yes                                  Quicklisp
+lparallel            yes                                  Quicklisp
+trivial-garbage      yes                                  Quicklisp
+closer-mop           yes                                  Quicklisp
+cl-hooks             yes                                  Quicklisp
+cl-dynamic-classes   yes                                  -
+log4cl               yes                                  Quicklisp
+nibbles              yes                                  Quicklisp
+puri                 yes                                  Quicklisp
+uuid                 yes                                  Quicklisp
+local-time           yes                                  Quicklisp
+cl-ppcre             for Regexp filtering                 Quicklisp
+cxml-stp             for XML :term:`payload`              Quicklisp
+xpath                for XPath filtering                  Quicklisp
+cl-protobuf          for :term:`Spread` :term:`transport` -
+network.spread       for :term:`Spread` :term:`transport` http://github.com/scymtym/network.spread
+-- libspread         for :term:`Spread` :term:`transport` See :ref:`C++ installation instructions <install-cpp>`
+==================== ==================================== ======================================================
 
 Installation
 ============
@@ -53,15 +57,9 @@ Installation
 
 #. Install other required systems:
 
-   * ``cl-hooks``
-
-     .. code-block:: sh
-
-        bzr branch lp:cl-hooks
-
    * ``cl-dynamic-classes``
    * ``cl-protobuf``
-   * ``cl-spread``
+   * ``network.spread``
 
 #. Load ``cl-rsb`` with `Quicklisp`_ to pull in remaining dependencies
 
