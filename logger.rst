@@ -9,15 +9,16 @@
 Synopsis
 ========
 
-:samp:`logger {[OPTIONS]} {[URI]}`
+:samp:`logger {[OPTIONS]} {URI*}`
 
 Description
 ===========
 
-The |logger| participates in the :term:`channel` designated by
-:samp:`{URI}` (see :ref:`uri-schema`) using one or more
+The |logger| participates in the :term:`channels <channel>` designated
+by :samp:`{URI}`s (see :ref:`uri-schema`) using one or more
 :term:`transports <transport>` and displays all :term:`events <event>`
-published on the :term:`channel` using a configurable style.
+published on the :term:`channels <channel>` using a configurable
+style.
 
 The usual :ref:`commandline options <common-options>`,
 :ref:`IDL-related options <idl-options>` and :ref:`environment
@@ -84,6 +85,18 @@ commandline options:
 
    See :ref:`formatting` for a detailed discussion of :term:`event`
    formatting options.
+
+.. option:: --max-queued-events POSITIVE-INTEGER
+
+   Specify the maximum number of :term:`events <event>` that may be
+   kept in a queue in case processing (usually printing) cannot keep
+   up with the rate of incoming :term:`events <event>`.
+
+   This queue can smooth over bursts of :term:`events <event>`, but if
+   the sustained rate of incoming :term:`events <event>` is above the
+   maximum processing speed, it will overflow and an error will be
+   signaled. The behavior in this case can be controlled via
+   :option:`common --on-error`.
 
 Examples
 ========
