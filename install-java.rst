@@ -21,7 +21,7 @@ Required Dependencies
   * |ubuntu| packages (``libprotobuf-java``,
     ``protobuf-compiler``) are OK
 
-* `Apache Ant`_
+* `Apache Ant`_ / ´Maven`_
 
 * :term:`Spread daemon`
 
@@ -125,6 +125,11 @@ Installation of RSC and RSBProtocol
 
 Installation of RSBJava
 =======================
+* Installation of |project| Java with `Apache Ant`_.
+* Installation of |project| Java with ´Maven`_
+
+Installation with Apache Ant
+-----------------------------
 
 #. Checkout |project| and its immediate dependencies from
    |repository_versioned_java|.
@@ -182,8 +187,8 @@ Installation of RSBJava
 
       $ ant install
 
-Testing the Installation
-========================
+Testing the Ant Installation
+-----------------------------
 
 The Java implementation of |project| comes with a set of unit tests,
 which you may use to check the compiled code. Executing the test suite
@@ -247,5 +252,149 @@ excerpt):
    BUILD SUCCESSFUL
    Total time: 48 seconds
 
+If no failed test cases are reported, the Java implementation of
+|project| is likely to work correctly on your machine.
+
+Installation with Maven
+------------------------
+
+#. Checkout |project| and its immediate dependencies from
+   |repository_versioned_java|.
+
+#. Run :file:`mvnprep.sh` in rsb.git.java folder from commandline:
+
+.. code-block:: sh
+
+   $ cd rsb.git.java
+   
+   $ ./mvnprep.sh
+   
+#. Invoke :program:`mvn` supplying build properties on the commandline
+   or via file:`pom.xml` (see below)
+
+   The following properties are used to configure the build:
+
+   ==================  =================================================================================  ====================================
+   Maven Property        Meaning                                                                            Example
+   ==================  =================================================================================  ====================================
+   ``pbuf.protoc``     Location of protocol buffer compiler (:program:`protoc` or :program:`protoc.exe`)  :file:`/usr/bin/protoc`
+   ``pbuf.protopath``  Location of |project| protocol IDL files (see TODO)                                :file:`/vol/cit/share/rsbprotocol`
+   ``spread.daemon``   Location of :term:`Spread daemon` executable                                       :file:`/vol/cit/sbin/spread`
+   ==================  =================================================================================  ====================================
+
+   All properties can be supplied on the :program:`mvn` commandline
+   using the :samp:`-D{NAME}={VALUE}` syntax or by editing a
+   :file:`pom.xml` file containing lines of the form
+   :samp:`<NAME>{VALUE}</NAME>`.
+
+   An exemplary ``mvn clean package`` command, which builds the |project| jar
+   library, may look as follows:
+
+   .. code-block:: sh
+
+      $ mvn clean package 				\
+	    -Dpbuf.protoc=/usr/bin/protoc               \
+            -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
+            -Dspread.daemon=/vol/cit/sbin/spread        
+
+   The equivalent :file:`pom.xml` file looks like this:
+
+   .. code-block:: ini
+
+      <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pbuf.protopath>/vol/cit/share/rsbprotocol</pbuf.protopath>
+        <pbuf.protoc>/usr/bin/protoc</pbuf.protoc>
+        <pbuf.version>2.4.1</pbuf.version>
+        <pbuf.outpath>target/generated-protocol</pbuf.outpath>
+        <spread.daemon>/vol/cit/sbin/spread</spread.daemon>
+        <target.java.version>1.6</target.java.version>
+     </properties>
+
+
+   In the presence of this file, the :program:`mvn` command reduces to
+   ``maven clean package``.
+
+#. Installation of Java archive
+
+   To install |project| jars into the configured prefix (e.g., into
+   :samp:`{PREFIX}/share/java`), the following :program:`mvn` command
+   can be used :file:`pom.xml` is not configured as mentioned earlier:
+
+   .. code-block:: sh
+
+      $ mvn clean install			        \
+	    -Dpbuf.protoc=/usr/bin/protoc               \
+            -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
+            -Dspread.daemon=/vol/cit/sbin/spread 
+           
+   or when :file:`pom.xml` is configured :
+   
+   .. code-block:: sh
+
+      $ mvn clean install			           
+      
+Testing the Maven Installation
+-------------------------------
+
+The Java implementation of |project| comes with a set of unit tests,
+which you may use to check the compiled code. Executing the test suite
+is straightforward.  To do so, the following :program:`mvn` target
+needs to be invoked (please note that a :term:`Spread daemon` is
+automatically started by the :program:`mvn` script):
+
+When :file:`pom.xml` is configured : 
+
+.. code-block:: sh
+
+   $ mvn clean test
+
+or when :file:`pom.xml` is not configured :
+
+.. code-block:: sh
+
+   $ mvn clean	test				       \
+	 -Dpbuf.protoc=/opt/local/bin/protoc           \
+         -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
+         -Dspread.daemon=/vol/cit/sbin/spread          
+         
+
+You should see a console output similar to the following (shortened
+excerpt):
+
+.. code-block:: sh
+
+   $ mvn -Dpbuf.protoc=/opt/local/bin/protoc           \
+         -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
+         -Dspread.daemon=/vol/cit/sbin/spread          \
+         test
+   [INFO] Scanning for projects...
+   [INFO]                                                                         
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Building RSB 0.11-SNAPSHOT
+   [INFO] ------------------------------------------------------------------------
+   [INFO] 
+   .
+   ..
+   ...
+   
+   
+   Results :
+   
+   Tests run: 175, Failures: 0, Errors: 0, Skipped: 0
+   
+   [INFO] 
+   [INFO] --- jacoco-maven-plugin:0.6.3.201306030806:report (post-unit-test) @ rsb ---
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time: 27.010s
+   [INFO] Finished at: Wed Jan 29 19:59:08 CET 2014
+   [INFO] Final Memory: 25M/193M
+   [INFO] ------------------------------------------------------------------------
+        [exec] Result: 143
+         
+
+         
 If no failed test cases are reported, the Java implementation of
 |project| is likely to work correctly on your machine.
