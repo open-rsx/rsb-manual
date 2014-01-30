@@ -21,7 +21,7 @@ Required Dependencies
   * |ubuntu| packages (``libprotobuf-java``,
     ``protobuf-compiler``) are OK
 
-* `Apache Ant`_ / ´Maven`_
+* `Apache Ant`_ / `Maven`_
 
 * :term:`Spread daemon`
 
@@ -126,7 +126,7 @@ Installation of RSC and RSBProtocol
 Installation of RSBJava
 =======================
 * Installation of |project| Java with `Apache Ant`_.
-* Installation of |project| Java with ´Maven`_
+* Installation of |project| Java with `Maven`_
 
 Installation with Apache Ant
 -----------------------------
@@ -261,12 +261,11 @@ Installation with Maven
 #. Checkout |project| and its immediate dependencies from
    |repository_versioned_java|.
 
-#. Run :file:`mvnprep.sh` in rsb.git.java folder from commandline:
+#. Run :file:`mvnprep.sh` in :file:`rsb.git.java` folder from commandline:
 
 .. code-block:: sh
 
    $ cd rsb.git.java
-   
    $ ./mvnprep.sh
    
 #. Invoke :program:`mvn` supplying build properties on the commandline
@@ -297,9 +296,9 @@ Installation with Maven
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
             -Dspread.daemon=/vol/cit/sbin/spread        
 
-   The equivalent :file:`pom.xml` file looks like this:
+   The equivalent changes can be done in :file:`pom.xml` file which then looks like this:
 
-   .. code-block:: ini
+   .. code-block:: xml
 
       <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -312,8 +311,12 @@ Installation with Maven
      </properties>
 
 
-   In the presence of this file, the :program:`mvn` command reduces to
-   ``maven clean package``.
+   In the presence of this file :file:`pom.xml` , the :program:`mvn` command reduces to:
+   
+    .. code-block:: sh
+
+      $ mvn clean package 				
+
 
 #. Installation of Java archive
 
@@ -364,10 +367,11 @@ excerpt):
 
 .. code-block:: sh
 
-   $ mvn -Dpbuf.protoc=/opt/local/bin/protoc           \
+   $ mvn clean	test				       \
+	 -Dpbuf.protoc=/opt/local/bin/protoc           \
          -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
-         -Dspread.daemon=/vol/cit/sbin/spread          \
-         test
+         -Dspread.daemon=/vol/cit/sbin/spread          
+         
    [INFO] Scanning for projects...
    [INFO]                                                                         
    [INFO] ------------------------------------------------------------------------

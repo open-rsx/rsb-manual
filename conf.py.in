@@ -134,6 +134,8 @@ rst_prolog = """
 .. _boost: http://www.boost.org/
 .. _boost.uuid: http://www.boost.org/doc/libs/1_42_0/libs/uuid/uuid.html
 
+.. _Maven: http://maven.apache.org/
+
 .. _apache ant: http://ant.apache.org/
 .. _javadoc: http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
 
