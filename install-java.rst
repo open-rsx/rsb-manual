@@ -134,8 +134,8 @@ Installation with Apache Ant
 #. Checkout |project| and its immediate dependencies from
    |repository_versioned_java|.
 
-#. Invoke :program:`ant` supplying build properties on the commandline
-   or via file:`build.properties` (see below)
+#. Invoke :program:`ant` supplying build properties on the command-line
+   or via a file called :file:`build.properties` (see below).
 
    The following properties are used to configure the build:
 
@@ -397,8 +397,6 @@ excerpt):
    [INFO] Final Memory: 25M/193M
    [INFO] ------------------------------------------------------------------------
         [exec] Result: 143
-
-
 
 If no failed test cases are reported, the Java implementation of
 |project| is likely to work correctly on your machine.
