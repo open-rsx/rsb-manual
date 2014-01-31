@@ -267,7 +267,7 @@ Installation with Maven
 
    $ cd rsb.git.java
    $ ./mvnprep.sh
-   
+
 #. Invoke :program:`mvn` supplying build properties on the commandline
    or via file:`pom.xml` (see below)
 
@@ -294,7 +294,7 @@ Installation with Maven
       $ mvn clean package 				\
 	    -Dpbuf.protoc=/usr/bin/protoc               \
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
-            -Dspread.daemon=/vol/cit/sbin/spread        
+            -Dspread.daemon=/vol/cit/sbin/spread
 
    The equivalent changes can be done in :file:`pom.xml` file which then looks like this:
 
@@ -312,10 +312,10 @@ Installation with Maven
 
 
    In the presence of this file :file:`pom.xml` , the :program:`mvn` command reduces to:
-   
+
     .. code-block:: sh
 
-      $ mvn clean package 				
+      $ mvn clean package
 
 
 #. Installation of Java archive
@@ -329,14 +329,14 @@ Installation with Maven
       $ mvn clean install			        \
 	    -Dpbuf.protoc=/usr/bin/protoc               \
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
-            -Dspread.daemon=/vol/cit/sbin/spread 
-           
+            -Dspread.daemon=/vol/cit/sbin/spread
+
    or when :file:`pom.xml` is configured :
-   
+
    .. code-block:: sh
 
-      $ mvn clean install			           
-      
+      $ mvn clean install
+
 Testing the Maven Installation
 -------------------------------
 
@@ -346,7 +346,7 @@ is straightforward.  To do so, the following :program:`mvn` target
 needs to be invoked (please note that a :term:`Spread daemon` is
 automatically started by the :program:`mvn` script):
 
-When :file:`pom.xml` is configured : 
+When :file:`pom.xml` is configured :
 
 .. code-block:: sh
 
@@ -359,8 +359,8 @@ or when :file:`pom.xml` is not configured :
    $ mvn clean	test				       \
 	 -Dpbuf.protoc=/opt/local/bin/protoc           \
          -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
-         -Dspread.daemon=/vol/cit/sbin/spread          
-         
+         -Dspread.daemon=/vol/cit/sbin/spread
+
 
 You should see a console output similar to the following (shortened
 excerpt):
@@ -370,24 +370,24 @@ excerpt):
    $ mvn clean	test				       \
 	 -Dpbuf.protoc=/opt/local/bin/protoc           \
          -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
-         -Dspread.daemon=/vol/cit/sbin/spread          
-         
+         -Dspread.daemon=/vol/cit/sbin/spread
+
    [INFO] Scanning for projects...
-   [INFO]                                                                         
+   [INFO]
    [INFO] ------------------------------------------------------------------------
    [INFO] Building RSB 0.11-SNAPSHOT
    [INFO] ------------------------------------------------------------------------
-   [INFO] 
+   [INFO]
    .
    ..
    ...
-   
-   
+
+
    Results :
-   
+
    Tests run: 175, Failures: 0, Errors: 0, Skipped: 0
-   
-   [INFO] 
+
+   [INFO]
    [INFO] --- jacoco-maven-plugin:0.6.3.201306030806:report (post-unit-test) @ rsb ---
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD SUCCESS
@@ -397,8 +397,8 @@ excerpt):
    [INFO] Final Memory: 25M/193M
    [INFO] ------------------------------------------------------------------------
         [exec] Result: 143
-         
 
-         
+
+
 If no failed test cases are reported, the Java implementation of
 |project| is likely to work correctly on your machine.
