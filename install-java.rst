@@ -291,8 +291,8 @@ Installation with Maven
 
    .. code-block:: sh
 
-      $ mvn clean package 				\
-	    -Dpbuf.protoc=/usr/bin/protoc               \
+      $ mvn clean package                               \
+            -Dpbuf.protoc=/usr/bin/protoc               \
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
             -Dspread.daemon=/vol/cit/sbin/spread
 
@@ -304,8 +304,8 @@ Installation with Maven
 
    .. code-block:: sh
 
-      $ mvn clean install			        \
-	    -Dpbuf.protoc=/usr/bin/protoc               \
+      $ mvn clean install                               \
+            -Dpbuf.protoc=/usr/bin/protoc               \
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
             -Dspread.daemon=/vol/cit/sbin/spread
 
@@ -320,9 +320,9 @@ automatically started by the :program:`mvn` script):
 
 .. code-block:: sh
 
-   $ mvn test				       \
-	 -Dpbuf.protoc=/opt/local/bin/protoc           \
-         -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
+   $ mvn test                                        \
+         -Dpbuf.protoc=/opt/local/bin/protoc         \
+         -Dpbuf.protopath=/vol/cit/share/RSBProtocol \
          -Dspread.daemon=/vol/cit/sbin/spread
 
 
@@ -331,9 +331,9 @@ excerpt):
 
 .. code-block:: sh
 
-   $ mvn test				       \
-	 -Dpbuf.protoc=/opt/local/bin/protoc           \
-         -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
+   $ mvn test                                        \
+         -Dpbuf.protoc=/opt/local/bin/protoc         \
+         -Dpbuf.protopath=/vol/cit/share/RSBProtocol \
          -Dspread.daemon=/vol/cit/sbin/spread
 
    [INFO] Scanning for projects...
