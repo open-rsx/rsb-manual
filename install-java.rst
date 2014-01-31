@@ -125,6 +125,9 @@ Installation of RSC and RSBProtocol
 
 Installation of RSBJava
 =======================
+
+For the installation of |project| Java two parallel build systems exist. You can chose between both.
+
 * Installation of |project| Java with `Apache Ant`_.
 * Installation of |project| Java with `Maven`_
 
@@ -149,7 +152,7 @@ Installation with Apache Ant
    ``spread.daemon``   Location of :term:`Spread daemon` executable                                       :file:`/vol/cit/sbin/spread`
    ==================  =================================================================================  ====================================
 
-   All properties can be supplied on the :program:`ant` commandline
+   All properties can be supplied on the :program:`ant` command-line
    using the :samp:`-D{NAME}={VALUE}` syntax or by creating a
    :file:`build.properties` file containing lines of the form
    :samp:`{NAME} = {VALUE}`.
@@ -261,15 +264,14 @@ Installation with Maven
 #. Checkout |project| and its immediate dependencies from
    |repository_versioned_java|.
 
-#. Run :file:`mvnprep.sh` in :file:`rsb.git.java` folder from commandline:
+#. Run :file:`mvnprep.sh` which resides inside the repository root folder
 
 .. code-block:: sh
 
    $ cd rsb.git.java
    $ ./mvnprep.sh
 
-#. Invoke :program:`mvn` supplying build properties on the commandline
-   or via file:`pom.xml` (see below)
+#. Invoke :program:`mvn` supplying build properties on the command-line
 
    The following properties are used to configure the build:
 
@@ -281,10 +283,8 @@ Installation with Maven
    ``spread.daemon``   Location of :term:`Spread daemon` executable                                       :file:`/vol/cit/sbin/spread`
    ==================  =================================================================================  ====================================
 
-   All properties can be supplied on the :program:`mvn` commandline
-   using the :samp:`-D{NAME}={VALUE}` syntax or by editing a
-   :file:`pom.xml` file containing lines of the form
-   :samp:`<NAME>{VALUE}</NAME>`.
+   All properties can be supplied on the :program:`mvn` command-line
+   using the :samp:`-D{NAME}={VALUE}` syntax.
 
    An exemplary ``mvn clean package`` command, which builds the |project| jar
    library, may look as follows:
@@ -296,33 +296,11 @@ Installation with Maven
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
             -Dspread.daemon=/vol/cit/sbin/spread
 
-   The equivalent changes can be done in :file:`pom.xml` file which then looks like this:
-
-   .. code-block:: xml
-
-      <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <pbuf.protopath>/vol/cit/share/rsbprotocol</pbuf.protopath>
-        <pbuf.protoc>/usr/bin/protoc</pbuf.protoc>
-        <pbuf.version>2.4.1</pbuf.version>
-        <pbuf.outpath>target/generated-protocol</pbuf.outpath>
-        <spread.daemon>/vol/cit/sbin/spread</spread.daemon>
-        <target.java.version>1.6</target.java.version>
-     </properties>
-
-
-   In the presence of this file :file:`pom.xml` , the :program:`mvn` command reduces to:
-
-    .. code-block:: sh
-
-      $ mvn clean package
-
-
 #. Installation of Java archive
 
    To install |project| jars into the configured prefix (e.g., into
    :samp:`{PREFIX}/share/java`), the following :program:`mvn` command
-   can be used :file:`pom.xml` is not configured as mentioned earlier:
+   can be used:
 
    .. code-block:: sh
 
@@ -330,12 +308,6 @@ Installation with Maven
 	    -Dpbuf.protoc=/usr/bin/protoc               \
             -Dpbuf.protopath=/vol/cit/share/rsbprotocol \
             -Dspread.daemon=/vol/cit/sbin/spread
-
-   or when :file:`pom.xml` is configured :
-
-   .. code-block:: sh
-
-      $ mvn clean install
 
 Testing the Maven Installation
 -------------------------------
@@ -346,17 +318,9 @@ is straightforward.  To do so, the following :program:`mvn` target
 needs to be invoked (please note that a :term:`Spread daemon` is
 automatically started by the :program:`mvn` script):
 
-When :file:`pom.xml` is configured :
-
 .. code-block:: sh
 
-   $ mvn clean test
-
-or when :file:`pom.xml` is not configured :
-
-.. code-block:: sh
-
-   $ mvn clean	test				       \
+   $ mvn test				       \
 	 -Dpbuf.protoc=/opt/local/bin/protoc           \
          -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
          -Dspread.daemon=/vol/cit/sbin/spread
@@ -367,7 +331,7 @@ excerpt):
 
 .. code-block:: sh
 
-   $ mvn clean	test				       \
+   $ mvn test				       \
 	 -Dpbuf.protoc=/opt/local/bin/protoc           \
          -Dpbuf.protopath=/vol/cit/share/RSBProtocol   \
          -Dspread.daemon=/vol/cit/sbin/spread
