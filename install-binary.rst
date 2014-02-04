@@ -182,7 +182,7 @@ required:
 
    .. code-block:: sh
 
-      $ brew tap swrede/homebrew-formulas
+      $ brew tap corlab/homebrew-formulas
       $ brew install rsb-tools-cpp
 
    .. note::
@@ -198,13 +198,13 @@ required:
 
    If the formula conflicts with one from ``mxcl/master`` or another
    tap, you can :samp:`brew install
-   swrede/homebrew-formulas/{FORMULA}`.
+   corlab/homebrew-formulas/{FORMULA}`.
 
    You can also install via URL:
 
    .. code-block:: sh
 
-      $ brew install https://raw.github.com/swrede/homebrew-formulae/master/rsb.rb
+      $ brew install https://raw.github.com/corlab/homebrew-formulas/master/rsb.rb
 
 .. note::
 
