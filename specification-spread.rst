@@ -55,12 +55,12 @@ Data exchanged on the wire by the :term:`Spread`-based
 :term:`Spread` message always contains a fragment of a
 :term:`notification` elementary communication unit:
 
-.. literalinclude:: ../rsb-protocol/rsb/protocol/FragmentedNotification.proto
+.. literalinclude:: ../rsb-protocol/proto/rsb/protocol/FragmentedNotification.proto
    :language: protobuf
    :lines:    26-
    :linenos:
 
-.. literalinclude:: ../rsb-protocol/rsb/protocol/Notification.proto
+.. literalinclude:: ../rsb-protocol/proto/rsb/protocol/Notification.proto
    :language: protobuf
    :lines:    26-
    :linenos:
