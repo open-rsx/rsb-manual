@@ -500,7 +500,7 @@ called in blocking and non-blocking way:
       argument of the call have to be passed as the second and third
       argument respectively.
 
-      .. literalinclude:: /../rsb-cl/examples/client.lisp
+      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
          :start-after: mark-start::with-remote-server
          :end-before:  mark-end::with-remote-server
@@ -509,13 +509,13 @@ called in blocking and non-blocking way:
       Alternatively, ``rsb.patterns:make-remote-server`` can be used
       to obtain a :term:`remote server` without automatic destruction:
 
-      .. literalinclude:: /../rsb-cl/examples/client.lisp
+      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/client.lisp>`
+      :download:`Download this example </../rsb-cl/examples/patterns/request-reply/client.lisp>`
 
 .. _tutorial-rpc-server:
 
@@ -613,7 +613,7 @@ callback function which implements the desired behavior of the method.
       ``rsb.patterns:with-methods`` macro can be used to register
       methods and their implementations in the :term:`local server`.
 
-      .. literalinclude:: /../rsb-cl/examples/server.lisp
+      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl
          :start-after: mark-start::with-local-server
          :end-before:  mark-end::with-local-server
@@ -624,10 +624,10 @@ callback function which implements the desired behavior of the method.
       destruction. Similarly, methods can be added without the
       ``rsb.patterns:with-methods`` macro:
 
-      .. literalinclude:: /../rsb-cl/examples/server.lisp
+      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/server.lisp>`
+      :download:`Download this example </../rsb-cl/examples/patterns/request-reply/server.lisp>`
