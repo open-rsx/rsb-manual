@@ -494,11 +494,11 @@ called in blocking and non-blocking way:
    .. container:: rpc-client-cl
 
       A :term:`remote server` can be created and managed with the
-      ``rsb.patterns:with-remote-server`` macro. The
-      ``rsb.patterns:call`` method can be used on the :term:`remote
-      server` object to call remote methods. The method name and the
-      argument of the call have to be passed as the second and third
-      argument respectively.
+      ``rsb.patterns.request-reply:with-remote-server`` macro. The
+      ``rsb.patterns.request-reply:call`` method can be used on the
+      :term:`remote server` object to call remote methods. The method
+      name and the argument of the call have to be passed as the
+      second and third argument respectively.
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
@@ -506,8 +506,9 @@ called in blocking and non-blocking way:
          :end-before:  mark-end::with-remote-server
          :linenos:
 
-      Alternatively, ``rsb.patterns:make-remote-server`` can be used
-      to obtain a :term:`remote server` without automatic destruction:
+      Alternatively, ``rsb.patterns.request-reply:make-remote-server``
+      can be used to obtain a :term:`remote server` without automatic
+      destruction:
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
@@ -609,9 +610,10 @@ callback function which implements the desired behavior of the method.
    .. container:: rpc-server-cl
 
       A :term:`local server` can be created and managed with the
-      ``rsb.patterns:with-local-server`` macro. The
-      ``rsb.patterns:with-methods`` macro can be used to register
-      methods and their implementations in the :term:`local server`.
+      ``rsb.patterns.request-reply:with-local-server`` macro. The
+      ``rsb.patterns.request-reply:with-methods`` macro can be used to
+      register methods and their implementations in the :term:`local
+      server`.
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl
@@ -619,10 +621,10 @@ callback function which implements the desired behavior of the method.
          :end-before:  mark-end::with-local-server
          :linenos:
 
-      Alternatively, ``rsb.patterns:make-local-server`` can be used to
-      obtain a :term:`local server` without automatic
+      Alternatively, ``rsb.patterns.request-reply:make-local-server``
+      can be used to obtain a :term:`local server` without automatic
       destruction. Similarly, methods can be added without the
-      ``rsb.patterns:with-methods`` macro:
+      ``rsb.patterns.request-reply:with-methods`` macro:
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl

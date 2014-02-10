@@ -25,9 +25,16 @@ links for downloading can be found in the |project| :ref:`manual
 Changes
 
 * C++
+
 * Java
+
 * Python
+
 * Common Lisp
+
+  * The implementation of the :ref:`Request-reply pattern
+    <specification-request-reply>` has moved from package
+    ``rsb.patterns`` to package ``rsb.patterns.request-reply``.
 
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
