@@ -506,8 +506,8 @@ called in blocking and non-blocking way:
          :end-before:  mark-end::with-remote-server
          :linenos:
 
-      Alternatively, ``rsb:make-remote-server`` can be used to obtain
-      a :term:`remote server` without automatic destruction:
+      Alternatively, ``rsb.patterns:make-remote-server`` can be used
+      to obtain a :term:`remote server` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/client.lisp
          :language:    cl
