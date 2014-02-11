@@ -1,14 +1,14 @@
 .. _specification-yarp:
 
-================
- YARP Transport
-================
+=================
+ YARP Transports
+=================
 
 A subset of the network protocols used in `YARP`_ (called "carriers"
 there) is supported by |project|.
 
-The `YARP`_ :term:`transport` for |project| maps the following URI
-schemas to `YARP`_ network protocols:
+The `YARP`_ :term:`transports <transport>` for |project| map the
+following URI schemas to `YARP`_ network protocols:
 
 ``tcp+yarp`` (See :ref:`specification-tcpyarp`)
 
@@ -135,7 +135,8 @@ Limitations
 ===========
 
 The :term:`connectors <connector>` provided by the `YARP`_
-:term:`transport` for |project| are not proper `YARP`_ ports:
+:term:`transports <transport>` for |project| are not proper `YARP`_
+ports:
 
 * They do not accept incoming connections
 * They do not support the port management protocol (except the
