@@ -46,13 +46,13 @@ there is no need for serializing them into :term:`notifications
 <notification>` and hence no need to apply :term:`converters
 <converter>` as well. Instead, :term:`event` objects published by
 :term:`informers <informer>` are just passed to the appropriate
-:term:`participants <participant>` after necessary meta-data has been
-added.
+receiving :term:`participants <participant>` after necessary meta-data
+has been added.
 
 .. important::
 
-   This implementation requires that client code is forbidden to
-   modify received :term:`events <event>`.
+   This implementation implies that client code is forbidden to modify
+   sent (after sending) and received :term:`events <event>`.
 
 Hierarchical Bus
 ================
@@ -62,6 +62,7 @@ Distribution of :term:`events <event>` *can* be implemented as follows
 * An associative array maps :term:`scopes <scope>` to receiving
   :term:`participants <participant>`, listening on the respective
   :term:`scope`
+
 * An :term:`event` is delivered to the list of :term:`participants
   <participant>` obtained by concatenating the :term:`participant`
   lists of all :term:`superscopes <superscope>` of the :term:`event`'s
