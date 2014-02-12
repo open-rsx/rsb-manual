@@ -296,7 +296,7 @@ Visual Studio versions.
    work with. E.g. Visual Studio 2010 corresponds to version 100 and Visual
    Studio 2012 corresponds to numeric version 110. As soon as you know this you
    can select the appropriate configuration from this CI server job:
-   https://ci.cor-lab.org/view/windows/job/rsx-trunk-windows-package/ (by
+   https://ci.cor-lab.org/view/windows/job/rsx-0.10-windows-package/ (by
    clicking on the circular icon in the matrix). You can choose any of the
    Windows versions in the matrix because currently all software is built in 32
    bit mode. After selecting the appropriate configuration, download the latest
