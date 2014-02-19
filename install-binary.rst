@@ -252,8 +252,7 @@ version deployed there, include the following fragments in the
 
 ..
    edit-on-version-bump:
-   Change version of dependency
-   disable snapshopts
+   Change version of dependency to something like [0.7,0.8-SNAPSHOT)
 
 #. In the dependencies section:
 
