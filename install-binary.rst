@@ -58,8 +58,8 @@ the CoR-Lab `repository server`_.
 
 .. _install-pypi:
 
-PyPI Packages
-=============
+Python PyPI Packages
+====================
 
 For Python, platform-independent packages are pushed to the central
 repository server and can be installed with :program:`pip` or
@@ -146,8 +146,8 @@ repository server and can be installed with :program:`pip` or
 
 .. _install-homebrew:
 
-Homebrew
-========
+Mac Homebrew
+============
 
 |project| uses :term:`homebrew` for installation on MacOS. For further
 information on the ideas behind homebrew please check `this blog post

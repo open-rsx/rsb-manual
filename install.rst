@@ -24,7 +24,7 @@ Compilation from source
    you are in a good position to change it frequently.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    install-binary
    install-source

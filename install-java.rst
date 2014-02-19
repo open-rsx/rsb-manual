@@ -128,8 +128,8 @@ Installation of RSBJava
 
 For the installation of |project| Java two parallel build systems exist. You can chose between both.
 
-* Installation of |project| Java with `Apache Ant`_.
-* Installation of |project| Java with `Maven`_
+* `Installation with Apache Ant`_
+* `Installation with Maven`_
 
 Installation with Apache Ant
 -----------------------------
