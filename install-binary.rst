@@ -273,13 +273,19 @@ version deployed there, include the following fragments in the
 
       <repositories>
           <repository>
-              <id>citec</id>
+              <id>citec-releases</id>
               <name>CITEC Maven Repository Server</name>
-              <url>http://repo.cit-ec.uni-bielefeld.de/</url>
+              <url>https://repo.cit-ec.uni-bielefeld.de/content/repositories/public-releases/</url>
               <layout>default</layout>
               <releases>
                   <enabled>true</enabled>
               </releases>
+          </repository>
+          <repository>
+              <id>citec-snapshots</id>
+              <name>CITEC Maven Repository Server</name>
+              <url>https://repo.cit-ec.uni-bielefeld.de/content/repositories/public-snapshots/</url>
+              <layout>default</layout>
               <snapshots>
                   <enabled>true</enabled>
               </snapshots>
