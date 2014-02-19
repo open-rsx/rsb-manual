@@ -348,6 +348,10 @@ we provide a ZIP archive with |project| for C++ as well as all other
 RSX-related software pre-compiled for Windows in 32 bit mode using different
 Visual Studio versions.
 
+..
+   edit-on-version-bump:
+   Change URL of CI server job
+
 #. Download the artifact for your Visual Studio version
 
    In order to install the complete collection of RSX C++ software, you first
