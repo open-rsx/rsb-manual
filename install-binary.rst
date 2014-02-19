@@ -222,8 +222,15 @@ required:
 
 .. _install-binary-java:
 
-Binary Downloads for Java
-=========================
+Java
+====
+
+Pre-compiled JAR Download
+-------------------------
+
+..
+   edit-on-version-bump:
+   Change URL
 
 Archives containing pre-built JAR-files of the Java implementation and
 required dependencies can be `downloaded
@@ -235,7 +242,51 @@ it. These files have to be placed on the Java classpath. Afterwards,
 the Java implementation of |project| should be usable in any Java
 program.
 
-.. _install-binary-download:
+Maven Artifacts from the CITEC Repository
+-----------------------------------------
+
+|project| java is also deployed to the CITEC `Maven`_ repository at
+https://repo.cit-ec.uni-bielefeld.de/index.html. In order to use the
+version deployed there, include the following fragments in the
+:file:`pom.xml` of your project.
+
+..
+   edit-on-version-bump:
+   Change version of dependency
+   disable snapshopts
+
+#. In the dependencies section:
+
+   .. code-block:: xml
+
+      <dependencies>
+          <dependency>
+              <groupId>rsb</groupId>
+              <artifactId>rsb</artifactId>
+              <version>0.11-SNAPSHOT</version>
+          </dependency>
+      </dependencies>
+
+#. In the repositories section:
+
+   .. code-block:: xml
+
+      <repositories>
+          <repository>
+              <id>citec</id>
+              <name>CITEC Maven Repository Server</name>
+              <url>http://repo.cit-ec.uni-bielefeld.de/</url>
+              <layout>default</layout>
+              <releases>
+                  <enabled>true</enabled>
+              </releases>
+              <snapshots>
+                  <enabled>true</enabled>
+              </snapshots>
+          </repository>
+      </repositories>
+
+ .. _install-binary-download:
 
 Binary Downloads of Tools
 =========================
