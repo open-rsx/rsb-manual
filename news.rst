@@ -26,6 +26,9 @@ Changes
 
 * C++
 
+  * The build system now provides the `CMake`_ variable
+    ``RSB_SYSTEM_PLUGIN_DIRECTORY`` for downstream projects.
+
 * Java
 
 * Python
