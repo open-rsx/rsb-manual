@@ -36,6 +36,11 @@ Changes
     <specification-request-reply>` has moved from package
     ``rsb.patterns`` to package ``rsb.patterns.request-reply``.
 
+* Tools
+
+  * The timeline view of the :ref:`logger` can now handle
+    :term:`events <event>` whose timestamps lie in the past or future.
+
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
 
