@@ -47,6 +47,9 @@ Changes
   * The timestamp used to construct the timeline view of the
     :ref:`logger` is now configurable.
 
+  * A new :term:`event` formatting style ``monitor/timeline`` has been
+    added.
+
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
 
