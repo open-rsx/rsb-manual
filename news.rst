@@ -50,6 +50,8 @@ Changes
   * A new :term:`event` formatting style ``monitor/timeline`` has been
     added.
 
+  * The :ref:`logger` now accepts multiple URIs
+
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
 
