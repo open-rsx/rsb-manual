@@ -89,6 +89,12 @@
 
      See :ref:`specification-inprocess`.
 
+   introspection
+
+     In the context of |project|, refers to automatically finding the
+     :term:`participants <participant>` of a running system and
+     gathering information about them.
+
    handler
 
      A piece of client code attached to a :term:`listener` which is

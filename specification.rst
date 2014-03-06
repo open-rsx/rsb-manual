@@ -61,3 +61,4 @@ Higher-Level Communication Patterns
    :maxdepth: 1
 
    specification-request-reply
+   specification-introspection
