@@ -14,8 +14,9 @@ Synopsis
 Description
 ===========
 
-Send an event constructed according to :samp:`{EVENT-SPEC}` to
-listeners on scopes specified by :samp:`{DESTINATION-URI}`.
+Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
+:term:`listeners <listener>` on :term:`scopes <scope>` specified by
+:samp:`{DESTINATION-URI}`.
 
 :samp:`{EVENT-SPEC}` is treated as follows:
 
