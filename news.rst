@@ -122,6 +122,9 @@ Changes
 
 * Common Lisp Tools
 
+  * The new :ref:`tool-introspect` tool collects and displays
+    :term:`introspection` information.
+
   * Some problems (e.g. starting the :ref:`tool-logger` with a
     :term:`scope` option or without URI scheme) in the :ref:`URI
     <specification-uris>` handling of the Common Lisp tools have been
