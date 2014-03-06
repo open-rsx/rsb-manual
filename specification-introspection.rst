@@ -4,6 +4,11 @@
  Introspection
 ===============
 
+.. seealso::
+
+   :ref:`tool-introspect`
+     :term:`Introspection` tool
+
 Overview
 ========
 

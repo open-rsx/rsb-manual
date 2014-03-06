@@ -9,6 +9,7 @@
 
    tool-info
    tool-logger
+   tool-introspect
    tool-send
    tool-call
    tool-timesync
@@ -28,13 +29,17 @@ The following tools are available:
 
   Console-based realtime logging of :term:`events <event>`.
 
+* :ref:`introspect <tool-introspect>`
+
+  Console-based :term:`introspection` of running |project| systems.
+
 * :ref:`send <tool-send>`
 
-  Command-line based sending of :term:`events <event>`.
+  Commandline-based sending of :term:`events <event>`.
 
 * :ref:`call <tool-call>`
 
-  Command-line based calling of RPC server methods.
+  Commandline-based calling of RPC server methods.
 
 * :ref:`timesync <tool-timesync>`
 
