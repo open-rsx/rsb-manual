@@ -31,11 +31,18 @@ links for downloading can be found in the |project| :ref:`manual
 
 Changes
 
-* :ref:`Request-reply communication pattern <specification-request-reply>`
+* Specification
 
-  * The ``request`` and ``reply`` components have been removed from
-    the :term:`scopes <scope>` of :term:`participants <participant>`
-    implementing the communication protocol.
+  * :term:`subscopes <subscope>` of ``/__rsb/`` are now :ref:`reserved
+    <specification-scope-reserved>` for implementation purposes. The
+    :ref:`logger` will not display :term:`events <event>` on these
+    :term:`scopes <scope>` by default.
+
+  * :ref:`Request-reply communication pattern <specification-request-reply>`
+
+    * The ``request`` and ``reply`` components have been removed from
+      the :term:`scopes <scope>` of :term:`participants <participant>`
+      implementing the communication protocol.
 
 * C++
 

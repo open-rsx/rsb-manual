@@ -41,6 +41,15 @@ expression :regexp:`/([-_a-zA-Z0-9]+/)*`.
    Scope strings are currently case-sensitive, but this may change in
    future releases. We recommend using all-lowercase scope strings.
 
+.. _specification-scope-reserved:
+
+Reserved Scopes
+===============
+
+The scope ``/__rsb/`` and its :term:`subscopes <subscope>` are
+reserved for implementation purposes and should not be used for
+user-level communication.
+
 Implementations
 ===============
 
