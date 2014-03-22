@@ -70,14 +70,15 @@ object tree:
   * Method
 
     * Name: :samp:`{METHOD-NAME}`
+    * :term:`Scope` :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
     * Request :term:`listener`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/request/{METHOD-NAME}/`
+      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
       * :term:`Handler`: passes received events to client code for
         processing
     * Reply :term:`informer`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/reply/{METHOD-NAME}/`
+      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
   * more methods
 
 ``RemoteServer``
@@ -92,12 +93,13 @@ following object tree:
   * Method
 
     * Name: :samp:`{METHOD-NAME}`
+    * :term:`Scope` :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
     * Request :term:`informer`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/request/{METHOD-NAME}/`
+      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
     * Reply :term:`listener`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/reply/{METHOD-NAME}/`
+      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
       * :term:`Handler`: processes received replies to ultimately
         return a result to the client code which initiated the call
     * A collection of in-progress method calls

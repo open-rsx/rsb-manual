@@ -7,6 +7,13 @@
 |project| 0.11
 ==============
 
+.. note::
+
+   Starting with this release, the :ref:`request-reply communication
+   pattern <specification-request-reply>` uses a new protocol. As a
+   result, request-reply communication is not be possible between
+   earlier versions and this version of |project|.
+
 This |project| release is available in the following forms:
 
 * Source archives
@@ -23,6 +30,12 @@ links for downloading can be found in the |project| :ref:`manual
 <rsb>`.
 
 Changes
+
+* :ref:`Request-reply communication pattern <specification-request-reply>`
+
+  * The ``request`` and ``reply`` components have been removed from
+    the :term:`scopes <scope>` of :term:`participants <participant>`
+    implementing the communication protocol.
 
 * C++
 
