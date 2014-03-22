@@ -62,7 +62,7 @@ For example:
 ==========
 
 Conceptually, the ``Server`` instance is the root of the following
-object graph:
+object tree:
 
 * ``Server``
 
@@ -84,7 +84,7 @@ object graph:
 ================
 
 Conceptually, the ``RemoteServer`` instance is the root of the
-following object graph:
+following object tree:
 
 * ``RemoteServer``
 
@@ -107,19 +107,20 @@ Protocol
 ========
 
 #. Client code calls a method on a ``RemoteServer`` instance
-#. The request :term:`informer` of the method publishes an
-   :term:`Event` containing
+#. The request :term:`informer` of the method publishes a request
+   :term:`event` containing
 
    * The argument of the method call as :term:`payload`
    * The value ``"REQUEST"`` in its :term:`method field`
-#. A record containing the :term:`event` id is created for the method
-   call
+
+#. A record containing the :term:`event id` of the request
+   :term:`event` is created for the method call
 #. The call blocks until a reply :term:`event` is received (see below)
 #. The request :term:`listener` of the method in a corresponding
    ``Server`` instance receives the :term:`event`
-#. The :term:`event` is dispatched to a handler for processing
+#. The request :term:`event` is dispatched to a handler for processing
 #. After processing, the reply :term:`informer` of the method in the
-   ``Server`` sends an :term:`event` containing
+   ``Server`` sends a reply :term:`event` containing
 
    * The result of the processing as :term:`payload`, if the
      processing succeeded without errors
@@ -127,18 +128,19 @@ Protocol
      error occurred
    * A user-info item with key ``rsb:error?`` and an arbitrary value,
      if an error occurred
-   * A user-info item with key ``rsb:reply`` and the id of the request
-     :term:`event` as value
    * The value ``"REPLY"`` in its :term:`method field`
+   * The :term:`event id` of the request :term:`event` in its
+     :term:`causal vector`
+
 #. The reply listener of the method in the ``RemoteServer`` receives
-   the reply :term:`Event`
-#. The call record is located using the value of the user-info item
-   with key ``rsb:reply``
+   the reply :term:`event`
+#. The call record is located using the :term:`event id` stored in the
+   :term:`causal vector` of the reply :term:`event`
 #. The blocking call is notified and
 
    * returns the :term:`payload` of the reply :term:`event`, if a
      user-item with key ``rsb:error?`` is not present in the
-     :term:`Event`
+     :term:`event`
    * signals an error, if a user-item with key ``rsb:error?`` is
      present in the :term:`event`
 
