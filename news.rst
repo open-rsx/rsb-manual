@@ -41,10 +41,13 @@ Changes
 
   * The build system now provides the `CMake`_ variable
     ``RSB_SYSTEM_PLUGIN_DIRECTORY`` for downstream projects.
+  * New :term:`filter` class :cpp:class:`rsb::filter::MethodFilter`
 
 * Java
 
 * Python
+
+  * New :term:`filter` class :py:class:`rsb.filter.MethodFilter`
 
 * Common Lisp
 
