@@ -154,11 +154,11 @@ Quality       unreliable          reliable
 Implementations
 ===============
 
-=========== ==============================================================
+=========== =================================================================
 Language    File(s)
-=========== ==============================================================
-C++         |repository_versioned_cpp| at ``src/rsb/transport/spread``
+=========== =================================================================
+C++         |repository_versioned_spread_cpp| at ``src/rsb/transport/spread``
 Java        |repository_versioned_java| at ``src/rsb/transport/spread``
 Python      :download:`/../rsb-python/rsb/transport/rsbspread/__init__.py`
 Common Lisp |repository_versioned_cl| at ``src/transport/spread``
-=========== ==============================================================
+=========== =================================================================

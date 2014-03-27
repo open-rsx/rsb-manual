@@ -63,14 +63,14 @@ accepted::
 Implementations
 ---------------
 
-=========== ==========================================================
+=========== ======================================================
 Language    File(s)
-=========== ==========================================================
-C++         |repository_versioned| rsb-yarp-cpp/src/rsb/transport/yarp
+=========== ======================================================
+C++         |repository_versioned_yarp_cpp| src/rsb/transport/yarp
 Java        *not implemented yet*
 Python      *not implemented yet*
-Common Lisp |repository_versioned| rsb-yarp-cl/src/transport/yarptcp
-=========== ==========================================================
+Common Lisp |repository_versioned_yarp_cl| src/transport/yarptcp
+=========== ======================================================
 
 .. _specification-yarp-nameservice:
 
@@ -122,14 +122,14 @@ accepted::
 Implementations
 ---------------
 
-=========== ==========================================================
+=========== =================================================
 Language    File(s)
-=========== ==========================================================
+=========== =================================================
 C++         *not implemented yet*
 Java        *not implemented yet*
 Python      *not implemented yet*
-Common Lisp |repository_versioned| rsb-yarp-cl/src/transport/yarp
-=========== ==========================================================
+Common Lisp |repository_versioned_yarp_cl| src/transport/yarp
+=========== =================================================
 
 Limitations
 ===========

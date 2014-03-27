@@ -36,7 +36,14 @@ set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/trunk/html"
     "URL of the python API documentation.")
 
 # Configure sphinx configuration file.
-set(REPOSITORIES cpp java python protocol cl matlab tools-cpp tools-cl tutorials talks manual integrationtest)
+set(REPOSITORIES protocol
+                 cpp    spread-cpp        yarp-cpp tools-cpp
+                 java
+                 python
+                 cl                ros-cl yarp-cl  tools-cl
+                 matlab
+                 integrationtest
+                 manual tutorials talks)
 set(REPOSITORY_REPLACES)
 set(REPOSITORY_VERSIONED_REPLACES)
 foreach(REPOSITORY ${REPOSITORIES})

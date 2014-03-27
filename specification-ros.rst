@@ -64,7 +64,7 @@ Language    File(s)
 C++         *not implemented yet*
 Java        *not implemented yet*
 Python      :download:`/../rsb-ros-python/rsbros/transport/tcpros/__init__.py`
-Common Lisp |repository_versioned| rsb-ros-cl/src/transport/tcpros
+Common Lisp |repository_versioned_ros_cl| src/transport/tcpros
 =========== ==================================================================
 
 .. _specification-ros-nameservice:
@@ -114,14 +114,14 @@ The following :ref:`configuration` options are accepted::
 Implementations
 ---------------
 
-=========== ==========================================================
+=========== ===============================================
 Language    File(s)
-=========== ==========================================================
+=========== ===============================================
 C++         *not implemented yet*
 Java        *not implemented yet*
 Python      *not implemented yet*
-Common Lisp |repository_versioned| rsb-ros-cl/src/transport/ros
-=========== ==========================================================
+Common Lisp |repository_versioned_ros_cl| src/transport/ros
+=========== ===============================================
 
 Bus Semantics
 =============
