@@ -25,7 +25,7 @@ TCP+YARP Transport (without Nameservice operations)
 ===================================================
 
 Direct connections to the TCP endpoints of `YARP`_ ports. This
-ow-level protocol requires knowing the TCP port of a `YARP`_
+low-level protocol requires knowing the TCP endpoint of a `YARP`_
 port. Knowing the port name is not sufficient on this level.
 
 The details of this protocol are documented `here
@@ -84,7 +84,7 @@ is established, if the carrier of the port is supported.
 
 For this schema, nameservice queries which yield multiple results or
 change over time can lead to a changing set of connections.  For
-example, the URL ``yarp:/iCubSim/cam`` could causes connections to be
+example, the URL ``yarp:/iCubSim/cam`` could cause connections to be
 established to `YARP`_ ports named ``/iCubSim/cam/left``,
 ``/iCubSim/cam/left/fovea``, ``/iCubSim/cam/right``,
 ``/iCubSim/cam/right/fovea`` if these ports are registered in the

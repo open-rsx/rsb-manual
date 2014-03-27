@@ -25,7 +25,8 @@ TCP+ROS Transport (without Master Lookup)
 
 Direct connections to the TCP endpoints of `ROS`_ nodes. This
 low-level protocol requires knowing the hostname and TCP port of a
-`ROS`_ node. Knowing the node name is not sufficient on this level.
+`ROS`_ node. Knowing the node name and/or topic is not sufficient on
+this level.
 
 .. note::
 
@@ -72,10 +73,11 @@ Common Lisp |repository_versioned_ros_cl| src/transport/tcpros
 ROS Transport (with Master Lookup)
 ==================================
 
-Connections to ROS nodes are made and accepted via the ROS
-master. That is the ROS master is consulted to determine the endpoint for
-a given topic. After that, a low-level connection is established, if
-one of the ROS transports offered by the endpoint is supported.
+Connections to `ROS`_ nodes are made and accepted via the `ROS`_
+master. That is the `ROS`_ master is consulted to determine the
+endpoint for a given topic. After that, a low-level connection is
+established, if one of the `ROS`_ transports offered by the endpoint
+is supported.
 
 For this schema, nameservice queries which yield multiple results or
 change over time can lead to a changing set of connections.  For
