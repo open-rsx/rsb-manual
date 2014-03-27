@@ -41,7 +41,7 @@ rst_prolog = """
 @REPOSITORY_REPLACES@
 
 .. |repository_versioned| replace::
-   "{version}" branch of https://code.cor-lab.org/git/rsb.git
+   "{version}" branch of @REPOSITORY_BASE_URL@
 @REPOSITORY_VERSIONED_REPLACES@
 
 .. |spread_python_tarball| replace::
