@@ -36,6 +36,9 @@ set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/trunk/html"
     "URL of the python API documentation.")
 
 # Configure sphinx configuration file.
+set(REDMINE_BASE_URL https://code.cor-lab.org)
+set(REDMINE_PROJECT  rsb)
+
 set(REPOSITORIES protocol
                  cpp    spread-cpp        yarp-cpp tools-cpp
                  java

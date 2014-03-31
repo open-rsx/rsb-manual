@@ -9,6 +9,78 @@ Troubleshooting
    :ref:`support`
      If this page doesn't help
 
+.. _troubleshooting-reporting-bugs:
+
+Reporting Bugs
+==============
+
+Problem *(applies to all implementations)*
+
+  I'm pretty sure I have found a bug in |project|. What can I do about
+  it?
+
+Solution
+
+  First of all, it is entirely possible that you found a bug. We
+  appreciate bug reports and encourage you to report all (suspected)
+  bugs you see, even if you are not entirely certain. Bug reports
+  about things that turn out to not actually be bugs are expected and
+  not a problem. However, to save yourself and us time and effort, we
+  ask you to keep the following things in mind when reporting bugs.
+
+  Include the following information in your bug report:
+
+    Platform
+
+      Mainly operating system and processor architecture. For example,
+      "Ubuntu Precise on x86_64" is a very helpful description.
+
+    Programs and Programming Languages
+
+      In which programming language did you write the failing program?
+      If multiple programs are expected to communicate, briefly
+      describe the whole setup.
+
+    |project| Version
+
+      Describe which |project| version you are using and how you
+      obtained it (e.g. installed Debian packages, compiled from
+      source, etc.).
+
+    What did you do?
+
+      Describe what your code does (and include the code, if possible)
+      and/or which programs you started. If you use a |project|
+      configuration file or environment variables, please describe
+      those as well.
+
+    What did you expect to happen?
+
+      For example: "I expected the :term:`listener` to receive the
+      :term:`event` sent by the :term:`informer`".
+
+    What happened instead?
+
+      For example: "The :term:`listener` did not receive any
+      :term:`events <event>`" or "The program crashed with the
+      following backtrace" (include error messages and/or backtraces
+      whenever possible).
+
+  Creating the Report as a `new issue`_:
+
+  * In the "Subject" field, try do give a brief description of the
+    specific problem. That is, if you can, write "In C++,
+    :term:`informer` crashes when trying to send std::string data"
+    instead of "|project| crashes".
+
+  * Put the information mentioned above into the "Description" field
+    and select the value of the "Category" field according to the
+    program and/or programming language.
+
+  * Please try to report bugs in the correct project. We understand
+    that this may be hard to figure out and a bug report in the
+    "wrong" project is definitely better than no bug report at all.
+
 .. _troubleshooting-spread-does-not-work:
 
 Spread Does not Work
