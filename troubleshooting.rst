@@ -585,3 +585,121 @@ Solution
   sophisticated configurations, consult the :term:`Spread`
   documentation or write to the |project| `mailing list
   <https://lists.techfak.uni-bielefeld.de/cor-lab/mailman/listinfo/rsb>`_.
+
+.. _troubleshooting-cleanup:
+
+Participants (or something else) are not cleaned up
+===================================================
+
+Problem *(applies to all implementations)*
+
+  I have the impression that |project| does not properly clean up all
+  :term:`participants <participant>` (or maybe some other objects)
+  when my program terminates or crashes. Sometimes, my program even
+  hangs instead of terminating.
+
+Solution
+
+  |project| tries to clean up all created :term:`participants
+  <participant>` when a program terminates or crashes but this needs
+  some support from the client program (and even then, not all
+  languages support guaranteed cleanup e.g. in case of certain
+  crashes).
+
+  The following idioms can be used to allow |project| to clean up
+  properly:
+
+  .. container:: cleanup-multi
+
+    .. container:: cleanup-cpp
+
+       .. warning::
+
+          The following idiom may hinder debugging because catching
+          all exceptions prevents debuggers like :program:`gdb` from
+          seeing them. As a result, getting a backtrace most likely
+          requires disabling the ``try``/``catch`` block and
+          recompiling the program.
+
+       Avoid uncaught exceptions at the toplevel. This can be done by
+       catching exceptions in :c:func:`main`:
+
+       .. code-block:: cpp
+
+          #include <unistd.h>
+
+          #include <stdexcept>
+          #include <iostream>
+
+          // ...
+
+          int main() {
+              try {
+                  rsb::ListenerPtr listener = rsb::getFactory().createListener("/");
+
+                  // Code using LISTENER goes here.
+
+              } catch (const std::exception& e) {
+                  std::cerr << "Uncaught exception at toplevel: " << e.what() << std::endl;
+                  return EXIT_FAILURE;
+              }
+              return EXIT_SUCCESS;
+          }
+
+    .. container:: cleanup-python
+
+       .. seealso::
+          :ref:`tutorial-send`
+            Python section of the basic tutorial
+
+       The :ref:`context manager protocol <python:typecontextmanager>`
+       should be used to ensure cleanup:
+
+       .. code-block:: python
+
+          with rsb.createListener('/') as listener:
+              # Code using LISTENER goes here
+              pass
+
+       For multiple :term:`participants <participant>` use:
+
+       .. code-block:: python
+
+          with rsb.createListener('/') as listener, rsb.createInformer('/') as informer:
+              # Code using LISTENER and INFORMER goes here
+              pass
+
+    .. container:: cleanup-java
+
+       Make sure that the ``deactivate`` method of :term:`participant`
+       objects is called:
+
+       .. code-block:: java
+
+          rsb.Listener listener;
+          try {
+              listener = rsb.Factory.getInstance().createListener("/");
+              listener.activate();
+
+              // Code using LISTENER goes here.
+
+          } finally {
+              if (listener != null) {
+                  try {
+                      listener.deactivate();
+                  } catch (Exception e) {
+                      e.printStackTrace();
+                  }
+              }
+          }
+
+    .. container:: cleanup-cl
+
+       Automatic cleanup is ensured when using the
+       ``rsb:with-participant``, ``rsb:with-listener``, etc. macros:
+
+       .. code-block:: cl
+
+          (rsb:with-listener (listener "/")
+            ;; Code using LISTENER goes here.
+            )
