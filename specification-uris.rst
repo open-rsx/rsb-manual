@@ -4,41 +4,6 @@
  URIs
 ======
 
-Generic URIs
-============
-
-Syntax::
-
-  rsb:[PATH][#FRAGMENT]
-
-Components of the URL are interpreted as follows:
-
-* :samp:`{SCHEME}`   -> has to be ``rsb``
-* :samp:`{PATH}`     -> A :term:`scope` which designates a one of the following things
-
-  * A :term:`channel`
-  * A :term:`participant`
-
-* :samp:`{FRAGMENT}` ->
-
-  * Not allowed when designating a :term:`channel`
-  * ID of a :term:`participant` otherwise
-
-This may resolve to:
-
-* :term:`Participant`
-
-  * If there is only one of these entities this is enough for
-    resolving it
-  * If multiple entities reside on the :term:`scope`, a
-    single instance can be selected using their ID::
-
-      rsb:/hierarchical/service/definition/further/to/participant#UniqueIDOfParticipant[UUID]
-
-* Nothing
-
-These generic URIs require a global naming service.
-
 Transport-specific URLs
 =======================
 
@@ -69,57 +34,108 @@ Components of the URL are interpreted as follows:
   * Not allowed when designating a :term:`channel`
   * ID of a :term:`participant` otherwise
 
+Generic URIs
+============
+
+Syntax::
+
+  rsb:[PATH][#FRAGMENT]
+
+Generic URIs are not currently used.
+
+..
+   Components of the URL are interpreted as follows:
+
+   * :samp:`{SCHEME}`   -> has to be ``rsb``
+   * :samp:`{PATH}`     -> A :term:`scope` which designates a one of the following things
+
+     * A :term:`channel`
+     * A :term:`participant`
+
+   * :samp:`{FRAGMENT}` ->
+
+     * Not allowed when designating a :term:`channel`
+     * ID of a :term:`participant` otherwise
+
+   This may resolve to:
+
+   * :term:`Participant`
+
+     * If there is only one of these entities this is enough for
+       resolving it
+     * If multiple entities reside on the :term:`scope`, a
+       single instance can be selected using their ID::
+
+         rsb:/hierarchical/service/definition/further/to/participant#UniqueIDOfParticipant[UUID]
+
+   * Nothing
+
+   These generic URIs require a global naming service.
+
 Examples
 ========
 
-The following examples demonstrate generic URIs:
+..
+   The following examples demonstrate generic URIs:
 
-  ``rsb:``
-    The :term:`channel` designated by the :term:`scope` ``/``.
+     ``rsb:``
 
-  ``rsb:/``
-    The :term:`channel` designated by the :term:`scope` ``/``.
+       The :term:`channel` designated by the :term:`scope` ``/``.
 
-  ``rsb:/foo/bar``
-    The :term:`channel` designated by the :term:`scope` ``/foo/bar``.
+     ``rsb:/``
 
-  ``rsb:/foo/bar#10838319-09A4-4D15-BD59-5E054CDB4403``
-    The :term:`participant` with ID
-    ``10838319-09A4-4D15-BD59-5E054CDB4403``.
+       The :term:`channel` designated by the :term:`scope` ``/``.
 
-The following example demonstrate how to specify bus connections when
+     ``rsb:/foo/bar``
+
+       The :term:`channel` designated by the :term:`scope` ``/foo/bar``.
+
+     ``rsb:/foo/bar#10838319-09A4-4D15-BD59-5E054CDB4403``
+
+       The :term:`participant` with ID
+       ``10838319-09A4-4D15-BD59-5E054CDB4403``.
+
+The following examples demonstrate how to specify bus connections when
 creating :term:`participants <participant>`:
 
   `` ``
+
     Participate in :term:`channel` with :term:`scope` ``/`` using the
     default :term:`transport` configuration.
 
   ``spread:``
+
     Participate in :term:`channel` with :term:`scope` ``/`` using the
     :term:`Spread` :term:`transport` with its default configuration.
 
   ``inprocess:``
+
     Participate in :term:`channel` with :term:`scope` ``/`` using the
     in-process :term:`transport` with its default configuration.
 
   ``spread://localhost:5555``
+
     Participate in :term:`channel` with :term:`scope` ``/`` via the
     :term:`Spread` daemon running on localhost and listening on port
     5555.
 
   ``inprocess://someotherhost``
+
     Syntactically correct, but does not make sense.
 
   ``spread:/foo/bar``
+
     Participate in :term:`channel` with :term:`scope` ``/foo/bar``
     using the default :term:`transport` configuration.
 
   ``spread:?maxfragmentsize=10000``
+
     Participate in :term:`channel` with :term:`scope` ``/`` using the
     :term:`Spread` :term:`transport` with default host and port and a
     maximum event fragment size of 10000 bytes.
 
   ``spread:?maxfragmentsize=10000&tcpnodelay=yes``
+
     Likewise, but in addition with tcpnodelay option set to ``yes``.
 
 Implementations
