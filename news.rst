@@ -14,6 +14,14 @@
    result, request-reply communication is not be possible between
    earlier versions and this version of |project|.
 
+.. note::
+
+   Although never "officially" supported, the |python| implementation
+   previously allowed constructing :term:`participants <participant>`
+   by using the constructors of the respective classes. This is now
+   explicitly unsupported. :py:func:`rsb.createListener` etc. have to
+   be used instead.
+
 This |project| release is available in the following forms:
 
 * Source archives
@@ -55,6 +63,10 @@ Changes
 * Python
 
   * New :term:`filter` class :py:class:`rsb.filter.MethodFilter`
+  * :py:func:`rsb.createServer` has been renamed to
+    :py:func:`rsb.createLocalServer`. For backward compatibility, the
+    former function has been retained as a deprecated alias for the
+    latter.
 
 * Common Lisp
 
