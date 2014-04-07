@@ -39,12 +39,21 @@ links for downloading can be found in the |project| :ref:`manual
 
 Changes
 
+* :term:`Introspection`
+
+  |project| now supports inspecting the :term:`particiants
+  <participant>`, processes and hosts comprising a running system.
+
 * Specification
 
   * :term:`subscopes <subscope>` of ``/__rsb/`` are now :ref:`reserved
     <specification-scope-reserved>` for implementation purposes. The
     :ref:`tool-logger` will not display :term:`events <event>` on
     these :term:`scopes <scope>` by default.
+
+  * An :ref:`introspection protocol <specification-introspection>`
+    which works in terms of ordinary |project| :term:`events <event>`
+    has been added.
 
   * :ref:`Request-reply communication pattern <specification-request-reply>`
 
@@ -53,6 +62,9 @@ Changes
       implementing the communication protocol.
 
 * C++
+
+  * Support for sending :term:`introspection` information has been
+    added as a :term:`plugin`.
 
   * The build system now provides the `CMake`_ variable
     ``RSB_SYSTEM_PLUGIN_DIRECTORY`` for downstream projects.
@@ -73,13 +85,24 @@ Changes
 
 * Python
 
+  * Support for sending :term:`introspection` information has been
+    added as a package.
+
   * New :term:`filter` class :py:class:`rsb.filter.MethodFilter`
+
   * :py:func:`rsb.createServer` has been renamed to
     :py:func:`rsb.createLocalServer`. For backward compatibility, the
     former function has been retained as a deprecated alias for the
     latter.
 
 * Common Lisp
+
+  * Support for sending :term:`introspection` information has been
+    added as part of the ``rsb-introspection`` system.
+
+  * Support for receiving and aggregating :term:`introspection`
+    information has been added as part of the ``rsb-introspection``
+    system.
 
   * :term:`Participants <participant>` can be created generically
     using the generic function ``make-participant`` which is backed by
