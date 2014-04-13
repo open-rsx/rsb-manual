@@ -236,11 +236,11 @@ and estimate offsets between the local clock and remote clocks.
 Implementations
 ===============
 
-=========== =========================================================
+=========== ========================================================
 Language    File(s)
-=========== =========================================================
-C++         |repository_versioned_cpp| at ``src/rsb/introspection``
+=========== ========================================================
+C++         |repository_versioned_cpp| at ``src/rsb/introspection/``
 Java        *not implemented yet*
 Python      :download:`/../rsb-python/rsb/introspection/__init__.py`
-Common Lisp |repository_versioned_cl| at ``rsb-cl/src/introspection``
-=========== =========================================================
+Common Lisp |repository_versioned_cl| at ``src/introspection/``
+=========== ========================================================
