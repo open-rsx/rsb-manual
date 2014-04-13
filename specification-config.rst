@@ -414,8 +414,8 @@ Implementations
 =========== =============================================
 Language    File(s)
 =========== =============================================
-C++         |repository_versioned| rsb-cpp/src/rsb/
-Java        |repository_versioned| rsb-java/src/rsb/
+C++         |repository_versioned_cpp| at ``src/rsb/``
+Java        |repository_versioned_java| at ``src/rsb/``
 Python      :download:`/../rsb-python/rsb/__init__.py`
 Common Lisp :download:`/../rsb-cl/src/configuration.lisp`
 =========== =============================================
