@@ -10,7 +10,7 @@
 Synopsis
 ========
 
-:samp:`call {[OPTIONS]} {SERVER-URI}/{METHOD}({[ARGUMENT]})`
+:samp:`rsb call {[OPTIONS]} {SERVER-URI}/{METHOD}({[ARGUMENT]})`
 
 Description
 ===========
@@ -54,8 +54,8 @@ server and the :term:`transport` that should be used.
 
    .. code-block:: sh
 
-      $ call 'socket:/foobar/()'            # empty argument
-      $ call 'socket:/foo/bar(#P"my-file")' # read argument from my-file
+      $ rsb call 'socket:/foobar/()'            # empty argument
+      $ rsb call 'socket:/foo/bar(#P"my-file")' # read argument from my-file
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -76,22 +76,23 @@ Examples
 
 * .. code-block:: sh
 
-     $ call 'spread:/mycomponent/control/status()'
+     $ rsb call 'spread:/mycomponent/control/status()'
      "running" # prints return value, if any
-     $ call 'spread:/mycomponent/control/terminate()'
+     $ rsb call 'spread:/mycomponent/control/terminate()'
      $ # returns once the method call completes
 
-  In the above example, the :program:`call` tool is used to invoke the
-  ``status`` and ``terminate`` methods of the :term:`remote server` at
-  :term:`scope` ``/mycomponent/control`` without an argument.
+  In the above example, the :program:`call` command is used to invoke
+  the ``status`` and ``terminate`` methods of the :term:`remote
+  server` at :term:`scope` ``/mycomponent/control`` without an
+  argument.
 
 * .. code-block:: sh
 
-     $ cat my-data.txt | call 'socket:/printer/print(-)'
-     $ cat my-data.txt | call 'socket:/printer/print(-:binary)'
-     $ call 'socket:/printer/print(#P"my-data.txt")'
-     $ call 'socket:/printer/print(#P"my-data.txt":latin-1)'
-     $ call 'socket:/printer/print(#P"my-data.txt":binary)'
+     $ cat my-data.txt | rsb call 'socket:/printer/print(-)'
+     $ cat my-data.txt | rsb call 'socket:/printer/print(-:binary)'
+     $ rsb call 'socket:/printer/print(#P"my-data.txt")'
+     $ rsb call 'socket:/printer/print(#P"my-data.txt":latin-1)'
+     $ rsb call 'socket:/printer/print(#P"my-data.txt":binary)'
 
   Two ways of using the content of the file :file:`my-data.txt` as
   argument in a call of the ``print`` method on the :term:`scope`

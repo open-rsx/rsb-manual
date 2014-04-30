@@ -10,7 +10,7 @@
 Synopsis
 ========
 
-:samp:`logger {[OPTIONS]} {URI*}`
+:samp:`rsb logger {[OPTIONS]} {URI*}`
 
 Description
 ===========
@@ -142,13 +142,14 @@ Examples
   configured :term:`transports <transport>`. In this example, the
   configured :term:`transports <transport>` depend on the |project|
   :ref:`configuration file and environment variables <configuration>`.
+
 * .. code-block:: sh
 
      $ ls ~/projects/talk-rsb-data/code/*.proto
      /homes/jmoringe/projects/talk-rsb-data/code/Image.proto
-     $ logger --style detailed                                     \
-              --load-idl ~/projects/talk-rsb/data/code/Image.proto \
-              spread:
+     $ rsb logger --style detailed                                     \
+                  --load-idl ~/projects/talk-rsb/data/code/Image.proto \
+                  spread:
      Event
        Scope : /
        Id    : 89064E22-C503-44DA-9C65-9385C29D09A1
@@ -180,13 +181,14 @@ Examples
   message from the slides used in this meeting). These definitions can
   either be textual definitions, typically found in ``.proto`` files
   (as in this example), or compiled, binary descriptions (not shown).
+
 * .. code-block:: sh
 
-     $ logger --idl-path "rst/trunk/rst/proto/sandbox/"   \
-              --idl-path "rst/trunk/rst/proto/stable/"    \
-              --load-idl 'rst/trunk/rst/proto/**/*.proto' \
-              --style detailed                            \
-              spread:
+     $ rsb logger --idl-path "rst/trunk/rst/proto/sandbox/"   \
+                  --idl-path "rst/trunk/rst/proto/stable/"    \
+                  --load-idl 'rst/trunk/rst/proto/**/*.proto' \
+                  --style detailed                            \
+                  spread:
 
   Here is another example which loads all definitions contained in the
   `Robotics Systems Types <https://code.cor-lab.org/projects/rst>`_

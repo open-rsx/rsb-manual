@@ -14,7 +14,7 @@
 Synopsis
 ========
 
-:samp:`introspect {[OPTIONS]} {URI*}`
+:samp:`rsb introspect {[OPTIONS]} {URI*}`
 
 Description
 ===========
@@ -109,9 +109,9 @@ Examples
 
 * .. code-block:: sh
 
-     $ introspect
+     $ rsb introspect
 
-  In the above example, the :program:`introspect` tool is used to
+  In the above example, the :program:`introspect` command is used to
   :term:`introspect <introspection>` all :term:`participants
   <participant>` that can be connected via the currently configured
   :term:`transports <transport>`.
@@ -152,7 +152,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ introspect socket: spread://somehost
+     $ rsb introspect socket: spread://somehost
 
   Gather :term:`introspection` information via two :term:`transports
   <transport>`: the socket :term:`transport` and the :term:`Spread`
@@ -162,7 +162,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ introspect --style monitor/object-tree
+     $ rsb introspect --style monitor/object-tree
 
   Like the first example, but instead of printing one snapshot and
   exiting, continue gathering :term:`introspection` information and
@@ -170,7 +170,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ introspect --style monitor/events
+     $ rsb introspect --style monitor/events
 
   Continuously collect :term:`introspection` information and print
   information about significant changes in the observed

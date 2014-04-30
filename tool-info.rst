@@ -10,8 +10,7 @@
 Synopsis
 ========
 
-
-:samp:`info {[OPTIONS]}`
+:samp:`rsb info {[OPTIONS]}`
 
 Description
 ===========

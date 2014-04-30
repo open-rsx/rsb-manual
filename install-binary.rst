@@ -321,35 +321,6 @@ Binary Downloads of Tools
 
    in the download directory.
 
-#. The various tools are provided as `symbolic links
-   <http://en.wikipedia.org/wiki/Symbolic_link>`_ to the single
-   |main_binary| binary. When invoked, it prints a list of these links
-   and offers to create them:
-
-   .. code-block:: sh
-
-      $ ./tools
-      [...]
-      Create missing links now [yes/no]? y
-      Creating symbolic link info -> tools
-      [...]
-
-   .. note::
-
-      The links can also be created as follows:
-
-      Non-interactively
-
-        .. code-block:: sh
-
-           $ ./tools create-links
-
-      Manually
-
-        .. code-block:: sh
-
-           $ for alias in info logger call send ; do ln -s tools ${alias} ; done
-
 Pre-Compiled Windows Archive
 ============================
 

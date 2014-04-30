@@ -10,7 +10,7 @@
 Synopsis
 ========
 
-:samp:`send {[OPTIONS]} {EVENT-SPEC} {[DESTINATION-URI]}`
+:samp:`rsb send {[OPTIONS]} {EVENT-SPEC} {[DESTINATION-URI]}`
 
 Description
 ===========
@@ -43,8 +43,8 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 
    .. code-block:: sh
 
-      $ send '' ...            # empty payload
-      $ send '#P"my-file"' ... # read payload from my-file
+      $ rsb send '' ...            # empty payload
+      $ rsb send '#P"my-file"' ... # read payload from my-file
 
 :samp:`{DESTINATION-URI}` designates the destination :term:`scope` to
 which the :term:`events <event>` should be sent and the
@@ -106,7 +106,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ send '' /mycomponent/trigger
+     $ rsb send '' 'spread:/mycomponent/state'
 
   Send an :term:`event` without a payload to the :term:`channel`
   designated by the :term:`scope` ``/mycomponent/trigger``.
@@ -118,7 +118,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ send '"running"' 'spread:/mycomponent/state'
+     $ rsb send '"running"' 'spread:/mycomponent/state'
 
   Send an :term:`event` whose payload is the string ``running`` to the
   :term:`channel` designated by the :term:`scope`
@@ -132,7 +132,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ send 5 'spread:/somescope?name=4803'
+     $ rsb send 5 'spread:/somescope?name=4803'
 
   Send an integer. Use :term:`Spread` :term:`transport`, like in the
   previous example, but use the \"daemon name\" option of the
@@ -147,11 +147,11 @@ Examples
 
 * .. code-block:: sh
 
-     $ cat my-data.txt | send - 'socket:/printer'
-     $ cat my-data.txt | send -:binary 'socket:/printer'
-     $ send '#P"my-data.txt"' 'socket:/printer'
-     $ send '#P"my-data.txt":latin-1' 'socket:/printer'
-     $ send '#P"my-data.txt":binary' 'socket:/printer'
+     $ cat my-data.txt | rsb send - 'socket:/printer'
+     $ cat my-data.txt | rsb send -:binary 'socket:/printer'
+     $ rsb send '#P"my-data.txt"' 'socket:/printer'
+     $ rsb send '#P"my-data.txt":latin-1' 'socket:/printer'
+     $ rsb send '#P"my-data.txt":binary' 'socket:/printer'
 
   Two ways of sending the content of the file :file:`my-data.txt` to
   the :term:`scope` ``/printer`` using the socket :term:`transport`
