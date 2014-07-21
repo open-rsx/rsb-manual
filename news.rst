@@ -85,6 +85,9 @@ Changes
   * A new :term:`event` formatting style ``monitor/timeline`` has been
     added.
 
+  * Monitor and timeline views of the :ref:`logger` can now remove
+    entries after a configurable time of inactivity.
+
   * The :ref:`logger` now accepts multiple URIs
 
 As always, bugs, feature requests and enhancement proposals can be
