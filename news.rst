@@ -70,6 +70,11 @@ Changes
 
 * Common Lisp
 
+  * :term:`Participants <participant>` can be created generically
+    using the generic function ``make-participant`` which is backed by
+    a service-provider protocol for registering, instantiating and
+    inspecting kinds of :term:`participants <participant>`.
+
   * The implementation of the :ref:`Request-reply pattern
     <specification-request-reply>` has moved from package
     ``rsb.patterns`` to package ``rsb.patterns.request-reply``.
