@@ -75,6 +75,10 @@ Changes
     a service-provider protocol for registering, instantiating and
     inspecting kinds of :term:`participants <participant>`.
 
+  * Creation and state changes of :term:`participants <participant>`
+    can now be monitored via ``*make-participant-hook*`` and
+    ``*participant-state-change-hook*``.
+
   * The implementation of the :ref:`Request-reply pattern
     <specification-request-reply>` has moved from package
     ``rsb.patterns`` to package ``rsb.patterns.request-reply``.
