@@ -57,6 +57,14 @@ accepted. Specialized commandline options:
 
       Only available in the C++ implementation.
 
+.. option:: --participants
+
+   Display list of available :term:`participant` classes.
+
+   .. Note::
+
+      Only available in the Common Lisp implementation.
+
 .. option:: --verbose
 
    Display all available information.
