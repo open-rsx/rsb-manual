@@ -94,6 +94,10 @@ Changes
   * A new :term:`event` formatting style ``monitor/timeline`` has been
     added.
 
+  * Monitor and timeline views of the :ref:`logger` now accept
+    :samp:`:sort-column {COLUMN}` and :samp:`:sort-reverse? {BOOLEAN}`
+    arguments.
+
   * Monitor and timeline views of the :ref:`logger` can now remove
     entries after a configurable time of inactivity.
 
