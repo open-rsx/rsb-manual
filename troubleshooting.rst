@@ -371,6 +371,62 @@ Solution
    such as ``Object`` (Java), ``object`` (Python) or ``t`` (Common
    Lisp) as the :term:`data type` of the :term:`informer`.
 
+.. _troubleshooting-compile-qt:
+
+Compilation Errors in Combination with Qt
+=========================================
+
+Problem *(applies to C++)*
+
+  Client code using |project| in combination with `Qt
+  <http://qt-project.org/>`_ does not compile correctly. It seems that random
+  errors appear in system header comparable to the following compiler output:
+
+  .. parsed-literal::
+
+        In file included from /usr/include/boost/signals/connection.hpp:13:0,
+                         from /usr/include/boost/signals/signal_template.hpp:18,
+                         from /usr/include/boost/signals/signal0.hpp:24,
+                         from /usr/include/boost/signal.hpp:19,
+                         from /vol/csra/releases/nightly/share/rsb0.11/../../include/rsb0.11/rsb/Factory.h:34,
+                         from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/image_processing/ip_RsbImageProvider.h:40,
+                         from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/src/ip_DisparityImageProcessor.cc:32:
+        /usr/include/boost/signals/detail/signals_common.hpp:26:13: error: expected identifier before ‘protected’
+        /usr/include/boost/signals/detail/signals_common.hpp:26:13: error: expected unqualified-id before ‘protected’
+        In file included from /usr/include/boost/units/detail/utility.hpp:20:0,
+                         from /usr/include/boost/exception/detail/type_info.hpp:19,
+                         from /usr/include/boost/exception/detail/object_hex_dump.hpp:15,
+                         from /usr/include/boost/exception/to_string_stub.hpp:16,
+                         from /usr/include/boost/exception/info.hpp:16,
+                         from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                         from /usr/include/boost/exception_ptr.hpp:9,
+                         from /usr/include/boost/thread/future.hpp:14,
+                         from /usr/include/boost/thread.hpp:24,
+                         from /vol/csra/releases/nightly/share/rsc0.11/../../include/rsc0.11/rsc/patterns/Singleton.h:31,
+                         from /vol/csra/releases/nightly/share/rsb0.11/../../include/rsb0.11/rsb/Factory.h:41,
+                         from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/image_processing/ip_RsbImageProvider.h:40,
+                         from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/src/ip_DisparityImageProcessor.cc:32:
+        /usr/include/c++/4.6/cxxabi.h:47:37: error: expected ‘}’ before end of line
+        /usr/include/c++/4.6/cxxabi.h:47:37: error: expected declaration before end of line
+
+Solution
+
+  This compilation error is caused by the fact that |project| uses
+  `Boost.Signals <http://www.boost.org/doc/libs/1_56_0/doc/html/signals.html>`_
+  which is known to conflict with Qt's signal mechanism in certain
+  configurations (`an explanation is given here
+  <http://www.boost.org/doc/libs/1_56_0/doc/html/signals/s04.html#idp428010544>`_).
+  In order to resolve this issue, two solutions exist:
+
+  #. Reorder includes so that |project| headers always appear before Qt
+     headers. This might sometimes work, but is hard to achieve in other
+     projects.
+
+  #. Compile your program with `-DQT_NO_KEYWORDS`. This prevents that Qt
+     defines `signals` and `slots` as preprocessor macros, which is the
+     cause for the compilation error. Your Qt headers that define signals then
+     need to used `Q_SIGNALS` and `Q_SLOTS` instead now.
+
 .. _troubleshooting-multiple-rpc-arguments:
 
 Multiple Arguments in RPC Calls
