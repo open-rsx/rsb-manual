@@ -57,6 +57,7 @@ Changes
   * The build system now provides the `CMake`_ variable
     ``RSB_SYSTEM_PLUGIN_DIRECTORY`` for downstream projects.
   * New :term:`filter` class :cpp:class:`rsb::filter::MethodFilter`
+  * New :term:`filter` class :cpp:class:`rsb::filter::TypeFilter`
 
 * Java
 
