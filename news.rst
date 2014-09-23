@@ -58,6 +58,10 @@ Changes
     ``RSB_SYSTEM_PLUGIN_DIRECTORY`` for downstream projects.
   * New :term:`filter` class :cpp:class:`rsb::filter::MethodFilter`
   * New :term:`filter` class :cpp:class:`rsb::filter::TypeFilter`
+  * Tools based on and examples for the C++ implementation now use the
+    RSC functions :cpp:func:`rsc::misc::waitForSignal` and
+    :cpp:func:`rsc::misc::lastArrivedSignal` to terminate with proper
+    cleanup of |project| objects.
 
 * Java
 
