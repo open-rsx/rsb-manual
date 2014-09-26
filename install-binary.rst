@@ -30,6 +30,12 @@ the CoR-Lab `repository server`_.
       ``deb-src``. As we do not provide source packages, this line should not be
       added or needs to be removed manually.
 
+   .. note::
+
+      To prevent verification errors you also need to add our package server key
+      to your system. Please follow the instructions available at
+      http://packages.cor-lab.org.
+
 #. After that, packages can be installed via
 
    .. parsed-literal::
