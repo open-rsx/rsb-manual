@@ -201,10 +201,14 @@ Plugins
      A list of ``:``-separated directory names which should be
      searched to locate |project| :term:`plugins <plugin>`.
 
+     Default value: :samp:`{INSTALL-PREFIX}/lib/rsb{VERSION}/plugins`.
+
   .. envvar:: RSB_PLUGINS_CPP_LOAD
 
      A list of ``:``-separated :term:`plugin` names which should be
      loaded during |project| initialization.
+
+     Example: ``RSB_PLUGINS_CPP_LOAD=rsbspread``
 
   TODO other languages
 
