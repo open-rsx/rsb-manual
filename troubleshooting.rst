@@ -116,7 +116,7 @@ Solution
   #. :ref:`Configuration`
 
      Starting with version 0.7, |project| uses a :term:`transport`
-     that implements a :ref:`custom TPC-based protocol
+     that implements a :ref:`custom TCP-based protocol
      <specification-socket>` to facilitate the easy use of the
      framework without dependencies on 3rd party libraries. In order
      to restore the previous behavior of using the :term:`Spread`
