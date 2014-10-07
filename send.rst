@@ -20,12 +20,27 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 
 :samp:`{EVENT-SPEC}` is treated as follows:
 
+* As the empty payload when it is the empty string
 * As string when surrounded with double-quotes (``"``)
 * As integer number when consisting of digits without decimal point
 * As float number when consisting of digits with decimal point
 * If :samp:`{EVENT-SPEC}` is the single character ``-``, the entire
   "contents" of standard input (until end of file) is read as a string
-  and used as argument for the method send
+  and sent.
+* If :samp:`{EVENT-SPEC}` is of the form :samp:`#P{PATHNAME}`, the
+  file designated by :samp:`{PATHNAME}` is read and its content is
+  send as a string.
+
+.. note::
+
+   When written as part of a shell command, some of the above forms
+   may require protection from processing by the shell, usually by
+   surrounding the form in single quotes ('). For example:
+
+   .. code-block:: sh
+
+      $ send '' ...          # empty payload
+      $ send '#Pmy-file' ... # read payload from my-file
 
 :samp:`{DESTINATION-URI}` designates the destination :term:`scope` to
 which the :term:`events <event>` should be sent and the
@@ -87,12 +102,60 @@ Examples
 
 * .. code-block:: sh
 
+     $ send '' /mycomponent/trigger
+
+  Send an :term:`event` without a payload to the :term:`channel`
+  designated by the :term:`scope` ``/mycomponent/trigger``.
+
+  .. note::
+
+     Note the use of single quotes (``'``) to allow specifying an
+     empty payload.
+
+* .. code-block:: sh
+
      $ send '"running"' 'spread:/mycomponent/state'
 
-  In the above example, the :program:`send` tool is used to send an
-  :term:`event` whose payload is the string ``running`` to the
+  Send an :term:`event` whose payload is the string ``running`` to the
   :term:`channel` designated by the :term:`scope`
   ``/mycomponent/state``.
+
+  .. note::
+
+     Note the use of single quotes (``'``) to prevent the shell from
+     processing the double quotes (``"``) that identify the payload as
+     a string.
+
+* .. code-block:: sh
+
+     $ send 5 'spread:/somescope?name=4803'
+
+  Send an integer. Use :term:`Spread` :term:`transport`, like in the
+  previous example, but use the \"daemon name\" option of the
+  :term:`Spread` :term:`transport` instead of specifying host and
+  port.
+
+  .. note::
+
+     Note the use of single quotes (``'``) to prevent elements of the
+     destination URI from being processed by the shell (not necessary
+     for all shells).
+
+* .. code-block:: sh
+
+     $ cat my-data.txt | send - 'socket:/printer'
+     $ send '#Pmy-data.txt' 'socket:/printer'
+
+  Two ways of sending the content of the file :file:`my-data.txt` to
+  the :term:`scope` ``/printer`` using the socket :term:`transport`
+  (with its default configuration). This form can only be used for
+  sending string payloads.
+
+  .. note::
+
+     Note the use of single quotes (``'``) to prevent elements of the
+     pathname ``#Pmy-data.txt`` from being processed by the shell.
+
 
 Implementations
 ===============
