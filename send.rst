@@ -24,12 +24,14 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 * As string when surrounded with double-quotes (``"``)
 * As integer number when consisting of digits without decimal point
 * As float number when consisting of digits with decimal point
-* If :samp:`{EVENT-SPEC}` is the single character ``-``, the entire
-  "contents" of standard input (until end of file) is read as a string
-  and sent.
-* If :samp:`{EVENT-SPEC}` is of the form :samp:`#P{PATHNAME}`, the
-  file designated by :samp:`{PATHNAME}` is read and its content is
-  send as a string.
+* If :samp:`{EVENT-SPEC}` is the single character ``-``or the string
+  ``-:binary``, the entire "contents" of standard input (until end of
+  file) is read as a string or octet-vector respectively and sent.
+* If :samp:`{EVENT-SPEC}` is of one of the forms
+  :samp:`#P"{PATHNAME}"`, :samp:`#P"{PATHNAME}":{ENCODING}` or
+  :samp:`#P"{PATHNAME}":binary`, the file designated by
+  :samp:`{PATHNAME}` is read into a string (optionally employing
+  :samp:`{ENCODING}`) or octet-vector and sent.
 
 .. note::
 
@@ -39,8 +41,8 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 
    .. code-block:: sh
 
-      $ send '' ...          # empty payload
-      $ send '#Pmy-file' ... # read payload from my-file
+      $ send '' ...            # empty payload
+      $ send '#P"my-file"' ... # read payload from my-file
 
 :samp:`{DESTINATION-URI}` designates the destination :term:`scope` to
 which the :term:`events <event>` should be sent and the
@@ -144,7 +146,10 @@ Examples
 * .. code-block:: sh
 
      $ cat my-data.txt | send - 'socket:/printer'
-     $ send '#Pmy-data.txt' 'socket:/printer'
+     $ cat my-data.txt | send -:binary 'socket:/printer'
+     $ send '#P"my-data.txt"' 'socket:/printer'
+     $ send '#P"my-data.txt":latin-1' 'socket:/printer'
+     $ send '#P"my-data.txt":binary' 'socket:/printer'
 
   Two ways of sending the content of the file :file:`my-data.txt` to
   the :term:`scope` ``/printer`` using the socket :term:`transport`
@@ -154,7 +159,7 @@ Examples
   .. note::
 
      Note the use of single quotes (``'``) to prevent elements of the
-     pathname ``#Pmy-data.txt`` from being processed by the shell.
+     pathname ``#"Pmy-data.txt"`` from being processed by the shell.
 
 
 Implementations

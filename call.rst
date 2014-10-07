@@ -30,15 +30,18 @@ server and the :term:`transport` that should be used.
 
 * If :samp:`{ARGUMENT}` is the empty string, i.e. the call
   specification is of the form :samp:`{SERVER-URI}/{METHOD}()`, the
-  method is called without argument.
+  :samp:`{METHOD}` is called without argument.
 * As string when surrounded with double-quotes (``"``)
 * As integer number when consisting of digits without decimal point
 * As float number when consisting of digits with decimal point
-* If :samp:`{ARGUMENT}` is the single character ``-``, the entire
-  "contents" of standard input (until end of file) is read as a string
-  and used as argument for the method call.
-* If :samp:`{ARGUMENT}` is of the form :samp:`#P{PATHNAME}`, the file
-  designated by :samp:`{PATHNAME}` is read and its content is used as
+* If :samp:`{ARGUMENT}` is the single character ``-`` or the string
+  ``-:binary``, the entire "contents" of standard input (until end of
+  file) is read as a string or octet-vector respectively and used as
+  argument for the method call.
+* If :samp:`{ARGUMENT}` is of one of the forms :samp:`#P"{PATHNAME}"`,
+  :samp:`#P"{PATHNAME}":{ENCODING}` or :samp:`#P"{PATHNAME}":binary`,
+  the file designated by :samp:`{PATHNAME}` is read into a string
+  (optionally employing :samp:`{ENCODING}`) or octet-vector and used as
   argument for the method call.
 
 .. note::
@@ -49,8 +52,8 @@ server and the :term:`transport` that should be used.
 
    .. code-block:: sh
 
-      $ call 'socket:/foobar/()'          # empty argument
-      $ call 'socket:/foo/bar(#Pmy-file)' # read argument from my-file
+      $ call 'socket:/foobar/()'            # empty argument
+      $ call 'socket:/foo/bar(#P"my-file")' # read argument from my-file
 
 The :ref:`usual commandline options <common-options>` are
 accepted. Specialized commandline options:
@@ -83,7 +86,10 @@ Examples
 * .. code-block:: sh
 
      $ cat my-data.txt | call 'socket:/printer/print(-)'
-     $ call 'socket:/printer/print(#Pmy-data.txt)'
+     $ cat my-data.txt | call 'socket:/printer/print(-:binary)'
+     $ call 'socket:/printer/print(#P"my-data.txt")'
+     $ call 'socket:/printer/print(#P"my-data.txt":latin-1)'
+     $ call 'socket:/printer/print(#P"my-data.txt":binary)'
 
   Two ways of using the content of the file :file:`my-data.txt` as
   argument in a call of the ``print`` method on the :term:`scope`
@@ -94,7 +100,7 @@ Examples
   .. note::
 
      Note the use of single quotes (``'``) to prevent elements of the
-     pathname ``#Pmy-data.txt`` from being processed by the shell.
+     pathname ``#"Pmy-data.txt"`` from being processed by the shell.
 
 Implementations
 ===============
