@@ -65,7 +65,7 @@ Changes
   * The entry names for the enum `rsb::transport::Directions` have been
     prefixed with `DIRECTION_` in order to prevent clashes with
     preprocessor symbols.
-  * It is now safe to maintain participants in static variable since
+  * It is now safe to maintain participants in static variables since
     all transports have been rewritten so that the unknown order of
     static destruction is not a problem anymore.
 
