@@ -9,8 +9,7 @@ Transport-specific URLs
 
 Syntax::
 
-  [SCHEME:][//HOST][:PORT][PATH][?QUERY][#FRAGMENT]
-  transport://<location.transport.specific[:PORT]>/hierarchical/service/definition/further/to/participant
+  [SCHEME:[//HOST[:PORT]]][PATH][?QUERY][#FRAGMENT]
 
 Components of the URL are interpreted as follows:
 
@@ -33,6 +32,12 @@ Components of the URL are interpreted as follows:
 
   * Not allowed when designating a :term:`channel`
   * ID of a :term:`participant` otherwise
+
+.. note::
+
+   While URLs in general allow specifying host and port components
+   with specifying a scheme (e.g. ``myhost:1234``), this is not
+   allowed in the context of |project|.
 
 Generic URIs
 ============
@@ -137,6 +142,10 @@ creating :term:`participants <participant>`:
   ``spread:?maxfragmentsize=10000&tcpnodelay=yes``
 
     Likewise, but in addition with tcpnodelay option set to ``yes``.
+
+  ``//myhost:1234``
+
+    Illegal because there is no scheme component.
 
 Implementations
 ===============
