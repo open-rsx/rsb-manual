@@ -46,7 +46,10 @@ Syntax::
 
   rsb:[PATH][#FRAGMENT]
 
-Generic URIs are not currently used.
+.. warning::
+
+   Generic URIs are not currently used and their potential semantics
+   have not yet been specified.
 
 ..
    Components of the URL are interpreted as follows:
