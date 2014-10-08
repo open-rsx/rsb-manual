@@ -2,6 +2,12 @@
  Concepts
 ==========
 
+.. seealso::
+
+   [Wienke2011-AMC]_
+     For a concise introduction to the basic concepts of |project| in
+     publication form
+
 The Robotics Service Bus (|project|) is a message-oriented,
 event-driven middleware aiming at scalable integration of robotics
 systems in diverse environments. Being fundamentally a bus
@@ -34,66 +40,76 @@ and timing requirements than other robotics middlewares. Additionally,
 implementation enable its use with small entry barriers and little
 framework lock-in.
 
-For a concise introduction to the basic concepts of RSB, we refer
-the interested reader to the initial RSB publication [Wienke2011-AMC]_.
-
 .. _event:
 
 Event
 =====
 
-An event is the basic unit of exchanged data in |project|. Hence, all
-information required to fully specify and trace the condition it
-represents need to be present in the event. To fulfill these
-requirements, our event model consists of the following components:
+.. seealso::
 
-  Payload
+   :ref:`specification-event`
+     Detailed technical specification of :term:`events <event>`
 
-    The payload of an event is a user-defined object of the respective
-    programming language which contains the major information
-    specifying the condition the event represents.
+An :term:`event` is the basic unit of exchanged data in
+|project|. Hence, all information required to fully specify and trace
+the condition it represents need to be present in the
+:term:`event`. To fulfill these requirements, our :term:`event` model
+consists of the following components:
 
-    It can be of an arbitrary domain type which reduces the framework
-    lock-in by means of an early transition from framework types to
-    domain objects for technical realization.
+Payload
 
-  ID
+  The payload of an :term:`event` is a user-defined object of the
+  respective programming language which contains the major information
+  specifying the condition the :term:`event` represents.
 
-    A unique ID for each event in an |project|-based system to make
-    events addressable and foster traceability.
+  It can be of an arbitrary domain type which reduces the framework
+  lock-in by means of an early transition from framework types to
+  domain objects for technical realization.
 
-  Meta Data
+ID
 
-    Each event is supplemented by meta data.
+  A unique ID for each :term:`event` in an |project|-based system to
+  make :term:`events <event>` addressable and foster traceability.
 
-    It consist of the event sender's ID and several timestamps that
+Meta Data
 
-    * specify timing information relevant to the condition represented
-      by the event (user-extensible)
-    * make the the processing of the event within |project| traceable.
+  Each :term:`event` is supplemented by meta data.
 
-    Besides these framework-supplied items, a key-value store for
-    string-based additional meta data items is available for the
-    client and user-defined timestamps can be added.
+  It consist of the :term:`event` the ID of the sending
+  :term:`participant` and several timestamps that
 
-  Causal Vector
+  * specify timing information relevant to the condition represented
+    by the :term:`event` (user-extensible).
 
-    This vector allows to represent the causing events of a given
-    event, as proposed in [Luckham2001PEI]_.  It facilitates automatic
-    system analysis and debugging.
+  * make the the processing of the :term:`event` within |project|
+    traceable.
 
-  Destination :term:`Scope`
+  Besides these framework-supplied items, a key-value store for
+  string-based additional meta data items is available for the
+  client and user-defined timestamps can be added.
 
-    Specifies the recipients of the event notification by restricting
-    the visibility of event notifications [Muehl2006-DEB]_.
+Causal Vector
 
-    The next section explains this concept in greater detail.
+  This vector allows to represent the causing :term:`events <event>`
+  of a given :term:`event`, as proposed in [Luckham2001PEI]_.  It
+  facilitates automatic system analysis and debugging.
 
+Destination :term:`Scope`
+
+  Specifies the recipients of the event notification by restricting
+  the visibility of :term:`event` notifications [Muehl2006-DEB]_.
+
+  The next section explains this concept in greater detail.
 
 .. _scope:
 
 Scope
 =====
+
+.. seealso::
+
+   :ref:`specification-scope`
+     Detailed technical specification of :term:`scopes <scope>`
 
 |project| forms a logically unified bus across different
 :term:`transport` mechanisms. Different :term:`participants
@@ -114,9 +130,9 @@ destination :term:`scope` ``/robot/camera/left/`` will make this
 :term:`scopes <scope>` ``/robot/camera/left/``, ``/robot/camera/``,
 ``/robot/``, and ``/``. Consequently, ``/`` represents a
 :term:`channel` where all :term:`events <event>` of the system are
-visible. Each participant is associated to one :term:`channel`, but
-multiple :term:`participants <participant>` can participate at the
-same :term:`channel` (m : n semantics).
+visible. Each :term:`participant` is associated to one
+:term:`channel`, but multiple :term:`participants <participant>` can
+participate in the same :term:`channel` (m : n semantics).
 
 The chosen hierarchical :term:`channel` layout provides benefits for
 logging purposes and provides a first-class means of the framework to
@@ -126,7 +142,7 @@ different services. However, it also increases the chance that a
 :term:`informer` appeared on a :term:`subscope` of the
 :term:`listener’s <listener>` :term:`scope`. |project|’s
 :term:`filter` mechanism allows clients to efficiently specify which
-:term:`events <event>` which to receive.
+:term:`events <event>` they want to receive.
 
 .. _filter:
 
@@ -144,6 +160,7 @@ Types
 
 * :term:`wire schemas <wire schema>` which describe data being
   exchanged through :term:`transport mechanisms <transport mechanism>`
+
 * :term:`data types <data type>` which are restricted to individual
   clients, depend on the respective programming languages and describe
   domain objects before they get passed to |project| or after they
@@ -159,49 +176,48 @@ language types. The values that are actually contained in
 :term:`notifications <notification>` are called "String Designators"
 of :term:`wire schemas <wire schema>` here.
 
-  Fundamental Types
+Fundamental Types
 
-    ======================= ================== ==========  =========== ============== =========================================
-    Wire Schema             String Designator  C++         Python      Java           Common Lisp
-    ======================= ================== ==========  =========== ============== =========================================
-    No value                ``"void"``         ``void``    ``None``    ``null``       ``nil``
-    Double precision float  ``"double"``       ``double``              ``double``     ``double-float``
-    Single precision float  ``"float"``        ``float``   ``float``   ``float``      ``single-float``
-    32 bit signed integer   ``"int32"``        ``int32``               ``int``        ``(signed-byte 32)``
-    64 bit signed integer   ``"int64"``        ``int64``               ``long``       ``(signed-byte 64)``
-    32 bit unsigned integer ``"uint32"``       ``uint32``              ``int``        ``(unsigned-byte 32)``
-    64 bit unsigned integer ``"uint64"``       ``uint64``              ``long``       ``(unsigned-byte 64)``
-    bool                    ``"bool"``         ``bool``    ``bool``    ``boolean``    ``boolean``
-    ASCII string            ``"ascii-string"`` ``string``  ``str``     ``String``     ``string``
-    UTF-8 string            ``"utf-8-string"`` ``string``  ``unicode`` ``String``     ``string``
-    Sequence of Bytes       ``"bytes"``        ``string``              ``ByteString`` ``(simple-array (unsigned-byte 8)  (*))``
-    ======================= ================== ==========  =========== ============== =========================================
+  ======================= ================== =============== =========== ============== =========================================
+  Wire Schema             String Designator  C++             Python      Java           Common Lisp
+  ======================= ================== =============== =========== ============== =========================================
+  No value                ``"void"``         ``void``        ``None``    ``null``       ``nil``
+  Double precision float  ``"double"``       ``double``                  ``double``     ``double-float``
+  Single precision float  ``"float"``        ``float``       ``float``   ``float``      ``single-float``
+  32 bit signed integer   ``"int32"``        ``int32``                   ``int``        ``(signed-byte 32)``
+  64 bit signed integer   ``"int64"``        ``int64``                   ``long``       ``(signed-byte 64)``
+  32 bit unsigned integer ``"uint32"``       ``uint32``                  ``int``        ``(unsigned-byte 32)``
+  64 bit unsigned integer ``"uint64"``       ``uint64``                  ``long``       ``(unsigned-byte 64)``
+  bool                    ``"bool"``         ``bool``        ``bool``    ``boolean``    ``boolean``
+  ASCII string            ``"ascii-string"`` ``std::string`` ``str``     ``String``     ``string``
+  UTF-8 string            ``"utf-8-string"`` ``std::string`` ``unicode`` ``String``     ``string``
+  Sequence of Bytes       ``"bytes"``        ``std::string``             ``ByteString`` ``(simple-array (unsigned-byte 8)  (*))``
+  ======================= ================== =============== =========== ============== =========================================
 
-    .. note::
+  .. note::
 
-       This mapping is based on `the type mapping used by Google's
-       protocol buffers
-       <http://code.google.com/apis/protocolbuffers/docs/proto.html#scalar>`_.
+     This mapping is based on `the type mapping used by Google's
+     protocol buffers
+     <http://code.google.com/apis/protocolbuffers/docs/proto.html#scalar>`_.
 
-    .. note::
+  .. note::
 
-       In C++, support for the ASCII string and UTF-8 string schemas is
-       limited in the following ways:
+     In C++, support for the ASCII string and UTF-8 string schemas is
+     limited in the following ways:
 
-       * When decoding data in either schema, invalid strings will be
-         accepted without signaling an error
+     * When decoding data in either schema, invalid strings will be
+       accepted without signaling an error.
 
-       * In both schemas, string values are represented as ``std::string``
-         objects which known nothing about the respective encodings
+     * In both schemas, string values are represented as
+       ``std::string`` objects which know nothing about the respective
+       encodings.
 
-         * In particular, UTF-8 multi-byte sequences appear as multiple
-           ``char`` s
+       * In particular, UTF-8 multi-byte sequences appear as multiple
+         ``char`` s.
 
+Structured Data
 
-
-  Structured Data
-
-    TODO
+  TODO
 
 Connector
 =========
@@ -214,12 +230,13 @@ URIs
 .. seealso::
 
    :ref:`specification-uris`
-     Specification for handling of URI in |project|.
+     Specification for handling of URIs in |project|.
 
 URIs or URLs are used in the following situations
 
 * Specifying how to connect to the bus (i.e. specifying a
   :term:`scope` and :term:`transport` configuration)
+
 * Naming a thing on the bus
 
   * A :term:`channel`
