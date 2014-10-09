@@ -71,7 +71,7 @@ Installation
    repository
 
    RSC
-     "|version|" branch of https://code.cor-lab.org/git/rsc.git
+     "|branch|" branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
      |repository_versioned_protocol|
    |project| Python
@@ -179,7 +179,7 @@ Installation of the Spread module for Python
       $ python setup.py install --prefix=\ :samp:`{PREFIX}`
 
    .. note::
-      
+
       It might be that the ``--rpath`` option needs to be removed on Windows.
 
 Testing the Installation

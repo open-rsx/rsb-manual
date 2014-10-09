@@ -96,7 +96,7 @@ Installation of RSC, RSBProtocol and |project|
    repository
 
    RSC
-     "|version|" branch of https://code.cor-lab.org/git/rsc.git
+     "|branch|" branch of https://code.cor-lab.org/git/rsc.git
    |project| Protocol
      |repository_versioned_protocol|
    |project| C++
@@ -114,6 +114,7 @@ Installation of RSC, RSBProtocol and |project|
          $ mkdir -p build && cd build
          $ cmake -DCMAKE_INSTALL_PREFIX=\ :samp:`{PREFIX}` ..
          $ make install
+
    #. Install |project| Protocol Definitions
 
       .. parsed-literal::

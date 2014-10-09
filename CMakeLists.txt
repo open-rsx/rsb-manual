@@ -2,13 +2,23 @@ cmake_minimum_required(VERSION 2.8)
 
 # Project meta-data.
 
+SET(VERSION_MAJOR "0" CACHE STRING "Major project version part")
+SET(VERSION_MINOR "11" CACHE STRING "Minor project version part")
+
 project("rsb-manual")
 
-set(RSB_MANUAL_VERSION_MAJOR "0")
-set(RSB_MANUAL_VERSION_MINOR "11")
-set(RSB_MANUAL_VERSION_PATCH "0")
-set(RSB_MANUAL_VERSION       "${RSB_MANUAL_VERSION_MAJOR}.${RSB_MANUAL_VERSION_MINOR}.${RSB_MANUAL_VERSION_PATCH}")
+find_package(RSC "0.10")
+include(DefineProjectVersion)
+
+define_project_version(RSB_MANUAL_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 archive)
+
 set(VERSION_SUFFIX "${RSB_MANUAL_VERSION_MAJOR}.${RSB_MANUAL_VERSION_MINOR}")
+
+if(RSB_MANUAL_IS_RELEASE)
+    set(RSB_BRANCH "${VERSION_SUFFIX}")
+else()
+    set(RSB_BRANCH "master")
+endif()
 
 # Options.
 
@@ -60,7 +70,7 @@ foreach(REPOSITORY ${REPOSITORIES})
     set(REPOSITORY_VERSIONED_REPLACES "${REPOSITORY_VERSIONED_REPLACES}
 
 .. |repository_versioned_${REPOSITORY_UNDERSCORED}| replace::
-   \"{version}\" branch of ${REPOSITORY_BASE_URL}.${REPOSITORY}")
+   \"{branch}\" branch of ${REPOSITORY_BASE_URL}.${REPOSITORY}")
 endforeach()
 
 configure_file(conf.py.in
