@@ -9,13 +9,26 @@
    :ref:`tutorial-writing-converters` Writing new :term:`converters
    <converter>` instead of registering existing ones.
 
+   :ref:`specification-converters` Detailed description of
+   :term:`converters <converter>` and methods to configure the
+   selection of appropriate instances.
+
 In principle, projects using |project| can exchange data of arbitrary
 types. However, in order to send and receive custom :term:`data types
 <data type>`, |project| has to know how to serialize and deserialize
 data of these types. This task is performed by :term:`converters
-<converter>`. :term:`Converters <converter>` are maintained in a
-repository at runtime. New :term:`converters <converter>` can be
-registered to add support for new :term:`data types <data type>`.
+<converter>`, which transform domain-specific data to a specific
+:term:`wire type`.  The :term:`wire type` is the language-specific
+data holder (typically a string type) passed to the underlying
+:term:`transport` mechanism.
+
+Each :term:`converter` encodes the payload using a specific :term:`wire
+schema` that describes the data encoding scheme on the wire. In
+order to successfully receive :term:`events <event>` with a specific :term:`wire
+schema`, appropriate :term:`converters <converter>` need to be available at runtime. While
+there exist converters for some basic :ref:`data types <types>`, you
+need to register the :term:`converters <converter>` for your own domain-specific
+:term:`data types <data type>` by yourself.
 
 .. _tutorial-converters-register:
 
@@ -30,8 +43,12 @@ obtained. The following example demonstrates this.
 
    :term:`Converters <converter>` have to be registered before
    :term:`participants <participant>` are created. Otherwise, the
-   :term:`participants <participant>` can still be created, but do not
-   use the desired :term:`converters <converter>`.
+   :term:`participants <participant>` can still be created, but will not
+   use the desired :term:`converters <converter>`. In case a
+   :term:`converter` for a :term:`wire schema` is missing, sending
+   operations will throw an exception and receiving operations will
+   fail in the background thread depending on the
+   :ref:`specification-config` entry ``errorhandling.onhandlererror``.
 
 .. container:: converter-registration-multi
 

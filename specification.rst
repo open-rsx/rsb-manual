@@ -14,6 +14,7 @@ Concepts:
    specification-uris
    specification-config
    specification-plugin
+   specification-converters
 
 .. _specification-transports:
 

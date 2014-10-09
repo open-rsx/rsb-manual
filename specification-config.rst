@@ -10,7 +10,7 @@ principles:
 * The configuration mechanism works identically across implementation
   languages
 
-* We cannot (and do not want) to handle configuration of individual
+* We cannot (and do not want to) handle configuration of individual
   :term:`participants <participant>`:
 
   * The configuration mechanism is intended to provide process-wide

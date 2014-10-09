@@ -36,6 +36,11 @@
      See :term:`domain->wire converter` and :term:`wire->domain
      converter`.
 
+   converter selection strategy
+
+     A mechanism to select an appropriate :term:`converter` for
+     sending and receiving an :term:`event`.
+
    data type
 
      The type (programming language dependent) of :term:`event
