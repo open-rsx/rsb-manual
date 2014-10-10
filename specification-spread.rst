@@ -114,11 +114,14 @@ constructed according to the following rules:
 Hierarchical Bus
 ================
 
-The hierarchical bus is created by sending each message to a
-:term:`Spread`-group corresponding to its :term:`scope` as well as to
-:term:`Spread`-groups corresponding to all :term:`superscopes
-<superscope>` including the root-:term:`scope` (``/``) (In
-:term:`Spread` terminology this is called "multigroup mulitcast").
+The hierarchical bus is created by sending each message to multiple
+:term:`Spread`-groups: a :term:`Spread`-group corresponding to its
+:term:`scope` as well as :term:`Spread`-groups corresponding to all
+:term:`superscopes <superscope>` including the root-:term:`scope`
+(``/``) (In :term:`Spread` terminology this is called "multigroup
+mulitcast"). :term:`Spread`'s protocol takes care of only transmitting
+the message to interested recipients and transmitting it only once to
+each of them.
 
 Example for :term:`scope` ``/foo/bar/``::
 
