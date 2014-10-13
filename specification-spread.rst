@@ -119,7 +119,7 @@ The hierarchical bus is created by sending each message to multiple
 :term:`scope` as well as :term:`Spread`-groups corresponding to all
 :term:`superscopes <superscope>` including the root-:term:`scope`
 (``/``) (In :term:`Spread` terminology this is called "multigroup
-mulitcast"). :term:`Spread`'s protocol takes care of only transmitting
+multicast"). :term:`Spread`'s protocol takes care of only transmitting
 the message to interested recipients and transmitting it only once to
 each of them.
 
