@@ -96,6 +96,10 @@ Changes
 
 * Tools
 
+  * All column-based :term:`event` formatting styles now compute
+    (mostly) optimal column widths dynamically instead of choosing
+    from a set of predefined layouts.
+
   * The timeline view of the :ref:`logger` can now handle
     :term:`events <event>` whose timestamps lie in the past or future.
 
