@@ -96,6 +96,11 @@ Changes
 
 * Tools
 
+  * Some problems (e.g. starting the :ref:`logger` with a
+    :term:`scope` option or without URI scheme) in the :ref:`URI
+    <specification-uris>` handling of the Common Lisp tools have been
+    solved.
+
   * All column-based :term:`event` formatting styles now compute
     (mostly) optimal column widths dynamically instead of choosing
     from a set of predefined layouts.
