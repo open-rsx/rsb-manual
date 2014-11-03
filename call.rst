@@ -31,6 +31,7 @@ server and the :term:`transport` that should be used.
 * If :samp:`{ARGUMENT}` is the empty string, i.e. the call
   specification is of the form :samp:`{SERVER-URI}/{METHOD}()`, the
   :samp:`{METHOD}` is called without argument.
+* As the respective Boolean value when equal to ``true`` or ``false``
 * As string when surrounded with double-quotes (``"``)
 * As integer number when consisting of digits without decimal point
 * As float number when consisting of digits with decimal point

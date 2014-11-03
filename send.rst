@@ -21,6 +21,7 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 :samp:`{EVENT-SPEC}` is treated as follows:
 
 * As the empty payload when it is the empty string
+* As the respective Boolean value when equal to ``true`` or ``false``
 * As string when surrounded with double-quotes (``"``)
 * As integer number when consisting of digits without decimal point
 * As float number when consisting of digits with decimal point
