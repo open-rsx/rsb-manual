@@ -229,7 +229,7 @@ provides the following methods:
    indicates the existence of its process (and potentially the host on
    which the process is executed).
 
-``RemoteIntrospection`` call the above method periodically to
+``RemoteIntrospection`` objects call the above method periodically to
 determine whether a remote process is still running, detect crashes
 and estimate offsets between the local clock and remote clocks.
 
