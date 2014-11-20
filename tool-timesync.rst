@@ -1,4 +1,5 @@
 .. _timesync:
+.. _tool-timesync:
 
 ==========
  Timesync

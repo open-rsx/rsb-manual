@@ -575,8 +575,8 @@ Solution
 
     #. Determine one particular process that should always act as the
        server. This can also be an additional process like the
-       :ref:`logger`. Note that this choice can impact the performance
-       of your setup very much.
+       :ref:`tool-logger`. Note that this choice can impact the
+       performance of your setup very much.
 
        * :ref:`Configure <configuration>` this (and only this) process
          to act as server (for example using the environment variable

@@ -1,4 +1,5 @@
 .. _info:
+.. _tool-info:
 
 ======
  Info

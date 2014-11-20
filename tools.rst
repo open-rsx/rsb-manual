@@ -7,11 +7,11 @@
 .. toctree::
    :hidden:
 
-   info
-   logger
-   send
-   call
-   timesync
+   tool-info
+   tool-logger
+   tool-send
+   tool-call
+   tool-timesync
 
 .. seealso::
 
@@ -20,23 +20,23 @@
 
 The following tools are available:
 
-* :ref:`info <info>`
+* :ref:`info <tool-info>`
 
   Inspection of version and configuration information.
 
-* :ref:`logger <logger>`
+* :ref:`logger <tool-logger>`
 
   Console-based realtime logging of :term:`events <event>`.
 
-* :ref:`send <send>`
+* :ref:`send <tool-send>`
 
   Command-line based sending of :term:`events <event>`.
 
-* :ref:`call <call>`
+* :ref:`call <tool-call>`
 
   Command-line based calling of RPC server methods.
 
-* :ref:`timesync <timesync>`
+* :ref:`timesync <tool-timesync>`
 
   Synchronization of :term:`events <event>` on different :term:`scopes
   <scope>` based on timestamps.

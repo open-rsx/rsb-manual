@@ -1,4 +1,5 @@
 .. _send:
+.. _tool-send:
 
 ======
  Send

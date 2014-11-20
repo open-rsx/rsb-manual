@@ -1,4 +1,5 @@
 .. _call:
+.. _tool-call:
 
 ==========
  RPC Call

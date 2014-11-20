@@ -43,8 +43,8 @@ Changes
 
   * :term:`subscopes <subscope>` of ``/__rsb/`` are now :ref:`reserved
     <specification-scope-reserved>` for implementation purposes. The
-    :ref:`logger` will not display :term:`events <event>` on these
-    :term:`scopes <scope>` by default.
+    :ref:`tool-logger` will not display :term:`events <event>` on
+    these :term:`scopes <scope>` by default.
 
   * :ref:`Request-reply communication pattern <specification-request-reply>`
 
@@ -96,7 +96,7 @@ Changes
 
 * Tools
 
-  * Some problems (e.g. starting the :ref:`logger` with a
+  * Some problems (e.g. starting the :ref:`tool-logger` with a
     :term:`scope` option or without URI scheme) in the :ref:`URI
     <specification-uris>` handling of the Common Lisp tools have been
     solved.
@@ -105,23 +105,23 @@ Changes
     (mostly) optimal column widths dynamically instead of choosing
     from a set of predefined layouts.
 
-  * The timeline view of the :ref:`logger` can now handle
+  * The timeline view of the :ref:`tool-logger` can now handle
     :term:`events <event>` whose timestamps lie in the past or future.
 
   * The timestamp used to construct the timeline view of the
-    :ref:`logger` is now configurable.
+    :ref:`tool-logger` is now configurable.
 
   * A new :term:`event` formatting style ``monitor/timeline`` has been
     added.
 
-  * Monitor and timeline views of the :ref:`logger` now accept
+  * Monitor and timeline views of the :ref:`tool-logger` now accept
     :samp:`:sort-column {COLUMN}` and :samp:`:sort-reverse? {BOOLEAN}`
     arguments.
 
-  * Monitor and timeline views of the :ref:`logger` can now remove
-    entries after a configurable time of inactivity.
+  * Monitor and timeline views of the :ref:`tool-logger` can now
+    remove entries after a configurable time of inactivity.
 
-  * The :ref:`logger` now accepts multiple URIs
+  * The :ref:`tool-logger` now accepts multiple URIs
 
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
@@ -213,7 +213,7 @@ Changes
 
   * The Common Lisp implementation of the tools now comes with scripts
     for analyzing some timing-related aspects of system. These scripts
-    can be used by the :ref:`logger` as well as the RSBag tools.
+    can be used by the :ref:`tool-logger` as well as the RSBag tools.
 
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
@@ -330,7 +330,7 @@ Changes
 * Error recovery, robustness and features of |project|
 * End-user documentation
 * Packaging and deployment
-* :ref:`send <send>` tool
+* :ref:`send <tool-send>` tool
 
 As always, bugs, feature requests and enhancement proposals can be
 reported in the `issue tracker`_.
@@ -373,13 +373,13 @@ General Changes
 
 Tools
 
-* The C++ :ref:`logger <logger>` now has a "monitor mode"
-* The C++ :ref:`logger <logger>` can now print :term:`event`
+* The C++ :ref:`logger <tool-logger>` now has a "monitor mode"
+* The C++ :ref:`logger <tool-logger>` can now print :term:`event`
   collections
-* The Common Lisp :ref:`logger <logger>` adjusts its display to the
-  width of the containing terminal
-* The Common Lisp :ref:`logger <logger>` can now print :term:`event`
-  collections
+* The Common Lisp :ref:`logger <tool-logger>` adjusts its display to
+  the width of the containing terminal
+* The Common Lisp :ref:`logger <tool-logger>` can now print
+  :term:`event` collections
 
 .. note::
 
@@ -456,16 +456,16 @@ Network Protocol and Configuration
 
 Tools
 
-* The C++ :ref:`logger <logger>` now displays :term:`causal vectors
-  <causal vector>`.
-* The Common Lisp :ref:`logger <logger>` now displays :term:`causal
+* The C++ :ref:`logger <tool-logger>` now displays :term:`causal
   vectors <causal vector>`.
-* The Common Lisp :ref:`logger <logger>` now displays configurable
-  statistics.
-* The Common Lisp :ref:`logger <logger>` now allows configuring the
-  columns in the "compact" formatting style.
-* The :ref:`call <call>` tool for performing RPCs from the commandline
-  has been added.
+* The Common Lisp :ref:`logger <tool-logger>` now displays
+  :term:`causal vectors <causal vector>`.
+* The Common Lisp :ref:`logger <tool-logger>` now displays
+  configurable statistics.
+* The Common Lisp :ref:`logger <tool-logger>` now allows configuring
+  the columns in the "compact" formatting style.
+* The :ref:`call <tool-call>` tool for performing RPCs from the
+  commandline has been added.
 
 C++
 
