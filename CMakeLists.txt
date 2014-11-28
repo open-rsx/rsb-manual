@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.8)
 SET(VERSION_MAJOR "0" CACHE STRING "Major project version part")
 SET(VERSION_MINOR "11" CACHE STRING "Minor project version part")
 
-project("rsb-manual")
+project("rsb-manual" NONE)
 
 find_package(RSC "0.10")
 include(DefineProjectVersion)
