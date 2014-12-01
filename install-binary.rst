@@ -370,10 +370,8 @@ Visual Studio versions.
    Studio 2012 corresponds to numeric version 110. As soon as you know this you
    can select the appropriate configuration from this CI server job:
    https://ci.cor-lab.org/view/windows/job/rsx-trunk-windows-package/ (by
-   clicking on the circular icon in the matrix). You can choose any of the
-   Windows versions in the matrix because currently all software is built in 32
-   bit mode. After selecting the appropriate configuration, download the latest
-   successful artifact (a zip file).
+   clicking on the appropriate version name). After selecting the your
+   configuration, download the latest successful artifact (a zip file).
 
 #. Extract the archive
 
