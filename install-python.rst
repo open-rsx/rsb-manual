@@ -134,7 +134,7 @@ Installation
 
    .. parsed-literal::
 
-      $ export PYTHONPATH=\ :samp:`{PREFIX}`/lib/python2.:samp:`{VERSION}`/site-packages # if you are install to /usr or /usr/local it must be dist-packages
+      $ export PYTHONPATH=\ :samp:`{PREFIX}`/lib/python2.\ :samp:`{VERSION}`/site-packages # if you are install to /usr or /usr/local it must be dist-packages
       $ python setup.py build
       $ python setup.py install --prefix=\ :samp:`{PREFIX}`
 
