@@ -160,5 +160,5 @@ Installation of RSC, RSBProtocol and |project|
 
          $ cmake -DCMAKE_INSTALL_PREFIX=/opt/rsb                          \
                  -DRSC_DIR=/opt/rsc/share/rsc                             \
-                 -DRSB_PROTOCOL_DIR=/opt/rsb-prototcol/share/rsb-protocol \
+                 -DRSBProtocol_DIR=/opt/rsb-prototcol/share/rsb-protocol \
                  ..
