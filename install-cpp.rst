@@ -101,6 +101,8 @@ Installation of RSC, RSBProtocol and |project|
      |repository_versioned_protocol|
    |project| C++
      |repository_versioned_cpp|
+   Optionally: |project| C++ :term:`Spread` plugin (in case you want to use the spread transport)
+     |repository_versioned_spread_cpp|
 
 
 #. Build and install the C++ implementation of |project| and its
@@ -134,6 +136,15 @@ Installation of RSC, RSBProtocol and |project|
       .. code-block:: sh
 
          $ cd rsb.git.cpp
+         $ mkdir -p build && cd build
+         $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
+         $ make install
+
+   #. Optionally, build and install the C++ :term:`Spread` plugin  of |project|
+
+      .. code-block:: sh
+
+         $ cd rsb.git.spread-cpp
          $ mkdir -p build && cd build
          $ cmake -DCMAKE_INSTALL_PREFIX=$prefix ..
          $ make install
