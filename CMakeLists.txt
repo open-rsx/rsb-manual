@@ -7,7 +7,7 @@ SET(VERSION_MINOR "12" CACHE STRING "Minor project version part")
 
 project("rsb-manual" NONE)
 
-find_package(RSC-CMake "0.11")
+find_package(RSC-CMake "${VERSION_MAJOR}.${VERSION_MINOR}" REQUIRED)
 list(INSERT CMAKE_MODULE_PATH 0 ${RSC_CMAKE_MODULE_PATH})
 include(DefineProjectVersion)
 
