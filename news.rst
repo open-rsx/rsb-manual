@@ -49,8 +49,9 @@ Changes
 
   * ``LocalServer::Callback`` implementations to reuse existing functions or
     methods have been added.
+
   * Several methods and types that have long been deprecated have been
-    removed.
+    removed, including the method :cpp:method:`Factory::getInstance`.
 
 * Java
 
