@@ -44,7 +44,7 @@ Changes
 
 * :term:`Introspection`
 
-  |project| now supports inspecting the :term:`particiants
+  |project| now supports inspecting the :term:`participants
   <participant>`, processes and hosts comprising a running system.
 
 * Specification
@@ -86,6 +86,9 @@ Changes
 
 * Java
 
+  * Support for sending :term:`introspection` information has been
+    added as a package.
+
 * Python
 
   * Support for sending :term:`introspection` information has been
@@ -120,7 +123,7 @@ Changes
     <specification-request-reply>` has moved from package
     ``rsb.patterns`` to package ``rsb.patterns.request-reply``.
 
-* Tools
+* Common Lisp Tools
 
   * Some problems (e.g. starting the :ref:`tool-logger` with a
     :term:`scope` option or without URI scheme) in the :ref:`URI
