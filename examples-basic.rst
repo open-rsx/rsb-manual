@@ -459,16 +459,16 @@ called in blocking and non-blocking way:
       13). Remote methods can then be called using the
       :cpp:member:`rsb::patterns::RemoteServer::call` method (see
       line 21) and the
-      :cpp:member:`rsb::patterns::RemoteServer::callAsync` method. The
-      expected return type is specified as a template argument to the
-      function call while the argument type is derived from the
-      supplied argument.
+      :cpp:member:`rsb::patterns::RemoteServer::callAsync` method (see
+      lines 30 to 36). The expected return type is specified as a
+      template argument to the function call while the argument type
+      is derived from the supplied argument.
 
       .. literalinclude:: /../rsb-cpp/examples/server/client.cpp
          :language:        c++
          :start-after:     mark-start::body
          :end-before:      mark-end::body
-         :emphasize-lines: 12,13,21
+         :emphasize-lines: 12,13,21,30-36
          :linenos:
 
       :download:`Download this example </../rsb-cpp/examples/server/client.cpp>`
@@ -477,16 +477,16 @@ called in blocking and non-blocking way:
 
       A ``rsb.patterns.RemoteServer`` object is created by calling
       ``rsb.Factory.createRemoteServer`` with the :term:`scope` on
-      which the service is provided (line 9). Remote methods can then
+      which the service is provided (line 10). Remote methods can then
       be called using the ``rsb.patterns.RemoteServer.call`` method
-      (see line 16) and the ``rsb.patterns.RemoteServer.callAsync``
-      method.
+      (see line 18) and the ``rsb.patterns.RemoteServer.callAsync``
+      method (see lines 20 and 21).
 
       .. literalinclude:: /../rsb-java/examples/ClientExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
-         :emphasize-lines: 9,16
+         :emphasize-lines: 10,18,20-21
          :linenos:
 
       :download:`Download this example </../rsb-java/examples/ClientExample.java>`
@@ -514,6 +514,19 @@ called in blocking and non-blocking way:
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
+         :linenos:
+
+      Blocking and non-blocking calls are both performed by calling
+      ``rsb.patterns.request-reply:call``. The ``:block?`` keyword
+      parameter controls blocking. ``:block? nil`` causes a future
+      object to be returned from which the result can be obtained via
+      ``rsb.patterns.request-reply:future-result`` at a later point in
+      time.
+
+      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
+         :language:    cl
+         :start-after: mark-start::calls
+         :end-before:  mark-end::calls
          :linenos:
 
       :download:`Download this example </../rsb-cl/examples/patterns/request-reply/client.lisp>`
