@@ -154,11 +154,11 @@ TODO: include examples or link to tutorial?
 Implementations
 ===============
 
-=========== ====================================================
+=========== ===========================================================
 Language    File(s)
-=========== ====================================================
+=========== ===========================================================
 C++         |repository_versioned_cpp| at ``src/rsb/patterns/``
 Java        |repository_versioned_java| at ``src/rsb/patterns/``
 Python      |repository_versioned_python| at ``rsb/patterns/``
-Common Lisp |repository_versioned_cl| at ``src/patterns/``
-=========== ====================================================
+Common Lisp |repository_versioned_cl| at ``src/patterns/request-reply``
+=========== ===========================================================
