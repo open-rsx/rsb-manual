@@ -127,7 +127,28 @@ Examples
       │ Transports socket://localhost:55555/
       └─61582DC3      ACTIVE           LISTENER<T>            /
 
-  This output should interpreted as follows:
+  This output should be interpreted as follows:
+
+  * |project| processes have been detected on one host with hostname
+    "fuchsit".
+
+  * The offset between the system clock of host "fuchsit" and the
+    local host is less than one millisecond.
+
+  * The |project| communication latency between host "fuchsit" and the
+    local host is less than one millisecond.
+
+  * One process with process id 016883 has been detected on host
+    "fuchsit". The process is executing the program "logger" with
+    commandline arguments "--on-error continue -f …".
+
+  * The process has been started by user jmoringe, has been running
+    for nine days and is using an |project| implementation with
+    version 0.11.0.
+
+  * Within the process, there is one :term:`listener`
+    :term:`participant` on :term:`scope` ``/``.  The unique id of the
+    :term:`participant` starts with ``61582DC3``.
 
 * .. code-block:: sh
 
