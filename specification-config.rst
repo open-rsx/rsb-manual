@@ -78,6 +78,9 @@ implementation language, e.g. ``cpp``, ``java``, etc.)
   + errorhandling
   +-- onhandlererror                  { LOG, PRINT, EXIT }
 
+  + introspection
+  +-- enabled                         bool
+
   + plugins
   +-- :samp:`{LANGUAGE}`
   +---- path                          list of strings
