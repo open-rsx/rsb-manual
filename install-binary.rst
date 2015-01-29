@@ -369,8 +369,8 @@ Visual Studio versions.
    work with. E.g. Visual Studio 2010 corresponds to version 100 and Visual
    Studio 2012 corresponds to numeric version 110. As soon as you know this you
    can select the appropriate configuration from this CI server job:
-   https://ci.cor-lab.org/view/windows/job/rsx-trunk-windows-package/ (by
-   clicking on the appropriate version name). After selecting the your
+   https://ci.cor-lab.org/job/rsx-trunk-windows-package/ (by
+   clicking on the appropriate version name). After selecting the
    configuration, download the latest successful artifact (a zip file).
 
 #. Extract the archive
