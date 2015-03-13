@@ -7,6 +7,17 @@
 |project| 0.12
 ==============
 
+Changes
+
+* C++
+
+  * The implementation now uses `Boost.Signals2
+    <http://www.boost.org/doc/libs/1_57_0/doc/html/signals2.html>`_
+    instead of the deprecated version 1. This changes the external API
+    for participant hooks, which are rarely used externally. In case you
+    have used these hooks, you need to migrate to the new signals
+    namespaces and type names.
+
 |project| 0.11
 ==============
 
