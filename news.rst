@@ -20,6 +20,8 @@ Changes
 
   * ``LocalServer::Callback`` implementations to reuse existing functions or
     methods have been added.
+  * Several methods and types that have long been deprecated have been
+    removed.
 
 |project| 0.11
 ==============
