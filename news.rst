@@ -18,6 +18,9 @@ Changes
     have used these hooks, you need to migrate to the new signals
     namespaces and type names.
 
+  * ``LocalServer::Callback`` implementations to reuse existing functions or
+    methods have been added.
+
 |project| 0.11
 ==============
 
