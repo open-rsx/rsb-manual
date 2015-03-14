@@ -80,6 +80,7 @@ implementation language, e.g. ``cpp``, ``java``, etc.)
 
   + introspection
   +-- enabled                         bool
+  +-- displayname                     string
 
   + plugins
   +-- :samp:`{LANGUAGE}`

@@ -9,6 +9,13 @@
 
 Changes
 
+* Specification
+
+  * A "display name" field has been added to the :term:`introspection`
+    protocol and a corresponding :ref:`configuration option
+    <specification-config>` ``introspection.displayname`` has been
+    added.
+
 * C++
 
   * The implementation now uses `Boost.Signals2
