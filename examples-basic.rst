@@ -117,19 +117,19 @@ data then has to be passed to it.
 
    .. container:: sending-data-cl
 
-      The macro ``rsb:with-informer`` can be used to create an
+      The macro ``rsb:with-participant`` can be used to create an
       :term:`informer` for a particular :term:`scope` and :term:`data
       type` (which can be ``cl:t``). The method ``rsb:send`` can then
-      be used to send data. ``rsb:with-informer`` takes care of
+      be used to send data. ``rsb:with-participant`` takes care of
       destroying the :term:`informer` after use.
 
       .. literalinclude:: /../rsb-cl/examples/informer.lisp
          :language:    cl
-         :start-after: mark-start::with-informer
-         :end-before:  mark-end::with-informer
+         :start-after: mark-start::with-participant
+         :end-before:  mark-end::with-participant
          :linenos:
 
-      Alternatively, ``rsb:make-informer`` can be used to obtain an
+      Alternatively, ``rsb:make-participant`` can be used to obtain an
       :term:`informer` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/informer.lisp
@@ -210,19 +210,19 @@ receiving.
 
    .. container:: receive-data-sync-cl
 
-      The macro ``rsb:with-reader`` can be used to create a
+      The macro ``rsb:with-participant`` can be used to create a
       :term:`reader` for a particular :term:`scope`. The method
       ``rsb:receive`` can then be used to receive individual
-      :term:`events <event>` data. ``rsb:with-reader`` takes care of
-      destroying the :term:`reader` after use.
+      :term:`events <event>` data. ``rsb:with-participant`` takes care
+      of destroying the :term:`reader` after use.
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
          :language:    cl
-         :start-after: mark-start::with-reader
-         :end-before:  mark-end::with-reader
+         :start-after: mark-start::with-participant
+         :end-before:  mark-end::with-participant
          :linenos:
 
-      Alternatively, ``rsb:make-reader`` can be used to obtain a
+      Alternatively, ``rsb:make-participant`` can be used to obtain a
       :term:`reader` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/reader.lisp
@@ -335,22 +335,22 @@ each received :term:`event`, a user-supplied callback function (a
 
    .. container:: receive-data-async-cl
 
-      The macro ``rsb:with-listener`` can be used to create a
+      The macro ``rsb:with-participant`` can be used to create a
       :term:`listener` for a particular :term:`scope`. Inside the
-      lexical scope of ``rsb:with-listener`` (or for :term:`listeners
-      <listener>` created differently), the macro ``rsb:with-handler``
-      can be used to add a :term:`handler` to the
+      lexical scope of ``rsb:with-participant`` (or for
+      :term:`listeners <listener>` created differently), the macro
+      ``rsb:with-handler`` can be used to add a :term:`handler` to the
       :term:`listener`. While the body of ``rsb:with-handler``
       executes, :term:`events <event>` are handled by the supplied
       code.
 
       .. literalinclude:: /../rsb-cl/examples/listener.lisp
          :language:    cl
-         :start-after: mark-start::with-listener
-         :end-before:  mark-end::with-listener
+         :start-after: mark-start::with-participant
+         :end-before:  mark-end::with-participant
          :linenos:
 
-      Alternatively, ``rsb:make-listener`` can be used to obtain a
+      Alternatively, ``rsb:make-participant`` can be used to obtain a
       :term:`listener` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/listener.lisp
@@ -494,7 +494,7 @@ called in blocking and non-blocking way:
    .. container:: rpc-client-cl
 
       A :term:`remote server` can be created and managed with the
-      ``rsb.patterns.request-reply:with-remote-server`` macro. The
+      ``rsb:with-participant`` macro. The
       ``rsb.patterns.request-reply:call`` method can be used on the
       :term:`remote server` object to call remote methods. The method
       name and the argument of the call have to be passed as the
@@ -502,13 +502,12 @@ called in blocking and non-blocking way:
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
-         :start-after: mark-start::with-remote-server
-         :end-before:  mark-end::with-remote-server
+         :start-after: mark-start::with-participant
+         :end-before:  mark-end::with-participant
          :linenos:
 
-      Alternatively, ``rsb.patterns.request-reply:make-remote-server``
-      can be used to obtain a :term:`remote server` without automatic
-      destruction:
+      Alternatively, ``rsb:make-participant`` can be used to obtain a
+      :term:`remote server` without automatic destruction:
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
@@ -623,20 +622,20 @@ callback function which implements the desired behavior of the method.
    .. container:: rpc-server-cl
 
       A :term:`local server` can be created and managed with the
-      ``rsb.patterns.request-reply:with-local-server`` macro. The
+      ``rsb:with-participant`` macro. The
       ``rsb.patterns.request-reply:with-methods`` macro can be used to
       register methods and their implementations in the :term:`local
       server`.
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl
-         :start-after: mark-start::with-local-server
-         :end-before:  mark-end::with-local-server
+         :start-after: mark-start::with-participant
+         :end-before:  mark-end::with-participant
          :linenos:
 
-      Alternatively, ``rsb.patterns.request-reply:make-local-server``
-      can be used to obtain a :term:`local server` without automatic
-      destruction. Similarly, methods can be added without the
+      Alternatively, ``rsb:make-participant`` can be used to obtain a
+      :term:`local server` without automatic destruction. Similarly,
+      methods can be added without the
       ``rsb.patterns.request-reply:with-methods`` macro:
 
       .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp

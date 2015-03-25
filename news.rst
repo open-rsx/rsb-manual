@@ -23,6 +23,20 @@ Changes
   * Several methods and types that have long been deprecated have been
     removed.
 
+* Common Lisp
+
+  * The ``rsb:with-listener``, ``rsb:with-reader``,
+    ``rsb:with-informer``,
+    ``rsb.patterns.request-reply:with-local-server`` and
+    ``rsb.patterns.request-reply:with-remote-server`` macros have been
+    replaced by ``rsb:with-active-participant`` and
+    ``rsb:with-participant``.
+  * Similarly, the ``rsb:make-listener``, ``rsb:make-reader``,
+    ``rsb:make-informer``,
+    ``rsb.patterns.request-reply:make-local-server`` and
+    ``rsb.patterns.request-reply:make-remote-server`` functions have
+    been replaced by ``rsb:make-participant``.
+
 |project| 0.11
 ==============
 

@@ -752,10 +752,11 @@ Solution
     .. container:: cleanup-cl
 
        Automatic cleanup is ensured when using the
-       ``rsb:with-participant``, ``rsb:with-listener``, etc. macros:
+       ``rsb:with-active-participant``, ``rsb:with-participant``,
+       etc. macros:
 
        .. code-block:: cl
 
-          (rsb:with-listener (listener "/")
+          (rsb:with-participant (listener :listener "/")
             ;; Code using LISTENER goes here.
             )
