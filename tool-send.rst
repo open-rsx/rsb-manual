@@ -22,18 +22,32 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 :samp:`{EVENT-SPEC}` is treated as follows:
 
 * As the empty payload when it is the empty string
+
 * As the respective Boolean value when equal to ``true`` or ``false``
+
 * As string when surrounded with double-quotes (``"``)
+
 * As integer number when consisting of digits without decimal point
+
 * As float number when consisting of digits with decimal point
+
 * If :samp:`{EVENT-SPEC}` is the single character ``-``or the string
   ``-:binary``, the entire "contents" of standard input (until end of
   file) is read as a string or octet-vector respectively and sent.
+
 * If :samp:`{EVENT-SPEC}` is of one of the forms
   :samp:`#P"{PATHNAME}"`, :samp:`#P"{PATHNAME}":{ENCODING}` or
   :samp:`#P"{PATHNAME}":binary`, the file designated by
   :samp:`{PATHNAME}` is read into a string (optionally employing
   :samp:`{ENCODING}`) or octet-vector and sent.
+
+* If :samp:`{EVENT-SPEC}` is of the form
+  :samp:`pb:.{MESSAGE-TYPE-NAME}:{{FIELDS}}`, a protocol buffer
+  message of type :samp:`{MESSAGE-TYPE-NAME}` is constructed and its
+  fields are populated according to :samp:`{FIELDS}`. :samp:`{FIELDS}`
+  uses the syntax produced/consumed by the various TextFormat classes
+  of the protocol buffer API and the ``--decode``/``--encode`` options
+  of the :program:`protoc` binary.
 
 .. note::
 
@@ -163,6 +177,31 @@ Examples
      Note the use of single quotes (``'``) to prevent elements of the
      pathname ``#"Pmy-data.txt"`` from being processed by the shell.
 
+* .. code-block:: sh
+
+     $ rsb send                                                  \
+       -I…/rst-proto/proto/stable/                               \
+       -l…/rst-proto/proto/stable/rst/robot/RobotCollision.proto \
+       'pb:.rst.robot.RobotCollision:{kind: "SELF" collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: "foo" }, { x: 3 y: 4 z: 5 } ] } object_1: "o1" } }' \
+       socket:/collisions
+
+  In the above example, the :program:`send` tool is used to send a
+  protocol buffer message to :term:`scope` ``/collisions``. The
+  protocol buffer message is of type ``rst.robot.RobotCollision`` with
+  ``kind`` enum field set to ``SELF`` and an embedded
+  ``rst.kinematics.ObjectCollision`` message with two contact points
+  in the ``collision_detail`` field.
+
+  The specification of the message content uses the syntax
+  produced/consumed by the various TextFormat classes of the protocol
+  buffer API and the ``--decode``/``--encode`` options of the
+  :program:`protoc` binary.
+
+  .. note::
+
+     Note how the definition of the protocol buffer message type is
+     loaded using :option:`--idl-path` and :option:`--load-idl`
+     commandline options.
 
 Implementations
 ===============

@@ -32,19 +32,33 @@ server and the :term:`transport` that should be used.
 * If :samp:`{ARGUMENT}` is the empty string, i.e. the call
   specification is of the form :samp:`{SERVER-URI}/{METHOD}()`, the
   :samp:`{METHOD}` is called without argument.
+
 * As the respective Boolean value when equal to ``true`` or ``false``
+
 * As string when surrounded with double-quotes (``"``)
+
 * As integer number when consisting of digits without decimal point
+
 * As float number when consisting of digits with decimal point
+
 * If :samp:`{ARGUMENT}` is the single character ``-`` or the string
   ``-:binary``, the entire "contents" of standard input (until end of
   file) is read as a string or octet-vector respectively and used as
   argument for the method call.
+
 * If :samp:`{ARGUMENT}` is of one of the forms :samp:`#P"{PATHNAME}"`,
   :samp:`#P"{PATHNAME}":{ENCODING}` or :samp:`#P"{PATHNAME}":binary`,
   the file designated by :samp:`{PATHNAME}` is read into a string
   (optionally employing :samp:`{ENCODING}`) or octet-vector and used as
   argument for the method call.
+
+* If :samp:`{ARGUMENT}` is of the form
+  :samp:`pb:.{MESSAGE-TYPE-NAME}:{{FIELDS}}`, a protocol buffer
+  message of type :samp:`{MESSAGE-TYPE-NAME}` is constructed and its
+  fields are populated according to :samp:`{FIELDS}`. :samp:`{FIELDS}`
+  uses the syntax produced/consumed by the various TextFormat classes
+  of the protocol buffer API and the ``--decode``/``--encode`` options
+  of the :program:`protoc` binary.
 
 .. note::
 
@@ -104,6 +118,32 @@ Examples
 
      Note the use of single quotes (``'``) to prevent elements of the
      pathname ``#"Pmy-data.txt"`` from being processed by the shell.
+
+* .. code-block:: sh
+
+     $ rsb call                                                  \
+       -I…/rst-proto/proto/stable/                               \
+       -l…/rst-proto/proto/stable/rst/robot/RobotCollision.proto \
+       'socket:/mycomponent/handlecollision(pb:.rst.robot.RobotCollision:{kind: "SELF" collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: "foo" }, { x: 3 y: 4 z: 5 } ] } object_1: "o1" } })'
+
+  In the above example, the :program:`call` tool is used to call the
+  ``handlecollision`` method of the :term:`remote server` at
+  :term:`scope` ``/mycomponent`` with a protocol buffer message
+  argument. The protocol buffer message is of type
+  ``rst.robot.RobotCollision`` with ``kind`` enum field set to
+  ``SELF`` and an embedded ``rst.kinematics.ObjectCollision`` message
+  with two contact points in the ``collision_detail`` field.
+
+  The specification of the message content uses the syntax
+  produced/consumed by the various TextFormat classes of the protocol
+  buffer API and the ``--decode``/``--encode`` options of the
+  :program:`protoc` binary.
+
+  .. note::
+
+     Note how the definition of the protocol buffer message type is
+     loaded using :option:`--idl-path` and :option:`--load-idl`
+     commandline options.
 
 Implementations
 ===============
