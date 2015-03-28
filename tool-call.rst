@@ -82,7 +82,7 @@ Examples
      $ # returns once the method call completes
 
   In the above example, the :program:`call` tool is used to invoke the
-  ``status`` and ``terminate`` methods of the remote server at
+  ``status`` and ``terminate`` methods of the :term:`remote server` at
   :term:`scope` ``/mycomponent/control`` without an argument.
 
 * .. code-block:: sh
