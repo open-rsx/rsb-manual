@@ -69,6 +69,10 @@ Changes
 
        rsb-toolscl0.12 logger --style monitor socket:
 
+  * The :ref:`tool-send` and :ref:`tool-call` tools now accept
+    :term:`payloads <payload>` specified using the `Google protocol
+    buffers`_ debug text format.
+
   * A new experimental :ref:`tool-web` tool which serves information
     about an |project| system via HTTP has been added.
 
