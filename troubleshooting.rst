@@ -28,6 +28,11 @@ Solution
   not a problem. However, to save yourself and us time and effort, we
   ask you to keep the following things in mind when reporting bugs.
 
+  Check whether the problem is known: go to `new issue`_ and try to
+  find a description of the problem in the "Issues" list. If there is
+  none, create a new issue (see below), otherwise edit and extend the
+  existing issue as necessary.
+
   Include the following information in your bug report:
 
     Platform
