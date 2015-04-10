@@ -50,6 +50,27 @@ The scope ``/__rsb/`` and its :term:`subscopes <subscope>` are
 reserved for implementation purposes and should not be used for
 user-level communication.
 
+.. _specification-scope-deriving:
+
+Deriving Scopes from Strings
+============================
+
+When designing communication patterns based on |project|, it is
+sometimes necessary to derive components of :term:`scopes <scope>`
+from arbitrary strings. This section defines a procedure that should
+be used when such a derivation is needed:
+
+#. Replace any character of the input string that is not one of the
+   allowed :term:`scope` component characters (i.e. ``[-_a-zA-Z0-9]``)
+   with the ``_`` character.
+#. The resulting string can be used as a component in a :term:`scope`.
+
+.. note::
+
+   Of course, this procedure does not necessarily produce distinct
+   :term:`scope` components from distinct strings. This possibility of
+   clashes has to be taken into account.
+
 Implementations
 ===============
 
