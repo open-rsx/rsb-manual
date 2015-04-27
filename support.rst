@@ -32,7 +32,7 @@ IRC
    Open Lab
 
      If you are at Bielefeld University, you can meet us during "Open
-     Lab" events each Monday from 12:00 to 14:00 in 0.?.
+     Lab" events each Monday from 12:00 to 14:00 in 0.? (CLF).
 
 Reporting Bugs
 ==============
