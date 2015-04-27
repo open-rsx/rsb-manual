@@ -30,7 +30,7 @@ Getting Source Code: Cloning a Repository
 For a simple repository:
 
 .. code-block:: sh
-	
+
    git clone https://code.cor-lab.org/git/rsc.git rsc
 
 For a repository containing submodules:
@@ -73,13 +73,13 @@ General Tasks with GIT
 ----------------------
 
 * Getting the latest changes from the server
-   
+
   .. code-block:: sh
-       
+
      git pull --rebase
-     
+
   .. note::
-  
+
      By using ``--rebase`` local commits (not yet pushed to the remote server) are applied
      again after fetching all revisions from the remote repository. Otherwise and intermediate
      branch would be created and merged back directly.
@@ -87,12 +87,12 @@ General Tasks with GIT
 * Commiting changes
 
   .. code-block:: sh
-     
+
      git add {files to commit}
      git commit
-     
+
   .. warning::
-     
+
      Committing in GIT is not comparable to committing in SVN. Eventhough your commit has
      created a new revision, this revision is only available in your local clone of the
      repository. You still need to push it back to the server. So do not forget the next
