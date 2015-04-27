@@ -14,7 +14,10 @@ Changes
   * A "display name" field has been added to the :term:`introspection`
     protocol and a corresponding :ref:`configuration option
     <specification-config>` ``introspection.displayname`` has been
-    added.
+    added. Users can specify this configuration property for individual
+    processes (e.g. via environment variables) to provide a custom name
+    for the process, which is then e.g. shown by the :ref:`introspection
+    tool <tool-introspect>`.
 
 * All languages
 
