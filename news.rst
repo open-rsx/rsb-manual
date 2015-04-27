@@ -21,17 +21,18 @@ Changes
 
 * All languages
 
-  * `spread`_ connections are now shared for informers, which reduces the
-    number of open connections to the `spread`_ daemon.
+  * `spread`_ connections are now shared between :term:`informers
+    <informer>`, which reduces the number of open connections to the
+    :term:`spread daemon`.
 
 * C++
 
   * The implementation now uses `Boost.Signals2
     <http://www.boost.org/doc/libs/1_57_0/doc/html/signals2.html>`_
     instead of the deprecated version 1. This changes the external API
-    for participant hooks, which is rarely used externally. In case you
-    have used these hooks, you need to migrate to the new signals
-    namespaces and type names.
+    for :term:`participant` hooks, which is rarely used externally. In
+    case you have used these hooks, you need to migrate to the new
+    signals namespaces and type names.
 
   * ``LocalServer::Callback`` implementations to reuse existing functions or
     methods have been added.
