@@ -13,6 +13,7 @@
    tool-send
    tool-call
    tool-timesync
+   tool-web
 
 .. seealso::
 
@@ -45,3 +46,10 @@ The following tools are available:
 
   Synchronization of :term:`events <event>` on different :term:`scopes
   <scope>` based on timestamps.
+
+* :ref:`web <tool-web>`
+
+  Web-based interface to information about a running |project| system
+  such as :term:`introspection`. Also provides multiple
+  :ref:`HTTP-endpoints <tool-web-endpoints>` for retrieving the
+  information programatically.
