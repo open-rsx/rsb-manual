@@ -69,6 +69,13 @@ Changes
 
        rsb-toolscl0.12 logger --style monitor socket:
 
+  * A new experimental :ref:`tool-web` tool which serves information
+    about an |project| system via HTTP has been added.
+
+    .. warning::
+
+       Experimental - use with care.
+
 |project| 0.11
 ==============
 
