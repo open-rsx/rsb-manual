@@ -113,7 +113,7 @@ Examples
 
   In the above example, the :program:`introspect` command is used to
   :term:`introspect <introspection>` all :term:`participants
-  <participant>` that can be connected via the currently configured
+  <participant>` that can be contacted the currently configured
   :term:`transports <transport>`.
 
   For example, the output could look like this::
