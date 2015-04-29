@@ -31,6 +31,7 @@ systems in diverse environments.
    examples
    tools
    specification
+   support
 
 .. toctree::
    :hidden:
