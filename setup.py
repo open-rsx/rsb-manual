@@ -30,7 +30,7 @@ setup(
     description=u' '.join(
         __import__('corlab_theme').__doc__.splitlines()).strip(),
     classifiers=[
-        'License :: OSI Approved :: GNU Lesser General Public License v3 or later',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
