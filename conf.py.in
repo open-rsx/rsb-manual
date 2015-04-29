@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys, os
+import corlab_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -193,8 +194,8 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output ---------------------------------------------------
 
-html_theme      = 'corlab'
-html_theme_path = [ '@CMAKE_SOURCE_DIR@' ]
+html_theme      = 'corlab_theme'
+html_theme_path = [ corlab_theme.get_theme_dir() ]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
