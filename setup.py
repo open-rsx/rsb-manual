@@ -27,8 +27,7 @@ setup(
     include_package_data=True,
     url='https://code.cor-lab.org/projects/sphinx-corlab-theme',
     license='LGPLv3+',
-    description=u' '.join(
-        __import__('corlab_theme').__doc__.splitlines()).strip(),
+    description='Theme for documentation projects related to CoR-Lab software',
     classifiers=[
         'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
         'Programming Language :: Python',
