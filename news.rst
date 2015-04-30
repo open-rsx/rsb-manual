@@ -4,6 +4,19 @@
  News
 ======
 
+|project| 0.13
+==============
+
+Changes
+
+* Java
+
+  * The filter API has been refactored to match the API of the other
+    language implementations. While `AbstractFilter` still provides the
+    old API for client code, it has been deprecated in favor of directly
+    implementing the much simplified `Filter` interface and client code
+    should be updated.
+
 |project| 0.12
 ==============
 
