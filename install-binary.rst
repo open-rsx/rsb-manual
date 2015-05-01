@@ -317,7 +317,7 @@ Binary Downloads of Tools
 
    .. code-block:: sh
 
-      $ chmod +x tools
+      $ chmod +x rsb
 
    in the download directory.
 

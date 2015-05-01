@@ -15,7 +15,7 @@ Synopsis
 Description
 ===========
 
-The |logger| participates in the :term:`channels <channel>` designated
+The logger participates in the :term:`channels <channel>` designated
 by :samp:`{URI}`s (see :ref:`uri-schema`) using one or more
 :term:`transports <transport>` and displays all :term:`events <event>`
 published on the :term:`channels <channel>` using a configurable
