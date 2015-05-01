@@ -200,8 +200,9 @@ Examples
   .. note::
 
      Note how the definition of the protocol buffer message type is
-     loaded using :option:`--idl-path` and :option:`--load-idl`
-     commandline options.
+     loaded using :option:`-I (--idl-path) <common --idl-path>` and
+     :option:`-l (--load-idl) <common --load-idl>` commandline
+     options.
 
 Implementations
 ===============
