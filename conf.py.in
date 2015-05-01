@@ -145,7 +145,7 @@ rst_prolog = """
            redmine_base_url            = redmine_base_url,
            redmine_project             = redmine_project,
 
-           debian_versions             = 'precise, quantal',
+           debian_versions             = 'precise, trusty',
            debian_package_names        = ('librsb{version} cl-rsb rsb-tools-cpp{version} rsb-tools-cl{version}'
                                           .format(version = version)),
            debian_package_names_spread = ('spread librsbspread{version}'
