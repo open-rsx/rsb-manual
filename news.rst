@@ -12,22 +12,26 @@ Changes
 * Java
 
   * The filter API has been refactored to match the API of the other
-    language implementations. While `AbstractFilter` still provides the
-    old API for client code, it has been deprecated in favor of directly
-    implementing the much simplified `Filter` interface and client code
-    should be updated.
-  * `InterruptedExceptions` are now handled correctly (ie. not swallowed) and
-    properly exposed to method callers, who are the ones who need to handle
-    them. This changes the API slightly.
-  * `RemoteServer` exposes the standard `java.util.concurrent.Future` interface
-    instead of a custom implementation class. This ensures compatibility with
-    standard interfaces, prevents accidental exception hiding (as happened with
-    `InterruptedException`) and prevents clients from illegally completing a
-    `Future` instance. As a consequence, the `get` method with just a long
-    value as a timeout in milliseconds is not available anymore, because it is
-    not contained in the default `Future` interface. However, always having an
-    explicit `TimeUnit` makes things much clearer. This change breaks the API
-    and client code needs to be updated.
+    language implementations. While ``AbstractFilter`` still provides
+    the old API for client code, it has been deprecated in favor of
+    directly implementing the much simplified ``Filter``
+    interface. Client code has to be updated.
+
+  * ``InterruptedException``\ s are now handled correctly (i.e. not
+    swallowed) and properly exposed to callers, who are the ones who
+    need to handle them. This changes the API slightly.
+
+  * ``RemoteServer`` exposes the standard
+    ``java.util.concurrent.Future`` interface instead of a custom
+    implementation class. This ensures compatibility with standard
+    interfaces, prevents accidental exception hiding (as happened with
+    ``InterruptedException``) and prevents clients from illegally
+    completing a ``Future`` instance. As a consequence, the ``get``
+    method with just a ``long`` value as a timeout in milliseconds is
+    not available anymore (that signature is not part of the standard
+    ``Future`` interface). Always supplying an explicit ``TimeUnit``
+    makes things much clearer, anyway. This changes the API in an
+    incompatible way and client code needs to be updated.
 
 |project| 0.12
 ==============
