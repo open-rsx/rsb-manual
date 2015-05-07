@@ -67,7 +67,7 @@ Changes
     methods have been added.
 
   * Several methods and types that have long been deprecated have been
-    removed, including the method :cpp:method:`Factory::getInstance`.
+    removed, including the method :cpp:func:`Factory::getInstance`.
 
 * Java
 
