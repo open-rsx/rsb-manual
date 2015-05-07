@@ -36,6 +36,21 @@ Changes
 |project| 0.12
 ==============
 
+This |project| release is available in the following forms:
+
+* Source archives
+* Pre-compiled self-installing archives or executable binaries
+* Debian packages for different |ubuntu| versions (currently C++ and
+  Common Lisp implementations only)
+* Pypi packages for the |python| implementation
+* Maven package for the Java implementation
+
+These can be downloaded from the `0.12 jobs continuous integration
+server <https://ci.cor-lab.org/view/rsx-0.12>`_ or `repository
+server`_ respectively.  :ref:`Installation instructions <install>` and
+links for downloading can be found in the |project| :ref:`manual
+<rsb>`.
+
 Changes
 
 * Specification
