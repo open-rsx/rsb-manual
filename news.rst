@@ -33,6 +33,12 @@ Changes
     makes things much clearer, anyway. This changes the API in an
     incompatible way and client code needs to be updated.
 
+  * ``InvalidStateException`` has been removed and replaced with
+    ``IllegalStateException``. The documented behavior was to throw
+    ``IllegalStateException`` anyway in ``Activatable``. Please updated your
+    exception handlers in case you previously handled
+    ``InvalidStateException``.
+
 |project| 0.12
 ==============
 
