@@ -196,7 +196,7 @@ Examples
 
   .. note::
 
-     The :option:`--idl-path` option for import resolution and
+     The :option:`common --idl-path` option for import resolution and
      wildcards are used to load all definitions at once.
 
      Loading all definitions takes a few seconds.
