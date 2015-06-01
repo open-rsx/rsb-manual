@@ -127,17 +127,18 @@ repository server and can be installed with :program:`pip` or
 
    .. parsed-literal::
 
-      $ easy_install "rsb-python<=|version|.99999"
+      $ easy_install "rsb-python<=\ :samp:`{VERSION}`\ .99999"
 
    .. parsed-literal::
 
-      $ pip install "rsb-python<=|version|.99999"
+      $ pip install "rsb-python<=\ :samp:`{VERSION}`\ .99999"
+
+   where :samp:`{VERSION}` needs to be replaced with |version|.
 
    .. note::
 
-      These commands will currently install rsb-python in version 0.7 as
-      this is at the time of writing the stable version. This will be
-      changed once the backport of this rst file was done.
+      Development versions of |project| are not deployed on PyPI. These
+      commands will revert to the latest stable version.
 
 #. If you plan to use the :term:`Spread` :term:`transport`, you need
    to additionally install the Python :term:`Spread` module which is
