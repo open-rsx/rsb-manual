@@ -39,6 +39,11 @@ Changes
     your exception handlers in case you previously handled
     ``InvalidStateException``.
 
+* Common Lisp
+
+  * The ``rsb.patterns`` package now provides a protocol for creating
+    and managing child :term:`participants <participant>` in composite
+    :term:`participants <participant>`.
 
 * Common Lisp Tools
 
