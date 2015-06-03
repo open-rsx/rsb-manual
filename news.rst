@@ -39,6 +39,12 @@ Changes
     your exception handlers in case you previously handled
     ``InvalidStateException``.
 
+
+* Common Lisp Tools
+
+  * Symbolic-link-based invocation and selection of sub-commands is no
+    longer supported.
+
 |project| 0.12
 ==============
 
@@ -111,7 +117,7 @@ Changes
 
 * Common Lisp Tools
 
-  * All tools now use sub-command-based commandline syntax like
+  * All tools now use a sub-command-based commandline syntax like
     :program:`git`, :program:`svn` and other modern commandline
     tools. The previous symbolic-link-based invocation will continue
     to work for a transition period. Example of the new syntax:
