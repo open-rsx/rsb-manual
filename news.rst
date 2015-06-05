@@ -39,6 +39,12 @@ Changes
     your exception handlers in case you previously handled
     ``InvalidStateException``.
 
+  * The RPC ``Callback`` API has been changed to only allow throwing
+    ``Exception`` instances and not every ``Throwable``. This ensures
+    that important things like out of memory errors are not caught
+    uncontrollably by the framework. You probably only have to change
+    the callback ``invoke`` method declarations to ``throws Exception``.
+
 * Common Lisp
 
   * The ``rsb.patterns`` package now provides a protocol for creating
