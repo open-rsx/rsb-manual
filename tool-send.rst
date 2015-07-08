@@ -31,6 +31,9 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
 
 * As float number when consisting of digits with decimal point
 
+* If :samp:`{EVENT-SPEC}` starts with ``/``, it is parsed as a
+  :term:`scope`.
+
 * If :samp:`{EVENT-SPEC}` is the single character ``-``or the string
   ``-:binary``, the entire "contents" of standard input (until end of
   file) is read as a string or octet-vector respectively and sent.

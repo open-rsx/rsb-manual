@@ -56,6 +56,10 @@ Changes
   * Symbolic-link-based invocation and selection of sub-commands is no
     longer supported.
 
+  * :term:`Scope` :term:`payloads <payload>` are now printed properly
+    as well as accepted by the :ref:`call <tool-call>` and :ref:`send
+    <tool-send>` :ref:`tools <tools>`.
+
 |project| 0.12
 ==============
 

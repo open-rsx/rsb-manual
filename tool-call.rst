@@ -41,6 +41,9 @@ server and the :term:`transport` that should be used.
 
 * As float number when consisting of digits with decimal point
 
+* If :samp:`{ARGUMENT}` starts with ``/``, it is parsed as a
+  :term:`scope`.
+
 * If :samp:`{ARGUMENT}` is the single character ``-`` or the string
   ``-:binary``, the entire "contents" of standard input (until end of
   file) is read as a string or octet-vector respectively and used as
