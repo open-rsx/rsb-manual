@@ -9,6 +9,26 @@
 
 Changes
 
+* All languages
+
+  * The APIs of the different language implementations have been
+    unified. Please refer to the different language-specific sections
+    and `issue 2222 <https://code.cor-lab.org/issues/2222>`_ for details.
+
+* C++
+
+  * The API has been adapted to match other implementations:
+
+    * ``Event::{get,set}EventId`` has been renamed to ``{get,set}Id``.
+      The previously existing and long time deprecated method ``getId``
+      has been removed during this process.
+
+    * ``Event::getSequenceNumber`` has been deprecated in favor of the
+      respective method on an ``EventId`` instance.
+
+    * ``MetaData::{get,set}SenderId`` have been deprecated in favor of
+      using the ``getParticipantId`` method on an ``EventId`` instance.
+
 * Java
 
   * The filter API has been refactored to match the API of the other
@@ -44,6 +64,10 @@ Changes
     that important things like out of memory errors are not caught
     uncontrollably by the framework. You probably only have to change
     the callback ``invoke`` method declarations to ``throws Exception``.
+
+  * The ``Informer#send`` methods have been renamed to ``publish`` to
+    match other implementations. The old names still exist for some time
+    with a deprecation warning before they will be removed.
 
 * Common Lisp
 
