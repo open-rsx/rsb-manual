@@ -132,6 +132,9 @@ Changes
   * An :term:`event` formatting style that outputs JSON data has been
     added.
 
+  * A :ref:`bridge tool <tool-bridge>` for forwarding of :term:`events
+    <event>` between |project| buses has been implemented.
+
 |project| 0.12
 ==============
 
