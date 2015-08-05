@@ -91,19 +91,17 @@ Installation
    projects. Instead a file called :file:`setup.cfg` in the project
    root is used.
 
-   Replace ``protocolroot`` in section ``[proto]`` with the path to
-   the |project| protocol files
+   Add or replace ``protocolroot`` in section ``[proto]`` with the path
+   to the |project| protocol files
    (e.g. :samp:`protocolroot={PREFIX}/share/rsbprotocol`). An
    exemplary :file:`setup.cfg` file could look like this:
 
    .. code-block:: ini
 
+      ... existing content here ...
+
       [proto]
       protocolroot=/your/prefix/share/rsbprotocol
-      [test]
-      spread=/your/prefix/sbin/spread
-      [coverage]
-      spread=/your/prefix/sbin/spread
 
    .. note::
 
@@ -124,11 +122,6 @@ Installation
 
         Bool flag to control verbose output of the generation tool
         :program:`epydoc`.
-
-      ``spread`` in sections ``[coverage]`` and ``[test]``
-
-        Path to the :term:`Spread daemon` used for coverage generation
-        and unit testing. :envvar:`PATH` is used if not specified.
 
 #. Start building and installation
 
