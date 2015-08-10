@@ -13,6 +13,7 @@
    tool-send
    tool-call
    tool-timesync
+   tool-bridge
    tool-web
    common-command-line-options
 
@@ -47,6 +48,11 @@ The following tools are available:
 
   Synchronization of :term:`events <event>` on different :term:`scopes
   <scope>` based on timestamps.
+
+* :ref:`bridge <tool-bridge>`
+
+  Forwarding of :term:`events <event>` from one |project| bus to
+  another.
 
 * :ref:`web <tool-web>`
 
