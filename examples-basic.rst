@@ -423,7 +423,7 @@ called in blocking and non-blocking way:
    .. container:: rpc-client-python
 
       A :py:class:`rsb.patterns.RemoteServer` object is created by
-      calling :py:meth:`rsb.Factory.createRemoteServer` with the
+      calling :py:meth:`rsb.createRemoteServer` with the
       :term:`scope` on which the service is provided (line 12). Remote
       methods can then be called on the
       :py:class:`rsb.patterns.RemoteServer` object as if they were
@@ -549,7 +549,7 @@ callback function which implements the desired behavior of the method.
    .. container:: rpc-server-python
 
       A :py:class:`rsb.patterns.LocalServer` object is created by
-      calling :py:meth:`rsb.Factory.createLocalServer` with the
+      calling :py:meth:`rsb.createLocalServer` with the
       :term:`scope` on which the service is provided (line
       12). Methods with their request and reply :term:`data types
       <data type>` and the :py:func:`callable` s implementing their

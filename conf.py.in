@@ -18,6 +18,10 @@ import corlab_theme
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [ 'sphinx.ext.intersphinx',
+               'sphinx.ext.autodoc',
+               'sphinx.ext.autosummary',
+               'sphinx.ext.napoleon',
+               'sphinx.ext.todo',
                'sphinx.ext.graphviz' ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -161,7 +165,7 @@ exclude_patterns = [ '@CMAKE_SOURCE_DIR@/build' ]
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-#show_authors = False
+show_authors = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -238,6 +242,11 @@ html_domain_indices = False
 # Output file base name for HTML help builder.
 htmlhelp_basename = '@CMAKE_PROJECT_NAME@'
 
+html_context = {
+    'cpp_api_dir': '@CPP_API_DIR@',
+    'java_api_dir': '@JAVA_API_DIR@',
+}
+
 
 # -- Options for LaTeX output --------------------------------------------------
 
@@ -294,3 +303,13 @@ man_pages = [
 intersphinx_mapping = {
     'python': ('http://docs.python.org/', None)
 }
+
+# API documentation settings
+autodoc_default_flags = ['members', 'undoc-members', 'inherited-members',
+                         'show-inheritance']
+napoleon_google_docstring = True
+napoleon_numpy_docstring = False
+napoleon_include_special_with_doc = False
+autosummary_generate = True
+autodoc_member_order = 'groupwise'
+autoclass_content = 'both'

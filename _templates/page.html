@@ -99,6 +99,20 @@
           </p>
         </td>
       </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="{{ '_static/api.svg' }}" alt="">
+          </p>
+          <p class="biglink">
+            <a href="{{ pathto('api') }}">API</a>
+            <br/>
+            <span class="linkdescr">References for the programming interface of the language implementations</span>
+          </p>
+        </td>
+        <td width="50%">
+        </td>
+      </tr>
     </table>
 
     <p><strong>{{ _('Indices and tables:') }}</strong></p>
@@ -148,6 +162,47 @@
         project.
       </p>
     </div>
+
+  {% elif pagename == 'api' %}
+
+    <table class="contentstable" align="center">
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="{{ '_static/python.svg' }}" alt="">
+          </p>
+          <p class="biglink">
+            <a href="{{ pathto('api-python') }}">Python</a>
+            <br/>
+            <span class="linkdescr">API of the Python implementation</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon">
+            <img src="{{ '_static/cpp.svg' }}" alt="">
+          </p>
+          <p class="biglink">
+            <a href="{{cpp_api_dir}}">C++</a>
+            <br/>
+            <span class="linkdescr">API of the C++ implementation</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="{{ '_static/java.svg' }}" alt="">
+          </p>
+          <p class="biglink">
+            <a href="{{java_api_dir}}">Java</a>
+            <br/>
+            <span class="linkdescr">API of the Java implementation</span>
+          </p>
+        </td>
+        <td width="50%">
+        </td>
+      </tr>
+    </table>
 
   {% endif %}
 
