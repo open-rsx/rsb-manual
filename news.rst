@@ -29,6 +29,10 @@ Changes
     * ``MetaData::{get,set}SenderId`` have been deprecated in favor of
       using the ``getParticipantId`` method on an ``EventId`` instance.
 
+* Python
+
+  * The API documentation is now included in this manual.
+
 * Java
 
   * The filter API has been refactored to match the API of the other
