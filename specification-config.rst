@@ -127,10 +127,13 @@ options from sources which are processed earlier:
    #. Merge with :ref:`options supplied via URI
       <specification-config-uri-options>` ("Merge 7")
 
+..
+   .. digraph:: configuration_processing
+      :caption: Computation of effective transport configuration. In
+                merges, solid arrows indicate precedence over dashed
+                arrows.
+
 .. digraph:: configuration_processing
-   :caption: Computation of effective transport configuration. In
-             merges, solid arrows indicate precedence over dashed
-             arrows.
 
    fontname=Arial
    fontsize=11
