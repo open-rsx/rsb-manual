@@ -241,13 +241,14 @@ it. These files have to be placed on the Java classpath. Afterwards,
 the Java implementation of |project| should be usable in any Java
 program.
 
+.. _install-binary-java-maven:
+
 Maven Artifacts from the CITEC Repository
 -----------------------------------------
 
 |project| java is also deployed to the CITEC `Maven`_ repository at
-https://repo.cit-ec.uni-bielefeld.de/index.html. In order to use the
-version deployed there, include the following fragments in the
-:file:`pom.xml` of your project.
+https://mvn.cit-ec.de/. In order to use the version deployed there,
+include the following fragments in the :file:`pom.xml` of your project.
 
 #. In the dependencies section:
 
@@ -269,7 +270,7 @@ version deployed there, include the following fragments in the
           <repository>
               <id>citec-releases</id>
               <name>CITEC Maven Repository Server</name>
-              <url>https://repo.cit-ec.uni-bielefeld.de/content/repositories/public-releases/</url>
+              <url>https://mvn.cit-ec.de/nexus/content/repositories/releases/</url>
               <layout>default</layout>
               <releases>
                   <enabled>true</enabled>
@@ -278,7 +279,7 @@ version deployed there, include the following fragments in the
           <repository>
               <id>citec-snapshots</id>
               <name>CITEC Maven Repository Server</name>
-              <url>https://repo.cit-ec.uni-bielefeld.de/content/repositories/public-snapshots/</url>
+              <url>https://mvn.cit-ec.de/nexus/content/repositories/snapshots/</url>
               <layout>default</layout>
               <snapshots>
                   <enabled>true</enabled>
