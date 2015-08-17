@@ -35,6 +35,11 @@ Changes
 
 * Java
 
+  * The `Maven`_ repository server |project| java is deployed to has
+    moved. You need to update your downstream projects accordingly to
+    receive new versions of this project. Instructions can be found at
+    :ref:`the installation instructions <install-binary-java-maven>`.
+
   * The filter API has been refactored to match the API of the other
     language implementations. While ``AbstractFilter`` still provides
     the old API for client code, it has been deprecated in favor of

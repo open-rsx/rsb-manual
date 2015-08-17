@@ -249,17 +249,19 @@ it. These files have to be placed on the Java classpath. Afterwards,
 the Java implementation of |project| should be usable in any Java
 program.
 
+.. _install-binary-java-maven:
+
 Maven Artifacts from the CITEC Repository
 -----------------------------------------
 
 |project| java is also deployed to the CITEC `Maven`_ repository at
-https://repo.cit-ec.uni-bielefeld.de/index.html. In order to use the
-version deployed there, include the following fragments in the
-:file:`pom.xml` of your project.
+https://mvn.cit-ec.de/. In order to use the version deployed there,
+include the following fragments in the :file:`pom.xml` of your project.
 
 ..
    edit-on-version-bump:
-   Change version of dependency to something like [0.7,0.8-SNAPSHOT)
+   Change version of dependency to something like [0.7,0.8-SNAPSHOT) and
+   update to new master version
 
 #. In the dependencies section:
 
@@ -269,7 +271,7 @@ version deployed there, include the following fragments in the
           <dependency>
               <groupId>rsb</groupId>
               <artifactId>rsb</artifactId>
-              <version>0.12-SNAPSHOT</version>
+              <version>0.13-SNAPSHOT</version>
           </dependency>
       </dependencies>
 
@@ -281,7 +283,7 @@ version deployed there, include the following fragments in the
           <repository>
               <id>citec-releases</id>
               <name>CITEC Maven Repository Server</name>
-              <url>https://repo.cit-ec.uni-bielefeld.de/content/repositories/public-releases/</url>
+              <url>https://mvn.cit-ec.de/nexus/content/repositories/releases/</url>
               <layout>default</layout>
               <releases>
                   <enabled>true</enabled>
@@ -290,7 +292,7 @@ version deployed there, include the following fragments in the
           <repository>
               <id>citec-snapshots</id>
               <name>CITEC Maven Repository Server</name>
-              <url>https://repo.cit-ec.uni-bielefeld.de/content/repositories/public-snapshots/</url>
+              <url>https://mvn.cit-ec.de/nexus/content/repositories/snapshots/</url>
               <layout>default</layout>
               <snapshots>
                   <enabled>true</enabled>
