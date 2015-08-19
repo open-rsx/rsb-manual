@@ -26,7 +26,8 @@ sub-:term:`channel` of the :term:`channels <channel>` designated by::
 ``/`` is sometimes called "root-scope".
 
 Generally, a scope string is valid if it matches the regular
-expression :regexp:`/([-_a-zA-Z0-9]+/)*`.
+expression :regexp:`/([-_a-zA-Z0-9]+/)*`, i.e. scopes are
+case-sensitive.
 
 .. note::
 
@@ -35,11 +36,6 @@ expression :regexp:`/([-_a-zA-Z0-9]+/)*`.
    strings are used as keys in associative arrays or in network
    protocols, scope strings have to be normalized such that they
    contain the terminating ``/``.
-
-.. important::
-
-   Scope strings are currently case-sensitive, but this may change in
-   future releases. We recommend using all-lowercase scope strings.
 
 .. _specification-scope-reserved:
 
