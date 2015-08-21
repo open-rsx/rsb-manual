@@ -241,7 +241,7 @@ Pre-compiled JAR Download
 
 Archives containing pre-built JAR-files of the Java implementation and
 required dependencies can be `downloaded
-<https://ci.cor-lab.org/job/rsb-java-trunk/label=ubuntu_trusty_64bit/lastSuccessfulBuild/artifact/rsb-java-protobuf2.5.0.zip>`_
+<https://ci.cor-lab.org/view/rsx-trunk/job/rsb-java-trunk/label=ubuntu_trusty_64bit/lastSuccessfulBuild/artifact/.archive/rsb-java.zip>`_
 from the continuous integration server.
 
 After downloading the archive, several JAR-files can be extracted from
