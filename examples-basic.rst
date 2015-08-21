@@ -106,14 +106,14 @@ data then has to be passed to it.
       Once the :term:`informer` has been created and activated, data
       is published by calling ``rsb.Informer.send``.
 
-      .. literalinclude:: /../rsb-java/examples/InformerExample.java
+      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/InformerExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 12-13,16,20,24
          :linenos:
 
-      :download:`Download this example </../rsb-java/examples/InformerExample.java>`
+      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/InformerExample.java>`
 
    .. container:: sending-data-cl
 
@@ -324,14 +324,14 @@ each received :term:`event`, a user-supplied callback function (a
       implementing the ``rsb.Handler`` interface can be used as
       :term:`handlers <handler>`.
 
-      .. literalinclude:: /../rsb-java/examples/EventListenerExample.java
+      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/EventListenerExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
          :emphasize-lines: 15,20-21,26,34
 
-      :download:`Download this example </../rsb-java/examples/EventListenerExample.java>`
+      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/EventListenerExample.java>`
 
    .. container:: receive-data-async-cl
 
@@ -482,14 +482,14 @@ called in blocking and non-blocking way:
       (see line 18) and the ``rsb.patterns.RemoteServer.callAsync``
       method (see lines 20 and 21).
 
-      .. literalinclude:: /../rsb-java/examples/ClientExample.java
+      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ClientExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 10,18,20-21
          :linenos:
 
-      :download:`Download this example </../rsb-java/examples/ClientExample.java>`
+      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ClientExample.java>`
 
    .. container:: rpc-client-cl
 
@@ -610,14 +610,14 @@ callback function which implements the desired behavior of the method.
       overriding the ``rsb.patterns.EventCallback.invoke`` method (see
       lines 8 to 15).
 
-      .. literalinclude:: /../rsb-java/examples/ServerExample.java
+      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ServerExample.java
          :language:    java
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :emphasize-lines: 20-21,25,8-15
          :linenos:
 
-      :download:`Download this example </../rsb-java/examples/ServerExample.java>`
+      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ServerExample.java>`
 
    .. container:: rpc-server-cl
 

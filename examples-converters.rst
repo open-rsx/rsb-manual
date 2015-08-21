@@ -109,14 +109,14 @@ obtained. The following example demonstrates this.
       ``rsb.converter.DefaultConverterRepository.getDefaultConverterRepository``
       (line 18).
 
-      .. literalinclude:: /../rsb-java/examples/tutorial/protobuf/RegistrationExample.java
+      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/protobuf/RegistrationExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 14-15,18-19
          :linenos:
 
-      :download:`Download this example </../rsb-java/examples/tutorial/protobuf/RegistrationExample.java>`
+      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/protobuf/RegistrationExample.java>`
 
    .. container:: converter-registration-cl
 

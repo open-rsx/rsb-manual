@@ -70,11 +70,11 @@ be used when such a derivation is needed:
 Implementations
 ===============
 
-=========== =======================================================
+=========== ==============================================================
 Language    File(s)
-=========== =======================================================
+=========== ==============================================================
 C++         |repository_versioned_cpp| at ``src/rsb/Scope.{h,cpp}``
-Java        :download:`/../rsb-java/src/rsb/Scope.java`
+Java        :download:`/../rsb-java/rsb-java/src/main/java/rsb/Scope.java`
 Python      :download:`/../rsb-python/rsb/__init__.py`
 Common Lisp :download:`/../rsb-cl/src/scope.lisp`
-=========== =======================================================
+=========== ==============================================================
