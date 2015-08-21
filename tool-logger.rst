@@ -84,9 +84,6 @@ commandline options:
       the ``:columns`` argument and quantity columns used in the
       ``columns`` and ``statistics`` styles.
 
-   See :ref:`formatting` for a detailed discussion of :term:`event`
-   formatting options.
-
 .. option:: --max-queued-events POSITIVE-INTEGER
 
    Specify the maximum number of :term:`events <event>` that may be

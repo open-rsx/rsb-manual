@@ -405,8 +405,8 @@ Changes
   * :term:`Participants <participant>` now support the context manager
     protocol (``with`` statements)
 
-  * The :term:`Configuration` file at :samp:`{PREFIX}/etc/rsb.conf` is now
-    processed
+  * The :ref:`configuration <specification-config>` file at
+    :samp:`{PREFIX}/etc/rsb.conf` is now processed
 
 * Common Lisp
 

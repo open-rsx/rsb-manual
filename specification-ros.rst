@@ -64,7 +64,7 @@ Language    File(s)
 =========== ==================================================================
 C++         *not implemented yet*
 Java        *not implemented yet*
-Python      :download:`/../rsb-ros-python/rsbros/transport/tcpros/__init__.py`
+Python      *not implemented yet*
 Common Lisp |repository_versioned_ros_cl| src/transport/tcpros
 =========== ==================================================================
 

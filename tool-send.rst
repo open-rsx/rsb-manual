@@ -68,30 +68,18 @@ which the :term:`events <event>` should be sent and the
 :term:`transport` configuration which should be used for sending the
 :term:`event`.
 
-.. only:: html
+.. seealso::
 
-   .. seealso::
+   :ref:`uri-schema`
+      For details regarding the URI syntax of
+      :samp:`{DESTINATION-URI}` for specifying :term:`transport` and
+      :term:`scope`.
 
-      :ref:`uri-schema`
-        For details regarding the URI syntax of
-        :samp:`{DESTINATION-URI}` for specifying :term:`transport` and
-        :term:`scope`.
+   :ref:`common-options`
+      The usual commandline options are accepted.
 
-      :ref:`common-options`
-        The usual commandline options are accepted.
-
-      :ref:`idl-options`
-        The usual IDL-related options are accepted.
-
-.. only:: man
-
-   .. include:: common.rst
-      :start-line: 13
-      :end-line:   113
-
-   .. include:: common.rst
-      :start-line: 115
-      :end-line:   147
+   :ref:`idl-options`
+      The usual IDL-related options are accepted.
 
 .. option:: --method METHOD
 

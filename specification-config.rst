@@ -24,6 +24,7 @@ principles:
 
   * `Configuration files`_
   * `Environment variables`_
+
 ..  * `Commandline options`_
 
 * Configuration options are organized in a tree of `name-value pairs`_

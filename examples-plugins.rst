@@ -39,50 +39,50 @@
    .. container:: lang-python
 
       .. warning::
- 
-         This section is work in progress.
 
-      In the Python implementation of |project|, a :term:`plugin` is a
-      :ref:`module <python:modules>` defining functions
+         Not implemented yet
 
-      #. :py:func:`rsbPluginInit`
-      #. :py:func:`rsbPluginShutdown`
+      .. In the Python implementation of |project|, a :term:`plugin` is a
+         :ref:`module <python:modules>` defining functions
 
-      Any :ref:`module <python:modules>` can be made into an |project|
-      :term:`plugin` by adding these two functions. A a minimal
-      |project| :term:`plugin` looks like this:
+         #. :py:func:`rsbPluginInit`
+         #. :py:func:`rsbPluginShutdown`
 
-      .. literalinclude:: /../rsb-python/examples/plugin/__init__.py
-         :language:    python
-         :linenos:
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+         Any :ref:`module <python:modules>` can be made into an |project|
+         :term:`plugin` by adding these two functions. A a minimal
+         |project| :term:`plugin` looks like this:
+
+         .. literalinclude:: /../rsb-python/examples/plugin/__init__.py
+            :language:    python
+            :linenos:
+            :start-after: mark-start::body
+            :end-before:  mark-end::body
 
    .. container:: lang-java
 
       .. warning::
- 
-         This section is work in progress.
 
-      In the Java implementation of |project|, a :term:`plugin` is a TODO
+         Not implemented yet
 
-      .. literalinclude:: /../rsb-java/examples/plugin/Plugin.java
-         :language:    java
-         :linenos:
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+      ..  In the Java implementation of |project|, a :term:`plugin` is a TODO
+
+         .. literalinclude:: /../rsb-java/examples/plugin/Plugin.java
+            :language:    java
+            :linenos:
+            :start-after: mark-start::body
+            :end-before:  mark-end::body
 
    .. container:: lang-cl
 
       .. warning::
- 
-         This section is work in progress.
 
-      In the Common Lisp implementation of |project|, a :term:`plugin`
-      is a TODO
+         Not implemented yet
 
-      .. literalinclude:: /../rsb-cl/examples/plugin.lisp
-         :language:    cl
-         :linenos:
-         :start-after: mark-start::body
-         :end-before:  mark-end::body
+      .. In the Common Lisp implementation of |project|, a :term:`plugin`
+         is a TODO
+
+         .. literalinclude:: /../rsb-cl/examples/plugin.lisp
+            :language:    cl
+            :linenos:
+            :start-after: mark-start::body
+            :end-before:  mark-end::body

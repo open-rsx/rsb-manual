@@ -157,7 +157,7 @@ rst_prolog = """
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = [ '@CMAKE_SOURCE_DIR@/build' ]
+exclude_patterns = [ 'sphinx-corlab-theme' ]
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).

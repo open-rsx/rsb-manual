@@ -48,26 +48,14 @@ accepted. Specialized commandline options:
    degraded system performance or extreme communication latency may
    required larger values.
 
-.. only:: html
+.. seealso::
 
-   .. seealso::
+   :ref:`uri-schema`
+      For details regarding the URI syntax of :samp:`{URI}` for
+      specifying :term:`transport` and :term:`scope`.
 
-      :ref:`uri-schema`
-        For details regarding the URI syntax of :samp:`{URI}` for
-        specifying :term:`transport` and :term:`scope`.
-
-      :ref:`common-options`
-        The usual commandline options are accepted.
-
-.. only:: man
-
-   .. include:: common.rst
-      :start-line: 13
-      :end-line:   113
-
-   .. include:: common.rst
-      :start-line: 115
-      :end-line:   147
+   :ref:`common-options`
+      The usual commandline options are accepted.
 
 .. _tool-web-endpoints:
 

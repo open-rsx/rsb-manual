@@ -14,6 +14,7 @@
    tool-call
    tool-timesync
    tool-web
+   common-command-line-options
 
 .. seealso::
 

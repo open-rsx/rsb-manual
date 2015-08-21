@@ -83,26 +83,14 @@ The output contains descriptions of
   * Estimated clock offset (relative to local host)
   * Estimated communication latency (relative to local host)
 
-.. only:: html
+.. seealso::
 
-   .. seealso::
+   :ref:`uri-schema`
+      For details regarding the URI syntax of :samp:`{URI}` for
+      specifying :term:`transport` and :term:`scope`.
 
-      :ref:`uri-schema`
-        For details regarding the URI syntax of :samp:`{URI}` for
-        specifying :term:`transport` and :term:`scope`.
-
-      :ref:`common-options`
-        The usual commandline options are accepted.
-
-.. only:: man
-
-   .. include:: common.rst
-      :start-line: 13
-      :end-line:   113
-
-   .. include:: common.rst
-      :start-line: 115
-      :end-line:   147
+   :ref:`common-options`
+      The usual commandline options are accepted.
 
 Examples
 ========
