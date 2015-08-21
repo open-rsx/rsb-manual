@@ -4,9 +4,10 @@
 Installation from Source
 ========================
 
-.. note::
+.. seealso::
 
-   In case you are unfamiliar with the git version control system, have a look at our short :ref:`GIT primer <git-primer>`.
+   `git documentation <https://git-scm.com/doc>`_
+      In case you are unfamiliar with the git version control system.
 
 #. The whole source tree of |project| can be obtained from the
    repository located at |repository_versioned|. URLs of individual
