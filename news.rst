@@ -40,6 +40,16 @@ Changes
     receive new versions of this project. Instructions can be found at
     :ref:`the installation instructions <install-binary-java-maven>`.
 
+  * The `ant <apache ant>`_ build system of |project| java has been
+    dropped and the project has been converted to a proper `Maven`_
+    project using the standard file system layout conventions etc. `Ant
+    <apache ant>`_ users can still use the project by including the
+    `Maven`_-generated jar files. Also, the convenient zip archive
+    containing the |project| java jar as well as the required upstream
+    dependencies still exists. Please refer to the :ref:`installation
+    instructions <install>` for further information and updated URLs
+    resulting from this change.
+
   * The filter API has been refactored to match the API of the other
     language implementations. While ``AbstractFilter`` still provides
     the old API for client code, it has been deprecated in favor of
