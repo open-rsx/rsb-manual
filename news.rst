@@ -13,7 +13,14 @@ Changes
 
   * The APIs of the different language implementations have been
     unified. Please refer to the different language-specific sections
-    and `issue 2222 <https://code.cor-lab.org/issues/2222>`_ for details.
+    and `issue 2222 <https://code.cor-lab.org/issues/2222>`_ for
+    details.
+
+* Manual
+
+  * The API documentation links have been moved from the sidebar to a
+    new item on the :ref:`start page <rsb>` of the manual along with the
+    direct inclusion of the |python| API documentation in this manual.
 
 * C++
 
@@ -31,7 +38,8 @@ Changes
 
 * Python
 
-  * The API documentation is now included in this manual.
+  * The :ref:`API documentation <api-python>` is now included in this
+    manual.
 
 * Java
 
