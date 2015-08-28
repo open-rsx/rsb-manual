@@ -111,6 +111,11 @@ Changes
     as well as accepted by the :ref:`call <tool-call>` and :ref:`send
     <tool-send>` :ref:`tools <tools>`.
 
+  * The :ref:`logger <tool-logger>` and :ref:`introspect
+    <tool-introspect>` tools use a human-readable, compact format
+    similar to UNIX tools for numeric output like counts, sizes and
+    durations.
+
 |project| 0.12
 ==============
 
