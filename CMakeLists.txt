@@ -27,6 +27,9 @@ find_program(SPHINX_BUILD NAMES sphinx-build2 sphinx-build)
 set(SPHINX_OPTIONS ""
     CACHE STRING
     "Options to pass to the sphinx-build program.")
+set(SPHINX_EXTRA_PYTHONPATH ""
+    CACHE STRING
+    "Extra PYTHONPATH entries to set when running sphinx-build.")
 
 set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     CACHE STRING
@@ -96,8 +99,10 @@ foreach(KIND html latex man)
     add_custom_command(
         OUTPUT  "${OUTPUT}"
         DEPENDS "${CMAKE_BINARY_DIR}/conf.py"
-        COMMAND ${SPHINX_BUILD} ${SPHINX_OPTIONS} -b ${KIND} -c "${CMAKE_BINARY_DIR}"
-                ${CMAKE_SOURCE_DIR} "${CMAKE_BINARY_DIR}/${KIND}")
+        COMMAND "${CMAKE_COMMAND}" -E env
+                    PYTHONPATH="$ENV{PYTHONPATH}:${SPHINX_EXTRA_PYTHONPATH}"
+                    ${SPHINX_BUILD} ${SPHINX_OPTIONS} -b ${KIND} -c "${CMAKE_BINARY_DIR}"
+                    ${CMAKE_SOURCE_DIR} "${CMAKE_BINARY_DIR}/${KIND}")
     add_custom_target(build-${KIND} ${ALL} DEPENDS "${OUTPUT}")
 endforeach()
 
