@@ -92,15 +92,19 @@ foreach(KIND html latex man)
     if(KIND STREQUAL "html")
         set(ALL ALL)
     endif()
-    add_custom_target(${KIND} ${ALL}
-                      ${SPHINX_BUILD} ${SPHINX_OPTIONS} -b ${KIND} -c "${CMAKE_BINARY_DIR}"
-                                      ${CMAKE_SOURCE_DIR} "${CMAKE_BINARY_DIR}/${KIND}")
+    set(OUTPUT "${CMAKE_BINARY_DIR}/${KIND}")
+    add_custom_command(
+        OUTPUT  "${OUTPUT}"
+        DEPENDS "${CMAKE_BINARY_DIR}/conf.py"
+        COMMAND ${SPHINX_BUILD} ${SPHINX_OPTIONS} -b ${KIND} -c "${CMAKE_BINARY_DIR}"
+                ${CMAKE_SOURCE_DIR} "${CMAKE_BINARY_DIR}/${KIND}")
+    add_custom_target(build-${KIND} ${ALL} DEPENDS "${OUTPUT}")
 endforeach()
 
 add_custom_target(pdf
                   make all-pdf
                   WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/latex"
-                  DEPENDS           latex)
+                  DEPENDS           build-latex)
 
 install(DIRECTORY "${CMAKE_BINARY_DIR}/html"
         DESTINATION "share/doc/${CMAKE_PROJECT_NAME}${VERSION_SUFFIX}")
