@@ -116,6 +116,9 @@ Changes
     similar to UNIX tools for numeric output like counts, sizes and
     durations.
 
+  * An :term:`event` formatting style that outputs JSON data has been
+    added.
+
 |project| 0.12
 ==============
 
