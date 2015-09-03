@@ -46,8 +46,15 @@ accepted by the TCP-socket-based :term:`transport`::
   +-- socket
   +---- host        string          Name of host running server
   +---- port        uint            Port on which server listens
+  +---- portfile    string          Write automatically assigned port here
   +---- server      { 0, 1, auto }  Act as server?
   +---- tcpnodelay  boolean         Implementation detail
+
+.. note::
+
+   The ``portfile`` option is only supported by the Common Lisp
+   implementation as part of a special mode of operations which is
+   explained :ref:`below <specification-socket-auto-port>`.
 
 .. _specification-socket-addresses-and-ports:
 
@@ -69,6 +76,7 @@ mode. In that case the following actions are performed:
 
    * If this succeeds, act as server
    * If this fails, goto 2
+
 #. Try to connect to a socket bound to the configured address, port
    pair
 
@@ -85,6 +93,34 @@ mode. In that case the following actions are performed:
    over multiple computers but these cases require a detailed
    understanding of the above protocol and should generally be
    avoided.
+
+.. _specification-socket-auto-port:
+
+Automatic Selection of an Unused Server Port
+--------------------------------------------
+
+The combination of options ``port=0``, ``server=1`` causes the server
+to choose an unused port automatically. The purpose of the
+``portfile`` option is obtaining this automatically assigned port.
+
+The following values are supported
+
+``-``
+
+  Write the selected port to the standard output stream.
+
+``-2``
+
+  Write the selected port to the error output stream.
+
+any other string
+
+  Interpret the string as a filename and write the selected port to
+  that file. The file is overwritten, if it already exists.
+
+.. warning::
+
+   This feature is only supported in the Common Lisp implementation.
 
 Messages
 ========
