@@ -102,6 +102,13 @@ Changes
     and managing child :term:`participants <participant>` in composite
     :term:`participants <participant>`.
 
+  * When acting as server, the :ref:`socket <specification-socket>`
+    :term:`transport` can now :ref:`choose an unused port automatically
+    <specification-socket-auto-port>` if port number 0 is specified. The
+    obtained port can be written to output streams or a file::
+
+      socket://localhost:0?server=1&portfile=-
+
 * Common Lisp Tools
 
   * Symbolic-link-based invocation and selection of sub-commands is no
