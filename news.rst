@@ -123,6 +123,12 @@ Changes
     similar to UNIX tools for numeric output like counts, sizes and
     durations.
 
+  * The :term:`scope`\ -based monitor :term:`event` formatting style
+    of the :ref:`logger <tool-logger>` now arranges :term:`scopes
+    <scope>` in a tree of adjustable maximum depth by default,
+    allowing more compact display and therefore handling of larger
+    systems.
+
   * An :term:`event` formatting style that outputs JSON data has been
     added.
 
