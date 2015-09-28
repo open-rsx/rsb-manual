@@ -31,6 +31,10 @@ set(SPHINX_EXTRA_PYTHONPATH ""
     CACHE STRING
     "Extra PYTHONPATH entries to set when running sphinx-build.")
 
+set(RST_MANUAL_DIR "http://docs.cor-lab.de/rst-manual/trunk/html"
+    CACHE STRING
+    "The directory or URL containing RST's Sphinx documentation.")
+
 set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     CACHE STRING
     "The directory or URL corresponding to the root of all documentation.")

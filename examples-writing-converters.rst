@@ -4,6 +4,9 @@
  Writing Converters
 ====================
 
+Basic Concept
+=============
+
 .. warning::
 
    This example has been written with simplicity in mind and should
@@ -132,6 +135,117 @@ required:
         This second program serves the purpose of familiarizing you
         with the "missing-converter" error message, that you will
         encounter sooner or later ;)
+
+   .. container:: lang-java
+
+      TODO
+
+   .. container:: lang-cl
+
+      TODO
+
+Using Protocol Buffer Types in Converters for Custom Domain Types
+=================================================================
+
+Imagine you have a custom domain type (in this example called ``FooBar``) in your software, which you want to use with |project|.
+For being able to directly send and receive this type, you need a new :term:`converter`, which handles this type.
+Moreover, the generated data to be sent over the wire should be compatible with a data type defined using `google protocol buffers`_ (e.g. from the :ref:`RST library <rst:rst>`).
+For this example, we assume the protocol buffers type is called ``rst.foo.Bar``.
+To implement a converter matching these assumptions, adapt the following explanations according to your actual data types:
+
+.. container:: lang-multi
+
+   .. container:: lang-python
+
+      TODO
+
+   .. container:: lang-cpp
+
+      Create a header file called :file:`FooBarConverter.h` and fill it with the following contents:
+
+      .. code-block:: cpp
+
+         #include <rsb/converter/Converter.h>
+         #include <rsb/converter/ProtocolBufferConverter.h>
+
+         #include <rst/foo/Bar.pb.h>
+
+         class FooBarConverter: public rsb::converter::Converter<std::string> {
+         public:
+
+             FooBarConverter();
+             virtual ~FooBarConverter();
+
+             std::string getWireSchema() const;
+
+             std::string serialize(const rsb::AnnotatedData &data, std::string &wire);
+             rsb::AnnotatedData deserialize(const std::string &wireType,
+                     const std::string &wire);
+
+         private:
+
+             rsb::converter::ProtocolBufferConverter<rst::foo::Bar> converter;
+
+         };
+
+      Afterwards, create an implementation file called :file:`FooBarConverter.cpp` along the following lines:
+
+      .. code-block:: cpp
+
+         #include "FooBarConverter.h"
+
+         #include <rsc/runtime/TypeStringTools.h>
+
+         using namespace std;
+
+         FooBarConverter::FooBarConverter() :
+                 rsb::converter::Converter<string>("unused", RSB_TYPE_TAG(FooBar)) {
+         }
+
+         FooBarConverter::~FooBarConverter() {
+         }
+
+         string FooBarConverter::getWireSchema() const {
+             return converter.getWireSchema();
+         }
+
+         string FooBarConverter::serialize(const rsb::AnnotatedData &data,
+                 string &wire) {
+
+             assert(data.first == this->getDataType());
+
+             boost::shared_ptr<FooBar> source = boost::static_pointer_cast<FooBar>(data.second);
+             boost::shared_ptr<rst::foo::Bar> dest(new rst::foo::Bar());
+
+             // TODO 1: extract data from domain type and fill it into the protobuf message
+
+             return converter.serialize(
+                     rsb::AnnotatedData(rsc::runtime::typeName<rst::foo::Bar>(), dest),
+                     wire);
+
+         }
+
+         rsb::AnnotatedData FooBarConverter::deserialize(
+                 const std::string &wireType, const std::string &wire) {
+
+             boost::shared_ptr<rst::foo::Bar> source =
+                     boost::static_pointer_cast<rst::foo::Bar>(
+                             converter.deserialize(wireType, wire).second);
+
+             boost::shared_ptr<FooBar> dest(new FooBar);
+
+             // TODO 2: Extract data from the protobuf message and fill it into your domain type
+
+             return rsb::AnnotatedData(getDataType(), dest);
+
+         }
+
+      Your custom conversion logic of how to convert between the Protocol Buffer messages and your custom data types needs to be implemented at the two places indicated with ``TODO`` comments.
+      The `google protocol buffers`_ documentation explains how to access the values from in the protocol buffer message.
+
+      .. note::
+
+         Please use a reasonable namespace for you actual converter.
 
    .. container:: lang-java
 
