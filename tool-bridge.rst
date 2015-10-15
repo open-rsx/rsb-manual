@@ -60,11 +60,13 @@ can be constructed according to the following grammar:
    unidirectional-forwarding-specification: (input-specification)+
                                           : "->"
                                           : (filter)*
+                                          : transform?
                                           : (output-specification)+
    bidirectional-forwarding-specification: (input-specification)+
                                          : "<->"
                                          : (output-specification)+
    filter: FILTER
+   transform: TRANSFORM
    input-specification: URI
    output-specification: URI
 
