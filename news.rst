@@ -135,6 +135,10 @@ Changes
   * A :ref:`bridge tool <tool-bridge>` for forwarding of :term:`events
     <event>` between |project| buses has been implemented.
 
+  * The :ref:`tool-send` and :ref:`tool-call` tools can now read
+    :term:`payloads <payload>` specifications in the `Google protocol
+    buffers`_ debug text format from files.
+
 |project| 0.12
 ==============
 

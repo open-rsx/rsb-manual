@@ -52,6 +52,13 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
   of the protocol buffer API and the ``--decode``/``--encode`` options
   of the :program:`protoc` binary.
 
+* If :samp:`{EVENT-SPEC}` is of one the forms
+  :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}"` or
+  :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}":{ENCODING}`, a protocol
+  buffer message of type :samp:`{MESSAGE-TYPE-NAME}` is constructed
+  according to the contents of the file designated by
+  :samp:`{PATHNAME}`.
+
 .. note::
 
    When written as part of a shell command, some of the above forms

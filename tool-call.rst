@@ -63,6 +63,13 @@ server and the :term:`transport` that should be used.
   of the protocol buffer API and the ``--decode``/``--encode`` options
   of the :program:`protoc` binary.
 
+* If :samp:`{ARGUMENT}` is of one the forms
+  :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}"` or
+  :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}":{ENCODING}`, a protocol
+  buffer message of type :samp:`{MESSAGE-TYPE-NAME}` is constructed
+  according to the contents of the file designated by
+  :samp:`{PATHNAME}`.
+
 .. note::
 
    When written as part of a shell command, some of the above forms
