@@ -124,7 +124,7 @@ Examples
 
 * .. code-block:: sh
 
-     $ rsb bridge 'spread:/from -> socket:/to'
+     $ rsb bridge 'spread:/from -> spread:/to'
 
   In the above example, the :program:`bridge` command is used to
   establish unidirectional forwarding from :term:`scope` ``/from`` to
