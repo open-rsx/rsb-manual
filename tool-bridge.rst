@@ -98,7 +98,8 @@ again. Such a forwarding setup has to be prevented since it
 immediately degrades the affected system, usually making it completely
 unusable.
 
-The bridge tool has two mechanisms for dealing with the problem:
+The :program:`bridge` command has two mechanisms for dealing with the
+problem:
 
 #. Forwarding specifications are analyzed ahead of time to determine
    whether they are cyclic. This analysis yields one of three results:
@@ -109,7 +110,7 @@ The bridge tool has two mechanisms for dealing with the problem:
    #. Maybe cyclic (e.g. ``socket:/foo/bar -> socket:/foo``). In this
       case, warning is signaled.
 
-   #. definitely not cycle (e.g. ``spread:/foo -> socket:/bar``)
+   #. Definitely not cyclic (e.g. ``spread:/foo -> socket:/bar``)
 
    Cases 1. and 2. usually indicate configuration errors and should be
    avoided.
