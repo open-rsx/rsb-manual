@@ -161,6 +161,9 @@ server`_ respectively.  :ref:`Installation instructions <install>` and
 links for downloading can be found in the |project| :ref:`manual
 <rsb>`.
 
+As always, bugs, feature requests and enhancement proposals can be
+reported in the `issue tracker`_.
+
 Changes
 
 * Specification
@@ -271,6 +274,9 @@ server <https://ci.cor-lab.org/view/rsb-0.11>`_ or `repository
 server`_ respectively.  :ref:`Installation instructions <install>` and
 links for downloading can be found in the |project| :ref:`manual
 <rsb>`.
+
+As always, bugs, feature requests and enhancement proposals can be
+reported in the `issue tracker`_.
 
 Changes
 
@@ -386,9 +392,6 @@ Changes
     remove entries after a configurable time of inactivity.
 
   * The :ref:`tool-logger` now accepts multiple URIs
-
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
 
 .. note::
 
