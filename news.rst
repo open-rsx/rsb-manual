@@ -142,6 +142,10 @@ Changes
 |project| 0.12
 ==============
 
+..
+   edit-on-version-bump:
+   remove this and issue tracker note if the downloads are no longer available
+
 This |project| release is available in the following forms:
 
 * Source archives
@@ -248,6 +252,10 @@ Changes
    by using the constructors of the respective classes. This is now
    explicitly unsupported. :py:func:`rsb.createListener` etc. have to
    be used instead.
+
+..
+   edit-on-version-bump:
+   remove this and issue tracker note if the downloads are no longer available
 
 This |project| release is available in the following forms:
 
@@ -396,21 +404,12 @@ reported in the `issue tracker`_.
    supported. At least for C++, the `CMake`_ scripts will most likely
    not work.
 
-This |project| release is available in the following forms:
+.. note::
 
-* Source archives
-* Pre-compiled self-installing archives or executable binaries
-* Debian packages for different |ubuntu| versions (currently C++ and
-  Common Lisp implementations only)
-* :term:`Homebrew` recipes
-* Pypi packages for the |python| implementation
-* Maven package for the Java implementation
+   This |project| release is only available in source code form from
+   the `repository server`_.
 
-These can be downloaded from the `0.10 jobs continuous integration
-server <https://ci.cor-lab.org/view/rsb-0.10>`_ or `repository
-server`_ respectively.  :ref:`Installation instructions <install>` and
-links for downloading can be found in the |project| :ref:`manual
-<rsb>`.
+   We no longer accept bug reports against this |project| version.
 
 Changes
 
@@ -471,9 +470,6 @@ Changes
     for analyzing some timing-related aspects of system. These scripts
     can be used by the :ref:`tool-logger` as well as the RSBag tools.
 
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
-
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
@@ -484,29 +480,16 @@ reported in the `issue tracker`_.
 
 .. note::
 
-   * In the C++ implementation, the :term:`Spread` :term:`transport`
-     is now implemented as a :term:`plugin`. In case of problems, see
-     :ref:`troubleshooting-spread-does-not-work`.
+   In the C++ implementation, the :term:`Spread` :term:`transport` is
+   now implemented as a :term:`plugin`. In case of problems, see
+   :ref:`troubleshooting-spread-does-not-work`.
 
-This |project| release is available in the following forms:
+.. note::
 
-* Source archives
-* Pre-compiled self-installing archives or executable binaries
-* Debian packages for different |ubuntu| versions
+   This |project| release is only available in source code form from
+   the `repository server`_.
 
-  * Starting with this release, the development version of |project|
-    is packaged in the "testing" repository of our Debian `repository
-    server`_ (as opposed to the "main" repository). So you need to add
-    this repository to your apt sources list in case you want to
-    install the development version via Debian packages.
-
-* :term:`Homebrew` recipes and pypi packages
-* Maven package for rsb-java
-
-These can be downloaded from the `0.9 jobs continuous integration
-server <https://ci.cor-lab.org/view/rsb-0.9>`_ or `repository server`_
-respectively.  :ref:`Installation instructions <install>` and links
-for downloading can be found in the |project| :ref:`manual <rsb>`.
+   We no longer accept bug reports against this |project| version.
 
 Changes
 
@@ -536,9 +519,6 @@ Changes
 
 * Documentation improvements
 
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
-
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
@@ -566,17 +546,12 @@ reported in the `issue tracker`_.
 
         $ git clone --recursive https://code.cor-lab.org/git/rsb.git
 
-This |project| release is available in the following forms:
+.. note::
 
-* Source archives
-* Pre-compiled self-installing archives or executable binaries
-* Debian packages for different |ubuntu| versions
-* Prototypical homebrew recipes and pypi packages (new)
+   This |project| release is only available in source code form from
+   the `repository server`_.
 
-These can be downloaded from the `0.7 jobs continuous integration
-server <https://ci.cor-lab.org/view/rsb-0.7>`_ or `repository server`_
-respectively.  :ref:`Installation instructions <install>` and links
-for downloading can be found in the |project| :ref:`manual <rsb>`.
+   We no longer accept bug reports against this |project| version.
 
 Changes
 
@@ -587,9 +562,6 @@ Changes
 * End-user documentation
 * Packaging and deployment
 * :ref:`send <tool-send>` tool
-
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
 
 .. note::
 
@@ -604,18 +576,12 @@ reported in the `issue tracker`_.
    |project| clients using the 0.6 version cannot generally
    communicate with clients using a previous |project| version.
 
-This |project| release is available in the following forms:
+.. note::
 
-* Source archives
-* Pre-compiled self-installing archives or executable binaries
-* Debian packages for different |ubuntu| versions
+   This |project| release is only available in source code form from
+   the `repository server`_.
 
-These can be downloaded from the `0.6 jobs continuous integration
-server <https://ci.cor-lab.de/view/rsb-0.6>`_ or `repository server`_
-respectively.
-
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
+   We no longer accept bug reports against this |project| version.
 
 General Changes
 
@@ -663,18 +629,12 @@ vector>`. Moreover, complete compatibility for MSVC 2010 is now
 ensured and MacOS compatibility has been improved. In the process,
 about 60 issues have been created and subsequently resolved.
 
-This |project| release is available in the following forms:
+.. note::
 
-* Source archives
-* Pre-compiled self-installing archives
-* Debian packages for different |ubuntu| versions (new)
+   This |project| release is only available in source code form from
+   the `repository server`_.
 
-These can be downloaded from the `0.5 jobs continuous integration
-server <https://ci.cor-lab.org/view/rsb-0.5>`_ or `repository server`_
-respectively.
-
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
+   We no longer accept bug reports against this |project| version.
 
 General Changes
 
@@ -773,14 +733,12 @@ of and support for protocol buffer message objects as event
 payloads. In the process, more than 30 issues have been created and
 subsequently resolved.
 
-* Downloadable source archives of this version are available in the
-  `Files section <https://code.cor-lab.org/projects/rsb/files>`_ of
-  the Redmine project.
-* pre-compiled archives of |project| can be found as artifacts on the
-  `continuous integration server`_.
+.. note::
 
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
+   This |project| release is only available in source code form from
+   the `repository server`_.
+
+   We no longer accept bug reports against this |project| version.
 
 Network Protocol for :term:`Spread`-based Communication
 
