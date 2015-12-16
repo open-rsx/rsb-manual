@@ -178,21 +178,22 @@ of :term:`wire schemas <wire schema>` here.
 
 Fundamental Types
 
-  ======================= ================== =============== =========== ============== =========================================
-  Wire Schema             String Designator  C++             Python      Java           Common Lisp
-  ======================= ================== =============== =========== ============== =========================================
-  No value                ``"void"``         ``void``        ``None``    ``null``       ``nil``
-  Double precision float  ``"double"``       ``double``                  ``double``     ``double-float``
-  Single precision float  ``"float"``        ``float``       ``float``   ``float``      ``single-float``
-  32 bit signed integer   ``"int32"``        ``int32``                   ``int``        ``(signed-byte 32)``
-  64 bit signed integer   ``"int64"``        ``int64``                   ``long``       ``(signed-byte 64)``
-  32 bit unsigned integer ``"uint32"``       ``uint32``                  ``int``        ``(unsigned-byte 32)``
-  64 bit unsigned integer ``"uint64"``       ``uint64``                  ``long``       ``(unsigned-byte 64)``
-  bool                    ``"bool"``         ``bool``        ``bool``    ``boolean``    ``boolean``
-  ASCII string            ``"ascii-string"`` ``std::string`` ``str``     ``String``     ``string``
-  UTF-8 string            ``"utf-8-string"`` ``std::string`` ``unicode`` ``String``     ``string``
-  Sequence of Bytes       ``"bytes"``        ``std::string``             ``ByteString`` ``(simple-array (unsigned-byte 8)  (*))``
-  ======================= ================== =============== =========== ============== =========================================
+  ======================= ================== =============== ============= ============== =========================================
+  Wire Schema             String Designator  C++             Python        Java           Common Lisp
+  ======================= ================== =============== ============= ============== =========================================
+  No value                ``"void"``         ``void``        ``None``      ``null``       ``nil``
+  Double precision float  ``"double"``       ``double``                    ``double``     ``double-float``
+  Single precision float  ``"float"``        ``float``       ``float``     ``float``      ``single-float``
+  32 bit signed integer   ``"int32"``        ``int32``                     ``int``        ``(signed-byte 32)``
+  64 bit signed integer   ``"int64"``        ``int64``                     ``long``       ``(signed-byte 64)``
+  32 bit unsigned integer ``"uint32"``       ``uint32``                    ``int``        ``(unsigned-byte 32)``
+  64 bit unsigned integer ``"uint64"``       ``uint64``                    ``long``       ``(unsigned-byte 64)``
+  bool                    ``"bool"``         ``bool``        ``bool``      ``boolean``    ``boolean``
+  ASCII string            ``"ascii-string"`` ``std::string`` ``str``       ``String``     ``string``
+  UTF-8 string            ``"utf-8-string"`` ``std::string`` ``unicode``   ``String``     ``string``
+  Sequence of Bytes       ``"bytes"``        ``std::string``               ``ByteString`` ``(simple-array (unsigned-byte 8)  (*))``
+  :term:`Scope`           ``"scope"``        ``rsb::Scope``  ``rsb.scope`` ``rsb.Scopes`` ``rsb:scope``
+  ======================= ================== =============== ============= ============== =========================================
 
   .. note::
 
