@@ -65,8 +65,8 @@ can be constructed according to the following grammar:
    bidirectional-forwarding-specification: (input-specification)+
                                          : "<->"
                                          : (output-specification)+
-   filter: FILTER
-   transform: TRANSFORM
+   filter: "|" FILTER-SPEC "|"
+   transform: "/" TRANSFORM-SPEC "/"
    input-specification: URI
    output-specification: URI
 
