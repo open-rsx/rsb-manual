@@ -114,6 +114,9 @@ Changes
   * Symbolic-link-based invocation and selection of sub-commands is no
     longer supported.
 
+  * The default formatting style of the :ref:`logger <tool-logger>` is
+    now "monitor" instead of "compact".
+
   * :term:`Scope` :term:`payloads <payload>` are now printed properly
     as well as accepted by the :ref:`call <tool-call>` and :ref:`send
     <tool-send>` :ref:`tools <tools>`.
