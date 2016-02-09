@@ -32,9 +32,9 @@ accepted. Specialized commandline options:
 
    Display the current default configuration.
 
-.. option:: --connectors
+.. option:: --transports
 
-   Display list of available :term:`connectors <connector>`.
+   Display list of available :term:`transports <transport>`.
 
 .. option:: --converters
 
