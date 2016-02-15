@@ -36,6 +36,10 @@ Changes
     * ``MetaData::{get,set}SenderId`` have been deprecated in favor of
       using the ``getParticipantId`` method on an ``EventId`` instance.
 
+  * |project| C++ will now throw an exception in case a requested
+    :term:`plugin` cannot be found (`issue #2487
+    <https://code.cor-lab.org/issues/2487>`_).
+
 * Python
 
   * The :ref:`API documentation <api-python>` is now included in this
