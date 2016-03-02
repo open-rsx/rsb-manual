@@ -162,6 +162,11 @@ Changes
     :term:`payloads <payload>` specifications in the `Google protocol
     buffers`_ debug text format from files.
 
+.. note::
+
+   For a more detailed list of fixed bugs, added features and other
+   enhancements, see https://code.cor-lab.org/versions/47.
+
 |project| 0.12
 ==============
 
@@ -260,6 +265,11 @@ Changes
     .. warning::
 
        Experimental - use with care.
+
+.. note::
+
+   For a more detailed list of fixed bugs, added features and other
+   enhancements, see https://code.cor-lab.org/versions/42.
 
 |project| 0.11
 ==============
