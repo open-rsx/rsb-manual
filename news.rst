@@ -31,6 +31,8 @@ reported in the `issue tracker`_.
 
 Changes
 
+* |project| now has an official logo.
+
 * All languages
 
   * The APIs of the different language implementations have been
