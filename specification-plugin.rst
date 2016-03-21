@@ -45,10 +45,18 @@ shared objects defining symbols
   (e.g. ``rsbspread`` -> :samp:`{DIRECTORY}/librsbspread.so` on Linux)
   plugin libraries will be searched.
 
+  An empty entry (e.g. ``:dots``, ``dots::dots`` or ``dots:``) is
+  replace with the value configured in the respectively more generic
+  configuration source, up to the default value.
+
 ``plugins.cpp.load``
 
   Colon-separated list of plugins that should be loaded. (Names do not
   include prefixes like ``lib`` of suffixes like ``.so`` or ``.dll``)
+
+  An empty entry (e.g. ``:dots``, ``dots::dots`` or ``dots:``) is
+  replace with the value configured in the respectively more generic
+  configuration source, up to the default value.
 
 Configuration Examples:
 

@@ -58,6 +58,10 @@ Changes
     :term:`plugin` cannot be found (`issue #2487
     <https://code.cor-lab.org/issues/2487>`_).
 
+  * The options ``plugins.cpp.path`` and ``plugins.cpp.load`` behave
+    more consistently and allow inheriting values from the next more
+    generic configuration source.
+
 * Python
 
   * The :ref:`API documentation <api-python>` is now included in this
