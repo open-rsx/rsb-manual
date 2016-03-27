@@ -13,7 +13,13 @@
 
 Changes
 
-*none so far*
+* Common Lisp Tools
+
+  * The :ref:`bridge <tool-bridge>` tool now :term:`converts
+    <converter>` :term:`payloads <payload>` iff required by a
+    :term:`filter` or :term:`transform`, limiting the need to load
+    :term:`data type` definitions to situations in which they are
+    actually needed.
 
 .. note::
 
