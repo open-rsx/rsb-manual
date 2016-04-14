@@ -159,8 +159,8 @@ Examples
 
 * .. code-block:: sh
 
-     $ cat my-data.txt | rsb send - 'socket:/printer'
-     $ cat my-data.txt | rsb send -:binary 'socket:/printer'
+     $ cat my-data.txt | rsb send -- - 'socket:/printer'
+     $ cat my-data.txt | rsb send -- -:binary 'socket:/printer'
      $ rsb send '#P"my-data.txt"' 'socket:/printer'
      $ rsb send '#P"my-data.txt":latin-1' 'socket:/printer'
      $ rsb send '#P"my-data.txt":binary' 'socket:/printer'
@@ -173,7 +173,7 @@ Examples
   .. note::
 
      Note the use of single quotes (``'``) to prevent elements of the
-     pathname ``#"Pmy-data.txt"`` from being processed by the shell.
+     pathname ``#P"my-data.txt"`` from being processed by the shell.
 
 * .. code-block:: sh
 
