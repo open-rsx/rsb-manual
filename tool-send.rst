@@ -65,6 +65,10 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
   :samp:`{PATHNAME}` or the input read from standard input
   respectively.
 
+The definition of the :term:`data type` specified in
+:samp:`{MESSAGE-TYPE-NAME}` can be loaded automatically using the
+:option:`common --on-demand-idl-loading` option.
+
 .. note::
 
    When written as part of a shell command, some of the above forms
@@ -189,7 +193,17 @@ Examples
        'pb:.rst.robot.RobotCollision:{kind: "SELF" collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: "foo" }, { x: 3 y: 4 z: 5 } ] } object_1: "o1" } }' \
        socket:/collisions
 
-  In the above example, the :program:`send` tool is used to send a
+  or
+
+  .. code-block:: sh
+
+     $ rsb send                                                  \
+       -I…/rst-proto/proto/stable/                               \
+       --on-demand-idl-loading=blocking                          \
+       'pb:.rst.robot.RobotCollision:{kind: "SELF" collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: "foo" }, { x: 3 y: 4 z: 5 } ] } object_1: "o1" } }' \
+       socket:/collisions
+
+  In the above examples, the :program:`send` tool is used to send a
   protocol buffer message to :term:`scope` ``/collisions``. The
   protocol buffer message is of type ``rst.robot.RobotCollision`` with
   ``kind`` enum field set to ``SELF`` and an embedded
@@ -204,9 +218,12 @@ Examples
   .. note::
 
      Note how the definition of the protocol buffer message type is
-     loaded using :option:`-I (--idl-path) <common --idl-path>` and
-     :option:`-l (--load-idl) <common --load-idl>` commandline
-     options.
+     loaded either explicitly using the :option:`-l (--load-idl)
+     <common --load-idl>` commandline option or implicitly using the
+     :option:`--on-demand-idl-loading <common
+     --on-demand-idl-loading>` commandline option. Both methods
+     require specifying a search path using the :option:`-I
+     (--idl-path) <common --idl-path>` commandline option.
 
 Implementations
 ===============

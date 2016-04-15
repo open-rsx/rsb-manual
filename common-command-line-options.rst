@@ -185,6 +185,26 @@ IDL-related Commandline Options
 
       This option is only available in the Common Lisp implementation.
 
+.. option:: --on-demand-idl-loading BEHAVIOR
+
+   Controls on-demand loading of required data definitions.
+
+   none
+
+     Do not attempt to load data definitions on demand.
+
+   blocking
+
+     Block computations requiring data definitions until the
+     respective definition has been loaded and processed.
+
+   Data definition files are located on the path specified using the
+   :option:`--idl-path` option.
+
+   .. note::
+
+      This option is only available in the Common Lisp implementation.
+
 .. _common-environment-variables:
 
 Common Environment Variables

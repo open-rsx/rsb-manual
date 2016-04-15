@@ -26,6 +26,11 @@ Changes
 
 * Common Lisp Tools
 
+  * All :ref:`tools` can now load :term:`data type` definitions on
+    demand, lessening the pain of having to up-front specify and load
+    all required definitions (See :option:`common
+    --on-demand-idl-loading`).
+
   * The :ref:`bridge <tool-bridge>` tool now :term:`converts
     <converter>` :term:`payloads <payload>` iff required by a
     :term:`filter` or :term:`transform`, limiting the need to load

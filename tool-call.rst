@@ -76,6 +76,10 @@ server and the :term:`transport` that should be used.
   :samp:`{PATHNAME}` or the input read from standard input
   respectively.
 
+The definition of the :term:`data type` specified in
+:samp:`{MESSAGE-TYPE-NAME}` can be loaded automatically using the
+:option:`common --on-demand-idl-loading` option.
+
 .. note::
 
    When written as part of a shell command, some of the above forms
@@ -142,7 +146,16 @@ Examples
        -l…/rst-proto/proto/stable/rst/robot/RobotCollision.proto \
        'socket:/mycomponent/handlecollision(pb:.rst.robot.RobotCollision:{kind: "SELF" collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: "foo" }, { x: 3 y: 4 z: 5 } ] } object_1: "o1" } })'
 
-  In the above example, the :program:`call` tool is used to call the
+  or
+
+  .. code-block:: sh
+
+     $ rsb call                                                  \
+       -I…/rst-proto/proto/stable/                               \
+       --on-demand-idl-loading=blocking                          \
+       'socket:/mycomponent/handlecollision(pb:.rst.robot.RobotCollision:{kind: "SELF" collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: "foo" }, { x: 3 y: 4 z: 5 } ] } object_1: "o1" } })'
+
+  In the above examples, the :program:`call` tool is used to call the
   ``handlecollision`` method of the :term:`remote server` at
   :term:`scope` ``/mycomponent`` with a protocol buffer message
   argument. The protocol buffer message is of type
@@ -158,9 +171,12 @@ Examples
   .. note::
 
      Note how the definition of the protocol buffer message type is
-     loaded using :option:`-I (--idl-path) <common --idl-path>` and
-     :option:`-l (--load-idl) <common --load-idl>` commandline
-     options.
+     loaded either explicitly using the :option:`-l (--load-idl)
+     <common --load-idl>` commandline option or implicitly using the
+     :option:`--on-demand-idl-loading <common
+     --on-demand-idl-loading>` commandline option. Both methods
+     require specifying a search path using the :option:`-I
+     (--idl-path) <common --idl-path>` commandline option.
 
 Implementations
 ===============
