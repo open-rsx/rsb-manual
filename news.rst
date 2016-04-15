@@ -13,6 +13,10 @@
 
 Changes
 
+* Common Lisp
+
+  * :ref:`filters <filter>` are now more efficient.
+
 * Common Lisp Tools
 
   * The :ref:`bridge <tool-bridge>` tool now :term:`converts
