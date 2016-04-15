@@ -13,6 +13,13 @@
 
 Changes
 
+* Java
+
+  * `Spread`_ connections can now be shared between :term:`listeners
+    <listener>` (for :term:`informers <informer>`, this has been
+    possible since |project| 0.12), which reduces the number of open
+    connections to the :term:`Spread daemon`.
+
 * Common Lisp
 
   * :ref:`filters <filter>` are now more efficient.
@@ -222,9 +229,9 @@ Changes
 
 * All languages
 
-  * `spread`_ connections are now shared between :term:`informers
+  * `Spread`_ connections are now shared between :term:`informers
     <informer>`, which reduces the number of open connections to the
-    :term:`spread daemon`.
+    :term:`Spread daemon`.
 
 * C++
 
