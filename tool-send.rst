@@ -53,11 +53,17 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
   of the :program:`protoc` binary.
 
 * If :samp:`{EVENT-SPEC}` is of one the forms
-  :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}"` or
-  :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}":{ENCODING}`, a protocol
-  buffer message of type :samp:`{MESSAGE-TYPE-NAME}` is constructed
-  according to the contents of the file designated by
-  :samp:`{PATHNAME}`.
+
+  * :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}"`
+
+  * :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}":{ENCODING}`
+
+  * :samp:`pb:.{MESSAGE-TYPE-NAME}:-`
+
+  , a protocol buffer message of type :samp:`{MESSAGE-TYPE-NAME}` is
+  constructed according to the contents of the file designated by
+  :samp:`{PATHNAME}` or the input read from standard input
+  respectively.
 
 .. note::
 
