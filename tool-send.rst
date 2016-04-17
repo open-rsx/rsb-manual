@@ -52,7 +52,7 @@ Send an :term:`event` constructed according to :samp:`{EVENT-SPEC}` to
   of the protocol buffer API and the ``--decode``/``--encode`` options
   of the :program:`protoc` binary.
 
-* If :samp:`{EVENT-SPEC}` is of one the forms
+* If :samp:`{EVENT-SPEC}` is of one of the forms
 
   * :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}"`
 

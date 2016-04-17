@@ -63,7 +63,7 @@ server and the :term:`transport` that should be used.
   of the protocol buffer API and the ``--decode``/``--encode`` options
   of the :program:`protoc` binary.
 
-* If :samp:`{ARGUMENT}` is of one the forms
+* If :samp:`{ARGUMENT}` is of one of the forms
 
   * :samp:`pb:.{MESSAGE-TYPE-NAME}:#P"{PATHNAME}"`
 
