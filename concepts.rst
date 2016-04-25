@@ -81,7 +81,7 @@ Meta Data
   * specify timing information relevant to the condition represented
     by the :term:`event` (user-extensible).
 
-  * make the the processing of the :term:`event` within |project|
+  * make the processing of the :term:`event` within |project|
     traceable.
 
   Besides these framework-supplied items, a key-value store for
