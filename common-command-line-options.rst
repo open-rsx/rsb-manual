@@ -158,9 +158,9 @@ IDL-related Commandline Options
 
 .. option:: --idl-path DIRECTORIES, -I DIRECTORIES
 
-   :samp:`{DIRECTORIES}` is a list of paths from which data
-   definitions should be loaded. This option can be supplied multiple
-   times.
+   :samp:`{DIRECTORIES}` is a list of ``:``\ -separated directory
+   names from which data definitions should be loaded. This option can
+   be supplied multiple times.
 
    .. note::
 
