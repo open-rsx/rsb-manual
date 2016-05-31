@@ -14,6 +14,7 @@
    tool-call
    tool-timesync
    tool-bridge
+   tool-server
    tool-web
    common-command-line-options
 
@@ -53,6 +54,11 @@ The following tools are available:
 
   Forwarding of :term:`events <event>` from one |project| bus to
   another.
+
+* :ref:`server <tool-server>`
+
+  A standalone server for the |project| :ref:`socket
+  <specification-socket>` :term:`transport`.
 
 * :ref:`web <tool-web>`
 
