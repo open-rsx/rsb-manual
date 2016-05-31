@@ -81,6 +81,8 @@
      A mechanism for selecting :term:`events <event>` which comply to
      some criterion from a set of :term:`events <event>`.
 
+     See :term:`transform`.
+
    informer
 
      A kind of :term:`participant` which publishes :term:`events
@@ -245,6 +247,12 @@
      ``/a/b/d``, ``/a/b/c/d``, etc but not ``/a`` or ``/a/c``.
 
      See :term:`subscope`, :ref:`specification-scope`.
+
+   transform
+
+     A mechanism for modifying :term:`events <event>`.
+
+     See :term:`filter`.
 
    transport
    transport mechanism
