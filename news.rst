@@ -41,6 +41,10 @@ Changes
     :option:`logger --stop-after` option, causing it to terminate
     after processing a specified number of :term:`events <event>`.
 
+  * The new :ref:`server <tool-server>` tool can act as a standalone
+    |project| :ref:`socket <specification-socket>` :term:`transport`
+    server.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
