@@ -96,6 +96,11 @@ commandline options:
    signaled. The behavior in this case can be controlled via
    :option:`common --on-error`.
 
+.. option:: --stop-after NUMBER-OF-EVENTS
+
+   Terminate after the specified number of :term:`events <event>` have
+   been processed.
+
 Examples
 ========
 
