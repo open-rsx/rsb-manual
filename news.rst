@@ -673,18 +673,18 @@ Tools
 
    * The API is in some parts not backwards-compatible.
 
-The development activities in this cycle focused primarily on API
-improvements and the integration of :term:`causal vectors <causal
-vector>`. Moreover, complete compatibility for MSVC 2010 is now
-ensured and MacOS compatibility has been improved. In the process,
-about 60 issues have been created and subsequently resolved.
-
 .. note::
 
    This |project| release is only available in source code form from
    the `repository server`_.
 
    We no longer accept bug reports against this |project| version.
+
+The development activities in this cycle focused primarily on API
+improvements and the integration of :term:`causal vectors <causal
+vector>`. Moreover, complete compatibility for MSVC 2010 is now
+ensured and MacOS compatibility has been improved. In the process,
+about 60 issues have been created and subsequently resolved.
 
 General Changes
 
@@ -777,18 +777,18 @@ Common Lisp
    |project| clients using the 0.4 version of |project| cannot
    communicate with clients using a previous |project| version.
 
-The development activities in this cycle focused primarily on
-extending and optimizing the wire format and improving the usability
-of and support for protocol buffer message objects as event
-payloads. In the process, more than 30 issues have been created and
-subsequently resolved.
-
 .. note::
 
    This |project| release is only available in source code form from
    the `repository server`_.
 
    We no longer accept bug reports against this |project| version.
+
+The development activities in this cycle focused primarily on
+extending and optimizing the wire format and improving the usability
+of and support for protocol buffer message objects as event
+payloads. In the process, more than 30 issues have been created and
+subsequently resolved.
 
 Network Protocol for :term:`Spread`-based Communication
 
