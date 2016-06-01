@@ -37,6 +37,10 @@ Changes
     :term:`data type` definitions to situations in which they are
     actually needed.
 
+  * The :ref:`logger <tool-logger>` tool now accepts the
+    :option:`logger --stop-after` option, causing it to terminate
+    after processing a specified number of :term:`events <event>`.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
