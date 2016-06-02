@@ -28,8 +28,8 @@ Changes
 
   * All :ref:`tools` can now load :term:`data type` definitions on
     demand, lessening the pain of having to up-front specify and load
-    all required definitions (See :option:`common
-    --on-demand-idl-loading`).
+    all required definitions (See :option:`--on-demand-idl-loading
+    <common --on-demand-idl-loading>`).
 
   * The :ref:`bridge <tool-bridge>` tool now :term:`converts
     <converter>` :term:`payloads <payload>` iff required by a
@@ -38,8 +38,9 @@ Changes
     actually needed.
 
   * The :ref:`logger <tool-logger>` tool now accepts the
-    :option:`logger --stop-after` option, causing it to terminate
-    after processing a specified number of :term:`events <event>`.
+    :option:`--stop-after <logger --stop-after>` option, causing it to
+    terminate after processing a specified number of :term:`events
+    <event>`.
 
   * The new :ref:`server <tool-server>` tool can act as a standalone
     |project| :ref:`socket <specification-socket>` :term:`transport`
