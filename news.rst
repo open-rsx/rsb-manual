@@ -13,6 +13,11 @@
 
 Changes
 
+* C++
+
+  :term:`Converters <converter>` for ``float`` and ``double`` values
+  have been added and are registered by default.
+
 * Java
 
   * `Spread`_ connections can now be shared between :term:`listeners
