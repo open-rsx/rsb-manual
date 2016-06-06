@@ -15,8 +15,8 @@ Changes
 
 * C++
 
-  :term:`Converters <converter>` for ``float`` and ``double`` values
-  have been added and are registered by default.
+  * :term:`Converters <converter>` for ``float`` and ``double`` values
+    have been added and are registered by default.
 
 * Java
 
@@ -27,7 +27,7 @@ Changes
 
 * Common Lisp
 
-  * :ref:`filters <filter>` are now more efficient.
+  * :ref:`Filters <filter>` are now more efficient.
 
 * Common Lisp Tools
 
