@@ -25,6 +25,9 @@ Changes
     possible since |project| 0.12), which reduces the number of open
     connections to the :term:`Spread daemon`.
 
+  * A :term:`converter <converter>` for ``Float`` values has been
+    added and is registered by default.
+
 * Common Lisp
 
   * :ref:`Filters <filter>` are now more efficient.
