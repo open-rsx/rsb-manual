@@ -32,6 +32,12 @@ Changes
   * A :term:`converter <converter>` for ``Float`` values has been
     added and is registered by default.
 
+  * Timestamps are now generated with millisecond accuracy and precision
+    on Linux and Mac by using native system calls if possible. Other
+    platforms should not be broken by this and fall back to millisecond
+    precision. Due to this change, the Java implementation has new
+    dependencies now.
+
 * Common Lisp
 
   * :ref:`Filters <filter>` are now more efficient.
