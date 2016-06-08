@@ -16,9 +16,11 @@ define_project_version(RSB_MANUAL_ ${VERSION_MAJOR} ${VERSION_MINOR} 0 archive)
 set(VERSION_SUFFIX "${RSB_MANUAL_VERSION_MAJOR}.${RSB_MANUAL_VERSION_MINOR}")
 
 if(RSB_MANUAL_IS_RELEASE)
-    set(RSB_BRANCH "${VERSION_SUFFIX}")
+    set(RSB_BRANCH            "${VERSION_SUFFIX}")
+    set(API_VERSION_DIRECTORY "${VERSION_SUFFIX}")
 else()
-    set(RSB_BRANCH "master")
+    set(RSB_BRANCH            "master")
+    set(API_VERSION_DIRECTORY "trunk")
 endif()
 
 # Options.
@@ -40,15 +42,12 @@ set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
     CACHE STRING
     "URL of the RSB repository base")
 
-set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/trunk/html"
+set(CPP_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-cpp-api/${API_VERSION_DIRECTORY}/html"
     CACHE STRINGS
     "URL of the cpp API documentation.")
-set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/trunk/html"
+set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/${API_VERSION_DIRECTORY}/html"
     CACHE STRINGS
     "URL of the java API documentation.")
-set(PYTHON_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-python-api/trunk/html"
-    CACHE STRINGS
-    "URL of the python API documentation.")
 
 # Configure sphinx configuration file.
 set(REDMINE_BASE_URL https://code.cor-lab.org)
