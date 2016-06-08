@@ -13,13 +13,9 @@ the CoR-Lab `repository server`_.
 #. The following repository source line has to be added to
    :file:`/etc/apt/sources.list`
 
-   ..
-      edit-on-version-bump
-      replace "main testing" with "main" in the released version
-
    .. parsed-literal::
 
-      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main testing
+      deb http://packages.cor-lab.de/ubuntu/ :samp:`{RELEASENAME}` main
 
    where :samp:`{RELEASENAME}` is one of |debian_versions|.
 
@@ -235,13 +231,9 @@ Java
 Pre-compiled JAR Download
 -------------------------
 
-..
-   edit-on-version-bump:
-   Change URL
-
 Archives containing pre-built JAR-files of the Java implementation and
 required dependencies can be `downloaded
-<https://ci.cor-lab.org/view/rsx-trunk/job/rsb-java-trunk/label=ubuntu_trusty_64bit/lastSuccessfulBuild/artifact/.archive/rsb-java.zip>`_
+<https://ci.cor-lab.org/view/rsx-trunk/job/rsb-java-0.14/label=ubuntu_trusty_64bit/lastSuccessfulBuild/artifact/.archive/rsb-java.zip>`_
 from the continuous integration server.
 
 After downloading the archive, several JAR-files can be extracted from
@@ -258,11 +250,6 @@ Maven Artifacts from the CITEC Repository
 https://mvn.cit-ec.de/. In order to use the version deployed there,
 include the following fragments in the :file:`pom.xml` of your project.
 
-..
-   edit-on-version-bump:
-   Change version of dependency to something like [0.7,0.8-SNAPSHOT) and
-   update to new master version
-
 #. In the dependencies section:
 
    .. code-block:: xml
@@ -271,7 +258,7 @@ include the following fragments in the :file:`pom.xml` of your project.
           <dependency>
               <groupId>rsb</groupId>
               <artifactId>rsb</artifactId>
-              <version>0.14-SNAPSHOT</version>
+              <version>[0.14,0.15-SNAPSHOT)</version>
           </dependency>
       </dependencies>
 
@@ -307,13 +294,9 @@ Binary Downloads of Tools
 
 #. Download the |main_binary| binary from the appropriate location:
 
-   ..
-      edit-on-version-bump:
-      adapt URLs
-
-   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_trusty_32bit/>`_
-   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_trusty_64bit/>`_
-   * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-macos/label=MAC_OS_mavericks_64bit/>`_
+   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-0.14/label=ubuntu_trusty_32bit/>`_
+   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-0.14/label=ubuntu_trusty_64bit/>`_
+   * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-0.14-macos/label=MAC_OS_mavericks_64bit/>`_
 
 #. After the download, the |main_binary| file has to be made
    executable in most cases. This can be done for example by executing
@@ -332,10 +315,6 @@ we provide a ZIP archive with |project| for C++ as well as all other
 RSX-related software pre-compiled for Windows in 32 bit mode using different
 Visual Studio versions.
 
-..
-   edit-on-version-bump:
-   Change URL of CI server job
-
 #. Download the artifact for your Visual Studio version
 
    In order to install the complete collection of RSX C++ software, you first
@@ -343,7 +322,7 @@ Visual Studio versions.
    work with. E.g. Visual Studio 2010 corresponds to version 100 and Visual
    Studio 2012 corresponds to numeric version 110. As soon as you know this you
    can select the appropriate configuration from this CI server job:
-   https://ci.cor-lab.org/job/rsx-trunk-windows-package/ (by
+   https://ci.cor-lab.org/job/rsx-0.14-windows-package/ (by
    clicking on the appropriate version name). After selecting the
    configuration, download the latest successful artifact (a zip file).
 
