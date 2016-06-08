@@ -72,6 +72,28 @@ Changes
 |project| 0.13
 ==============
 
+..
+   edit-on-version-bump:
+   remove this and issue tracker note if the downloads are no longer available
+
+This |project| release is available in the following forms:
+
+* Source archives
+* Pre-compiled self-installing archives or executable binaries
+* Debian packages for different |ubuntu| versions (currently C++ and
+  Common Lisp implementations only)
+* Pypi packages for the |python| implementation
+* Maven package for the Java implementation
+
+These can be downloaded from the `0.13 jobs continuous integration
+server <https://ci.cor-lab.org/view/rsx-0.13>`_ or `repository
+server`_ respectively.  :ref:`Installation instructions <install>` and
+links for downloading can be found in the |project| :ref:`manual
+<rsb>`.
+
+As always, bugs, feature requests and enhancement proposals can be
+reported in the `issue tracker`_.
+
 Changes
 
 * |project| now has an official logo.
@@ -328,6 +350,13 @@ Changes
 
 |project| 0.11
 ==============
+
+.. note::
+
+   This |project| release is only available in source code form from
+   the `repository server`_.
+
+   We no longer accept bug reports against this |project| version.
 
 .. note::
 
