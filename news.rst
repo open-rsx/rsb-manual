@@ -78,6 +78,10 @@ Changes
     terminate after processing a specified number of :term:`events
     <event>`.
 
+  * An :term:`event` formatting style ``multiple-files`` for writing
+    output into an individual file for each :term:`event <event>` has
+    been added.
+
   * The new :ref:`server <tool-server>` tool can act as a standalone
     |project| :ref:`socket <specification-socket>` :term:`transport`
     server.
