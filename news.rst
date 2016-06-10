@@ -13,7 +13,10 @@
 
 Changes
 
-*none so far*
+* All implementations
+
+  * A new :term:`filter` which discriminates :term:`events <event>`
+    based on :term:`causal vectors <causal vector>` has been added.
 
 .. note::
 
