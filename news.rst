@@ -53,8 +53,9 @@ Changes
     have been added and are registered by default.
 
   * Setting the environment variable :envvar:`__CONFIG_DEBUG` to an
-    arbitrary value enables :ref:`configuration <configuration>`
-    debugging. Debug output is written to ``stderr``.
+    arbitrary value enables :ref:`configuration debugging
+    <specification-config-debug>`. Debug output is written to
+    ``stderr``.
 
 * Java
 

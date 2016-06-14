@@ -86,6 +86,22 @@ Solution
     that this may be hard to figure out and a bug report in the
     "wrong" project is definitely better than no bug report at all.
 
+.. _troubleshooting-configuration-problems:
+
+Configuration Problems
+======================
+
+Problem *(applies to C++)*
+
+  My |project| program seems to be :ref:`configured
+  <specification-config>` incorrectly, but I cannot tell whether
+  that's actually the case and if so, why.
+
+Solution
+
+  Use the :ref:`configuration debugging tools
+  <specification-config-debug>` provided by |project|.
+
 .. _troubleshooting-spread-does-not-work:
 
 Spread Does not Work

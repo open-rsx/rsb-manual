@@ -210,6 +210,18 @@ IDL-related Commandline Options
 Common Environment Variables
 ============================
 
+Configuration Debugging
+
+  .. seealso::
+
+     :ref:`specification-config-debug`
+        Details about configuration debugging
+
+  .. envvar:: __CONFIG_DEBUG
+
+     When set to any value, activates :ref:`configuration debugging
+     <specification-config-debug>`.
+
 Plugins
 
   .. seealso::

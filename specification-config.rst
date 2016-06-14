@@ -29,6 +29,70 @@ principles:
 
 * Configuration options are organized in a tree of `name-value pairs`_
 
+.. _specification-config-debug:
+
+Configuration Debugging
+=======================
+
+In complex systems, it is sometimes not clear how the configuration in
+effect in a particular part of the system came
+about. |project|\ -based systems are no exception. To assist users in
+such situations, |project| provides a few configuration debugging
+tools.
+
+The simplest and often most effective configuration debugging tool is
+the :envvar:`__CONFIG_DEBUG` environment variable. When set to any
+value, it causes |project|\ -based programs to print informative
+messages during configuration processing:
+
+.. code-block:: sh
+
+   $ __CONFIG_DEBUG=1 RSB_TRANSPORT_SPREAD_ENABLED=1 rsb-infocpp0.15
+   Starting processing RSC-based logging configuration
+
+   Configuring with sources (lowest priority first)
+     1. Configuration files
+        1. Prefix wide config file "/home/jmoringe/opt/rsx-0.15/etc/rsb.conf" does not exist
+        2. User config file "/home/jmoringe/.config/rsb.conf" exists
+        3. Current directory file "rsb.conf" does not exist
+     2. Environment variables with prefix RSC_
+        <none>
+     3. Commandline options
+        <none>
+
+   Finished processing RSC-based logging configuration
+
+   Starting processing plugin configuration
+
+   Configuring with sources (lowest priority first)
+     1. Configuration files
+        1. Prefix wide config file "/home/jmoringe/opt/rsx-0.15/etc/rsb.conf" does not exist
+        2. User config file "/home/jmoringe/.config/rsb.conf" exists
+        3. Current directory file "rsb.conf" does not exist
+     2. Environment variables with prefix RSB_
+        RSB_TRANSPORT_SPREAD_ENABLED -> 1
+     3. Commandline options
+        <none>
+
+   Finished processing plugin configuration
+
+   Starting processing default participant configuration
+
+   Configuring with sources (lowest priority first)
+     1. Configuration files
+        1. Prefix wide config file "/home/jmoringe/opt/rsx-0.15/etc/rsb.conf" does not exist
+        2. User config file "/home/jmoringe/.config/rsb.conf" exists
+        3. Current directory file "rsb.conf" does not exist
+     2. Environment variables with prefix RSB_
+        RSB_TRANSPORT_SPREAD_ENABLED -> 1
+     3. Commandline options
+        <none>
+
+   Finished processing default participant configuration
+
+   Default participant configuration
+   …
+
 Name-value Pairs
 ================
 
