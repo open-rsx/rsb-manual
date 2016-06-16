@@ -18,6 +18,11 @@ Changes
   * A new :term:`filter` which discriminates :term:`events <event>`
     based on :term:`causal vectors <causal vector>` has been added.
 
+* C++
+
+  * :term:`Converters <converter>` for integer values are now provided
+    by the generic :cpp:class:`rsb::converter::IntegerConverter`.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
