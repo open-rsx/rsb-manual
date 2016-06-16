@@ -25,6 +25,10 @@ Changes
 
   * A :term:`converter` for :term:`scope` values has been added.
 
+* Python
+
+  * A :term:`converter` for :term:`scope` values has been added.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
