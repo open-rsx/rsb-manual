@@ -23,6 +23,8 @@ Changes
   * :term:`Converters <converter>` for integer values are now provided
     by the generic :cpp:class:`rsb::converter::IntegerConverter`.
 
+  * A :term:`converter` for :term:`scope` values has been added.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
