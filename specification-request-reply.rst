@@ -9,20 +9,21 @@ Overview
 
 The Request/Reply communication pattern consists of two roles:
 
-  ``Server`` (or ``LocalServer``), :term:`local server`
-  :term:`participant`
+:term:`local server` :term:`participant` (usually implemented as ``LocalServer`` class)
 
-    This class is instantiated in the service-providing |project|
-    process. Provided methods are registered by name and signature.
+  This :term:`participant` is instantiated in the service-providing
+  |project| process. Provided methods are registered by name and
+  signature.
 
-  ``RemoteServer``, :term:`remote server` :term:`participant`
+:term:`remote server` :term:`participant` (usually implemented as ``RemoteServer`` class)
 
-    This class is instantiated in the service-using |project|
-    process. Each ``RemoteServer`` instance has one or more
-    corresponding ``Server`` instances, potentially in different
-    processes, that provide the service in question. Client code calls
-    methods on the ``RemoteServer`` instance which cause methods of a
-    ``Service`` instance to be called and perform the requested task.
+  This :term:`participant` is instantiated in the service-using
+  |project| process. Each ``RemoteServer`` instance has one or more
+  corresponding ``LocalServer`` instances, potentially in different
+  processes, that provide the service in question. Client code calls
+  methods on the ``RemoteServer`` instance which cause methods of a
+  ``LocalServer`` instance to be called and perform the requested
+  task.
 
 For example:
 
@@ -51,59 +52,60 @@ For example:
    will be processed in all servers, but the client will only receive
    one, arbitrarily selected, reply.
 
-   Conversely, if service is not provided by any server, the request
-   part of method calls is performed, but a reply is never
+   Conversely, if the service is not provided by any server, the
+   request part of method calls is performed, but a reply is never
    received. This situation is indistinguishable from a server which
    takes an infinitely long time to process request and can therefore
-   not be detected by the caller. However, timeouts can be used handle
-   absent and slow servers uniformly.
+   not be detected by the caller. However, timeouts can be used to
+   handle absent and slow servers uniformly.
 
-``Server``
-==========
+Participants
+============
 
-Conceptually, the ``Server`` instance is the root of the following
-object tree:
+``LocalServer``
 
-* ``Server``
+  Conceptually, the ``LocalServer`` instance is the root of the
+  following object tree:
 
-  * :term:`Scope`: :samp:`{SERVER-SCOPE}`
-  * Method
+  * ``LocalServer``
 
-    * Name: :samp:`{METHOD-NAME}`
-    * :term:`Scope` :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
-    * Request :term:`listener`
+    * :term:`Scope`: :samp:`{SERVER-SCOPE}`
+    * Method
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
-      * :term:`Handler`: passes received events to client code for
-        processing
-    * Reply :term:`informer`
+      * Name: :samp:`{METHOD-NAME}`
+      * :term:`Scope` :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
+      * Request :term:`listener`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
-  * more methods
+        * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
+        * :term:`Handler`: passes received events to client code for
+          processing
+      * Reply :term:`informer`
+
+        * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
+    * more methods
 
 ``RemoteServer``
-================
 
-Conceptually, the ``RemoteServer`` instance is the root of the
-following object tree:
+   Conceptually, the ``RemoteServer`` instance is the root of the
+   following object tree:
 
-* ``RemoteServer``
+   * ``RemoteServer``
 
-  * :term:`Scope`: :samp:`{SERVER-SCOPE}`
-  * Method
+     * :term:`Scope`: :samp:`{SERVER-SCOPE}`
+     * Method
 
-    * Name: :samp:`{METHOD-NAME}`
-    * :term:`Scope` :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
-    * Request :term:`informer`
+       * Name: :samp:`{METHOD-NAME}`
+       * :term:`Scope` :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
+       * Request :term:`informer`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
-    * Reply :term:`listener`
+         * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
+       * Reply :term:`listener`
 
-      * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
-      * :term:`Handler`: processes received replies to ultimately
-        return a result to the client code which initiated the call
-    * A collection of in-progress method calls
-  * more methods
+         * :term:`Scope`: :samp:`{SERVER-SCOPE}/{METHOD-NAME}/`
+         * :term:`Handler`: processes received replies to ultimately
+           return a result to the client code which initiated the call
+       * A collection of in-progress method calls
+     * more methods
 
 Protocol
 ========
@@ -119,10 +121,10 @@ Protocol
    :term:`event` is created for the method call
 #. The call blocks until a reply :term:`event` is received (see below)
 #. The request :term:`listener` of the method in a corresponding
-   ``Server`` instance receives the :term:`event`
+   ``LocalServer`` instance receives the :term:`event`
 #. The request :term:`event` is dispatched to a handler for processing
 #. After processing, the reply :term:`informer` of the method in the
-   ``Server`` sends a reply :term:`event` containing
+   ``LocalServer`` sends a reply :term:`event` containing
 
    * The result of the processing as :term:`payload`, if the
      processing succeeded without errors
