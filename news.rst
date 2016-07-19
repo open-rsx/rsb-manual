@@ -31,6 +31,12 @@ Changes
 
   * A :term:`converter` for :term:`scope` values has been added.
 
+* Common Lisp Tools
+
+  * The :term:`scope` monitor :term:`event` formatting style now
+    collapses chains of :term:`scopes <scope>` with exactly one
+    :term:`subscope` into a single line to save vertical space.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
