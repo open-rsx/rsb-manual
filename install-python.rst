@@ -98,7 +98,7 @@ Installation
 
    .. code-block:: ini
 
-      ... existing content here ...
+      # [existing content here]
 
       [proto]
       protocolroot=/your/prefix/share/rsbprotocol
