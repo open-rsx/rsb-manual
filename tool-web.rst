@@ -33,7 +33,7 @@ accepted. Specialized commandline options:
 
    Port on which the HTTP server should listen.
 
-.. option:: --static-directory DIRECTORY
+.. option:: --document-root DIRECTORY
 
    Directory from which static content such as HTML pages and CSS
    files should be read.
@@ -62,12 +62,13 @@ accepted. Specialized commandline options:
 Provided HTTP endpoints
 =======================
 
-* :samp:`http://{ADDRESS}:{PORT}/static`
+* :samp:`http://{ADDRESS}:{PORT}/`
 
-  Contents of the directory specified via :option:`--static-directory`
-  is made available here.
+  Either the contents of the directory specified via the
+  :option:`--document-root` option or built-in resource files are made
+  available here.
 
-* :samp:`http://{ADDRESS}:{PORT}/introspection/json`
+* :samp:`http://{ADDRESS}:{PORT}/api/introspection/snapshot`
 
   A JSON-serialization of a snapshot of the :term:`introspection` data
   for the system or systems specified via :samp:`{URI}`\s can be
