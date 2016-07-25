@@ -25,7 +25,7 @@ Changes
 
   * A :term:`converter` for :term:`scope` values has been added.
 
-  * A few C++11 incompatibilities have been resoled.
+  * A few C++11 incompatibilities have been resolved.
 
 * Python
 
