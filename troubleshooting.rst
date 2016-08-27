@@ -443,10 +443,11 @@ Solution
      headers. This might sometimes work, but is hard to achieve in other
      projects.
 
-  #. Compile your program with `-DQT_NO_KEYWORDS`. This prevents that Qt
-     defines `signals` and `slots` as preprocessor macros, which is the
-     cause for the compilation error. Your Qt headers that define signals then
-     need to used `Q_SIGNALS` and `Q_SLOTS` instead now.
+  #. Compile your program with ``-DQT_NO_KEYWORDS``. This prevents
+     that Qt defines ``signals`` and ``slots`` as preprocessor macros,
+     which is the cause for the compilation error. Your Qt headers
+     that define signals have to use ``Q_SIGNALS`` and ``Q_SLOTS``
+     instead now.
 
 .. _troubleshooting-multiple-rpc-arguments:
 
