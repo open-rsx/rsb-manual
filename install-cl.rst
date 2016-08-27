@@ -10,46 +10,50 @@ Prerequisites
 Supported Lisp Implementations
 ------------------------------
 
-Currently, only recent versions (e.g. 1.0.55 or newer) of `SBCL`_ are
-fully supported.
+Currently, only  `SBCL`_ is supported.
 
 Required Infrastructure
 -----------------------
 
-* `ASDF`_ is used for compilation, loading and dependency management
-* `Quicklisp`_ is used for installation of dependencies
+* `ASDF`_ is used for compilation, loading and dependency management.
+* `Quicklisp`_ is recommended for installation of dependencies.
 
 External Dependencies
 ---------------------
 
-============================= ==================================== ========================================================
-System                        Required?                            Obtainable From
-============================= ==================================== ========================================================
-alexandria                    yes                                  Quicklisp
-split-sequence                yes                                  Quicklisp
-iterate                       yes                                  Quicklisp
-let-plus                      yes                                  Quicklisp
-more-conditions               yes                                  Quicklisp
-bordeaux-threads              yes                                  Quicklisp
-lparallel                     yes                                  Quicklisp
-trivial-garbage               yes                                  Quicklisp
-closer-mop                    yes                                  Quicklisp
-cl-hooks                      yes                                  Quicklisp
-log4cl                        yes                                  Quicklisp
-nibbles                       yes                                  Quicklisp
-puri                          yes                                  Quicklisp
-uuid                          yes                                  Quicklisp
-local-time                    yes                                  Quicklisp
-utilities.print-items         yes                                  Quicklisp
-utilities.binary-dump         yes                                  Quicklisp
-cl-ppcre                      for Regexp filtering                 Quicklisp
-cxml-stp                      for XML :term:`payload`              Quicklisp
-xpath                         for XPath filtering                  Quicklisp
-cl-protobuf                   for :term:`Spread` :term:`transport` https://github.com/scymtym/cl-protobuf
-network.spread                for :term:`Spread` :term:`transport` https://github.com/scymtym/network.spread
--- libspread                  for :term:`Spread` :term:`transport` See :ref:`C++ installation instructions <install-cpp>`
-architecture.builder-protocol for ``rsb-*-builder`` systems        https://github.com/scymtym/architecture.builder-protocol
-============================= ==================================== ========================================================
+============================= ============================================================ ========================================================
+System                        Required?                                                    Obtainable From
+============================= ============================================================ ========================================================
+alexandria                    yes                                                          Quicklisp
+split-sequence                yes                                                          Quicklisp
+iterate                       yes                                                          Quicklisp
+let-plus                      yes                                                          Quicklisp
+more-conditions               yes                                                          Quicklisp
+bordeaux-threads              yes                                                          Quicklisp
+lparallel                     yes                                                          Quicklisp
+trivial-garbage               yes                                                          Quicklisp
+closer-mop                    yes                                                          Quicklisp
+cl-hooks                      yes                                                          Quicklisp
+log4cl                        yes                                                          Quicklisp
+nibbles                       yes                                                          Quicklisp
+puri                          yes                                                          Quicklisp
+uuid                          yes                                                          Quicklisp
+local-time                    yes                                                          Quicklisp
+utilities.print-items         yes                                                          Quicklisp
+utilities.binary-dump         yes                                                          Quicklisp
+cl-ppcre                      for Regexp filtering                                         Quicklisp
+cxml-stp                      for XML :term:`payload`                                      Quicklisp
+xpath                         for XPath filtering                                          Quicklisp
+cl-protobuf                   for Socket and :term:`Spread` :term:`transports <transport>` https://github.com/scymtym/cl-protobuf
+network.spread                for :term:`Spread` :term:`transport`                         https://github.com/scymtym/network.spread
+architecture.builder-protocol for ``rsb-*-builder`` systems                                https://github.com/scymtym/architecture.builder-protocol
+============================= ============================================================ ========================================================
+
+.. note::
+
+   The ``network.spread`` system requires the ``libspread`` library
+   (which is written in C). For installing the library, see :ref:`C++
+   installation instructions <install-cpp>`.
 
 Installation
 ============
