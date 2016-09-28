@@ -91,7 +91,7 @@ Solution
 Configuration Problems
 ======================
 
-Problem *(applies to C++)*
+Problem *(applies to all implementations)*
 
   My |project| program seems to be :ref:`configured
   <specification-config>` incorrectly, but I cannot tell whether

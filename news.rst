@@ -18,6 +18,10 @@ Changes
   * A new :term:`filter` which discriminates :term:`events <event>`
     based on :term:`causal vectors <causal vector>` has been added.
 
+  * :ref:`Configuration debugging <specification-config-debug>` using
+    :envvar:`RSB_CONFIG_DEBUG` is now supported in all
+    implementations.
+
 * C++
 
   * :term:`Converters <converter>` for integer values are now provided
