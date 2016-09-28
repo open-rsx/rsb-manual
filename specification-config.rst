@@ -41,13 +41,13 @@ such situations, |project| provides a few configuration debugging
 tools.
 
 The simplest and often most effective configuration debugging tool is
-the :envvar:`__CONFIG_DEBUG` environment variable. When set to any
+the :envvar:`RSB_CONFIG_DEBUG` environment variable. When set to any
 value, it causes |project|\ -based programs to print informative
 messages during configuration processing:
 
 .. code-block:: sh
 
-   $ __CONFIG_DEBUG=1 RSB_TRANSPORT_SPREAD_ENABLED=1 rsb-infocpp0.15
+   $ RSB_CONFIG_DEBUG=1 RSB_TRANSPORT_SPREAD_ENABLED=1 rsb-infocpp0.15
    Starting processing RSC-based logging configuration
 
    Configuring with sources (lowest priority first)
@@ -70,7 +70,8 @@ messages during configuration processing:
         2. User config file "/home/jmoringe/.config/rsb.conf" exists
         3. Current directory file "rsb.conf" does not exist
      2. Environment variables with prefix RSB_
-        RSB_TRANSPORT_SPREAD_ENABLED -> 1
+        RSB_CONFIG_DEBUG (mapped to config_debug) -> 1
+        RSB_TRANSPORT_SPREAD_ENABLED (mapped to transport_spread_enabled) -> 1
      3. Commandline options
         <none>
 
@@ -84,7 +85,8 @@ messages during configuration processing:
         2. User config file "/home/jmoringe/.config/rsb.conf" exists
         3. Current directory file "rsb.conf" does not exist
      2. Environment variables with prefix RSB_
-        RSB_TRANSPORT_SPREAD_ENABLED -> 1
+        RSB_CONFIG_DEBUG (mapped to config_debug) -> 1
+        RSB_TRANSPORT_SPREAD_ENABLED (mapped to transport_spread_enabled) -> 1
      3. Commandline options
         <none>
 

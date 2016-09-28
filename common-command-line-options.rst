@@ -217,7 +217,7 @@ Configuration Debugging
      :ref:`specification-config-debug`
         Details about configuration debugging
 
-  .. envvar:: __CONFIG_DEBUG
+  .. envvar:: RSB_CONFIG_DEBUG
 
      When set to any value, activates :ref:`configuration debugging
      <specification-config-debug>`.
