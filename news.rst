@@ -22,6 +22,10 @@ Changes
     :envvar:`RSB_CONFIG_DEBUG` is now supported in all
     implementations.
 
+  * The environment variable :envvar:`RSB_CONFIG_FILES` can be used to
+    make |project| attempt to load :ref:`a non-default cascade of
+    configuration files <specification-config-file-cascade>`.
+
 * C++
 
   * :term:`Converters <converter>` for integer values are now provided

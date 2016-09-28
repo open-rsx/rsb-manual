@@ -222,6 +222,12 @@ Configuration Debugging
      When set to any value, activates :ref:`configuration debugging
      <specification-config-debug>`.
 
+  .. envvar:: RSB_CONFIG_FILES
+
+     When set, changes the list of :ref:`configuration files
+     <specification-config-effective-configuration>` |project| tries
+     to load.
+
 Plugins
 
   .. seealso::

@@ -163,6 +163,8 @@ implementation language, e.g. ``cpp``, ``java``, etc.)
   +------ :samp:`{LANGUAGE}`                                             #
   +-------- :samp:`{WIRE-SCHEMA}`              string                    #
 
+.. _specification-config-effective-configuration:
+
 Effective Configuration
 =======================
 
@@ -332,6 +334,40 @@ options from sources which are processed earlier:
 .. note::
 
    On Windows the configuration file is located at ``%userprofile%\.config\rsb.conf``.
+
+.. _specification-config-file-cascade:
+
+Non-default Configuration File Cascade
+--------------------------------------
+
+The environment variable :envvar:`RSB_CONFIG_FILES` can be used to
+make |project| load a different cascade of configuration files than
+the one described above.
+
+Acceptable values are lists of filenames separated by ``:``. In
+addition to filenames, the following placeholders can be used:
+
+``%system``
+
+  Is replaced with the name of the **System Config** file
+  |system_config_file| described above.
+
+``%user``
+
+  Is replaced with the **User Config** file |user_config_file|
+  described above.
+
+``%pwd``
+
+  Is replaced with the **Current Directory Config** file
+  |pwd_config_file| described above.
+
+Example:
+
+.. parsed-literal::
+
+      %system:/my-etc/rsb.conf:%user:/my-other-etc//rsb.conf
+   => |system_config_file|:/myetc/rsb.conf:|user_config_file|:/my-other-etc//rsb.conf
 
 Sources
 =======
