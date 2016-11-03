@@ -45,6 +45,9 @@ Changes
     collapses chains of :term:`scopes <scope>` with exactly one
     :term:`subscope` into a single line to save vertical space.
 
+  * The :ref:`web tool <tool-web>` now provides a web interface for
+    basic :term:`introspection` queries.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
