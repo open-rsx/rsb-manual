@@ -59,16 +59,38 @@ accepted. Specialized commandline options:
 
 .. _tool-web-endpoints:
 
-Provided HTTP endpoints
+Provided HTTP Endpoints
 =======================
 
-* :samp:`http://{ADDRESS}:{PORT}/`
+For all ``/api/**`` endpoints, at least the content types
+``text/html`` and ``application/json`` are supported.
+
+If the ``Accept`` header indicates that the response content type
+should be HTML, the response body is a HTML document containing a
+human-readable description of the endpoint.
+
+If the Accept header indicates that the response content type should
+be JSON, the response body is of one of the forms
+
+.. parsed-literal::
+
+   {"data": :samp:`{DATA}`}
+   {"error": :samp:`{DESCRIPTION}`}
+   {"data": :samp:`{DATA}`, "error": :samp:`{DESCRIPTION}`}
+
+i.e. at least one of the ``"data"`` and ``"error"`` properties is
+present. Both can be present if an error occurs while streaming the
+body of an initially successful response.
+
+The following endpoints are provided:
+
+:samp:`http://{ADDRESS}:{PORT}/`
 
   Either the contents of the directory specified via the
   :option:`--document-root` option or built-in resource files are made
   available here.
 
-* :samp:`http://{ADDRESS}:{PORT}/api/introspection/snapshot`
+:samp:`http://{ADDRESS}:{PORT}/api/introspection/snapshot`
 
   A JSON-serialization of a snapshot of the :term:`introspection` data
   for the system or systems specified via :samp:`{URI}`\s can be
