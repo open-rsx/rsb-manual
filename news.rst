@@ -44,18 +44,15 @@ Changes
     make |project| attempt to load :ref:`a non-default cascade of
     configuration files <specification-config-file-cascade>`.
 
+  * :term:`Converters <converter>` for the :term:`scope`
+    :term:`data type` are now available in all implementations.
+
 * C++
 
   * :term:`Converters <converter>` for integer values are now provided
     by the generic :cpp:class:`rsb::converter::IntegerConverter`.
 
-  * A :term:`converter` for :term:`scope` values has been added.
-
   * A few C++11 incompatibilities have been resolved.
-
-* Python
-
-  * A :term:`converter` for :term:`scope` values has been added.
 
 * Common Lisp Tools
 
