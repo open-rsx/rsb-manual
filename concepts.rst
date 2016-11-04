@@ -192,7 +192,7 @@ Fundamental Types
   ASCII string            ``"ascii-string"`` ``std::string`` ``str``       ``String``     ``string``
   UTF-8 string            ``"utf-8-string"`` ``std::string`` ``unicode``   ``String``     ``string``
   Sequence of Bytes       ``"bytes"``        ``std::string``               ``ByteString`` ``(simple-array (unsigned-byte 8)  (*))``
-  :term:`Scope`           ``"scope"``        ``rsb::Scope``  ``rsb.scope`` ``rsb.Scopes`` ``rsb:scope``
+  :term:`Scope`           ``"scope"``        ``rsb::Scope``  ``rsb.scope`` ``rsb.Scope``  ``rsb:scope``
   ======================= ================== =============== ============= ============== =========================================
 
   .. note::
