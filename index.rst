@@ -19,7 +19,7 @@ systems in diverse environments.
 
    When possible, the most recent stable version of |project| should
    be used instead. That version is described in a `separate manual
-   <../../0.14/html/index.html>`_.
+   <../../0.15/html/index.html>`_.
 
 .. toctree::
    :hidden:
