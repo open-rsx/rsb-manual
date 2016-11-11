@@ -314,6 +314,8 @@ Binary Downloads of Tools
    * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_trusty_32bit/>`_
    * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_trusty_64bit/>`_
    * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-macos/label=MAC_OS_mavericks_64bit/>`_
+   * `Windows i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-wine/label=ubuntu_precise_32bit>`_
+     (experimental)
 
 #. After the download, the |main_binary| file has to be made
    executable in most cases. This can be done for example by executing
