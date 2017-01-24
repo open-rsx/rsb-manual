@@ -45,12 +45,16 @@ $(document).ready(function () {
     jQuery.map($('*[class*="multi"]').filter('*[class*="container"]'), function (parent) {
         //
         var parentName = parent.className.replace(/^(.*)-multi .*container$/, '$1');
-        var all = jQuery.map($(parent).find('*[class*="container"]').filter('*[class*="' + parentName + '"]'),
+        var all = jQuery.map($(parent)
+                             .find('*[class*="container"]')
+                             .filter('*[class*="' + parentName + '"]'),
                              function (node) {
                                  var clazz = node.className;
                                  return {
-                                     'name':  clazz.replace(/^(.*) container$/, '$1'),
-                                     'label': clazz.replace(/^.*-([^-].*) container$/, '$1')
+                                     'name':  clazz.replace(new RegExp('^.*(' + parentName + '-[^ ]+) .*$'),
+                                                            '$1'),
+                                     'label': clazz.replace(new RegExp('^.*' + parentName + '-([^ ]+) .*$'),
+                                                            '$1')
                                  };
                              });
         var allNames = jQuery.map(all, function (nameAndLabel) { return nameAndLabel.name; });
