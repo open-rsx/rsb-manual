@@ -48,8 +48,8 @@ $(document).ready(function () {
     all = jQuery.map($(parent).find('*[class*="container"]').filter('*[class*="' + parentName + '"]'),
                      function (node) {
                          clazz = node.className;
-                         return { 'name':  clazz.replace(/^(.*) container$/, '$1'),
-                                  'label': clazz.replace(/^.*-([^-].*) container$/, '$1') };
+                         return { 'name':  clazz.replace(new RegExp('^.*(' + parentName + '-[^ ]+) .*$'), '$1'),
+                                  'label': clazz.replace(new RegExp('^.*' + parentName + '-([^ ]+) .*$'), '$1') };
                      })
     allNames = jQuery.map(all, function (nameAndLabel) { return nameAndLabel.name });
 
