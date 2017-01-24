@@ -20,20 +20,20 @@
 
 function switchMulti(parent, all, switchTo) {
   jQuery.map(all, function (name) {
-    node = $('.' + parent + '-multi').find('.' + name);
-    if (name === switchTo) {
-      node.slideDown();
-    } else {
-      node.slideUp();
-    }
-  })
+      node = $('.' + parent + '-multi').find('.' + name);
+      if (name === switchTo) {
+          node.slideDown();
+      } else {
+          node.slideUp();
+      }
+  });
 }
 
 function getScriptDirectory(name) {
     var scripts = document.getElementsByTagName('script');
     for (i = 0; i < scripts.length; i++) {
         if (scripts[i].src.indexOf(name) > -1) {
-            path = scripts[i].src;
+            var path = scripts[i].src;
             path = path.substring(0, path.lastIndexOf("/") + 1);
             return path;
         }
@@ -41,29 +41,36 @@ function getScriptDirectory(name) {
 }
 
 $(document).ready(function () {
-  var directory = getScriptDirectory("multi.js");
-  jQuery.map($('*[class*="multi"]').filter('*[class*="container"]'), function (parent) {
-    //
-    parentName = parent.className.replace(/^(.*)-multi .*container$/, '$1');
-    all = jQuery.map($(parent).find('*[class*="container"]').filter('*[class*="' + parentName + '"]'),
-                     function (node) {
-                         clazz = node.className;
-                         return { 'name':  clazz.replace(/^(.*) container$/, '$1'),
-                                  'label': clazz.replace(/^.*-([^-].*) container$/, '$1') };
-                     })
-    allNames = jQuery.map(all, function (nameAndLabel) { return nameAndLabel.name });
+    var directory = getScriptDirectory("multi.js");
+    jQuery.map($('*[class*="multi"]').filter('*[class*="container"]'), function (parent) {
+        //
+        var parentName = parent.className.replace(/^(.*)-multi .*container$/, '$1');
+        var all = jQuery.map($(parent).find('*[class*="container"]').filter('*[class*="' + parentName + '"]'),
+                             function (node) {
+                                 var clazz = node.className;
+                                 return {
+                                     'name':  clazz.replace(/^(.*) container$/, '$1'),
+                                     'label': clazz.replace(/^.*-([^-].*) container$/, '$1')
+                                 };
+                             });
+        var allNames = jQuery.map(all, function (nameAndLabel) { return nameAndLabel.name; });
 
-    code = jQuery.map(all, function (nameAndLabel) {
-      return '<a href="javascript:switchMulti(\''
-             + parentName + '\', ['
-             + jQuery
-               .map(allNames, function (name) { return '\'' + name + '\''})
-               .join(', ')
-             + '], \'' + nameAndLabel.name + '\')">' + nameAndLabel.label + '</a>';
-    }).join('&nbsp;|&nbsp;');
-    $(parent).prepend('<div class="switcher"><img class="switchicon" alt="" src="' + directory + '/multiswitch.svg"/>Show ' + code + '</div>');
+        var code = jQuery.map(all, function (nameAndLabel) {
+            return '<a href="javascript:switchMulti(\''
+                + parentName + '\', ['
+                + (jQuery
+                   .map(allNames, function (name) { return '\'' + name + '\''; })
+                   .join(', '))
+                + '], \''
+                + nameAndLabel.name + '\')">' + nameAndLabel.label + '</a>';
+        }).join('&nbsp;|&nbsp;');
+        $(parent).prepend('<div class="switcher"><img class="switchicon" alt="" src="'
+                          + directory
+                          + '/multiswitch.svg"/>Show '
+                          + code
+                          + '</div>');
 
-    parent.className += ' multi';
-    switchMulti(parentName, allNames, allNames[0])
-  })
-})
+        parent.className += ' multi';
+        switchMulti(parentName, allNames, allNames[0]);
+    });
+});
