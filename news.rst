@@ -13,7 +13,10 @@
 
 Changes
 
-*none so far*
+* Python
+
+  * The :term:`reader` pattern has been implemented. However, currently
+    only the :term:`Spread` :term:`transport` can be used with it.
 
 .. note::
 
