@@ -18,10 +18,19 @@ Changes
   * The :term:`reader` pattern has been implemented. However, currently
     only the :term:`Spread` :term:`transport` can be used with it.
 
+* Common Lisp
+
+  * The `XPath <https://en.wikipedia.org/wiki/XPath>`_ :term:`filter`
+    is now able to access all :term:`event` attributes and
+    :term:`payloads <payload>`.
+
 * Common Lisp Tools
 
   * The ``image/png`` :term:`event` formatting style produces more
     compact output and supports more pixel formats.
+
+  * The :ref:`logger <tool-logger>` command now supports XPath-based
+    filtering of :term:`events <event>`.
 
 .. note::
 
