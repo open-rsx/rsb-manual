@@ -271,7 +271,7 @@ include the following fragments in the :file:`pom.xml` of your project.
           <dependency>
               <groupId>rsb</groupId>
               <artifactId>rsb</artifactId>
-              <version>0.16-SNAPSHOT</version>
+              <version>0.17-SNAPSHOT</version>
           </dependency>
       </dependencies>
 
@@ -311,8 +311,8 @@ Binary Downloads of Tools
       edit-on-version-bump:
       adapt URLs
 
-   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_trusty_32bit/>`_
-   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_trusty_64bit/>`_
+   * `Linux i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_xenial_32bit/>`_
+   * `Linux x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_xenial_64bit/>`_
    * `MacOS x86_64 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-macos/label=MAC_OS_mavericks_64bit/>`_
    * `Windows i686 <https://ci.cor-lab.de/job/rsb-tools-cl-trunk-wine/label=ubuntu_precise_32bit>`_
      (experimental)

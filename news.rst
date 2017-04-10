@@ -4,12 +4,46 @@
  News
 ======
 
-|project| 0.16
+|project| 0.17
 ==============
 
 ..
    edit-on-version-bump:
    Add paragraph about downloadable artifacts and issue tracker
+
+Changes
+
+*none so far*
+
+.. note::
+
+   For a more detailed list of fixed bugs, added features and other
+   enhancements, see https://code.cor-lab.org/versions/74.
+
+|project| 0.16
+==============
+
+..
+   edit-on-version-bump:
+   remove this and issue tracker note if the downloads are no longer available
+
+This |project| release is available in the following forms:
+
+* Source archives
+* Pre-compiled self-installing archives or executable binaries
+* Debian packages for different |ubuntu| versions (currently C++ and
+  Common Lisp implementations only)
+* Pypi packages for the |python| implementation
+* Maven package for the Java implementation
+
+These can be downloaded from the `0.16 jobs continuous integration
+server <https://ci.cor-lab.org/view/rsx-0.16>`_ or `repository
+server`_ respectively.  :ref:`Installation instructions <install>` and
+links for downloading can be found in the |project| :ref:`manual
+<rsb>`.
+
+As always, bugs, feature requests and enhancement proposals can be
+reported in the `issue tracker`_.
 
 Changes
 
@@ -104,27 +138,12 @@ Changes
 |project| 0.14
 ==============
 
-..
-   edit-on-version-bump:
-   remove this and issue tracker note if the downloads are no longer available
+.. note::
 
-This |project| release is available in the following forms:
+   This |project| release is only available in source code form from
+   the `repository server`_.
 
-* Source archives
-* Pre-compiled self-installing archives or executable binaries
-* Debian packages for different |ubuntu| versions (currently C++ and
-  Common Lisp implementations only)
-* Pypi packages for the |python| implementation
-* Maven package for the Java implementation
-
-These can be downloaded from the `0.14 jobs continuous integration
-server <https://ci.cor-lab.org/view/rsx-0.14>`_ or `repository
-server`_ respectively.  :ref:`Installation instructions <install>` and
-links for downloading can be found in the |project| :ref:`manual
-<rsb>`.
-
-As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
+   We no longer accept bug reports against this |project| version.
 
 Changes
 
