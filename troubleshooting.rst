@@ -382,7 +382,7 @@ Solution
   .. literalinclude:: /../rsb-cpp/examples/informer/anyInformer.cpp
      :language:        c++
      :lines:           49-57
-     :emphasize-lines: 51-21
+     :emphasize-lines: 51
      :linenos:
 
 .. note::
