@@ -314,3 +314,7 @@ napoleon_include_special_with_doc = False
 autosummary_generate = True
 autodoc_member_order = 'groupwise'
 autoclass_content = 'both'
+
+def setup(app):
+    pass
+    #app.add_stylesheet('_static/style.css')
