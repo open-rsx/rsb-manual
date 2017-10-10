@@ -13,7 +13,11 @@
 
 Changes
 
-*none so far*
+* Common Lisp
+
+  * On Linux, the :term:`socket <specification-socket>`
+    :term:`transport` now supports UNIX domain sockets in the abstract
+    namespace using the ``unix:`` scheme.
 
 .. note::
 
