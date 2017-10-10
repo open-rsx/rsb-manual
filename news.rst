@@ -13,6 +13,12 @@
 
 Changes
 
+* Java
+
+  * :term:`Participants <participant>` now implement the `Closeable
+    interface
+    <https://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html>`_.
+
 * Common Lisp
 
   * On Linux, the :term:`socket <specification-socket>`
