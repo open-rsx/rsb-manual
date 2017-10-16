@@ -43,6 +43,8 @@ Changes
     :term:`transport` now supports UNIX domain sockets in the abstract
     namespace using the ``unix:`` scheme.
 
+  * :term:`Scope` parsing and construction is now more efficient.
+
 * Python
 
   * Synchronous RPCs now accept a ``timeout`` keyword argument.
