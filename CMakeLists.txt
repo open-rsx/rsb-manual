@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 # Project meta-data.
 
 SET(VERSION_MAJOR "0" CACHE STRING "Major project version part")
-SET(VERSION_MINOR "17" CACHE STRING "Minor project version part")
+SET(VERSION_MINOR "18" CACHE STRING "Minor project version part")
 
 project("rsb-manual" NONE)
 
