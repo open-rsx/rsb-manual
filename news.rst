@@ -55,6 +55,10 @@ Changes
     :term:`transport` now supports UNIX domain sockets in the abstract
     namespace using the ``unix:`` scheme.
 
+* Python
+
+  * Synchronous RPCs now accept a ``timeout`` keyword argument.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
