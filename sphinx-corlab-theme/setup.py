@@ -25,7 +25,7 @@ setup(
     author_email='jwienke@techfak.uni-bielefeld.de',
     packages=find_packages(),
     include_package_data=True,
-    url='https://code.cor-lab.org/projects/sphinx-corlab-theme',
+    url='https://code.cor-lab.de/projects/sphinx-corlab-theme',
     license='LGPLv3+',
     description='Theme for documentation projects related to CoR-Lab software',
     classifiers=[

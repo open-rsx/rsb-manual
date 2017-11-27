@@ -38,7 +38,7 @@ set(DOCUMENTATION_ROOT_DIR "http://docs.cor-lab.org"
     CACHE STRING
     "The directory or URL corresponding to the root of all documentation.")
 
-set(REPOSITORY_BASE_URL "https://code.cor-lab.org/git/rsb.git"
+set(REPOSITORY_BASE_URL "https://code.cor-lab.de/git/rsb.git"
     CACHE STRING
     "URL of the RSB repository base")
 
@@ -50,7 +50,7 @@ set(JAVA_API_DIR "${DOCUMENTATION_ROOT_DIR}/rsb-java-api/${API_VERSION_DIRECTORY
     "URL of the java API documentation.")
 
 # Configure sphinx configuration file.
-set(REDMINE_BASE_URL https://code.cor-lab.org)
+set(REDMINE_BASE_URL https://code.cor-lab.de)
 set(REDMINE_PROJECT  rsb)
 
 set(REPOSITORIES protocol
