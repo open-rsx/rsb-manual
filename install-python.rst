@@ -71,7 +71,7 @@ Installation
    repository
 
    RSC
-     "|branch|" branch of https://code.cor-lab.org/git/rsc.git
+     "|branch|" branch of https://code.cor-lab.de/git/rsc.git
    |project| Protocol
      |repository_versioned_protocol|
    |project| Python
