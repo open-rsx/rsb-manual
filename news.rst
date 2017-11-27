@@ -14,7 +14,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/75.
+   enhancements, see https://code.cor-lab.de/versions/75.
 
 |project| 0.17
 ==============
@@ -64,7 +64,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/74.
+   enhancements, see https://code.cor-lab.de/versions/74.
 
 |project| 0.16
 ==============
@@ -115,7 +115,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/58.
+   enhancements, see https://code.cor-lab.de/versions/58.
 
 |project| 0.15
 ==============
@@ -164,7 +164,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/56.
+   enhancements, see https://code.cor-lab.de/versions/56.
 
 |project| 0.14
 ==============
@@ -237,7 +237,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/51.
+   enhancements, see https://code.cor-lab.de/versions/51.
 
 |project| 0.13
 ==============
@@ -257,7 +257,7 @@ Changes
 
   * The APIs of the different language implementations have been
     unified. Please refer to the different language-specific sections
-    and `issue 2222 <https://code.cor-lab.org/issues/2222>`_ for
+    and `issue 2222 <https://code.cor-lab.de/issues/2222>`_ for
     details.
 
 * Manual
@@ -282,7 +282,7 @@ Changes
 
   * |project| C++ will now throw an exception in case a requested
     :term:`plugin` cannot be found (`issue #2487
-    <https://code.cor-lab.org/issues/2487>`_).
+    <https://code.cor-lab.de/issues/2487>`_).
 
   * The options ``plugins.cpp.path`` and ``plugins.cpp.load`` behave
     more consistently and allow inheriting values from the next more
@@ -397,7 +397,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/47.
+   enhancements, see https://code.cor-lab.de/versions/47.
 
 |project| 0.12
 ==============
@@ -486,7 +486,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/42.
+   enhancements, see https://code.cor-lab.de/versions/42.
 
 |project| 0.11
 ==============
@@ -631,7 +631,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/41.
+   enhancements, see https://code.cor-lab.de/versions/41.
 
 |project| 0.10
 ==============
@@ -711,7 +711,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/11.
+   enhancements, see https://code.cor-lab.de/versions/11.
 
 |project| 0.9
 =============
@@ -760,7 +760,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/12.
+   enhancements, see https://code.cor-lab.de/versions/12.
 
 |project| 0.7
 =============
@@ -774,7 +774,7 @@ Changes
      :ref:`troubleshooting`.
 
    * |project| and related projects are now maintained in a `git`_
-     repository. See https://code.cor-lab.org/news/21 for more
+     repository. See https://code.cor-lab.de/news/21 for more
      information.
 
      The git URL is |repository|. To obtain |project| with all
@@ -782,7 +782,7 @@ Changes
 
      .. code-block:: sh
 
-        $ git clone --recursive https://code.cor-lab.org/git/rsb.git
+        $ git clone --recursive https://code.cor-lab.de/git/rsb.git
 
 .. note::
 
@@ -804,7 +804,7 @@ Changes
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
-   enhancements, see https://code.cor-lab.org/versions/22.
+   enhancements, see https://code.cor-lab.de/versions/22.
 
 |project| 0.6
 =============
@@ -845,7 +845,7 @@ Tools
 
    For a more detailed list of fixed bugs, added features and other
    enhancements, see
-   https://code.cor-lab.org/projects/rsb/versions/25.
+   https://code.cor-lab.de/projects/rsb/versions/25.
 
 |project| 0.5
 =============
@@ -955,7 +955,7 @@ Common Lisp
 
    For a more detailed list of fixed bugs, added features and other
    enhancements, see
-   https://code.cor-lab.org/projects/rsb/versions/21.
+   https://code.cor-lab.de/projects/rsb/versions/21.
 
 |project| 0.4
 =============
@@ -1026,4 +1026,4 @@ Common Lisp
 
    For a more detailed list of fixed bugs, added features and other
    enhancements, see
-   https://code.cor-lab.org/projects/rsb/versions/17.
+   https://code.cor-lab.de/projects/rsb/versions/17.

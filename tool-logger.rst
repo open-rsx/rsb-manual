@@ -193,7 +193,7 @@ Examples
                   spread:
 
   Here is another example which loads all definitions contained in the
-  `Robotics Systems Types <https://code.cor-lab.org/projects/rst>`_
+  `Robotics Systems Types <https://code.cor-lab.de/projects/rst>`_
   repository.
 
   .. note::
