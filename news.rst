@@ -9,7 +9,11 @@
 
 Changes
 
-*none so far*
+* C++
+
+  * A single `Spread`_ connection is now shared between all
+    :term:`listeners <listener>` and :term:`informers <informer>` in the
+    process.
 
 .. note::
 
