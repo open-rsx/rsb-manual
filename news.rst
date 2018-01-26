@@ -15,6 +15,11 @@ Changes
     :term:`listeners <listener>` and :term:`informers <informer>` in the
     process.
 
+* Python
+
+  * A single `Spread`_ connection is now shared between all
+    :term:`participants <participant>`.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
