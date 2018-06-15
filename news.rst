@@ -15,6 +15,14 @@ Changes
     :term:`listeners <listener>` and :term:`informers <informer>` in the
     process.
 
+  * Improvements in the RSC library lead to the following
+    improvements:
+
+    * Fewer compiler warnings during compilation
+
+    * Minor improvements in the logging, configuration and plugin
+      sub-systems
+
 * Python
 
   * A single `Spread`_ connection is now shared between all
