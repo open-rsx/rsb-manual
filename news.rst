@@ -28,6 +28,11 @@ Changes
   * A single `Spread`_ connection is now shared between all
     :term:`participants <participant>`.
 
+* Common Lisp
+
+  * A single `Spread`_ connection is now shared between all
+    :term:`participants <participant>`.
+
 .. note::
 
    For a more detailed list of fixed bugs, added features and other
