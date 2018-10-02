@@ -271,7 +271,7 @@ include the following fragments in the :file:`pom.xml` of your project.
           <dependency>
               <groupId>rsb</groupId>
               <artifactId>rsb</artifactId>
-              <version>0.18-SNAPSHOT</version>
+              <version>0.19-SNAPSHOT</version>
           </dependency>
       </dependencies>
 
