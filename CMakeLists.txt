@@ -1,11 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 # Project meta-data.
 
 SET(VERSION_MAJOR "0" CACHE STRING "Major project version part")
 SET(VERSION_MINOR "18" CACHE STRING "Minor project version part")
 
-project("rsb-manual" NONE)
+project("rsb-manual" VERSION "${VERSION_MAJOR}.${VERSION_MINOR}"
+                     LANGUAGES NONE)
 
 find_package(RSC-CMake "${VERSION_MAJOR}.${VERSION_MINOR}" REQUIRED)
 list(INSERT CMAKE_MODULE_PATH 0 ${RSC_CMAKE_MODULE_PATH})
