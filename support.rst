@@ -37,4 +37,4 @@ IRC
 Reporting Bugs
 ==============
 
-Bug reports are always welcome on `issue tracker`_.
+Bug reports are always welcome as an issue in the appropriate project of our `github organization`_.

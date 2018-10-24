@@ -9,9 +9,8 @@ Installation from Source
    `git documentation <https://git-scm.com/doc>`_
       In case you are unfamiliar with the git version control system.
 
-#. The whole source tree of |project| can be obtained from the
-   repository located at |repository_versioned|. URLs of individual
-   implementations:
+#. The whole source tree of |project| can be obtained from our `github
+   organization`_. URLs of individual implementations:
 
    =========== =============================
    Language    Repository URL

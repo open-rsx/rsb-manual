@@ -34,7 +34,7 @@ links for downloading can be found in the |project| :ref:`manual
 <rsb>`.
 
 As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
+reported as issues in the appropriate project of our `github organization`_.
 
 Changes
 
@@ -90,7 +90,7 @@ links for downloading can be found in the |project| :ref:`manual
 <rsb>`.
 
 As always, bugs, feature requests and enhancement proposals can be
-reported in the `issue tracker`_.
+reported as issues in the appropriate project of our `github organization`_.
 
 Changes
 
@@ -809,16 +809,9 @@ Changes
      For :term:`transport` configuration issues see
      :ref:`troubleshooting`.
 
-   * |project| and related projects are now maintained in a `git`_
-     repository. See https://code.cor-lab.de/news/21 for more
+   * |project| and related projects are now maintained in `git`_
+     repositories. See https://code.cor-lab.de/news/21 for more
      information.
-
-     The git URL is |repository|. To obtain |project| with all
-     submodules, use the following command:
-
-     .. code-block:: sh
-
-        $ git clone --recursive https://code.cor-lab.de/git/rsb.git
 
 .. note::
 

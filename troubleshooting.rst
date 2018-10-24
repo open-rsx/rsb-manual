@@ -28,7 +28,8 @@ Solution
   not a problem. However, to save yourself and us time and effort, we
   ask you to keep the following things in mind when reporting bugs.
 
-  Check whether the problem is known: go to `new issue`_ and try to
+  Check whether the problem is known: go to the issues section of the
+  appropriate project in our `github organization`_ and try to
   find a description of the problem in the "Issues" list. If there is
   none, create a new issue (see below), otherwise edit and extend the
   existing issue as necessary.
@@ -71,16 +72,15 @@ Solution
       following backtrace" (include error messages and/or backtraces
       whenever possible).
 
-  Creating the Report as a `new issue`_:
+  Creating the report as a new issue in the appropriate project of our `github
+  organization`_:
 
-  * In the "Subject" field, try do give a brief description of the
+  * In the "Title" field, try do give a brief description of the
     specific problem. That is, if you can, write "In C++,
     :term:`informer` crashes when trying to send std::string data"
     instead of "|project| crashes".
 
-  * Put the information mentioned above into the "Description" field
-    and select the value of the "Category" field according to the
-    program and/or programming language.
+  * Put the information mentioned above into the "Comment" field.
 
   * Please try to report bugs in the correct project. We understand
     that this may be hard to figure out and a bug report in the
