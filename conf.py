@@ -19,7 +19,8 @@ extensions = [ 'sphinx.ext.intersphinx',
                'sphinx.ext.autosummary',
                'sphinx.ext.napoleon',
                'sphinx.ext.todo',
-               'sphinx.ext.graphviz' ]
+               'sphinx.ext.graphviz',
+               'javasphinx' ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path  = [ '_templates',

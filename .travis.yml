@@ -7,6 +7,6 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install protobuf-compiler
 install:
-  - pip install sphinx sphinx_rtd_theme upstream/rsb-python
+  - pip install sphinx sphinx_rtd_theme javasphinx upstream/rsb-python
 script:
-  - sphinx-build -a . build
+  - ./build.sh
