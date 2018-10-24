@@ -1,0 +1,12 @@
+language: python
+sudo: yes
+python:
+  - 3.6
+before_install:
+  - sudo add-apt-repository ppa:maarten-fonville/protobuf -y
+  - sudo apt-get update -q
+  - sudo apt-get install protobuf-compiler
+install:
+  - pip install sphinx sphinx_rtd_theme upstream/rsb-python
+script:
+  - sphinx-build -a . build
