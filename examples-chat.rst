@@ -53,43 +53,43 @@ appropriate :term:`scope`:
 
    .. container:: chat-1-python
 
-      .. literalinclude:: /../rsb-tutorials/chat-1/python/solution/chat1.py
+      .. literalinclude:: upstream/rsb-tutorials/chat-1/python/solution/chat1.py
          :language:    python
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-1/python/solution/chat1.py>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-1/python/solution/chat1.py>`
 
    .. container:: chat-1-cpp
 
-      .. literalinclude:: /../rsb-tutorials/chat-1/cpp/solution/src/chat-1.cpp
+      .. literalinclude:: upstream/rsb-tutorials/chat-1/cpp/solution/src/chat-1.cpp
          :language:    c++
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-1/cpp/solution/src/chat-1.cpp>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-1/cpp/solution/src/chat-1.cpp>`
 
    .. container:: chat-1-java
 
-      .. literalinclude:: /../rsb-tutorials/chat-1/java/solution/src/chat1/Chat1.java
+      .. literalinclude:: upstream/rsb-tutorials/chat-1/java/solution/src/chat1/Chat1.java
          :language:    java
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-1/java/solution/src/chat1/Chat1.java>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-1/java/solution/src/chat1/Chat1.java>`
 
    .. container:: chat-1-cl
 
-      .. literalinclude:: /../rsb-tutorials/chat-1/cl/solution/chat.lisp
+      .. literalinclude:: upstream/rsb-tutorials/chat-1/cl/solution/chat.lisp
          :language:    cl
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-1/cl/solution/chat.lisp>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-1/cl/solution/chat.lisp>`
 
 .. _tutorial-chat-2:
 
@@ -110,40 +110,40 @@ chat program
 
    .. container:: chat-2-python
 
-      .. literalinclude:: /../rsb-tutorials/chat-2/python/solution/chat2.py
+      .. literalinclude:: upstream/rsb-tutorials/chat-2/python/solution/chat2.py
          :language:    python
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-2/python/solution/chat2.py>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-2/python/solution/chat2.py>`
 
    .. container:: chat-2-cpp
 
-      .. literalinclude:: /../rsb-tutorials/chat-2/cpp/solution/src/chat.cpp
+      .. literalinclude:: upstream/rsb-tutorials/chat-2/cpp/solution/src/chat.cpp
          :language:    c++
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-2/cpp/solution/src/chat.cpp>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-2/cpp/solution/src/chat.cpp>`
 
    .. container:: chat-2-java
 
-      .. literalinclude:: /../rsb-tutorials/chat-2/java/solution/src/chat2/AvatarServer.java
+      .. literalinclude:: upstream/rsb-tutorials/chat-2/java/solution/src/chat2/AvatarServer.java
          :language:    java
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-2/java/solution/src/chat2/AvatarServer.java>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-2/java/solution/src/chat2/AvatarServer.java>`
 
    .. container:: chat-2-cl
 
-      .. literalinclude:: /../rsb-tutorials/chat-2/cl/solution/avatar.lisp
+      .. literalinclude:: upstream/rsb-tutorials/chat-2/cl/solution/avatar.lisp
          :language:    cl
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :linenos:
 
-      :download:`Download this example </../rsb-tutorials/chat-2/cl/solution/avatar.lisp>`
+      :download:`Download this example <upstream/rsb-tutorials/chat-2/cl/solution/avatar.lisp>`

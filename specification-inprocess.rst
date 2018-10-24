@@ -80,6 +80,6 @@ Language    File(s)
 =========== ==============================================================
 C++         |repository_versioned_cpp| at ``src/rsb/transport/inprocess``
 Java        |repository_versioned_java| at ``src/rsb/transport/inprocess``
-Python      :download:`/../rsb-python/rsb/transport/local/__init__.py`
+Python      :download:`upstream/rsb-python/rsb/transport/local/__init__.py`
 Common Lisp |repository_versioned_cl| at ``src/transport/inprocess``
 =========== ==============================================================

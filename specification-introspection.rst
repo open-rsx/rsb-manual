@@ -97,15 +97,15 @@ Introspection Broadcasts
 
         .. container:: message-hello-show
 
-           .. literalinclude:: ../rsb-protocol/proto/rsb/protocol/introspection/Hello.proto
+           .. literalinclude:: upstream/rsb-protocol/proto/rsb/protocol/introspection/Hello.proto
              :language: protobuf
              :linenos:
 
-           .. literalinclude:: ../rsb-protocol/proto/rsb/protocol/operatingsystem/Process.proto
+           .. literalinclude:: upstream/rsb-protocol/proto/rsb/protocol/operatingsystem/Process.proto
              :language: protobuf
              :linenos:
 
-           .. literalinclude:: ../rsb-protocol/proto/rsb/protocol/operatingsystem/Host.proto
+           .. literalinclude:: upstream/rsb-protocol/proto/rsb/protocol/operatingsystem/Host.proto
              :language: protobuf
              :linenos:
 
@@ -137,7 +137,7 @@ Introspection Broadcasts
 
         .. container:: message-bye-show
 
-           .. literalinclude:: ../rsb-protocol/proto/rsb/protocol/introspection/Bye.proto
+           .. literalinclude:: upstream/rsb-protocol/proto/rsb/protocol/introspection/Bye.proto
               :language: protobuf
               :linenos:
 
@@ -246,6 +246,6 @@ Language    File(s)
 =========== ========================================================
 C++         |repository_versioned_cpp| at ``src/rsb/introspection/``
 Java        *not implemented yet*
-Python      :download:`/../rsb-python/rsb/introspection/__init__.py`
+Python      :download:`upstream/rsb-python/rsb/introspection/__init__.py`
 Common Lisp |repository_versioned_cl| at ``src/introspection/``
 =========== ========================================================

@@ -379,7 +379,7 @@ Solution
   :cpp:class:`rsb::AnyType` as the :term:`data type` of the created
   :term:`informer`:
 
-  .. literalinclude:: /../rsb-cpp/examples/informer/anyInformer.cpp
+  .. literalinclude:: upstream/rsb-cpp/examples/informer/anyInformer.cpp
      :language:        c++
      :lines:           49-57
      :emphasize-lines: 51

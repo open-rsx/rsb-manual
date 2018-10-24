@@ -56,14 +56,14 @@ data then has to be passed to it.
          the :py:class:`rsb.Informer` object has to be deactivated
          using its :py:meth:`rsb.Informer.deactivate` method at the end of use.
 
-      .. literalinclude:: /../rsb-python/examples/informer.py
+      .. literalinclude:: upstream/rsb-python/examples/informer.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 10,13
          :linenos:
 
-      :download:`Download this example </../rsb-python/examples/informer.py>`
+      :download:`Download this example <upstream/rsb-python/examples/informer.py>`
 
    .. container:: sending-data-cpp:
 
@@ -81,14 +81,14 @@ data then has to be passed to it.
       Once the :term:`informer` has been created, data is published by
       calling :cpp:member:`rsb::Informer::publish`.
 
-      .. literalinclude:: /../rsb-cpp/examples/informer/informer.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/informer/informer.cpp
          :language:        cpp
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 13,17,18,24,27
          :linenos:
 
-      :download:`Download this example </../rsb-cpp/examples/informer/informer.cpp>`
+      :download:`Download this example <upstream/rsb-cpp/examples/informer/informer.cpp>`
 
    .. container:: sending-data-java
 
@@ -106,14 +106,14 @@ data then has to be passed to it.
       Once the :term:`informer` has been created and activated, data
       is published by calling ``rsb.Informer.send``.
 
-      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/InformerExample.java
+      .. literalinclude:: upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/InformerExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 12-13,16,20,24
          :linenos:
 
-      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/InformerExample.java>`
+      :download:`Download this example <upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/InformerExample.java>`
 
    .. container:: sending-data-cl
 
@@ -123,7 +123,7 @@ data then has to be passed to it.
       be used to send data. ``rsb:with-participant`` takes care of
       destroying the :term:`informer` after use.
 
-      .. literalinclude:: /../rsb-cl/examples/informer.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/informer.lisp
          :language:    cl
          :start-after: mark-start::with-participant
          :end-before:  mark-end::with-participant
@@ -132,13 +132,13 @@ data then has to be passed to it.
       Alternatively, ``rsb:make-participant`` can be used to obtain an
       :term:`informer` without automatic destruction:
 
-      .. literalinclude:: /../rsb-cl/examples/informer.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/informer.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/informer.lisp>`
+      :download:`Download this example <upstream/rsb-cl/examples/informer.lisp>`
 
 .. _tutorial-receive:
 
@@ -192,14 +192,14 @@ receiving.
       :term:`events <event>` are received by calling the
       :cpp:member:`rsb::Reader::read` method (line 21).
 
-      .. literalinclude:: /../rsb-cpp/examples/reader/reader.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/reader/reader.cpp
          :language:        c++
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
          :emphasize-lines: 16,17,21
 
-      :download:`Download this example </../rsb-cpp/examples/reader/reader.cpp>`
+      :download:`Download this example <upstream/rsb-cpp/examples/reader/reader.cpp>`
 
    .. container:: receive-data-sync-java
 
@@ -216,7 +216,7 @@ receiving.
       :term:`events <event>` data. ``rsb:with-participant`` takes care
       of destroying the :term:`reader` after use.
 
-      .. literalinclude:: /../rsb-cl/examples/reader.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/reader.lisp
          :language:    cl
          :start-after: mark-start::with-participant
          :end-before:  mark-end::with-participant
@@ -225,13 +225,13 @@ receiving.
       Alternatively, ``rsb:make-participant`` can be used to obtain a
       :term:`reader` without automatic destruction:
 
-      .. literalinclude:: /../rsb-cl/examples/reader.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/reader.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::receive/block
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/reader.lisp>`
+      :download:`Download this example <upstream/rsb-cl/examples/reader.lisp>`
 
 .. _tutorial-receive-async:
 
@@ -269,14 +269,14 @@ each received :term:`event`, a user-supplied callback function (a
          the :py:class:`rsb.Listener` object has to be deactivated
          using its :py:meth:`rsb.Listener.deactivate` method at the end of use.
 
-      .. literalinclude:: /../rsb-python/examples/listener.py
+      .. literalinclude:: upstream/rsb-python/examples/listener.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
          :emphasize-lines: 16,20
 
-      :download:`Download this example </../rsb-python/examples/listener.py>`
+      :download:`Download this example <upstream/rsb-python/examples/listener.py>`
 
    .. container:: receive-data-async-cpp
 
@@ -297,14 +297,14 @@ each received :term:`event`, a user-supplied callback function (a
       different things such as ordinary functions as :term:`handlers
       <handler>`.
 
-      .. literalinclude:: /../rsb-cpp/examples/listener/listener.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/listener/listener.cpp
          :language:        c++
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
          :emphasize-lines: 19,27,36
 
-      :download:`Download this example </../rsb-cpp/examples/listener/listener.cpp>`
+      :download:`Download this example <upstream/rsb-cpp/examples/listener/listener.cpp>`
 
    .. container:: receive-data-async-java
 
@@ -324,14 +324,14 @@ each received :term:`event`, a user-supplied callback function (a
       implementing the ``rsb.Handler`` interface can be used as
       :term:`handlers <handler>`.
 
-      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/EventListenerExample.java
+      .. literalinclude:: upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/EventListenerExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :linenos:
          :emphasize-lines: 15,20-21,26,34
 
-      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/EventListenerExample.java>`
+      :download:`Download this example <upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/EventListenerExample.java>`
 
    .. container:: receive-data-async-cl
 
@@ -344,7 +344,7 @@ each received :term:`event`, a user-supplied callback function (a
       executes, :term:`events <event>` are handled by the supplied
       code.
 
-      .. literalinclude:: /../rsb-cl/examples/listener.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/listener.lisp
          :language:    cl
          :start-after: mark-start::with-participant
          :end-before:  mark-end::with-participant
@@ -353,13 +353,13 @@ each received :term:`event`, a user-supplied callback function (a
       Alternatively, ``rsb:make-participant`` can be used to obtain a
       :term:`listener` without automatic destruction:
 
-      .. literalinclude:: /../rsb-cl/examples/listener.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/listener.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/listener.lisp>`
+      :download:`Download this example <upstream/rsb-cl/examples/listener.lisp>`
 
 .. _tutorial-rpc:
 
@@ -442,14 +442,14 @@ called in blocking and non-blocking way:
          using its :py:meth:`rsb.patterns.RemoteServer.deactivate` method at
          the end of use.
 
-      .. literalinclude:: /../rsb-python/examples/client.py
+      .. literalinclude:: upstream/rsb-python/examples/client.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 12,17,20
          :linenos:
 
-      :download:`Download this example </../rsb-python/examples/client.py>`
+      :download:`Download this example <upstream/rsb-python/examples/client.py>`
 
    .. container:: rpc-client-cpp
 
@@ -464,14 +464,14 @@ called in blocking and non-blocking way:
       template argument to the function call while the argument type
       is derived from the supplied argument.
 
-      .. literalinclude:: /../rsb-cpp/examples/server/client.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/server/client.cpp
          :language:        c++
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 12,13,21,30-36
          :linenos:
 
-      :download:`Download this example </../rsb-cpp/examples/server/client.cpp>`
+      :download:`Download this example <upstream/rsb-cpp/examples/server/client.cpp>`
 
    .. container:: rpc-client-java
 
@@ -482,14 +482,14 @@ called in blocking and non-blocking way:
       (see line 18) and the ``rsb.patterns.RemoteServer.callAsync``
       method (see lines 20 and 21).
 
-      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ClientExample.java
+      .. literalinclude:: upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/ClientExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 10,18,20-21
          :linenos:
 
-      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ClientExample.java>`
+      :download:`Download this example <upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/ClientExample.java>`
 
    .. container:: rpc-client-cl
 
@@ -500,7 +500,7 @@ called in blocking and non-blocking way:
       name and the argument of the call have to be passed as the
       second and third argument respectively.
 
-      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
          :start-after: mark-start::with-participant
          :end-before:  mark-end::with-participant
@@ -509,7 +509,7 @@ called in blocking and non-blocking way:
       Alternatively, ``rsb:make-participant`` can be used to obtain a
       :term:`remote server` without automatic destruction:
 
-      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
@@ -522,13 +522,13 @@ called in blocking and non-blocking way:
       ``rsb.patterns.request-reply:future-result`` at a later point in
       time.
 
-      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/client.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/patterns/request-reply/client.lisp
          :language:    cl
          :start-after: mark-start::calls
          :end-before:  mark-end::calls
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/patterns/request-reply/client.lisp>`
+      :download:`Download this example <upstream/rsb-cl/examples/patterns/request-reply/client.lisp>`
 
 .. _tutorial-rpc-server:
 
@@ -566,14 +566,14 @@ callback function which implements the desired behavior of the method.
          using its :py:meth:`rsb.patterns.LocalServer.deactivate` method at
          the end of use.
 
-      .. literalinclude:: /../rsb-python/examples/server.py
+      .. literalinclude:: upstream/rsb-python/examples/server.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 12,17-18,21
          :linenos:
 
-      :download:`Download this example </../rsb-python/examples/server.py>`
+      :download:`Download this example <upstream/rsb-python/examples/server.py>`
 
    .. container:: rpc-server-cpp
 
@@ -590,14 +590,14 @@ callback function which implements the desired behavior of the method.
       :cpp:member:`rsb::patterns::Server::Callback::call` method (see
       lines 8 to 14).
 
-      .. literalinclude:: /../rsb-cpp/examples/server/server.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/server/server.cpp
          :language:    c++
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 8-14,20,23
          :linenos:
 
-      :download:`Download this example </../rsb-cpp/examples/server/server.cpp>`
+      :download:`Download this example <upstream/rsb-cpp/examples/server/server.cpp>`
 
    .. container:: rpc-server-java
 
@@ -610,14 +610,14 @@ callback function which implements the desired behavior of the method.
       overriding the ``rsb.patterns.EventCallback.invoke`` method (see
       lines 8 to 15).
 
-      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ServerExample.java
+      .. literalinclude:: upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/ServerExample.java
          :language:    java
          :start-after: mark-start::body
          :end-before:  mark-end::body
          :emphasize-lines: 20-21,25,8-15
          :linenos:
 
-      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/ServerExample.java>`
+      :download:`Download this example <upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/ServerExample.java>`
 
    .. container:: rpc-server-cl
 
@@ -627,7 +627,7 @@ callback function which implements the desired behavior of the method.
       register methods and their implementations in the :term:`local
       server`.
 
-      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl
          :start-after: mark-start::with-participant
          :end-before:  mark-end::with-participant
@@ -638,10 +638,10 @@ callback function which implements the desired behavior of the method.
       methods can be added without the
       ``rsb.patterns.request-reply:with-methods`` macro:
 
-      .. literalinclude:: /../rsb-cl/examples/patterns/request-reply/server.lisp
+      .. literalinclude:: upstream/rsb-cl/examples/patterns/request-reply/server.lisp
          :language:    cl
          :start-after: mark-start::variable
          :end-before:  mark-end::variable
          :linenos:
 
-      :download:`Download this example </../rsb-cl/examples/patterns/request-reply/server.lisp>`
+      :download:`Download this example <upstream/rsb-cl/examples/patterns/request-reply/server.lisp>`

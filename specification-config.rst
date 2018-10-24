@@ -526,6 +526,6 @@ Language    File(s)
 =========== =============================================
 C++         |repository_versioned_cpp| at ``src/rsb/``
 Java        |repository_versioned_java| at ``src/rsb/``
-Python      :download:`/../rsb-python/rsb/__init__.py`
-Common Lisp :download:`/../rsb-cl/src/configuration.lisp`
+Python      :download:`upstream/rsb-python/rsb/__init__.py`
+Common Lisp :download:`upstream/rsb-cl/src/configuration.lisp`
 =========== =============================================
