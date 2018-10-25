@@ -25,3 +25,4 @@ make doc
 )
 
 sphinx-build -a . build
+touch build/.nojekyll
