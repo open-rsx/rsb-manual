@@ -7,5 +7,6 @@ API Documentation
 .. toctree::
    :hidden:
 
-   api-python
+   api-cpp
    api/java/packages
+   api-python

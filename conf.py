@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import sys, os
+import glob
+import os.path
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -20,7 +21,8 @@ extensions = [ 'sphinx.ext.intersphinx',
                'sphinx.ext.napoleon',
                'sphinx.ext.todo',
                'sphinx.ext.graphviz',
-               'javasphinx' ]
+               'javasphinx',
+               'breathe' ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path  = [ '_templates',
@@ -320,6 +322,13 @@ napoleon_include_special_with_doc = False
 autosummary_generate = True
 autodoc_member_order = 'groupwise'
 autoclass_content = 'both'
+
+breathe_projects = {
+    'rsb-cpp': 'upstream/rsb-cpp/build/doc/xml/',
+}
+
+breathe_default_members = ('members', 'undoc-members')
+breathe_default_project = 'rsb-cpp'
 
 def setup(app):
     pass
