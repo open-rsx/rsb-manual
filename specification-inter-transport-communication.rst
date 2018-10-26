@@ -68,7 +68,7 @@ which is illustrated in the above figure:
 * One process is an instance of the program
   :program:`inprocess-and-socket` (source:
   :download:`inprocess-and-socket.cpp
-  </../rsb-cpp/examples/inter_transport/inprocess-and-socket.cpp>`)
+  <upstream/rsb-cpp/examples/inter_transport/inprocess-and-socket.cpp>`)
 
   * There is one :term:`informer` in the process. It has two
     :term:`connectors <connector>`
@@ -88,7 +88,7 @@ which is illustrated in the above figure:
 
 * The other process is an instance of the program
   :program:`socket-only` (source: :download:`socket-only.cpp
-  </../rsb-cpp/examples/inter_transport/socket-only.cpp>`)
+  <upstream/rsb-cpp/examples/inter_transport/socket-only.cpp>`)
 
   * There is one :term:`listener` in the process. It has a single
     :term:`connector` for the :term:`Spread` :term:`transport`.
@@ -143,9 +143,9 @@ controls whether a particular :term:`transport` is enabled. A modified
 Globally for a Process
 
   The example programs :download:`inprocess-and-socket.cpp
-  </../rsb-cpp/examples/inter_transport/inprocess-and-socket.cpp>` and
+  <upstream/rsb-cpp/examples/inter_transport/inprocess-and-socket.cpp>` and
   :download:`socket-only.cpp
-  </../rsb-cpp/examples/inter_transport/socket-only.cpp>` implement
+  <upstream/rsb-cpp/examples/inter_transport/socket-only.cpp>` implement
   the inter-:term:`transport` setup described above by modifying the
   default :term:`participant` configuration in the
   :program:`inprocess-and-socket` process to include the

@@ -69,7 +69,7 @@ $(document).ready(function () {
                 + nameAndLabel.name + '\')">' + nameAndLabel.label + '</a>';
         }).join('&nbsp;|&nbsp;');
         $(parent).prepend('<div class="switcher"><img class="switchicon" alt="" src="'
-                          + directory
+                          + directory + '..'
                           + '/multiswitch.svg"/>Show '
                           + code
                           + '</div>');

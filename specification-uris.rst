@@ -164,5 +164,5 @@ Language    File(s)
 C++         *not yet implemented*
 Java        *not yet implemented*
 Python      *not yet implemented*
-Common Lisp :download:`/../rsb-cl/src/uris.lisp`
+Common Lisp :download:`upstream/rsb-cl/src/uris.lisp`
 =========== ====================================

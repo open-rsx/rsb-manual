@@ -30,7 +30,7 @@
       two symbols. The :file:`Plugin.cc` file of a minimal |project|
       :term:`plugin` looks like this:
 
-      .. literalinclude:: /../rsb-cpp/examples/plugin/Plugin.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/plugin/Plugin.cpp
          :language:    c++
          :linenos:
          :start-after: mark-start::body
@@ -52,7 +52,7 @@
          :term:`plugin` by adding these two functions. A a minimal
          |project| :term:`plugin` looks like this:
 
-         .. literalinclude:: /../rsb-python/examples/plugin/__init__.py
+         .. literalinclude:: upstream/rsb-python/examples/plugin/__init__.py
             :language:    python
             :linenos:
             :start-after: mark-start::body
@@ -66,7 +66,7 @@
 
       ..  In the Java implementation of |project|, a :term:`plugin` is a TODO
 
-         .. literalinclude:: /../rsb-java/examples/plugin/Plugin.java
+         .. literalinclude:: upstream/rsb-java/examples/plugin/Plugin.java
             :language:    java
             :linenos:
             :start-after: mark-start::body
@@ -81,7 +81,7 @@
       .. In the Common Lisp implementation of |project|, a :term:`plugin`
          is a TODO
 
-         .. literalinclude:: /../rsb-cl/examples/plugin.lisp
+         .. literalinclude:: upstream/rsb-cl/examples/plugin.lisp
             :language:    cl
             :linenos:
             :start-after: mark-start::body

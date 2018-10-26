@@ -1,0 +1,28 @@
+[submodule "upstream/rsb-protocol"]
+	path = upstream/rsb-protocol
+	url = https://github.com/open-rsx/rsb-protocol.git
+    branch = .
+[submodule "upstream/rsb-python"]
+	path = upstream/rsb-python
+	url = https://github.com/open-rsx/rsb-python.git
+    branch = .
+[submodule "upstream/rsb-cpp"]
+	path = upstream/rsb-cpp
+	url = https://github.com/open-rsx/rsb-cpp.git
+    branch = .
+[submodule "upstream/rsb-cl"]
+	path = upstream/rsb-cl
+	url = https://github.com/open-rsx/rsb-cl.git
+    branch = .
+[submodule "upstream/rsb-java"]
+	path = upstream/rsb-java
+	url = https://github.com/open-rsx/rsb-java.git
+    branch = .
+[submodule "upstream/rsb-tutorials"]
+	path = upstream/rsb-tutorials
+	url = https://github.com/open-rsx/rsb-tutorials.git
+    branch = .
+[submodule "upstream/rsc"]
+	path = upstream/rsc
+	url = https://github.com/open-rsx/rsc.git
+    branch = .

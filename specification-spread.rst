@@ -63,12 +63,12 @@ Data exchanged on the wire by the :term:`Spread`-based
 
    .. container:: message-notifications-show
 
-      .. literalinclude:: ../rsb-protocol/proto/rsb/protocol/FragmentedNotification.proto
+      .. literalinclude:: upstream/rsb-protocol/proto/rsb/protocol/FragmentedNotification.proto
          :language: protobuf
          :lines:    26-
          :linenos:
 
-      .. literalinclude:: ../rsb-protocol/proto/rsb/protocol/Notification.proto
+      .. literalinclude:: upstream/rsb-protocol/proto/rsb/protocol/Notification.proto
          :language: protobuf
          :lines:    26-
          :linenos:
@@ -170,6 +170,6 @@ Language    File(s)
 =========== =================================================================
 C++         |repository_versioned_spread_cpp| at ``src/rsb/transport/spread``
 Java        |repository_versioned_java| at ``src/rsb/transport/spread``
-Python      :download:`/../rsb-python/rsb/transport/rsbspread/__init__.py`
+Python      :download:`upstream/rsb-python/rsb/transport/rsbspread/__init__.py`
 Common Lisp |repository_versioned_cl| at ``src/transport/spread``
 =========== =================================================================

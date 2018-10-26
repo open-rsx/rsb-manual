@@ -1,0 +1,21 @@
+language: python
+sudo: yes
+python:
+  - 3.6
+before_install:
+  - git submodule foreach bash -c "(git checkout ${TRAVIS_BRANCH} || git checkout master) && git pull"
+  - sudo add-apt-repository ppa:maarten-fonville/protobuf -y
+  - sudo apt-get update -q
+  - sudo apt-get install protobuf-compiler cmake g++ git libboost-date-time-dev libboost-filesystem-dev libboost-program-options-dev libboost-regex-dev libboost-signals-dev libboost-system-dev libboost-thread-dev libprotobuf-dev protobuf-compiler lcov gcovr make unzip wget doxygen
+install:
+  - pip install git+https://github.com/sphinx-doc/sphinx.git@1.8 sphinx_rtd_theme javasphinx breathe upstream/rsb-python
+script:
+  - ./build.sh
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  local-dir: build
+  on:
+    branch: master

@@ -73,7 +73,7 @@ required:
 
         The domain :term:`data type`:
 
-        .. literalinclude:: ../rsb-cpp/examples/custom_converter/SimpleImage.h
+        .. literalinclude:: upstream/rsb-cpp/examples/custom_converter/SimpleImage.h
            :language:    cpp
            :start-after: mark-start::body
            :end-before:  mark-end::body
@@ -101,12 +101,12 @@ required:
         A naive and incomplete implementation can be found in the
         following listings:
 
-        .. literalinclude:: ../rsb-cpp/examples/custom_converter/SimpleImageConverter.h
+        .. literalinclude:: upstream/rsb-cpp/examples/custom_converter/SimpleImageConverter.h
            :language:    cpp
            :start-after: mark-start::body
            :end-before:  mark-end::body
            :linenos:
-        .. literalinclude:: ../rsb-cpp/examples/custom_converter/SimpleImageConverter.cpp
+        .. literalinclude:: upstream/rsb-cpp/examples/custom_converter/SimpleImageConverter.cpp
            :language:    cpp
            :start-after: mark-start::body
            :end-before:  mark-end::body
@@ -117,7 +117,7 @@ required:
         A simple program that demonstrates the use of our
         :cpp:class:`SimpleImageConverter` can be found in
 
-        .. literalinclude:: ../rsb-cpp/examples/custom_converter/sender.cpp
+        .. literalinclude:: upstream/rsb-cpp/examples/custom_converter/sender.cpp
            :language:    cpp
            :start-after: mark-start::body
            :end-before:  mark-end::body
@@ -126,7 +126,7 @@ required:
         A similar program in which the registration of the
         :term:`converter` is missing can be found in
 
-        .. literalinclude:: ../rsb-cpp/examples/custom_converter/senderNoConverter.cpp
+        .. literalinclude:: upstream/rsb-cpp/examples/custom_converter/senderNoConverter.cpp
            :language:    cpp
            :start-after: mark-start::body
            :end-before:  mark-end::body

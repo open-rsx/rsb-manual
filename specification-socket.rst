@@ -331,6 +331,6 @@ Language    File(s)
 =========== ===========================================================
 C++         |repository_versioned_cpp| at ``src/rsb/transport/socket``
 Java        |repository_versioned_java| at ``src/rsb/transport/socket``
-Python      :download:`/../rsb-python/rsb/transport/socket/__init__.py`
+Python      :download:`upstream/rsb-python/rsb/transport/socket/__init__.py`
 Common Lisp |repository_versioned_cl| at ``src/transport/socket``
 =========== ===========================================================

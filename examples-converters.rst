@@ -57,7 +57,7 @@ obtained. The following example demonstrates this.
       The function :py:func:`rsb.converter.registerGlobalConverter` is
       used to register new :term:`converters <converter>` (line 26).
 
-      .. literalinclude:: /../rsb-python/examples/protobuf/registration.py
+      .. literalinclude:: upstream/rsb-python/examples/protobuf/registration.py
          :language:        python
          :start-after:     mark-start::body
          :end-before:      mark-end::body
@@ -77,7 +77,7 @@ obtained. The following example demonstrates this.
          by other libraries. Please remove these lines from your
          existing code.
 
-      :download:`Download this example </../rsb-python/examples/protobuf/registration.py>`
+      :download:`Download this example <upstream/rsb-python/examples/protobuf/registration.py>`
 
    .. container:: converter-registration-cpp
 
@@ -91,14 +91,14 @@ obtained. The following example demonstrates this.
       after the :term:`converter` has been registered, so it can pick
       up the changed :term:`converter` set (line 25).
 
-      .. literalinclude:: /../rsb-cpp/examples/protobuf_converter/registration.cpp
+      .. literalinclude:: upstream/rsb-cpp/examples/protobuf_converter/registration.cpp
          :language:        c++
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 19-21,25
          :linenos:
 
-      :download:`Download this example </../rsb-cpp/examples/protobuf_converter/registration.cpp>`
+      :download:`Download this example <upstream/rsb-cpp/examples/protobuf_converter/registration.cpp>`
 
    .. container:: converter-registration-java
 
@@ -109,14 +109,14 @@ obtained. The following example demonstrates this.
       ``rsb.converter.DefaultConverterRepository.getDefaultConverterRepository``
       (line 18).
 
-      .. literalinclude:: /../rsb-java/rsb-java-examples/src/main/java/rsb/examples/protobuf/RegistrationExample.java
+      .. literalinclude:: upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/protobuf/RegistrationExample.java
          :language:        java
          :start-after:     mark-start::body
          :end-before:      mark-end::body
          :emphasize-lines: 14-15,18-19
          :linenos:
 
-      :download:`Download this example </../rsb-java/rsb-java-examples/src/main/java/rsb/examples/protobuf/RegistrationExample.java>`
+      :download:`Download this example <upstream/rsb-java/rsb-java-examples/src/main/java/rsb/examples/protobuf/RegistrationExample.java>`
 
    .. container:: converter-registration-cl
 
@@ -126,7 +126,7 @@ obtained. The following example demonstrates this.
          documented later.
 
       ..
-         .. literalinclude:: /../rsb-cl/examples/protocol-buffers/sender.lisp
+         .. literalinclude:: upstream/rsb-cl/examples/protocol-buffers/sender.lisp
             :language:        cl
             :start-after:     mark-start::body
             :end-before:      mark-end::body

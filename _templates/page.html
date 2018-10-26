@@ -1,7 +1,5 @@
 {% extends "!page.html" %}
 
-{% set script_files = script_files + [ '_static/multi.js' ] %}
-
 {% block body %}
 
   {{ super() }}
@@ -182,7 +180,7 @@
             <img src="{{ '_static/cpp.svg' }}" alt="">
           </p>
           <p class="biglink">
-            <a href="{{cpp_api_dir}}">C++</a>
+            <a href="{{ pathto('api-cpp') }}">C++</a>
             <br/>
             <span class="linkdescr">API of the C++ implementation</span>
           </p>
@@ -194,7 +192,7 @@
             <img src="{{ '_static/java.svg' }}" alt="">
           </p>
           <p class="biglink">
-            <a href="{{java_api_dir}}">Java</a>
+            <a href="{{ pathto('api/java/packages') }}">Java</a>
             <br/>
             <span class="linkdescr">API of the Java implementation</span>
           </p>
