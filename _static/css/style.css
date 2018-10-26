@@ -1,0 +1,16 @@
+/* Alternative switcher */
+
+.multi {
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
+
+.multi .switcher {
+    font-size: small;
+    font-style: italic;
+}
+
+img.switchicon {
+    vertical-align: middle;
+    padding-right: 10px;
+}

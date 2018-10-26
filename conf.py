@@ -331,5 +331,5 @@ breathe_default_members = ('members', 'undoc-members')
 breathe_default_project = 'rsb-cpp'
 
 def setup(app):
-    pass
-    #app.add_stylesheet('_static/style.css')
+    app.add_stylesheet('css/style.css')
+    app.add_javascript('js/multi.js')
