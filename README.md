@@ -2,7 +2,7 @@
 
 # Introduction
 
-This repository contains the [Sphinx] based documentation of the [Robotics Service Bus](https://github.com/open-rsx) middleware.
+This repository contains the [Sphinx] based documentation of the [Robotics Service Bus][rsb] middleware.
 
 **The rendered documentation can be found at <https://open-rsx.github.io/rsb-manual/>.**
 
@@ -11,7 +11,7 @@ This repository contains the [Sphinx] based documentation of the [Robotics Servi
 * [Sphinx]
 
 For a complete build generating all API documentation, the compilation
-dependencies of [rsc], [rsb-cpp], [rsb-python] need to be available, too
+dependencies of [rsc], [rsb-cpp], [rsb-python] need to be available, too.
 
 # Building
 
@@ -37,6 +37,8 @@ The development of this software has been supported as follows:
 * This work was supported by the Cluster of Excellence Cognitive Interaction Technology ‘CITEC’ (EXC 277) at Bielefeld University, which is funded by the German Research Foundation (DFG).
 
 [Sphinx]: http://www.sphinx-doc.org
+
+[rsb]: https://github.com/open-rsx
 [rsc]: https://github.com/open-rsx/rsc
 [rsb-cpp]: https://github.com/open-rsx/rsb-cpp
 [rsb-python]: https://github.com/open-rsx/rsb-python
