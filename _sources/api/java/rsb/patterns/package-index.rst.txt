@@ -1,0 +1,26 @@
+rsb.patterns
+============
+
+Contains objects implementing additional communication patterns on the basis of the standard publish subscribe.
+
+:author: jwienke
+
+.. java:package:: rsb.patterns
+
+.. toctree::
+   :maxdepth: 1
+
+   Callback
+   Callback-UserCodeException
+   DataCallback
+   EventCallback
+   Future
+   LocalMethod
+   LocalServer
+   Method
+   Reader
+   RemoteMethod
+   RemoteMethod-FuturePreparator
+   RemoteServer
+   Server
+

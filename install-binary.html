@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation of Pre-Generated Packages &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation from Source" href="install-source.html" />
+    <link rel="prev" title="Installing RSB" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="install.html">Installing RSB</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation of Pre-Generated Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#debian-packages">Debian Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-pypi-packages">Python PyPI Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-homebrew">Mac Homebrew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#java">Java</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-compiled-jar-download">Pre-compiled JAR Download</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maven-artifacts-from-the-citec-repository">Maven Artifacts from the CITEC Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-downloads-of-tools">Binary Downloads of Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-compiled-windows-archive">Pre-Compiled Windows Archive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#executing-programs-against-the-archive">Executing Programs Against the Archive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-against-the-archive">Compiling Against the Archive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install-source.html">Installation from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="install.html">Installing RSB</a> &raquo;</li>
+        
+      <li>Installation of Pre-Generated Packages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install-binary.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="installation-of-pre-generated-packages">
+<h1>Installation of Pre-Generated Packages<a class="headerlink" href="#installation-of-pre-generated-packages" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="debian-packages">
+<span id="install-debian"></span><h2>Debian Packages<a class="headerlink" href="#debian-packages" title="Permalink to this headline">¶</a></h2>
+<p>Debian packages for several versions of Ubuntu GNU/Linux are available from
+the CoR-Lab <a class="reference external" href="http://packages.cor-lab.org">repository server</a>.</p>
+<ol class="arabic">
+<li><p>The following repository source line has to be added to
+<code class="file docutils literal notranslate"><span class="pre">/etc/apt/sources.list</span></code></p>
+<pre class="literal-block">deb <a class="reference external" href="http://packages.cor-lab.de/ubuntu/">http://packages.cor-lab.de/ubuntu/</a> <code class="samp docutils literal notranslate"><em><span class="pre">RELEASENAME</span></em></code> main testing</pre>
+<p>where <code class="samp docutils literal notranslate"><em><span class="pre">RELEASENAME</span></em></code> is one of precise, trusty.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case you add this line using a graphical package manager, some of these
+tools also propose to add a second line for source packages starting with
+<code class="docutils literal notranslate"><span class="pre">deb-src</span></code>. As we do not provide source packages, this line should not be
+added or needs to be removed manually.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To prevent verification errors you also need to add our package server key
+to your system. Please follow the instructions available at
+<a class="reference external" href="http://packages.cor-lab.org">http://packages.cor-lab.org</a>.</p>
+</div>
+</li>
+<li><p>After that, packages can be installed via</p>
+<pre class="literal-block">$ sudo apt-get install librsb1.0 cl-rsb rsb-tools-cpp1.0 rsb-tools-cl1.0</pre>
+<p>The above command installs the C++ and Common Lisp implementations
+of RSB. Of course, it also possible to only install a subset
+of the above packages.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is no longer
+automatically installed with RSB. Support for
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> can be installed by executing</p>
+<pre class="literal-block">$ sudo apt-get install spread librsbspread1.0</pre>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This installation method only works with Ubuntu GNU/Linux. More information
+can be found <a class="reference external" href="https://support.cor-lab.org/projects/ciserver/wiki/RepositoryUsage">here</a>.</p>
+</div>
+</div>
+<div class="section" id="python-pypi-packages">
+<span id="install-pypi"></span><h2>Python PyPI Packages<a class="headerlink" href="#python-pypi-packages" title="Permalink to this headline">¶</a></h2>
+<p>For Python, platform-independent packages are pushed to the central
+repository server and can be installed with <strong class="program">pip</strong> or
+<strong class="program">easy_install</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong class="program">pip</strong> is the recommended way of installing Python packages
+since some time and preferred over <strong class="program">easy_install</strong>. On
+Ubuntu GNU/Linux systems, <strong class="program">pip</strong> can be installed via the package
+<code class="docutils literal notranslate"><span class="pre">python-pip</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Python implementation of RSB is currently only available
+for Python 2.X. If the default Python version on your system is
+Python 3, ensure that you call the respective
+<strong class="program">easy_install</strong> or <strong class="program">pip</strong> version. These usually
+contain the Python version as a suffix to the name, e.g.:
+<code class="docutils literal notranslate"><span class="pre">easy_install-2.7</span></code>.</p>
+</div>
+<ol class="arabic">
+<li><p>The installation of the Python implementation of RSB requires
+the <a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google Protocol Buffers</a> compiler (<strong class="program">protoc</strong>) on your
+system. Before starting the installation, install <strong class="program">protoc</strong>
+and ensure that this binary can be found from the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>
+environment variable.</p>
+<p>To install <strong class="program">protoc</strong> we recommend to use Debian packages on
+Ubuntu GNU/Linux and <a class="reference external" href="http://mxcl.github.com/homebrew/">Homebrew</a> on MacOS. The respective installation
+commands are:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install protobuf-compiler
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew install protobuf
+</pre></div>
+</div>
+</li>
+<li><p>The installation of the Python implementation of RSB requires
+the <a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google Protocol Buffers</a> module on your system. Depending on
+whether <strong class="program">pip</strong> or <strong class="program">easy_install</strong> is used, do one
+of the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ easy_install protobuf
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install protobuf
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These commands will install protobuf for the whole system and
+require root permissions. If you only want to install protobuf
+for your local user, add the <code class="docutils literal notranslate"><span class="pre">--user</span></code> option to the call of
+<strong class="program">easy_install</strong> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>. The same applies for
+the subsequently described installation of rsb-python itself.</p>
+</div>
+</li>
+<li><p>The rsb-python module can be installed by using one of the
+following functions:</p>
+<pre class="literal-block">$ easy_install &quot;rsb-python&lt;=<code class="samp docutils literal notranslate"><em><span class="pre">VERSION</span></em></code>.99999&quot;</pre>
+<pre class="literal-block">$ pip install &quot;rsb-python&lt;=<code class="samp docutils literal notranslate"><em><span class="pre">VERSION</span></em></code>.99999&quot;</pre>
+<p>where <code class="samp docutils literal notranslate"><em><span class="pre">VERSION</span></em></code> needs to be replaced with 1.0.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Development versions of RSB are not deployed on PyPI. These
+commands will revert to the latest stable version.</p>
+</div>
+</li>
+<li><p>If you plan to use the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>, you need
+to additionally install the Python <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> module which is
+available at: <a class="reference external" href="http://www.spread.org/files/SpreadModule-1.5spread4.tgz">http://www.spread.org/files/SpreadModule-1.5spread4.tgz</a>. The version of this module
+which is pushed to the PyPI is outdated and does not work with
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> version 4. You need to compile this module on your
+own.</p></li>
+</ol>
+</div>
+<div class="section" id="mac-homebrew">
+<span id="install-homebrew"></span><h2>Mac Homebrew<a class="headerlink" href="#mac-homebrew" title="Permalink to this headline">¶</a></h2>
+<p>RSB uses <a class="reference internal" href="glossary.html#term-homebrew"><span class="xref std std-term">homebrew</span></a> for installation on MacOS. For further
+information on the ideas behind homebrew please check <a class="reference external" href="http://blog.engineyard.com/2010/homebrew-os-xs-missing-package-manager">this blog post</a>.
+To install RSB from source on MaxOS the following steps are
+required:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As precondition <a class="reference external" href="http://developer.apple.com/xcode/">XCode</a> needs
+to installed. This can be easily achieved through the MacOS X App
+Store. A further requirement for installing Unixoid software
+components are the XCode Command Line Tools. They can be installed
+from within XCode (<span class="menuselection">XCode ‣ Preferences ‣
+Downloads</span>) and install <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">Line</span> <span class="pre">Tools</span></code>.</p>
+</div>
+<ol class="arabic">
+<li><p>Bootstrapping <a class="reference internal" href="glossary.html#term-homebrew"><span class="xref std std-term">homebrew</span></a> itself:</p>
+<p>Installing <a class="reference internal" href="glossary.html#term-homebrew"><span class="xref std std-term">homebrew</span></a> on MacOS is simple as that:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the installation, you can run the following command to
+check if <a class="reference internal" href="glossary.html#term-homebrew"><span class="xref std std-term">homebrew</span></a> was installed correctly:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew doctor
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Install the C++ implementation of RSB (core library and
+tools) with <a class="reference internal" href="glossary.html#term-homebrew"><span class="xref std std-term">homebrew</span></a>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew tap corlab/homebrew-formulas
+$ brew install rsb-tools-cpp
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the installation, you can run the following command to
+check if RSB was installed correctly:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb_version
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the formula conflicts with one from <code class="docutils literal notranslate"><span class="pre">mxcl/master</span></code> or another
+tap, you can <code class="samp docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span>
+<span class="pre">corlab/homebrew-formulas/</span><em><span class="pre">FORMULA</span></em></code>.</p>
+<p>You can also install via URL:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew install https://raw.github.com/corlab/homebrew-formulas/master/rsb.rb
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For MacOS X 10.8 users: on mountain lion, X11 is not provided
+anymore. For the core library of RSB, X11 is not needed, but
+many downstream projects require it. So, if you need to install
+XQuartz you can get it from
+<a class="reference external" href="http://xquartz.macosforge.org/landing/">http://xquartz.macosforge.org/landing/</a>. This is recommended (but
+not necessary) also on earlier MacOS versions as XQuartz is more
+robust and up-to-date than the system-provided X11.</p>
+</div>
+</div>
+<div class="section" id="java">
+<span id="install-binary-java"></span><h2>Java<a class="headerlink" href="#java" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-compiled-jar-download">
+<h3>Pre-compiled JAR Download<a class="headerlink" href="#pre-compiled-jar-download" title="Permalink to this headline">¶</a></h3>
+<p>Archives containing pre-built JAR-files of the Java implementation and
+required dependencies can be <a class="reference external" href="https://ci.cor-lab.org/view/rsx-trunk/job/rsb-java-trunk/label=ubuntu_trusty_64bit/lastSuccessfulBuild/artifact/.archive/rsb-java.zip">downloaded</a>
+from the continuous integration server.</p>
+<p>After downloading the archive, several JAR-files can be extracted from
+it. These files have to be placed on the Java classpath. Afterwards,
+the Java implementation of RSB should be usable in any Java
+program.</p>
+</div>
+<div class="section" id="maven-artifacts-from-the-citec-repository">
+<span id="install-binary-java-maven"></span><h3>Maven Artifacts from the CITEC Repository<a class="headerlink" href="#maven-artifacts-from-the-citec-repository" title="Permalink to this headline">¶</a></h3>
+<p>RSB java is also deployed to the CITEC <a class="reference external" href="http://maven.apache.org/">Maven</a> repository at
+<a class="reference external" href="https://mvn.cit-ec.de/">https://mvn.cit-ec.de/</a>. In order to use the version deployed there,
+include the following fragments in the <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> of your project.</p>
+<ol class="arabic">
+<li><p>In the dependencies section:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>rsb<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>rsb<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>0.19-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>In the repositories section:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>citec-releases<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;name&gt;</span>CITEC Maven Repository Server<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://mvn.cit-ec.de/nexus/content/repositories/releases/<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
+        <span class="nt">&lt;releases&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+        <span class="nt">&lt;/releases&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>citec-snapshots<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;name&gt;</span>CITEC Maven Repository Server<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://mvn.cit-ec.de/nexus/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
+        <span class="nt">&lt;snapshots&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+        <span class="nt">&lt;/snapshots&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div></div></blockquote>
+</div>
+</div>
+<div class="section" id="binary-downloads-of-tools">
+<span id="install-binary-download"></span><h2>Binary Downloads of Tools<a class="headerlink" href="#binary-downloads-of-tools" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Download the <code class="docutils literal notranslate"><span class="pre">rsb</span></code> binary from the appropriate location:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_xenial_32bit/">Linux i686</a></p></li>
+<li><p><a class="reference external" href="https://ci.cor-lab.de/job/rsb-tools-cl-trunk/label=ubuntu_xenial_64bit/">Linux x86_64</a></p></li>
+<li><p><a class="reference external" href="https://ci.cor-lab.de/job/rsb-tools-cl-trunk-macos/label=MAC_OS_mavericks_64bit/">MacOS x86_64</a></p></li>
+<li><p><a class="reference external" href="https://ci.cor-lab.de/job/rsb-tools-cl-trunk-wine/label=ubuntu_precise_32bit">Windows i686</a>
+(experimental)</p></li>
+</ul>
+</li>
+<li><p>After the download, the <code class="docutils literal notranslate"><span class="pre">rsb</span></code> file has to be made
+executable in most cases. This can be done for example by executing</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ chmod +x rsb
+</pre></div>
+</div>
+<p>in the download directory.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="pre-compiled-windows-archive">
+<h2>Pre-Compiled Windows Archive<a class="headerlink" href="#pre-compiled-windows-archive" title="Permalink to this headline">¶</a></h2>
+<p>As compiling cross-platform C++ code on Windows can easily become a nightmare,
+we provide a ZIP archive with RSB for C++ as well as all other
+RSX-related software pre-compiled for Windows in 32 bit mode using different
+Visual Studio versions.</p>
+<ol class="arabic">
+<li><p>Download the artifact for your Visual Studio version</p>
+<p>In order to install the complete collection of RSX C++ software, you first
+need to know the numeric version of the Visual Studio version you want to
+work with. E.g. Visual Studio 2010 corresponds to version 100 and Visual
+Studio 2012 corresponds to numeric version 110. As soon as you know this you
+can select the appropriate configuration from this CI server job:
+<a class="reference external" href="https://ci.cor-lab.org/job/rsx-trunk-windows-package/">https://ci.cor-lab.org/job/rsx-trunk-windows-package/</a> (by
+clicking on the appropriate version name). After selecting the
+configuration, download the latest successful artifact (a zip file).</p>
+</li>
+<li><p>Extract the archive</p>
+<p>Extract the archive to your desired target destination on your hard drive.</p>
+</li>
+</ol>
+<p>You end up with a folder containing one subfolder for each RSX project and all
+dependencies like the boost libraries.</p>
+<div class="section" id="executing-programs-against-the-archive">
+<h3>Executing Programs Against the Archive<a class="headerlink" href="#executing-programs-against-the-archive" title="Permalink to this headline">¶</a></h3>
+<p>In order to execute programs that use software provided in the archive you need
+to extend the Windows <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable to point to all folders in
+the archive structure that contain DLL files. Otherwise you will receiving
+missing DLL warnings when trying to execute programs.</p>
+<p>Please ensure that you do not have other Boost version etc. in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>
+than the ones provided in the archive.</p>
+</div>
+<div class="section" id="compiling-against-the-archive">
+<h3>Compiling Against the Archive<a class="headerlink" href="#compiling-against-the-archive" title="Permalink to this headline">¶</a></h3>
+<p>Windows is very picky about mixing different runtime libraries. All software
+provided in the archive is compiled in multi-threaded debug mode. Your client
+software should be compiled with exactly these settings to prevent
+unpredictable errors.</p>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

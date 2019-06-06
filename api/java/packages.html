@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Java API Documentation &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="rsb" href="rsb/package-index.html" />
+    <link rel="prev" title="C++ API Documentation" href="../../api-cpp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Java API Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rsb/package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsb/util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
+        
+      <li>Java API Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/java/packages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="java-api-documentation">
+<h1>Java API Documentation<a class="headerlink" href="#java-api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rsb/package-index.html">rsb</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/AbstractActivatable.html">AbstractActivatable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/AbstractDataHandler.html">AbstractDataHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/AbstractEventHandler.html">AbstractEventHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Activatable.html">Activatable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Activatable-State.html">Activatable.State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/EventId.html">EventId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Factory.html">Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Factory-ParticipantObserverManager.html">Factory.ParticipantObserverManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/FilteringHandler.html">FilteringHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Handler.html">Handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Informer.html">Informer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/InformerCreateArgs.html">InformerCreateArgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/InitializeException.html">InitializeException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Listener.html">Listener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/ListenerCreateArgs.html">ListenerCreateArgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/LocalServerCreateArgs.html">LocalServerCreateArgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/MetaData.html">MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Participant.html">Participant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/ParticipantCreateArgs.html">ParticipantCreateArgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/ParticipantId.html">ParticipantId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/ParticipantObserver.html">ParticipantObserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/QualityOfServiceSpec.html">QualityOfServiceSpec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/QualityOfServiceSpec-Ordering.html">QualityOfServiceSpec.Ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/QualityOfServiceSpec-Reliability.html">QualityOfServiceSpec.Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/RSBException.html">RSBException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/ReaderCreateArgs.html">ReaderCreateArgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/RemoteServerCreateArgs.html">RemoteServerCreateArgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/Version.html">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/apps/package-index.html">rsb.apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/apps/DumpVersion.html">DumpVersion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/config/package-index.html">rsb.config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/config/ParticipantConfig.html">ParticipantConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/config/ParticipantConfigCreator.html">ParticipantConfigCreator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/config/TransportConfig.html">TransportConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/converter/package-index.html">rsb.converter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/BoolConverter.html">BoolConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/CachedCharsetCoding.html">CachedCharsetCoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/ConversionException.html">ConversionException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/Converter.html">Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/ConverterRepository.html">ConverterRepository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/ConverterSelectionStrategy.html">ConverterSelectionStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/ConverterSignature.html">ConverterSignature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/DefaultConverterRepository.html">DefaultConverterRepository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/DefaultConverters.html">DefaultConverters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/DoubleConverter.html">DoubleConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/EventIdConverter.html">EventIdConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/FloatConverter.html">FloatConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/IntegerConverter.html">IntegerConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/LongConverter.html">LongConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/NoSuchConverterException.html">NoSuchConverterException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/NullConverter.html">NullConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/PredicateConverterSelectionStrategy.html">PredicateConverterSelectionStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/PredicateConverterSelectionStrategy-ExactKeyPredicate.html">PredicateConverterSelectionStrategy.ExactKeyPredicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/PredicateConverterSelectionStrategy-Predicate.html">PredicateConverterSelectionStrategy.Predicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/PredicateConverterSelectionStrategy-RegExPredicate.html">PredicateConverterSelectionStrategy.RegExPredicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/ProtocolBufferConverter.html">ProtocolBufferConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/ScopeConverter.html">ScopeConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/StringConverter.html">StringConverter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/UnambiguousConverterMap.html">UnambiguousConverterMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/UserData.html">UserData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/converter/WireContents.html">WireContents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/eventprocessing/package-index.html">rsb.eventprocessing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/AbstractEventReceivingStrategy.html">AbstractEventReceivingStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/DefaultInRouteConfigurator.html">DefaultInRouteConfigurator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/DefaultOutRouteConfigurator.html">DefaultOutRouteConfigurator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/EventReceivingStrategy.html">EventReceivingStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/EventReceivingStrategyFactory.html">EventReceivingStrategyFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/InRouteConfigurator.html">InRouteConfigurator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/MatchAndDispatchTask.html">MatchAndDispatchTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/OutRouteConfigurator.html">OutRouteConfigurator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/RouteConfigurator.html">RouteConfigurator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/RouteConfiguratorUtility.html">RouteConfiguratorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/SingleThreadEventReceivingStrategy.html">SingleThreadEventReceivingStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/SingleThreadFactory.html">SingleThreadFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/UnorderedParallelEventReceivingStrategy.html">UnorderedParallelEventReceivingStrategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/eventprocessing/UnorderedParallelFactory.html">UnorderedParallelFactory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/filter/package-index.html">rsb.filter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/CauseFilter.html">CauseFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/Filter.html">Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/FilterAction.html">FilterAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/FilterObservable.html">FilterObservable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/FilterObserver.html">FilterObserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/MethodFilter.html">MethodFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/OriginFilter.html">OriginFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/ScopeFilter.html">ScopeFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/filter/TypeFilter.html">TypeFilter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/introspection/package-index.html">rsb.introspection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/HostIdEnsuringHostInfo.html">HostIdEnsuringHostInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/IntrospectionModel.html">IntrospectionModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/IntrospectionModel-IntrospectionModelObserver.html">IntrospectionModel.IntrospectionModelObserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/IntrospectionParticipantObserver.html">IntrospectionParticipantObserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/LacksOsInformationException.html">LacksOsInformationException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/LoggingObserver.html">LoggingObserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/ParticipantInfo.html">ParticipantInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/ProtocolHandler.html">ProtocolHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/introspection/ProtocolUtilities.html">ProtocolUtilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/patterns/package-index.html">rsb.patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/Callback.html">Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/Callback-UserCodeException.html">Callback.UserCodeException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/DataCallback.html">DataCallback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/EventCallback.html">EventCallback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/Future.html">Future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/LocalMethod.html">LocalMethod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/LocalServer.html">LocalServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/Method.html">Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/Reader.html">Reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/RemoteMethod.html">RemoteMethod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/RemoteMethod-FuturePreparator.html">RemoteMethod.FuturePreparator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/RemoteServer.html">RemoteServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/patterns/Server.html">Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/plugin/package-index.html">rsb.plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/plugin/LoadingException.html">LoadingException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/plugin/Plugin.html">Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/plugin/PluginManager.html">PluginManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/protocol/package-index.html">rsb.protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/protocol/ProtocolConversion.html">ProtocolConversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/transport/package-index.html">rsb.transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/AbstractConnector.html">AbstractConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/Connector.html">Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/EventHandler.html">EventHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/InConnector.html">InConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/OutConnector.html">OutConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/SequenceNumber.html">SequenceNumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/TransportFactory.html">TransportFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/TransportFactory-ConnectorInfo.html">TransportFactory.ConnectorInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/TransportRegistry.html">TransportRegistry</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/transport/inprocess/package-index.html">rsb.transport.inprocess</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/inprocess/Bus.html">Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/inprocess/ConnectorBase.html">ConnectorBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/inprocess/InConnector.html">InConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/inprocess/InProcessFactory.html">InProcessFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/inprocess/OutConnector.html">OutConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/inprocess/Plugin.html">Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/transport/socket/package-index.html">rsb.transport.socket</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/Bus.html">Bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/Bus-NotificationReceiver.html">Bus.NotificationReceiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusBase.html">BusBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusBase-ReceiveThread.html">BusBase.ReceiveThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusCache.html">BusCache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusClient.html">BusClient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusClientConnection.html">BusClientConnection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusConnection.html">BusConnection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusConnectionBase.html">BusConnectionBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusServer.html">BusServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/BusServerConnection.html">BusServerConnection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/Plugin.html">Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/Protocol.html">Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/RefCountingBus.html">RefCountingBus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/RefCountingBus-DeactivationHandler.html">RefCountingBus.DeactivationHandler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/ServerMode.html">ServerMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/SocketConnectorUtility.html">SocketConnectorUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/SocketFactory.html">SocketFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/SocketInConnector.html">SocketInConnector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/SocketOptions.html">SocketOptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/transport/socket/SocketOutConnector.html">SocketOutConnector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/util/package-index.html">rsb.util</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/ByteHelpers.html">ByteHelpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/ConfigLoader.html">ConfigLoader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/EventQueueAdapter.html">EventQueueAdapter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/ExactTime.html">ExactTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/ExactTime-Implementation.html">ExactTime.Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/ExactTime-JnrPosixImplementation-LibC.html">ExactTime.JnrPosixImplementation.LibC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/ExactTime-JnrPosixImplementation-Timeval.html">ExactTime.JnrPosixImplementation.Timeval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/FileReadingUtilities.html">FileReadingUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/InvalidPropertyException.html">InvalidPropertyException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/LimitedQueue.html">LimitedQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/Property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/QueueAdapter.html">QueueAdapter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/QueueClosedException.html">QueueClosedException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/TimeLimitedQueue.html">TimeLimitedQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/UUIDTools.html">UUIDTools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsb/util/os/package-index.html">rsb.util.os</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/CommonHostInfo.html">CommonHostInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/CommonProcessInfo.html">CommonProcessInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/HostInfo.html">HostInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/HostInfoSelector.html">HostInfoSelector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/LinuxHostInfo.html">LinuxHostInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/LinuxProcessInfo.html">LinuxProcessInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/OsUtilities.html">OsUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/OsUtilities-MachineType.html">OsUtilities.MachineType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/OsUtilities-OsFamily.html">OsUtilities.OsFamily</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/PortableHostInfo.html">PortableHostInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/PortableProcessInfo.html">PortableProcessInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/ProcessInfo.html">ProcessInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/ProcessInfoSelector.html">ProcessInfoSelector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/RuntimeOsUtilities.html">RuntimeOsUtilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsb/util/os/RuntimeOsUtilities-RuntimeNotAvailableException.html">RuntimeOsUtilities.RuntimeNotAvailableException</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

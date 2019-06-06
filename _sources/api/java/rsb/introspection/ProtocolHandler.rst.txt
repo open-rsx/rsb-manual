@@ -1,0 +1,130 @@
+.. java:import:: java.io IOException
+
+.. java:import:: java.net URI
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: com.google.protobuf ByteString
+
+.. java:import:: rsb AbstractEventHandler
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb Factory
+
+.. java:import:: rsb Informer
+
+.. java:import:: rsb Listener
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantId
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb Version
+
+.. java:import:: rsb.config ParticipantConfig
+
+.. java:import:: rsb.introspection IntrospectionModel.IntrospectionModelObserver
+
+.. java:import:: rsb.patterns EventCallback
+
+.. java:import:: rsb.patterns LocalServer
+
+.. java:import:: rsb.protocol.introspection ByeType.Bye
+
+.. java:import:: rsb.protocol.introspection HelloType.Hello
+
+.. java:import:: rsb.protocol.operatingsystem HostType.Host
+
+.. java:import:: rsb.protocol.operatingsystem ProcessType.Process
+
+.. java:import:: rsb.util.os HostInfo
+
+.. java:import:: rsb.util.os HostInfoSelector
+
+.. java:import:: rsb.util.os ProcessInfo
+
+.. java:import:: rsb.util.os ProcessInfoSelector
+
+ProtocolHandler
+===============
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class ProtocolHandler extends AbstractEventHandler implements Activatable, IntrospectionModelObserver
+
+   Implementation of the introspection protocol using RSB patterns. Cf. http://docs .cor-lab.de//rsb-manual/trunk/html/specification-introspection.html Activation and deactivation needs to be single-threaded and if not activated, this class must not be actively registered as an \ :java:ref:`IntrospectionModelObserver`\ .
+
+   :author: swrede, ssharma, jwienke
+
+Constructors
+------------
+ProtocolHandler
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ProtocolHandler(IntrospectionModel model, String processDisplayName)
+   :outertype: ProtocolHandler
+
+   Creates a new instance operating on the provided introspection model.
+
+   :param model: the mode, not \ ``null``\
+   :param processDisplayName: human-readable name of the process this instance operates in, may be \ ``null``\  if not provided
+   :throws LacksOsInformationException: thrown in case required information from the operating system are not available. This makes the introspection unusable.
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: ProtocolHandler
+
+close
+^^^^^
+
+.. java:method:: @Override public void close() throws IOException
+   :outertype: ProtocolHandler
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: ProtocolHandler
+
+handleEvent
+^^^^^^^^^^^
+
+.. java:method:: @Override public void handleEvent(Event query)
+   :outertype: ProtocolHandler
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: ProtocolHandler
+
+participantAdded
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void participantAdded(ParticipantInfo info)
+   :outertype: ProtocolHandler
+
+participantRemoved
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void participantRemoved(ParticipantInfo info)
+   :outertype: ProtocolHandler
+

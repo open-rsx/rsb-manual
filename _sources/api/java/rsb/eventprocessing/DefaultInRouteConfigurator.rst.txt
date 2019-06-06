@@ -1,0 +1,108 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.filter Filter
+
+.. java:import:: rsb.transport InConnector
+
+DefaultInRouteConfigurator
+==========================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class DefaultInRouteConfigurator extends AbstractActivatable implements InRouteConfigurator
+
+   Default implementation of a \ :java:ref:`InRouteConfigurator`\ .
+
+   :author: jwienke, swrede
+
+Constructors
+------------
+DefaultInRouteConfigurator
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public DefaultInRouteConfigurator(Scope scope)
+   :outertype: DefaultInRouteConfigurator
+
+   Constructor.
+
+   :param scope: the scope events are received on
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: DefaultInRouteConfigurator
+
+addConnector
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void addConnector(InConnector connector)
+   :outertype: DefaultInRouteConfigurator
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException
+   :outertype: DefaultInRouteConfigurator
+
+filterAdded
+^^^^^^^^^^^
+
+.. java:method:: @Override public void filterAdded(Filter filter)
+   :outertype: DefaultInRouteConfigurator
+
+filterRemoved
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean filterRemoved(Filter filter)
+   :outertype: DefaultInRouteConfigurator
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: DefaultInRouteConfigurator
+
+handlerAdded
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void handlerAdded(Handler handler, boolean wait) throws InterruptedException
+   :outertype: DefaultInRouteConfigurator
+
+handlerRemoved
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean handlerRemoved(Handler handler, boolean wait) throws InterruptedException
+   :outertype: DefaultInRouteConfigurator
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: DefaultInRouteConfigurator
+
+removeConnector
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean removeConnector(InConnector connector)
+   :outertype: DefaultInRouteConfigurator
+
+setEventReceivingStrategy
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void setEventReceivingStrategy(EventReceivingStrategy strategy)
+   :outertype: DefaultInRouteConfigurator
+

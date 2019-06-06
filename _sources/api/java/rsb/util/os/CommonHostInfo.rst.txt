@@ -1,0 +1,88 @@
+CommonHostInfo
+==============
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public abstract class CommonHostInfo implements HostInfo
+
+   Encapsulates common host info functionality shared between portable and non-portable subclasses. This class contains variables and getters and setters for all required attributes of \ :java:ref:`HostInfo`\ .
+
+   :author: swrede
+
+Constructors
+------------
+CommonHostInfo
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public CommonHostInfo()
+   :outertype: CommonHostInfo
+
+   Creates a new instance and pre-computes values for \ :java:ref:`HostInfo.getSoftwareType()`\  and \ :java:ref:`HostInfo.getMachineType()`\ .
+
+Methods
+-------
+getHostId
+^^^^^^^^^
+
+.. java:method:: @Override public String getHostId()
+   :outertype: CommonHostInfo
+
+getHostName
+^^^^^^^^^^^
+
+.. java:method:: @Override public String getHostName()
+   :outertype: CommonHostInfo
+
+getMachineType
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public String getMachineType()
+   :outertype: CommonHostInfo
+
+getSoftwareType
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public String getSoftwareType()
+   :outertype: CommonHostInfo
+
+setHostId
+^^^^^^^^^
+
+.. java:method:: protected void setHostId(String hostId)
+   :outertype: CommonHostInfo
+
+   Sets the unique host id variable.
+
+   :param hostId: unique id
+
+setHostName
+^^^^^^^^^^^
+
+.. java:method:: protected void setHostName(String hostName)
+   :outertype: CommonHostInfo
+
+   Sets the host name variable.
+
+   :param hostName: the host name
+
+setMachineType
+^^^^^^^^^^^^^^
+
+.. java:method:: protected void setMachineType(String machineType)
+   :outertype: CommonHostInfo
+
+   Sets the bit architecture variable.
+
+   :param machineType: the bit architecture
+
+setSoftwareType
+^^^^^^^^^^^^^^^
+
+.. java:method:: protected void setSoftwareType(String softwareType)
+   :outertype: CommonHostInfo
+
+   Sets the operating system family variable.
+
+   :param softwareType: the operating system family
+

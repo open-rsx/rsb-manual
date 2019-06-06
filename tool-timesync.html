@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Timesync &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bridge" href="tool-bridge.html" />
+    <link rel="prev" title="Call" href="tool-call.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-introspect.html">Introspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-send.html">Send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-call.html">Call</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Timesync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithms">Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tool-bridge.html">Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-server.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-web.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-command-line-options.html">Common Commandline Options and Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="tools.html">Tools</a> &raquo;</li>
+        
+      <li>Timesync</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tool-timesync.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="tool-timesync">
+<span id="timesync"></span><span id="id1"></span><h1>Timesync<a class="headerlink" href="#tool-timesync" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="samp docutils literal notranslate"><span class="pre">rsb_timesync</span> <em><span class="pre">[OPTIONS]</span></em></code></p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Synchronizes <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> on several <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a>
+in an RSB-based system based on their timestamps.</p>
+<p>Imagine e.g. a situation in which a vision algorithm produces some
+features based on images and another algorithm extracts auditory
+features from an audio stream. Both send their results as RSB
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> but the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are not
+temporally associated because they originate from separate sources (in
+this case <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>). This becomes a problem
+when a third module wants to process <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> from both
+sources, synchronized by their timestamps.</p>
+<p>This program can be configured to receive <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> from
+both sources, synchronize them and emit an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> which
+contains associated original <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. This way modules
+interested in multiple streams are freed from the task of
+synchronizing <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the external program with network communication creates too much
+overhead, the algorithms can also be used inside C++ programs
+in form of a shared library.</p>
+</div>
+<dl class="option">
+<dt id="cmdoption-timesync-outscope">
+<code class="sig-name descname">--outscope</code><code class="sig-prename descclassname"> SCOPE</code><a class="headerlink" href="#cmdoption-timesync-outscope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on which synchronized <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are emitted.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-timesync-primscope">
+<code class="sig-name descname">--primscope</code><code class="sig-prename descclassname"> SCOPE</code><a class="headerlink" href="#cmdoption-timesync-primscope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the a <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> which should be used for input
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.  This option must appear one time as for
+some synchronization strategies one <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> has a special
+primary role compared to other <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a>.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-timesync-supscope">
+<code class="sig-name descname">--supscope</code><code class="sig-prename descclassname"> SCOPE</code><a class="headerlink" href="#cmdoption-timesync-supscope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a> to use for input <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> to synchronize.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, there is no specified behavior of what should happen
+when an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> on a <a class="reference internal" href="glossary.html#term-subscope"><span class="xref std std-term">subscope</span></a> of a configured
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> arrives. Strategies may treat this as an error or
+continue processing as if the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> was received on the
+<a class="reference internal" href="glossary.html#term-superscope"><span class="xref std std-term">superscope</span></a> that was configured.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-timesync-strategy">
+<code class="sig-name descname">--strategy</code><code class="sig-prename descclassname"> NAME</code><a class="headerlink" href="#cmdoption-timesync-strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Valid names: <code class="docutils literal notranslate"><span class="pre">approxt</span></code>, <code class="docutils literal notranslate"><span class="pre">firstmatch</span></code>, <code class="docutils literal notranslate"><span class="pre">timeframe</span></code></p>
+<p>The strategy to use for synchronizing the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>
+received on the primary and supplemental <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a>. For a description of available strategies refer to
+<a class="reference internal" href="#algorithms">Algorithms</a>. There, additional options for each strategy are
+explained.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-timesync-timestamp">
+<code class="sig-name descname">--timestamp</code><code class="sig-prename descclassname"> SPEC</code><a class="headerlink" href="#cmdoption-timesync-timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamps to use for synchronizing. Possible values are</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rsb::create</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rsb::send</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rsb::receive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rsb::deliver</span></code></p></li>
+<li><p>Names of user timestamps</p></li>
+</ul>
+<p>Multiple timestamps can be specified separated by ‘,’, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fooTime</span><span class="p">,</span><span class="n">rsb</span><span class="p">::</span><span class="n">create</span>
+</pre></div>
+</div>
+<p>This specifies the priority to take timestamps with but allows
+missing user timestamps with the next item in the list as a
+fallback.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">rsb::create</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h2>
+<p>ApproximateTime</p>
+<blockquote>
+<div><p>Implements
+<a class="reference external" href="http://www.ros.org/wiki/message_filters/ApproximateTime">http://www.ros.org/wiki/message_filters/ApproximateTime</a>. In brief,
+emits <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> where for each configured <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>
+exactly one <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is present. Minimizes distance between the
+earliest and the latest <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> in each result <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>
+while preserving some other conditions.</p>
+<dl class="option">
+<dt id="cmdoption-timesync-approxt-qs">
+<code class="sig-name descname">--approxt-qs</code><code class="sig-prename descclassname"> SIZE</code><a class="headerlink" href="#cmdoption-timesync-approxt-qs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The queue size to use, default is 2</p>
+</dd></dl>
+
+</div></blockquote>
+<p>FirstMatch</p>
+<blockquote>
+<div><p>Emits <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> where for each configured stream one
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is present by using the first received <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>
+on each stream after each emitted result <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only for testing purposes - Probably not usable at all.</p>
+</div>
+</div></blockquote>
+<p>TimeFrame</p>
+<blockquote>
+<div><p>Associates multiple <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> from subsidiary
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a> to one <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> of the primary
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> by selecting all <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> from the
+subsidiary <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> that are close to the time of the primary
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> (a delta needs to be specified). Currently, does not
+prevent that one subsidiary <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is present for several
+primary <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.</p>
+<dl class="option">
+<dt id="cmdoption-timesync-timeframe-timeframe">
+<code class="sig-name descname">--timeframe-timeframe</code><code class="sig-prename descclassname"> TIME</code><a class="headerlink" href="#cmdoption-timesync-timeframe-timeframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowed time frame to associate in microseconds in both
+directions of time.</p>
+<p>Default: 250000</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-timesync-timeframe-buffer">
+<code class="sig-name descname">--timeframe-buffer</code><code class="sig-prename descclassname"> TIME</code><a class="headerlink" href="#cmdoption-timesync-timeframe-buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buffer time in microseconds. This is the time between now and
+<code class="docutils literal notranslate"><span class="pre">rsb::create</span></code> timestamp of the primary <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> (or the
+timestamp selected via the command line option) which is waited
+until the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is sent out with all synchronizable other
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.</p>
+<p>Default: 500000</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 19%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Implementation Language</p></th>
+<th class="head"><p>Project</p></th>
+<th class="head"><p>Repository Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p>rsb-tools-cpp</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-tools-cpp">https://github.com/open-rsx/rsb-tools-cpp</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

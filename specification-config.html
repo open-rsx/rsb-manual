@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plugins" href="specification-plugin.html" />
+    <link rel="prev" title="URIs" href="specification-uris.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-debugging">Configuration Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name-value-pairs">Name-value Pairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effective-configuration">Effective Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#non-default-configuration-file-cascade">Non-default Configuration File Cascade</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sources">Sources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-files">Configuration Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programmatic-options">Programmatic Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-and-test-case">Example and Test Case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-converters.html">Converters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="configuration">
+<span id="specification-config"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>The configuration mechanism in RSB is based on the following
+principles:</p>
+<ul class="simple">
+<li><p>The configuration mechanism works identically across implementation
+languages</p></li>
+<li><p>We cannot (and do not want to) handle configuration of individual
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>:</p>
+<ul>
+<li><p>The configuration mechanism is intended to provide process-wide
+defaults.</p></li>
+<li><p><a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">Participants</span></a> that require individual configurations have
+to be configured programmatically.</p></li>
+</ul>
+</li>
+<li><p>Configuration options are obtained from multiple configuration
+sources:</p>
+<ul>
+<li><p><a class="reference internal" href="#configuration-files">Configuration files</a></p></li>
+<li><p><a class="reference internal" href="#environment-variables">Environment variables</a></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Configuration options are organized in a tree of <a class="reference internal" href="#name-value-pairs">name-value pairs</a></p></li>
+</ul>
+<div class="section" id="configuration-debugging">
+<span id="specification-config-debug"></span><h2>Configuration Debugging<a class="headerlink" href="#configuration-debugging" title="Permalink to this headline">¶</a></h2>
+<p>In complex systems, it is sometimes not clear how the configuration in
+effect in a particular part of the system came
+about. RSB-based systems are no exception. To assist users in
+such situations, RSB provides a few configuration debugging
+tools.</p>
+<p>The simplest and often most effective configuration debugging tool is
+the <span class="target" id="index-0"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_CONFIG_DEBUG"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_CONFIG_DEBUG</span></code></a> environment variable. When set to any
+value, it causes RSB-based programs to print informative
+messages during configuration processing:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">RSB_CONFIG_DEBUG</span><span class="o">=</span><span class="m">1</span> <span class="nv">RSB_TRANSPORT_SPREAD_ENABLED</span><span class="o">=</span><span class="m">1</span> rsb-infocpp0.15
+Starting processing RSC-based logging configuration
+
+Configuring with sources <span class="o">(</span>lowest priority first<span class="o">)</span>
+  <span class="m">1</span>. Configuration files
+     <span class="m">1</span>. Prefix wide config file <span class="s2">&quot;/home/jmoringe/opt/rsx-0.15/etc/rsb.conf&quot;</span> does not exist
+     <span class="m">2</span>. User config file <span class="s2">&quot;/home/jmoringe/.config/rsb.conf&quot;</span> exists
+     <span class="m">3</span>. Current directory file <span class="s2">&quot;rsb.conf&quot;</span> does not exist
+  <span class="m">2</span>. Environment variables with prefix RSC_
+     &lt;none&gt;
+  <span class="m">3</span>. Commandline options
+     &lt;none&gt;
+
+Finished processing RSC-based logging configuration
+
+Starting processing plugin configuration
+
+Configuring with sources <span class="o">(</span>lowest priority first<span class="o">)</span>
+  <span class="m">1</span>. Configuration files
+     <span class="m">1</span>. Prefix wide config file <span class="s2">&quot;/home/jmoringe/opt/rsx-0.15/etc/rsb.conf&quot;</span> does not exist
+     <span class="m">2</span>. User config file <span class="s2">&quot;/home/jmoringe/.config/rsb.conf&quot;</span> exists
+     <span class="m">3</span>. Current directory file <span class="s2">&quot;rsb.conf&quot;</span> does not exist
+  <span class="m">2</span>. Environment variables with prefix RSB_
+     RSB_CONFIG_DEBUG <span class="o">(</span>mapped to config_debug<span class="o">)</span> -&gt; <span class="m">1</span>
+     RSB_TRANSPORT_SPREAD_ENABLED <span class="o">(</span>mapped to transport_spread_enabled<span class="o">)</span> -&gt; <span class="m">1</span>
+  <span class="m">3</span>. Commandline options
+     &lt;none&gt;
+
+Finished processing plugin configuration
+
+Starting processing default participant configuration
+
+Configuring with sources <span class="o">(</span>lowest priority first<span class="o">)</span>
+  <span class="m">1</span>. Configuration files
+     <span class="m">1</span>. Prefix wide config file <span class="s2">&quot;/home/jmoringe/opt/rsx-0.15/etc/rsb.conf&quot;</span> does not exist
+     <span class="m">2</span>. User config file <span class="s2">&quot;/home/jmoringe/.config/rsb.conf&quot;</span> exists
+     <span class="m">3</span>. Current directory file <span class="s2">&quot;rsb.conf&quot;</span> does not exist
+  <span class="m">2</span>. Environment variables with prefix RSB_
+     RSB_CONFIG_DEBUG <span class="o">(</span>mapped to config_debug<span class="o">)</span> -&gt; <span class="m">1</span>
+     RSB_TRANSPORT_SPREAD_ENABLED <span class="o">(</span>mapped to transport_spread_enabled<span class="o">)</span> -&gt; <span class="m">1</span>
+  <span class="m">3</span>. Commandline options
+     &lt;none&gt;
+
+Finished processing default participant configuration
+
+Default participant configuration
+…
+</pre></div>
+</div>
+</div>
+<div class="section" id="name-value-pairs">
+<h2>Name-value Pairs<a class="headerlink" href="#name-value-pairs" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-inprocess.html#specification-inprocess-options"><span class="std std-ref">Specification of inprocess Transport</span></a></dt><dd><p>Options accepted by the inprocess <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="specification-spread.html#specification-spread-options"><span class="std std-ref">Specification of Spread-based Transport</span></a></dt><dd><p>Options accepted by the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="specification-socket.html#specification-socket-options"><span class="std std-ref">Specification of TCP-socket-based Transport</span></a></dt><dd><p>Options accepted by the TCP-socket-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="specification-yarp.html#specification-tcpyarp-options"><span class="std std-ref">Specification of TCP+YARP Transport</span></a></dt><dd><p>Options accepted by TCP+YARP <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="specification-yarp.html#specification-yarp-nameservice-options"><span class="std std-ref">Specification of YARP Transport</span></a></dt><dd><p>Options accepted by YARP <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="specification-ros.html#specification-tcpros-options"><span class="std std-ref">Specification of TCP+ROS Transport</span></a></dt><dd><p>Options accepted by TCP+ROS <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="specification-ros.html#specification-ros-nameservice-options"><span class="std std-ref">Specification of ROS Transport</span></a></dt><dd><p>Options accepted by ROS <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</dd>
+</dl>
+</div>
+<p>Option names consist of multiple components which are specified in
+configuration-source-dependent syntax. For example, in <a class="reference internal" href="#configuration-files">configuration
+files</a> section names like <code class="docutils literal notranslate"><span class="pre">[transport.spread]</span></code> are concatenated
+with names of contained options like <code class="docutils literal notranslate"><span class="pre">port</span></code> to obtain
+<code class="docutils literal notranslate"><span class="pre">transport.spread.port</span></code>. For <a class="reference internal" href="#environment-variables">environment variables</a>, the name
+<span class="target" id="index-1"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SPREAD_PORT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SPREAD_PORT</span></code></a> is mapped to
+<code class="docutils literal notranslate"><span class="pre">transport.spread.port</span></code>.</p>
+<p>Currently the following option tree is defined (uppercase option name
+components are placeholders, <code class="samp docutils literal notranslate"><em><span class="pre">LANGUAGE</span></em></code> refers to the
+implementation language, e.g. <code class="docutils literal notranslate"><span class="pre">cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">java</span></code>, etc.)</p>
+<pre class="literal-block">Name                                Type                      Comment
+----                                ----                      -------
+
++ qualityofservice
++-- reliability                     { UNRELIABLE, RELIABLE }
++-- ordering                        { UNORDERED, ORDERED }
+
++ errorhandling
++-- onhandlererror                  { LOG, PRINT, EXIT }
+
++ introspection
++-- enabled                         bool
++-- displayname                     string
+
++ plugins
++-- <code class="samp docutils literal notranslate"><em><span class="pre">LANGUAGE</span></em></code>
++---- path                          list of strings
++---- load                          list of strings
+
++ transport
+
++-- <code class="samp docutils literal notranslate"><em><span class="pre">NAME</span></em></code>                                                     #
++---- enabled                       bool                      #
++---- <code class="samp docutils literal notranslate"><em><span class="pre">TRANSPORT_SPECIFIC_OPTION</span></em></code> ?                         # Subtree is valid
++---- converter                                               # for all transports
++------ <code class="samp docutils literal notranslate"><em><span class="pre">LANGUAGE</span></em></code>                                             #
++-------- <code class="samp docutils literal notranslate"><em><span class="pre">WIRE-SCHEMA</span></em></code>              string                    #</pre>
+</div>
+<div class="section" id="effective-configuration">
+<span id="specification-config-effective-configuration"></span><h2>Effective Configuration<a class="headerlink" href="#effective-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Configuration sources are processed in the following order such that
+options from sources which are processed later take precedence over
+options from sources which are processed earlier:</p>
+<ol class="arabic simple">
+<li><p>Start with <strong>Global Defaults</strong></p></li>
+<li><p>Merge with <strong>Config Files</strong> (“Merge 3”), being the result of:</p>
+<ol class="arabic simple">
+<li><p>Start with <strong>System Config</strong> file <code class="file docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/etc/rsb.conf</span></code></p></li>
+<li><p>Merge with <strong>User Config</strong> file <code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code> (“Merge 1”)</p></li>
+<li><p>Merge with <strong>Current Directory Config</strong> file <code class="file docutils literal notranslate"><span class="pre">$(pwd)/rsb.conf</span></code>
+(“Merge 2”)</p></li>
+</ol>
+</li>
+<li><p>Merge with <a class="reference internal" href="#specification-config-environment-variables"><span class="std std-ref">options supplied via environment variables</span></a> (“Merge 4”)</p></li>
+<li><p>Merge with <a class="reference internal" href="#specification-config-programmatic-options"><span class="std std-ref">programatically supplied options</span></a> (“Merge 6”)</p></li>
+</ol>
+<div class="graphviz"><img src="_images/graphviz-b758c6450de80c8c4d4493aa7fb7d15d649dc1a8.png" alt="digraph configuration_processing {
+fontname=Arial
+fontsize=11
+node [fontsize=11,fontname=Arial]
+edge [fontsize=11,fontname=Arial]
+
+node [shape = box]
+
+subgraph cluster_global_defaults {
+  label = &quot;Global Defaults&quot;
+
+  global_transports [label=&quot;options&quot;]
+}
+
+subgraph cluster_config_files {
+  label = &quot;Config Files&quot;
+
+  system_config [label=&quot;System Config\ne.g. /etc/rsb.conf&quot;]
+  user_config [label=&quot;User Config\ne.g. $HOME/.config/rsb.conf&quot;]
+  pwd_config [label=&quot;Current Dir. Config\ne.g. $(pwd)/rsb.conf&quot;]
+
+  subgraph cluster_config_merge_1 {
+    label = &quot;Merge 1&quot;
+    style = &quot;rounded,filled&quot;
+
+    config_1_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+  }
+
+  system_config -&gt; config_1_options [style=&quot;dashed&quot;]
+  user_config -&gt; config_1_options
+
+  subgraph cluster_config_merge_2 {
+    label = &quot;Merge 2&quot;
+    style = &quot;rounded,filled&quot;
+
+    config_2_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+  }
+
+  config_1_options -&gt; config_2_options [style=&quot;dashed&quot;]
+  pwd_config -&gt; config_2_options
+
+  config_2_options [label=&quot;options&quot;]
+  /* config_transports [label=&quot;options&quot;] */
+
+  /* config_2_options -&gt; config_transports */
+}
+
+subgraph cluster_step_3 {
+  label = &quot;Merge 3&quot;
+  style = &quot;rounded,filled&quot;
+
+  step_3_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+}
+
+global_transports -&gt; step_3_options [style=&quot;dashed&quot;]
+config_2_options -&gt; step_3_options
+
+subgraph cluster_environment_variables_options {
+  label = &quot;Environment Variables&quot;
+
+  environment_options [label=&quot;options&quot;]
+}
+
+subgraph cluster_step_4 {
+  label = &quot;Merge 4&quot;
+  style = &quot;rounded,filled&quot;
+
+  step_4_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+}
+
+step_3_options -&gt; step_4_options [style=&quot;dashed&quot;]
+environment_options -&gt; step_4_options
+
+/* subgraph cluster_commandline_options {
+  label = &quot;Commandline&quot;
+
+  commandline_options [label=&quot;options&quot;]
+}
+
+subgraph cluster_step_5 {
+  label = &quot;Merge 5&quot;
+  style = &quot;rounded,filled&quot;
+
+  step_5_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+}
+
+step_4_options -&gt; step_5_options [style=&quot;dashed&quot;]
+commandline_options -&gt; step_5_options */
+
+subgraph cluster_programmatic_options {
+  label = &quot;Programmatic Options&quot;
+
+  programmatic_options [label=&quot;options&quot;]
+}
+
+subgraph cluster_step_6 {
+  label = &quot;Merge 6&quot;
+  style = &quot;rounded,filled&quot;
+
+  step_6_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+}
+
+step_4_options -&gt; step_6_options [style=&quot;dashed&quot;]
+programmatic_options -&gt; step_6_options
+
+/* subgraph cluster_uri {
+  label = &quot;URI&quot;
+
+  uri_schema [label=&quot;schema&quot;]
+  host
+  port
+  options
+
+  uri_transports [label=transports]
+
+  uri_schema -&gt; uri_transports
+}
+
+subgraph cluster_step_7 {
+  label = &quot;Merge 7&quot;
+  style = &quot;rounded,filled&quot;
+
+  step_7_options [label = &quot;options&quot;, fillcolor = &quot;white&quot;, style=&quot;filled&quot;]
+}
+
+step_6_options -&gt; step_7_options [style=&quot;dashed&quot;]
+uri_transports -&gt; step_7_options */
+}" class="graphviz" /></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Windows the configuration file is located at <code class="docutils literal notranslate"><span class="pre">%userprofile%\.config\rsb.conf</span></code>.</p>
+</div>
+<div class="section" id="non-default-configuration-file-cascade">
+<span id="specification-config-file-cascade"></span><h3>Non-default Configuration File Cascade<a class="headerlink" href="#non-default-configuration-file-cascade" title="Permalink to this headline">¶</a></h3>
+<p>The environment variable <span class="target" id="index-2"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_CONFIG_FILES"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_CONFIG_FILES</span></code></a> can be used to
+make RSB load a different cascade of configuration files than
+the one described above.</p>
+<p>Acceptable values are lists of filenames separated by <code class="docutils literal notranslate"><span class="pre">:</span></code>. In
+addition to filenames, the following placeholders can be used:</p>
+<p><code class="docutils literal notranslate"><span class="pre">%system</span></code></p>
+<blockquote>
+<div><p>Is replaced with the name of the <strong>System Config</strong> file
+<code class="file docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/etc/rsb.conf</span></code> described above.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">%user</span></code></p>
+<blockquote>
+<div><p>Is replaced with the <strong>User Config</strong> file <code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code>
+described above.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">%pwd</span></code></p>
+<blockquote>
+<div><p>Is replaced with the <strong>Current Directory Config</strong> file
+<code class="file docutils literal notranslate"><span class="pre">$(pwd)/rsb.conf</span></code> described above.</p>
+</div></blockquote>
+<p>Example:</p>
+<pre class="literal-block">   %system:/my-etc/rsb.conf:%user:/my-other-etc//rsb.conf
+=&gt; <code class="file docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/etc/rsb.conf</span></code>:/myetc/rsb.conf:<code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code>:/my-other-etc//rsb.conf</pre>
+</div>
+</div>
+<div class="section" id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
+<p>The following sections briefly explain the currently defined
+configuration sources.</p>
+<div class="section" id="configuration-files">
+<span id="specification-config-files"></span><h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>Configuration files use the following syntax, which is similar to
+<a class="reference external" href="http://en.wikipedia.org/wiki/INI_file">INI-files</a> or <a class="reference external" href="http://standards.freedesktop.org/desktop-entry-spec/latest/">desktop-files</a></p>
+<ul class="simple">
+<li><p>Comments are initiated by the <code class="docutils literal notranslate"><span class="pre">#</span></code> character and extend to the end
+of the current line</p></li>
+<li><p>After removing comments, all lines have to be of one of the
+following forms:</p>
+<ul>
+<li><p>empty</p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">[</span><em><span class="pre">NAME</span></em><span class="pre">]</span></code> where <code class="samp docutils literal notranslate"><span class="pre">NAME</span></code> consists of alphanumeric
+characters and colons</p></li>
+<li><p><code class="samp docutils literal notranslate"><em><span class="pre">NAME</span></em> <span class="pre">=</span> <em><span class="pre">VALUE</span></em></code> where <code class="samp docutils literal notranslate"><span class="pre">NAME</span></code> consists of
+alphanumeric characters</p></li>
+<li><p>Double quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) can be used in <code class="samp docutils literal notranslate"><em><span class="pre">NAME</span></em></code> to avoid
+splitting at <code class="docutils literal notranslate"><span class="pre">.</span></code> characters. E.g <code class="docutils literal notranslate"><span class="pre">[transport.&quot;socket.new&quot;]</span></code>
+would interpreted as the section name <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">socket.new)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Here is an example:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[qualityofservice]</span>
+<span class="na">reliability</span> <span class="o">=</span> <span class="s">UNRELIABLE</span>
+<span class="na">ordering</span> <span class="o">=</span> <span class="s">UNORDERED</span>
+
+<span class="k">[errorhandling]</span>
+<span class="na">onhandlererror</span> <span class="o">=</span> <span class="s">LOG</span>
+
+<span class="k">[transport.spread]</span>
+<span class="na">host</span>    <span class="o">=</span> <span class="s">localhost</span>
+<span class="na">port</span>    <span class="o">=</span> <span class="s">4803</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">1                          # this is the default</span>
+
+<span class="k">[spread.converter.cpp]</span>
+<span class="na">image</span> <span class="o">=</span> <span class="s">IplImage                     # wire-schema = data-type</span>
+
+<span class="k">[transport.inprocess]</span>
+<span class="na">foo</span>     <span class="o">=</span> <span class="s">barbar</span>
+<span class="na">factor</span>  <span class="o">=</span> <span class="s">1.5</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="k">[plugins.cpp]</span>
+<span class="na">path</span> <span class="o">=</span> <span class="s">/vol/vampire/lib:/vol/cor/lib</span>
+<span class="na">load</span> <span class="o">=</span> <span class="s">rsbspread:rsbvampire     # no filetype suffix</span>
+</pre></div>
+</div>
+<p>Please note that only files with the platform’s respective line
+endings are supported (i.e. <code class="docutils literal notranslate"><span class="pre">\n</span></code> on Linux and <code class="docutils literal notranslate"><span class="pre">\r\n</span></code> on Windows).</p>
+</div>
+<div class="section" id="environment-variables">
+<span id="specification-config-environment-variables"></span><h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
+<p>Environment variables are processed according to the following rules:</p>
+<ol class="arabic simple">
+<li><p>Variables whose names start with <code class="docutils literal notranslate"><span class="pre">RSB_</span></code> are processed</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">RSB_</span></code> prefix is stripped form the name</p></li>
+<li><p>To obtain the name of the corresponding option, the remainder of
+the name is converted to lower case and split at <code class="docutils literal notranslate"><span class="pre">_</span></code> characters</p></li>
+</ol>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><span class="target" id="index-3"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_PLUGINS_CPP_LOAD"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_PLUGINS_CPP_LOAD</span></code></a>      -&gt; <code class="docutils literal notranslate"><span class="pre">plugins.cpp.load</span></code></p></li>
+<li><p><span class="target" id="index-4"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SPREAD_PORT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SPREAD_PORT</span></code></a> -&gt; <code class="docutils literal notranslate"><span class="pre">transport.spread.port</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="programmatic-options">
+<span id="specification-config-programmatic-options"></span><h3>Programmatic Options<a class="headerlink" href="#programmatic-options" title="Permalink to this headline">¶</a></h3>
+<p>Please have a look at the API documentation for ParticipantConfig (C++, Python)
+or Properties (Java). Links to the API documentation can be found in the left
+sidebar.</p>
+</div>
+</div>
+<div class="section" id="example-and-test-case">
+<h2>Example and Test Case<a class="headerlink" href="#example-and-test-case" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following situation:</p>
+<ul>
+<li><p>Contents of <code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code></p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[transport.spread]</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">azurit</span>
+<span class="na">port</span> <span class="o">=</span> <span class="s">5301</span>
+</pre></div>
+</div>
+</li>
+<li><p>Contents of <code class="file docutils literal notranslate"><span class="pre">$(pwd)/rsb.conf</span></code></p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[transport.spread]</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">localhost</span>
+</pre></div>
+</div>
+</li>
+<li><p>Environment Variables</p>
+<p><span class="target" id="index-5"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SPREAD_PORT"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SPREAD_PORT</span></code></a> = <code class="docutils literal notranslate"><span class="pre">4444</span></code></p>
+</li>
+</ul>
+<p>This should result in the following effective option values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">transport.spread.host</span> <span class="pre">=</span> <span class="pre">localhost</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transport.spread.port</span> <span class="pre">=</span> <span class="pre">4444</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>File(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-cpp">https://github.com/open-rsx/rsb-cpp</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Java</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-java">https://github.com/open-rsx/rsb-java</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p><a class="reference download internal" download="" href="_downloads/857ebbcee6ed42cc79e3683a929862fb/__init__.py"><code class="xref download docutils literal notranslate"><span class="pre">upstream/rsb-python/rsb/__init__.py</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Lisp</p></td>
+<td><p><a class="reference download internal" download="" href="_downloads/e1712825964e548c4bcc7bba4fb18094/configuration.lisp"><code class="xref download docutils literal notranslate"><span class="pre">upstream/rsb-cl/src/configuration.lisp</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

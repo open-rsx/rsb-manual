@@ -1,0 +1,40 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: com.google.protobuf ByteString
+
+ByteHelpers
+===========
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public final class ByteHelpers
+
+   A class with helper methods to convert different byte array representations.
+
+   :author: jwienke
+
+Methods
+-------
+buteBufferToByteString
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static ByteString buteBufferToByteString(ByteBuffer buffer)
+   :outertype: ByteHelpers
+
+   Converts a \ :java:ref:`ByteBuffer`\  to a \ :java:ref:`ByteString`\ .
+
+   :param buffer: buffer to convert
+   :return: \ :java:ref:`ByteString`\  instance with the same contents. Might be coupled to the passed in \ :java:ref:`ByteBuffer`\  and reflect changes on that buffer.
+
+byteBufferToArray
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static byte[] byteBufferToArray(ByteBuffer buffer)
+   :outertype: ByteHelpers
+
+   Converts a \ :java:ref:`ByteBuffer`\  instance to a plain byte array. This method respects whether the buffer is read-only or has an underlying array available. In cases where an array is present and can be accessed, this array will be returned. Otherwise a copy is created.
+
+   :param buffer: the buffer to convert
+   :return: array with contents of the buffer. Should not be modified usually
+

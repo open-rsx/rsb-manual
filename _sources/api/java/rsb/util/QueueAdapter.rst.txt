@@ -1,0 +1,68 @@
+.. java:import:: java.util.concurrent BlockingQueue
+
+.. java:import:: java.util.concurrent LinkedBlockingDeque
+
+.. java:import:: rsb AbstractDataHandler
+
+QueueAdapter
+============
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public class QueueAdapter<DataType> extends AbstractDataHandler<DataType>
+
+   Synchronized queue implementing the rsb.DataHandler interface. Can be directly registered as handler in rsb.Listener instance and used for receiving and storing dispatched events.
+
+   :author: swrede, dklotz
+   :param <DataType>: type of data to be handled
+
+Constructors
+------------
+QueueAdapter
+^^^^^^^^^^^^
+
+.. java:constructor:: public QueueAdapter()
+   :outertype: QueueAdapter
+
+   Creates an adapter with a preset unlimited queue inside.
+
+QueueAdapter
+^^^^^^^^^^^^
+
+.. java:constructor:: public QueueAdapter(int capacity, boolean discardOldest)
+   :outertype: QueueAdapter
+
+   Creates an adapter with a preset queue inside that is limited to \ ``capacity``\  elements.
+
+   :param capacity: capacity of the internal queue
+   :param discardOldest: if \ ``true``\ , remove older events if the queue is full, otherwise block until space is available on inserts
+
+QueueAdapter
+^^^^^^^^^^^^
+
+.. java:constructor:: public QueueAdapter(BlockingQueue<DataType> queue)
+   :outertype: QueueAdapter
+
+   Creates an adapter that uses the specified queue as target for new data.
+
+   :param queue: queue for new data
+
+Methods
+-------
+getQueue
+^^^^^^^^
+
+.. java:method:: public BlockingQueue<DataType> getQueue()
+   :outertype: QueueAdapter
+
+   Returns the queue instance used for new data.
+
+   :return: queue instance
+
+handleEvent
+^^^^^^^^^^^
+
+.. java:method:: @Override public void handleEvent(DataType data)
+   :outertype: QueueAdapter
+

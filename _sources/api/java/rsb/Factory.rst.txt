@@ -1,0 +1,503 @@
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util LinkedList
+
+.. java:import:: java.util List
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.config ParticipantConfig
+
+.. java:import:: rsb.config ParticipantConfigCreator
+
+.. java:import:: rsb.converter DefaultConverters
+
+.. java:import:: rsb.introspection IntrospectionParticipantObserver
+
+.. java:import:: rsb.introspection LacksOsInformationException
+
+.. java:import:: rsb.patterns LocalServer
+
+.. java:import:: rsb.patterns Reader
+
+.. java:import:: rsb.patterns RemoteServer
+
+.. java:import:: rsb.plugin PluginManager
+
+.. java:import:: rsb.util ConfigLoader
+
+.. java:import:: rsb.util Properties
+
+Factory
+=======
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: @SuppressWarnings public final class Factory
+
+   A factory for RSB client-level objects. This class is a Singleton. It implements an observer pattern to notify about the creation and destruction of participants.
+
+   :author: jwienke, swrede
+
+Methods
+-------
+addObserver
+^^^^^^^^^^^
+
+.. java:method:: public void addObserver(ParticipantObserver observer)
+   :outertype: Factory
+
+   Adds an observer to be notified on participant changes.
+
+   :param observer: the observer to add, not \ ``null``\
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(Scope scope, Class<?> type) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :param type: type identifier of the informer
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(String scope, Class<?> type) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :param type: type identifier of the informer
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(Scope scope, Class<?> type, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :param type: type identifier of the informer
+   :param config: participant config to use
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(String scope, Class<?> type, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :param type: type identifier of the informer
+   :param config: participant config to use
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(Scope scope) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(String scope) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(Scope scope, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :param config: participant config to use
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(String scope, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param scope: scope of the informer
+   :param config: participant config to use
+   :throws InitializeException: error initializing the informer
+   :return: new informer instance
+
+createInformer
+^^^^^^^^^^^^^^
+
+.. java:method:: public <DataType> Informer<DataType> createInformer(InformerCreateArgs args) throws InitializeException
+   :outertype: Factory
+
+   Creates a new informer instance.
+
+   :param <DataType>: type of the data sent by this informer
+   :param args: Parameter object with create arguments for participant.
+   :throws InitializeException: error initializing the informer
+   :throws IllegalArgumentException: args is \ ``null``\
+   :return: new informer
+
+createListener
+^^^^^^^^^^^^^^
+
+.. java:method:: public Listener createListener(Scope scope) throws InitializeException
+   :outertype: Factory
+
+   Creates a new listener instance.
+
+   :param scope: scope of the listener
+   :throws InitializeException: error initializing the listener
+   :return: new listener
+
+createListener
+^^^^^^^^^^^^^^
+
+.. java:method:: public Listener createListener(String scope) throws InitializeException
+   :outertype: Factory
+
+   Creates a new listener instance.
+
+   :param scope: scope of the listener
+   :throws InitializeException: error initializing the listener
+   :return: new listener
+
+createListener
+^^^^^^^^^^^^^^
+
+.. java:method:: public Listener createListener(String scope, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new listener instance.
+
+   :param scope: scope of the listener
+   :param config: participant configuration to use
+   :throws InitializeException: error initializing the listener
+   :return: new listener
+
+createListener
+^^^^^^^^^^^^^^
+
+.. java:method:: public Listener createListener(Scope scope, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new listener instance.
+
+   :param scope: scope of the listener
+   :param config: participant configuration to use
+   :throws InitializeException: error initializing the listener
+   :return: new listener
+
+createListener
+^^^^^^^^^^^^^^
+
+.. java:method:: public Listener createListener(ListenerCreateArgs args) throws InitializeException
+   :outertype: Factory
+
+   Creates a new listener instance.
+
+   :param args: Parameter object with create arguments for participant.
+   :throws InitializeException: error initializing the listener
+   :throws IllegalArgumentException: args is \ ``null``\
+   :return: new listener
+
+createLocalServer
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public LocalServer createLocalServer(Scope scope)
+   :outertype: Factory
+
+   Creates a new LocalServer object which exposes methods under the scope @a scope.
+
+   :param scope: The scope under which methods of the LocalServer object should be exposed.
+   :return: The new LocalServer object.
+
+createLocalServer
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public LocalServer createLocalServer(Scope scope, ParticipantConfig config)
+   :outertype: Factory
+
+   Creates a new LocalServer object which exposes methods under the scope @a scope.
+
+   :param scope: The scope under which methods of the LocalServer object should be exposed.
+   :param config: participant configuration to use
+   :return: The new LocalServer object.
+
+createLocalServer
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public LocalServer createLocalServer(String scope, ParticipantConfig config)
+   :outertype: Factory
+
+   Creates a new LocalServer object which exposes methods under the scope @a scope.
+
+   :param scope: The scope under which methods of the LocalServer object should be exposed.
+   :param config: participant configuration to use
+   :return: The new LocalServer object.
+
+createLocalServer
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public LocalServer createLocalServer(String scope)
+   :outertype: Factory
+
+   Creates a new LocalServer object which exposes methods under the scope @a scope.
+
+   :param scope: The scope under which methods of the LocalServer object should be exposed.
+   :return: The new LocalServer object.
+
+createLocalServer
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public LocalServer createLocalServer(LocalServerCreateArgs args)
+   :outertype: Factory
+
+   Creates a new LocalServer instance.
+
+   :param args: Parameter object with create arguments for participant.
+   :throws IllegalArgumentException: args is \ ``null``\
+   :return: new LocalServer
+
+createReader
+^^^^^^^^^^^^
+
+.. java:method:: public Reader createReader(Scope scope) throws InitializeException
+   :outertype: Factory
+
+   Creates a new reader instance.
+
+   :param scope: scope of the reader
+   :throws InitializeException: error initializing the reader
+   :return: new reader
+
+createReader
+^^^^^^^^^^^^
+
+.. java:method:: public Reader createReader(String scope) throws InitializeException
+   :outertype: Factory
+
+   Creates a new reader instance.
+
+   :param scope: scope of the reader
+   :throws InitializeException: error initializing the reader
+   :return: new reader
+
+createReader
+^^^^^^^^^^^^
+
+.. java:method:: public Reader createReader(String scope, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new reader instance.
+
+   :param scope: scope of the reader
+   :param config: participant configuration to use
+   :throws InitializeException: error initializing the reader
+   :return: new reader
+
+createReader
+^^^^^^^^^^^^
+
+.. java:method:: public Reader createReader(Scope scope, ParticipantConfig config) throws InitializeException
+   :outertype: Factory
+
+   Creates a new reader instance.
+
+   :param scope: scope of the reader
+   :param config: participant configuration to use
+   :throws InitializeException: error initializing the reader
+   :return: new reader
+
+createReader
+^^^^^^^^^^^^
+
+.. java:method:: public Reader createReader(ReaderCreateArgs args) throws InitializeException
+   :outertype: Factory
+
+   Creates a new reader instance.
+
+   :param args: Parameter object with create arguments for the participant.
+   :throws InitializeException: error initializing the reader
+   :throws IllegalArgumentException: args is \ ``null``\
+   :return: new reader
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(Scope scope)
+   :outertype: Factory
+
+   Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope @a scope.
+
+   :param scope: The scope under which a remote server provides its methods.
+   :return: The new RemoteServer object.
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(String scope)
+   :outertype: Factory
+
+   Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope @a scope.
+
+   :param scope: The scope under which a remote server provides its methods.
+   :return: The new RemoteServer object.
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(Scope scope, ParticipantConfig config)
+   :outertype: Factory
+
+   Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope @a scope.
+
+   :param scope: The scope under which a remote server provides its methods.
+   :param config: participant configuration to use
+   :return: The new RemoteServer object.
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(String scope, ParticipantConfig config)
+   :outertype: Factory
+
+   Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope @a scope.
+
+   :param scope: The scope under which a remote server provides its methods.
+   :param config: participant configuration to use
+   :return: The new RemoteServer object.
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(Scope scope, double timeout)
+   :outertype: Factory
+
+   Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope @a scope.
+
+   :param scope: The scope under which a remote server provides its methods.
+   :param timeout: The amount of seconds methods calls should wait for their replies to arrive before failing.
+   :return: The new RemoteServer object.
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(String scope, double timeout)
+   :outertype: Factory
+
+   Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope @a scope.
+
+   :param scope: The scope under which a remote server provides its methods.
+   :param timeout: The amount of seconds methods calls should wait for their replies to arrive before failing.
+   :return: The new RemoteServer object.
+
+createRemoteServer
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public RemoteServer createRemoteServer(RemoteServerCreateArgs args)
+   :outertype: Factory
+
+   Creates a new remote server instance.
+
+   :param args: Parameter object with create arguments for participant.
+   :throws IllegalArgumentException: args is \ ``null``\
+   :return: new remote server
+
+getDefaultParticipantConfig
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public ParticipantConfig getDefaultParticipantConfig()
+   :outertype: Factory
+
+   Returns the participant config used per default for new participants. This instance might be modified but changes are only applied to newly created participants.
+
+   :return: default participant config
+
+getInstance
+^^^^^^^^^^^
+
+.. java:method:: public static Factory getInstance()
+   :outertype: Factory
+
+   Returns the one and only instance of this class.
+
+   :return: singleton factory instance
+
+getProperties
+^^^^^^^^^^^^^
+
+.. java:method:: public Properties getProperties()
+   :outertype: Factory
+
+   Returns the default configuration properties.
+
+   :return: property instances
+
+removeObserver
+^^^^^^^^^^^^^^
+
+.. java:method:: public void removeObserver(ParticipantObserver observer)
+   :outertype: Factory
+
+   Removes an observer in case it existed. Otherwise it does nothing.
+
+   :param observer: the observer to remove
+
+setDefaultParticipantConfig
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setDefaultParticipantConfig(ParticipantConfig config)
+   :outertype: Factory
+
+   Sets the default participant config used per default for new participants. This method is not thread-safe! Only use it when no other thread is creating participants!
+
+   :param config: the new config to use, not \ ``null``\
+   :throws IllegalArgumentException: if the given config is \ ``null``\
+

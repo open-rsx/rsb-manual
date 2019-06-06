@@ -1,0 +1,66 @@
+.. java:import:: java.security MessageDigest
+
+.. java:import:: java.security NoSuchAlgorithmException
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util UUID
+
+UUIDTools
+=========
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public final class UUIDTools
+
+   UUID helper functions.
+
+   :author: swrede
+
+Fields
+------
+UUID_BYTE_REP_LENGTH
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final int UUID_BYTE_REP_LENGTH
+   :outertype: UUIDTools
+
+   Length of a byte array representing a UUID.
+
+Methods
+-------
+fromByteArray
+^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public static UUID fromByteArray(byte[] bytes)
+   :outertype: UUIDTools
+
+   Creates an ID from a byte representation.
+
+   :param bytes: byte representation of the id.
+   :return: the generated \ :java:ref:`UUID`\  instance
+
+getNameBasedUUID
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public static UUID getNameBasedUUID(UUID namespace, String name)
+   :outertype: UUIDTools
+
+   Generates name-based URIs according to Version 5 (SHA-1).
+
+   :param namespace: Namespace UUID
+   :param name: Actual name to be encoded in UUID
+   :return: Byte buffer with V5 UUID
+
+toByteArray
+^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public static byte[] toByteArray(UUID id)
+   :outertype: UUIDTools
+
+   Returns the bytes representing the id.
+
+   :param id: \ :java:ref:`UUID`\  instance to serialize
+   :return: byte representing the id (length 16)
+

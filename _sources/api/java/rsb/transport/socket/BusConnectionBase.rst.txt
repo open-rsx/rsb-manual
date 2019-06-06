@@ -1,0 +1,169 @@
+.. java:import:: java.io EOFException
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.net Socket
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.nio ByteOrder
+
+.. java:import:: java.nio.channels Channels
+
+.. java:import:: java.nio.channels ReadableByteChannel
+
+.. java:import:: java.nio.channels WritableByteChannel
+
+.. java:import:: java.util.concurrent Callable
+
+.. java:import:: java.util.concurrent ExecutionException
+
+.. java:import:: java.util.concurrent ExecutorService
+
+.. java:import:: java.util.concurrent Executors
+
+.. java:import:: java.util.concurrent TimeUnit
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+BusConnectionBase
+=================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public abstract class BusConnectionBase extends AbstractActivatable implements BusConnection
+
+   Utility base class for the implementation of the \ :java:ref:`BusConnection`\  interface. Subclasses need to use this object for synchronization. Subclasses need to call \ :java:ref:`setSocket(Socket)`\  with a valid socket before \ :java:ref:`activate()`\  will be called. \ :java:ref:`activate()`\  will automatically call \ :java:ref:`handshake()`\ .
+
+   :author: jwienke
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: BusConnectionBase
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: BusConnectionBase
+
+getOptions
+^^^^^^^^^^
+
+.. java:method:: @Override public SocketOptions getOptions()
+   :outertype: BusConnectionBase
+
+getReader
+^^^^^^^^^
+
+.. java:method:: protected ReadableByteChannel getReader()
+   :outertype: BusConnectionBase
+
+   Returns the reader for the internal socket.
+
+   :return: reader instance or \ ``null``\  if called before \ :java:ref:`activate()`\
+
+getSocket
+^^^^^^^^^
+
+.. java:method:: public Socket getSocket()
+   :outertype: BusConnectionBase
+
+   Returns the contained socket instance.
+
+   :return: socket instance or \ ``null``\  if not set yet.
+
+getWriter
+^^^^^^^^^
+
+.. java:method:: protected WritableByteChannel getWriter()
+   :outertype: BusConnectionBase
+
+   Returns the writer for the internal socket.
+
+   :return: writer instance or \ ``null``\  if called before \ :java:ref:`activate()`\
+
+handshake
+^^^^^^^^^
+
+.. java:method:: protected abstract void handshake() throws RSBException
+   :outertype: BusConnectionBase
+
+   Performs the handshake step of the protocol.
+
+   :throws RSBException: error during handshake
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: BusConnectionBase
+
+isActiveShutdown
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean isActiveShutdown()
+   :outertype: BusConnectionBase
+
+readLength
+^^^^^^^^^^
+
+.. java:method:: protected int readLength() throws IOException
+   :outertype: BusConnectionBase
+
+   Extract length of next notification blob.
+
+   :throws IOException: error while reading from the socket
+   :return: Number of bytes
+
+readNotification
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Notification readNotification() throws IOException
+   :outertype: BusConnectionBase
+
+sendNotification
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void sendNotification(Notification notification) throws IOException
+   :outertype: BusConnectionBase
+
+setOptions
+^^^^^^^^^^
+
+.. java:method:: protected void setOptions(SocketOptions options)
+   :outertype: BusConnectionBase
+
+   Sets the options for the socket to hold in this instance.
+
+   :param options: socket options to hold
+
+setSocket
+^^^^^^^^^
+
+.. java:method:: protected void setSocket(Socket socket)
+   :outertype: BusConnectionBase
+
+   Sets the internal socket instance.
+
+   :param socket: new socket instance
+
+shutdown
+^^^^^^^^
+
+.. java:method:: @Override public void shutdown() throws IOException
+   :outertype: BusConnectionBase
+

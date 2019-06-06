@@ -1,0 +1,67 @@
+.. java:import:: java.util.concurrent.atomic AtomicInteger
+
+SequenceNumber
+==============
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type:: public class SequenceNumber
+
+   Atomic uint32 counter implementation respecting size of ProtocolBuffer uint32 type.
+
+   :author: swrede, jwienke
+
+Fields
+------
+MAX_VALUE
+^^^^^^^^^
+
+.. java:field:: public static final long MAX_VALUE
+   :outertype: SequenceNumber
+
+   Represents the highest possible value for a sequence number: uint32 max: 4.294.967.295.
+
+Constructors
+------------
+SequenceNumber
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public SequenceNumber()
+   :outertype: SequenceNumber
+
+   Constructor starting with 0 as the sequence number.
+
+SequenceNumber
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public SequenceNumber(long value)
+   :outertype: SequenceNumber
+
+   Constructor starting with the specified number for the internal counter.
+
+   :param value: start number within uint32 range
+   :throws IllegalArgumentException: value outside uint32 range
+
+Methods
+-------
+get
+^^^
+
+.. java:method:: public long get()
+   :outertype: SequenceNumber
+
+   Returns the internal counter value.
+
+   :return: value
+
+incrementAndGet
+^^^^^^^^^^^^^^^
+
+.. java:method:: public long incrementAndGet()
+   :outertype: SequenceNumber
+
+   Increment the internal counter and returns the new result in an atomic fashion.
+
+   :return: new counter value
+

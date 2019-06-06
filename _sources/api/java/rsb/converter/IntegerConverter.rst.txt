@@ -1,0 +1,64 @@
+.. java:import:: java.nio ByteBuffer
+
+IntegerConverter
+================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class IntegerConverter implements Converter<ByteBuffer>
+
+   A converter with wire type \ :java:ref:`ByteBuffer`\  that is capable of handling signed integers that fit into 32 bits by using the Java \ :java:ref:`Integer`\  type.
+
+   :author: jmoringe, jwienke
+
+Fields
+------
+INT32_SIGNATURE
+^^^^^^^^^^^^^^^
+
+.. java:field:: public static final ConverterSignature INT32_SIGNATURE
+   :outertype: IntegerConverter
+
+   Signature for using the converter with signed integers.
+
+UINT32_SIGNATURE
+^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final ConverterSignature UINT32_SIGNATURE
+   :outertype: IntegerConverter
+
+   Signature for using the converter with unsigned integers. This may result in overflows.
+
+Constructors
+------------
+IntegerConverter
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public IntegerConverter(ConverterSignature signature)
+   :outertype: IntegerConverter
+
+   Constructor allowing different signatures.
+
+   :param signature: the signature to use
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer bytes) throws ConversionException
+   :outertype: IntegerConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: IntegerConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object data) throws ConversionException
+   :outertype: IntegerConverter
+

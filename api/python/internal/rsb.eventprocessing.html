@@ -1,0 +1,942 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.eventprocessing &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rsb.util" href="rsb.util.html" />
+    <link rel="prev" title="rsb.version" href="../user-level/rsb.version.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.eventprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.util.html">rsb.util</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.introspection.html">rsb.introspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.html">rsb.transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.local.html">rsb.transport.local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.socket.html">rsb.transport.socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.eventprocessing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/internal/rsb.eventprocessing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.eventprocessing">
+<span id="rsb-eventprocessing"></span><h1>rsb.eventprocessing<a class="headerlink" href="#module-rsb.eventprocessing" title="Permalink to this headline">¶</a></h1>
+<p>Contains code mediating between the user interface and the transport layer.</p>
+<p><em>Code author: jwienke</em></p>
+<p><em>Code author: jmoringe</em></p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.eventprocessing.BroadcastProcessor" title="rsb.eventprocessing.BroadcastProcessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BroadcastProcessor</span></code></a>([handlers])</p></td>
+<td><p>Implements synchronous broadcast dispatch to a list of handlers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.eventprocessing.Configurator" title="rsb.eventprocessing.Configurator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Configurator</span></code></a>([connectors])</p></td>
+<td><p>Superclass for in- and out-direction Configurator classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.eventprocessing.DirectEventSendingStrategy" title="rsb.eventprocessing.DirectEventSendingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DirectEventSendingStrategy</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a></p></td>
+<td><p>Superclass for event receiving strategies.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.eventprocessing.EventSendingStrategy" title="rsb.eventprocessing.EventSendingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventSendingStrategy</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy" title="rsb.eventprocessing.FullyParallelEventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FullyParallelEventReceivingStrategy</span></code></a>()</p></td>
+<td><p>Dispatches events to multiple handlers that can be called in parallel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.eventprocessing.InRouteConfigurator" title="rsb.eventprocessing.InRouteConfigurator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InRouteConfigurator</span></code></a>([connectors, …])</p></td>
+<td><p>Manages event receiving using a push strategy.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy" title="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NonQueuingParallelEventReceivingStrategy</span></code></a>()</p></td>
+<td><p>Dispatches events to handlers using a single thread and no queues.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.eventprocessing.OutRouteConfigurator" title="rsb.eventprocessing.OutRouteConfigurator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutRouteConfigurator</span></code></a>([connectors, …])</p></td>
+<td><p>Manages send events using one or more connectors and a sending strategy.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.eventprocessing.ParallelEventReceivingStrategy" title="rsb.eventprocessing.ParallelEventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParallelEventReceivingStrategy</span></code></a>([num_threads])</p></td>
+<td><p>Dispatches events to multiple handlers in parallel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.eventprocessing.ScopeDispatcher" title="rsb.eventprocessing.ScopeDispatcher"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScopeDispatcher</span></code></a>()</p></td>
+<td><p>Maintains a map of <a class="reference internal" href="../../../concepts.html#scope"><span class="std std-ref">Scopes</span></a> to sink objects.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="rsb.eventprocessing.BroadcastProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">BroadcastProcessor</code><span class="sig-paren">(</span><em class="sig-param">handlers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.BroadcastProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Implements synchronous broadcast dispatch to a list of handlers.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.BroadcastProcessor.add_handler">
+<code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.BroadcastProcessor.add_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.BroadcastProcessor.dispatch">
+<code class="sig-name descname">dispatch</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.BroadcastProcessor.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.BroadcastProcessor.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.BroadcastProcessor.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.BroadcastProcessor.remove_handler">
+<code class="sig-name descname">remove_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.BroadcastProcessor.remove_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.BroadcastProcessor.handlers">
+<em class="property">property </em><code class="sig-name descname">handlers</code><a class="headerlink" href="#rsb.eventprocessing.BroadcastProcessor.handlers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.Configurator">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">Configurator</code><span class="sig-paren">(</span><em class="sig-param">connectors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.Configurator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Superclass for in- and out-direction Configurator classes.</p>
+<p>Manages the basic aspects like the connector list and (de)activation that
+are not direction-specific.</p>
+<p><em>Code author: jwienke</em></p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.Configurator.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.Configurator.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.set_quality_of_service_spec">
+<code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.Configurator.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#rsb.eventprocessing.Configurator.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.eventprocessing.Configurator.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.eventprocessing.Configurator.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.Configurator.transport_urls">
+<em class="property">property </em><code class="sig-name descname">transport_urls</code><a class="headerlink" href="#rsb.eventprocessing.Configurator.transport_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transport URLs of all used connectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of transport URLs.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.DirectEventSendingStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">DirectEventSendingStrategy</code><a class="headerlink" href="#rsb.eventprocessing.DirectEventSendingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.eventprocessing.EventSendingStrategy" title="rsb.eventprocessing.EventSendingStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.EventSendingStrategy</span></code></a></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.DirectEventSendingStrategy.add_connector">
+<code class="sig-name descname">add_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.DirectEventSendingStrategy.add_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.DirectEventSendingStrategy.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.DirectEventSendingStrategy.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.DirectEventSendingStrategy.remove_connector">
+<code class="sig-name descname">remove_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.DirectEventSendingStrategy.remove_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.DirectEventSendingStrategy.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.eventprocessing.DirectEventSendingStrategy.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.EventReceivingStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">EventReceivingStrategy</code><a class="headerlink" href="#rsb.eventprocessing.EventReceivingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Superclass for event receiving strategies.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.EventReceivingStrategy.add_filter">
+<em class="property">abstract </em><code class="sig-name descname">add_filter</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventReceivingStrategy.add_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventReceivingStrategy.add_handler">
+<em class="property">abstract </em><code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventReceivingStrategy.add_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventReceivingStrategy.handle">
+<em class="property">abstract </em><code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventReceivingStrategy.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventReceivingStrategy.remove_filter">
+<em class="property">abstract </em><code class="sig-name descname">remove_filter</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventReceivingStrategy.remove_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventReceivingStrategy.remove_handler">
+<em class="property">abstract </em><code class="sig-name descname">remove_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventReceivingStrategy.remove_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.EventSendingStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">EventSendingStrategy</code><a class="headerlink" href="#rsb.eventprocessing.EventSendingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.EventSendingStrategy.add_connector">
+<em class="property">abstract </em><code class="sig-name descname">add_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventSendingStrategy.add_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventSendingStrategy.handle">
+<em class="property">abstract </em><code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventSendingStrategy.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventSendingStrategy.remove_connector">
+<em class="property">abstract </em><code class="sig-name descname">remove_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.EventSendingStrategy.remove_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.EventSendingStrategy.connectors">
+<em class="property">abstract property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.eventprocessing.EventSendingStrategy.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">FullyParallelEventReceivingStrategy</code><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.EventReceivingStrategy</span></code></a></p>
+<p>Dispatches events to multiple handlers that can be called in parallel.</p>
+<p>An <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a> that dispatches events to multiple
+handlers in individual threads in parallel. Each handler can be called
+in parallel for different requests.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="class">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker">
+<em class="property">class </em><code class="sig-name descname">Worker</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">event</em>, <em class="sig-param">filters</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.getName">
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.getName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.isAlive">
+<code class="sig-name descname">isAlive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.isAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the thread is alive.</p>
+<p>This method returns True just before the run() method starts until just
+after the run() method terminates. The module function enumerate()
+returns a list of all alive threads.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.isDaemon">
+<code class="sig-name descname">isDaemon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.isDaemon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.is_alive">
+<code class="sig-name descname">is_alive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.is_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the thread is alive.</p>
+<p>This method returns True just before the run() method starts until just
+after the run() method terminates. The module function enumerate()
+returns a list of all alive threads.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.join">
+<code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait until the thread terminates.</p>
+<p>This blocks the calling thread until the thread whose join() method is
+called terminates – either normally or through an unhandled exception
+or until the optional timeout occurs.</p>
+<p>When the timeout argument is present and not None, it should be a
+floating point number specifying a timeout for the operation in seconds
+(or fractions thereof). As join() always returns None, you must call
+isAlive() after join() to decide whether a timeout happened – if the
+thread is still alive, the join() call timed out.</p>
+<p>When the timeout argument is not present or None, the operation will
+block until the thread terminates.</p>
+<p>A thread can be join()ed many times.</p>
+<p>join() raises a RuntimeError if an attempt is made to join the current
+thread as that would cause a deadlock. It is also an error to join() a
+thread before it has been started and attempts to do so raises the same
+exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.setDaemon">
+<code class="sig-name descname">setDaemon</code><span class="sig-paren">(</span><em class="sig-param">daemonic</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.setDaemon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.setName">
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.setName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the thread’s activity.</p>
+<p>It must be called at most once per thread object. It arranges for the
+object’s run() method to be invoked in a separate thread of control.</p>
+<p>This method will raise a RuntimeError if called more than once on the
+same thread object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.daemon">
+<em class="property">property </em><code class="sig-name descname">daemon</code><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean value indicating whether this thread is a daemon thread.</p>
+<p>This must be set before start() is called, otherwise RuntimeError is
+raised. Its initial value is inherited from the creating thread; the
+main thread is not a daemon thread and therefore all threads created in
+the main thread default to daemon = False.</p>
+<p>The entire Python program exits when no alive non-daemon threads are
+left.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.ident">
+<em class="property">property </em><code class="sig-name descname">ident</code><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.ident" title="Permalink to this definition">¶</a></dt>
+<dd><p>Thread identifier of this thread or None if it has not been started.</p>
+<p>This is a nonzero integer. See the thread.get_ident() function. Thread
+identifiers may be recycled when a thread exits and another thread is
+created. The identifier is available even after the thread has exited.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.Worker.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string used for identification purposes only.</p>
+<p>It has no semantics. Multiple threads may be given the same name. The
+initial name is set by the constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.add_filter">
+<code class="sig-name descname">add_filter</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.add_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.add_handler">
+<code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.add_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dispatch the event to all registered listeners.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – event to dispatch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.remove_filter">
+<code class="sig-name descname">remove_filter</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.remove_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.FullyParallelEventReceivingStrategy.remove_handler">
+<code class="sig-name descname">remove_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.FullyParallelEventReceivingStrategy.remove_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.InRouteConfigurator">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">InRouteConfigurator</code><span class="sig-paren">(</span><em class="sig-param">connectors=None</em>, <em class="sig-param">receiving_strategy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.eventprocessing.Configurator" title="rsb.eventprocessing.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.Configurator</span></code></a></p>
+<p>Manages event receiving using a push strategy.</p>
+<p>Instances of this class manage the receiving, filtering and
+dispatching of events via one or more <a class="reference internal" href="rsb.transport.html#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.transport.Connector</span></code></a> s
+and an <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a>.</p>
+<p><em>Code author: jwienke</em></p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new configurator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connectors</strong> – Connectors through which events are received.</p></li>
+<li><p><strong>receiving_strategy</strong> – The event receiving strategy according to which the filtering
+and dispatching of incoming events should be performed.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.filter_added">
+<code class="sig-name descname">filter_added</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.filter_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.filter_removed">
+<code class="sig-name descname">filter_removed</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.filter_removed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.handler_added">
+<code class="sig-name descname">handler_added</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.handler_added" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.handler_removed">
+<code class="sig-name descname">handler_removed</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.handler_removed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.set_quality_of_service_spec">
+<code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.transport_urls">
+<em class="property">property </em><code class="sig-name descname">transport_urls</code><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.transport_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transport URLs of all used connectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of transport URLs.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">NonQueuingParallelEventReceivingStrategy</code><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.EventReceivingStrategy</span></code></a></p>
+<p>Dispatches events to handlers using a single thread and no queues.</p>
+<p>An <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a> that dispatches events to multiple
+handlers using a single thread and without queuing. Only a single buffer
+is used to decouple the transport from the registered handlers. In case
+the handler processing is slower than the transport, the transport will
+block on inserting events into this strategy. Callers must ensure that they
+are in no active call for #handle when deactivating this instance.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.add_filter">
+<code class="sig-name descname">add_filter</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.add_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.add_handler">
+<code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.add_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.remove_filter">
+<code class="sig-name descname">remove_filter</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.remove_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.remove_handler">
+<code class="sig-name descname">remove_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.NonQueuingParallelEventReceivingStrategy.remove_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.OutRouteConfigurator">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">OutRouteConfigurator</code><span class="sig-paren">(</span><em class="sig-param">connectors=None</em>, <em class="sig-param">sending_strategy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.eventprocessing.Configurator" title="rsb.eventprocessing.Configurator"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.Configurator</span></code></a></p>
+<p>Manages send events using one or more connectors and a sending strategy.</p>
+<p>Instances of this class manage the sending of events via one or
+more <a class="reference internal" href="rsb.transport.html#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.transport.Connector</span></code></a> s and an <a class="reference internal" href="#rsb.eventprocessing.EventSendingStrategy" title="rsb.eventprocessing.EventSendingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventSendingStrategy</span></code></a>.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.set_quality_of_service_spec">
+<code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.OutRouteConfigurator.transport_urls">
+<em class="property">property </em><code class="sig-name descname">transport_urls</code><a class="headerlink" href="#rsb.eventprocessing.OutRouteConfigurator.transport_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transport URLs of all used connectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of transport URLs.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">ParallelEventReceivingStrategy</code><span class="sig-paren">(</span><em class="sig-param">num_threads=5</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.EventReceivingStrategy</span></code></a></p>
+<p>Dispatches events to multiple handlers in parallel.</p>
+<p>An <a class="reference internal" href="#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a> that dispatches events to multiple
+handlers in individual threads in parallel. Each handler is called only
+sequentially but potentially from different threads.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy.add_filter">
+<code class="sig-name descname">add_filter</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy.add_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy.add_handler">
+<code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy.add_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dispatch the event to all registered listeners.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – event to dispatch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy.remove_filter">
+<code class="sig-name descname">remove_filter</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy.remove_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ParallelEventReceivingStrategy.remove_handler">
+<code class="sig-name descname">remove_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em>, <em class="sig-param">wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ParallelEventReceivingStrategy.remove_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.eventprocessing.ScopeDispatcher">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.eventprocessing.</code><code class="sig-name descname">ScopeDispatcher</code><a class="headerlink" href="#rsb.eventprocessing.ScopeDispatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Maintains a map of <a class="reference internal" href="../../../concepts.html#scope"><span class="std std-ref">Scopes</span></a> to sink objects.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.eventprocessing.ScopeDispatcher.add_sink">
+<code class="sig-name descname">add_sink</code><span class="sig-paren">(</span><em class="sig-param">scope</em>, <em class="sig-param">sink</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ScopeDispatcher.add_sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate <cite>sink</cite> to <cite>scope</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope to which <cite>sink</cite> should be associated.</p></li>
+<li><p><strong>sink</strong> – The arbitrary object that should be associated to <cite>scope</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type scope</dt>
+<dd class="field-even"><p>Scope</p>
+</dd>
+<dt class="field-odd">Type sink</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ScopeDispatcher.matching_sinks">
+<code class="sig-name descname">matching_sinks</code><span class="sig-paren">(</span><em class="sig-param">scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ScopeDispatcher.matching_sinks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator yielding sinks matching <cite>scope</cite>.</p>
+<p>A sink matches <cite>scope</cite> if it was previously associated to
+<cite>scope</cite> or one of its super-scopes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><em>sinks</em> –     A generator yielding all matching sinks in an
+unspecified order.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ScopeDispatcher.remove_sink">
+<code class="sig-name descname">remove_sink</code><span class="sig-paren">(</span><em class="sig-param">scope</em>, <em class="sig-param">sink</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.ScopeDispatcher.remove_sink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disassociate <cite>sink</cite> from <cite>scope</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope from which <cite>sink</cite> should be disassociated.</p></li>
+<li><p><strong>sink</strong> – The arbitrary object that should be disassociated from
+<cite>scope</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type scope</dt>
+<dd class="field-even"><p>Scope</p>
+</dd>
+<dt class="field-odd">Type sink</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.eventprocessing.ScopeDispatcher.sinks">
+<em class="property">property </em><code class="sig-name descname">sinks</code><a class="headerlink" href="#rsb.eventprocessing.ScopeDispatcher.sinks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a generator yielding all sinks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><em>sinks</em> –     A generator yielding all known sinks in an unspecified
+order.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

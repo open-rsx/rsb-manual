@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MetaData &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Participant" href="Participant.html" />
+    <link rel="prev" title="LocalServerCreateArgs" href="LocalServerCreateArgs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AbstractActivatable.html">AbstractActivatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AbstractDataHandler.html">AbstractDataHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AbstractEventHandler.html">AbstractEventHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Activatable.html">Activatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Activatable-State.html">Activatable.State</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Event.html">Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventId.html">EventId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Factory.html">Factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Factory-ParticipantObserverManager.html">Factory.ParticipantObserverManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FilteringHandler.html">FilteringHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Handler.html">Handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Informer.html">Informer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformerCreateArgs.html">InformerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InitializeException.html">InitializeException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ListenerCreateArgs.html">ListenerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalServerCreateArgs.html">LocalServerCreateArgs</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MetaData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Participant.html">Participant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantCreateArgs.html">ParticipantCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantId.html">ParticipantId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantObserver.html">ParticipantObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec.html">QualityOfServiceSpec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec-Ordering.html">QualityOfServiceSpec.Ordering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec-Reliability.html">QualityOfServiceSpec.Reliability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RSBException.html">RSBException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReaderCreateArgs.html">ReaderCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteServerCreateArgs.html">RemoteServerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Version.html">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb</a> &raquo;</li>
+        
+      <li>MetaData</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/java/rsb/MetaData.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="metadata">
+<h1>MetaData<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.MetaData">
+public class <code class="sig-name descname">MetaData</code><a class="headerlink" href="#rsb.MetaData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Framework-supplied meta data attached to each event that give information e.g. about timing issues. In case you are setting timestamps manually, ensure to create these timestamps using <a class="reference internal" href="util/ExactTime.html#rsb.util.ExactTime" title="rsb.util.ExactTime"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ExactTime</span></code></a> to get the highest possible resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>MetaData<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.MetaData.MetaData()">
+public <code class="sig-name descname">MetaData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.MetaData()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new <a class="reference internal" href="#rsb.MetaData" title="rsb.MetaData"><code class="xref java java-ref docutils literal notranslate"><span class="pre">MetaData</span></code></a> instance with creation time now.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="equals">
+<h3>equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.equals(Object)">
+public boolean <code class="sig-name descname">equals</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> obj</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.equals(Object)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getcreatetime">
+<h3>getCreateTime<a class="headerlink" href="#getcreatetime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.getCreateTime()">
+public long <code class="sig-name descname">getCreateTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.getCreateTime()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a time stamp that is automatically filled with the time the event instance was created by the language binding. This should usually reflect the time at which the notified condition most likely occurred in the sender. If event instances are reused, it has to be reset manually by the client. This timestamp is initially set to the creating time stamp of this instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>timestamp in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getdelivertime">
+<h3>getDeliverTime<a class="headerlink" href="#getdelivertime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.getDeliverTime()">
+public long <code class="sig-name descname">getDeliverTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.getDeliverTime()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the time at which an event was decoded and will be dispatched to the client as soon as possible (set directly before passing it to the client handler).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>timestamp in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getreceivetime">
+<h3>getReceiveTime<a class="headerlink" href="#getreceivetime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.getReceiveTime()">
+public long <code class="sig-name descname">getReceiveTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.getReceiveTime()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the time at which an event is received by listener in its encoded form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>timestamp in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getsendtime">
+<h3>getSendTime<a class="headerlink" href="#getsendtime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.getSendTime()">
+public long <code class="sig-name descname">getSendTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.getSendTime()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the time at which the generated notification for an event was sent on the bus (after serialization).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>timestamp in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getuserinfo">
+<h3>getUserInfo<a class="headerlink" href="#getuserinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.getUserInfo(String)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getUserInfo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.getUserInfo(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user-defined string for the given key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – key to look up</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – no info set for the specified key</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>user info given for this key</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getusertime">
+<h3>getUserTime<a class="headerlink" href="#getusertime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.getUserTime(String)">
+public long <code class="sig-name descname">getUserTime</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.getUserTime(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user timestamp stored under the provided key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – key of the user-provided timestamp</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – no timestamp stored und the provided key</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>timetamp</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hasuserinfo">
+<h3>hasUserInfo<a class="headerlink" href="#hasuserinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.hasUserInfo(String)">
+public boolean <code class="sig-name descname">hasUserInfo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.hasUserInfo(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether a user info exists under the provided key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – key to check</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if an info for the key is defined, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hasusertime">
+<h3>hasUserTime<a class="headerlink" href="#hasusertime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.hasUserTime(String)">
+public boolean <code class="sig-name descname">hasUserTime</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> key</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.hasUserTime(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether a user-provided timestamp with the given key exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – the key to check</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if a timestamp for the given key exists, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hashcode">
+<h3>hashCode<a class="headerlink" href="#hashcode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.hashCode()">
+public int <code class="sig-name descname">hashCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.hashCode()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setcreatetime">
+<h3>setCreateTime<a class="headerlink" href="#setcreatetime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.setCreateTime(long)">
+public void <code class="sig-name descname">setCreateTime</code><span class="sig-paren">(</span>long<em> time</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.setCreateTime(long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the time stamp that is automatically filled with the time the event instance was created by the language binding. This should usually reflect the time at which the notified condition most likely occurred in the sender. If event instances are reused, it has to be reset manually by the client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> – timestamp in microseconds or 0 to use current system time</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdelivertime">
+<h3>setDeliverTime<a class="headerlink" href="#setdelivertime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.setDeliverTime(long)">
+public void <code class="sig-name descname">setDeliverTime</code><span class="sig-paren">(</span>long<em> time</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.setDeliverTime(long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the time at which an event was decoded and will be dispatched to the client as soon as possible (set directly before passing it to the client handler).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> – timestamp in microseconds or 0 to use current system time</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setreceivetime">
+<h3>setReceiveTime<a class="headerlink" href="#setreceivetime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.setReceiveTime(long)">
+public void <code class="sig-name descname">setReceiveTime</code><span class="sig-paren">(</span>long<em> time</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.setReceiveTime(long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the time at which an event is received by listener in its encoded form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> – timestamp in microseconds or 0 to use current system time</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setsendtime">
+<h3>setSendTime<a class="headerlink" href="#setsendtime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.setSendTime(long)">
+public void <code class="sig-name descname">setSendTime</code><span class="sig-paren">(</span>long<em> time</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.setSendTime(long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the time at which the generated notification for an event was sent on the bus (after serialization).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> – timestamp in microseconds or 0 to use current system time</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setuserinfo">
+<h3>setUserInfo<a class="headerlink" href="#setuserinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.setUserInfo(String, String)">
+public void <code class="sig-name descname">setUserInfo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> key</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> value</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.setUserInfo(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a user info with the specified key and value or replaces and already existing one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – the key to set</p></li>
+<li><p><strong>value</strong> – the user value</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setusertime">
+<h3>setUserTime<a class="headerlink" href="#setusertime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.setUserTime(String, long)">
+public void <code class="sig-name descname">setUserTime</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> key</em>, long<em> time</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.setUserTime(String, long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a user timestamp and replaces existing entries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – the key for the timestamp</p></li>
+<li><p><strong>time</strong> – time in microseconds or 0 to use current system time</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.toString()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="userinfokeys">
+<h3>userInfoKeys<a class="headerlink" href="#userinfokeys" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.userInfoKeys()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>&gt; <code class="sig-name descname">userInfoKeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.userInfoKeys()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all keys of user-defined infos.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of all defined keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="usertimekeys">
+<h3>userTimeKeys<a class="headerlink" href="#usertimekeys" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.MetaData.userTimeKeys()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>&gt; <code class="sig-name descname">userTimeKeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.MetaData.userTimeKeys()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the keys of all available user times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of all keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

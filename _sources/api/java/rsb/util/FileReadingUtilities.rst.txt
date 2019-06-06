@@ -1,0 +1,50 @@
+.. java:import:: java.io BufferedReader
+
+.. java:import:: java.io File
+
+.. java:import:: java.io FileReader
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.util LinkedList
+
+.. java:import:: java.util List
+
+FileReadingUtilities
+====================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public final class FileReadingUtilities
+
+   Utility class to help reading contents of files.
+
+   :author: jwienke
+
+Methods
+-------
+readFileLines
+^^^^^^^^^^^^^
+
+.. java:method:: public static List<String> readFileLines(File file) throws IOException
+   :outertype: FileReadingUtilities
+
+   Reads the complete contents of a file into a list of lines. Any reading error is reported as an \ :java:ref:`IOException`\ .
+
+   :param file: file to read
+   :throws IOException: any error reading the file
+   :return: file lines
+
+readFirstFileLine
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String readFirstFileLine(File file) throws IOException
+   :outertype: FileReadingUtilities
+
+   Reads the first line of a file into a string. Any reading error is reported as an \ :java:ref:`IOException`\ . This method is not intended for large files since all lines are read into memory before selecting the first line
+
+   :param file: file to read
+   :throws IOException: any error reading the file, also if file is empty
+   :return: first file line
+

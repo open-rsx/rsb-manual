@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Web &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Common Commandline Options and Environment Variables" href="common-command-line-options.html" />
+    <link rel="prev" title="Server" href="tool-server.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-introspect.html">Introspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-send.html">Send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-call.html">Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-timesync.html">Timesync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-bridge.html">Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-server.html">Server</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provided-http-endpoints">Provided HTTP Endpoints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common-command-line-options.html">Common Commandline Options and Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="tools.html">Tools</a> &raquo;</li>
+        
+      <li>Web</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tool-web.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="web">
+<span id="tool-web"></span><h1>Web<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="samp docutils literal notranslate"><span class="pre">rsb</span> <span class="pre">web</span> <em><span class="pre">[OPTIONS]</span></em> <em><span class="pre">URI*</span></em></code></p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Serve via HTTP information about the RSB system reachable via
+the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a> designated by <code class="samp docutils literal notranslate"><em><span class="pre">URI</span></em></code>s
+(zero or more URIs).</p>
+<p>When no URIs are supplied, the default <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> configuration
+is used.</p>
+<p>The usual <a class="reference internal" href="common-command-line-options.html#common-options"><span class="std std-ref">commandline options</span></a> and
+<a class="reference internal" href="common-command-line-options.html#common-environment-variables"><span class="std std-ref">environment variables</span></a> are
+accepted. Specialized commandline options:</p>
+<dl class="option">
+<dt id="cmdoption-web-address">
+<code class="sig-name descname">--address</code><code class="sig-prename descclassname"> ADDRESS</code><a class="headerlink" href="#cmdoption-web-address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Address on which the HTTP server should listen.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-web-port">
+<code class="sig-name descname">--port</code><code class="sig-prename descclassname"> PORT</code><a class="headerlink" href="#cmdoption-web-port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port on which the HTTP server should listen.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-web-document-root">
+<code class="sig-name descname">--document-root</code><code class="sig-prename descclassname"> DIRECTORY</code><a class="headerlink" href="#cmdoption-web-document-root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory from which static content such as HTML pages and CSS
+files should be read.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-web-response-timeout">
+<code class="sig-name descname">--response-timeout</code><code class="sig-prename descclassname"> SECONDS</code><a class="headerlink" href="#cmdoption-web-response-timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time in seconds to wait for responses to <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a>
+requests.</p>
+<p>In most systems, all replies should arrive within a few
+milliseconds. However, circumstances like heavily loaded system,
+degraded system performance or extreme communication latency may
+required larger values.</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="concepts.html#uri-schema"><span class="std std-ref">URIs</span></a></dt><dd><p>For details regarding the URI syntax of <code class="samp docutils literal notranslate"><em><span class="pre">URI</span></em></code> for
+specifying <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> and <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="common-command-line-options.html#common-options"><span class="std std-ref">Common Commandline Options</span></a></dt><dd><p>The usual commandline options are accepted.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="provided-http-endpoints">
+<span id="tool-web-endpoints"></span><h2>Provided HTTP Endpoints<a class="headerlink" href="#provided-http-endpoints" title="Permalink to this headline">¶</a></h2>
+<p>For all <code class="docutils literal notranslate"><span class="pre">/api/**</span></code> endpoints, at least the content types
+<code class="docutils literal notranslate"><span class="pre">text/html</span></code> and <code class="docutils literal notranslate"><span class="pre">application/json</span></code> are supported.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header indicates that the response content type
+should be HTML, the response body is a HTML document containing a
+human-readable description of the endpoint.</p>
+<p>If the Accept header indicates that the response content type should
+be JSON, the response body is of one of the forms</p>
+<pre class="literal-block">{&quot;data&quot;: <code class="samp docutils literal notranslate"><em><span class="pre">DATA</span></em></code>}
+{&quot;error&quot;: <code class="samp docutils literal notranslate"><em><span class="pre">DESCRIPTION</span></em></code>}
+{&quot;data&quot;: <code class="samp docutils literal notranslate"><em><span class="pre">DATA</span></em></code>, &quot;error&quot;: <code class="samp docutils literal notranslate"><em><span class="pre">DESCRIPTION</span></em></code>}</pre>
+<p>i.e. at least one of the <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code> properties is
+present. Both can be present if an error occurs while streaming the
+body of an initially successful response.</p>
+<p>The following endpoints are provided:</p>
+<p><code class="samp docutils literal notranslate"><span class="pre">http://</span><em><span class="pre">ADDRESS</span></em><span class="pre">:</span><em><span class="pre">PORT</span></em><span class="pre">/</span></code></p>
+<blockquote>
+<div><p>Either the contents of the directory specified via the
+<a class="reference internal" href="#cmdoption-web-document-root"><code class="xref std std-option docutils literal notranslate"><span class="pre">--document-root</span></code></a> option or built-in resource files are made
+available here.</p>
+</div></blockquote>
+<p><code class="samp docutils literal notranslate"><span class="pre">http://</span><em><span class="pre">ADDRESS</span></em><span class="pre">:</span><em><span class="pre">PORT</span></em><span class="pre">/api/introspection/snapshot</span></code></p>
+<blockquote>
+<div><p>A JSON-serialization of a snapshot of the <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> data
+for the system or systems specified via <code class="samp docutils literal notranslate"><em><span class="pre">URI</span></em></code>s can be
+obtained here.</p>
+</div></blockquote>
+<p><code class="samp docutils literal notranslate"><span class="pre">http://</span><em><span class="pre">ADDRESS</span></em><span class="pre">:</span><em><span class="pre">PORT</span></em><span class="pre">/api/introspection/search</span></code></p>
+<blockquote>
+<div><p>Query the <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> database using XPath, receive
+JSON-serialized results.</p>
+<p>Return an atomic result for expressions not evaluating to node
+sets and an array of matches otherwise. An atomic result can be a
+number or string. For example, the result of the query:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">count</span><span class="p">(</span><span class="o">//</span><span class="nd">@foo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is a number. A match can be an attribute match or an element match.</p>
+<p>Accepted query parameters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">[required]</span></code></p>
+<p>The (non-empty) query string. One of the following things:</p>
+<ul class="simple">
+<li><p>An XPath expression.</p></li>
+<li><p>One or more words: match any node (element, attribute, text)
+containing all words.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start:</span> <span class="pre">non-negative-integer</span> <span class="pre">[optional]</span></code></p>
+<p>Index of first node in match sequence that should be returned.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit:</span> <span class="pre">positive-integer</span> <span class="pre">[optional]</span></code></p>
+<p>Number of nodes from the match sequence that should be returned.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb web
+</pre></div>
+</div>
+<p>In the above example, the <strong class="program">web</strong> command is used to collect
+information about the RSB system or systems that can be
+contacted via the currently configured <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a>. The information is served via HTTP, with the server
+listening on the default address and port,
+i.e. <a class="reference external" href="http://localhost:4444">http://localhost:4444</a>.</p>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb web socket: spread://somehost
+</pre></div>
+</div>
+<p>Gather information via two <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a>: the
+socket <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> and the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>. The gathered information is merged as if all
+collected processes and <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> were
+participant in a single RSB bus.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 19%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Implementation Language</p></th>
+<th class="head"><p>Project</p></th>
+<th class="head"><p>Repository Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Common Lisp</p></td>
+<td><p>rsb-tools-cl</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-tools-cl">https://github.com/open-rsx/rsb-tools-cl</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

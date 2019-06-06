@@ -1,0 +1,106 @@
+.. java:import:: java.util List
+
+CommonProcessInfo
+=================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public abstract class CommonProcessInfo implements ProcessInfo
+
+   Encapsulates common process info functionality shared between portable and non-portable subclasses.
+
+   :author: swrede
+
+Constructors
+------------
+CommonProcessInfo
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public CommonProcessInfo()
+   :outertype: CommonProcessInfo
+
+   Creates a new instance and sets a common value for \ :java:ref:`ProcessInfo.getUserName()`\ .
+
+Methods
+-------
+getArguments
+^^^^^^^^^^^^
+
+.. java:method:: @Override public List<String> getArguments()
+   :outertype: CommonProcessInfo
+
+getPid
+^^^^^^
+
+.. java:method:: @Override public Integer getPid()
+   :outertype: CommonProcessInfo
+
+getProgramName
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public String getProgramName()
+   :outertype: CommonProcessInfo
+
+getStartTime
+^^^^^^^^^^^^
+
+.. java:method:: @Override public Long getStartTime()
+   :outertype: CommonProcessInfo
+
+getUserName
+^^^^^^^^^^^
+
+.. java:method:: @Override public String getUserName()
+   :outertype: CommonProcessInfo
+
+setArguments
+^^^^^^^^^^^^
+
+.. java:method:: protected void setArguments(List<String> arguments)
+   :outertype: CommonProcessInfo
+
+   Sets the command line arguments.
+
+   :param arguments: the arguments
+
+setPid
+^^^^^^
+
+.. java:method:: protected void setPid(Integer pid)
+   :outertype: CommonProcessInfo
+
+   Sets the pid variable.
+
+   :param pid: the pid
+
+setProgramName
+^^^^^^^^^^^^^^
+
+.. java:method:: protected void setProgramName(String programName)
+   :outertype: CommonProcessInfo
+
+   Sets the program name.
+
+   :param programName: the program name
+
+setStartTime
+^^^^^^^^^^^^
+
+.. java:method:: protected void setStartTime(Long startTime)
+   :outertype: CommonProcessInfo
+
+   Sets the process start time.
+
+   :param startTime: the process start time in microseconds
+
+setUserName
+^^^^^^^^^^^
+
+.. java:method:: protected void setUserName(String userName)
+   :outertype: CommonProcessInfo
+
+   Sets the user name variable.
+
+   :param userName: user name
+

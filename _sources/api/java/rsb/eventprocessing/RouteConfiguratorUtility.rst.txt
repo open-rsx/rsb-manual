@@ -1,0 +1,118 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util List
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.transport Connector
+
+RouteConfiguratorUtility
+========================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class RouteConfiguratorUtility<ConnectorType extends Connector>
+
+   A utility class that can be used via composition to implement some of the methods required by the \ :java:ref:`RouteConfigurator`\  interface.
+
+   :author: jwienke
+   :param <ConnectorType>: type of connectors
+
+Constructors
+------------
+RouteConfiguratorUtility
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public RouteConfiguratorUtility(Scope scope)
+   :outertype: RouteConfiguratorUtility
+
+   Constructor.
+
+   :param scope: the managed route operates on this scope
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: public void activate() throws RSBException
+   :outertype: RouteConfiguratorUtility
+
+   Activate the managed connectors.
+
+   :throws RSBException: error activating
+
+addConnector
+^^^^^^^^^^^^
+
+.. java:method:: public void addConnector(ConnectorType connector)
+   :outertype: RouteConfiguratorUtility
+
+   Adds a connector to use in this route.
+
+   :param connector: the connector to add
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: public void deactivate() throws RSBException, InterruptedException
+   :outertype: RouteConfiguratorUtility
+
+   Deactivate the managed connectors.
+
+   :throws RSBException: error deactivating
+   :throws InterruptedException: interrupted while waiting for connectors to terminate
+
+getConnectors
+^^^^^^^^^^^^^
+
+.. java:method:: public List<ConnectorType> getConnectors()
+   :outertype: RouteConfiguratorUtility
+
+   Returns the connectors used on the managed route.
+
+   :return: list of connectors
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<URI> getTransportUris()
+   :outertype: RouteConfiguratorUtility
+
+   Utility method to implement \ :java:ref:`RouteConfigurator.getTransportUris()`\ . Iterates all transports and returns their URIs. Might only be possible, depending on the transports, if activated before.
+
+   :throws IllegalStateException: not activated
+   :return: set of transport URIs, not \ ``null``\
+
+isActive
+^^^^^^^^
+
+.. java:method:: public boolean isActive()
+   :outertype: RouteConfiguratorUtility
+
+   Tells whether already activated.
+
+   :return: \ ``true``\  if activated, else \ ``false``\
+
+removeConnector
+^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean removeConnector(ConnectorType connector)
+   :outertype: RouteConfiguratorUtility
+
+   Removes a connector from the route if it existed.
+
+   :param connector: the connector to remove
+   :return: \ ``true``\  if the connector existed
+

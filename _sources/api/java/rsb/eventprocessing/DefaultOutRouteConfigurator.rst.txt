@@ -1,0 +1,84 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.transport OutConnector
+
+DefaultOutRouteConfigurator
+===========================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class DefaultOutRouteConfigurator extends AbstractActivatable implements OutRouteConfigurator
+
+   Class implementing the basic out route configuration based on a push strategy.
+
+   :author: jwienke
+
+Constructors
+------------
+DefaultOutRouteConfigurator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public DefaultOutRouteConfigurator(Scope scope)
+   :outertype: DefaultOutRouteConfigurator
+
+   Constructor.
+
+   :param scope: the scope the out route operates on
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: DefaultOutRouteConfigurator
+
+addConnector
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void addConnector(OutConnector connector)
+   :outertype: DefaultOutRouteConfigurator
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: DefaultOutRouteConfigurator
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: DefaultOutRouteConfigurator
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: DefaultOutRouteConfigurator
+
+publishSync
+^^^^^^^^^^^
+
+.. java:method:: @Override public void publishSync(Event event) throws RSBException
+   :outertype: DefaultOutRouteConfigurator
+
+removeConnector
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean removeConnector(OutConnector connector)
+   :outertype: DefaultOutRouteConfigurator
+

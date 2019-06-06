@@ -1,0 +1,22 @@
+rsb.filter
+==========
+
+Contains implementations of filters used when receiving events.
+
+:author: jwienke
+
+.. java:package:: rsb.filter
+
+.. toctree::
+   :maxdepth: 1
+
+   CauseFilter
+   Filter
+   FilterAction
+   FilterObservable
+   FilterObserver
+   MethodFilter
+   OriginFilter
+   ScopeFilter
+   TypeFilter
+

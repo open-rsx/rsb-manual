@@ -1,0 +1,53 @@
+RSBException
+============
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class RSBException extends Exception
+
+   Superclass of all RSB exceptions that may be used in handlers that catch all RSB-related exceptions.
+
+   :author: swrede
+
+Constructors
+------------
+RSBException
+^^^^^^^^^^^^
+
+.. java:constructor:: public RSBException()
+   :outertype: RSBException
+
+   Constructs an exception with empty message and cause.
+
+RSBException
+^^^^^^^^^^^^
+
+.. java:constructor:: public RSBException(String message)
+   :outertype: RSBException
+
+   Constructs an exception with an explanatory message.
+
+   :param message: the message
+
+RSBException
+^^^^^^^^^^^^
+
+.. java:constructor:: public RSBException(Throwable cause)
+   :outertype: RSBException
+
+   Constructs an exception with causing \ :java:ref:`Throwable`\ .
+
+   :param cause: causing exception
+
+RSBException
+^^^^^^^^^^^^
+
+.. java:constructor:: public RSBException(String message, Throwable cause)
+   :outertype: RSBException
+
+   Constructs an exception with explanatory message and causing exception.
+
+   :param message: the message
+   :param cause: causing exception
+

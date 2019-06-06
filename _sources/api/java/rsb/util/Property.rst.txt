@@ -1,0 +1,108 @@
+Property
+========
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public class Property
+
+   Representation of a single value inside \ :java:ref:`Properties`\  with support for interpretation of value strings in different formats.
+
+   :author: jwienke
+
+Constructors
+------------
+Property
+^^^^^^^^
+
+.. java:constructor:: public Property(String value)
+   :outertype: Property
+
+   Creates a new property with the value given as a string.
+
+   :param value: value string
+
+Methods
+-------
+asBoolean
+^^^^^^^^^
+
+.. java:method:: public boolean asBoolean()
+   :outertype: Property
+
+   Interprets the value string as a boolean.
+
+   :return: \ ``true``\  if the property value contains a string indicating \ ``true``\ , else \ ``false``\
+
+asDouble
+^^^^^^^^
+
+.. java:method:: public double asDouble()
+   :outertype: Property
+
+   Tries to interpret the value as a double.
+
+   :throws NumberFormatException: property value cannot be interpreted as a number
+   :return: double representation of the property value
+
+asFloat
+^^^^^^^
+
+.. java:method:: public float asFloat()
+   :outertype: Property
+
+   Tries to interpret the value as a float.
+
+   :throws NumberFormatException: property value cannot be interpreted as a number
+   :return: float representation of the property value
+
+asInteger
+^^^^^^^^^
+
+.. java:method:: public int asInteger()
+   :outertype: Property
+
+   Tries to interpret the value as an integer.
+
+   :throws NumberFormatException: property value cannot be interpreted as a number
+   :return: integer representation of the property value
+
+asLong
+^^^^^^
+
+.. java:method:: public long asLong()
+   :outertype: Property
+
+   Tries to interpret the value as a long integer.
+
+   :throws NumberFormatException: property value cannot be interpreted as a number
+   :return: long integer representation of the property value
+
+asString
+^^^^^^^^
+
+.. java:method:: public String asString()
+   :outertype: Property
+
+   Returns the string representation of the property value.
+
+   :return: string value
+
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Property
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Property
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: Property
+

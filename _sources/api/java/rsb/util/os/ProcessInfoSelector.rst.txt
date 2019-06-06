@@ -1,0 +1,24 @@
+ProcessInfoSelector
+===================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public final class ProcessInfoSelector
+
+   Utility class to select a \ :java:ref:`ProcessInfo`\  instance for the operating system a process is currently being executed on.
+
+   :author: jwienke
+
+Methods
+-------
+getProcessInfo
+^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public static ProcessInfo getProcessInfo()
+   :outertype: ProcessInfoSelector
+
+   Returns the "best" matching \ :java:ref:`ProcessInfo`\  implementation for the current operating system.
+
+   :return: process info instance, not \ ``null``\
+

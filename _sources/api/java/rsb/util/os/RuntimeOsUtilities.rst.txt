@@ -1,0 +1,75 @@
+.. java:import:: java.lang.reflect InvocationTargetException
+
+.. java:import:: java.lang.reflect Method
+
+.. java:import:: java.util List
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+RuntimeOsUtilities
+==================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public final class RuntimeOsUtilities
+
+   Utility class to retrieve OS and process information from a \ :java:ref:`java.lang.management.RuntimeMXBean`\  instance. The dependency to this class is explicitly hidden via reflection to support Android devices, where the management package does not exist.
+
+   :author: jwienke
+
+Constructors
+------------
+RuntimeOsUtilities
+^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public RuntimeOsUtilities()
+   :outertype: RuntimeOsUtilities
+
+   Creates a new instance.
+
+Methods
+-------
+determineArguments
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public List<String> determineArguments()
+   :outertype: RuntimeOsUtilities
+
+   Returns the input arguments passed to the Java virtual machine which does not include the arguments to the main method. This method returns an empty list if there is no input argument to the Java virtual machine.
+
+   :return: list of arguments, \ ``null``\  if no determinable on current system
+
+determineHostName
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public String determineHostName()
+   :outertype: RuntimeOsUtilities
+
+   Returns the host name of the computer the JVM designated by the \ :java:ref:`java.lang.management.RuntimeMXBean`\  lives on.
+
+   :throws IllegalArgumentException: in case the host name could not be parsed from the runtime environment
+   :return: host name, \ ``null``\  if no determinable on current system
+
+determinePid
+^^^^^^^^^^^^
+
+.. java:method:: public Integer determinePid()
+   :outertype: RuntimeOsUtilities
+
+   Returns the PID of the java process.
+
+   :return: pid of the process, \ ``null``\  if no determinable on current system
+
+determineStartTime
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Long determineStartTime()
+   :outertype: RuntimeOsUtilities
+
+   Returns the start time of the process in milliseconds.
+
+   :return: start time in milliseconds unix epoch, \ ``null``\  if no determinable on current system
+

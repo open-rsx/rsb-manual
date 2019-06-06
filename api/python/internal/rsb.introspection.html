@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.introspection &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rsb.transport" href="rsb.transport.html" />
+    <link rel="prev" title="rsb.util" href="rsb.util.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rsb.eventprocessing.html">rsb.eventprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.util.html">rsb.util</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.introspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.html">rsb.transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.local.html">rsb.transport.local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.socket.html">rsb.transport.socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.introspection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/internal/rsb.introspection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.introspection">
+<span id="rsb-introspection"></span><h1>rsb.introspection<a class="headerlink" href="#module-rsb.introspection" title="Permalink to this headline">¶</a></h1>
+<p>This package contains partial introspection functionality for RSB.</p>
+<p>The introspection functionality is implemented in terms of RSB events
+and thus built on top of “ordinary” RSB communication.</p>
+<p>This package implements the “local introspection” (i.e. introspection
+sender) part of the introspection architecture.</p>
+<p><em>Code author: jmoringe</em></p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.handle_participant_creation" title="rsb.introspection.handle_participant_creation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_participant_creation</span></code></a>(participant[, …])</p></td>
+<td><p>Notify about a created participant.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.handle_participant_destruction" title="rsb.introspection.handle_participant_destruction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_participant_destruction</span></code></a>(participant)</p></td>
+<td><p>Notify about a removed participant.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.host_id" title="rsb.introspection.host_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">host_id</span></code></a>()</p></td>
+<td><p>Return a unique id string for the current host.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.machine_type" title="rsb.introspection.machine_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">machine_type</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.machine_version" title="rsb.introspection.machine_version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">machine_version</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.participant_scope" title="rsb.introspection.participant_scope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">participant_scope</span></code></a>(participant_id[, base_scope])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.process_scope" title="rsb.introspection.process_scope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_scope</span></code></a>(host_id, process_id[, base_scope])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.process_start_time" title="rsb.introspection.process_start_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_start_time</span></code></a>()</p></td>
+<td><p>Return the start time of the current process (or an approximation).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.program_name" title="rsb.introspection.program_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">program_name</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.rsb_initialize" title="rsb.introspection.rsb_initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb_initialize</span></code></a>()</p></td>
+<td><p>Initialize the introspection module.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.HostInfo" title="rsb.introspection.HostInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HostInfo</span></code></a>([host_id, hostname, machine_type, …])</p></td>
+<td><p>Instances of this class store information about a host.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.IntrospectionSender" title="rsb.introspection.IntrospectionSender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntrospectionSender</span></code></a>()</p></td>
+<td><p>Sends introspection information to other RSB processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.introspection.ParticipantInfo" title="rsb.introspection.ParticipantInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParticipantInfo</span></code></a>(kind, participant_id, scope, …)</p></td>
+<td><p>Instances of this class store information about a participant.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.introspection.ProcessInfo" title="rsb.introspection.ProcessInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProcessInfo</span></code></a>([process_id, program_name, …])</p></td>
+<td><p>Stores information about operating system processes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="rsb.introspection.HostInfo">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">HostInfo</code><span class="sig-paren">(</span><em class="sig-param">host_id='ca3da57ca9d08ecb38950efe5a0cc06c'</em>, <em class="sig-param">hostname='travis-job-cd21fa78-a0e7-45a8-b2eb-af77fea00efb'</em>, <em class="sig-param">machine_type='x86_64'</em>, <em class="sig-param">machine_version='Intel(R) Xeon(R) CPU &#64; 2.30GHz'</em>, <em class="sig-param">software_type='linux'</em>, <em class="sig-param">software_version='4.4.0-101-generic'</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.HostInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Instances of this class store information about a host.</p>
+<p>The stored information can describe the local host or a remote
+host.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.introspection.HostInfo.host_id">
+<em class="property">property </em><code class="sig-name descname">host_id</code><a class="headerlink" href="#rsb.introspection.HostInfo.host_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the unique id string for the host.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The platform-dependent, (hopefully) unique id string.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.HostInfo.hostname">
+<em class="property">property </em><code class="sig-name descname">hostname</code><a class="headerlink" href="#rsb.introspection.HostInfo.hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the hostname of the host.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The hostname.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.HostInfo.machine_type">
+<em class="property">property </em><code class="sig-name descname">machine_type</code><a class="headerlink" href="#rsb.introspection.HostInfo.machine_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the machine, usually CPU architecture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The machine type when known.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str or NoneType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.HostInfo.machine_version">
+<em class="property">property </em><code class="sig-name descname">machine_version</code><a class="headerlink" href="#rsb.introspection.HostInfo.machine_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the version of the machine within its type.</p>
+<p>Usually the CPU identification string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The machine version when known.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str or NoneType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.HostInfo.software_type">
+<em class="property">property </em><code class="sig-name descname">software_type</code><a class="headerlink" href="#rsb.introspection.HostInfo.software_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the operating system running on the host.</p>
+<p>Usually the kernel name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The software type when known.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str or NoneType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.HostInfo.software_version">
+<em class="property">property </em><code class="sig-name descname">software_version</code><a class="headerlink" href="#rsb.introspection.HostInfo.software_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return version information about the operating systems.</p>
+<p>Provides the version of the operating system within its type,
+usually the kernel version string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The software version when known.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str or NoneType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.introspection.IntrospectionSender">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">IntrospectionSender</code><a class="headerlink" href="#rsb.introspection.IntrospectionSender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Sends introspection information to other RSB processes.</p>
+<p>Instances of this class (usually zero or one per process) send
+information about participants in the current process, the current
+process itself and the local host to receivers of introspection
+information.</p>
+<p>Instances need to be notified of created and destroyed
+participants via calls of the <a class="reference internal" href="#rsb.introspection.IntrospectionSender.add_participant" title="rsb.introspection.IntrospectionSender.add_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_participant</span></code></a> and
+<a class="reference internal" href="#rsb.introspection.IntrospectionSender.remove_participant" title="rsb.introspection.IntrospectionSender.remove_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_participant</span></code></a> methods.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.add_participant">
+<code class="sig-name descname">add_participant</code><span class="sig-paren">(</span><em class="sig-param">participant</em>, <em class="sig-param">parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.IntrospectionSender.add_participant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.IntrospectionSender.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.remove_participant">
+<code class="sig-name descname">remove_participant</code><span class="sig-paren">(</span><em class="sig-param">participant</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.IntrospectionSender.remove_participant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.send_bye">
+<code class="sig-name descname">send_bye</code><span class="sig-paren">(</span><em class="sig-param">participant</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.IntrospectionSender.send_bye" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.send_hello">
+<code class="sig-name descname">send_hello</code><span class="sig-paren">(</span><em class="sig-param">participant</em>, <em class="sig-param">query=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.IntrospectionSender.send_hello" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.send_pong">
+<code class="sig-name descname">send_pong</code><span class="sig-paren">(</span><em class="sig-param">participant</em>, <em class="sig-param">query=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.IntrospectionSender.send_pong" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.host">
+<em class="property">property </em><code class="sig-name descname">host</code><a class="headerlink" href="#rsb.introspection.IntrospectionSender.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.IntrospectionSender.process">
+<em class="property">property </em><code class="sig-name descname">process</code><a class="headerlink" href="#rsb.introspection.IntrospectionSender.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.introspection.ParticipantInfo">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">ParticipantInfo</code><span class="sig-paren">(</span><em class="sig-param">kind</em>, <em class="sig-param">participant_id</em>, <em class="sig-param">scope</em>, <em class="sig-param">data_type</em>, <em class="sig-param">parent_id=None</em>, <em class="sig-param">transport_urls=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Instances of this class store information about a participant.</p>
+<p>The participant can reside in the current process or in a remote
+process.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a representation of the type of the participant, if available.</p>
+<p>Note that this is a temporary solution and will change in
+future versions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A representation of the type.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>type or tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.kind">
+<em class="property">property </em><code class="sig-name descname">kind</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo.kind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the kind of the participant.</p>
+<p>Examples include “listener”, “informer” and “local-server”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lower-case, hyphen-separated string identifying the kind of
+participant.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.parent_id">
+<em class="property">property </em><code class="sig-name descname">parent_id</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo.parent_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the unique id of the parent participant.</p>
+<p>May return <code class="docutils literal notranslate"><span class="pre">None</span></code> if no parent participant exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code> or the unique id of the participant’s parent.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>uuid.uuid or NoneType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.participant_id">
+<em class="property">property </em><code class="sig-name descname">participant_id</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo.participant_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the unique id of the participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The unique id of the participant.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>uuid.uuid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo.scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scope of the participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The scope of the participant.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>rsb.Scope</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.transport_urls">
+<em class="property">property </em><code class="sig-name descname">transport_urls</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo.transport_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of transport URLs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of transport URLs describing the transports used
+by the participant.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.introspection.ProcessInfo">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">ProcessInfo</code><span class="sig-paren">(</span><em class="sig-param">process_id=10982, program_name='python3.6 /home/travis/virtualenv/python3.6.3/bin/sphinx-build', arguments=['/home/travis/virtualenv/python3.6.3/bin/sphinx-build', '-a', '.', 'build'], start_time=1559864225.42, executing_user=None, rsb_version='1.0.0-dev-archive'</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ProcessInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Stores information about operating system processes.</p>
+<p>The stored information can describe the current process, a
+different process on the local machine or a remote process.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.introspection.ProcessInfo.arguments">
+<em class="property">property </em><code class="sig-name descname">arguments</code><a class="headerlink" href="#rsb.introspection.ProcessInfo.arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of commandline argument to the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of commandline argument strings</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ProcessInfo.executing_user">
+<em class="property">property </em><code class="sig-name descname">executing_user</code><a class="headerlink" href="#rsb.introspection.ProcessInfo.executing_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the login- or account-name of the user executing the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>login- or account-name of the user executing the process or
+None if not determinable</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ProcessInfo.process_id">
+<em class="property">property </em><code class="sig-name descname">process_id</code><a class="headerlink" href="#rsb.introspection.ProcessInfo.process_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the numeric id of the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The numeric id of the process.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ProcessInfo.program_name">
+<em class="property">property </em><code class="sig-name descname">program_name</code><a class="headerlink" href="#rsb.introspection.ProcessInfo.program_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the program being executed in the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The name of the program.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ProcessInfo.rsb_version">
+<em class="property">property </em><code class="sig-name descname">rsb_version</code><a class="headerlink" href="#rsb.introspection.ProcessInfo.rsb_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the version of the RSB implementation used in this process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>Version string of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MAJOR</span><span class="o">.</span><span class="n">MINOR</span><span class="o">.</span><span class="n">REVISION</span><span class="p">[</span><span class="o">-</span><span class="n">COMMIT</span><span class="p">]</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.introspection.ProcessInfo.start_time">
+<em class="property">property </em><code class="sig-name descname">start_time</code><a class="headerlink" href="#rsb.introspection.ProcessInfo.start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the start time of the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>start time in fractional seconds since UNIX epoch.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.handle_participant_creation">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">handle_participant_creation</code><span class="sig-paren">(</span><em class="sig-param">participant</em>, <em class="sig-param">parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.handle_participant_creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify about a created participant.</p>
+<p>This function is intended to be connected to
+<a class="reference internal" href="../user-level/rsb.html#rsb.participant_creation_hook" title="rsb.participant_creation_hook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.participant_creation_hook</span></code></a> and calls
+<a class="reference internal" href="#rsb.introspection.IntrospectionSender.add_participant" title="rsb.introspection.IntrospectionSender.add_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntrospectionSender.add_participant</span></code></a> when appropriate, first
+creating the <a class="reference internal" href="#rsb.introspection.IntrospectionSender" title="rsb.introspection.IntrospectionSender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntrospectionSender</span></code></a> instance, if necessary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.handle_participant_destruction">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">handle_participant_destruction</code><span class="sig-paren">(</span><em class="sig-param">participant</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.handle_participant_destruction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify about a removed participant.</p>
+<p>This function is intended to be connected to
+<a class="reference internal" href="../user-level/rsb.html#rsb.participant_destruction_hook" title="rsb.participant_destruction_hook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.participant_destruction_hook</span></code></a> and calls
+<a class="reference internal" href="#rsb.introspection.IntrospectionSender.remove_participant" title="rsb.introspection.IntrospectionSender.remove_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntrospectionSender.remove_participant</span></code></a> when appropriate,
+potentially deleting the <a class="reference internal" href="#rsb.introspection.IntrospectionSender" title="rsb.introspection.IntrospectionSender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntrospectionSender</span></code></a> instance
+afterwards.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.host_id">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">host_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.host_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a unique id string for the current host.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A platform-dependent, string (hopefully) uniquely identifying the
+current host or <code class="docutils literal notranslate"><span class="pre">None</span></code> if such an id cannot be obtained.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str or NoneType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.machine_type">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">machine_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.machine_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.machine_version">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">machine_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.machine_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.participant_scope">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">participant_scope</code><span class="sig-paren">(</span><em class="sig-param">participant_id</em>, <em class="sig-param">base_scope=Scope('/__rsb/introspection/participants/')</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.participant_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.process_scope">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">process_scope</code><span class="sig-paren">(</span><em class="sig-param">host_id</em>, <em class="sig-param">process_id</em>, <em class="sig-param">base_scope=Scope('/__rsb/introspection/hosts/')</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.process_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.process_start_time">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">process_start_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.process_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the start time of the current process (or an approximation).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Start time in factional seconds since UNIX epoch.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.program_name">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">program_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.program_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.introspection.rsb_initialize">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">rsb_initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.rsb_initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the introspection module.</p>
+<p>Plugin hook implementation.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="rsb.introspection.BASE_SCOPE">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">BASE_SCOPE</code><em class="property"> = Scope('/__rsb/introspection/')</em><a class="headerlink" href="#rsb.introspection.BASE_SCOPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="rsb.introspection.HOSTS_SCOPE">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">HOSTS_SCOPE</code><em class="property"> = Scope('/__rsb/introspection/hosts/')</em><a class="headerlink" href="#rsb.introspection.HOSTS_SCOPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="rsb.introspection.PARTICIPANTS_SCOPE">
+<code class="sig-prename descclassname">rsb.introspection.</code><code class="sig-name descname">PARTICIPANTS_SCOPE</code><em class="property"> = Scope('/__rsb/introspection/participants/')</em><a class="headerlink" href="#rsb.introspection.PARTICIPANTS_SCOPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

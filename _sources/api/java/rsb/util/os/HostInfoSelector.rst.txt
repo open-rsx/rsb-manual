@@ -1,0 +1,24 @@
+HostInfoSelector
+================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public final class HostInfoSelector
+
+   Utility class to select a \ :java:ref:`HostInfo`\  instance for the operating system a process is currently being executed on.
+
+   :author: jwienke
+
+Methods
+-------
+getHostInfo
+^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public static HostInfo getHostInfo()
+   :outertype: HostInfoSelector
+
+   Returns the "best" matching \ :java:ref:`HostInfo`\  implementation for the current operating system.
+
+   :return: host info instance, not \ ``null``\
+

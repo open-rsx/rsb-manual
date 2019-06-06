@@ -1,0 +1,73 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.nio CharBuffer
+
+.. java:import:: java.nio.charset CharacterCodingException
+
+.. java:import:: java.nio.charset Charset
+
+StringConverter
+===============
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class StringConverter implements Converter<ByteBuffer>
+
+   A converter with wire type \ :java:ref:`ByteBuffer`\  that is capable of handling strings with different encodings.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+StringConverter
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public StringConverter()
+   :outertype: StringConverter
+
+   Creates a converter for UTF-8 encoding with utf-8-string wire schema.
+
+StringConverter
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public StringConverter(String encoding, String wireSchema)
+   :outertype: StringConverter
+
+   Creates a converter that uses the specified encoding for strings.
+
+   :param encoding: encoding name for the data
+   :param wireSchema: wire schema of the serialized data
+   :throws IllegalArgumentException: invalid encoding name
+
+StringConverter
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public StringConverter(Charset charset, String wireSchema)
+   :outertype: StringConverter
+
+   Creates a converter that uses the specified charset for strings.
+
+   :param charset: encoding for the data
+   :param wireSchema: wire schema of the serialized data
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer bytes) throws ConversionException
+   :outertype: StringConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: StringConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object data) throws ConversionException
+   :outertype: StringConverter
+

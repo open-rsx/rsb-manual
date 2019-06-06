@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ParticipantInfo &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="ProtocolHandler" href="ProtocolHandler.html" />
+    <link rel="prev" title="LoggingObserver" href="LoggingObserver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.introspection</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HostIdEnsuringHostInfo.html">HostIdEnsuringHostInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntrospectionModel.html">IntrospectionModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntrospectionModel-IntrospectionModelObserver.html">IntrospectionModel.IntrospectionModelObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntrospectionParticipantObserver.html">IntrospectionParticipantObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LacksOsInformationException.html">LacksOsInformationException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LoggingObserver.html">LoggingObserver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ParticipantInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProtocolHandler.html">ProtocolHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProtocolUtilities.html">ProtocolUtilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.introspection</a> &raquo;</li>
+        
+      <li>ParticipantInfo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/introspection/ParticipantInfo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="participantinfo">
+<h1>ParticipantInfo<a class="headerlink" href="#participantinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.introspection.ParticipantInfo">
+public class <code class="sig-name descname">ParticipantInfo</code><a class="headerlink" href="#rsb.introspection.ParticipantInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal data holder for participant information. Used within introspection model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>swrede, ssharma</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>ParticipantInfo<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.introspection.ParticipantInfo.ParticipantInfo(String, ParticipantId, ParticipantId, Scope, Class, Set)">
+public <code class="sig-name descname">ParticipantInfo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> kind</em>, <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId">ParticipantId</a><em> id</em>, <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId">ParticipantId</a><em> parentId</em>, <a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> dataType</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/net/URI.html" title="java.net.URI">URI</a>&gt;<em> transportUris</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.ParticipantInfo(String, ParticipantId, ParticipantId, Scope, Class, Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> – string representation of the type of participant being represented, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p></li>
+<li><p><strong>id</strong> – id of the participant, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p></li>
+<li><p><strong>parentId</strong> – id of the parent participant or <code class="docutils literal notranslate"><span class="pre">null</span></code> if there is no parent</p></li>
+<li><p><strong>scope</strong> – scope of the participant, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p></li>
+<li><p><strong>dataType</strong> – data type of the participant or <code class="docutils literal notranslate"><span class="pre">null</span></code> if not applicable</p></li>
+<li><p><strong>transportUris</strong> – URIs describing the transports for the represented participant. Must not be <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getdatatype">
+<h3>getDataType<a class="headerlink" href="#getdatatype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.getDataType()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt; <code class="sig-name descname">getDataType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.getDataType()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the participant’s data type or <code class="docutils literal notranslate"><span class="pre">null</span></code> if a single data type is not applicable for the type of participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>data type class or <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getid">
+<h3>getId<a class="headerlink" href="#getid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.getId()">
+public <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId">ParticipantId</a> <code class="sig-name descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.getId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the unique ID of the participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>participant id</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getkind">
+<h3>getKind<a class="headerlink" href="#getkind" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.getKind()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getKind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.getKind()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string representing the type of participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>string representation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getparentid">
+<h3>getParentId<a class="headerlink" href="#getparentid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.getParentId()">
+public <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId">ParticipantId</a> <code class="sig-name descname">getParentId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.getParentId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the id of the parent participant or <code class="docutils literal notranslate"><span class="pre">null</span></code> in case there is no parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>participant id or <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getscope">
+<h3>getScope<a class="headerlink" href="#getscope" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.getScope()">
+public <a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a> <code class="sig-name descname">getScope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.getScope()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the scope the participant operates on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>scope</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gettransporturis">
+<h3>getTransportUris<a class="headerlink" href="#gettransporturis" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ParticipantInfo.getTransportUris()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/net/URI.html" title="java.net.URI">URI</a>&gt; <code class="sig-name descname">getTransportUris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ParticipantInfo.getTransportUris()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the URIs describing the transports the represented participant uses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of URIs, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

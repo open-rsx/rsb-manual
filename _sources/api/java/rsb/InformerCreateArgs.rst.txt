@@ -1,0 +1,35 @@
+InformerCreateArgs
+==================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class InformerCreateArgs extends ParticipantCreateArgs<InformerCreateArgs>
+
+   \ :java:ref:`ParticipantCreateArgs`\  for \ :java:ref:`Informer`\  instances. The default data type is assumed to be \ :java:ref:`Object`\ .
+
+   :author: jwienke, jmoringe
+
+Methods
+-------
+getType
+^^^^^^^
+
+.. java:method:: public Class<?> getType()
+   :outertype: InformerCreateArgs
+
+   Returns the type of data to be sent by the new informer.
+
+   :return: class of data to send
+
+setType
+^^^^^^^
+
+.. java:method:: public InformerCreateArgs setType(Class<?> type)
+   :outertype: InformerCreateArgs
+
+   Sets the type of data to be sent by the new informer.
+
+   :param type: class of data to send, not \ ``null``\
+   :return: this instance for method chaining
+

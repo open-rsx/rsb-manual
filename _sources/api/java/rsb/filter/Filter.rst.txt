@@ -1,0 +1,27 @@
+.. java:import:: rsb Event
+
+Filter
+======
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public interface Filter
+
+   Interfaces for classes that indicate whether a received \ :java:ref:`Event`\  shall be dispatched or not. Filters must be immutable because parameters updates at runtime are not supported.
+
+   :author: jwienke, swrede
+
+Methods
+-------
+match
+^^^^^
+
+.. java:method::  boolean match(Event event)
+   :outertype: Filter
+
+   Tells whether the given event matches the filter and hence shall be dispatched or not.
+
+   :param event: the event to test, not \ ``null``\
+   :return: \ ``true``\  if the event matches the restrictions specified by this filter and hence can be delivered to the client, \ ``false``\  to remove the event from the stream.
+

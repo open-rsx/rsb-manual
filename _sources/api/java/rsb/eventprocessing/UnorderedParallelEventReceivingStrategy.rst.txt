@@ -1,0 +1,104 @@
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.concurrent ArrayBlockingQueue
+
+.. java:import:: java.util.concurrent RejectedExecutionException
+
+.. java:import:: java.util.concurrent ThreadPoolExecutor
+
+.. java:import:: java.util.concurrent TimeUnit
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.filter Filter
+
+UnorderedParallelEventReceivingStrategy
+=======================================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class UnorderedParallelEventReceivingStrategy extends AbstractEventReceivingStrategy
+
+   An \ :java:ref:`EventReceivingStrategy`\  that dispatches \ :java:ref:`Event`\ s using a thread pool but without any ordering guarantees.
+
+   :author: swrede
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+addFilter
+^^^^^^^^^
+
+.. java:method:: @Override public void addFilter(Filter filter)
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+addHandler
+^^^^^^^^^^
+
+.. java:method:: @Override public void addHandler(Handler handler, boolean wait)
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws InterruptedException
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+   :throws InterruptedException: thrown if waiting for shutdown was interrupted.
+
+getHandlers
+^^^^^^^^^^^
+
+.. java:method::  Set<Handler> getHandlers()
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+   Returns the handlers registered in this strategy that will be notified of new events.
+
+   :return: list of handlers
+
+handle
+^^^^^^
+
+.. java:method:: @Override @SuppressWarnings public void handle(Event event)
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+removeFilter
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void removeFilter(Filter filter)
+   :outertype: UnorderedParallelEventReceivingStrategy
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public void removeHandler(Handler handler, boolean wait) throws InterruptedException
+   :outertype: UnorderedParallelEventReceivingStrategy
+

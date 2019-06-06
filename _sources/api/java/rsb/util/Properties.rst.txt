@@ -1,0 +1,176 @@
+.. java:import:: java.io PrintStream
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Iterator
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Map.Entry
+
+.. java:import:: java.util Set
+
+Properties
+==========
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class Properties implements Iterable<Entry<String, Property>>
+
+   A class which reads configuration options from different sources and presents them using key value pairs. Property keys are hierarchically organized with a . as a separator for the path. Multiple threads can read properties in parallel. However, writing needs to be synchronized as well as the provided loading methods.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+Properties
+^^^^^^^^^^
+
+.. java:constructor:: public Properties()
+   :outertype: Properties
+
+   Creates a new instance without loading anything. The instance will initially be empty.
+
+Methods
+-------
+dumpProperties
+^^^^^^^^^^^^^^
+
+.. java:method:: public void dumpProperties(PrintStream stream)
+   :outertype: Properties
+
+   Dumps the properties to the presented stream.
+
+   :param stream: the stream to print on
+
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Properties
+
+filter
+^^^^^^
+
+.. java:method:: public Properties filter(String desiredPrefix)
+   :outertype: Properties
+
+   Returns a new properties instance with all properties with keys starting with the specified prefix. Property key separation with dots is expected. This means that in case the desired prefix is "a.test" only exactly this key and keys starting with string form "a.test." are returned.
+
+   :param desiredPrefix: key prefix to include in the new set.
+   :return: Properties instance with all properties matching the desired prefix. This also includes the property with a key directly reflecting the specified prefix
+
+getAvailableKeys
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<String> getAvailableKeys()
+   :outertype: Properties
+
+   Returns a set of know property names.
+
+   :return: set of known property keys
+
+getProperty
+^^^^^^^^^^^
+
+.. java:method:: public Property getProperty(String key)
+   :outertype: Properties
+
+   Returns the value of the specified property in case it exists.
+
+   :param key: the property name
+   :throws InvalidPropertyException: property with the given name is unknown
+   :return: value of that property
+
+getProperty
+^^^^^^^^^^^
+
+.. java:method:: public <TargetType> Property getProperty(String key, TargetType defaultValue)
+   :outertype: Properties
+
+   Returns the value of a specified property or the specified default in case the property does not exist.
+
+   :param key: the property name
+   :param defaultValue: default value to return in case the property does not exist. In case this is not a string, \ :java:ref:`Object.toString()`\  will be called to convert to a string representation.
+   :param <TargetType>: the type of the default value.
+   :return: value of that property or default
+
+hasProperty
+^^^^^^^^^^^
+
+.. java:method:: public boolean hasProperty(String key)
+   :outertype: Properties
+
+   Indicates whether the property with the given key is available or not.
+
+   :param key: key of the property to test
+   :return: \ ``true``\  if the property exists, else \ ``false``\
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Properties
+
+iterator
+^^^^^^^^
+
+.. java:method:: @Override public Iterator<Entry<String, Property>> iterator()
+   :outertype: Properties
+
+merge
+^^^^^
+
+.. java:method:: @SuppressWarnings public void merge(Properties properties)
+   :outertype: Properties
+
+   Merges the passed properties into this instance by adding and/or overwriting all properties found in that instance.
+
+   :param properties: properties to merge into this instance
+
+remove
+^^^^^^
+
+.. java:method:: public void remove(Set<String> keys)
+   :outertype: Properties
+
+   Removes all properties with the given keys.
+
+   :param keys: set of keys to remove
+
+remove
+^^^^^^
+
+.. java:method:: public void remove(String key)
+   :outertype: Properties
+
+   Removes the property with the given key.
+
+   :param key: key to remove
+
+reset
+^^^^^
+
+.. java:method:: public void reset()
+   :outertype: Properties
+
+   Resets this instances to empty and afterwards re-initiates value parsing.
+
+setProperty
+^^^^^^^^^^^
+
+.. java:method:: public void setProperty(String key, String value)
+   :outertype: Properties
+
+   Sets a property. key and value are always trimmed before insertion.
+
+   :param key: key of the property
+   :param value: value of the property
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: Properties
+

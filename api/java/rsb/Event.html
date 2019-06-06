@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="EventId" href="EventId.html" />
+    <link rel="prev" title="Activatable.State" href="Activatable-State.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AbstractActivatable.html">AbstractActivatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AbstractDataHandler.html">AbstractDataHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AbstractEventHandler.html">AbstractEventHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Activatable.html">Activatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Activatable-State.html">Activatable.State</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventId.html">EventId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Factory.html">Factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Factory-ParticipantObserverManager.html">Factory.ParticipantObserverManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FilteringHandler.html">FilteringHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Handler.html">Handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Informer.html">Informer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformerCreateArgs.html">InformerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InitializeException.html">InitializeException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ListenerCreateArgs.html">ListenerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalServerCreateArgs.html">LocalServerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MetaData.html">MetaData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Participant.html">Participant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantCreateArgs.html">ParticipantCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantId.html">ParticipantId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantObserver.html">ParticipantObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec.html">QualityOfServiceSpec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec-Ordering.html">QualityOfServiceSpec.Ordering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec-Reliability.html">QualityOfServiceSpec.Reliability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RSBException.html">RSBException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReaderCreateArgs.html">ReaderCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteServerCreateArgs.html">RemoteServerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Version.html">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb</a> &raquo;</li>
+        
+      <li>Event</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/java/rsb/Event.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="event">
+<h1>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.Event">
+public class <code class="sig-name descname">Event</code><a class="headerlink" href="#rsb.Event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic event structure exchanged between RSB ports. It is a combination of metadata and the actual data to publish / subscribe to as payload. Events are often caused by other events, which e.g. means that their contained payload was calculated on the payload of one or more other events. To express these relations each event contains a set of EventIds that express the direct causes of the event. This means, transitive event causes are not modeled. Cause handling is inspired by the ideas proposed in: David Luckham, The Power of Events, Addison-Wessley, 2007</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>swrede</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Event<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.Event.Event(Scope, Class, Object)">
+public <code class="sig-name descname">Event</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.Event(Scope, Class, Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new event that can be send to scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope to which the event will be sent.</p></li>
+<li><p><strong>type</strong> – A class object indicating the class of the data being sent in the event.</p></li>
+<li><p><strong>data</strong> – The actual data that should be sent in the event.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>Event<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.Event.Event(Class)">
+public <code class="sig-name descname">Event</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.Event(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new event with the specified data type but data still being <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – class object describing the data type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>Event<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.Event.Event(Class, Object)">
+public <code class="sig-name descname">Event</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.Event(Class, Object)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new event with the specified data type and contents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – class object describing the data type</p></li>
+<li><p><strong>data</strong> – the data this event shall containg. Must match the declared type</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>Event<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.Event.Event()">
+public <code class="sig-name descname">Event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.Event()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct empty event. Only metadata is initialized.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addcause">
+<h3>addCause<a class="headerlink" href="#addcause" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.addCause(EventId)">
+public boolean <code class="sig-name descname">addCause</code><span class="sig-paren">(</span><a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId">EventId</a><em> id</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.addCause(EventId)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the id of one event to the causes of this event. If the set of causing events already contained the given id, this call has no effect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> – the id of a causing event</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the causes was added, <code class="docutils literal notranslate"><span class="pre">false</span></code> if it already existed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="equals">
+<h3>equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.equals(Object)">
+public boolean <code class="sig-name descname">equals</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> obj</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.equals(Object)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getcauses">
+<h3>getCauses<a class="headerlink" href="#getcauses" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getCauses()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId">EventId</a>&gt; <code class="sig-name descname">getCauses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getCauses()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all causing events marked so far.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of causing event ids. Modifications to this set do not affect this event as it is a copy.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getdata">
+<h3>getData<a class="headerlink" href="#getdata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getData()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a> <code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getData()" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getid">
+<h3>getId<a class="headerlink" href="#getid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getId()">
+public <a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId">EventId</a> <code class="sig-name descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the id of the event. This might not work in case the event has not been sent so far as the id is defined while sending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html" title="java.lang.IllegalStateException"><strong>IllegalStateException</strong></a> – no id available so far</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>event id</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getmetadata">
+<h3>getMetaData<a class="headerlink" href="#getmetadata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getMetaData()">
+public <a class="reference internal" href="MetaData.html#rsb.MetaData" title="rsb.MetaData">MetaData</a> <code class="sig-name descname">getMetaData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getMetaData()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="MetaData.html#rsb.MetaData" title="rsb.MetaData"><code class="xref java java-ref docutils literal notranslate"><span class="pre">MetaData</span></code></a> instance representing the meta data for this event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>meta data of this event, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getmethod">
+<h3>getMethod<a class="headerlink" href="#getmethod" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getMethod()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getMethod()" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the method</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getscope">
+<h3>getScope<a class="headerlink" href="#getscope" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getScope()">
+public <a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a> <code class="sig-name descname">getScope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getScope()" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the scope</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gettype">
+<h3>getType<a class="headerlink" href="#gettype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.getType()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt; <code class="sig-name descname">getType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.getType()" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the Java type of the payload, may be <code class="docutils literal notranslate"><span class="pre">null</span></code> to express a void type where no payload is carried at all.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hashcode">
+<h3>hashCode<a class="headerlink" href="#hashcode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.hashCode()">
+public int <code class="sig-name descname">hashCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.hashCode()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="iscause">
+<h3>isCause<a class="headerlink" href="#iscause" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.isCause(EventId)">
+public boolean <code class="sig-name descname">isCause</code><span class="sig-paren">(</span><a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId">EventId</a><em> id</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.isCause(EventId)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells whether the id of one event is already marked as a cause of this event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> – id of the event to test causality for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if id is marked as a cause for this event, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removecause">
+<h3>removeCause<a class="headerlink" href="#removecause" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.removeCause(EventId)">
+public boolean <code class="sig-name descname">removeCause</code><span class="sig-paren">(</span><a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId">EventId</a><em> id</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.removeCause(EventId)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a causing event from the set of causes for this event. If the id was not contained in this set, the call has no effect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> – of the causing event</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if an event with this id was removed from the causes, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdata">
+<h3>setData<a class="headerlink" href="#setdata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.setData(Object)">
+public void <code class="sig-name descname">setData</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.setData(Object)" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – the data to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setid">
+<h3>setId<a class="headerlink" href="#setid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.setId(ParticipantId, long)">
+public void <code class="sig-name descname">setId</code><span class="sig-paren">(</span><a class="reference internal" href="ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId">ParticipantId</a><em> senderId</em>, long<em> sequenceNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.setId(ParticipantId, long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets all information necessary to generate the <a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId"><code class="xref java java-ref docutils literal notranslate"><span class="pre">EventId</span></code></a> of this event. After this call <a class="reference internal" href="#rsb.Event.getId()" title="rsb.Event.getId()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">getId()</span></code></a> is able to return an id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>senderId</strong> – id of the sending participant for this event</p></li>
+<li><p><strong>sequenceNumber</strong> – sequence number within the specified participant</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>setId<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.setId(EventId)">
+public void <code class="sig-name descname">setId</code><span class="sig-paren">(</span><a class="reference internal" href="EventId.html#rsb.EventId" title="rsb.EventId">EventId</a><em> id</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.setId(EventId)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the id of this event. Afterwards <a class="reference internal" href="#rsb.Event.getId()" title="rsb.Event.getId()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">getId()</span></code></a> can return an id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> – new id to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setmethod">
+<h3>setMethod<a class="headerlink" href="#setmethod" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.setMethod(String)">
+public void <code class="sig-name descname">setMethod</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> method</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.setMethod(String)" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>method</strong> – the method to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setscope">
+<h3>setScope<a class="headerlink" href="#setscope" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.setScope(Scope)">
+public void <code class="sig-name descname">setScope</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.setScope(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – the scope to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="settype">
+<h3>setType<a class="headerlink" href="#settype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.setType(Class)">
+public void <code class="sig-name descname">setType</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.setType(Class)" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – the Java type to set for the Event payload</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Event.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Event.toString()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

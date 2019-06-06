@@ -1,0 +1,33 @@
+.. java:import:: java.net URI
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+Bus.NotificationReceiver
+========================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type::  interface NotificationReceiver
+   :outertype: Bus
+
+   Interfaces for observers of \ :java:ref:`Bus`\  instances that want to asynchronously receive incoming notifications.
+
+   :author: jwienke
+
+Methods
+-------
+handle
+^^^^^^
+
+.. java:method::  void handle(Notification notification)
+   :outertype: Bus.NotificationReceiver
+
+   Callback method with the received notification.
+
+   :param notification: the new notification
+

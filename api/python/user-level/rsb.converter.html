@@ -1,0 +1,1678 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.converter &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rsb.filter" href="rsb.filter.html" />
+    <link rel="prev" title="rsb" href="rsb.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rsb.html">rsb</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.filter.html">rsb.filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.patterns.html">rsb.patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.patterns.future.html">rsb.patterns.future</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.version.html">rsb.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.converter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/user-level/rsb.converter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.converter">
+<span id="rsb-converter"></span><h1>rsb.converter<a class="headerlink" href="#module-rsb.converter" title="Permalink to this headline">¶</a></h1>
+<p>Contains converter implementations and logic for registration and selection.</p>
+<p><em>Code author: jmoringe</em></p>
+<p><em>Code author: jwienke</em></p>
+<p><em>Code author: plueckin</em></p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.get_global_converter_map" title="rsb.converter.get_global_converter_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_global_converter_map</span></code></a>(wire_type)</p></td>
+<td><p>Get a map with all globally known converters for the <code class="docutils literal notranslate"><span class="pre">wire_type</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.make_struct_based_converter" title="rsb.converter.make_struct_based_converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_struct_based_converter</span></code></a>(name, data_type, …)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.register_global_converter" title="rsb.converter.register_global_converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_global_converter</span></code></a>(converter[, …])</p></td>
+<td><p>Register <code class="docutils literal notranslate"><span class="pre">converter</span></code> as a globally available converter.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.BoolConverter" title="rsb.converter.BoolConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BoolConverter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.ByteArrayConverter" title="rsb.converter.ByteArrayConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ByteArrayConverter</span></code></a>()</p></td>
+<td><p>A converter which just passes through the original byte array of a message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.BytesConverter" title="rsb.converter.BytesConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BytesConverter</span></code></a>([wire_schema, data_type])</p></td>
+<td><p>Handles byte arrays.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Converter</span></code></a>(wire_type, data_type, wire_schema)</p></td>
+<td><p>Base class for converters to a certain target type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.ConverterMap" title="rsb.converter.ConverterMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConverterMap</span></code></a>(wire_type)</p></td>
+<td><p>A class managing converters for for a certain target type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConverterSelectionStrategy</span></code></a></p></td>
+<td><p>This class defines the interface for converter selection strategy classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.DoubleConverter" title="rsb.converter.DoubleConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DoubleConverter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.EventsByScopeMapConverter" title="rsb.converter.EventsByScopeMapConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventsByScopeMapConverter</span></code></a>([converter_repository])</p></td>
+<td><p>A converter for aggregated events ordered by their scope and time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.FloatConverter" title="rsb.converter.FloatConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FloatConverter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.IdentityConverter" title="rsb.converter.IdentityConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IdentityConverter</span></code></a>()</p></td>
+<td><p>Does nothing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.Int32Converter" title="rsb.converter.Int32Converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Int32Converter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.Int64Converter" title="rsb.converter.Int64Converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Int64Converter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.NoneConverter" title="rsb.converter.NoneConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoneConverter</span></code></a>()</p></td>
+<td><p>Produces a serialized value that represents instances of <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.PredicateConverterList" title="rsb.converter.PredicateConverterList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PredicateConverterList</span></code></a>(wire_type)</p></td>
+<td><p>Performs converter selection using a chain-of-responsibility strategy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.ProtocolBufferConverter" title="rsb.converter.ProtocolBufferConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProtocolBufferConverter</span></code></a>(message_class)</p></td>
+<td><p>Serializes and deserializes objects of protocol buffer data-holder classes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.SchemaAndByteArrayConverter" title="rsb.converter.SchemaAndByteArrayConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SchemaAndByteArrayConverter</span></code></a>()</p></td>
+<td><p>Passes through the wire_schema and the original byte array of a message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.ScopeConverter" title="rsb.converter.ScopeConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScopeConverter</span></code></a>()</p></td>
+<td><p>(De)serializes <code class="xref py py-obj docutils literal notranslate"><span class="pre">Scope</span></code> objects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.StringConverter" title="rsb.converter.StringConverter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringConverter</span></code></a>([wire_schema, encoding])</p></td>
+<td><p>Serializes strings to bytes with a specified encoding.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.Uint32Converter" title="rsb.converter.Uint32Converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uint32Converter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.converter.Uint64Converter" title="rsb.converter.Uint64Converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Uint64Converter</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.UnambiguousConverterMap" title="rsb.converter.UnambiguousConverterMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnambiguousConverterMap</span></code></a>(wire_type)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.converter.UnknownConverterError" title="rsb.converter.UnknownConverterError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnknownConverterError</span></code></a>(source_type, wire_schema)</p></td>
+<td><p>Raised in case a required converter cannot be found.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="exception">
+<dt id="rsb.converter.UnknownConverterError">
+<em class="property">exception </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">UnknownConverterError</code><span class="sig-paren">(</span><em class="sig-param">source_type</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnknownConverterError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a></p>
+<p>Raised in case a required converter cannot be found.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.converter.UnknownConverterError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnknownConverterError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rsb.converter.UnknownConverterError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#rsb.converter.UnknownConverterError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.BoolConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">BoolConverter</code><a class="headerlink" href="#rsb.converter.BoolConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.BoolConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.BoolConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BoolConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.BoolConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BoolConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.BoolConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BoolConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.BoolConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BoolConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.BoolConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.ByteArrayConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">ByteArrayConverter</code><a class="headerlink" href="#rsb.converter.ByteArrayConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>A converter which just passes through the original byte array of a message.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.converter.ByteArrayConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ByteArrayConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ByteArrayConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ByteArrayConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ByteArrayConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.ByteArrayConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ByteArrayConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.ByteArrayConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ByteArrayConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.ByteArrayConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.BytesConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">BytesConverter</code><span class="sig-paren">(</span><em class="sig-param">wire_schema='bytes'</em>, <em class="sig-param">data_type=&lt;class 'bytes'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.BytesConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>Handles byte arrays.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.converter.BytesConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.BytesConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BytesConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.BytesConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BytesConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.BytesConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BytesConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.BytesConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.BytesConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.BytesConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.Converter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">Converter</code><span class="sig-paren">(</span><em class="sig-param">wire_type</em>, <em class="sig-param">data_type</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base class for converters to a certain target type.</p>
+<p><em>Code author: jwienke</em></p>
+<p>Create a new instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wire_type</strong> – Python type to/from which the converter serializes/deserializes</p></li>
+<li><p><strong>data_type</strong> – Python type of data accepted by the converter for serialization
+(also Python type of deserialized data)</p></li>
+<li><p><strong>wire_schema</strong> – Wire-schema understood by the converter when deserializing
+(also wire-schema of data serialized with the converter)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type wire_type</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+<dt class="field-odd">Type data_type</dt>
+<dd class="field-odd"><p>types.TypeType</p>
+</dd>
+<dt class="field-even">Type wire_schema</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.converter.Converter.deserialize">
+<em class="property">abstract </em><code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Converter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Converter.serialize">
+<em class="property">abstract </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Converter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Converter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.Converter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Converter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.Converter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Converter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.Converter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.ConverterMap">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">ConverterMap</code><span class="sig-paren">(</span><em class="sig-param">wire_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.ConverterSelectionStrategy</span></code></a></p>
+<p>A class managing converters for for a certain target type.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.add_converter">
+<code class="sig-name descname">add_converter</code><span class="sig-paren">(</span><em class="sig-param">converter</em>, <em class="sig-param">replace_existing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap.add_converter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.get_converters">
+<code class="sig-name descname">get_converters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap.get_converters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.has_converter_for_data_type">
+<code class="sig-name descname">has_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap.has_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.has_converter_for_wire_schema">
+<code class="sig-name descname">has_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterMap.has_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterMap.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.ConverterMap.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.ConverterSelectionStrategy">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">ConverterSelectionStrategy</code><a class="headerlink" href="#rsb.converter.ConverterSelectionStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class defines the interface for converter selection strategy classes.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.converter.ConverterSelectionStrategy.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterSelectionStrategy.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterSelectionStrategy.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterSelectionStrategy.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterSelectionStrategy.has_converter_for_data_type">
+<code class="sig-name descname">has_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterSelectionStrategy.has_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ConverterSelectionStrategy.has_converter_for_wire_schema">
+<code class="sig-name descname">has_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ConverterSelectionStrategy.has_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.DoubleConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">DoubleConverter</code><a class="headerlink" href="#rsb.converter.DoubleConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.DoubleConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DoubleConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.DoubleConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DoubleConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.DoubleConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.DoubleConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.DoubleConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.DoubleConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.DoubleConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.DoubleConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.EventsByScopeMapConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">EventsByScopeMapConverter</code><span class="sig-paren">(</span><em class="sig-param">converter_repository=&lt;rsb.converter.ConverterMap object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.EventsByScopeMapConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>A converter for aggregated events ordered by their scope and time.</p>
+<p>As a client data type dictionaries are used. Think about this when
+you register the converter and also have other dictionaries to transmit.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.converter.EventsByScopeMapConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">wire</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.EventsByScopeMapConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.EventsByScopeMapConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.EventsByScopeMapConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.EventsByScopeMapConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.EventsByScopeMapConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.EventsByScopeMapConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.EventsByScopeMapConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.EventsByScopeMapConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.EventsByScopeMapConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.FloatConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">FloatConverter</code><a class="headerlink" href="#rsb.converter.FloatConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.FloatConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.FloatConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.FloatConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.FloatConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.FloatConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.FloatConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.FloatConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.FloatConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.FloatConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.FloatConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.IdentityConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">IdentityConverter</code><a class="headerlink" href="#rsb.converter.IdentityConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>Does nothing.</p>
+<p>Serializes everything to an empty representation and always returns
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Use it in combination with the “always_applicable”-wire_schema.</p>
+<p><em>Code author: plueckin</em></p>
+<dl class="method">
+<dt id="rsb.converter.IdentityConverter.always_applicable">
+<code class="sig-name descname">always_applicable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.IdentityConverter.always_applicable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.IdentityConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.IdentityConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.IdentityConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.IdentityConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.IdentityConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.IdentityConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.IdentityConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.IdentityConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.IdentityConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.IdentityConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.Int32Converter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">Int32Converter</code><a class="headerlink" href="#rsb.converter.Int32Converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.Int32Converter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Int32Converter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int32Converter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Int32Converter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int32Converter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.Int32Converter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int32Converter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.Int32Converter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int32Converter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.Int32Converter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.Int64Converter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">Int64Converter</code><a class="headerlink" href="#rsb.converter.Int64Converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.Int64Converter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Int64Converter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int64Converter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Int64Converter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int64Converter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.Int64Converter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int64Converter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.Int64Converter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Int64Converter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.Int64Converter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.NoneConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">NoneConverter</code><a class="headerlink" href="#rsb.converter.NoneConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>Produces a serialized value that represents instances of <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>.</p>
+<p>Such a converter is required for serializing “results” of RPC
+calls that do not return a value.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.converter.NoneConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.NoneConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.NoneConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.NoneConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.NoneConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.NoneConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.NoneConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.NoneConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.NoneConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.NoneConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.PredicateConverterList">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">PredicateConverterList</code><span class="sig-paren">(</span><em class="sig-param">wire_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.ConverterMap" title="rsb.converter.ConverterMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.ConverterMap</span></code></a></p>
+<p>Performs converter selection using a chain-of-responsibility strategy.</p>
+<p>A list of predicates and associated converters is
+maintained. Converter selection queries are processed by
+traversing the list and selected the first converter the
+associated predicate of which matches the query wire-schema or
+data-type.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.add_converter">
+<code class="sig-name descname">add_converter</code><span class="sig-paren">(</span><em class="sig-param">converter</em>, <em class="sig-param">wire_schema_predicate=None</em>, <em class="sig-param">data_type_predicate=None</em>, <em class="sig-param">replace_existing=True</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList.add_converter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.get_converters">
+<code class="sig-name descname">get_converters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList.get_converters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.has_converter_for_data_type">
+<code class="sig-name descname">has_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList.has_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.has_converter_for_wire_schema">
+<code class="sig-name descname">has_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.PredicateConverterList.has_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.PredicateConverterList.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.PredicateConverterList.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.ProtocolBufferConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">ProtocolBufferConverter</code><span class="sig-paren">(</span><em class="sig-param">message_class</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>Serializes and deserializes objects of protocol buffer data-holder classes.</p>
+<p>These data-holder classes are generated by the protocol buffer
+compiler protoc.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.get_message_class_name">
+<code class="sig-name descname">get_message_class_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.get_message_class_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.message_class">
+<em class="property">property </em><code class="sig-name descname">message_class</code><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.message_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ProtocolBufferConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.ProtocolBufferConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.SchemaAndByteArrayConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">SchemaAndByteArrayConverter</code><a class="headerlink" href="#rsb.converter.SchemaAndByteArrayConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>Passes through the wire_schema and the original byte array of a message.</p>
+<p><em>Code author: nkoester</em></p>
+<dl class="method">
+<dt id="rsb.converter.SchemaAndByteArrayConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.SchemaAndByteArrayConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.SchemaAndByteArrayConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.SchemaAndByteArrayConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.SchemaAndByteArrayConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.SchemaAndByteArrayConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.SchemaAndByteArrayConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.SchemaAndByteArrayConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.SchemaAndByteArrayConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.SchemaAndByteArrayConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.ScopeConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">ScopeConverter</code><a class="headerlink" href="#rsb.converter.ScopeConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>(De)serializes <code class="xref py py-obj docutils literal notranslate"><span class="pre">Scope</span></code> objects.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.converter.ScopeConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ScopeConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ScopeConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.ScopeConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ScopeConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.ScopeConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ScopeConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.ScopeConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.ScopeConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.ScopeConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.StringConverter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">StringConverter</code><span class="sig-paren">(</span><em class="sig-param">wire_schema='utf-8-string'</em>, <em class="sig-param">encoding='utf-8'</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.StringConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<p>Serializes strings to bytes with a specified encoding.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.converter.StringConverter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.StringConverter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.StringConverter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.StringConverter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.StringConverter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.StringConverter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.StringConverter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.StringConverter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.StringConverter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.StringConverter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.Uint32Converter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">Uint32Converter</code><a class="headerlink" href="#rsb.converter.Uint32Converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.Uint32Converter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Uint32Converter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint32Converter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Uint32Converter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint32Converter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.Uint32Converter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint32Converter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.Uint32Converter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint32Converter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.Uint32Converter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.Uint64Converter">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">Uint64Converter</code><a class="headerlink" href="#rsb.converter.Uint64Converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.Converter" title="rsb.converter.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.Converter</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.Uint64Converter.deserialize">
+<code class="sig-name descname">deserialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em>, <em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Uint64Converter.deserialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint64Converter.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param">inp</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.Uint64Converter.serialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint64Converter.data_type">
+<em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#rsb.converter.Uint64Converter.data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type this converter is applicable for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint64Converter.wire_schema">
+<em class="property">property </em><code class="sig-name descname">wire_schema</code><a class="headerlink" href="#rsb.converter.Uint64Converter.wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the wire schema this converter can (de)serialize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string designating the wire schema from/to this converter can
+(de)serialize</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.Uint64Converter.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.Uint64Converter.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the wire-type of this converter.</p>
+<p>The wire-type is the data type to/from which this converter
+serializes/deserializes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A type object.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.converter.UnambiguousConverterMap">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">UnambiguousConverterMap</code><span class="sig-paren">(</span><em class="sig-param">wire_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.converter.ConverterMap" title="rsb.converter.ConverterMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.converter.ConverterMap</span></code></a></p>
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.add_converter">
+<code class="sig-name descname">add_converter</code><span class="sig-paren">(</span><em class="sig-param">converter</em>, <em class="sig-param">replace_existing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.add_converter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.get_converters">
+<code class="sig-name descname">get_converters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.get_converters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.has_converter_for_data_type">
+<code class="sig-name descname">has_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.has_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.has_converter_for_wire_schema">
+<code class="sig-name descname">has_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.has_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.converter.UnambiguousConverterMap.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.converter.UnambiguousConverterMap.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.converter.get_global_converter_map">
+<code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">get_global_converter_map</code><span class="sig-paren">(</span><em class="sig-param">wire_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.get_global_converter_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a map with all globally known converters for the <code class="docutils literal notranslate"><span class="pre">wire_type</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_type</strong> – Python type for designating the wire-type.</p>
+</dd>
+<dt class="field-even">Type wire_type</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>converter map constantly updated</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.converter.make_struct_based_converter">
+<code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">make_struct_based_converter</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data_type</em>, <em class="sig-param">wire_schema</em>, <em class="sig-param">fmt</em>, <em class="sig-param">size</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.make_struct_based_converter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.converter.register_global_converter">
+<code class="sig-prename descclassname">rsb.converter.</code><code class="sig-name descname">register_global_converter</code><span class="sig-paren">(</span><em class="sig-param">converter</em>, <em class="sig-param">replace_existing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.register_global_converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register <code class="docutils literal notranslate"><span class="pre">converter</span></code> as a globally available converter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>converter</strong> – converter to register</p></li>
+<li><p><strong>replace_existing</strong> – controls whether an existing converter for the same data-type
+and/or wire-type should be replaced by the new converter. If this
+is <code class="docutils literal notranslate"><span class="pre">False</span></code> and such a converter exists, an error is raised.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

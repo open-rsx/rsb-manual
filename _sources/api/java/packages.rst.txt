@@ -1,0 +1,22 @@
+Java API Documentation
+======================
+
+.. toctree::
+   :maxdepth: 2
+
+   rsb/package-index
+   rsb/apps/package-index
+   rsb/config/package-index
+   rsb/converter/package-index
+   rsb/eventprocessing/package-index
+   rsb/filter/package-index
+   rsb/introspection/package-index
+   rsb/patterns/package-index
+   rsb/plugin/package-index
+   rsb/protocol/package-index
+   rsb/transport/package-index
+   rsb/transport/inprocess/package-index
+   rsb/transport/socket/package-index
+   rsb/util/package-index
+   rsb/util/os/package-index
+

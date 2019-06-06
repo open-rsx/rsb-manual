@@ -1,0 +1,126 @@
+.. java:import:: java.util List
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb Factory
+
+.. java:import:: rsb Informer
+
+.. java:import:: rsb Listener
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb RSBException
+
+Method
+======
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: @SuppressWarnings public abstract class Method extends Participant
+
+   Objects of this class are methods which are associated to a local or remote server. Within a server, each method has a unique name. This class is primarily intended as a superclass for local and remote method classes. This class manages the \ :java:ref:`Listener`\  and \ :java:ref:`Informer`\  instances used to communicate between methods as well as a state pattern for activating them.
+
+   :author: jmoringe, swrede
+
+Constructors
+------------
+Method
+^^^^^^
+
+.. java:constructor:: protected Method(ParticipantCreateArgs<?> args)
+   :outertype: Method
+
+   Create a new Method object for the method named @a name.
+
+   :param args: Arguments used to create a method instances. The last scope fragment is assumed to be the method name.
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: Method
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: Method
+
+getFactory
+^^^^^^^^^^
+
+.. java:method:: protected Factory getFactory()
+   :outertype: Method
+
+   Returns the factory instance to use by this method for creating internal participants.
+
+   :return: factory instance
+
+getInformer
+^^^^^^^^^^^
+
+.. java:method:: public Informer<?> getInformer()
+   :outertype: Method
+
+   Return the Informer object associated to this method. The Informer object may be created lazily.
+
+   :return: The Informer object.
+
+getListener
+^^^^^^^^^^^
+
+.. java:method:: public Listener getListener()
+   :outertype: Method
+
+   Return the Listener object associated to this method. The Listener object may be created lazily.
+
+   :return: The Listener object.
+
+getName
+^^^^^^^
+
+.. java:method:: public String getName()
+   :outertype: Method
+
+   Return the name of this method.
+
+   :return: The name of this method.
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: Method
+
+setInformer
+^^^^^^^^^^^
+
+.. java:method:: protected void setInformer(Informer<?> informer)
+   :outertype: Method
+
+   Sets the informer instances used by this method communicate with counterparts.
+
+   :param informer: the new informer instances
+
+setListener
+^^^^^^^^^^^
+
+.. java:method:: protected void setListener(Listener listener)
+   :outertype: Method
+
+   Sets the listener instance used by this method to communicate with counterparts.
+
+   :param listener: the new listeners
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: Method
+

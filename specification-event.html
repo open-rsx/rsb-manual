@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="URIs" href="specification-uris.html" />
+    <link rel="prev" title="Scope" href="specification-scope.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sequence-number">Sequence Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sender-id">Sender Id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-id">Event ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method">Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timestamps">Timestamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-defined-meta-data">User-defined Meta Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cause-vector">Cause Vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-converters.html">Converters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>Event</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-event.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="event">
+<span id="specification-event"></span><h1>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h1>
+<p>Conceptually and when represented in programs, RSB <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> consist of the following components:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 48%" />
+<col style="width: 24%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Comment</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#sequence-number">Sequence number</a></p></td>
+<td><p>32-bit unsigned integer</p></td>
+<td><p>Assigned by <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a></p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sender-id">Sender id</a></p></td>
+<td><p><a class="reference external" href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a></p></td>
+<td><p>Unique Id of the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a></p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#event-id">Event id</a></p></td>
+<td><p><a class="reference external" href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a></p></td>
+<td><p>Unique Id of the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a></p></td>
+<td><p>lazily derived</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a></p></td>
+<td><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a> object</p></td>
+<td><p>Destination <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a></p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#method">Method</a></p></td>
+<td><p>ASCII string</p></td>
+<td></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">Data type</span></a></p></td>
+<td><p>ASCII string</p></td>
+<td><p>Specifies type of <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a></p></td>
+<td><p>no?</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="glossary.html#term-event-payload"><span class="xref std std-term">Event payload</span></a></p></td>
+<td><p>Domain-specific object</p></td>
+<td></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#timestamps">Timestamps</a></p></td>
+<td><p>Multiple named 64-bit integers</p></td>
+<td></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cause-vector">Cause vector</a></p></td>
+<td><p>Set of <a class="reference internal" href="glossary.html#term-event-id"><span class="xref std std-term">event ids</span></a></p></td>
+<td></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="sequence-number">
+<span id="specification-sequence-number"></span><h2>Sequence Number<a class="headerlink" href="#sequence-number" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Event</span></a> sequence numbers are 32-bit unsigned integers which
+indicate the order of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> published by a particular
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>. Sequence numbers start at 0 corresponding to the
+first <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> and are incremented by 1 for each subsequent
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>. Sequence numbers wrap around to 0 at 4294967296 (that
+is, the largest sequence number is 4294967295).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">Participants</span></a> which receive <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> cannot generally rely on</p>
+<ol class="arabic">
+<li><p>receiving <em>all</em> <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> (according to
+<a class="reference internal" href="glossary.html#term-sequence-number"><span class="xref std std-term">sequence numbers</span></a>) published by a
+particular <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>. This assumption may hold, however,
+if the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> in question behaves according to some
+constraints (i.e. publishing only to one particular
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>).</p></li>
+<li><p>receiving <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> published by a particular
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> <em>in order</em> (according to <a class="reference internal" href="glossary.html#term-sequence-number"><span class="xref std std-term">sequence numbers</span></a>).</p>
+<p>TODO cross-reference quality of service</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="sender-id">
+<span id="specification-event-sender-id"></span><h2>Sender Id<a class="headerlink" href="#sender-id" title="Permalink to this headline">¶</a></h2>
+<p>ID (a UUID) of the sending <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a>.</p>
+</div>
+<div class="section" id="event-id">
+<span id="specification-event-id"></span><h2>Event ID<a class="headerlink" href="#event-id" title="Permalink to this headline">¶</a></h2>
+<p>The id component of an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is derived from the
+<a class="reference internal" href="glossary.html#term-sequence-number"><span class="xref std std-term">sequence number</span></a> of the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> and the id of the
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> that sent the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> as follows:</p>
+<ol class="arabic simple">
+<li><p>Construct a string representation of the <a class="reference internal" href="glossary.html#term-sequence-number"><span class="xref std std-term">sequence number</span></a></p>
+<ul class="simple">
+<li><p>Radix 16</p></li>
+<li><p>Lower-case letters</p></li>
+<li><p>Zero-padding to width 8</p></li>
+</ul>
+</li>
+<li><p>Use the UUID v.5 algorithm to construct the event id</p>
+<ul class="simple">
+<li><p>namespace: id of the sending participant</p></li>
+<li><p>name: the string constructed above</p></li>
+</ul>
+</li>
+</ol>
+<p>Examples / Test Cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sequence</span> <span class="n">number</span>        <span class="mi">0</span>
+<span class="n">sender</span> <span class="nb">id</span>              <span class="n">D8FBFEF4</span><span class="o">-</span><span class="mi">4</span><span class="n">EB0</span><span class="o">-</span><span class="mi">4</span><span class="n">C89</span><span class="o">-</span><span class="mi">9716</span><span class="o">-</span><span class="n">C425DED3C527</span>
+
+<span class="n">sequence</span> <span class="n">number</span> <span class="n">string</span> <span class="s2">&quot;00000000&quot;</span>
+
+<span class="n">event</span> <span class="nb">id</span>               <span class="n">v5</span><span class="o">-</span><span class="n">uuid</span><span class="p">(</span><span class="n">D8FBFEF4</span><span class="o">-</span><span class="mi">4</span><span class="n">EB0</span><span class="o">-</span><span class="mi">4</span><span class="n">C89</span><span class="o">-</span><span class="mi">9716</span><span class="o">-</span><span class="n">C425DED3C527</span><span class="p">,</span> <span class="s2">&quot;00000000&quot;</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="mi">84</span><span class="n">F43861</span><span class="o">-</span><span class="mi">433</span><span class="n">F</span><span class="o">-</span><span class="mi">5253</span><span class="o">-</span><span class="n">AFBB</span><span class="o">-</span><span class="n">A613A5E04D71</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sequence</span> <span class="n">number</span>        <span class="mi">378</span>
+<span class="n">sender</span> <span class="nb">id</span>              <span class="n">BF948D47</span><span class="o">-</span><span class="mi">618</span><span class="n">F</span><span class="o">-</span><span class="mi">4</span><span class="n">B04</span><span class="o">-</span><span class="n">AAC5</span><span class="o">-</span><span class="mi">0</span><span class="n">AB5A1A79267</span>
+
+<span class="n">sequence</span> <span class="n">number</span> <span class="n">string</span> <span class="s2">&quot;0000017a&quot;</span>
+
+<span class="n">event</span> <span class="nb">id</span>               <span class="n">v5</span><span class="o">-</span><span class="n">uuid</span><span class="p">(</span><span class="n">BF948D47</span><span class="o">-</span><span class="mi">618</span><span class="n">F</span><span class="o">-</span><span class="mi">4</span><span class="n">B04</span><span class="o">-</span><span class="n">AAC5</span><span class="o">-</span><span class="mi">0</span><span class="n">AB5A1A79267</span><span class="p">,</span> <span class="s2">&quot;0000017a&quot;</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="n">BD27BE7D</span><span class="o">-</span><span class="mi">87</span><span class="n">DE</span><span class="o">-</span><span class="mi">5336</span><span class="o">-</span><span class="n">BECA</span><span class="o">-</span><span class="mi">44</span><span class="n">FC60DE46A0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="method">
+<span id="specification-event-method"></span><h2>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Events</span></a> can carry an optional method string which
+indicates the role of the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> in a particular communication
+pattern or some kind of action performed by the respective
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>.</p>
+<p>Currently, the following method strings are defined:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>String</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;REQUEST&quot;</span></code></p></td>
+<td><p>Request <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> of a <a class="reference internal" href="specification-request-reply.html#specification-request-reply"><span class="std std-ref">method call</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;REPLY&quot;</span></code></p></td>
+<td><p>Reply <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> of a <a class="reference internal" href="specification-request-reply.html#specification-request-reply"><span class="std std-ref">method call</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The values mentioned above should not be used to indicate
+application-level semantics. Further, it has not yet been decided,
+whether new values should be introduced as needed or if some kind
+of coordination is required.</p>
+</div>
+</div>
+<div class="section" id="timestamps">
+<span id="specification-event-timestamps"></span><h2>Timestamps<a class="headerlink" href="#timestamps" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Events</span></a> carry a set of timestamps. All timestamps are
+expressed in</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time (UTC)</a></p></li>
+<li><p>since <a class="reference external" href="http://en.wikipedia.org/wiki/Unix_time#Encoding_time_as_a_number">UNIX epoch</a></p></li>
+<li><p>and stored with microsecond precision</p></li>
+</ol>
+<p>(even if the clock source used by RSB cannot actually provide
+microsecond precision).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When considering the issue of representing time rigorously, the
+above description is far from unambiguous. Since we are no experts
+with respect to representing time, we just say “convert your UTC
+time to UNIX time keeping up to 6 decimals of the remainder”.</p>
+</div>
+<p>For each <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>, the following timestamps are maintained by
+RSB:</p>
+<p>create time</p>
+<blockquote>
+<div><p>A timestamp that is automatically filled with the time at which the
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> object was created in the client program. This should
+usually reflect the time at which the notified condition most likely
+occurred in the sending process. If <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> objects are
+reused, this timestamp has to be reset manually by the client.</p>
+</div></blockquote>
+<p>send time</p>
+<blockquote>
+<div><p>The time at which the generated <a class="reference internal" href="glossary.html#term-notification"><span class="xref std std-term">notification</span></a> for an
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> was sent on the bus (after serialization).</p>
+</div></blockquote>
+<p>receive time</p>
+<blockquote>
+<div><p>The time at which an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is received by a <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a>
+in its serialized form (before deserialization).</p>
+</div></blockquote>
+<p>deliver time</p>
+<blockquote>
+<div><p>The time at which an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is dispatched to the client
+(after deserialization). The timestamp is set directly before
+passing the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> to the <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handler</span></a>.</p>
+</div></blockquote>
+<p>The relation between the various timestamps is illustrated in the
+below figure:</p>
+<div class="graphviz"><img src="_images/graphviz-60d704c1c4602dca8b5b8a0fd1a70886bd894021.png" alt="digraph timestamps {
+fontname=Arial
+fontsize=11
+node [fontsize=11,fontname=Arial]
+edge [fontsize=11,fontname=Arial]
+
+rankdir=LR
+node [shape=&quot;rect&quot;]
+
+subgraph cluster_informer {
+  label = &quot;Informer&quot;
+
+  event
+  node [style=&quot;rounded,filled&quot;,fillcolor=&quot;#ffc0c0&quot;]
+  create
+  serialize
+  send
+}
+
+subgraph cluster_in_flight {
+  label = &quot;In-flight&quot;
+
+  helper [shape=none,label=&quot;&quot;]
+}
+
+subgraph cluster_listener {
+  label = &quot;Listener&quot;
+
+  node [style=&quot;rounded,filled&quot;,fillcolor=&quot;#c0c0ff&quot;]
+  receive
+  deserialize
+  deliver
+}
+
+create -&gt; event
+event -&gt; serialize
+serialize -&gt; send
+send -&gt; helper
+helper -&gt; receive
+receive -&gt; deserialize
+deserialize -&gt; deliver
+
+node [shape=note,style=&quot;filled&quot;,fillcolor=&quot;#ffffe0&quot;]
+create_time [label=&quot;attach create time&quot;]
+create_time -&gt; create
+send_time [label=&quot;attach send time&quot;]
+send_time -&gt; send
+receive_time [label=&quot;attach receive time&quot;]
+receive_time -&gt; receive
+deliver_time [label=&quot;attach deliver time&quot;]
+deliver_time -&gt; deliver
+}" class="graphviz" /></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As indicated in the above figure, create time, send time and user
+times are computed using the clock source of the sending process,
+whereas receive time and deliver time are filled using the clock
+source of receiving <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant’s</span></a> process.</p>
+</div>
+</div>
+<div class="section" id="user-defined-meta-data">
+<span id="specification-event-user-meta-data"></span><h2>User-defined Meta Data<a class="headerlink" href="#user-defined-meta-data" title="Permalink to this headline">¶</a></h2>
+<p>The following meta data items are user-defined:</p>
+<p>user times</p>
+<blockquote>
+<div><p>A set of user-defined keys and associated timestamps. These
+timestamps use the same encoding as the <a class="reference internal" href="#specification-event-timestamps"><span class="std std-ref">framework-maintained
+timestamps</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The benefit of storing timestamps inside <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>
+(as opposed to within <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payloads</span></a>) is that these
+timestamps can be read and manipulated by framework-level
+tools. E.g. when replaying a recorded data set, the replay tool
+can automatically adapt all timestamps to the current date, so
+that it appears as if the data was really sent at the current
+moment in time.</p>
+<p>A drawback of maintaining timestamps inside <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> instead of <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payloads</span></a> is that client
+programs need to extract information from two different sources:
+the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> for the timestamp information and the
+<a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a> for remaining data.</p>
+<p>Case by case decisions need to be made regarding whether
+automated handling of timestamps might be beneficial or
+not. Generally, at least timestamps relevant to the communication
+should be maintained in the user timestamp structures of
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.</p>
+</div>
+</div></blockquote>
+<p>user infos</p>
+<blockquote>
+<div><p>A set of key-value user-defined options with string keys and values.</p>
+</div></blockquote>
+</div>
+<div class="section" id="cause-vector">
+<span id="specification-event-cause-vector"></span><h2>Cause Vector<a class="headerlink" href="#cause-vector" title="Permalink to this headline">¶</a></h2>
+<p>Each <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> can have a set of causing <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> ids (the
+idea is based on <a class="reference internal" href="literature.html#luckham2001pei" id="id2"><span>[Luckham2001PEI]</span></a>).  The user who sends an
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> needs to insert the respective <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> ids
+manually if required.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Currently, there is no specification regarding how these ids shall
+be used. Especially the handling of questions related to
+transitivity has not yet been solved.</p>
+</div>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>File(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-cpp">https://github.com/open-rsx/rsb-cpp</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/Event.{h,cpp}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Java</p></td>
+<td><p><a class="reference download internal" download="" href="_downloads/ea0bc837de7e5f9d1b66b94beab468d5/Event.java"><code class="xref download docutils literal notranslate"><span class="pre">upstream/rsb-java/rsb-java/src/main/java/rsb/Event.java</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p><a class="reference download internal" download="" href="_downloads/857ebbcee6ed42cc79e3683a929862fb/__init__.py"><code class="xref download docutils literal notranslate"><span class="pre">upstream/rsb-python/rsb/__init__.py</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Lisp</p></td>
+<td><p><a class="reference download internal" download="" href="_downloads/590348286833e53b772bf74a27c135e8/event.lisp"><code class="xref download docutils literal notranslate"><span class="pre">upstream/rsb-cl/src/event.lisp</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

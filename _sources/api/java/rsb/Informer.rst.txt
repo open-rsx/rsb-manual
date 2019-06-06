@@ -1,0 +1,129 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.config TransportConfig
+
+.. java:import:: rsb.converter DefaultConverterRepository
+
+.. java:import:: rsb.eventprocessing DefaultOutRouteConfigurator
+
+.. java:import:: rsb.eventprocessing OutRouteConfigurator
+
+.. java:import:: rsb.transport SequenceNumber
+
+.. java:import:: rsb.transport TransportRegistry
+
+Informer
+========
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class Informer<DataType extends Object> extends Participant
+
+   This class offers a method to publish events to a channel, reaching all participating Listeners. This n:m-communication is one of the basic communication patterns offered by RSB.
+
+   :author: swrede, rgaertne, jschaefe, jwienke
+   :param <DataType>: The type of data sent by this informer
+
+Constructors
+------------
+Informer
+^^^^^^^^
+
+.. java:constructor::  Informer(InformerCreateArgs args) throws InitializeException
+   :outertype: Informer
+
+   Creates an informer for a specific data type with a given scope and with a specified config.
+
+   :param args: arguments used to create the new instance
+   :throws InitializeException: error initializing the informer
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: Informer
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: Informer
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: @Override public Class<?> getDataType()
+   :outertype: Informer
+
+getKind
+^^^^^^^
+
+.. java:method:: @Override public String getKind()
+   :outertype: Informer
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: Informer
+
+getTypeInfo
+^^^^^^^^^^^
+
+.. java:method:: public Class<?> getTypeInfo()
+   :outertype: Informer
+
+   Returns the class describing the type of data sent by this informer.
+
+   :return: class
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: Informer
+
+publish
+^^^^^^^
+
+.. java:method:: public Event publish(Event event) throws RSBException
+   :outertype: Informer
+
+   Publish an \ :java:ref:`Event`\  to all subscribed participants.
+
+   :param event: the event to send
+   :throws RSBException: error sending event
+   :throws IllegalArgumentException: if the event is not complete or does not match the type or scope settings of the informer
+   :return: modified event with set timing information
+
+publish
+^^^^^^^
+
+.. java:method:: public Event publish(DataType data) throws RSBException
+   :outertype: Informer
+
+   Publish data (of type DataType) to all subscribed participants.
+
+   :param data: data to send with default setting from the informer
+   :throws RSBException: error sending event
+   :return: generated event
+
+setTypeInfo
+^^^^^^^^^^^
+
+.. java:method:: public void setTypeInfo(Class<?> typeInfo)
+   :outertype: Informer
+
+   Set the class object describing the type of data sent by this informer.
+
+   :param typeInfo: a \ :java:ref:`Class`\  instance describing the sent data
+

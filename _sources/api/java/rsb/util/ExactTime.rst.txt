@@ -1,0 +1,54 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: jnr.ffi LibraryLoader
+
+.. java:import:: jnr.ffi Platform
+
+.. java:import:: jnr.ffi Platform.OS
+
+.. java:import:: jnr.ffi Pointer
+
+.. java:import:: jnr.ffi Runtime
+
+.. java:import:: jnr.ffi Struct
+
+.. java:import:: jnr.ffi.annotations Out
+
+.. java:import:: jnr.ffi.annotations Transient
+
+ExactTime
+=========
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public final class ExactTime
+
+   Utility class to access the underlying system clock with improved precision compared to the standard Java library capabilities. Various native methods are probed for accessing the time source. If none of them works, this class falls back to \ :java:ref:`System.currentTimeMillis()`\ , resulting in a reduced precision of the returned time.
+
+   :author: jwienke
+
+Methods
+-------
+currentTimeMicros
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static long currentTimeMicros()
+   :outertype: ExactTime
+
+   Returns the current system time in microsecond precision using best effort. In case no available native implementation provides this resolution, a reduced one is returned. Check \ :java:ref:`isFallback()`\  to get information on this case.
+
+   :return: Unix timestamp for the system time in microseconds
+
+isFallback
+^^^^^^^^^^
+
+.. java:method:: public static boolean isFallback()
+   :outertype: ExactTime
+
+   In case no implementation is known that provides accurate time information for the underlying platform, this method returns \ ``true``\ .
+
+   :return: \ ``true``\  if no accurate time can be provided.
+

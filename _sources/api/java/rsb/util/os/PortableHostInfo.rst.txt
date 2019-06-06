@@ -1,0 +1,28 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.util.os RuntimeOsUtilities.RuntimeNotAvailableException
+
+PortableHostInfo
+================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public class PortableHostInfo extends CommonHostInfo
+
+   Cross-platform plain Java implementation of host info interface.
+
+   :author: swrede
+
+Constructors
+------------
+PortableHostInfo
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public PortableHostInfo()
+   :outertype: PortableHostInfo
+
+   Creates a new instance and initializes provided variables.
+

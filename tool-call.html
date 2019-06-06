@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Call &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Timesync" href="tool-timesync.html" />
+    <link rel="prev" title="Send" href="tool-send.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-introspect.html">Introspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-send.html">Send</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Call</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tool-timesync.html">Timesync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-bridge.html">Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-server.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-web.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-command-line-options.html">Common Commandline Options and Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="tools.html">Tools</a> &raquo;</li>
+        
+      <li>Call</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tool-call.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="tool-call">
+<span id="call"></span><span id="id1"></span><h1>Call<a class="headerlink" href="#tool-call" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="samp docutils literal notranslate"><span class="pre">rsb</span> <span class="pre">call</span> <em><span class="pre">[OPTIONS]</span></em> <em><span class="pre">SERVER-URI</span></em><span class="pre">/</span><em><span class="pre">METHOD</span></em><span class="pre">(</span><em><span class="pre">[ARGUMENT]</span></em><span class="pre">)</span></code></p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Call <code class="samp docutils literal notranslate"><em><span class="pre">METHOD</span></em></code> of the RSB RPC server at
+<code class="samp docutils literal notranslate"><em><span class="pre">SERVER-URI</span></em></code> with argument <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> and print the
+result to standard output, if any.</p>
+<p><code class="samp docutils literal notranslate"><em><span class="pre">SERVER-URI</span></em></code> designates the root <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> of the remote
+server and the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> that should be used.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For details regarding the URI syntax involved in <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>
+and <a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channel</span></a> specifications, see <a class="reference internal" href="concepts.html#uri-schema"><span class="std std-ref">URIs</span></a>.</p>
+</div>
+<p><code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> is treated as follows:</p>
+<ul>
+<li><p>If <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> is the empty string, i.e. the call
+specification is of the form <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-URI</span></em><span class="pre">/</span><em><span class="pre">METHOD</span></em><span class="pre">()</span></code>, the
+<code class="samp docutils literal notranslate"><em><span class="pre">METHOD</span></em></code> is called without argument.</p></li>
+<li><p>As the respective Boolean value when equal to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>As string when surrounded with double-quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>)</p></li>
+<li><p>As integer number when consisting of digits without decimal point</p></li>
+<li><p>As float number when consisting of digits with decimal point</p></li>
+<li><p>If <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> starts with <code class="docutils literal notranslate"><span class="pre">/</span></code>, it is parsed as a
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>.</p></li>
+<li><p>If <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> is the single character <code class="docutils literal notranslate"><span class="pre">-</span></code> or the string
+<code class="docutils literal notranslate"><span class="pre">-:binary</span></code>, the entire “contents” of standard input (until end of
+file) is read as a string or octet-vector respectively and used as
+argument for the method call.</p></li>
+<li><p>If <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> is of one of the forms <code class="samp docutils literal notranslate"><span class="pre">#P&quot;</span><em><span class="pre">PATHNAME</span></em><span class="pre">&quot;</span></code>,
+<code class="samp docutils literal notranslate"><span class="pre">#P&quot;</span><em><span class="pre">PATHNAME</span></em><span class="pre">&quot;:</span><em><span class="pre">ENCODING</span></em></code> or <code class="samp docutils literal notranslate"><span class="pre">#P&quot;</span><em><span class="pre">PATHNAME</span></em><span class="pre">&quot;:binary</span></code>,
+the file designated by <code class="samp docutils literal notranslate"><em><span class="pre">PATHNAME</span></em></code> is read into a string
+(optionally employing <code class="samp docutils literal notranslate"><em><span class="pre">ENCODING</span></em></code>) or octet-vector and used as
+argument for the method call.</p></li>
+<li><p>If <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> is of the form
+<code class="samp docutils literal notranslate"><span class="pre">pb:.</span><em><span class="pre">MESSAGE-TYPE-NAME</span></em><span class="pre">:</span><em><span class="pre">{FIELDS</span></em><span class="pre">}</span></code>, a protocol buffer
+message of type <code class="samp docutils literal notranslate"><em><span class="pre">MESSAGE-TYPE-NAME</span></em></code> is constructed and its
+fields are populated according to <code class="samp docutils literal notranslate"><em><span class="pre">FIELDS</span></em></code>. <code class="samp docutils literal notranslate"><em><span class="pre">FIELDS</span></em></code>
+uses the syntax produced/consumed by the various TextFormat classes
+of the protocol buffer API and the <code class="docutils literal notranslate"><span class="pre">--decode</span></code>/<code class="docutils literal notranslate"><span class="pre">--encode</span></code> options
+of the <strong class="program">protoc</strong> binary.</p></li>
+<li><p>If <code class="samp docutils literal notranslate"><em><span class="pre">ARGUMENT</span></em></code> is of one of the forms</p>
+<ul class="simple">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">pb:.</span><em><span class="pre">MESSAGE-TYPE-NAME</span></em><span class="pre">:#P&quot;</span><em><span class="pre">PATHNAME</span></em><span class="pre">&quot;</span></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">pb:.</span><em><span class="pre">MESSAGE-TYPE-NAME</span></em><span class="pre">:#P&quot;</span><em><span class="pre">PATHNAME</span></em><span class="pre">&quot;:</span><em><span class="pre">ENCODING</span></em></code></p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">pb:.</span><em><span class="pre">MESSAGE-TYPE-NAME</span></em><span class="pre">:-</span></code></p></li>
+</ul>
+<p>, a protocol buffer message of type <code class="samp docutils literal notranslate"><em><span class="pre">MESSAGE-TYPE-NAME</span></em></code> is
+constructed according to the contents of the file designated by
+<code class="samp docutils literal notranslate"><em><span class="pre">PATHNAME</span></em></code> or the input read from standard input
+respectively.</p>
+</li>
+</ul>
+<p>The definition of the <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> specified in
+<code class="samp docutils literal notranslate"><em><span class="pre">MESSAGE-TYPE-NAME</span></em></code> can be loaded automatically using the
+<a class="reference internal" href="common-command-line-options.html#cmdoption-common-on-demand-idl-loading"><code class="xref std std-option docutils literal notranslate"><span class="pre">common</span> <span class="pre">--on-demand-idl-loading</span></code></a> option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When written as part of a shell command, some of the above forms
+may require protection from processing by the shell, usually by
+surrounding the form in single quotes (‘). For example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb call <span class="s1">&#39;socket:/foobar/()&#39;</span>            <span class="c1"># empty argument</span>
+$ rsb call <span class="s1">&#39;socket:/foo/bar(#P&quot;my-file&quot;)&#39;</span> <span class="c1"># read argument from my-file</span>
+</pre></div>
+</div>
+</div>
+<p>The <a class="reference internal" href="common-command-line-options.html#common-options"><span class="std std-ref">usual commandline options</span></a> are
+accepted. Specialized commandline options:</p>
+<dl class="option">
+<dt id="cmdoption-call-timeout">
+<code class="sig-name descname">--timeout</code><code class="sig-prename descclassname"> SPEC</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">-t</code><code class="sig-prename descclassname"> SPEC</code><a class="headerlink" href="#cmdoption-call-timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the result of the method call does not arrive within the amount
+of time specified by <code class="samp docutils literal notranslate"><em><span class="pre">SPEC</span></em></code>, consider the call to have
+failed and exit with non-zero status.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-call-no-wait">
+<code class="sig-name descname">--no-wait</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-call-no-wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do not wait for the result of the method call. Immediately return
+with zero status without printing a result to standard output.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb call <span class="s1">&#39;spread:/mycomponent/control/status()&#39;</span>
+<span class="s2">&quot;running&quot;</span> <span class="c1"># prints return value, if any</span>
+$ rsb call <span class="s1">&#39;spread:/mycomponent/control/terminate()&#39;</span>
+$ <span class="c1"># returns once the method call completes</span>
+</pre></div>
+</div>
+<p>In the above example, the <strong class="program">call</strong> command is used to invoke
+the <code class="docutils literal notranslate"><span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">terminate</span></code> methods of the <a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote
+server</span></a> at <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/mycomponent/control</span></code> without an
+argument.</p>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat my-data.txt <span class="p">|</span> rsb call <span class="s1">&#39;socket:/printer/print(-)&#39;</span>
+$ cat my-data.txt <span class="p">|</span> rsb call <span class="s1">&#39;socket:/printer/print(-:binary)&#39;</span>
+$ rsb call <span class="s1">&#39;socket:/printer/print(#P&quot;my-data.txt&quot;)&#39;</span>
+$ rsb call <span class="s1">&#39;socket:/printer/print(#P&quot;my-data.txt&quot;:latin-1)&#39;</span>
+$ rsb call <span class="s1">&#39;socket:/printer/print(#P&quot;my-data.txt&quot;:binary)&#39;</span>
+</pre></div>
+</div>
+<p>Two ways of using the content of the file <code class="file docutils literal notranslate"><span class="pre">my-data.txt</span></code> as
+argument in a call of the <code class="docutils literal notranslate"><span class="pre">print</span></code> method on the <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>
+<code class="docutils literal notranslate"><span class="pre">/printer</span></code>. The call uses the socket <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> (with its
+default configuration). This form can only be used for sending
+string payloads.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the use of single quotes (<code class="docutils literal notranslate"><span class="pre">'</span></code>) to prevent elements of the
+pathname <code class="docutils literal notranslate"><span class="pre">#P&quot;my-data.txt&quot;</span></code> from being processed by the shell.</p>
+</div>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb call                                                  <span class="se">\</span>
+  -I…/rst-proto/proto/stable/                               <span class="se">\</span>
+  -l…/rst-proto/proto/stable/rst/robot/RobotCollision.proto <span class="se">\</span>
+  <span class="s1">&#39;socket:/mycomponent/handlecollision(pb:.rst.robot.RobotCollision:{kind: &quot;SELF&quot; collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: &quot;foo&quot; }, { x: 3 y: 4 z: 5 } ] } object_1: &quot;o1&quot; } })&#39;</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb call                                                  <span class="se">\</span>
+  -I…/rst-proto/proto/stable/                               <span class="se">\</span>
+  --on-demand-idl-loading<span class="o">=</span>blocking                          <span class="se">\</span>
+  <span class="s1">&#39;socket:/mycomponent/handlecollision(pb:.rst.robot.RobotCollision:{kind: &quot;SELF&quot; collision_detail: { geometry: { contact_points: [ { x: 0 y: 1 z: 2 frame_id: &quot;foo&quot; }, { x: 3 y: 4 z: 5 } ] } object_1: &quot;o1&quot; } })&#39;</span>
+</pre></div>
+</div>
+<p>In the above examples, the <strong class="program">call</strong> tool is used to call the
+<code class="docutils literal notranslate"><span class="pre">handlecollision</span></code> method of the <a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> at
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/mycomponent</span></code> with a protocol buffer message
+argument. The protocol buffer message is of type
+<code class="docutils literal notranslate"><span class="pre">rst.robot.RobotCollision</span></code> with <code class="docutils literal notranslate"><span class="pre">kind</span></code> enum field set to
+<code class="docutils literal notranslate"><span class="pre">SELF</span></code> and an embedded <code class="docutils literal notranslate"><span class="pre">rst.kinematics.ObjectCollision</span></code> message
+with two contact points in the <code class="docutils literal notranslate"><span class="pre">collision_detail</span></code> field.</p>
+<p>The specification of the message content uses the syntax
+produced/consumed by the various TextFormat classes of the protocol
+buffer API and the <code class="docutils literal notranslate"><span class="pre">--decode</span></code>/<code class="docutils literal notranslate"><span class="pre">--encode</span></code> options of the
+<strong class="program">protoc</strong> binary.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note how the definition of the protocol buffer message type is
+loaded either explicitly using the <a class="reference internal" href="common-command-line-options.html#cmdoption-common-load-idl"><code class="xref std std-option docutils literal notranslate"><span class="pre">-l</span> <span class="pre">(--load-idl)</span></code></a> commandline option or implicitly using the
+<a class="reference internal" href="common-command-line-options.html#cmdoption-common-on-demand-idl-loading"><code class="xref std std-option docutils literal notranslate"><span class="pre">--on-demand-idl-loading</span></code></a> commandline option. Both methods
+require specifying a search path using the <a class="reference internal" href="common-command-line-options.html#cmdoption-common-idl-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">-I</span>
+<span class="pre">(--idl-path)</span></code></a> commandline option.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 19%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Implementation Language</p></th>
+<th class="head"><p>Project</p></th>
+<th class="head"><p>Repository Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Common Lisp</p></td>
+<td><p>rsb-tools-cl</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-tools-cl">https://github.com/open-rsx/rsb-tools-cl</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

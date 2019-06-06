@@ -1,0 +1,64 @@
+.. java:import:: java.io IOException
+
+.. java:import:: java.net ServerSocket
+
+.. java:import:: java.net Socket
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+BusServer
+=========
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class BusServer extends BusBase
+
+   Instances of this class provide access to a socket-based bus for remote bus clients. Remote clients connect to a server socket in order to send and receive events through the resulting socket connection (maintained in BusConnection objects). Local clients (connectors) use the usual Bus interface to receive events published by remote clients and submit events which will be distributed to remote clients by the BusServer through the list of active BusConnection instances.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+BusServer
+^^^^^^^^^
+
+.. java:constructor:: public BusServer(SocketOptions options)
+   :outertype: BusServer
+
+   Constructor.
+
+   :param options: socket options to use for the communication
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: BusServer
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: BusServer
+
+handleIncoming
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void handleIncoming(Notification notification, BusConnection sourceConnection) throws RSBException
+   :outertype: BusServer
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: BusServer
+

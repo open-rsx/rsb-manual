@@ -1,0 +1,53 @@
+InitializeException
+===================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class InitializeException extends RSBException
+
+   An InitializeException indicates erroneous situations during the setup of the communication infrastructure.
+
+   :author: swrede
+
+Constructors
+------------
+InitializeException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InitializeException()
+   :outertype: InitializeException
+
+   Constructs a new exception with empty message and cause.
+
+InitializeException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InitializeException(String message)
+   :outertype: InitializeException
+
+   Constructs a new exception with an explaining message.
+
+   :param message: the explanation
+
+InitializeException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InitializeException(Throwable cause)
+   :outertype: InitializeException
+
+   Constructs a new exception with a \ :java:ref:`Throwable`\  as causing exception.
+
+   :param cause: the causing exception
+
+InitializeException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InitializeException(String message, Throwable cause)
+   :outertype: InitializeException
+
+   Constructs a new exception with explaining message and causing exception.
+
+   :param message: the message
+   :param cause: the causing exception
+

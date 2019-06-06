@@ -1,0 +1,130 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb QualityOfServiceSpec
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.converter ConversionException
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.filter Filter
+
+.. java:import:: rsb.filter FilterAction
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+.. java:import:: rsb.protocol ProtocolConversion
+
+.. java:import:: rsb.transport AbstractConnector
+
+.. java:import:: rsb.transport EventHandler
+
+.. java:import:: rsb.transport InConnector
+
+.. java:import:: rsb.transport.socket Bus.NotificationReceiver
+
+SocketInConnector
+=================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class SocketInConnector extends AbstractConnector implements InConnector, NotificationReceiver
+
+   An \ :java:ref:`InConnector`\  for the socket-based transport.
+
+   :author: jwienke
+
+Constructors
+------------
+SocketInConnector
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public SocketInConnector(SocketOptions socketOptions, ServerMode serverMode, ConverterSelectionStrategy<ByteBuffer> converters)
+   :outertype: SocketInConnector
+
+   Constructor.
+
+   :param socketOptions: socket options to use
+   :param serverMode: server mode to use
+   :param converters: converters to use for serialization
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: SocketInConnector
+
+addHandler
+^^^^^^^^^^
+
+.. java:method:: @Override public void addHandler(EventHandler handler)
+   :outertype: SocketInConnector
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: SocketInConnector
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public URI getTransportUri()
+   :outertype: SocketInConnector
+
+handle
+^^^^^^
+
+.. java:method:: @Override @SuppressWarnings public void handle(Notification notification)
+   :outertype: SocketInConnector
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: SocketInConnector
+
+notify
+^^^^^^
+
+.. java:method:: @Override public void notify(Filter filter, FilterAction action)
+   :outertype: SocketInConnector
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean removeHandler(EventHandler handler)
+   :outertype: SocketInConnector
+
+setQualityOfServiceSpec
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void setQualityOfServiceSpec(QualityOfServiceSpec spec)
+   :outertype: SocketInConnector
+
+setScope
+^^^^^^^^
+
+.. java:method:: @Override public void setScope(Scope scope)
+   :outertype: SocketInConnector
+

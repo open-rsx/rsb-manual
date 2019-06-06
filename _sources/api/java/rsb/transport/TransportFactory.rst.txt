@@ -1,0 +1,58 @@
+.. java:import:: java.util Set
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.util Properties
+
+TransportFactory
+================
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type:: public interface TransportFactory
+
+   Interface for factories providing implementations of \ :java:ref:`Connector`\  instances for a certain transport.
+
+   :author: jwienke, swrede
+
+Methods
+-------
+createInConnector
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  InConnector createInConnector(Properties properties, ConverterSelectionStrategy<?> converters) throws InitializeException
+   :outertype: TransportFactory
+
+   Creates an in connector for receiving events in an asynchronous fashion.
+
+   :param properties: specific options for the connector to be created
+   :param converters: the converter selection strategy to use in the new connector
+   :throws InitializeException: error creating a new connector
+   :return: new connector instance
+
+createOutConnector
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  OutConnector createOutConnector(Properties properties, ConverterSelectionStrategy<?> converters) throws InitializeException
+   :outertype: TransportFactory
+
+   Creates an out connector for sending events.
+
+   :param properties: specific options for the connector to be created
+   :param converters: the converter selection strategy to use in the new connector
+   :throws InitializeException: error creating a new connector
+   :return: new connector instance
+
+getInfo
+^^^^^^^
+
+.. java:method::  ConnectorInfo getInfo()
+   :outertype: TransportFactory
+
+   Returns information aobut the transport for which this factory constructs connectors.
+
+   :return: The info.
+

@@ -1,0 +1,19 @@
+rsb.transport.inprocess
+=======================
+
+Contains the implementation of the local in-memory transport.
+
+:author: jwienke
+
+.. java:package:: rsb.transport.inprocess
+
+.. toctree::
+   :maxdepth: 1
+
+   Bus
+   ConnectorBase
+   InConnector
+   InProcessFactory
+   OutConnector
+   Plugin
+

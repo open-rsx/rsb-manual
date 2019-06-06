@@ -1,0 +1,69 @@
+.. java:import:: java.util.concurrent BlockingQueue
+
+.. java:import:: java.util.concurrent LinkedBlockingDeque
+
+.. java:import:: rsb AbstractEventHandler
+
+.. java:import:: rsb Event
+
+EventQueueAdapter
+=================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public class EventQueueAdapter extends AbstractEventHandler
+
+   An adapter similar to the \ :java:ref:`QueueAdapter`\  that provides access to a queue of RSB \ :java:ref:`Event`\ s instead of directly to the payload data. It can also be directly registered as handler in an rsb.Listener instance and used for receiving and storing dispatched events.
+
+   :author: dklotz
+
+Constructors
+------------
+EventQueueAdapter
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public EventQueueAdapter()
+   :outertype: EventQueueAdapter
+
+   Creates an adapter with a preset unlimited queue inside.
+
+EventQueueAdapter
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public EventQueueAdapter(int capacity, boolean discardOldest)
+   :outertype: EventQueueAdapter
+
+   Creates an adapter with a preset queue inside that is limited to \ ``capacity``\  elements.
+
+   :param capacity: capacity of the internal queue
+   :param discardOldest: if \ ``true``\ , remove older events if the queue is full, otherwise block until space is available on inserts
+
+EventQueueAdapter
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public EventQueueAdapter(BlockingQueue<Event> queue)
+   :outertype: EventQueueAdapter
+
+   Creates an adapter with the given queue implementation.
+
+   :param queue: The queue this adapter should fill.
+
+Methods
+-------
+getQueue
+^^^^^^^^
+
+.. java:method:: public BlockingQueue<Event> getQueue()
+   :outertype: EventQueueAdapter
+
+   Provides access to the queue filled by this queue adapter.
+
+   :return: The current with the events received by this adapter.
+
+handleEvent
+^^^^^^^^^^^
+
+.. java:method:: @Override public void handleEvent(Event event)
+   :outertype: EventQueueAdapter
+

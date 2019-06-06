@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Concepts &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing RSB" href="install.html" />
+    <link rel="prev" title="News" href="news.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#event">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filter">Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mapping-between-wire-schema-and-programming-language-types">Mapping between Wire Schema and Programming Language Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#connector">Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uris">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-of-service">Quality of Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ordering">Ordering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reliability">Reliability</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#threading">Threading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Concepts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/concepts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="literature.html#wienke2011-amc" id="id1"><span>[Wienke2011-AMC]</span></a></dt><dd><p>For a concise introduction to the basic concepts of RSB in
+publication form</p>
+</dd>
+</dl>
+</div>
+<p>The Robotics Service Bus (RSB) is a message-oriented,
+event-driven middleware aiming at scalable integration of robotics
+systems in diverse environments. Being fundamentally a bus
+architecture, RSB structures heterogeneous systems of service
+providers and consumers using broadcast communication over a hierarchy
+of logically unified channels instead of a large number of
+point-to-point connections. Nevertheless RSB comes with a
+collection of communication patterns and other tools for structuring
+communication, but does not require a particular functional or
+decomposition style.</p>
+<p>RSB is implemented as a flexible, lightweight toolkit. Based on
+previous experiences, the design and implementation try to avoid
+centralization and complicated dependency structures. Instead,
+functionality is organized in layers with minimal, clearly stated
+dependencies. The core library merely supplies the abstractions and
+machinery for building communication systems subject to varying
+requirements. This core is implemented in multiple programming
+languages with implementations trying to be in the spirit of the
+respective language as much as possible. As a result, RSB is not
+tied to a particular network transport, serialization mechanism or
+programming language. In addition, much effort is put into systematic
+testing and continuous integration.</p>
+<p>These conceptual and implementation properties hopefully allow
+RSB to scale across a wider range of diverse functional
+requirements, heterogeneous hardware platforms and varying reliability
+and timing requirements than other robotics middlewares. Additionally,
+RSB’s open architecture and project structure and lightweight
+implementation enable its use with small entry barriers and little
+framework lock-in.</p>
+<div class="section" id="event">
+<span id="id2"></span><h2>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-event.html#specification-event"><span class="std std-ref">Event</span></a></dt><dd><p>Detailed technical specification of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a></p>
+</dd>
+</dl>
+</div>
+<p>An <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is the basic unit of exchanged data in
+RSB. Hence, all information required to fully specify and trace
+the condition it represents need to be present in the
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>. To fulfill these requirements, our <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> model
+consists of the following components:</p>
+<p>Payload</p>
+<blockquote>
+<div><p>The payload of an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is a user-defined object of the
+respective programming language which contains the major information
+specifying the condition the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> represents.</p>
+<p>It can be of an arbitrary domain type which reduces the framework
+lock-in by means of an early transition from framework types to
+domain objects for technical realization.</p>
+</div></blockquote>
+<p>ID</p>
+<blockquote>
+<div><p>A unique ID for each <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> in an RSB-based system to
+make <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> addressable and foster traceability.</p>
+</div></blockquote>
+<p>Meta Data</p>
+<blockquote>
+<div><p>Each <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is supplemented by meta data.</p>
+<p>It consist of the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> the ID of the sending
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> and several timestamps that</p>
+<ul class="simple">
+<li><p>specify timing information relevant to the condition represented
+by the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> (user-extensible).</p></li>
+<li><p>make the processing of the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> within RSB
+traceable.</p></li>
+</ul>
+<p>Besides these framework-supplied items, a key-value store for
+string-based additional meta data items is available for the
+client and user-defined timestamps can be added.</p>
+</div></blockquote>
+<p>Causal Vector</p>
+<blockquote>
+<div><p>This vector allows to represent the causing <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>
+of a given <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>, as proposed in <a class="reference internal" href="literature.html#luckham2001pei" id="id3"><span>[Luckham2001PEI]</span></a>.  It
+facilitates automatic system analysis and debugging.</p>
+</div></blockquote>
+<p>Destination <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a></p>
+<blockquote>
+<div><p>Specifies the recipients of the event notification by restricting
+the visibility of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> notifications <a class="reference internal" href="literature.html#muehl2006-deb" id="id4"><span>[Muehl2006-DEB]</span></a>.</p>
+<p>The next section explains this concept in greater detail.</p>
+</div></blockquote>
+</div>
+<div class="section" id="scope">
+<span id="id5"></span><h2>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-scope.html#specification-scope"><span class="std std-ref">Scope</span></a></dt><dd><p>Detailed technical specification of <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a></p>
+</dd>
+</dl>
+</div>
+<p>RSB forms a logically unified bus across different
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> mechanisms. Different <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> connect to this bus.  <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">Informers</span></a> send
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>, whereas <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listeners</span></a> receive
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. From a logical perspective, no point-to-point
+connections are established.</p>
+<p>In order to structure the communication via the bus – or stated
+differently, restrict the visibility of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> for
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> – RSB utilizes a hierarchical
+channelization scheme. This scheme is best explained by its
+declarative representation as a <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>, which is represented in
+RSB with a hierarchical notation compatible with the path
+component of URIs <a class="reference internal" href="literature.html#rfc2396-uri" id="id6"><span>[RFC2396-URI]</span></a>.  E.g. sending an <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> with
+destination <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/robot/camera/left/</span></code> will make this
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> visible in the <a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channels</span></a> represented by
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a> <code class="docutils literal notranslate"><span class="pre">/robot/camera/left/</span></code>, <code class="docutils literal notranslate"><span class="pre">/robot/camera/</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/robot/</span></code>, and <code class="docutils literal notranslate"><span class="pre">/</span></code>. Consequently, <code class="docutils literal notranslate"><span class="pre">/</span></code> represents a
+<a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channel</span></a> where all <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> of the system are
+visible. Each <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> is associated to one
+<a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channel</span></a>, but multiple <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> can
+participate in the same <a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channel</span></a> (m : n semantics).</p>
+<p>The chosen hierarchical <a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channel</span></a> layout provides benefits for
+logging purposes and provides a first-class means of the framework to
+structure the data space, e.g. with <a class="reference internal" href="glossary.html#term-subscope"><span class="xref std std-term">subscopes</span></a> for
+different services. However, it also increases the chance that a
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> receives unexpected data, because a new
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> appeared on a <a class="reference internal" href="glossary.html#term-subscope"><span class="xref std std-term">subscope</span></a> of the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener’s</span></a> <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>. RSB’s
+<a class="reference internal" href="glossary.html#term-filter"><span class="xref std std-term">filter</span></a> mechanism allows clients to efficiently specify which
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> they want to receive.</p>
+</div>
+<div class="section" id="filter">
+<span id="id7"></span><h2>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="types">
+<span id="id8"></span><h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<p>RSB is concerned with two kinds of types:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire schemas</span></a> which describe data being
+exchanged through <a class="reference internal" href="glossary.html#term-transport-mechanism"><span class="xref std std-term">transport mechanisms</span></a></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data types</span></a> which are restricted to individual
+clients, depend on the respective programming languages and describe
+domain objects before they get passed to RSB or after they
+have been obtained from RSB</p></li>
+</ul>
+<div class="section" id="mapping-between-wire-schema-and-programming-language-types">
+<h3>Mapping between Wire Schema and Programming Language Types<a class="headerlink" href="#mapping-between-wire-schema-and-programming-language-types" title="Permalink to this headline">¶</a></h3>
+<p>This section documents the mapping between <a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire schemas</span></a>, designators of which are included in RSB
+<a class="reference internal" href="glossary.html#term-notification"><span class="xref std std-term">notifications</span></a>, and corresponding programming
+language types. The values that are actually contained in
+<a class="reference internal" href="glossary.html#term-notification"><span class="xref std std-term">notifications</span></a> are called “String Designators”
+of <a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire schemas</span></a> here.</p>
+<p>Fundamental Types</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wire Schema</p></th>
+<th class="head"><p>String Designator</p></th>
+<th class="head"><p>C++</p></th>
+<th class="head"><p>Python</p></th>
+<th class="head"><p>Java</p></th>
+<th class="head"><p>Common Lisp</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No value</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;void&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">void</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nil</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Double precision float</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;double&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">double-float</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Single precision float</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;float&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">single-float</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>32 bit signed integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;int32&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(signed-byte</span> <span class="pre">32)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>64 bit signed integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;int64&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(signed-byte</span> <span class="pre">64)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>32 bit unsigned integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;uint32&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(unsigned-byte</span> <span class="pre">32)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>64 bit unsigned integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;uint64&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint64</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(unsigned-byte</span> <span class="pre">64)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>bool</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;bool&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ASCII string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;ascii-string&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>UTF-8 string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;utf-8-string&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unicode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">String</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Sequence of Bytes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;bytes&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std::string</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ByteString</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(simple-array</span> <span class="pre">(unsigned-byte</span> <span class="pre">8)</span>&#160; <span class="pre">(*))</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;scope&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rsb::Scope</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rsb.scope</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rsb.Scope</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rsb:scope</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This mapping is based on <a class="reference external" href="http://code.google.com/apis/protocolbuffers/docs/proto.html#scalar">the type mapping used by Google’s
+protocol buffers</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In C++, support for the ASCII string and UTF-8 string schemas is
+limited in the following ways:</p>
+<ul class="simple">
+<li><p>When decoding data in either schema, invalid strings will be
+accepted without signaling an error.</p></li>
+<li><p>In both schemas, string values are represented as
+<code class="docutils literal notranslate"><span class="pre">std::string</span></code> objects which know nothing about the respective
+encodings.</p>
+<ul>
+<li><p>In particular, UTF-8 multi-byte sequences appear as multiple
+<code class="docutils literal notranslate"><span class="pre">char</span></code> s.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div></blockquote>
+<p>Structured Data</p>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="connector">
+<h2>Connector<a class="headerlink" href="#connector" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="uris">
+<span id="uri-schema"></span><h2>URIs<a class="headerlink" href="#uris" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-uris.html#specification-uris"><span class="std std-ref">URIs</span></a></dt><dd><p>Specification for handling of URIs in RSB.</p>
+</dd>
+</dl>
+</div>
+<p>URIs or URLs are used in the following situations</p>
+<ul class="simple">
+<li><p>Specifying how to connect to the bus (i.e. specifying a
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> and <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> configuration)</p></li>
+<li><p>Naming a thing on the bus</p>
+<ul>
+<li><p>A <a class="reference internal" href="glossary.html#term-channel"><span class="xref std std-term">channel</span></a></p>
+<ul>
+<li><p>Multiple <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a></p></li>
+<li><p>A single <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<span id="id9"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-config.html#specification-config"><span class="std std-ref">Configuration</span></a></dt><dd><p>Specification for the configuration of RSB.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="quality-of-service">
+<h2>Quality of Service<a class="headerlink" href="#quality-of-service" title="Permalink to this headline">¶</a></h2>
+<p>For <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listeners</span></a>, any guarantee applies to the stream
+of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> received from the bus (not to the entire
+processing of a given <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>). In particular, it is possibly
+that the effective guarantees are weaker than those specified for the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> (if the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> has weaker guarantees than
+the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a>).</p>
+<p>For <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>, any guarantee applies to the submitting of
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> to the bus. Guarantees at the receiving end may
+effectively be weakened depending on the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a>
+configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the following lists of guarantees, subsequent items include all
+guarantees given by preceding items.</p>
+</div>
+<div class="section" id="ordering">
+<h3>Ordering<a class="headerlink" href="#ordering" title="Permalink to this headline">¶</a></h3>
+<p>Unordered</p>
+<blockquote>
+<div><p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Events</span></a> are delivered in (potentially) arbitrary
+order.</p>
+</div></blockquote>
+<p>Ordered</p>
+<blockquote>
+<div><p>Every <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> receives the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> of one
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> in the order the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> sent the
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. No guarantees are given for <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> of multiple <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informers</span></a>.</p>
+</div></blockquote>
+<p>Independently of the requested ordering, no relations are guaranteed
+between <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> arriving at distinct <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listeners</span></a>.</p>
+</div>
+<div class="section" id="reliability">
+<h3>Reliability<a class="headerlink" href="#reliability" title="Permalink to this headline">¶</a></h3>
+<p>Unreliable</p>
+<blockquote>
+<div><p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Events</span></a> may be dropped and not be visible to a
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a>.</p>
+</div></blockquote>
+<p>Reliable</p>
+<blockquote>
+<div><p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Events</span></a> are guaranteed to be delivered. An error is
+signaled when <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> cannot be delivered.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="threading">
+<h2>Threading<a class="headerlink" href="#threading" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">Informers</span></a> are thread-safe.</p>
+<p><a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">Listener</span></a> are thread-safe. This implies:</p>
+<ul>
+<li><p>Adding/Removing <a class="reference internal" href="glossary.html#term-filter"><span class="xref std std-term">filters</span></a> from arbitrary threads is
+allowed, but does not affect already registered <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a>.</p>
+<p>The changed <a class="reference internal" href="glossary.html#term-filter"><span class="xref std std-term">filters</span></a> will be applied at some point
+in time, which may be much later than the method call.</p>
+</li>
+<li><p>Adding/Removing <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> from arbitrary threads is
+possible.</p>
+<p>Existing <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> will not notice any effect with
+respect to the stream of incoming <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.</p>
+<p>For the added/removed <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handler</span></a>, there is no guarantee that it
+will be called immediately / will not be called anymore when the
+add/remove method call returns. However, a flag can be set to
+achieve these guarantees.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

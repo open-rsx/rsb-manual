@@ -1,0 +1,228 @@
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+Event
+=====
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class Event
+
+   Basic event structure exchanged between RSB ports. It is a combination of metadata and the actual data to publish / subscribe to as payload. Events are often caused by other events, which e.g. means that their contained payload was calculated on the payload of one or more other events. To express these relations each event contains a set of EventIds that express the direct causes of the event. This means, transitive event causes are not modeled. Cause handling is inspired by the ideas proposed in: David Luckham, The Power of Events, Addison-Wessley, 2007
+
+   :author: swrede
+
+Constructors
+------------
+Event
+^^^^^
+
+.. java:constructor:: public Event(Scope scope, Class<?> type, Object data)
+   :outertype: Event
+
+   Creates a new event that can be send to scope.
+
+   :param scope: The scope to which the event will be sent.
+   :param type: A class object indicating the class of the data being sent in the event.
+   :param data: The actual data that should be sent in the event.
+
+Event
+^^^^^
+
+.. java:constructor:: public Event(Class<?> type)
+   :outertype: Event
+
+   Creates a new event with the specified data type but data still being \ ``null``\ .
+
+   :param type: class object describing the data type
+
+Event
+^^^^^
+
+.. java:constructor:: public Event(Class<?> type, Object data)
+   :outertype: Event
+
+   Creates a new event with the specified data type and contents.
+
+   :param type: class object describing the data type
+   :param data: the data this event shall containg. Must match the declared type
+
+Event
+^^^^^
+
+.. java:constructor:: public Event()
+   :outertype: Event
+
+   Construct empty event. Only metadata is initialized.
+
+Methods
+-------
+addCause
+^^^^^^^^
+
+.. java:method:: @SuppressWarnings public boolean addCause(EventId id)
+   :outertype: Event
+
+   Adds the id of one event to the causes of this event. If the set of causing events already contained the given id, this call has no effect.
+
+   :param id: the id of a causing event
+   :return: \ ``true``\  if the causes was added, \ ``false``\  if it already existed
+
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Event
+
+getCauses
+^^^^^^^^^
+
+.. java:method:: public Set<EventId> getCauses()
+   :outertype: Event
+
+   Returns all causing events marked so far.
+
+   :return: set of causing event ids. Modifications to this set do not affect this event as it is a copy.
+
+getData
+^^^^^^^
+
+.. java:method:: public Object getData()
+   :outertype: Event
+
+   :return: the data
+
+getId
+^^^^^
+
+.. java:method:: public EventId getId()
+   :outertype: Event
+
+   Returns the id of the event. This might not work in case the event has not been sent so far as the id is defined while sending.
+
+   :throws IllegalStateException: no id available so far
+   :return: event id
+
+getMetaData
+^^^^^^^^^^^
+
+.. java:method:: public MetaData getMetaData()
+   :outertype: Event
+
+   Returns a \ :java:ref:`MetaData`\  instance representing the meta data for this event.
+
+   :return: meta data of this event, not \ ``null``\
+
+getMethod
+^^^^^^^^^
+
+.. java:method:: public String getMethod()
+   :outertype: Event
+
+   :return: the method
+
+getScope
+^^^^^^^^
+
+.. java:method:: public Scope getScope()
+   :outertype: Event
+
+   :return: the scope
+
+getType
+^^^^^^^
+
+.. java:method:: public Class<?> getType()
+   :outertype: Event
+
+   :return: the Java type of the payload, may be \ ``null``\  to express a void type where no payload is carried at all.
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Event
+
+isCause
+^^^^^^^
+
+.. java:method:: @SuppressWarnings public boolean isCause(EventId id)
+   :outertype: Event
+
+   Tells whether the id of one event is already marked as a cause of this event.
+
+   :param id: id of the event to test causality for
+   :return: \ ``true``\  if id is marked as a cause for this event, else \ ``false``\
+
+removeCause
+^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public boolean removeCause(EventId id)
+   :outertype: Event
+
+   Removes a causing event from the set of causes for this event. If the id was not contained in this set, the call has no effect.
+
+   :param id: of the causing event
+   :return: \ ``true``\  if an event with this id was removed from the causes, else \ ``false``\
+
+setData
+^^^^^^^
+
+.. java:method:: public void setData(Object data)
+   :outertype: Event
+
+   :param data: the data to set
+
+setId
+^^^^^
+
+.. java:method:: public void setId(ParticipantId senderId, long sequenceNumber)
+   :outertype: Event
+
+   Sets all information necessary to generate the \ :java:ref:`EventId`\  of this event. After this call \ :java:ref:`getId()`\  is able to return an id.
+
+   :param senderId: id of the sending participant for this event
+   :param sequenceNumber: sequence number within the specified participant
+
+setId
+^^^^^
+
+.. java:method:: @SuppressWarnings public void setId(EventId id)
+   :outertype: Event
+
+   Sets the id of this event. Afterwards \ :java:ref:`getId()`\  can return an id.
+
+   :param id: new id to set
+
+setMethod
+^^^^^^^^^
+
+.. java:method:: public void setMethod(String method)
+   :outertype: Event
+
+   :param method: the method to set
+
+setScope
+^^^^^^^^
+
+.. java:method:: public void setScope(Scope scope)
+   :outertype: Event
+
+   :param scope: the scope to set
+
+setType
+^^^^^^^
+
+.. java:method:: public void setType(Class<?> type)
+   :outertype: Event
+
+   :param type: the Java type to set for the Event payload
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: Event
+

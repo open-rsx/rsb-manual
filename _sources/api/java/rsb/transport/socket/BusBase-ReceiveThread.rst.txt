@@ -1,0 +1,61 @@
+.. java:import:: java.io EOFException
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.net URI
+
+.. java:import:: java.net URISyntaxException
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+BusBase.ReceiveThread
+=====================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: protected class ReceiveThread extends Thread
+   :outertype: BusBase
+
+   A thread that continuously reads from a \ :java:ref:`BusConnection`\  and passes the received \ :java:ref:`Notification`\ s to \ :java:ref:`BusBase.handleIncoming(rsb.protocol.NotificationType.Notification)`\  .
+
+   :author: jwienke
+
+Constructors
+------------
+ReceiveThread
+^^^^^^^^^^^^^
+
+.. java:constructor:: public ReceiveThread(BusConnection connection)
+   :outertype: BusBase.ReceiveThread
+
+   Constructs a new instance operating on the specified connection instance.
+
+   :param connection: the connection to read from
+
+Methods
+-------
+run
+^^^
+
+.. java:method:: @Override public void run()
+   :outertype: BusBase.ReceiveThread
+

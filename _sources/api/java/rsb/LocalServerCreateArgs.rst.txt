@@ -1,0 +1,12 @@
+LocalServerCreateArgs
+=====================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class LocalServerCreateArgs extends ParticipantCreateArgs<LocalServerCreateArgs>
+
+   \ :java:ref:`ParticipantCreateArgs`\  for \ :java:ref:`rsb.patterns.LocalServer`\  instances.
+
+   :author: jwienke, jmoringe
+

@@ -1,0 +1,47 @@
+.. java:import:: java.io IOException
+
+.. java:import:: java.net Socket
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+BusServerConnection
+===================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class BusServerConnection extends BusConnectionBase
+
+   Instances of this class implement connections to a socket-based bus in the form of a server. The basic operations provided by this class are receiving an event notifications by calling receiveNotification and submitting an event to the bus by calling sendNotification. This class implements the fundamental RSB protocol for socket connections, e.g., the basic handshaking and the encoding/decoding of data packages for event notifications.
+
+   :author: swrede
+
+   **See also:** <a
+        href="http://docs.cor-lab.de/rsb-manual/trunk/html/specification-socket.html">RSB
+        Specification for Socket Transport</a>
+
+Constructors
+------------
+BusServerConnection
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public BusServerConnection(Socket socket, boolean tcpNoDelay)
+   :outertype: BusServerConnection
+
+   Constructs a new server.
+
+   :param socket: socket to use for the server side. This is usually the result of calling \ :java:ref:`java.net.ServerSocket.accept()`\ .
+   :param tcpNoDelay: if \ ``true``\ , configure the socket to use tcp no delay
+
+Methods
+-------
+handshake
+^^^^^^^^^
+
+.. java:method:: @Override protected void handshake() throws RSBException
+   :outertype: BusServerConnection
+

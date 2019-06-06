@@ -1,0 +1,134 @@
+.. java:import:: rsb ParticipantId
+
+.. java:import:: rsb Scope
+
+ProtocolUtilities
+=================
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: final class ProtocolUtilities
+
+   Collection of helper methods used to fulfill the introspection protocol.
+
+   :author: jwienke
+
+Fields
+------
+BASE_SCOPE
+^^^^^^^^^^
+
+.. java:field:: public static final Scope BASE_SCOPE
+   :outertype: ProtocolUtilities
+
+   Base scope for the whole introspection.
+
+ECHO_RPC_METHOD_NAME
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String ECHO_RPC_METHOD_NAME
+   :outertype: ProtocolUtilities
+
+   Name of the RPC server method for echoing back timing information to a caller.
+
+HOST_SCOPE
+^^^^^^^^^^
+
+.. java:field:: public static final Scope HOST_SCOPE
+   :outertype: ProtocolUtilities
+
+   Scope for host-related communication.
+
+PARTICIPANT_SCOPE
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final Scope PARTICIPANT_SCOPE
+   :outertype: ProtocolUtilities
+
+   Scope for participant-related communication.
+
+PING_EVENT_DATA
+^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String PING_EVENT_DATA
+   :outertype: ProtocolUtilities
+
+   Data to send or expect in a ping event.
+
+PONG_EVENT_DATA
+^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String PONG_EVENT_DATA
+   :outertype: ProtocolUtilities
+
+   Data to send or expect in a pong event.
+
+REQUEST_METHOD_NAME
+^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String REQUEST_METHOD_NAME
+   :outertype: ProtocolUtilities
+
+   \ :java:ref:`rsb.Event.getMethod()`\  entry to expect on a request for a specific participant.
+
+REQUEST_RECEIVE_USER_TIME
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String REQUEST_RECEIVE_USER_TIME
+   :outertype: ProtocolUtilities
+
+   User timestamp name to echo back the receive time.
+
+REQUEST_SEND_USER_TIME
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String REQUEST_SEND_USER_TIME
+   :outertype: ProtocolUtilities
+
+   User timestamp name to echo back the send time.
+
+SURVEY_METHOD_NAME
+^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String SURVEY_METHOD_NAME
+   :outertype: ProtocolUtilities
+
+   \ :java:ref:`rsb.Event.getMethod()`\  entry to expect on a participant survey request.
+
+Methods
+-------
+isSpecificParticipantScope
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static boolean isSpecificParticipantScope(Scope scope)
+   :outertype: ProtocolUtilities
+
+   Tests whether the scope formally can be interpreted as a scope for for a specific participant.
+
+   :param scope: the scope to test
+   :return: \ ``true``\  if the scope has sufficient components to be the designator for a specific participant
+
+participantIdFromScope
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static ParticipantId participantIdFromScope(Scope scope)
+   :outertype: ProtocolUtilities
+
+   Extracts a \ :java:ref:`ParticipantId`\  from a scope designating a specific participant.
+
+   :param scope: the scope to parse
+   :throws IllegalArgumentException: scope does not contain a valid id
+   :return: the parsed \ :java:ref:`ParticipantId`\
+
+participantScope
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public static Scope participantScope(ParticipantInfo participant)
+   :outertype: ProtocolUtilities
+
+   Creates a scope to send data messages on that regard a specific participant.
+
+   :param participant: the participant to create the scope for
+   :return: a scope related to the participant, subscope of \ :java:ref:`PARTICIPANT_SCOPE`\ .
+

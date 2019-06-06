@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DefaultConverterRepository &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="DefaultConverters" href="DefaultConverters.html" />
+    <link rel="prev" title="ConverterSignature" href="ConverterSignature.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.converter</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="BoolConverter.html">BoolConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CachedCharsetCoding.html">CachedCharsetCoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConversionException.html">ConversionException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Converter.html">Converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConverterRepository.html">ConverterRepository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConverterSelectionStrategy.html">ConverterSelectionStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConverterSignature.html">ConverterSignature</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">DefaultConverterRepository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultConverters.html">DefaultConverters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DoubleConverter.html">DoubleConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventIdConverter.html">EventIdConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FloatConverter.html">FloatConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntegerConverter.html">IntegerConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LongConverter.html">LongConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NoSuchConverterException.html">NoSuchConverterException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="NullConverter.html">NullConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PredicateConverterSelectionStrategy.html">PredicateConverterSelectionStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PredicateConverterSelectionStrategy-ExactKeyPredicate.html">PredicateConverterSelectionStrategy.ExactKeyPredicate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PredicateConverterSelectionStrategy-Predicate.html">PredicateConverterSelectionStrategy.Predicate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PredicateConverterSelectionStrategy-RegExPredicate.html">PredicateConverterSelectionStrategy.RegExPredicate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProtocolBufferConverter.html">ProtocolBufferConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ScopeConverter.html">ScopeConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StringConverter.html">StringConverter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UnambiguousConverterMap.html">UnambiguousConverterMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UserData.html">UserData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WireContents.html">WireContents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.converter</a> &raquo;</li>
+        
+      <li>DefaultConverterRepository</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/converter/DefaultConverterRepository.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="defaultconverterrepository">
+<h1>DefaultConverterRepository<a class="headerlink" href="#defaultconverterrepository" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.converter.DefaultConverterRepository">
+public class <code class="sig-name descname">DefaultConverterRepository</code>&lt;WireType&gt; implements <a class="reference internal" href="ConverterRepository.html#rsb.converter.ConverterRepository" title="rsb.converter.ConverterRepository">ConverterRepository</a>&lt;WireType&gt;<a class="headerlink" href="#rsb.converter.DefaultConverterRepository" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="ConverterRepository.html#rsb.converter.ConverterRepository" title="rsb.converter.ConverterRepository"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ConverterRepository</span></code></a> implementation used as the default in RSB. The accessor methods return <a class="reference internal" href="ConverterSelectionStrategy.html#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ConverterSelectionStrategy</span></code></a> instances of type <a class="reference internal" href="UnambiguousConverterMap.html#rsb.converter.UnambiguousConverterMap" title="rsb.converter.UnambiguousConverterMap"><code class="xref java java-ref docutils literal notranslate"><span class="pre">UnambiguousConverterMap</span></code></a>. Adding a converter with the same signature as an existing one will replace the previous entry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>&lt;WireType&gt;</strong> – wire type of contained converters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addconverter">
+<h3>addConverter<a class="headerlink" href="#addconverter" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.converter.DefaultConverterRepository.addConverter(Converter)">
+public void <code class="sig-name descname">addConverter</code><span class="sig-paren">(</span><a class="reference internal" href="Converter.html#rsb.converter.Converter" title="rsb.converter.Converter">Converter</a>&lt;WireType&gt;<em> converter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DefaultConverterRepository.addConverter(Converter)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getconvertermap">
+<h3>getConverterMap<a class="headerlink" href="#getconvertermap" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.converter.DefaultConverterRepository.getConverterMap()">
+protected <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;<a class="reference internal" href="ConverterSignature.html#rsb.converter.ConverterSignature" title="rsb.converter.ConverterSignature">ConverterSignature</a>, <a class="reference internal" href="Converter.html#rsb.converter.Converter" title="rsb.converter.Converter">Converter</a>&lt;WireType&gt;&gt; <code class="sig-name descname">getConverterMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DefaultConverterRepository.getConverterMap()" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the converterMap</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getconvertersfordeserialization">
+<h3>getConvertersForDeserialization<a class="headerlink" href="#getconvertersfordeserialization" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.converter.DefaultConverterRepository.getConvertersForDeserialization()">
+public <a class="reference internal" href="ConverterSelectionStrategy.html#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy">ConverterSelectionStrategy</a>&lt;WireType&gt; <code class="sig-name descname">getConvertersForDeserialization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DefaultConverterRepository.getConvertersForDeserialization()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getconvertersforserialization">
+<h3>getConvertersForSerialization<a class="headerlink" href="#getconvertersforserialization" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.converter.DefaultConverterRepository.getConvertersForSerialization()">
+public <a class="reference internal" href="ConverterSelectionStrategy.html#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy">ConverterSelectionStrategy</a>&lt;WireType&gt; <code class="sig-name descname">getConvertersForSerialization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DefaultConverterRepository.getConvertersForSerialization()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getdefaultconverterrepository">
+<h3>getDefaultConverterRepository<a class="headerlink" href="#getdefaultconverterrepository" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.converter.DefaultConverterRepository.getDefaultConverterRepository()">
+public static <a class="reference internal" href="#rsb.converter.DefaultConverterRepository" title="rsb.converter.DefaultConverterRepository">DefaultConverterRepository</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html" title="java.nio.ByteBuffer">ByteBuffer</a>&gt; <code class="sig-name descname">getDefaultConverterRepository</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DefaultConverterRepository.getDefaultConverterRepository()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a global repository for wire type <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html" title="java.nio.ByteBuffer"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ByteBuffer</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>repository instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getregisteredconverters">
+<h3>getRegisteredConverters<a class="headerlink" href="#getregisteredconverters" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.converter.DefaultConverterRepository.getRegisteredConverters()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;<a class="reference internal" href="Converter.html#rsb.converter.Converter" title="rsb.converter.Converter">Converter</a>&lt;WireType&gt;&gt; <code class="sig-name descname">getRegisteredConverters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.converter.DefaultConverterRepository.getRegisteredConverters()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all converters that are currently contained in this repository.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>collection of contained converters, not <code class="docutils literal notranslate"><span class="pre">null</span></code>, might be empty. Order has no significance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

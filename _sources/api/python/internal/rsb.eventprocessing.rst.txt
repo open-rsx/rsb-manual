@@ -1,0 +1,32 @@
+rsb.eventprocessing
+===================
+
+.. automodule:: rsb.eventprocessing
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      BroadcastProcessor
+      Configurator
+      DirectEventSendingStrategy
+      EventReceivingStrategy
+      EventSendingStrategy
+      FullyParallelEventReceivingStrategy
+      InRouteConfigurator
+      NonQueuingParallelEventReceivingStrategy
+      OutRouteConfigurator
+      ParallelEventReceivingStrategy
+      ScopeDispatcher
+   
+   
+
+   
+   
+   

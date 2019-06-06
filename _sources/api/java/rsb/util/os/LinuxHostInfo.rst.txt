@@ -1,0 +1,52 @@
+.. java:import:: java.io File
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.util LinkedList
+
+.. java:import:: java.util List
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.util FileReadingUtilities
+
+LinuxHostInfo
+=============
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public class LinuxHostInfo extends PortableHostInfo
+
+   Linux-specific implementation of \ :java:ref:`CommonHostInfo`\  class. Tries to compute and cache a unique machine id (and hostname information) based on the following information:
+
+   ..
+
+   #. contents of /etc/machine-id
+   #. contents of /var/lib/dbus/machine-id
+   #. local hostname
+
+   :author: swrede, ssharma, jwienke
+
+Constructors
+------------
+LinuxHostInfo
+^^^^^^^^^^^^^
+
+.. java:constructor:: public LinuxHostInfo()
+   :outertype: LinuxHostInfo
+
+   Creates a new instance and initializes all provided variables using default paths for machine ids.
+
+LinuxHostInfo
+^^^^^^^^^^^^^
+
+.. java:constructor:: public LinuxHostInfo(List<File> machineIdCascade)
+   :outertype: LinuxHostInfo
+
+   Creates a new instance with a user-defined cascade of files to check for the first working machine id.
+
+   :param machineIdCascade: cascade of files to check for machine ids. The first file that contains a readable ID will be used
+

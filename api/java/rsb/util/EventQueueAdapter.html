@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>EventQueueAdapter &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="ExactTime" href="ExactTime.html" />
+    <link rel="prev" title="ConfigLoader" href="ConfigLoader.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.util</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ByteHelpers.html">ByteHelpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConfigLoader.html">ConfigLoader</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">EventQueueAdapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime.html">ExactTime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-Implementation.html">ExactTime.Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-JnrPosixImplementation-LibC.html">ExactTime.JnrPosixImplementation.LibC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-JnrPosixImplementation-Timeval.html">ExactTime.JnrPosixImplementation.Timeval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FileReadingUtilities.html">FileReadingUtilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InvalidPropertyException.html">InvalidPropertyException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LimitedQueue.html">LimitedQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Property.html">Property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QueueAdapter.html">QueueAdapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QueueClosedException.html">QueueClosedException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeLimitedQueue.html">TimeLimitedQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UUIDTools.html">UUIDTools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.util</a> &raquo;</li>
+        
+      <li>EventQueueAdapter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/util/EventQueueAdapter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="eventqueueadapter">
+<h1>EventQueueAdapter<a class="headerlink" href="#eventqueueadapter" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.util.EventQueueAdapter">
+public class <code class="sig-name descname">EventQueueAdapter</code> extends <a class="reference internal" href="../AbstractEventHandler.html#rsb.AbstractEventHandler" title="rsb.AbstractEventHandler">AbstractEventHandler</a><a class="headerlink" href="#rsb.util.EventQueueAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>An adapter similar to the <a class="reference internal" href="QueueAdapter.html#rsb.util.QueueAdapter" title="rsb.util.QueueAdapter"><code class="xref java java-ref docutils literal notranslate"><span class="pre">QueueAdapter</span></code></a> that provides access to a queue of RSB <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a>s instead of directly to the payload data. It can also be directly registered as handler in an rsb.Listener instance and used for receiving and storing dispatched events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>dklotz</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>EventQueueAdapter<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.EventQueueAdapter.EventQueueAdapter()">
+public <code class="sig-name descname">EventQueueAdapter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.EventQueueAdapter.EventQueueAdapter()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an adapter with a preset unlimited queue inside.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>EventQueueAdapter<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.EventQueueAdapter.EventQueueAdapter(int, boolean)">
+public <code class="sig-name descname">EventQueueAdapter</code><span class="sig-paren">(</span>int<em> capacity</em>, boolean<em> discardOldest</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.EventQueueAdapter.EventQueueAdapter(int, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an adapter with a preset queue inside that is limited to <code class="docutils literal notranslate"><span class="pre">capacity</span></code> elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>capacity</strong> – capacity of the internal queue</p></li>
+<li><p><strong>discardOldest</strong> – if <code class="docutils literal notranslate"><span class="pre">true</span></code>, remove older events if the queue is full, otherwise block until space is available on inserts</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>EventQueueAdapter<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.EventQueueAdapter.EventQueueAdapter(BlockingQueue)">
+public <code class="sig-name descname">EventQueueAdapter</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" title="java.util.concurrent.BlockingQueue">BlockingQueue</a>&lt;<a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a>&gt;<em> queue</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.EventQueueAdapter.EventQueueAdapter(BlockingQueue)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an adapter with the given queue implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>queue</strong> – The queue this adapter should fill.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getqueue">
+<h3>getQueue<a class="headerlink" href="#getqueue" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.EventQueueAdapter.getQueue()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" title="java.util.concurrent.BlockingQueue">BlockingQueue</a>&lt;<a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a>&gt; <code class="sig-name descname">getQueue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.EventQueueAdapter.getQueue()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to the queue filled by this queue adapter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current with the events received by this adapter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="handleevent">
+<h3>handleEvent<a class="headerlink" href="#handleevent" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.EventQueueAdapter.handleEvent(Event)">
+public void <code class="sig-name descname">handleEvent</code><span class="sig-paren">(</span><a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a><em> event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.EventQueueAdapter.handleEvent(Event)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

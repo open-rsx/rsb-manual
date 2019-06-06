@@ -1,0 +1,77 @@
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util NoSuchElementException
+
+.. java:import:: java.util Set
+
+TransportRegistry
+=================
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type:: public class TransportRegistry
+
+   A registry of all know transports.
+
+   :author: jwienke
+
+Methods
+-------
+getDefaultInstance
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static TransportRegistry getDefaultInstance()
+   :outertype: TransportRegistry
+
+   Returns a default instance of this class with the globally available transports.
+
+   :return: default instance
+
+getFactory
+^^^^^^^^^^
+
+.. java:method:: public TransportFactory getFactory(String name)
+   :outertype: TransportRegistry
+
+   Returns the transport factory for a transport with the specified name.
+
+   :param name: name of the transport
+   :throws NoSuchElementException: there is no transport with the given name
+   :return: the transport factory instance
+
+hasTransport
+^^^^^^^^^^^^
+
+.. java:method:: public boolean hasTransport(String name)
+   :outertype: TransportRegistry
+
+   Indicates whether a transport with the given name is available.
+
+   :param name: the name of the transport
+   :return: \ ``true``\  if a transport with the name exists, else \ ``false``\
+
+registerTransport
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void registerTransport(String name, TransportFactory factory)
+   :outertype: TransportRegistry
+
+   Registers a transport factory for a transport with the given name.
+
+   :param name: name of the transport
+   :param factory: factory instance
+   :throws IllegalArgumentException: There is already a transport with the given name or the name is \ ``null``\  or empty.
+
+transportNames
+^^^^^^^^^^^^^^
+
+.. java:method:: public Set<String> transportNames()
+   :outertype: TransportRegistry
+
+   Returns the names of all known transports.
+
+   :return: set of names
+

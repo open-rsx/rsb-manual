@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ProtocolUtilities &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="rsb.patterns" href="../patterns/package-index.html" />
+    <link rel="prev" title="ProtocolHandler" href="ProtocolHandler.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.introspection</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HostIdEnsuringHostInfo.html">HostIdEnsuringHostInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntrospectionModel.html">IntrospectionModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntrospectionModel-IntrospectionModelObserver.html">IntrospectionModel.IntrospectionModelObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="IntrospectionParticipantObserver.html">IntrospectionParticipantObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LacksOsInformationException.html">LacksOsInformationException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LoggingObserver.html">LoggingObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantInfo.html">ParticipantInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProtocolHandler.html">ProtocolHandler</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ProtocolUtilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.introspection</a> &raquo;</li>
+        
+      <li>ProtocolUtilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/introspection/ProtocolUtilities.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="protocolutilities">
+<h1>ProtocolUtilities<a class="headerlink" href="#protocolutilities" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.introspection.ProtocolUtilities">
+final class <code class="sig-name descname">ProtocolUtilities</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collection of helper methods used to fulfill the introspection protocol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-scope">
+<h3>BASE_SCOPE<a class="headerlink" href="#base-scope" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.BASE_SCOPE">
+public static final <a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a> <code class="sig-name descname">BASE_SCOPE</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.BASE_SCOPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base scope for the whole introspection.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="echo-rpc-method-name">
+<h3>ECHO_RPC_METHOD_NAME<a class="headerlink" href="#echo-rpc-method-name" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.ECHO_RPC_METHOD_NAME">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">ECHO_RPC_METHOD_NAME</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.ECHO_RPC_METHOD_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the RPC server method for echoing back timing information to a caller.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="host-scope">
+<h3>HOST_SCOPE<a class="headerlink" href="#host-scope" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.HOST_SCOPE">
+public static final <a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a> <code class="sig-name descname">HOST_SCOPE</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.HOST_SCOPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scope for host-related communication.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="participant-scope">
+<h3>PARTICIPANT_SCOPE<a class="headerlink" href="#participant-scope" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.PARTICIPANT_SCOPE">
+public static final <a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a> <code class="sig-name descname">PARTICIPANT_SCOPE</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.PARTICIPANT_SCOPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scope for participant-related communication.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ping-event-data">
+<h3>PING_EVENT_DATA<a class="headerlink" href="#ping-event-data" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.PING_EVENT_DATA">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">PING_EVENT_DATA</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.PING_EVENT_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data to send or expect in a ping event.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pong-event-data">
+<h3>PONG_EVENT_DATA<a class="headerlink" href="#pong-event-data" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.PONG_EVENT_DATA">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">PONG_EVENT_DATA</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.PONG_EVENT_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data to send or expect in a pong event.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="request-method-name">
+<h3>REQUEST_METHOD_NAME<a class="headerlink" href="#request-method-name" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.REQUEST_METHOD_NAME">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">REQUEST_METHOD_NAME</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.REQUEST_METHOD_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../Event.html#rsb.Event.getMethod()" title="rsb.Event.getMethod()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">rsb.Event.getMethod()</span></code></a> entry to expect on a request for a specific participant.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="request-receive-user-time">
+<h3>REQUEST_RECEIVE_USER_TIME<a class="headerlink" href="#request-receive-user-time" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.REQUEST_RECEIVE_USER_TIME">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">REQUEST_RECEIVE_USER_TIME</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.REQUEST_RECEIVE_USER_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>User timestamp name to echo back the receive time.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="request-send-user-time">
+<h3>REQUEST_SEND_USER_TIME<a class="headerlink" href="#request-send-user-time" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.REQUEST_SEND_USER_TIME">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">REQUEST_SEND_USER_TIME</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.REQUEST_SEND_USER_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>User timestamp name to echo back the send time.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="survey-method-name">
+<h3>SURVEY_METHOD_NAME<a class="headerlink" href="#survey-method-name" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.introspection.ProtocolUtilities.SURVEY_METHOD_NAME">
+public static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">SURVEY_METHOD_NAME</code><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.SURVEY_METHOD_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../Event.html#rsb.Event.getMethod()" title="rsb.Event.getMethod()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">rsb.Event.getMethod()</span></code></a> entry to expect on a participant survey request.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="isspecificparticipantscope">
+<h3>isSpecificParticipantScope<a class="headerlink" href="#isspecificparticipantscope" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ProtocolUtilities.isSpecificParticipantScope(Scope)">
+public static boolean <code class="sig-name descname">isSpecificParticipantScope</code><span class="sig-paren">(</span><a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.isSpecificParticipantScope(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether the scope formally can be interpreted as a scope for for a specific participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – the scope to test</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the scope has sufficient components to be the designator for a specific participant</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="participantidfromscope">
+<h3>participantIdFromScope<a class="headerlink" href="#participantidfromscope" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ProtocolUtilities.participantIdFromScope(Scope)">
+public static <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId">ParticipantId</a> <code class="sig-name descname">participantIdFromScope</code><span class="sig-paren">(</span><a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.participantIdFromScope(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts a <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ParticipantId</span></code></a> from a scope designating a specific participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – the scope to parse</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – scope does not contain a valid id</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the parsed <a class="reference internal" href="../ParticipantId.html#rsb.ParticipantId" title="rsb.ParticipantId"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ParticipantId</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="participantscope">
+<h3>participantScope<a class="headerlink" href="#participantscope" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.introspection.ProtocolUtilities.participantScope(ParticipantInfo)">
+public static <a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a> <code class="sig-name descname">participantScope</code><span class="sig-paren">(</span><a class="reference internal" href="ParticipantInfo.html#rsb.introspection.ParticipantInfo" title="rsb.introspection.ParticipantInfo">ParticipantInfo</a><em> participant</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.introspection.ProtocolUtilities.participantScope(ParticipantInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a scope to send data messages on that regard a specific participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>participant</strong> – the participant to create the scope for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a scope related to the participant, subscope of <a class="reference internal" href="#rsb.introspection.ProtocolUtilities.PARTICIPANT_SCOPE" title="rsb.introspection.ProtocolUtilities.PARTICIPANT_SCOPE"><code class="xref java java-ref docutils literal notranslate"><span class="pre">PARTICIPANT_SCOPE</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

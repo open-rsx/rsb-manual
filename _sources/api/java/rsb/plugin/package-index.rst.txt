@@ -1,0 +1,16 @@
+rsb.plugin
+==========
+
+Plugin interface and manager implementation.
+
+:author: jwienke
+
+.. java:package:: rsb.plugin
+
+.. toctree::
+   :maxdepth: 1
+
+   LoadingException
+   Plugin
+   PluginManager
+

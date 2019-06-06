@@ -1,0 +1,38 @@
+rsb.transport.socket
+====================
+
+.. automodule:: rsb.transport.socket
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      get_bus_client_for
+      get_bus_server_for
+      remove_connector
+      rsb_initialize
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Bus
+      BusClient
+      BusConnection
+      BusServer
+      Connector
+      InConnector
+      OutConnector
+      TransportFactory
+   
+   
+
+   
+   
+   

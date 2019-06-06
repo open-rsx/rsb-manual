@@ -1,0 +1,50 @@
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb.filter Filter
+
+FilteringHandler
+================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class FilteringHandler implements Handler
+
+   A decorator for \ :java:ref:`Handler`\ s that allows additional filtering for each handler. Filters are a conjunction, hence one failure prevents delivery.
+
+   :author: jwienke
+
+Constructors
+------------
+FilteringHandler
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public FilteringHandler(Handler decorated, Filter filter)
+   :outertype: FilteringHandler
+
+   Creates a filtering handler that wraps another handler and takes one additional filter.
+
+   :param decorated: handler to wrap and call if filter matches
+   :param filter: the additional filter to apply
+
+FilteringHandler
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public FilteringHandler(Handler decorated, Set<Filter> filters)
+   :outertype: FilteringHandler
+
+   Creates a filtering handler that wraps another handler and takes a set of filters to apply.
+
+   :param decorated: handler to wrap and call if filter matches
+   :param filters: the additional filters to apply
+
+Methods
+-------
+internalNotify
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void internalNotify(Event event) throws InterruptedException
+   :outertype: FilteringHandler
+

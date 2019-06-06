@@ -1,0 +1,37 @@
+.. java:import:: rsb.filter FilterObserver
+
+InConnector
+===========
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type:: public interface InConnector extends Connector, FilterObserver
+
+   Implements receiving \ :java:ref:`rsb.Event`\ s from a specific transport.
+
+   :author: jwienke
+
+Methods
+-------
+addHandler
+^^^^^^^^^^
+
+.. java:method::  void addHandler(EventHandler handler)
+   :outertype: InConnector
+
+   Adds a handler which will be notified about newly received events. This method must not be called after calling \ :java:ref:`activate()`\ .
+
+   :param handler: the handler to notify
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method::  boolean removeHandler(EventHandler handler)
+   :outertype: InConnector
+
+   Removes a registered handler so that it won't be notified anymore. This method must not be called after calling \ :java:ref:`deactivate()`\ .
+
+   :param handler: the handler to remove
+   :return: \ ``true``\  if the given handler was removed, else \ ``false``\ , i.e. in case that handler was never registered.
+

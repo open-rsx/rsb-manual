@@ -1,0 +1,36 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb ParticipantObserver
+
+LoggingObserver
+===============
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public class LoggingObserver implements ParticipantObserver
+
+   Observer class to log participant creation and destruction.
+
+   :author: swrede
+
+Methods
+-------
+created
+^^^^^^^
+
+.. java:method:: @Override public void created(Participant participant, ParticipantCreateArgs<?> args)
+   :outertype: LoggingObserver
+
+destroyed
+^^^^^^^^^
+
+.. java:method:: @Override public void destroyed(Participant participant)
+   :outertype: LoggingObserver
+

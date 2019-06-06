@@ -1,0 +1,58 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+BusClient
+=========
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class BusClient extends BusBase
+
+   A \ :java:ref:`Bus`\  implementation which acts as a client to an existing server implementation. This means that new notifications are only sent to local receivers as well as to a single \ :java:ref:`BusConnection`\  connecting with the server.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+BusClient
+^^^^^^^^^
+
+.. java:constructor:: public BusClient(SocketOptions options)
+   :outertype: BusClient
+
+   Constructs a bus that is client of an active server.
+
+   :param options: socket options to use for the connection
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: BusClient
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: BusClient
+
+handleIncoming
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void handleIncoming(Notification notification, BusConnection source) throws RSBException
+   :outertype: BusClient
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: BusClient
+

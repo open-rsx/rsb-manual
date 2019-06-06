@@ -1,0 +1,50 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: rsb ParticipantId
+
+.. java:import:: rsb.protocol EventIdType.EventId
+
+.. java:import:: com.google.protobuf ByteString
+
+EventIdConverter
+================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class EventIdConverter implements Converter<ByteBuffer>
+
+   A converter for \ :java:ref:`rsb.EventId`\  instances.
+
+   :author: jwienke
+
+Constructors
+------------
+EventIdConverter
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public EventIdConverter()
+   :outertype: EventIdConverter
+
+   Creates a new converter instance.
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer buffer) throws ConversionException
+   :outertype: EventIdConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: EventIdConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object obj) throws ConversionException
+   :outertype: EventIdConverter
+

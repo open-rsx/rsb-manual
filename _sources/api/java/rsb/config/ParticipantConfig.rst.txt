@@ -1,0 +1,140 @@
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Map.Entry
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb.eventprocessing EventReceivingStrategyFactory
+
+.. java:import:: rsb.eventprocessing SingleThreadFactory
+
+ParticipantConfig
+=================
+
+.. java:package:: rsb.config
+   :noindex:
+
+.. java:type:: public class ParticipantConfig
+
+   A class describing the configuration of Participant instances. Whenever possible, this class contains API classes instead of configuration options. Options, on the other hand, are maintained inside \ :java:ref:`rsb.util.Properties`\  instances.
+
+   :author: swrede, jmoringe, jwienke
+
+Methods
+-------
+copy
+^^^^
+
+.. java:method:: public ParticipantConfig copy()
+   :outertype: ParticipantConfig
+
+   Creates a deep copy of this instance. Most attributes are copied deeply.
+
+   :return: deep copy
+
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: ParticipantConfig
+
+getEnabledTransports
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<TransportConfig> getEnabledTransports()
+   :outertype: ParticipantConfig
+
+   Returns the set of transport configurations which represent enabled transports.
+
+   :return: set of transport configurations
+
+getOrCreateTransport
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public TransportConfig getOrCreateTransport(String transportName)
+   :outertype: ParticipantConfig
+
+   Returns a transport and, if necessary, creates the transport config.
+
+   :param transportName: name of the transport
+   :return: config for that transport
+
+getReceivingStrategy
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public EventReceivingStrategyFactory getReceivingStrategy()
+   :outertype: ParticipantConfig
+
+   Returns a factory for creating receiving strategy instances.
+
+   :return: factory
+
+getTransports
+^^^^^^^^^^^^^
+
+.. java:method:: public final Map<String, TransportConfig> getTransports()
+   :outertype: ParticipantConfig
+
+   Returns the internal map of available transport configurations by their names.
+
+   :return: map from transport names to their configuration objects
+
+hasTransport
+^^^^^^^^^^^^
+
+.. java:method:: public boolean hasTransport(String name)
+   :outertype: ParticipantConfig
+
+   Indicates whether there is a configuration for a transport with the given name.
+
+   :param name: name of the transport
+   :return: \ ``true``\  if a config for the transport exists, else \ ``false``\
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: ParticipantConfig
+
+isIntrospectionEnabled
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean isIntrospectionEnabled()
+   :outertype: ParticipantConfig
+
+   Indicates whether introspection should be enabled for participants with this config or not.
+
+   :return: \ ``true``\  if participants shall be included in the introspection
+
+setIntrospectionEnabled
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setIntrospectionEnabled(boolean introspectionEnabled)
+   :outertype: ParticipantConfig
+
+   Sets whether introspection shall be enabled or not.
+
+   :param introspectionEnabled: \ ``true``\  for enabling
+
+setReceivingStrategy
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setReceivingStrategy(EventReceivingStrategyFactory receivingStrategy)
+   :outertype: ParticipantConfig
+
+   Setter method for the event receiving strategy factory to use.
+
+   :param receivingStrategy: factory to use for creating receiving strategy instances.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: ParticipantConfig
+

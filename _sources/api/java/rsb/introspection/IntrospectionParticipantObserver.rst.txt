@@ -1,0 +1,51 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb ParticipantObserver
+
+.. java:import:: rsb RSBException
+
+IntrospectionParticipantObserver
+================================
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public class IntrospectionParticipantObserver implements ParticipantObserver
+
+   Observer instance connecting the creation / deconstruction of participants to the introspection mechanism.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+IntrospectionParticipantObserver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public IntrospectionParticipantObserver(String processDisplayName)
+   :outertype: IntrospectionParticipantObserver
+
+   Constructs a new instance and accepts a display name to describe the process this instance is operating in.
+
+   :param processDisplayName: human-readable name of the process this instance operates in, may be \ ``null``\  if not provided
+   :throws rsb.introspection.LacksOsInformationException: thrown in case required information from the operating system are not available. This makes the introspection unusable.
+
+Methods
+-------
+created
+^^^^^^^
+
+.. java:method:: @Override public void created(Participant participant, ParticipantCreateArgs<?> args)
+   :outertype: IntrospectionParticipantObserver
+
+destroyed
+^^^^^^^^^
+
+.. java:method:: @Override public void destroyed(Participant participant)
+   :outertype: IntrospectionParticipantObserver
+

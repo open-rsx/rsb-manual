@@ -1,0 +1,44 @@
+.. java:import:: java.net URI
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb RSBException
+
+OutConnector
+============
+
+.. java:package:: rsb.transport.inprocess
+   :noindex:
+
+.. java:type:: public class OutConnector extends ConnectorBase implements rsb.transport.OutConnector
+
+   \ :java:ref:`rsb.transport.OutConnector`\  implementation for the inprocess transport.
+
+   :author: jwienke
+
+Constructors
+------------
+OutConnector
+^^^^^^^^^^^^
+
+.. java:constructor:: public OutConnector(Bus bus)
+   :outertype: OutConnector
+
+   Creates a new out connector operating on a given bus instance.
+
+   :param bus: the bus to use for sending events.
+
+Methods
+-------
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public URI getTransportUri()
+   :outertype: OutConnector
+
+push
+^^^^
+
+.. java:method:: @Override public void push(Event event) throws RSBException
+   :outertype: OutConnector
+

@@ -1,0 +1,31 @@
+.. java:import:: rsb Event
+
+.. java:import:: rsb RSBException
+
+Callback
+========
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public interface Callback
+
+   A \ :java:ref:`Callback`\  implements the functionality of a single method of a \ :java:ref:`LocalServer`\ . Clients usually should not implement this interface directly. Instead use one of the specialized implementing classes like \ :java:ref:`DataCallback`\  or \ :java:ref:`EventCallback`\ .
+
+   :author: jwienke
+
+Methods
+-------
+internalInvoke
+^^^^^^^^^^^^^^
+
+.. java:method::  Event internalInvoke(Event request) throws UserCodeException, InterruptedException
+   :outertype: Callback
+
+   Method to invoke the \ :java:ref:`Callback`\ 's functionality. This method can be considered an internal implementation detail. Implementing user code must not swallow interruption state. Instead, it has to be passed to the outside world.
+
+   :param request: the request received from a \ :java:ref:`RemoteServer`\  method call
+   :throws UserCodeException: any exception in the user code invoked by the callback
+   :throws InterruptedException: indicates that the called action was interrupted
+   :return: an event with the result data of a method
+

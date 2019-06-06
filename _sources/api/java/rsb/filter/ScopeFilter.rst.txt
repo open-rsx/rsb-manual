@@ -1,0 +1,59 @@
+.. java:import:: rsb Event
+
+.. java:import:: rsb Scope
+
+ScopeFilter
+===========
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public class ScopeFilter implements Filter
+
+   A filter that only accepts events from a scope and all its subscopes.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+ScopeFilter
+^^^^^^^^^^^
+
+.. java:constructor:: public ScopeFilter(Scope scope)
+   :outertype: ScopeFilter
+
+   Constructor.
+
+   :param scope: the desired scope, not \ ``null``\
+   :throws IllegalArgumentException: scope is \ ``null``\
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object that)
+   :outertype: ScopeFilter
+
+getScope
+^^^^^^^^
+
+.. java:method:: public Scope getScope()
+   :outertype: ScopeFilter
+
+   Returns the scope this filter operates for. Events from this scope and all subscopes are accepted.
+
+   :return: the scope, not \ ``null``\
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: ScopeFilter
+
+match
+^^^^^
+
+.. java:method:: @Override public boolean match(Event event)
+   :outertype: ScopeFilter
+

@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Request-Reply Communication &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introspection" href="specification-introspection.html" />
+    <link rel="prev" title="Transport-level Filtering" href="specification-transport-level-filtering.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-converters.html">Converters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#transports">Transports</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Request-Reply Communication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#protocol">Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="specification-introspection.html">Introspection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>Request-Reply Communication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-request-reply.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="request-reply-communication">
+<span id="specification-request-reply"></span><h1>Request-Reply Communication<a class="headerlink" href="#request-reply-communication" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Request/Reply communication pattern consists of two roles:</p>
+<p><a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> (usually implemented as <code class="docutils literal notranslate"><span class="pre">LocalServer</span></code> class)</p>
+<blockquote>
+<div><p>This <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> is instantiated in the service-providing
+RSB process. Provided methods are registered by name and
+signature.</p>
+</div></blockquote>
+<p><a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> (usually implemented as <code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code> class)</p>
+<blockquote>
+<div><p>This <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> is instantiated in the service-using
+RSB process. Each <code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code> instance has one or more
+corresponding <code class="docutils literal notranslate"><span class="pre">LocalServer</span></code> instances, potentially in different
+processes, that provide the service in question. Client code calls
+methods on the <code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code> instance which cause methods of a
+<code class="docutils literal notranslate"><span class="pre">LocalServer</span></code> instance to be called and perform the requested
+task.</p>
+</div></blockquote>
+<p>For example:</p>
+<div class="graphviz"><img src="_images/graphviz-214883c0dd41069bcc9b4e17f4c10f04f69c7b69.png" alt="digraph rpc_example {
+fontname=Arial
+fontsize=11
+node [fontsize=11,fontname=Arial]
+edge [fontsize=11,fontname=Arial]
+
+subgraph cluster_process1 {
+  label=&quot;process 1&quot;;
+  &quot;remoteserver&quot; [shape=rectangle];
+}
+subgraph cluster_process2 {
+  label=&quot;process 2&quot;;
+  &quot;server&quot; [shape=rectangle];
+}
+
+&quot;remoteserver&quot; -&gt; &quot;server&quot; [label=&quot;request: call method foo&quot;];
+&quot;server&quot; -&gt; &quot;remoteserver&quot; [label=&quot;reply: for foo call&quot;];
+}" class="graphviz" /></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a single service is provided by more than one server, requests
+will be processed in all servers, but the client will only receive
+one, arbitrarily selected, reply.</p>
+<p>Conversely, if the service is not provided by any server, the
+request part of method calls is performed, but a reply is never
+received. This situation is indistinguishable from a server which
+takes an infinitely long time to process request and can therefore
+not be detected by the caller. However, timeouts can be used to
+handle absent and slow servers uniformly.</p>
+</div>
+</div>
+<div class="section" id="participants">
+<h2>Participants<a class="headerlink" href="#participants" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">LocalServer</span></code></p>
+<blockquote>
+<div><p>Conceptually, the <code class="docutils literal notranslate"><span class="pre">LocalServer</span></code> instance is the root of the
+following object tree:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LocalServer</span></code></p>
+<ul>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a>: <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em></code></p></li>
+<li><p>Method</p>
+<ul>
+<li><p>Name: <code class="samp docutils literal notranslate"><em><span class="pre">METHOD-NAME</span></em></code></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a> <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em><span class="pre">/</span><em><span class="pre">METHOD-NAME</span></em><span class="pre">/</span></code></p></li>
+<li><p>Request <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a>: <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em><span class="pre">/</span><em><span class="pre">METHOD-NAME</span></em><span class="pre">/</span></code></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">Handler</span></a>: passes received events to client code for
+processing</p></li>
+</ul>
+</li>
+<li><p>Reply <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a>: <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em><span class="pre">/</span><em><span class="pre">METHOD-NAME</span></em><span class="pre">/</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>more methods</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code></p>
+<blockquote>
+<div><p>Conceptually, the <code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code> instance is the root of the
+following object tree:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code></p>
+<ul>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a>: <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em></code></p></li>
+<li><p>Method</p>
+<ul>
+<li><p>Name: <code class="samp docutils literal notranslate"><em><span class="pre">METHOD-NAME</span></em></code></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a> <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em><span class="pre">/</span><em><span class="pre">METHOD-NAME</span></em><span class="pre">/</span></code></p></li>
+<li><p>Request <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a>: <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em><span class="pre">/</span><em><span class="pre">METHOD-NAME</span></em><span class="pre">/</span></code></p></li>
+</ul>
+</li>
+<li><p>Reply <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scope</span></a>: <code class="samp docutils literal notranslate"><em><span class="pre">SERVER-SCOPE</span></em><span class="pre">/</span><em><span class="pre">METHOD-NAME</span></em><span class="pre">/</span></code></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">Handler</span></a>: processes received replies to ultimately
+return a result to the client code which initiated the call</p></li>
+</ul>
+</li>
+<li><p>A collection of in-progress method calls</p></li>
+</ul>
+</li>
+<li><p>more methods</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Client code calls a method on a <code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code> instance</p></li>
+<li><p>The request <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> of the method publishes a request
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> containing</p>
+<ul class="simple">
+<li><p>The argument of the method call as <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a></p></li>
+<li><p>The value <code class="docutils literal notranslate"><span class="pre">&quot;REQUEST&quot;</span></code> in its <a class="reference internal" href="glossary.html#term-method-field"><span class="xref std std-term">method field</span></a></p></li>
+</ul>
+</li>
+<li><p>A record containing the <a class="reference internal" href="glossary.html#term-event-id"><span class="xref std std-term">event id</span></a> of the request
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is created for the method call</p></li>
+<li><p>The call blocks until a reply <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is received (see below)</p></li>
+<li><p>The request <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> of the method in a corresponding
+<code class="docutils literal notranslate"><span class="pre">LocalServer</span></code> instance receives the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a></p></li>
+<li><p>The request <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> is dispatched to a handler for processing</p></li>
+<li><p>After processing, the reply <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> of the method in the
+<code class="docutils literal notranslate"><span class="pre">LocalServer</span></code> sends a reply <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> containing</p>
+<ul class="simple">
+<li><p>The result of the processing as <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a>, if the
+processing succeeded without errors</p></li>
+<li><p>The textual description of the error as <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a>, if an
+error occurred</p></li>
+<li><p>A user-info item with key <code class="docutils literal notranslate"><span class="pre">rsb:error?</span></code> and an arbitrary value,
+if an error occurred</p></li>
+<li><p>The value <code class="docutils literal notranslate"><span class="pre">&quot;REPLY&quot;</span></code> in its <a class="reference internal" href="glossary.html#term-method-field"><span class="xref std std-term">method field</span></a></p></li>
+<li><p>The <a class="reference internal" href="glossary.html#term-event-id"><span class="xref std std-term">event id</span></a> of the request <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> in its
+<a class="reference internal" href="glossary.html#term-causal-vector"><span class="xref std std-term">causal vector</span></a></p></li>
+</ul>
+</li>
+<li><p>The reply listener of the method in the <code class="docutils literal notranslate"><span class="pre">RemoteServer</span></code> receives
+the reply <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a></p></li>
+<li><p>The call record is located using the <a class="reference internal" href="glossary.html#term-event-id"><span class="xref std std-term">event id</span></a> stored in the
+<a class="reference internal" href="glossary.html#term-causal-vector"><span class="xref std std-term">causal vector</span></a> of the reply <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a></p></li>
+<li><p>The blocking call is notified and</p>
+<ul class="simple">
+<li><p>returns the <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a> of the reply <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>, if a
+user-item with key <code class="docutils literal notranslate"><span class="pre">rsb:error?</span></code> is not present in the
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a></p></li>
+<li><p>signals an error, if a user-item with key <code class="docutils literal notranslate"><span class="pre">rsb:error?</span></code> is
+present in the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a></p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>TODO: include examples or link to tutorial?</p>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>File(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-cpp">https://github.com/open-rsx/rsb-cpp</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/patterns/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Java</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-java">https://github.com/open-rsx/rsb-java</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/patterns/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-python">https://github.com/open-rsx/rsb-python</a> at <code class="docutils literal notranslate"><span class="pre">rsb/patterns/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Lisp</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-cl">https://github.com/open-rsx/rsb-cl</a> at <code class="docutils literal notranslate"><span class="pre">src/patterns/request-reply</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

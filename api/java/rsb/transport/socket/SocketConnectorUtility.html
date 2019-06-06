@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SocketConnectorUtility &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="SocketFactory" href="SocketFactory.html" />
+    <link rel="prev" title="ServerMode" href="ServerMode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.transport.socket</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Bus.html">Bus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bus-NotificationReceiver.html">Bus.NotificationReceiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusBase.html">BusBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusBase-ReceiveThread.html">BusBase.ReceiveThread</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusCache.html">BusCache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusClient.html">BusClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusClientConnection.html">BusClientConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusConnection.html">BusConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusConnectionBase.html">BusConnectionBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusServer.html">BusServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusServerConnection.html">BusServerConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Plugin.html">Plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Protocol.html">Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RefCountingBus.html">RefCountingBus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RefCountingBus-DeactivationHandler.html">RefCountingBus.DeactivationHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ServerMode.html">ServerMode</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SocketConnectorUtility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketFactory.html">SocketFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketInConnector.html">SocketInConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketOptions.html">SocketOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketOutConnector.html">SocketOutConnector</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.transport.socket</a> &raquo;</li>
+        
+      <li>SocketConnectorUtility</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/api/java/rsb/transport/socket/SocketConnectorUtility.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="socketconnectorutility">
+<h1>SocketConnectorUtility<a class="headerlink" href="#socketconnectorutility" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.transport.socket.SocketConnectorUtility">
+public class <code class="sig-name descname">SocketConnectorUtility</code><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class providing base functionality for <a class="reference internal" href="../Connector.html#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref java java-ref docutils literal notranslate"><span class="pre">rsb.transport.Connector</span></code></a> implementations of the socket transport. It is intended to be used via composition. Provided methods are generally thread-safe if not indicated otherwise. The respective instance of this class is used for synchronizing in case clients of this class need to extend synchronized blocks or interact with the synchronization strategies of this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>SocketConnectorUtility<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.transport.socket.SocketConnectorUtility.SocketConnectorUtility(SocketOptions, ServerMode, ConverterSelectionStrategy)">
+public <code class="sig-name descname">SocketConnectorUtility</code><span class="sig-paren">(</span><a class="reference internal" href="SocketOptions.html#rsb.transport.socket.SocketOptions" title="rsb.transport.socket.SocketOptions">SocketOptions</a><em> socketOptions</em>, <a class="reference internal" href="ServerMode.html#rsb.transport.socket.ServerMode" title="rsb.transport.socket.ServerMode">ServerMode</a><em> serverMode</em>, <a class="reference internal" href="../../converter/ConverterSelectionStrategy.html#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy">ConverterSelectionStrategy</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html" title="java.nio.ByteBuffer">ByteBuffer</a>&gt;<em> converters</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility.SocketConnectorUtility(SocketOptions, ServerMode, ConverterSelectionStrategy)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>socketOptions</strong> – socket options to use</p></li>
+<li><p><strong>serverMode</strong> – the kind of server mode to use</p></li>
+<li><p><strong>converters</strong> – the converters to use for serialization</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activate">
+<h3>activate<a class="headerlink" href="#activate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.transport.socket.SocketConnectorUtility.activate()">
+public void <code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility.activate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a new <a class="reference internal" href="Bus.html#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Bus</span></code></a> instance and activates it respecting the requested <a class="reference internal" href="ServerMode.html#rsb.transport.socket.ServerMode" title="rsb.transport.socket.ServerMode"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ServerMode</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – error initializing <a class="reference internal" href="Bus.html#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Bus</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="deactivate">
+<h3>deactivate<a class="headerlink" href="#deactivate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.transport.socket.SocketConnectorUtility.deactivate()">
+public void <code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility.deactivate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates the underlying bus instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="../../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – error deactivating <a class="reference internal" href="Bus.html#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Bus</span></code></a></p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the bus to terminate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getbus">
+<h3>getBus<a class="headerlink" href="#getbus" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.transport.socket.SocketConnectorUtility.getBus()">
+public <a class="reference internal" href="Bus.html#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus">Bus</a> <code class="sig-name descname">getBus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility.getBus()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the underlying bus instance when called after <a class="reference internal" href="../../Activatable.html#rsb.Activatable.activate()" title="rsb.Activatable.activate()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">activate()</span></code></a> .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>bus instance or <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getconverters">
+<h3>getConverters<a class="headerlink" href="#getconverters" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.transport.socket.SocketConnectorUtility.getConverters()">
+public <a class="reference internal" href="../../converter/ConverterSelectionStrategy.html#rsb.converter.ConverterSelectionStrategy" title="rsb.converter.ConverterSelectionStrategy">ConverterSelectionStrategy</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html" title="java.nio.ByteBuffer">ByteBuffer</a>&gt; <code class="sig-name descname">getConverters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility.getConverters()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contained converters to use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>converters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isactive">
+<h3>isActive<a class="headerlink" href="#isactive" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.transport.socket.SocketConnectorUtility.isActive()">
+public boolean <code class="sig-name descname">isActive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.SocketConnectorUtility.isActive()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether this class has been activated or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if activated</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

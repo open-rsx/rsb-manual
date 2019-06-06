@@ -1,0 +1,122 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.concurrent BlockingQueue
+
+.. java:import:: java.util.concurrent LinkedBlockingQueue
+
+.. java:import:: java.util.concurrent TimeUnit
+
+.. java:import:: rsb AbstractEventHandler
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb Factory
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb Listener
+
+.. java:import:: rsb ListenerCreateArgs
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ReaderCreateArgs
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Activatable
+
+Reader
+======
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public class Reader extends Participant
+
+   Implements synchronous event receiving as a pattern on top of the usual asynchronous participant types. Clients have to continuously poll for new events by calling the #read() method. Internally, a queue is used to buffer received events.
+
+   :author: jwienke
+
+Constructors
+------------
+Reader
+^^^^^^
+
+.. java:constructor:: public Reader(ReaderCreateArgs args, Factory factory) throws InitializeException
+   :outertype: Reader
+
+   Creates a new reader instance.
+
+   :param args: Arguments for creating the participant
+   :param factory: Factory instance used for creating the internal listener
+   :throws InitializeException: error initializing the reader
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: Reader
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: Reader
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: @Override public Class<?> getDataType()
+   :outertype: Reader
+
+getKind
+^^^^^^^
+
+.. java:method:: @Override public String getKind()
+   :outertype: Reader
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: Reader
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: Reader
+
+read
+^^^^
+
+.. java:method:: public Event read() throws RSBException, InterruptedException
+   :outertype: Reader
+
+   Read the next event without blocking. If available, returns the next event that was received.
+
+   :throws RSBException: reading the event failed
+   :throws InterruptedException: interrupted while reading
+   :return: an event of \ ``null``\  if no unread event was received yet.
+
+read
+^^^^
+
+.. java:method:: public Event read(long timeout, TimeUnit unit) throws RSBException, InterruptedException
+   :outertype: Reader
+
+   Read the next event and block until one is available. Waits up to the specified amount of time for receiving the next event.
+
+   :param timeout: the amount of time to wait
+   :param unit: the unit of the amount of time to wait
+   :throws RSBException: reading the event failed
+   :throws InterruptedException: interrupted while reading
+   :return: an event of \ ``null``\  if no unread event was received until timeout.
+

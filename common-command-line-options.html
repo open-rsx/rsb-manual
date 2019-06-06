@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Common Commandline Options and Environment Variables &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Specification" href="specification.html" />
+    <link rel="prev" title="Web" href="tool-web.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-introspect.html">Introspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-send.html">Send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-call.html">Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-timesync.html">Timesync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-bridge.html">Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-server.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-web.html">Web</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Common Commandline Options and Environment Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-commandline-options">Common Commandline Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling-related-commandline-options">Error-handling-related Commandline Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#idl-options">IDL-related Commandline Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-environment-variables">Common Environment Variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="tools.html">Tools</a> &raquo;</li>
+        
+      <li>Common Commandline Options and Environment Variables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/common-command-line-options.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="common-commandline-options-and-environment-variables">
+<span id="common-command-line-options"></span><span id="common"></span><h1>Common Commandline Options and Environment Variables<a class="headerlink" href="#common-commandline-options-and-environment-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="common-commandline-options">
+<span id="common-options"></span><h2>Common Commandline Options<a class="headerlink" href="#common-commandline-options" title="Permalink to this headline">¶</a></h2>
+<p>Unless stated otherwise, the following commandline options are
+accepted by all tools:</p>
+<dl class="option">
+<dt id="cmdoption-common-version">
+<code class="sig-name descname">--version</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-common-version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print version information and exit.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-help">
+<code class="sig-name descname">--help</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">-h</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-common-help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print this help and exit.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-help-for">
+<code class="sig-name descname">--help-for</code><code class="sig-prename descclassname"> THING</code><a class="headerlink" href="#cmdoption-common-help-for" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print help for <code class="samp docutils literal notranslate"><em><span class="pre">THING</span></em></code> and exit. This option can be
+specified multiple times.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-info-stream">
+<code class="sig-name descname">--info-stream</code><code class="sig-prename descclassname"> STREAM-NAME</code><a class="headerlink" href="#cmdoption-common-info-stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream to which information messages should be sent.  Allowed
+values for <code class="samp docutils literal notranslate"><em><span class="pre">STREAM-NAME</span></em></code>: <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, <code class="docutils literal notranslate"><span class="pre">standard-output</span></code>,
+<code class="docutils literal notranslate"><span class="pre">stderr</span></code>, <code class="docutils literal notranslate"><span class="pre">error-output</span></code>, <code class="docutils literal notranslate"><span class="pre">none</span></code>.  Default info stream is:
+<code class="docutils literal notranslate"><span class="pre">error-output</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-log-level">
+<code class="sig-name descname">--log-level</code><code class="sig-prename descclassname"> LEVEL</code><a class="headerlink" href="#cmdoption-common-log-level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls the amount of generated log output. Allowed values for
+<code class="samp docutils literal notranslate"><em><span class="pre">LEVEL</span></em></code>: <code class="docutils literal notranslate"><span class="pre">off</span></code>, <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code> and
+<code class="docutils literal notranslate"><span class="pre">error</span></code>. Default log level is <code class="docutils literal notranslate"><span class="pre">warn</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-trace">
+<code class="sig-name descname">--trace</code><code class="sig-prename descclassname"> SPEC</code><a class="headerlink" href="#cmdoption-common-trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace specified things. This option can be supplied multiple times
+to trace multiple things. Each occurrence takes an individual
+<code class="samp docutils literal notranslate"><em><span class="pre">SPEC</span></em></code> which has to have one of the following forms:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;PACKAGE&quot;</span></code></p>
+<blockquote>
+<div><p>Trace all functions in the package named <code class="samp docutils literal notranslate"><em><span class="pre">PACKAGE</span></em></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The double quotes and uppercase.</p>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">FUNCTION-NAME</span></code></p>
+<blockquote>
+<div><p>Trace the function named <code class="samp docutils literal notranslate"><em><span class="pre">FUNCTION-NAME</span></em></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No quotes, actual case of the function name.</p>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-debug">
+<code class="sig-name descname">--debug</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-common-debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable debugging. This does the following things:</p>
+<ul class="simple">
+<li><p>Set the log level such that debug output is emitted</p></li>
+<li><p>Enable printing backtraces instead of just condition reports in
+case of unhandled error conditions</p></li>
+<li><p>Optionally, application-specific debugging</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-swank">
+<code class="sig-name descname">--swank</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-common-swank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a <a class="reference external" href="http://common-lisp.net/project/slime/">slime</a> listener. Swank will print the port it listens
+on. In addition, a file named <code class="file docutils literal notranslate"><span class="pre">./swank-port.txt</span></code> containing
+the port number is written.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-eval">
+<code class="sig-name descname">--eval</code><code class="sig-prename descclassname"> SEXP</code><a class="headerlink" href="#cmdoption-common-eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate <code class="samp docutils literal notranslate"><em><span class="pre">SEXP</span></em></code> as Lisp code. This option can be supplied
+multiple times. Code fragments are evaluated in the order in which
+they appear on the commandline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-load">
+<code class="sig-name descname">--load</code><code class="sig-prename descclassname"> FILE</code><a class="headerlink" href="#cmdoption-common-load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load <code class="samp docutils literal notranslate"><em><span class="pre">FILE</span></em></code>. This option can be supplied multiple
+times. Files are loaded in the order in which they appear on the
+commandline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="error-handling-related-commandline-options">
+<span id="error-options"></span><h2>Error-handling-related Commandline Options<a class="headerlink" href="#error-handling-related-commandline-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-common-on-error">
+<code class="sig-name descname">--on-error</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-common-on-error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the high-level policy for handling errors. Possible
+policies are:</p>
+<p>abort</p>
+<blockquote>
+<div><p>Save and cleanup as much as possible, then terminate with
+unsuccessful result indication.</p>
+</div></blockquote>
+<p>continue</p>
+<blockquote>
+<div><p>Try to recover from errors and produce best-effort results.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This policy should only be used when the ongoing execution of
+some program is most important since it can lead to errors
+being overlooked.</p>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="idl-options">
+<span id="idl-related-commandline-options"></span><h2>IDL-related Commandline Options<a class="headerlink" href="#idl-options" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-common-idl-path">
+<code class="sig-name descname">--idl-path</code><code class="sig-prename descclassname"> DIRECTORIES</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">-I</code><code class="sig-prename descclassname"> DIRECTORIES</code><a class="headerlink" href="#cmdoption-common-idl-path" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="samp docutils literal notranslate"><em><span class="pre">DIRECTORIES</span></em></code> is a list of <code class="docutils literal notranslate"><span class="pre">:</span></code>-separated directory
+names from which data definitions should be loaded. This option can
+be supplied multiple times.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-load-idl">
+<code class="sig-name descname">--load-idl</code><code class="sig-prename descclassname"> FILE-OR-GLOB-EXPRESSION</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">-l</code><code class="sig-prename descclassname"> FILE-OR-GLOB-EXPRESSION</code><a class="headerlink" href="#cmdoption-common-load-idl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data definition from <code class="samp docutils literal notranslate"><em><span class="pre">FILE-OR-GLOB-EXPRESSION</span></em></code>. If a
+glob expression is specified, in addition to the canonical globbing
+syntax, expressions of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SOMESTUFF</span><span class="o">/**/</span><span class="n">MORESTUFF</span>
+</pre></div>
+</div>
+<p>can be used to search directories recursively. If the file
+designated by <code class="samp docutils literal notranslate"><em><span class="pre">FILE-OR-GLOB-EXPRESSION</span></em></code> depend on
+additional data definition files (i.e. contain <code class="docutils literal notranslate"><span class="pre">import</span></code>
+statements), the list of directories supplied via the
+<a class="reference internal" href="#cmdoption-common-idl-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--idl-path</span></code></a> option is consulted to find these files. This
+option can be supplied multiple times.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-common-on-demand-idl-loading">
+<code class="sig-name descname">--on-demand-idl-loading</code><code class="sig-prename descclassname"> BEHAVIOR</code><a class="headerlink" href="#cmdoption-common-on-demand-idl-loading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls on-demand loading of required data definitions.</p>
+<p>none</p>
+<blockquote>
+<div><p>Do not attempt to load data definitions on demand.</p>
+</div></blockquote>
+<p>blocking</p>
+<blockquote>
+<div><p>Block computations requiring data definitions until the
+respective definition has been loaded and processed.</p>
+</div></blockquote>
+<p>Data definition files are located on the path specified using the
+<a class="reference internal" href="#cmdoption-common-idl-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--idl-path</span></code></a> option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option is only available in the Common Lisp implementation.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="common-environment-variables">
+<span id="id1"></span><h2>Common Environment Variables<a class="headerlink" href="#common-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>Configuration Debugging</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-config.html#specification-config-debug"><span class="std std-ref">Configuration Debugging</span></a></dt><dd><p>Details about configuration debugging</p>
+</dd>
+</dl>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_CONFIG_DEBUG">
+<code class="sig-name descname">RSB_CONFIG_DEBUG</code><a class="headerlink" href="#envvar-RSB_CONFIG_DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set to any value, activates <a class="reference internal" href="specification-config.html#specification-config-debug"><span class="std std-ref">configuration debugging</span></a>.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_CONFIG_FILES">
+<code class="sig-name descname">RSB_CONFIG_FILES</code><a class="headerlink" href="#envvar-RSB_CONFIG_FILES" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set, changes the list of <a class="reference internal" href="specification-config.html#specification-config-effective-configuration"><span class="std std-ref">configuration files</span></a> RSB tries
+to load.</p>
+</dd></dl>
+
+</div></blockquote>
+<p>Plugins</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-plugin.html#specification-plugin"><span class="std std-ref">Plugins</span></a></dt><dd><p>Details about <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugins</span></a></p>
+</dd>
+</dl>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_PLUGINS_CPP_PATH">
+<code class="sig-name descname">RSB_PLUGINS_CPP_PATH</code><a class="headerlink" href="#envvar-RSB_PLUGINS_CPP_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <code class="docutils literal notranslate"><span class="pre">:</span></code>-separated directory names which should be
+searched to locate RSB <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugins</span></a>.</p>
+<p>Default value: <code class="samp docutils literal notranslate"><em><span class="pre">INSTALL-PREFIX</span></em><span class="pre">/lib/rsb</span><em><span class="pre">VERSION</span></em><span class="pre">/plugins</span></code>.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_PLUGINS_CPP_LOAD">
+<code class="sig-name descname">RSB_PLUGINS_CPP_LOAD</code><a class="headerlink" href="#envvar-RSB_PLUGINS_CPP_LOAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <code class="docutils literal notranslate"><span class="pre">:</span></code>-separated <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a> names which should be
+loaded during RSB initialization.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">RSB_PLUGINS_CPP_LOAD=rsbspread</span></code></p>
+</dd></dl>
+
+<p>TODO other languages</p>
+</div></blockquote>
+<p>In-process Transport</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-inprocess.html#specification-inprocess"><span class="std std-ref">Inprocess Transport</span></a></dt><dd><p>Details about the inprocess <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p>
+</dd>
+</dl>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_INPROCESS_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_INPROCESS_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_INPROCESS_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: Enable in-process <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process;</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Disable in-process <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+</dd></dl>
+
+</div></blockquote>
+<p>Spread Transport</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-spread.html#specification-spread"><span class="std std-ref">Spread Transport</span></a></dt><dd><p>Details about the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p>
+</dd>
+</dl>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SPREAD_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_SPREAD_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SPREAD_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: Enable <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Disable <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SPREAD_HOST">
+<code class="sig-name descname">RSB_TRANSPORT_SPREAD_HOST</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SPREAD_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name or IP-address of the machine running the <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread
+daemon</span></a>.</p>
+<p>Allowed values: a hostname or IP-address.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SPREAD_PORT">
+<code class="sig-name descname">RSB_TRANSPORT_SPREAD_PORT</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SPREAD_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port on which the <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a> listens.</p>
+<p>Allowed values: a port number, i.e. an integer in the range [1,
+65535].</p>
+</dd></dl>
+
+</div></blockquote>
+<p>TCP-socket-based Transport</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-socket.html#specification-socket"><span class="std std-ref">TCP-Socket Transport</span></a></dt><dd><p>Details about the socket <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p>
+</dd>
+</dl>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SOCKET_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_SOCKET_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SOCKET_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: Enable TCP-socket-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: Disable TCP-socket-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this
+process.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SOCKET_HOST">
+<code class="sig-name descname">RSB_TRANSPORT_SOCKET_HOST</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SOCKET_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name or IP-address of the machine running the RSB
+TCP-socket-based server component.</p>
+<p>Allowed values: a hostname or IP-address.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SOCKET_PORT">
+<code class="sig-name descname">RSB_TRANSPORT_SOCKET_PORT</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SOCKET_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port on which the RSB TCP-socket-based server component
+listens.</p>
+<p>Allowed values: a port number, i.e. an integer in the range [1,
+65535].</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SOCKET_SERVER">
+<code class="sig-name descname">RSB_TRANSPORT_SOCKET_SERVER</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SOCKET_SERVER" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: This process should act as the RSB TCP-socket-based
+server component.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: This process should connect to the TCP-socket-based
+server.</p>
+<p><code class="docutils literal notranslate"><span class="pre">auto</span></code>: This process should try to determine whether there
+already is a TCP-socket-based server for the configured host-port
+combination and act as a server or client accordingly.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Generally, the “auto” option only works and makes sense for
+setups confined to a single computer.</p>
+<p>For details of the underlying mechanism, see
+<a class="reference internal" href="specification-socket.html#specification-socket-addresses-and-ports"><span class="std std-ref">Addresses and Ports</span></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_SOCKET_TCPNODELAY">
+<code class="sig-name descname">RSB_TRANSPORT_SOCKET_TCPNODELAY</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_SOCKET_TCPNODELAY" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: The <code class="docutils literal notranslate"><span class="pre">TCP_NODELAY</span></code> flag should be used to trade reduced
+latency for (potentially) decreased throughput.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: The <code class="docutils literal notranslate"><span class="pre">TCP_NODELAY</span></code> flag should not be used.</p>
+</dd></dl>
+
+</div></blockquote>
+<p>TCP <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> Transport</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-yarp.html#specification-tcpyarp"><span class="std std-ref">TCP+YARP Transport (without Nameservice operations)</span></a></dt><dd><p>Details about the <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> <strong>without</strong>
+nameservice operations</p>
+</dd>
+</dl>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is currently available in the C++ and
+Common Lisp implementations of RSB.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The URL schema for this <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is <code class="docutils literal notranslate"><span class="pre">tcp+yarp</span></code> which
+is mapped to <code class="docutils literal notranslate"><span class="pre">TCP_YARP</span></code> (note the underscore) in environment
+variable names.</p>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_TCP_YARP_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_TCP_YARP_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_TCP_YARP_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: enable low-level TCP <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this
+process.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: disable the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_TCP_YARP_HOST">
+<code class="sig-name descname">RSB_TRANSPORT_TCP_YARP_HOST</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_TCP_YARP_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name or IP-address of the <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> port to which a connection
+should be established.</p>
+<p>Allowed values: a hostname or IP-address.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_TCP_YARP_PORT">
+<code class="sig-name descname">RSB_TRANSPORT_TCP_YARP_PORT</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_TCP_YARP_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP port of the <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> port to which a connection should be
+established.</p>
+<p>Allowed values: a port number, i.e. an integer in the range [1,
+65535].</p>
+</dd></dl>
+
+</div></blockquote>
+<p><a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> Transport with Nameservice Lookup</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-yarp.html#specification-yarp-nameservice"><span class="std std-ref">YARP Transport (with Nameservice operations)</span></a></dt><dd><p>Details about the <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> <strong>with</strong>
+nameservice operations</p>
+</dd>
+</dl>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is currently only available in the Common
+Lisp implementations of RSB.</p>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_YARP_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_YARP_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_YARP_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: enable <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> with nameservice lookup
+in this process.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code>: disable the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_YARP_HOST">
+<code class="sig-name descname">RSB_TRANSPORT_YARP_HOST</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_YARP_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name or IP-address of the <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> <strong>nameserver</strong>.</p>
+<p>Allowed values: a hostname or IP-address.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_YARP_PORT">
+<code class="sig-name descname">RSB_TRANSPORT_YARP_PORT</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_YARP_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP port on which the <a class="reference external" href="http://eris.liralab.it/yarp/">YARP</a> <strong>nameserver</strong> listens.</p>
+<p>Allowed values: a port number, i.e. an integer in the range [1,
+65535].</p>
+</dd></dl>
+
+</div></blockquote>
+<p>TCP ROS Transport</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-ros.html#specification-tcpros"><span class="std std-ref">TCP+ROS Transport (without Master Lookup)</span></a></dt><dd><p>Details about the <a class="reference external" href="http://www.ros.org/">ROS</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> <strong>without</strong>
+nameservice (aka master) operations</p>
+</dd>
+</dl>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is currently available in the Common Lisp
+implementation of RSB.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The URL schema for this transport is <code class="docutils literal notranslate"><span class="pre">tcp+ros</span></code> which is mapped
+to <code class="docutils literal notranslate"><span class="pre">TCP_ROS</span></code> (note the underscore) in environment variable
+names.</p>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_TCP_ROS_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_TCP_ROS_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_TCP_ROS_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: enable low-level TCP <a class="reference external" href="http://www.ros.org/">ROS</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this
+process; <code class="docutils literal notranslate"><span class="pre">0</span></code>: disable the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this process.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_TCP_ROS_HOST">
+<code class="sig-name descname">RSB_TRANSPORT_TCP_ROS_HOST</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_TCP_ROS_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name or IP-address of the <a class="reference external" href="http://www.ros.org/">ROS</a> node to which a connection
+should be established.</p>
+<p>Allowed values: a hostname or IP-address.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_TCP_ROS_PORT">
+<code class="sig-name descname">RSB_TRANSPORT_TCP_ROS_PORT</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_TCP_ROS_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP port of the <a class="reference external" href="http://www.ros.org/">ROS</a> node to which a connection should be
+established.</p>
+<p>Allowed values: a port number, i.e. an integer in the range [1,
+65535].</p>
+</dd></dl>
+
+</div></blockquote>
+<p>ROS Transport with Nameservice Lookup</p>
+<blockquote>
+<div><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-ros.html#specification-ros-nameservice"><span class="std std-ref">ROS Transport (with Master Lookup)</span></a></dt><dd><p>Details about the <a class="reference external" href="http://www.ros.org/">ROS</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> <strong>with</strong>
+nameservice (aka master) operations</p>
+</dd>
+</dl>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is currently only available in the Common
+Lisp implementations of RSB.</p>
+</div>
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_ROS_ENABLED">
+<code class="sig-name descname">RSB_TRANSPORT_ROS_ENABLED</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_ROS_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: enable <a class="reference external" href="http://www.ros.org/">ROS</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> with nameservice lookup in
+this process; <code class="docutils literal notranslate"><span class="pre">0</span></code>: disable the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in this
+process.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_ROS_HOST">
+<code class="sig-name descname">RSB_TRANSPORT_ROS_HOST</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_ROS_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name or IP-address of the <a class="reference external" href="http://www.ros.org/">ROS</a> <strong>master</strong>.</p>
+<p>Allowed values: a hostname or IP-address.</p>
+</dd></dl>
+
+<dl class="envvar">
+<dt id="envvar-RSB_TRANSPORT_ROS_PORT">
+<code class="sig-name descname">RSB_TRANSPORT_ROS_PORT</code><a class="headerlink" href="#envvar-RSB_TRANSPORT_ROS_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP port on which the <a class="reference external" href="http://www.ros.org/">ROS</a> <strong>master</strong> listens.</p>
+<p>Allowed values: a port number, i.e. an integer in the range [1,
+65535].</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

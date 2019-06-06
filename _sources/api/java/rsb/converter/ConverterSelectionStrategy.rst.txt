@@ -1,0 +1,27 @@
+ConverterSelectionStrategy
+==========================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public interface ConverterSelectionStrategy<WireType>
+
+   Implementations of this interface perform mappings of one of the followings forms: - wire-schema -< @ref Converter - data-type -< @ref Converter. Implementations must implement \ :java:ref:`equals(Object)`\  and \ :java:ref:`hashCode()`\  appropriately.
+
+   :author: jmoringe, swrede
+   :param <WireType>: the kind of wires contained converters can deal with
+
+Methods
+-------
+getConverter
+^^^^^^^^^^^^
+
+.. java:method::  Converter<WireType> getConverter(String key)
+   :outertype: ConverterSelectionStrategy
+
+   Tries to look up the converter designated by @a key.
+
+   :param key: the key
+   :throws NoSuchConverterException: no converter found for that key
+   :return: the converter for the given key
+

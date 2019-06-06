@@ -1,0 +1,47 @@
+.. java:import:: rsb RSBException
+
+ConversionException
+===================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class ConversionException extends RSBException
+
+   An exception that indicates a conversion error in a \ :java:ref:`Converter`\ .
+
+   :author: jwienke
+
+Constructors
+------------
+ConversionException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ConversionException(String message)
+   :outertype: ConversionException
+
+   Constructor with a message.
+
+   :param message: error message
+
+ConversionException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ConversionException(Throwable cause)
+   :outertype: ConversionException
+
+   Constructor with a root cause.
+
+   :param cause: root cause
+
+ConversionException
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ConversionException(String message, Throwable cause)
+   :outertype: ConversionException
+
+   Constructor with message and root cause.
+
+   :param message: error message
+   :param cause: root cause
+

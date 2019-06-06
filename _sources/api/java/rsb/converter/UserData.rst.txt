@@ -1,0 +1,48 @@
+UserData
+========
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class UserData<WireType>
+
+   A wrapper around deserialized data that contains the unspecific \ :java:ref:`Object`\  instance with a class object describing its type. TODO is the unused generics type really required?
+
+   :author: jwienke, swrede
+   :param <WireType>: the kind of wire this user data originate from
+
+Constructors
+------------
+UserData
+^^^^^^^^
+
+.. java:constructor:: public UserData(Object data, Class<?> typeInfo)
+   :outertype: UserData
+
+   Constructor.
+
+   :param data: the data to wrap
+   :param typeInfo: a class object describing the data
+
+Methods
+-------
+getData
+^^^^^^^
+
+.. java:method:: public Object getData()
+   :outertype: UserData
+
+   Returns the deserialized data.
+
+   :return: deserialized data
+
+getTypeInfo
+^^^^^^^^^^^
+
+.. java:method:: public Class<?> getTypeInfo()
+   :outertype: UserData
+
+   Class object describing the type of the deserialized data.
+
+   :return: class type info
+

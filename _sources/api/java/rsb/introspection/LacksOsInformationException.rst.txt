@@ -1,0 +1,45 @@
+LacksOsInformationException
+===========================
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public class LacksOsInformationException extends RuntimeException
+
+   Indicates that required information from the OS cannot be retrieved.
+
+   :author: jwienke
+
+Constructors
+------------
+LacksOsInformationException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LacksOsInformationException(String message, Throwable cause)
+   :outertype: LacksOsInformationException
+
+   Constructor.
+
+   :param message: reason
+   :param cause: cause
+
+LacksOsInformationException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LacksOsInformationException(String message)
+   :outertype: LacksOsInformationException
+
+   Constructor.
+
+   :param message: reason
+
+LacksOsInformationException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LacksOsInformationException(Throwable cause)
+   :outertype: LacksOsInformationException
+
+   Constructor.
+
+   :param cause: reason
+

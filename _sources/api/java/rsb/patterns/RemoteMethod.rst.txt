@@ -1,0 +1,94 @@
+.. java:import:: java.lang.ref WeakReference
+
+.. java:import:: java.net URI
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.concurrent ConcurrentHashMap
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb EventId
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb InformerCreateArgs
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb ListenerCreateArgs
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.filter MethodFilter
+
+RemoteMethod
+============
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public class RemoteMethod extends Method implements Handler
+
+   Objects of this class represent methods provided by a remote server.
+
+   :author: jmoringe, swrede, jwienke
+
+Constructors
+------------
+RemoteMethod
+^^^^^^^^^^^^
+
+.. java:constructor:: public RemoteMethod(ParticipantCreateArgs<?> args) throws InterruptedException, InitializeException
+   :outertype: RemoteMethod
+
+   Create a new RemoteMethod object that represent the remote method named @a name provided by @a server.
+
+   :param args: the arguments used to create this method
+   :throws InterruptedException: error while installing method
+   :throws InitializeException: error initializing the method or one of the underlying participants
+
+Methods
+-------
+call
+^^^^
+
+.. java:method::  void call(Event request, FuturePreparator<?> resultPreparator) throws RSBException
+   :outertype: RemoteMethod
+
+   :param request: the request from the caller
+   :param resultPreparator: strategy for preparing the result \ :java:ref:`Future`\  instance from the received reply event
+   :throws RSBException: in case of communication errors
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: @Override public Class<?> getDataType()
+   :outertype: RemoteMethod
+
+getKind
+^^^^^^^
+
+.. java:method:: @Override public String getKind()
+   :outertype: RemoteMethod
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: RemoteMethod
+
+internalNotify
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void internalNotify(Event event)
+   :outertype: RemoteMethod
+

@@ -1,0 +1,55 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb.transport Connector
+
+RouteConfigurator
+=================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public interface RouteConfigurator<ConnectorType extends Connector> extends Activatable
+
+   Abstract interface for classes setting up event receiving or sending routes from \ :java:ref:`rsb.Participant`\  instances to the concrete transport implementations.
+
+   :author: jwienke
+   :param <ConnectorType>: The type of \ :java:ref:`Connector`\  instances used by implementing classes
+
+Methods
+-------
+addConnector
+^^^^^^^^^^^^
+
+.. java:method::  void addConnector(ConnectorType connector)
+   :outertype: RouteConfigurator
+
+   Adds a connector which will subsequently be used for for sending events. This method must only be called before the object is being activated using \ :java:ref:`activate()`\ .
+
+   :param connector: connector to add
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method::  Set<URI> getTransportUris()
+   :outertype: RouteConfigurator
+
+   Returns URIs describing the transports configured for this configurator. Only valid if activated.
+
+   :throws IllegalStateException: instance is in wrong state to get these URIs
+   :return: set of transport URIs, not \ ``null``\
+
+removeConnector
+^^^^^^^^^^^^^^^
+
+.. java:method::  boolean removeConnector(ConnectorType connector)
+   :outertype: RouteConfigurator
+
+   Removes a connector, which will not receive events for sending afterwards. This method must only be called before the object is being activated using \ :java:ref:`activate()`\ .
+
+   :param connector: the connector to remove
+   :return: \ ``true``\  if the connector was previously installed and hence remove now, else \ ``false``\
+

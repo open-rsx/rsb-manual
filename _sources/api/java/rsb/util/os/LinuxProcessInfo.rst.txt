@@ -1,0 +1,56 @@
+.. java:import:: java.io File
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util LinkedList
+
+.. java:import:: java.util List
+
+.. java:import:: java.util NoSuchElementException
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: java.util.regex Matcher
+
+.. java:import:: java.util.regex Pattern
+
+.. java:import:: rsb.util FileReadingUtilities
+
+LinuxProcessInfo
+================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public class LinuxProcessInfo extends PortableProcessInfo
+
+   Linux-optimized implementation of process info interface.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+LinuxProcessInfo
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LinuxProcessInfo()
+   :outertype: LinuxProcessInfo
+
+   Creates a new instance and initializes provided variables from default file paths.
+
+LinuxProcessInfo
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LinuxProcessInfo(File cmdLineFile, File globalStatFile, File procStatFile)
+   :outertype: LinuxProcessInfo
+
+   Creates a new instance with specified files from the proc filesystem.
+
+   :param cmdLineFile: path to the /proc/cmdline file
+   :param globalStatFile: path to the /proc/stat file (system stats)
+   :param procStatFile: path to the /proc/self/stat file (process stats)
+

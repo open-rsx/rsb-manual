@@ -1,0 +1,98 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb QualityOfServiceSpec
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.converter WireContents
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+.. java:import:: rsb.protocol NotificationType.Notification.Builder
+
+.. java:import:: rsb.protocol ProtocolConversion
+
+.. java:import:: rsb.transport AbstractConnector
+
+.. java:import:: rsb.transport OutConnector
+
+.. java:import:: rsb.util ByteHelpers
+
+SocketOutConnector
+==================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class SocketOutConnector extends AbstractConnector implements OutConnector
+
+   An \ :java:ref:`OutConnector`\  instance for the socket transport.
+
+   :author: jwienke
+
+Constructors
+------------
+SocketOutConnector
+^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public SocketOutConnector(SocketOptions socketOptions, ServerMode serverMode, ConverterSelectionStrategy<ByteBuffer> converters)
+   :outertype: SocketOutConnector
+
+   Constructor.
+
+   :param socketOptions: options for the socket
+   :param serverMode: server mode to use
+   :param converters: converters to use for serialization
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: SocketOutConnector
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: SocketOutConnector
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public URI getTransportUri()
+   :outertype: SocketOutConnector
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: SocketOutConnector
+
+push
+^^^^
+
+.. java:method:: @Override public void push(Event event) throws RSBException
+   :outertype: SocketOutConnector
+
+setQualityOfServiceSpec
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void setQualityOfServiceSpec(QualityOfServiceSpec spec)
+   :outertype: SocketOutConnector
+
+setScope
+^^^^^^^^
+
+.. java:method:: @Override public void setScope(Scope scope)
+   :outertype: SocketOutConnector
+

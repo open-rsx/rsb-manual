@@ -1,0 +1,29 @@
+.. java:import:: rsb Version
+
+.. java:import:: rsb.util ExactTime
+
+DumpVersion
+===========
+
+.. java:package:: rsb.apps
+   :noindex:
+
+.. java:type:: public final class DumpVersion
+
+   A simply executable to dump the RSB version to the command line.
+
+   :author: jwienke
+
+Methods
+-------
+main
+^^^^
+
+.. java:method:: @SuppressWarnings public static void main(String[] args) throws Throwable
+   :outertype: DumpVersion
+
+   Main method.
+
+   :param args: command line args
+   :throws Throwable: in case of any error
+

@@ -1,0 +1,43 @@
+rsb
+===
+
+The base package of RSB containing the user-level API.
+
+:author: jwienke
+
+.. java:package:: rsb
+
+.. toctree::
+   :maxdepth: 1
+
+   AbstractActivatable
+   AbstractDataHandler
+   AbstractEventHandler
+   Activatable
+   Activatable-State
+   Event
+   EventId
+   Factory
+   Factory-ParticipantObserverManager
+   FilteringHandler
+   Handler
+   Informer
+   InformerCreateArgs
+   InitializeException
+   Listener
+   ListenerCreateArgs
+   LocalServerCreateArgs
+   MetaData
+   Participant
+   ParticipantCreateArgs
+   ParticipantId
+   ParticipantObserver
+   QualityOfServiceSpec
+   QualityOfServiceSpec-Ordering
+   QualityOfServiceSpec-Reliability
+   RSBException
+   ReaderCreateArgs
+   RemoteServerCreateArgs
+   Scope
+   Version
+

@@ -1,0 +1,28 @@
+.. java:import:: rsb.protocol.introspection ByeType.Bye
+
+.. java:import:: rsb.protocol.introspection HelloType.Hello
+
+.. java:import:: rsb.protocol.operatingsystem HostType.Host
+
+.. java:import:: rsb.protocol.operatingsystem ProcessType.Process
+
+DefaultConverters
+=================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public final class DefaultConverters
+
+   :author: swrede
+
+Methods
+-------
+register
+^^^^^^^^
+
+.. java:method:: public static void register()
+   :outertype: DefaultConverters
+
+   Convenience method to register default converters for default wire type.
+

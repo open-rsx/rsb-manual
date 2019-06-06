@@ -1,0 +1,74 @@
+.. java:import:: java.net URI
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+Bus
+===
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: @SuppressWarnings public interface Bus extends Activatable
+
+   Instances of this class provide access to a socket-based bus. It is transparent for clients (connectors) of this class whether it is accessed by running the bus server or by connecting to the bus server as a client.
+
+   :author: jwienke
+
+Methods
+-------
+addNotificationReceiver
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void addNotificationReceiver(NotificationReceiver receiver)
+   :outertype: Bus
+
+   Registers a local observer for notifications.
+
+   :param receiver: the receiver to register
+
+getSocketOptions
+^^^^^^^^^^^^^^^^
+
+.. java:method::  SocketOptions getSocketOptions()
+   :outertype: Bus
+
+   Returns the current socket configuration of the bus.
+
+   :return: socket options used
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method::  URI getTransportUri()
+   :outertype: Bus
+
+   Return the URI describing the transport manifested by this bus. Only valid if activated.
+
+   :throws IllegalStateException: instance is in wrong state to prepare the URI
+   :return: URI, not \ ``null``\
+
+handleOutgoing
+^^^^^^^^^^^^^^
+
+.. java:method::  void handleOutgoing(Notification notification) throws RSBException
+   :outertype: Bus
+
+   Handles a notification to be sent over the bus. The default implementation dispatches the notification to all local \ :java:ref:`NotificationReceiver`\  and to all registered \ :java:ref:`BusConnection`\  s.
+
+   :param notification: the notification to distribute
+   :throws RSBException: error during dispatching
+
+removeNotificationReceiver
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void removeNotificationReceiver(NotificationReceiver receiver)
+   :outertype: Bus
+
+   Removes a local observer for notifications if registered before.
+
+   :param receiver: the receiver to remove
+

@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.transport.socket &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Bus" href="Bus.html" />
+    <link rel="prev" title="Plugin" href="../inprocess/Plugin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rsb.transport.socket</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Bus.html">Bus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Bus-NotificationReceiver.html">Bus.NotificationReceiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusBase.html">BusBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusBase-ReceiveThread.html">BusBase.ReceiveThread</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusCache.html">BusCache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusClient.html">BusClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusClientConnection.html">BusClientConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusConnection.html">BusConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusConnectionBase.html">BusConnectionBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusServer.html">BusServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="BusServerConnection.html">BusServerConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Plugin.html">Plugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Protocol.html">Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RefCountingBus.html">RefCountingBus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RefCountingBus-DeactivationHandler.html">RefCountingBus.DeactivationHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ServerMode.html">ServerMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketConnectorUtility.html">SocketConnectorUtility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketFactory.html">SocketFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketInConnector.html">SocketInConnector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketOptions.html">SocketOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SocketOutConnector.html">SocketOutConnector</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+      <li>rsb.transport.socket</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/api/java/rsb/transport/socket/package-index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="rsb-transport-socket">
+<h1>rsb.transport.socket<a class="headerlink" href="#rsb-transport-socket" title="Permalink to this headline">¶</a></h1>
+<p>Contains the implementation of the TCP socket transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+</dl>
+<span class="target" id="package-rsb.transport.socket"></span><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Bus.html">Bus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bus-NotificationReceiver.html">Bus.NotificationReceiver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusBase.html">BusBase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusBase-ReceiveThread.html">BusBase.ReceiveThread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusCache.html">BusCache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusClient.html">BusClient</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusClientConnection.html">BusClientConnection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusConnection.html">BusConnection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusConnectionBase.html">BusConnectionBase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusServer.html">BusServer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BusServerConnection.html">BusServerConnection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Plugin.html">Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RefCountingBus.html">RefCountingBus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RefCountingBus-DeactivationHandler.html">RefCountingBus.DeactivationHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ServerMode.html">ServerMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SocketConnectorUtility.html">SocketConnectorUtility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SocketFactory.html">SocketFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SocketInConnector.html">SocketInConnector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SocketOptions.html">SocketOptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SocketOutConnector.html">SocketOutConnector</a></li>
+</ul>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

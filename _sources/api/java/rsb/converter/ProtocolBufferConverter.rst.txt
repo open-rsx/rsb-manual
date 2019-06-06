@@ -1,0 +1,55 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.util ByteHelpers
+
+.. java:import:: com.google.protobuf InvalidProtocolBufferException
+
+.. java:import:: com.google.protobuf Message
+
+ProtocolBufferConverter
+=======================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class ProtocolBufferConverter<MessageType extends Message> implements Converter<ByteBuffer>
+
+   Converter for protocol buffer generated messages.
+
+   :author: jmoringe
+   :param <MessageType>: the protocol buffer type to convert
+
+Constructors
+------------
+ProtocolBufferConverter
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ProtocolBufferConverter(MessageType instance)
+   :outertype: ProtocolBufferConverter
+
+   Constructor.
+
+   :param instance: provide a default instance for the type to convert
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public UserData<MessageType> deserialize(String wireSchema, ByteBuffer buffer) throws ConversionException
+   :outertype: ProtocolBufferConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: ProtocolBufferConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object obj) throws ConversionException
+   :outertype: ProtocolBufferConverter
+

@@ -1,0 +1,12 @@
+ListenerCreateArgs
+==================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class ListenerCreateArgs extends ParticipantCreateArgs<ListenerCreateArgs>
+
+   \ :java:ref:`ParticipantCreateArgs`\  for \ :java:ref:`Listener`\  instances.
+
+   :author: jwienke, jmoringe
+

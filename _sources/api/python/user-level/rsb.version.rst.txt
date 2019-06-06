@@ -1,0 +1,22 @@
+rsb.version
+===========
+
+.. automodule:: rsb.version
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      get_version
+   
+   
+
+   
+   
+   
+
+   
+   
+   

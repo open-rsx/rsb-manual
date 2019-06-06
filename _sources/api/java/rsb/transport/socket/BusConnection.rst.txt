@@ -1,0 +1,72 @@
+.. java:import:: java.io IOException
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+BusConnection
+=============
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public interface BusConnection extends Activatable
+
+   Interface for connections to the socket based transport.
+
+   :author: jwienke
+
+Methods
+-------
+getOptions
+^^^^^^^^^^
+
+.. java:method::  SocketOptions getOptions()
+   :outertype: BusConnection
+
+   Returns the current configuration of the connection.
+
+   :return: configuration of the connection
+
+isActiveShutdown
+^^^^^^^^^^^^^^^^
+
+.. java:method::  boolean isActiveShutdown()
+   :outertype: BusConnection
+
+   Indicates whether the connection is currently performing an active shutdown as a consequence of calling \ :java:ref:`shutdown()`\ .
+
+   :return: \ ``true``\  in case of active shutdown, else \ ``false``\
+
+readNotification
+^^^^^^^^^^^^^^^^
+
+.. java:method::  Notification readNotification() throws IOException
+   :outertype: BusConnection
+
+   Reads a notification from the connection. Blocks if necessary.
+
+   :throws IOException: communication error
+   :return: the read notification
+
+sendNotification
+^^^^^^^^^^^^^^^^
+
+.. java:method::  void sendNotification(Notification notification) throws IOException
+   :outertype: BusConnection
+
+   Sends a notification over the connection.
+
+   :param notification: the notification to send. Must be complete so that it can be serialized.
+   :throws IOException: error sending the notification
+
+shutdown
+^^^^^^^^
+
+.. java:method::  void shutdown() throws IOException
+   :outertype: BusConnection
+
+   This method starts and orderly shutdown of the connection. It needs to be called before \ :java:ref:`deactivate()`\  for this procedure to succeed. Should be callable multiple times without raising an error. Calls after the first are usually ignored.
+
+   :throws IOException: error indicating the shutdown due to socket writing problems
+

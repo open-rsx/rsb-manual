@@ -1,0 +1,61 @@
+.. java:import:: java.net InetAddress
+
+.. java:import:: java.net UnknownHostException
+
+.. java:import:: java.util Locale
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+OsUtilities.MachineType
+=======================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public static enum MachineType
+   :outertype: OsUtilities
+
+   Enum to describe the bit architecture of a computer.
+
+   :author: swrede
+
+Enum Constants
+--------------
+UNKNOWN
+^^^^^^^
+
+.. java:field:: public static final OsUtilities.MachineType UNKNOWN
+   :outertype: OsUtilities.MachineType
+
+   Any other bit architecture.
+
+X86
+^^^
+
+.. java:field:: public static final OsUtilities.MachineType X86
+   :outertype: OsUtilities.MachineType
+
+   A 32-bit system in the x86 family (sometimes called "i386", "i686" or less commonly "i586" depending on the specific model).
+
+X86_64
+^^^^^^
+
+.. java:field:: public static final OsUtilities.MachineType X86_64
+   :outertype: OsUtilities.MachineType
+
+   A 64-bit system in the x86 family (sometimes called "amd64").
+
+Methods
+-------
+getName
+^^^^^^^
+
+.. java:method:: public String getName()
+   :outertype: OsUtilities.MachineType
+
+   Returns a string representation of the represented machine type.
+
+   :return: string name or \ ``null``\  in case of unknown types.
+

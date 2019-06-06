@@ -1,0 +1,24 @@
+Plugin
+======
+
+.. java:package:: rsb.plugin
+   :noindex:
+
+.. java:type:: public interface Plugin
+
+   Entry point for an RSB plugin. Instances have to be default-constructible.
+
+   :author: jwienke
+
+Methods
+-------
+initialize
+^^^^^^^^^^
+
+.. java:method::  void initialize() throws LoadingException
+   :outertype: Plugin
+
+   Initializes the plugin.
+
+   :throws LoadingException: Unable to load this plugin
+

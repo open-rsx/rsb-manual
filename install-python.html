@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python Implementation &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Java Implementation" href="install-java.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="install.html">Installing RSB</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install-binary.html">Installation of Pre-Generated Packages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="install-source.html">Installation from Source</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install-cpp.html">C++ Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-cl.html">Common Lisp Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-java.html">Java Implementation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Python Implementation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#supported-interpreters">Supported Interpreters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-support-for-spread">Adding Support for Spread</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-the-installation">Testing the Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="install.html">Installing RSB</a> &raquo;</li>
+        
+          <li><a href="install-source.html">Installation from Source</a> &raquo;</li>
+        
+      <li>Python Implementation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install-python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="python-implementation">
+<span id="install-python"></span><h1>Python Implementation<a class="headerlink" href="#python-implementation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="supported-interpreters">
+<h2>Supported Interpreters<a class="headerlink" href="#supported-interpreters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Python 2.x</p></li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Required Dependencies</p>
+<ul class="simple">
+<li><p>Python development tools</p></li>
+<li><p>setuptools</p></li>
+<li><p>Python implementation of <a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google protocol buffers</a></p></li>
+</ul>
+<p>Optional Dependencies</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.spread.org">Spread</a>, Version 4.0 or newer</p></li>
+<li><p><a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> Python module</p></li>
+</ul>
+<div class="section" id="installation-of-dependencies-on-debian-based-systems">
+<h3>Installation of Dependencies on Debian-based Systems<a class="headerlink" href="#installation-of-dependencies-on-debian-based-systems" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get python-setuptools python-dev python-protobuf
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-dependencies-on-macos-using-homebrew">
+<h3>Installation of Dependencies on MacOS using Homebrew<a class="headerlink" href="#installation-of-dependencies-on-macos-using-homebrew" title="Permalink to this headline">¶</a></h3>
+<p>For installing RSB and its dependencies from source on Darwin,
+we recommend to use <a class="reference external" href="http://mxcl.github.com/homebrew/">Homebrew</a>, an easy-to-use package manager for
+MacOS.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew install cmake boost protobuf
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-dependencies-on-windows-systems">
+<h3>Installation of Dependencies on Windows Systems<a class="headerlink" href="#installation-of-dependencies-on-windows-systems" title="Permalink to this headline">¶</a></h3>
+<p>Install Microsoft Visual Studio. If you are planning to use the Python
+implementation of RSB, only version 2008 currently works.</p>
+<p>In order to install <a class="reference external" href="http://www.spread.org">Spread</a> a source-based installation is required.
+The visual studio solution for <a class="reference external" href="http://www.spread.org">Spread</a> 4.2 is currently broken. Hence only
+version 4.1 can be used.</p>
+<p>In detail, perform the following steps:</p>
+<ol class="arabic simple">
+<li><p>Open <code class="file docutils literal notranslate"><span class="pre">spread.sln</span></code> in the <code class="docutils literal notranslate"><span class="pre">win32</span></code> folder of the spread archive with
+Visual Studio.</p></li>
+<li><p>Set the active configuration to <code class="docutils literal notranslate"><span class="pre">release</span></code>.</p></li>
+<li><p>Build <code class="docutils literal notranslate"><span class="pre">libspread</span></code> and <code class="docutils literal notranslate"><span class="pre">spread</span></code>. If you build the whole solution errors
+might appear. However, only the aforementioned artifacts are required.</p></li>
+<li><p>Optionally, manually copy the generated <code class="docutils literal notranslate"><span class="pre">.lib</span></code> and <code class="docutils literal notranslate"><span class="pre">.exe</span></code> to an
+installation prefix.</p></li>
+</ol>
+<p>Python can be installed using the binary installer. A 32 bit version is
+recommended.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Clone RSB and its immediate dependencies from the <a class="reference external" href="http://git-scm.org">git</a>
+repository</p>
+<dl class="simple">
+<dt>RSC</dt><dd><p>“1.0” branch of <a class="reference external" href="https://code.cor-lab.de/git/rsc.git">https://code.cor-lab.de/git/rsc.git</a></p>
+</dd>
+<dt>RSB Protocol</dt><dd><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-protocol">https://github.com/open-rsx/rsb-protocol</a></p>
+</dd>
+<dt>RSB Python</dt><dd><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-python">https://github.com/open-rsx/rsb-python</a></p>
+</dd>
+</dl>
+</li>
+<li><p>Install RSC and the RSB protocol definitions as described
+<a class="reference internal" href="install-cpp.html#install-cpp-rsb"><span class="std std-ref">in the C++ installation instructions</span></a>.</p></li>
+<li><p>Create and edit <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="http://docs.python.org/distutils/configfile.html">Setuptools Documentation</a></dt><dd><p>Documentation of the format of the <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> file</p>
+</dd>
+</dl>
+</div>
+<p>Setuptools does not use command line arguments to configure
+projects. Instead a file called <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> in the project
+root is used.</p>
+<p>Add or replace <code class="docutils literal notranslate"><span class="pre">protocolroot</span></code> in section <code class="docutils literal notranslate"><span class="pre">[proto]</span></code> with the path
+to the RSB protocol files
+(e.g. <code class="samp docutils literal notranslate"><span class="pre">protocolroot=</span><em><span class="pre">PREFIX</span></em><span class="pre">/share/rsbprotocol</span></code>). An
+exemplary <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> file could look like this:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># [existing content here]</span>
+
+<span class="k">[proto]</span>
+<span class="na">protocolroot</span><span class="o">=</span><span class="s">/your/prefix/share/rsbprotocol</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following RSB-specific options are recognized:</p>
+<p><code class="docutils literal notranslate"><span class="pre">protoc</span></code> in section <code class="docutils literal notranslate"><span class="pre">[proto]</span></code></p>
+<blockquote>
+<div><p>The <a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google protocol buffers</a> <strong class="program">protoc</strong> compiler used
+to generate code from the RSB protocol description. If
+not specified <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> is used.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">format</span></code> in section <code class="docutils literal notranslate"><span class="pre">[doc]</span></code></p>
+<blockquote>
+<div><p>Either <code class="docutils literal notranslate"><span class="pre">html</span></code> or <code class="docutils literal notranslate"><span class="pre">pdf</span></code> for the API documentation
+generation.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">verbose</span></code> in section <code class="docutils literal notranslate"><span class="pre">[doc]</span></code></p>
+<blockquote>
+<div><p>Bool flag to control verbose output of the generation tool
+<strong class="program">epydoc</strong>.</p>
+</div></blockquote>
+</div>
+</li>
+<li><p>Start building and installation</p>
+<pre class="literal-block">$ export PYTHONPATH=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code>/lib/python2.<code class="samp docutils literal notranslate"><em><span class="pre">VERSION</span></em></code>/site-packages # if you are install to /usr or /usr/local it must be dist-packages
+$ python setup.py build
+$ python setup.py install --prefix=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code></pre>
+</li>
+</ol>
+</div>
+<div class="section" id="adding-support-for-spread">
+<h2>Adding Support for Spread<a class="headerlink" href="#adding-support-for-spread" title="Permalink to this headline">¶</a></h2>
+<p>Install <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> as described in the <a class="reference internal" href="install-cpp.html#install-spread"><span class="std std-ref">C++ installation
+instructions</span></a>.</p>
+<div class="section" id="installation-of-the-spread-module-for-python">
+<h3>Installation of the Spread module for Python<a class="headerlink" href="#installation-of-the-spread-module-for-python" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <a class="reference external" href="http://www.spread.org">Spread</a> Python version automatically installed by setuptools is not
+working.</p>
+</div>
+<ol class="arabic">
+<li><p>Download sources from <a class="reference external" href="http://www.spread.org/files/SpreadModule-1.5spread4.tgz">http://www.spread.org/files/SpreadModule-1.5spread4.tgz</a>.</p></li>
+<li><p>Extract the downloaded archive file and change to the
+<code class="file docutils literal notranslate"><span class="pre">SpreadModule-1.5spread4</span></code> directory</p></li>
+<li><p>Edit <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> and set <code class="docutils literal notranslate"><span class="pre">SPREAD_DIR</span></code> to your installation
+prefix (e.g., <code class="file docutils literal notranslate"><span class="pre">/usr</span></code>, <code class="file docutils literal notranslate"><span class="pre">/your/prefix</span></code> or <code class="file docutils literal notranslate"><span class="pre">c:\code\spread</span></code>)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Windows it might also be necessary to change the following aspects of
+the <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">include_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="n">SPREAD_DIR</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;\include&quot;</span><span class="p">],</span>
+<span class="n">library_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="n">SPREAD_DIR</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;\lib\win32&quot;</span><span class="p">],</span>
+<span class="n">libraries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;libspread&#39;</span><span class="p">,</span> <span class="s1">&#39;wsock32&#39;</span><span class="p">],</span>
+<span class="c1"># comment out</span>
+<span class="c1">#extra_link_args = [&#39;/NODEFAULTLIB:libcmt&#39;],</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Build and install</p>
+<pre class="literal-block">$ python setup.py build_ext --rpath <code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code>/lib
+$ python setup.py install --prefix=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It might be that the <code class="docutils literal notranslate"><span class="pre">--rpath</span></code> option needs to be removed on Windows.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="testing-the-installation">
+<h2>Testing the Installation<a class="headerlink" href="#testing-the-installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/tutorial/interpreter.html#tut-invoking" title="(in Python v3.7)"><span>Invoking the Interpreter</span></a></dt><dd><p>How to configure and start the Python interpreter.</p>
+</dd>
+</dl>
+</div>
+<p>The following statement should succeed in a <strong class="program">python</strong> shell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rsb</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It may be necessary to set <span class="target" id="index-1"></span><a class="reference external" href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH" title="(in Python v3.7)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> to
+<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/lib/python2.X/site-packages</span></code> as in the installation
+step above.</p>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

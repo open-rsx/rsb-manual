@@ -1,0 +1,52 @@
+.. java:import:: rsb.util.os HostInfo
+
+HostIdEnsuringHostInfo
+======================
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public class HostIdEnsuringHostInfo implements HostInfo
+
+   Facade class around a \ :java:ref:`HostInfo`\  instance that ensures that there is always a host id by replacing it with the host name, if required.
+
+   :author: jwienke
+
+Constructors
+------------
+HostIdEnsuringHostInfo
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public HostIdEnsuringHostInfo(HostInfo info)
+   :outertype: HostIdEnsuringHostInfo
+
+   Creates a new instance wrapping the provided \ :java:ref:`HostInfo`\  object.
+
+   :param info: the info object to wrap, not \ ``null``\  and \ :java:ref:`HostInfo.getHostName()`\  must return a value.
+
+Methods
+-------
+getHostId
+^^^^^^^^^
+
+.. java:method:: @Override public String getHostId()
+   :outertype: HostIdEnsuringHostInfo
+
+getHostName
+^^^^^^^^^^^
+
+.. java:method:: @Override public String getHostName()
+   :outertype: HostIdEnsuringHostInfo
+
+getMachineType
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public String getMachineType()
+   :outertype: HostIdEnsuringHostInfo
+
+getSoftwareType
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public String getSoftwareType()
+   :outertype: HostIdEnsuringHostInfo
+

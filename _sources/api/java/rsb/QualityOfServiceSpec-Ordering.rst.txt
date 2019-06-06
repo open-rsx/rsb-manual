@@ -1,0 +1,31 @@
+QualityOfServiceSpec.Ordering
+=============================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public enum Ordering
+   :outertype: QualityOfServiceSpec
+
+   Possible ordering requirements for events.
+
+   :author: jwienke
+
+Enum Constants
+--------------
+ORDERED
+^^^^^^^
+
+.. java:field:: public static final QualityOfServiceSpec.Ordering ORDERED
+   :outertype: QualityOfServiceSpec.Ordering
+
+   Events are received in the same order as sent by a sender. This is only valid for the connection of one sender to one receiver. No assumptions are placed on other receivers or events of other senders.
+
+UNORDERED
+^^^^^^^^^
+
+.. java:field:: public static final QualityOfServiceSpec.Ordering UNORDERED
+   :outertype: QualityOfServiceSpec.Ordering
+
+   Events are received in no specific order.
+

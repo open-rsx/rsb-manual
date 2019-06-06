@@ -1,0 +1,39 @@
+rsb.converter
+=============
+
+Contains converters for the serialization and deserialization of data.
+
+:author: jwienke
+
+.. java:package:: rsb.converter
+
+.. toctree::
+   :maxdepth: 1
+
+   BoolConverter
+   CachedCharsetCoding
+   ConversionException
+   Converter
+   ConverterRepository
+   ConverterSelectionStrategy
+   ConverterSignature
+   DefaultConverterRepository
+   DefaultConverters
+   DoubleConverter
+   EventIdConverter
+   FloatConverter
+   IntegerConverter
+   LongConverter
+   NoSuchConverterException
+   NullConverter
+   PredicateConverterSelectionStrategy
+   PredicateConverterSelectionStrategy-ExactKeyPredicate
+   PredicateConverterSelectionStrategy-Predicate
+   PredicateConverterSelectionStrategy-RegExPredicate
+   ProtocolBufferConverter
+   ScopeConverter
+   StringConverter
+   UnambiguousConverterMap
+   UserData
+   WireContents
+

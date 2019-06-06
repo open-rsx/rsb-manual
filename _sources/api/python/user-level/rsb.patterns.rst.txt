@@ -1,0 +1,34 @@
+rsb.patterns
+============
+
+.. automodule:: rsb.patterns
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      LocalMethod
+      LocalServer
+      Method
+      Reader
+      RemoteMethod
+      RemoteServer
+      Server
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      RemoteCallError
+   
+   

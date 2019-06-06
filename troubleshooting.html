@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Troubleshooting &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Python Implementation" href="install-python.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-bugs">Reporting Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-problems">Configuration Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spread-does-not-work">Spread Does not Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-tcp-based-transport">Configuring the TCP-based Transport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linker-errors-at-runtime">Linker Errors at Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spread-warning-in-tools">Spread Warning in Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-converters">Missing Converters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#polymorphic-informers">Polymorphic Informers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compilation-errors-in-combination-with-qt">Compilation Errors in Combination with Qt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-arguments-in-rpc-calls">Multiple Arguments in RPC Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-message-about-no-handlers-being-found-appears">A Message about no Handlers being found appears</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#java-programs-using-the-socket-transport-do-not-communicate-with-other-languages">Java Programs using the Socket Transport do not communicate with other Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-cannot-make-the-socket-transport-with-auto-mode-work-across-multiple-machines">I cannot make the Socket Transport with “auto” Mode work across multiple Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-many-spread-daemons-do-i-need">How many Spread Daemons do I need?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#participants-or-something-else-are-not-cleaned-up">Participants (or something else) are not cleaned up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Troubleshooting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="support.html#support"><span class="std std-ref">Support</span></a></dt><dd><p>If this page doesn’t help</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="reporting-bugs">
+<span id="troubleshooting-reporting-bugs"></span><h2>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>I’m pretty sure I have found a bug in RSB. What can I do about
+it?</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>First of all, it is entirely possible that you found a bug. We
+appreciate bug reports and encourage you to report all (suspected)
+bugs you see, even if you are not entirely certain. Bug reports
+about things that turn out to not actually be bugs are expected and
+not a problem. However, to save yourself and us time and effort, we
+ask you to keep the following things in mind when reporting bugs.</p>
+<p>Check whether the problem is known: go to the issues section of the
+appropriate project in our <a class="reference external" href="https://github.com/open-rsx">github organization</a> and try to
+find a description of the problem in the “Issues” list. If there is
+none, create a new issue (see below), otherwise edit and extend the
+existing issue as necessary.</p>
+<p>Include the following information in your bug report:</p>
+<blockquote>
+<div><p>Platform</p>
+<blockquote>
+<div><p>Mainly operating system and processor architecture. For example,
+“Ubuntu Precise on x86_64” is a very helpful description.</p>
+</div></blockquote>
+<p>Programs and Programming Languages</p>
+<blockquote>
+<div><p>In which programming language did you write the failing program?
+If multiple programs are expected to communicate, briefly
+describe the whole setup.</p>
+</div></blockquote>
+<p>RSB Version</p>
+<blockquote>
+<div><p>Describe which RSB version you are using and how you
+obtained it (e.g. installed Debian packages, compiled from
+source, etc.).</p>
+</div></blockquote>
+<p>What did you do?</p>
+<blockquote>
+<div><p>Describe what your code does (and include the code, if possible)
+and/or which programs you started. If you use a RSB
+configuration file or environment variables, please describe
+those as well.</p>
+</div></blockquote>
+<p>What did you expect to happen?</p>
+<blockquote>
+<div><p>For example: “I expected the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> to receive the
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> sent by the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>”.</p>
+</div></blockquote>
+<p>What happened instead?</p>
+<blockquote>
+<div><p>For example: “The <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> did not receive any
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>” or “The program crashed with the
+following backtrace” (include error messages and/or backtraces
+whenever possible).</p>
+</div></blockquote>
+</div></blockquote>
+<p>Creating the report as a new issue in the appropriate project of our <a class="reference external" href="https://github.com/open-rsx">github
+organization</a>:</p>
+<ul class="simple">
+<li><p>In the “Title” field, try do give a brief description of the
+specific problem. That is, if you can, write “In C++,
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> crashes when trying to send std::string data”
+instead of “RSB crashes”.</p></li>
+<li><p>Put the information mentioned above into the “Comment” field.</p></li>
+<li><p>Please try to report bugs in the correct project. We understand
+that this may be hard to figure out and a bug report in the
+“wrong” project is definitely better than no bug report at all.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuration-problems">
+<span id="troubleshooting-configuration-problems"></span><h2>Configuration Problems<a class="headerlink" href="#configuration-problems" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>My RSB program seems to be <a class="reference internal" href="specification-config.html#specification-config"><span class="std std-ref">configured</span></a> incorrectly, but I cannot tell whether
+that’s actually the case and if so, why.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>Use the <a class="reference internal" href="specification-config.html#specification-config-debug"><span class="std std-ref">configuration debugging tools</span></a> provided by RSB.</p>
+</div></blockquote>
+</div>
+<div class="section" id="spread-does-not-work">
+<span id="troubleshooting-spread-does-not-work"></span><h2>Spread Does not Work<a class="headerlink" href="#spread-does-not-work" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to C++, Python)</em></p>
+<blockquote>
+<div><p>Communication over <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> does not work
+anymore. <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> settings are ignored.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p><a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a> <em>(applies to C++)</em></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-plugin.html#specification-plugin"><span class="std std-ref">Plugins</span></a></dt><dd><p>Specification of RSB plugins</p>
+</dd>
+</dl>
+</div>
+<p>Starting with version 0.9, the C++ implementation does no longer
+include the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in the
+RSB core. Instead, the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is available as a
+<a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a> which has to be loaded explicitly. This can, for
+example, be done by including the following fragment in one of
+the RSB <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration files</span></a>
+<code class="file docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/etc/rsb.conf</span></code>, <code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code> or <code class="file docutils literal notranslate"><span class="pre">$(pwd)/rsb.conf</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[plugins.cpp]</span>
+<span class="na">load</span> <span class="o">=</span> <span class="s">rsbspread</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">Configuration</span></a></p>
+<p>Starting with version 0.7, RSB uses a <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>
+that implements a <a class="reference internal" href="specification-socket.html#specification-socket"><span class="std std-ref">custom TCP-based protocol</span></a> to facilitate the easy use of the
+framework without dependencies on 3rd party libraries. In order
+to restore the previous behavior of using the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>, the configuration needs to be changed.</p>
+<p>This can be changed in three ways:</p>
+<ol class="arabic">
+<li><p>Globally for all RSB programs (or running under a
+particular UNIX user)</p>
+<p>Create or modify a RSB <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration file</span></a> <code class="file docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/etc/rsb.conf</span></code> or <code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code> to
+contain the following lines:</p>
+<div class="highlight-ini notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">[transport.spread]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">1</span>
+<span class="k">[transport.socket]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">0</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lines 3 and 4 can be omitted to enable both <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a> in parallel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On windows it might be necessary to also set <code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">=</span>
+<span class="pre">localhost</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span> <span class="pre">=</span> <span class="pre">4803</span></code> explicitly in the
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> section.</p>
+</div>
+</li>
+<li><p>Locally for the current directory</p>
+<p>Create a RSB <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration file</span></a>
+<code class="file docutils literal notranslate"><span class="pre">$(pwd)/rsb.conf</span></code> with the same contents as described above.</p>
+</li>
+<li><p>For the current shell</p>
+<p>Set and export <span class="target" id="index-0"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SPREAD_ENABLED"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SPREAD_ENABLED</span></code></a> and
+<span class="target" id="index-1"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SOCKET_ENABLED"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SOCKET_ENABLED</span></code></a> <a class="reference internal" href="common-command-line-options.html#common-environment-variables"><span class="std std-ref">environment
+variables</span></a> as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">RSB_TRANSPORT_SPREAD_ENABLED</span><span class="o">=</span><span class="m">1</span>
+$ <span class="nb">export</span> <span class="nv">RSB_TRANSPORT_SOCKET_ENABLED</span><span class="o">=</span><span class="m">0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-the-tcp-based-transport">
+<span id="troubleshooting-configuring-the-tcp-based-transport"></span><h2>Configuring the TCP-based Transport<a class="headerlink" href="#configuring-the-tcp-based-transport" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to C++,Common Lisp,Python)</em></p>
+<blockquote>
+<div><p>How can I <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configure</span></a> the TCP-based
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>?</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>The TCP-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> can be <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configured</span></a> locally or globally by placing the following
+content in <code class="file docutils literal notranslate"><em><span class="pre">PREFIX</span></em><span class="pre">/etc/rsb.conf</span></code>, <code class="file docutils literal notranslate"><span class="pre">~/.config/rsb.conf</span></code> or
+<code class="file docutils literal notranslate"><span class="pre">$(pwd)/rsb.conf</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[transport.socket]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">host</span>    <span class="o">=</span> <span class="s">HOSTNAME</span>
+<span class="na">port</span>    <span class="o">=</span> <span class="s">4444</span>
+<span class="na">server</span>  <span class="o">=</span> <span class="s">auto</span>
+</pre></div>
+</div>
+<p><code class="samp docutils literal notranslate"><em><span class="pre">HOSTNAME</span></em></code> can be <code class="docutils literal notranslate"><span class="pre">localhost</span></code> (if all processes are
+going to run on the same node), a hostname or an IP address.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above configuration uses <code class="docutils literal notranslate"><span class="pre">server</span> <span class="pre">=</span> <span class="pre">auto</span></code> which causes the
+initial RSB process to create the specified server and
+subsequent processes to connect to that server, see
+<span class="target" id="index-2"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SOCKET_SERVER"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SOCKET_SERVER</span></code></a>.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="linker-errors-at-runtime">
+<span id="troubleshooting-linker-errors-at-runtime"></span><h2>Linker Errors at Runtime<a class="headerlink" href="#linker-errors-at-runtime" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to C++)</em></p>
+<blockquote>
+<div><p>I compiled and installed successfully, but RSB
+binaries/libraries produce linker errors at runtime.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>The C++ implementation of RSB is built without fixed <a class="reference external" href="http://en.wikipedia.org/wiki/Rpath">rpath</a> by default. As a result,
+installed RSB binaries and libraries do not contain
+information regarding the location of their dependencies. This
+potentially causes runtime linking to fail because the
+dependencies cannot be located.</p>
+<p>There are two possible solutions:</p>
+<ol class="arabic">
+<li><p>Building and installing RSB with fixed rpath</p>
+<p>This can be achieved by configuring RSB with</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -DCMAKE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>TRUE
+</pre></div>
+</div>
+<p>This instructs <a class="reference external" href="http://www.cmake.org/">CMake</a> to set the rpath of installed
+libraries and executables to the values used for building
+them. Normally the rpath is stripped at installation time.</p>
+</li>
+<li><p>Use of the <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> environment variable</p>
+<p>When the value of <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> contains the
+directory/directories into which RSB (and its
+dependencies) have been installed, these dependencies can be
+located at runtime. <span class="target" id="index-5"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> can be set, for
+example, like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>PREFIX/lib
+</pre></div>
+</div>
+<p>where <code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code> is the prefix directory into which
+RSB and its dependencies have been installed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This workaround is not permanent and has to be repeated for
+each new shell that should be able to execute RSB
+binaries or RSB-based programs.</p>
+</div>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="spread-warning-in-tools">
+<span id="troubleshooting-spread-warning-in-tools"></span><h2>Spread Warning in Tools<a class="headerlink" href="#spread-warning-in-tools" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to Common Lisp)</em></p>
+<blockquote>
+<div><p>When I start any of the <a class="reference internal" href="tools.html#tools"><span class="std std-ref">Tools</span></a>, the following happens:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ logger socket://localhost:7777
+WARNING:
+  Failed to load Spread library: Unable to load any of the alternatives:
+  <span class="o">(</span><span class="s2">&quot;libspread-without-signal-blocking.so&quot;</span> <span class="s2">&quot;libspread.so&quot;</span> <span class="s2">&quot;libspread.so.2&quot;</span>
+   <span class="s2">&quot;libspread.so.2.0&quot;</span> <span class="s2">&quot;libspread.so.1&quot;</span><span class="o">)</span>.
+  Did you <span class="nb">set</span> LD_LIBRARY_PATH?
+  Spread transport will now be disabled.
+<span class="o">[</span>execution continues, but Spread transport does not work<span class="o">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>Place one of the mentioned <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> libraries (typically
+<code class="file docutils literal notranslate"><span class="pre">libspread.so.2.0</span></code>) on the system library search path or
+set <span class="target" id="index-6"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> appropriately.</p>
+</div></blockquote>
+</div>
+<div class="section" id="missing-converters">
+<span id="troubleshooting-missing-converters"></span><h2>Missing Converters<a class="headerlink" href="#missing-converters" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="examples-converters.html#tutorial-converters-register"><span class="std std-ref">Registering Converters</span></a></dt><dd><p>Registering additional <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converters</span></a></p>
+</dd>
+</dl>
+</div>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>When a <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> in my component receives certain
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>, it crashes and complains about missing
+<a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converters</span></a>. For example like this:</p>
+<pre class="literal-block">$ ./myconponent
+[...]
+terminate called after throwing an instance of '<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsc::runtime::NoSuchObject</span></code>'
+  what():  No <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converter</span></a> for <a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire-schema</span></a> or <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data-type</span></a> `.rst.vision.Image'.
+Available <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converters</span></a>: {
+  bool: *rsb::converter::BoolConverter[wireType = std::string, wireSchema = bool, dataType = bool] at 0x9d0b80
+  [...]
+}</pre>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>There can be several solutions to this problem.</p>
+<ol class="arabic simple">
+<li><p>The <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> could receive unexpected <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. This can be diagnosed using the <a class="reference internal" href="tool-logger.html#logger"><span class="std std-ref">logger</span></a>. If the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> does indeed receive unexpected
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>, the problem can be fixed by letting the
+offending <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> or the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> itself operate
+on a different <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>.</p></li>
+<li><p>The <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converter</span></a> configuration could be wrong. If the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> only receives expected <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>, it
+may be missing a suitable converter. This problem can be solved by
+registering a suitable <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converter</span></a>. Registering a
+<a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converter</span></a> may be achieved by loading a <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a>.</p></li>
+<li><p>The <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converter</span></a> registration could happen after the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> has already been created. In that case, the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> would use the “old” set of <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converters</span></a>.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="polymorphic-informers">
+<span id="troubleshooting-polymorphic-informers"></span><h2>Polymorphic Informers<a class="headerlink" href="#polymorphic-informers" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to C++)</em></p>
+<blockquote>
+<div><p>I thought it is possible, to send different <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data types</span></a> through the same <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>. However, I get this error
+(also using <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb12InformerBaseE" title="rsb::InformerBase"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::InformerBase</span></code></a>)</p>
+<blockquote>
+<div><pre class="literal-block">terminate called after throwing an instance of '<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>'
+what(): Specified <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> type <code class="samp docutils literal notranslate"><em><span class="pre">PAYLOAD-TYPE</span></em></code> does not match <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> type <code class="samp docutils literal notranslate"><em><span class="pre">INFORMER-TYPE</span></em></code>.
+Aborted (core dumped)</pre>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the actual error message, <code class="samp docutils literal notranslate"><em><span class="pre">PAYLOAD-TYPE</span></em></code> and
+<code class="samp docutils literal notranslate"><em><span class="pre">INFORMER-TYPE</span></em></code> would be the <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> of the
+<a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a> attempted to send and the specified <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data
+type</span></a> of the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> respectively.</p>
+</div>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>This can be achieved by specifying the pseudo-type
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7AnyTypeE" title="rsb::AnyType"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::AnyType</span></code></a> as the <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> of the created
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>:</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="c1">// create an informer that is capable of sending events containing any kind</span>
+    <span class="c1">// of data on the scope &quot;/example/informer&quot;.</span>
+    <span class="n">Informer</span><span class="o">&lt;</span><span class="n">AnyType</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">informer</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">createInformer</span><span class="o">&lt;</span><span class="n">AnyType</span><span class="o">&gt;</span> <span class="p">(</span>
+            <span class="n">Scope</span><span class="p">(</span><span class="s">&quot;/example/informer&quot;</span><span class="p">));</span>
+
+    <span class="c1">// create data to send over the informer. Data is always maintained in</span>
+    <span class="c1">// shared_ptr instances. Here we use typed informer to create a shared_ptr</span>
+    <span class="c1">// of the data type we want to send</span>
+    <span class="n">Informer</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">DataPtr</span> <span class="n">s</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">(</span><span class="s">&quot;blub&quot;</span><span class="p">));</span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In all other RSB implementations, this kind of
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> can be created by specifying a builtin supertype
+such as <code class="docutils literal notranslate"><span class="pre">Object</span></code> (Java), <code class="docutils literal notranslate"><span class="pre">object</span></code> (Python) or <code class="docutils literal notranslate"><span class="pre">t</span></code> (Common
+Lisp) as the <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> of the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>.</p>
+</div>
+</div>
+<div class="section" id="compilation-errors-in-combination-with-qt">
+<span id="troubleshooting-compile-qt"></span><h2>Compilation Errors in Combination with Qt<a class="headerlink" href="#compilation-errors-in-combination-with-qt" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to C++)</em></p>
+<blockquote>
+<div><p>Client code using RSB in combination with <a class="reference external" href="http://qt-project.org/">Qt</a> does not compile correctly. It seems that random
+errors appear in system header comparable to the following compiler output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In file included from /usr/include/boost/signals/connection.hpp:13:0,
+                 from /usr/include/boost/signals/signal_template.hpp:18,
+                 from /usr/include/boost/signals/signal0.hpp:24,
+                 from /usr/include/boost/signal.hpp:19,
+                 from /vol/csra/releases/nightly/share/rsb0.11/../../include/rsb0.11/rsb/Factory.h:34,
+                 from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/image_processing/ip_RsbImageProvider.h:40,
+                 from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/src/ip_DisparityImageProcessor.cc:32:
+/usr/include/boost/signals/detail/signals_common.hpp:26:13: error: expected identifier before ‘protected’
+/usr/include/boost/signals/detail/signals_common.hpp:26:13: error: expected unqualified-id before ‘protected’
+In file included from /usr/include/boost/units/detail/utility.hpp:20:0,
+                 from /usr/include/boost/exception/detail/type_info.hpp:19,
+                 from /usr/include/boost/exception/detail/object_hex_dump.hpp:15,
+                 from /usr/include/boost/exception/to_string_stub.hpp:16,
+                 from /usr/include/boost/exception/info.hpp:16,
+                 from /usr/include/boost/exception/detail/exception_ptr.hpp:20,
+                 from /usr/include/boost/exception_ptr.hpp:9,
+                 from /usr/include/boost/thread/future.hpp:14,
+                 from /usr/include/boost/thread.hpp:24,
+                 from /vol/csra/releases/nightly/share/rsc0.11/../../include/rsc0.11/rsc/patterns/Singleton.h:31,
+                 from /vol/csra/releases/nightly/share/rsb0.11/../../include/rsb0.11/rsb/Factory.h:41,
+                 from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/image_processing/ip_RsbImageProvider.h:40,
+                 from /vol/csra/jenkins/jobs/humavips-headtracking-trunk-toolkit-nightly/workspace/label/master/cxx/image_processing/src/ip_DisparityImageProcessor.cc:32:
+/usr/include/c++/4.6/cxxabi.h:47:37: error: expected ‘}’ before end of line
+/usr/include/c++/4.6/cxxabi.h:47:37: error: expected declaration before end of line
+</pre></div>
+</div>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>This compilation error is caused by the fact that RSB uses
+<a class="reference external" href="http://www.boost.org/doc/libs/1_56_0/doc/html/signals.html">Boost.Signals</a>
+which is known to conflict with Qt’s signal mechanism in certain
+configurations (<a class="reference external" href="http://www.boost.org/doc/libs/1_56_0/doc/html/signals/s04.html#idp428010544">an explanation is given here</a>).
+In order to resolve this issue, two solutions exist:</p>
+<ol class="arabic simple">
+<li><p>Reorder includes so that RSB headers always appear before Qt
+headers. This might sometimes work, but is hard to achieve in other
+projects.</p></li>
+<li><p>Compile your program with <code class="docutils literal notranslate"><span class="pre">-DQT_NO_KEYWORDS</span></code>. This prevents
+that Qt defines <code class="docutils literal notranslate"><span class="pre">signals</span></code> and <code class="docutils literal notranslate"><span class="pre">slots</span></code> as preprocessor macros,
+which is the cause for the compilation error. Your Qt headers
+that define signals have to use <code class="docutils literal notranslate"><span class="pre">Q_SIGNALS</span></code> and <code class="docutils literal notranslate"><span class="pre">Q_SLOTS</span></code>
+instead now.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="multiple-arguments-in-rpc-calls">
+<span id="troubleshooting-multiple-rpc-arguments"></span><h2>Multiple Arguments in RPC Calls<a class="headerlink" href="#multiple-arguments-in-rpc-calls" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="examples-basic.html#tutorial-rpc"><span class="std std-ref">Remote Procedure Calls</span></a></dt><dd><p>Examples about using remote procedure calls</p>
+</dd>
+<dt><a class="reference internal" href="specification-request-reply.html#specification-request-reply"><span class="std std-ref">Request-Reply Communication</span></a></dt><dd><p>Specification of remote procedure calls</p>
+</dd>
+</dl>
+</div>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>I would like to <a class="reference internal" href="examples-basic.html#tutorial-rpc-client"><span class="std std-ref">call an RPC method</span></a> with
+two <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payloads</span></a>. RSB seems to only support a
+single argument in RPC calls, so what is the most elegant way to do
+this?</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>Currently, RSB only supports a single <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a> for each
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>. Since RPC calls are implemented in terms of
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>, the same limitation applies. As a
+consequence, multiple arguments for a method call have to be
+collected into a single <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a>.</p>
+<p>Assuming <a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google Protocol Buffers</a> are used and the method in
+question should have the signature <code class="docutils literal notranslate"><span class="pre">add(ComplexNumber,</span>
+<span class="pre">ComplexNumber)</span></code>, a definition like the following could be used:</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span> <span class="nc">AdditionRequest</span> <span class="p">{</span>
+
+    <span class="k">required</span> <span class="n">ComplexNumber</span> <span class="na">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">required</span> <span class="n">ComplexNumber</span> <span class="na">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For Python, the code implementing this method would then be</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">ComplexNumber</span><span class="p">()</span>
+  <span class="n">result</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">real</span>
+  <span class="n">result</span><span class="o">.</span><span class="n">imag</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">imag</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">imag</span>
+  <span class="k">return</span> <span class="n">result</span>
+<span class="n">server</span><span class="o">.</span><span class="n">addMethod</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">add</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="a-message-about-no-handlers-being-found-appears">
+<span id="troubleshooting-no-handler-for-logger"></span><h2>A Message about no Handlers being found appears<a class="headerlink" href="#a-message-about-no-handlers-being-found-appears" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to Python)</em></p>
+<blockquote>
+<div><p>When I import the <code class="xref py py-mod docutils literal notranslate"><span class="pre">rst</span></code> or <code class="xref py py-mod docutils literal notranslate"><span class="pre">rstsandbox</span></code> module, a
+message like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No</span> <span class="n">handlers</span> <span class="n">could</span> <span class="n">be</span> <span class="n">found</span> <span class="k">for</span> <span class="n">logger</span> <span class="s2">&quot;rstsandbox&quot;</span>
+</pre></div>
+</div>
+<p>appears. Am I doing something wrong?</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>Everything is fine. The output is produced by Python’s
+<a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module when logging has not been
+configured. RSB uses this module to log messages.</p>
+<p>If you find these messages annoying, add the following code fragment
+to your program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.basicConfig" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.basicConfig()</span></code></a> for more configuration options.</p>
+</div></blockquote>
+</div>
+<div class="section" id="java-programs-using-the-socket-transport-do-not-communicate-with-other-languages">
+<span id="troubleshooting-tcp-transport-java-bind"></span><h2>Java Programs using the Socket Transport do not communicate with other Languages<a class="headerlink" href="#java-programs-using-the-socket-transport-do-not-communicate-with-other-languages" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to Java)</em></p>
+<blockquote>
+<div><p><a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">Events</span></a> sent from a Java RSB process using the
+socket <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> are not received by RSB processes
+written in other languages or vice versa.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>The Java runtime sometime prefers bind sockets to IPv6 addresses
+even if IPv4 addresses are specified. This seems to be an internal
+behavior of the Java runtime. Other RSB implementations use
+IPv4 addresses by default. As a consequence, Java operates on IPv6
+and the other languages on IPv4 and connections cannot be
+established. To force Java to use IPv4, specify the following JVM
+property (e.g. on the commandline) for RSB Java programs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">Djava</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">preferIPv4Stack</span><span class="o">=</span><span class="n">true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="i-cannot-make-the-socket-transport-with-auto-mode-work-across-multiple-machines">
+<span id="troubleshooting-socket-auto-mode-multiple-machines"></span><h2>I cannot make the Socket Transport with “auto” Mode work across multiple Machines<a class="headerlink" href="#i-cannot-make-the-socket-transport-with-auto-mode-work-across-multiple-machines" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>I want to connect processes on two or more machines and use the
+“auto” mode of the socket <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> with a
+<a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration</span></a> like this:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[transport.socket]</span>
+<span class="na">hostname</span> <span class="o">=</span> <span class="s">SOMEHOST</span>
+<span class="na">server</span> <span class="o">=</span> <span class="s">auto</span>
+</pre></div>
+</div>
+<p>where <code class="samp docutils literal notranslate"><em><span class="pre">SOMEHOST</span></em></code> is the name of one of the hosts or
+<code class="docutils literal notranslate"><span class="pre">localhost</span></code>. If I start my processes in a particular order,
+communication sometimes works, but generally I only get failed
+connection attempts.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>The “auto” mode of the <a class="reference internal" href="specification-socket.html#specification-socket"><span class="std std-ref">socket</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is intended to be used with simple setups confined
+to a single computer. It can be used to make such setups “just
+work”. For other setups, it is only usable with severe restrictions
+and should probably be avoided.</p>
+<p>If you want to connect processes across multiple machines:</p>
+<ul>
+<li><p>Consider switching to the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> if you
+want to connect very many processes or restart all processes
+arbitrarily.</p></li>
+<li><p>If you want to use the <a class="reference internal" href="specification-socket.html#specification-socket"><span class="std std-ref">socket</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p>
+<ol class="arabic">
+<li><p>Determine one particular process that should always act as the
+server. This can also be an additional process like the
+<a class="reference internal" href="tool-logger.html#tool-logger"><span class="std std-ref">Logger</span></a> or the <a class="reference internal" href="tool-server.html#tool-server"><span class="std std-ref">Server</span></a>. Note that this
+choice can impact the performance of your setup very much.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">Configure</span></a> this (and only this) process
+to act as server (for example using the environment variable
+<span class="target" id="index-7"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SOCKET_SERVER"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SOCKET_SERVER</span></code></a>).</p></li>
+<li><p>Leave this process running all the time.</p></li>
+</ul>
+</li>
+<li><p>Configure all other processes to act as clients, for example
+with this <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration</span></a> snippet</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[transport.socket]</span>
+<span class="na">hostname</span> <span class="o">=</span> <span class="s">THE-SERVER-HOST</span>
+<span class="na">server</span> <span class="o">=</span> <span class="s">0</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can add client processes or restart them arbitrarily and
+also share the above configuration among all client processes.</p></li>
+</ol>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-many-spread-daemons-do-i-need">
+<span id="troubleshooting-number-of-spread-daemons"></span><h2>How many Spread Daemons do I need?<a class="headerlink" href="#how-many-spread-daemons-do-i-need" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>I want to have multiple processes communicate using the
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>. Do I need this <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread
+daemon</span></a> and if so, how many instances do I have to start and on
+which machines? I heard that running multiple <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemons</span></a> can even cause severe network problems.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>First of all, <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemons</span></a> really can
+cause severe network problems when configured incorrectly. We
+therefore recommend to always start with a single <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread
+daemon</span></a> using the default configuration unless a different setup is
+absolutely necessary. Beyond this simple advice, unfortunately,
+there are several different possibilities for setting up one or more
+<a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemons</span></a>. In any case, you always need
+at least one <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a>.</p>
+<p>If all processes run on a single machine, you can start a single
+<a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a> using the default configuration like this:</p>
+<pre class="literal-block">$ <code class="samp docutils literal notranslate"><em><span class="pre">SPREAD_INSTALL_PREFIX</span></em><span class="pre">/sbin/spread</span></code> -n localhost</pre>
+<p>This is a simple and safe configuration and should already cover
+many simple setups.</p>
+<p>If multiple computers are involved, a single <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a>
+with the above configuration may still be sufficient since it can be
+contacted by clients on remote hosts (see
+<span class="target" id="index-8"></span><a class="reference internal" href="common-command-line-options.html#envvar-RSB_TRANSPORT_SPREAD_HOST"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RSB_TRANSPORT_SPREAD_HOST</span></code></a>). However, this configuration
+may not achieve the best performance the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> framework is
+capable of. If you need better performance and thus more
+sophisticated configurations, consult the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>
+documentation or write to the RSB <a class="reference external" href="https://lists.techfak.uni-bielefeld.de/cor-lab/mailman/listinfo/rsb">mailing list</a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="participants-or-something-else-are-not-cleaned-up">
+<span id="troubleshooting-cleanup"></span><h2>Participants (or something else) are not cleaned up<a class="headerlink" href="#participants-or-something-else-are-not-cleaned-up" title="Permalink to this headline">¶</a></h2>
+<p>Problem <em>(applies to all implementations)</em></p>
+<blockquote>
+<div><p>I have the impression that RSB does not properly clean up all
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> (or maybe some other objects)
+when my program terminates or crashes. Sometimes, my program even
+hangs instead of terminating.</p>
+</div></blockquote>
+<p>Solution</p>
+<blockquote>
+<div><p>RSB tries to clean up all created <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> when a program terminates or crashes but this needs
+some support from the client program (and even then, not all
+languages support guaranteed cleanup e.g. in case of certain
+crashes).</p>
+<p>The following idioms can be used to allow RSB to clean up
+properly:</p>
+<div class="cleanup-multi docutils container">
+<div class="cleanup-cpp docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following idiom may hinder debugging because catching
+all exceptions prevents debuggers like <strong class="program">gdb</strong> from
+seeing them. As a result, getting a backtrace most likely
+requires disabling the <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">catch</span></code> block and
+recompiling the program.</p>
+</div>
+<p>Avoid uncaught exceptions at the toplevel. This can be done by
+catching exceptions in <code class="xref c c-func docutils literal notranslate"><span class="pre">main()</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdexcept&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// ...</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">rsb</span><span class="o">::</span><span class="n">ListenerPtr</span> <span class="n">listener</span> <span class="o">=</span> <span class="n">rsb</span><span class="o">::</span><span class="n">getFactory</span><span class="p">().</span><span class="n">createListener</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">);</span>
+
+        <span class="c1">// Code using LISTENER goes here.</span>
+
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Uncaught exception at toplevel: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cleanup-python docutils container">
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="examples-basic.html#tutorial-send"><span class="std std-ref">Sending Data</span></a></dt><dd><p>Python section of the basic tutorial</p>
+</dd>
+</dl>
+</div>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" title="(in Python v3.7)"><span class="xref std std-ref">context manager protocol</span></a>
+should be used to ensure cleanup:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rsb</span><span class="o">.</span><span class="n">createListener</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+    <span class="c1"># Code using LISTENER goes here</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>For multiple <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rsb</span><span class="o">.</span><span class="n">createListener</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">,</span> <span class="n">rsb</span><span class="o">.</span><span class="n">createInformer</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">informer</span><span class="p">:</span>
+    <span class="c1"># Code using LISTENER and INFORMER goes here</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cleanup-java docutils container">
+<p>Make sure that the <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> method of <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a>
+objects is called:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">rsb</span><span class="o">.</span><span class="na">Listener</span> <span class="n">listener</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">listener</span> <span class="o">=</span> <span class="n">rsb</span><span class="o">.</span><span class="na">Factory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">createListener</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">);</span>
+    <span class="n">listener</span><span class="o">.</span><span class="na">activate</span><span class="o">();</span>
+
+    <span class="c1">// Code using LISTENER goes here.</span>
+
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">listener</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">listener</span><span class="o">.</span><span class="na">deactivate</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cleanup-cl docutils container">
+<p>Automatic cleanup is ensured when using the
+<code class="docutils literal notranslate"><span class="pre">rsb:with-active-participant</span></code>, <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code>,
+etc. macros:</p>
+<div class="highlight-cl notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">listener</span> <span class="ss">:listener</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
+  <span class="c1">;; Code using LISTENER goes here.</span>
+  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+Version
+=======
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public final class Version
+
+   Provides version information about RSB.
+
+   :author: jwienke
+
+Methods
+-------
+getInstance
+^^^^^^^^^^^
+
+.. java:method:: public static Version getInstance()
+   :outertype: Version
+
+   Returns the singleton instance of this class.
+
+   :return: the only version instance available
+
+getVersionString
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public String getVersionString()
+   :outertype: Version
+
+   Returns a string describing this version in the usual major.minor.patch format.
+
+   :return: version string or \ ``"unknown"``\  if not able to determine
+

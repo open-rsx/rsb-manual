@@ -1,0 +1,45 @@
+rsb
+===
+
+.. automodule:: rsb
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      converters_from_transport_config
+      create_informer
+      create_listener
+      create_local_server
+      create_participant
+      create_reader
+      create_remote_server
+      get_default_participant_config
+      set_default_participant_config
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Event
+      EventId
+      Hook
+      Informer
+      Listener
+      MetaData
+      Participant
+      ParticipantConfig
+      QualityOfServiceSpec
+      Scope
+   
+   
+
+   
+   
+   

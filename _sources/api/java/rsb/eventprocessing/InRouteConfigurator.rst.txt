@@ -1,0 +1,76 @@
+.. java:import:: rsb Handler
+
+.. java:import:: rsb.filter Filter
+
+.. java:import:: rsb.transport InConnector
+
+InRouteConfigurator
+===================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public interface InRouteConfigurator extends RouteConfigurator<InConnector>
+
+   Implementing classes provide ingoing communication routes for \ :java:ref:`rsb.Participant`\ s. The methods \ :java:ref:`handlerAdded(Handler,boolean)`\  and \ :java:ref:`handlerRemoved(Handler,boolean)`\  need to be callable before and after calling \ :java:ref:`activate()`\ .
+
+   :author: jwienke
+
+Methods
+-------
+filterAdded
+^^^^^^^^^^^
+
+.. java:method::  void filterAdded(Filter filter)
+   :outertype: InRouteConfigurator
+
+   Called in case a new filter was added and should be reflected by this route.
+
+   :param filter: the added filter
+
+filterRemoved
+^^^^^^^^^^^^^
+
+.. java:method::  boolean filterRemoved(Filter filter)
+   :outertype: InRouteConfigurator
+
+   Called in a case a filter should be removed from the route.
+
+   :param filter: the filter to remove
+   :return: \ ``true``\  if the filter was already active and was removed now, else \ ``false``\
+
+handlerAdded
+^^^^^^^^^^^^
+
+.. java:method::  void handlerAdded(Handler handler, boolean wait) throws InterruptedException
+   :outertype: InRouteConfigurator
+
+   Called in case a \ :java:ref:`Handler`\  was added to the participant for which the route is being configured. This method should incorporate that handler into the route.
+
+   :param handler: the added handler
+   :param wait: if \ ``true``\ , this method must wait with returning until the handler is fully active and can receive the next event. Otherwise it might return earlier.
+   :throws InterruptedException: interrupted while waiting for the handler to be fully removed
+
+handlerRemoved
+^^^^^^^^^^^^^^
+
+.. java:method::  boolean handlerRemoved(Handler handler, boolean wait) throws InterruptedException
+   :outertype: InRouteConfigurator
+
+   Called in case a \ :java:ref:`Handler`\  was remove from the participant for which the route is being configured. This method should remove that handler from the route.
+
+   :param handler: the removed handler
+   :param wait: if \ ``true``\ , this method must wait with returning until the handler is fully removed and will not receive any more events.. Otherwise it might return earlier.
+   :throws InterruptedException: interrupted while waiting for the handler to be fully removed
+   :return: \ ``true``\  if the handler was already available and is now removed, else \ ``false``\
+
+setEventReceivingStrategy
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void setEventReceivingStrategy(EventReceivingStrategy strategy)
+   :outertype: InRouteConfigurator
+
+   Defines the \ :java:ref:`EventReceivingStrategy`\  to use by the configurator. Must be called directly after construction before any other method was called.
+
+   :param strategy: the new strategy
+

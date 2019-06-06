@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Converters &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inprocess Transport" href="specification-inprocess.html" />
+    <link rel="prev" title="Plugins" href="specification-plugin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Converters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#converter-selection">Converter Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disambiguation">Disambiguation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-custom-converter-selection-strategies">Using Custom Converter Selection Strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>Converters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-converters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="converters">
+<span id="specification-converters"></span><h1>Converters<a class="headerlink" href="#converters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="converter-selection">
+<h2>Converter Selection<a class="headerlink" href="#converter-selection" title="Permalink to this headline">¶</a></h2>
+<p>When sending and receiving data via RSB, an appropriate instance
+of a <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converter</span></a> needs to be selected by the RSB
+implementation. This selection process is performed by an
+implementation of a <a class="reference internal" href="glossary.html#term-converter-selection-strategy"><span class="xref std std-term">converter selection strategy</span></a>.</p>
+<p>The default <a class="reference internal" href="glossary.html#term-converter-selection-strategy"><span class="xref std std-term">converter selection strategy</span></a> relies on the fact
+that the selection can always be performed without ambiguities. These
+ambiguities can arise in case multiple converters exist for the same
+<a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire schema</span></a> or <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a>. In such cases, when using
+the default <a class="reference internal" href="glossary.html#term-converter-selection-strategy"><span class="xref std std-term">converter selection strategy</span></a>, the user has to
+provide rules to disambiguate the different <a class="reference internal" href="glossary.html#term-converter"><span class="xref std std-term">converters</span></a> via the configuration mechanism.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> can use a different <a class="reference internal" href="glossary.html#term-converter-selection-strategy"><span class="xref std std-term">converter
+selection strategy</span></a>.</p>
+</div>
+</div>
+<div class="section" id="disambiguation">
+<h2>Disambiguation<a class="headerlink" href="#disambiguation" title="Permalink to this headline">¶</a></h2>
+<p>Potentially, multiple converters can exist that encoding to / decode
+from the same <a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire schema</span></a> or <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a>. For example,
+there could be a common <a class="reference internal" href="glossary.html#term-wire-schema"><span class="xref std std-term">wire schema</span></a> to encode image data, but
+different domain image types like OpenCV’s or ICL’s image classes. In
+order to resolve these ambiguities when using the default
+<a class="reference internal" href="glossary.html#term-converter-selection-strategy"><span class="xref std std-term">converter selection strategy</span></a> you can <a class="reference internal" href="specification-config.html#specification-config-files"><span class="std std-ref">configure</span></a> your choice under the configuration
+section <code class="samp docutils literal notranslate"><em><span class="pre">TRANSPORT</span></em><span class="pre">.converter.</span><em><span class="pre">LANGUAGE</span></em></code> as entries of the
+form <code class="samp docutils literal notranslate"><em><span class="pre">WIRE-SCHEMA</span></em> <span class="pre">=</span> <em><span class="pre">DATA-TYPE</span></em></code>.</p>
+</div>
+<div class="section" id="using-custom-converter-selection-strategies">
+<h2>Using Custom Converter Selection Strategies<a class="headerlink" href="#using-custom-converter-selection-strategies" title="Permalink to this headline">¶</a></h2>
+<p>Different implementations of <a class="reference internal" href="glossary.html#term-converter-selection-strategy"><span class="xref std std-term">converter selection strategy</span></a>
+apart from the default implementation are shipped with RSB or
+can be implemented by users. In order to use these implementations,
+you need to adapt the <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">Configuration</span></a> of the <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a>
+you are going to create.</p>
+<div class="custom-converter-selection-strategies-multi docutils container">
+<div class="custom-converter-selection-strategies-cpp docutils container">
+<p>The default <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb17ParticipantConfigE" title="rsb::ParticipantConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::ParticipantConfig</span></code></a> will configure
+all transports using the default unambiguous converter selection
+strategy (implemented by
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::converter::UnambiguousConverterMap</span></code>). In order
+to replace this default
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::converter::ConverterSelectionStrategy</span></code> by a
+different one you need to modifying the <code class="docutils literal notranslate"><span class="pre">converters</span></code> option
+value of the respective <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> options in the
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb17ParticipantConfigE" title="rsb::ParticipantConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::ParticipantConfig</span></code></a> instance that you are going
+to pass to the factory method when creating a new
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

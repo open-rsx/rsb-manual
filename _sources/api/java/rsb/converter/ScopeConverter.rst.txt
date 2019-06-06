@@ -1,0 +1,52 @@
+.. java:import:: java.nio CharBuffer
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.nio.charset CharacterCodingException
+
+.. java:import:: java.nio.charset Charset
+
+.. java:import:: rsb Scope
+
+ScopeConverter
+==============
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class ScopeConverter implements Converter<ByteBuffer>
+
+   A converter for \ :java:ref:`rsb.Scope`\  objects.
+
+   :author: jmoringe
+
+Constructors
+------------
+ScopeConverter
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public ScopeConverter()
+   :outertype: ScopeConverter
+
+   Creates a new converter for encoding \ :java:ref:`rsb.Scope`\  objects with scope wire-schema.
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer bytes) throws ConversionException
+   :outertype: ScopeConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: ScopeConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object obj) throws ConversionException
+   :outertype: ScopeConverter
+

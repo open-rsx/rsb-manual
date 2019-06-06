@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ROS Transports &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multi-transport Setups" href="specification-multiple-transports.html" />
+    <link rel="prev" title="YARP Transports" href="specification-yarp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-converters.html">Converters</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="specification.html#transports">Transports</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="specification-inprocess.html">Inprocess Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-spread.html">Spread Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-socket.html">TCP-Socket Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-yarp.html">YARP Transports</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ROS Transports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tcp-ros-transport-without-master-lookup">TCP+ROS Transport (without Master Lookup)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ros-transport-with-master-lookup">ROS Transport (with Master Lookup)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bus-semantics">Bus Semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="specification-multiple-transports.html">Multi-transport Setups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-inter-transport-communication.html">Inter-transport Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-transport-level-filtering.html">Transport-level Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>ROS Transports</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-ros.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="ros-transports">
+<span id="specification-ros"></span><h1>ROS Transports<a class="headerlink" href="#ros-transports" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="http://www.ros.org/">ROS</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> enables some communication between
+RSB <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> and <a class="reference external" href="http://www.ros.org/">ROS</a> nodes.</p>
+<p>The <a class="reference external" href="http://www.ros.org/">ROS</a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> for RSB maps the following URI
+schemas to ROS network protocols:</p>
+<p><code class="docutils literal notranslate"><span class="pre">tcp+ros</span></code> (See <a class="reference internal" href="#specification-tcpros"><span class="std std-ref">TCP+ROS Transport (without Master Lookup)</span></a>)</p>
+<blockquote>
+<div><p>Direct connections to the TCP endpoints of <a class="reference external" href="http://www.ros.org/">ROS</a> nodes.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">ros</span></code> (See <a class="reference internal" href="#specification-ros"><span class="std std-ref">ROS Transports</span></a>)</p>
+<blockquote>
+<div><p>Connections to <a class="reference external" href="http://www.ros.org/">ROS</a> nodes are made via the <a class="reference external" href="http://www.ros.org/">ROS</a> master.</p>
+</div></blockquote>
+<div class="section" id="tcp-ros-transport-without-master-lookup">
+<span id="specification-tcpros"></span><h2>TCP+ROS Transport (without Master Lookup)<a class="headerlink" href="#tcp-ros-transport-without-master-lookup" title="Permalink to this headline">¶</a></h2>
+<p>Direct connections to the TCP endpoints of <a class="reference external" href="http://www.ros.org/">ROS</a> nodes. This
+low-level protocol requires knowing the hostname and TCP port of a
+<a class="reference external" href="http://www.ros.org/">ROS</a> node. Knowing the node name and/or topic is not sufficient on
+this level.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This schema is supported in the Python and Common Lisp
+implementations of RSB.</p>
+</div>
+<div class="section" id="schema">
+<h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-uris.html#specification-uris"><span class="std std-ref">URIs</span></a></dt><dd><p>Use of URIs in RSB.</p>
+</dd>
+</dl>
+</div>
+<p>This <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> uses the <code class="docutils literal notranslate"><span class="pre">tcp+ros</span></code> URI schema.</p>
+</div>
+<div class="section" id="options">
+<span id="specification-tcpros-options"></span><h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>The following <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">Configuration</span></a> options are accepted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>        <span class="n">Type</span>   <span class="n">Comment</span>
+<span class="o">+</span> <span class="n">transport</span>
+<span class="o">+--</span> <span class="n">tcp</span><span class="o">+</span><span class="n">ros</span>
+<span class="o">+----</span> <span class="n">host</span>  <span class="n">string</span> <span class="n">Hostname</span> <span class="n">on</span> <span class="n">which</span> <span class="n">endpoint</span> <span class="n">runs</span>
+<span class="o">+----</span> <span class="n">port</span>  <span class="n">uint16</span> <span class="n">Port</span> <span class="n">on</span> <span class="n">which</span> <span class="n">entpoint</span> <span class="n">listens</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="implementations">
+<h3>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>File(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p><em>not implemented yet</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Java</p></td>
+<td><p><em>not implemented yet</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p><em>not implemented yet</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Lisp</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-ros-cl">https://github.com/open-rsx/rsb-ros-cl</a> src/transport/tcpros</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ros-transport-with-master-lookup">
+<span id="specification-ros-nameservice"></span><h2>ROS Transport (with Master Lookup)<a class="headerlink" href="#ros-transport-with-master-lookup" title="Permalink to this headline">¶</a></h2>
+<p>Connections to <a class="reference external" href="http://www.ros.org/">ROS</a> nodes are made and accepted via the <a class="reference external" href="http://www.ros.org/">ROS</a>
+master. That is the <a class="reference external" href="http://www.ros.org/">ROS</a> master is consulted to determine the
+endpoint for a given topic. After that, a low-level connection is
+established, if one of the <a class="reference external" href="http://www.ros.org/">ROS</a> transports offered by the endpoint
+is supported.</p>
+<p>For this schema, nameservice queries which yield multiple results or
+change over time can lead to a changing set of connections.  For
+example, the URL <code class="docutils literal notranslate"><span class="pre">ros:/foo</span></code> could causes connections to be
+established to nodes publishing the topics <code class="docutils literal notranslate"><span class="pre">/foo/bar</span></code> and
+<code class="docutils literal notranslate"><span class="pre">/foo/baz</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This schema is only supported in the Common Lisp implementation of
+RSB.</p>
+</div>
+<div class="section" id="id1">
+<h3>Schema<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-uris.html#specification-uris"><span class="std std-ref">URIs</span></a></dt><dd><p>Use of URIs in RSB.</p>
+</dd>
+</dl>
+</div>
+<p>This <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> uses the <code class="docutils literal notranslate"><span class="pre">ros</span></code> URI schema.</p>
+</div>
+<div class="section" id="specification-ros-nameservice-options">
+<span id="id2"></span><h3>Options<a class="headerlink" href="#specification-ros-nameservice-options" title="Permalink to this headline">¶</a></h3>
+<p>The following <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">Configuration</span></a> options are accepted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>        <span class="n">Type</span>   <span class="n">Comment</span>
+<span class="o">+</span> <span class="n">transport</span>
+<span class="o">+--</span> <span class="n">ros</span>
+<span class="o">+----</span> <span class="n">host</span>  <span class="n">string</span> <span class="n">Hostname</span> <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">ROS</span> <span class="n">master</span> <span class="n">runs</span>
+<span class="o">+----</span> <span class="n">port</span>  <span class="n">uint16</span> <span class="n">Port</span> <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">ROS</span> <span class="n">master</span> <span class="n">listens</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Implementations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>File(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p><em>not implemented yet</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Java</p></td>
+<td><p><em>not implemented yet</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p><em>not implemented yet</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Lisp</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-ros-cl">https://github.com/open-rsx/rsb-ros-cl</a> src/transport/ros</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="bus-semantics">
+<h2>Bus Semantics<a class="headerlink" href="#bus-semantics" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

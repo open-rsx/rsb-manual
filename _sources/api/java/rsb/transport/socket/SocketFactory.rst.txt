@@ -1,0 +1,54 @@
+.. java:import:: java.net InetAddress
+
+.. java:import:: java.net UnknownHostException
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.transport InConnector
+
+.. java:import:: rsb.transport OutConnector
+
+.. java:import:: rsb.transport TransportFactory
+
+.. java:import:: rsb.util Properties
+
+SocketFactory
+=============
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class SocketFactory implements TransportFactory
+
+   A \ :java:ref:`TransportFactory`\  for the socket-based transport.
+
+   :author: jwienke
+
+Methods
+-------
+createInConnector
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public InConnector createInConnector(Properties properties, ConverterSelectionStrategy<?> converters) throws InitializeException
+   :outertype: SocketFactory
+
+createOutConnector
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public OutConnector createOutConnector(Properties properties, ConverterSelectionStrategy<?> converters) throws InitializeException
+   :outertype: SocketFactory
+
+getInfo
+^^^^^^^
+
+.. java:method:: @Override public ConnectorInfo getInfo()
+   :outertype: SocketFactory
+

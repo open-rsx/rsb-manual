@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Java Implementation &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python Implementation" href="install-python.html" />
+    <link rel="prev" title="Common Lisp Implementation" href="install-cl.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="install.html">Installing RSB</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install-binary.html">Installation of Pre-Generated Packages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="install-source.html">Installation from Source</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="install-cpp.html">C++ Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-cl.html">Common Lisp Implementation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Java Implementation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#supported-java-version">Supported Java Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-of-rsbjava">Installation of RSBJava</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-the-maven-installation">Testing the Maven Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install-python.html">Python Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="install.html">Installing RSB</a> &raquo;</li>
+        
+          <li><a href="install-source.html">Installation from Source</a> &raquo;</li>
+        
+      <li>Java Implementation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install-java.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="java-implementation">
+<span id="install-java"></span><h1>Java Implementation<a class="headerlink" href="#java-implementation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="supported-java-version">
+<h2>Supported Java Version<a class="headerlink" href="#supported-java-version" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Oracle Java Platform, Standard Edition 6</p></li>
+</ul>
+<p>Other Java platform SDKs may be applicable but are currently untested.</p>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Required Dependencies</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google Protocol Buffers</a></p>
+<ul>
+<li><p>Ubuntu GNU/Linux packages (<code class="docutils literal notranslate"><span class="pre">libprotobuf-java</span></code>,
+<code class="docutils literal notranslate"><span class="pre">protobuf-compiler</span></code>) are OK</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://ant.apache.org/">Apache Ant</a> / <a class="reference external" href="http://maven.apache.org/">Maven</a></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a></p>
+<ul>
+<li><p>Version 4.0 or newer to utilize the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p></li>
+<li><p>The Ubuntu GNU/Linux package does <strong>not</strong> work (since it
+contains the outdated version 3)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://www.cmake.org/">CMake</a>, version 2.8 or newer for RSB protocol compilation</p></li>
+</ul>
+<p>Optional Dependencies (building without these is possible, but some
+features will be missing)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html">Javadoc</a></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Java implementation of RSB depends on RSB’s
+language independent network protocol specification. This
+specification is maintained in the RSB protocol
+sub-project. This project and its transitive dependencies should
+already be installed on your system if you followed the <a class="reference internal" href="install-cpp.html#install-cpp"><span class="std std-ref">C++
+installation guidelines</span></a> . If the C++ implementation
+of RSB is already installed, you can skip the section
+<a class="reference internal" href="#installation-of-dependencies-on-debian-based-systems">Installation of Dependencies on Debian-based Systems</a> and proceed
+to the <a class="reference internal" href="#installation-of-rsbjava">Installation of RSBJava</a> section.</p>
+</div>
+<div class="section" id="installation-of-dependencies-on-debian-based-systems">
+<h3>Installation of Dependencies on Debian-based Systems<a class="headerlink" href="#installation-of-dependencies-on-debian-based-systems" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install libprotobuf-java protobuf-compiler build-essential cmake
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-dependencies-on-macos-using-homebrew">
+<h3>Installation of Dependencies on MacOS using Homebrew<a class="headerlink" href="#installation-of-dependencies-on-macos-using-homebrew" title="Permalink to this headline">¶</a></h3>
+<p>For installing RSB and its dependencies from source on Darwin,
+we recommend to use <a class="reference external" href="http://mxcl.github.com/homebrew/">Homebrew</a>, an easy-to-use package manager for
+MacOS.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew install cmake protobuf
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-the-spread-toolkit">
+<h3>Installation of the Spread Toolkit<a class="headerlink" href="#installation-of-the-spread-toolkit" title="Permalink to this headline">¶</a></h3>
+<p>To install <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>, source archives are available after
+registration for download at <a class="reference external" href="http://www.spread.org/download/spread-src-4.1.0.tar.gz">http://www.spread.org/download/spread-src-4.1.0.tar.gz</a>. Installation of
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> is straightforward on MacOS and Linux as it has no
+external dependencies and comes with a standard configuration script.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the following sections, <code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code> specifies the target
+directory of the installation.</p>
+</div>
+<pre class="literal-block">$ tar xzf spread-src-4.1.0.tar.gz
+$ cd spread-src-4.1.0
+$ ./configure --prefix=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code>
+$ make
+$ make install</pre>
+</div>
+<div class="section" id="installation-of-rsc-and-rsbprotocol">
+<h3>Installation of RSC and RSBProtocol<a class="headerlink" href="#installation-of-rsc-and-rsbprotocol" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Obtain the source code:</p>
+<dl class="simple">
+<dt>RSC</dt><dd><p>“1.0” branch of <a class="reference external" href="https://code.cor-lab.de/git/rsc.git">https://code.cor-lab.de/git/rsc.git</a></p>
+</dd>
+<dt>RSB Protocol</dt><dd><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-protocol">https://github.com/open-rsx/rsb-protocol</a></p>
+</dd>
+</dl>
+</li>
+<li><p>Build and install RSC Library</p>
+<pre class="literal-block">$ cd rsc
+$ mkdir -p build &amp;&amp; cd build
+$ cmake -DCMAKE_INSTALL_PREFIX=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code> ..
+$ make install</pre>
+</li>
+<li><p>Install RSB Protocol Definitions</p>
+<pre class="literal-block">$ cd rsb.git.protocol
+$ mkdir -p build &amp;&amp; cd build
+$ cmake -DCMAKE_INSTALL_PREFIX=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code> ..
+$ make install</pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These protocol definitions are shared across programming
+languages.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="installation-of-rsbjava">
+<h2>Installation of RSBJava<a class="headerlink" href="#installation-of-rsbjava" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Checkout RSB and its immediate dependencies from
+“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-java">https://github.com/open-rsx/rsb-java</a>.</p></li>
+<li><p>Run <code class="file docutils literal notranslate"><span class="pre">mvnprep.sh</span></code> which resides inside the repository root folder</p></li>
+</ol>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> rsb.git.java
+$ ./mvnprep.sh
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Invoke <strong class="program">mvn</strong> supplying build properties on the command-line</p>
+<p>The following properties are used to configure the build:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 60%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Maven Property</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pbuf.protoc</span></code></p></td>
+<td><p>Location of protocol buffer compiler (<strong class="program">protoc</strong> or <strong class="program">protoc.exe</strong>)</p></td>
+<td><p><code class="file docutils literal notranslate"><span class="pre">/usr/bin/protoc</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pbuf.protopath</span></code></p></td>
+<td><p>Location of RSB protocol IDL files (see TODO)</p></td>
+<td><p><code class="file docutils literal notranslate"><span class="pre">/vol/cit/share/rsbprotocol</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">spread.daemon</span></code></p></td>
+<td><p>Location of <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a> executable</p></td>
+<td><p><code class="file docutils literal notranslate"><span class="pre">/vol/cit/sbin/spread</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>All properties can be supplied on the <strong class="program">mvn</strong> command-line
+using the <code class="samp docutils literal notranslate"><span class="pre">-D</span><em><span class="pre">NAME</span></em><span class="pre">=</span><em><span class="pre">VALUE</span></em></code> syntax.</p>
+<p>An exemplary <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">package</span></code> command, which builds the RSB jar
+library, may look as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mvn clean package                               <span class="se">\</span>
+      -Dpbuf.protoc<span class="o">=</span>/usr/bin/protoc               <span class="se">\</span>
+      -Dpbuf.protopath<span class="o">=</span>/vol/cit/share/rsbprotocol <span class="se">\</span>
+      -Dspread.daemon<span class="o">=</span>/vol/cit/sbin/spread
+</pre></div>
+</div>
+</li>
+<li><p>Installation of Java archive</p>
+<p>To install RSB jars into the your user’s maven repository (i.e.
+<code class="file docutils literal notranslate"><span class="pre">~/.m2</span></code>), use this command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mvn clean install                               <span class="se">\</span>
+      -Dpbuf.protoc<span class="o">=</span>/usr/bin/protoc               <span class="se">\</span>
+      -Dpbuf.protopath<span class="o">=</span>/vol/cit/share/rsbprotocol <span class="se">\</span>
+      -Dspread.daemon<span class="o">=</span>/vol/cit/sbin/spread
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="testing-the-maven-installation">
+<h2>Testing the Maven Installation<a class="headerlink" href="#testing-the-maven-installation" title="Permalink to this headline">¶</a></h2>
+<p>The Java implementation of RSB comes with a set of unit tests,
+which you may use to check the compiled code. Executing the test suite
+is straightforward.  To do so, the following <strong class="program">mvn</strong> target
+needs to be invoked (please note that a <a class="reference internal" href="glossary.html#term-spread-daemon"><span class="xref std std-term">Spread daemon</span></a> is
+automatically started by the <strong class="program">mvn</strong> script):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mvn <span class="nb">test</span>                                        <span class="se">\</span>
+      -Dpbuf.protoc<span class="o">=</span>/opt/local/bin/protoc         <span class="se">\</span>
+      -Dpbuf.protopath<span class="o">=</span>/vol/cit/share/RSBProtocol <span class="se">\</span>
+      -Dspread.daemon<span class="o">=</span>/vol/cit/sbin/spread
+</pre></div>
+</div>
+<p>You should see a console output similar to the following (shortened
+excerpt):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mvn <span class="nb">test</span>                                        <span class="se">\</span>
+      -Dpbuf.protoc<span class="o">=</span>/opt/local/bin/protoc         <span class="se">\</span>
+      -Dpbuf.protopath<span class="o">=</span>/vol/cit/share/RSBProtocol <span class="se">\</span>
+      -Dspread.daemon<span class="o">=</span>/vol/cit/sbin/spread
+
+<span class="o">[</span>INFO<span class="o">]</span> Scanning <span class="k">for</span> projects...
+<span class="o">[</span>INFO<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span> Building RSB <span class="m">0</span>.11-SNAPSHOT
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span>
+.
+..
+...
+
+
+Results :
+
+Tests run: <span class="m">175</span>, Failures: <span class="m">0</span>, Errors: <span class="m">0</span>, Skipped: <span class="m">0</span>
+
+<span class="o">[</span>INFO<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> --- jacoco-maven-plugin:0.6.3.201306030806:report <span class="o">(</span>post-unit-test<span class="o">)</span> @ rsb ---
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span> BUILD SUCCESS
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span> Total time: <span class="m">27</span>.010s
+<span class="o">[</span>INFO<span class="o">]</span> Finished at: Wed Jan <span class="m">29</span> <span class="m">19</span>:59:08 CET <span class="m">2014</span>
+<span class="o">[</span>INFO<span class="o">]</span> Final Memory: 25M/193M
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+     <span class="o">[</span>exec<span class="o">]</span> Result: <span class="m">143</span>
+</pre></div>
+</div>
+<p>If no failed test cases are reported, the Java implementation of
+RSB is likely to work correctly on your machine.</p>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

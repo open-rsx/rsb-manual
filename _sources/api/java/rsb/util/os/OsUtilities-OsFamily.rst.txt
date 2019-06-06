@@ -1,0 +1,69 @@
+.. java:import:: java.net InetAddress
+
+.. java:import:: java.net UnknownHostException
+
+.. java:import:: java.util Locale
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+OsUtilities.OsFamily
+====================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public static enum OsFamily
+   :outertype: OsUtilities
+
+   Enumeration describing different operating system families.
+
+   :author: swrede
+
+Enum Constants
+--------------
+DARWIN
+^^^^^^
+
+.. java:field:: public static final OsUtilities.OsFamily DARWIN
+   :outertype: OsUtilities.OsFamily
+
+   Operating system family for Mac (OS X) systems.
+
+LINUX
+^^^^^
+
+.. java:field:: public static final OsUtilities.OsFamily LINUX
+   :outertype: OsUtilities.OsFamily
+
+   Operating system family for linux-based systems.
+
+UNKNOWN
+^^^^^^^
+
+.. java:field:: public static final OsUtilities.OsFamily UNKNOWN
+   :outertype: OsUtilities.OsFamily
+
+   Any other unknown operating system.
+
+WINDOWS
+^^^^^^^
+
+.. java:field:: public static final OsUtilities.OsFamily WINDOWS
+   :outertype: OsUtilities.OsFamily
+
+   Operating system family for windows-based systems (including 64 bit windows).
+
+Methods
+-------
+getName
+^^^^^^^
+
+.. java:method:: public String getName()
+   :outertype: OsUtilities.OsFamily
+
+   Returns a string representation of the operating system family.
+
+   :return: string name or \ ``null``\  in case of unknown families.
+

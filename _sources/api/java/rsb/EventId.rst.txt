@@ -1,0 +1,96 @@
+.. java:import:: java.util Formatter
+
+.. java:import:: java.util UUID
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.util UUIDTools
+
+EventId
+=======
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class EventId
+
+   This class serves as a Uniform Resource Name to identify events in an RSB system. This URN is based on the participant's ID and a sequence number generated at the sender side unique for this participant. Both can be combined and returned as a UUID. Please note, that the sequence number is a 32bit unsigned integer and thus can overrun in a long-running system. In such cases, the timestamp has to be additionally considered to further distinguish between events.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+EventId
+^^^^^^^
+
+.. java:constructor:: public EventId(ParticipantId participantId, long sequenceNumber)
+   :outertype: EventId
+
+   Creates a unique Id based on participant and sequence number.
+
+   :param participantId: the id of the participant causing this event
+   :param sequenceNumber: a number from a sequential list of numbers of events originating from that participant
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: EventId
+
+formatSequenceNumber
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String formatSequenceNumber(long value)
+   :outertype: EventId
+
+   Formats an decimal sequence number as a string with 8 byte width encoding that number in hex. E.g. 0 -< 00000000, 1 -< 00000000, 32 -< 00000020. This is the format used inside the UUID-based representation.
+
+   :param value: the number to encode
+   :return: string representation of the number in hex format with length 8
+
+getAsUUID
+^^^^^^^^^
+
+.. java:method:: public UUID getAsUUID()
+   :outertype: EventId
+
+   Converts this \ :java:ref:`EventId`\  to a \ :java:ref:`UUID`\ .
+
+   :return: the UUID representation of this event id
+
+getParticipantId
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public ParticipantId getParticipantId()
+   :outertype: EventId
+
+   Returns the id of the participant that sent the event.
+
+   :return: participant id
+
+getSequenceNumber
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public long getSequenceNumber()
+   :outertype: EventId
+
+   Returns the sequence number which makes this id unique combined with the sending participants id.
+
+   :return: sequence number for sending participant
+
+   **See also:** :java:ref:`.getParticipantId()`
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: EventId
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: EventId
+

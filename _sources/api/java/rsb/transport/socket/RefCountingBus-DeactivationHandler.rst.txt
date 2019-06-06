@@ -1,0 +1,33 @@
+.. java:import:: java.net URI
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+RefCountingBus.DeactivationHandler
+==================================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public interface DeactivationHandler
+   :outertype: RefCountingBus
+
+   A handler that will be called once the underlying bus will really be deactivated.
+
+   :author: jwienke
+
+Methods
+-------
+deactivated
+^^^^^^^^^^^
+
+.. java:method::  void deactivated(RefCountingBus bus)
+   :outertype: RefCountingBus.DeactivationHandler
+
+   Called on deactivation of a reference-counted bus instance.
+
+   :param bus: the bus being deactivated
+

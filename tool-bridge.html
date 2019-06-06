@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bridge &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Server" href="tool-server.html" />
+    <link rel="prev" title="Timesync" href="tool-timesync.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-introspect.html">Introspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-send.html">Send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-call.html">Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-timesync.html">Timesync</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-forwarding-specification">Simple Forwarding Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forwarding-cycles">Forwarding Cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tool-server.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-web.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-command-line-options.html">Common Commandline Options and Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="tools.html">Tools</a> &raquo;</li>
+        
+      <li>Bridge</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tool-bridge.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="bridge">
+<span id="tool-bridge"></span><h1>Bridge<a class="headerlink" href="#bridge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="samp docutils literal notranslate"><span class="pre">rsb</span> <span class="pre">bridge</span> <em><span class="pre">[OPTIONS]</span></em> <em><span class="pre">SIMPLE-FORWARDING-SPECIFICATION</span></em></code></p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Forward <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> according to
+<code class="samp docutils literal notranslate"><em><span class="pre">SIMPLE-FORWARDING-SPECIFICATION</span></em></code> (See
+<a class="reference internal" href="#tool-bridge-simple-forwarding-specification"><span class="std std-ref">Simple Forwarding Specification</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When written as part of a shell command, the <a class="reference internal" href="#tool-bridge-simple-forwarding-specification"><span class="std std-ref">forwarding
+specification</span></a> may
+require protection from processing by the shell, usually by
+surrounding the form in single quotes (‘). For example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb bridge <span class="s1">&#39;socket:/foo/ &lt;-&gt; spread:/bar/&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>The <a class="reference internal" href="common-command-line-options.html#common-options"><span class="std std-ref">usual commandline options</span></a> are
+accepted. Specialized commandline options:</p>
+<dl class="option">
+<dt id="cmdoption-bridge-max-queued-events">
+<code class="sig-name descname">--max-queued-events</code><code class="sig-prename descclassname"> POSITIVE-INTEGER</code><a class="headerlink" href="#cmdoption-bridge-max-queued-events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the maximum number of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> that may be
+kept in a queue in case processing (i.e. forwarding) cannot keep up
+with the rate of incoming <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>.</p>
+<p>This queue can smooth over bursts of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>, but if
+the sustained rate of incoming <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> is above the
+maximum processing speed, it will overflow and an error will be
+signaled. The behavior in this case can be controlled via
+<a class="reference internal" href="common-command-line-options.html#cmdoption-common-on-error"><code class="xref std std-option docutils literal notranslate"><span class="pre">common</span> <span class="pre">--on-error</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="simple-forwarding-specification">
+<span id="tool-bridge-simple-forwarding-specification"></span><h2>Simple Forwarding Specification<a class="headerlink" href="#simple-forwarding-specification" title="Permalink to this headline">¶</a></h2>
+<p>Simple forwarding specifications describe from and to which buses /
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scopes</span></a> <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> should be forwarded and
+can be constructed according to the following grammar:</p>
+<pre>
+<strong id="grammar-token-bridge-specification">bridge-specification                   </strong> ::=  forwarding-specification (&quot;;&quot; forwarding-specification)*
+<strong id="grammar-token-forwarding-specification">forwarding-specification               </strong> ::=  (unidirectional-forwarding-specification
+                                              | bidirectional-forwarding-specification)
+<strong id="grammar-token-unidirectional-forwarding-specification">unidirectional-forwarding-specification</strong> ::=  (input-specification)+
+                                             &quot;-&gt;&quot;
+                                             (filter)*
+                                             transform?
+                                             (output-specification)+
+<strong id="grammar-token-bidirectional-forwarding-specification">bidirectional-forwarding-specification </strong> ::=  (input-specification)+
+                                             &quot;&lt;-&gt;&quot;
+                                             (output-specification)+
+<strong id="grammar-token-filter">filter                                 </strong> ::=  &quot;|&quot; FILTER-SPEC &quot;|&quot;
+<strong id="grammar-token-transform">transform                              </strong> ::=  &quot;/&quot; TRANSFORM-SPEC &quot;/&quot;
+<strong id="grammar-token-input-specification">input-specification                    </strong> ::=  URI
+<strong id="grammar-token-output-specification">output-specification                   </strong> ::=  URI
+</pre>
+<ul class="simple">
+<li><p>Unidirectional forwarding, described by the
+<a class="reference internal" href="#grammar-token-unidirectional-forwarding-specification"><code class="xref std std-token docutils literal notranslate"><span class="pre">unidirectional-forwarding-specification</span></code></a> production, consists
+in forwarding <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> from bus / <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope(s)</span></a> described by the <a class="reference internal" href="#grammar-token-input-specification"><code class="xref std std-token docutils literal notranslate"><span class="pre">input-specification</span></code></a>s on the left
+hand side of the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> to the bus / <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope(s)</span></a>
+described by the <a class="reference internal" href="#grammar-token-output-specification"><code class="xref std std-token docutils literal notranslate"><span class="pre">output-specification</span></code></a>s on the right hand
+side.</p></li>
+<li><p>Bidirectional forwarding, described by the
+<a class="reference internal" href="#grammar-token-bidirectional-forwarding-specification"><code class="xref std std-token docutils literal notranslate"><span class="pre">bidirectional-forwarding-specification</span></code></a> production, is like
+unidirectional forwarding but also forwards <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>
+from the right hand side to the left hand side. As a consequence,
+<a class="reference internal" href="glossary.html#term-filter"><span class="xref std std-term">filters</span></a> are not supported.</p></li>
+</ul>
+</div>
+<div class="section" id="forwarding-cycles">
+<span id="tool-bridge-forwarding-cycles"></span><h2>Forwarding Cycles<a class="headerlink" href="#forwarding-cycles" title="Permalink to this headline">¶</a></h2>
+<p>Forwarding specifications, in particular bidirectional ones, can
+describe cyclic forwarding of <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. For example, the
+specification <code class="docutils literal notranslate"><span class="pre">socket:/foo</span> <span class="pre">-&gt;</span> <span class="pre">socket:/foo</span></code> is obviously cyclic since
+forwarded <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are published on <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>
+<code class="docutils literal notranslate"><span class="pre">/foo</span></code> and would therefore immediately be picked up for forwarding
+again. Such a forwarding setup has to be prevented since it
+immediately degrades the affected system, usually making it completely
+unusable.</p>
+<p>The <strong class="program">bridge</strong> command has two mechanisms for dealing with the
+problem:</p>
+<ol class="arabic">
+<li><p>Forwarding specifications are analyzed ahead of time to determine
+whether they are cyclic. This analysis yields one of three results:</p>
+<ol class="arabic simple">
+<li><p>Definitely cyclic (above example). In this case, a continuable
+error is signaled.</p></li>
+<li><p>Maybe cyclic (e.g. <code class="docutils literal notranslate"><span class="pre">socket:/foo/bar</span> <span class="pre">-&gt;</span> <span class="pre">socket:/foo</span></code>). In this
+case, warning is signaled.</p></li>
+<li><p>Definitely not cyclic (e.g. <code class="docutils literal notranslate"><span class="pre">spread:/foo</span> <span class="pre">-&gt;</span> <span class="pre">socket:/bar</span></code>)</p></li>
+</ol>
+<p>Cases 1. and 2. usually indicate configuration errors and should be
+avoided.</p>
+</li>
+<li><p>When a cyclic forwarding specification is used, forwarded
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are tagged when leaving the bridge,
+recognized when they enter the bridge a second time and discarded.</p></li>
+</ol>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb bridge <span class="s1">&#39;spread:/from -&gt; spread:/to&#39;</span>
+</pre></div>
+</div>
+<p>In the above example, the <strong class="program">bridge</strong> command is used to
+establish unidirectional forwarding from <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/from</span></code> to
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/to</span></code> within the bus designated by <code class="docutils literal notranslate"><span class="pre">spread:</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the use of single quotes (<code class="docutils literal notranslate"><span class="pre">'</span></code>) to prevent the shell from
+breaking up the <a class="reference internal" href="#tool-bridge-simple-forwarding-specification"><span class="std std-ref">simple forwarding specification</span></a> into multiple
+arguments because of the whitespace in it.</p>
+</div>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb bridge <span class="s1">&#39;socket://remotehost/ &lt;-&gt; socket://localhost/&#39;</span>
+</pre></div>
+</div>
+<p>In the above example, the <strong class="program">bridge</strong> command is used to
+establish bidirectional forwarding affecting all <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> between <code class="docutils literal notranslate"><span class="pre">remotehost</span></code> and <code class="docutils literal notranslate"><span class="pre">localhost</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the use of single quotes (<code class="docutils literal notranslate"><span class="pre">'</span></code>) to prevent the shell from
+breaking up the <a class="reference internal" href="#tool-bridge-simple-forwarding-specification"><span class="std std-ref">simple forwarding specification</span></a> into multiple
+arguments because of the whitespace in it.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 19%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Implementation Language</p></th>
+<th class="head"><p>Project</p></th>
+<th class="head"><p>Repository Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Common Lisp</p></td>
+<td><p>rsb-tools-cl</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-tools-cl">https://github.com/open-rsx/rsb-tools-cl</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

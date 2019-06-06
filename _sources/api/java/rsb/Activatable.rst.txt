@@ -1,0 +1,49 @@
+.. java:import:: java.io Closeable
+
+Activatable
+===========
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public interface Activatable extends Closeable
+
+   Interface for objects which require an explicit activation and deactivation. Users of such objects should ensure that \ :java:ref:`deactivate()`\  is called when the object is not needed anymore. Otherwise, destruction behavior is undefined. If not stated otherwise, activation and deactivation are not thread-safe. If not stated otherwise, objects may only survive one activation - deactivation cycle and may not be reactivatable in an ordered way.
+
+   :author: swrede, jwienke
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method::  void activate() throws RSBException
+   :outertype: Activatable
+
+   Activates all resources that belong to a specific object.
+
+   :throws RSBException: generic error related to RSB
+   :throws IllegalStateException: Might be thrown by implementations to indicate that the respective instance is already active
+
+deactivate
+^^^^^^^^^^
+
+.. java:method::  void deactivate() throws RSBException, InterruptedException
+   :outertype: Activatable
+
+   Deactivate all resources that are owned by a specific object in order to correctly tear down. The method should only return once the object is completely deactivated including possible background threads.
+
+   :throws RSBException: generic error related to RSB
+   :throws IllegalStateException: Might be thrown by implementations to indicate that the respective instance is not active
+   :throws InterruptedException: interrupted while waiting for proper deactivation. Object might be in an undefined state now
+
+isActive
+^^^^^^^^
+
+.. java:method::  boolean isActive()
+   :outertype: Activatable
+
+   Tells whether this class is currently active or not.
+
+   :return: \ ``true``\  if active
+

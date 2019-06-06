@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inter-transport Communication &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Transport-level Filtering" href="specification-transport-level-filtering.html" />
+    <link rel="prev" title="Multi-transport Setups" href="specification-multiple-transports.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-converters.html">Converters</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="specification.html#transports">Transports</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="specification-inprocess.html">Inprocess Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-spread.html">Spread Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-socket.html">TCP-Socket Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-yarp.html">YARP Transports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-ros.html">ROS Transports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-multiple-transports.html">Multi-transport Setups</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Inter-transport Communication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inter-transport-setup">Inter-Transport Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="specification-transport-level-filtering.html">Transport-level Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>Inter-transport Communication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-inter-transport-communication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="inter-transport-communication">
+<span id="id1"></span><h1>Inter-transport Communication<a class="headerlink" href="#inter-transport-communication" title="Permalink to this headline">¶</a></h1>
+<p>Inter-<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> communication becomes necessary, when
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> want to communicate that are
+connected to the unified bus using different <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>
+mechanisms.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This description describes the TCP-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> but also
+applies to the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</div>
+<div class="section" id="inter-transport-setup">
+<h2>Inter-Transport Setup<a class="headerlink" href="#inter-transport-setup" title="Permalink to this headline">¶</a></h2>
+<div class="graphviz"><img src="_images/graphviz-89ffbf71b5eeff9ff3a9a80284d4cc71552484fa.png" alt="digraph interTransport {
+resolution=60
+
+subgraph clusterInprocessAndSocket {
+  label=&quot;inprocess-and-socket : Process&quot;
+
+  l1 [label=&quot;Listener&quot;, shape=box, style=filled, fillcolor=&quot;#c0ffc0&quot;]
+  sic1 [label=&quot;Socket In Connector&quot;, shape=octagon, style=filled, fillcolor=&quot;#ffc0c0&quot;]
+  iic1 [label=&quot;Inprocess In Connector&quot;, shape=octagon, style=filled, fillcolor=&quot;#ffc0c0&quot;]
+
+  sic1 -&gt; l1
+  iic1 -&gt; l1
+
+  i1 [label=&quot;Informer&quot;, shape=box, style=filled, fillcolor=&quot;#c0ffc0&quot;]
+  soc1 [label=&quot;Socket Out Connector&quot;, shape=octagon, style=filled, fillcolor=&quot;#ffc0c0&quot;]
+  ioc1 [label=&quot;Inprocess Out Connector&quot;, shape=octagon, style=filled, fillcolor=&quot;#ffc0c0&quot;]
+
+  i1 -&gt; soc1
+  i1 -&gt; ioc1
+
+  ib [label=&quot;Inprocess Bus&quot;, shape=ellipse, style=filled, fillcolor=&quot;#c0c0ff&quot;]
+
+  ib -&gt; iic1
+  ioc1 -&gt; ib
+}
+
+subgraph clusterSocketOnly {
+  label=&quot;socket-only : Process&quot;
+
+  l2 [label=&quot;Listener&quot;, shape=box, style=filled, fillcolor=&quot;#c0ffc0&quot;]
+  sic2 [label=&quot;Socket In Connector&quot;, shape=octagon, style=filled, fillcolor=&quot;#ffc0c0&quot;]
+
+  sic2 -&gt; l2
+}
+
+sb [label=&quot;Socket Bus&quot;, shape=ellipse, style=filled, fillcolor=&quot;#c0c0ff&quot;]
+
+sb -&gt; sic1
+soc1 -&gt; sb
+sb -&gt; sic2
+}" class="graphviz" /></div>
+<p>This page describes how to setup <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>
+for inter-<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> communication using the following scenario
+which is illustrated in the above figure:</p>
+<p><a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">Participants</span></a> reside in two separate processes</p>
+<ul class="simple">
+<li><p>One process is an instance of the program
+<strong class="program">inprocess-and-socket</strong> (source:
+<a class="reference download internal" download="" href="_downloads/fcf438f329c93205d8d0c97a6c20fd17/inprocess-and-socket.cpp"><code class="xref download docutils literal notranslate"><span class="pre">inprocess-and-socket.cpp</span></code></a>)</p>
+<ul>
+<li><p>There is one <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> in the process. It has two
+<a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connectors</span></a></p>
+<ul>
+<li><p>One <a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connector</span></a> for the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p></li>
+<li><p>One <a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connector</span></a> for the <a class="reference internal" href="glossary.html#term-inprocess"><span class="xref std std-term">inprocess</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p></li>
+</ul>
+</li>
+<li><p>There is one <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> in the process. It has two
+<a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connectors</span></a></p>
+<ul>
+<li><p>One <a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connector</span></a> for the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p></li>
+<li><p>One <a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connector</span></a> for the <a class="reference internal" href="glossary.html#term-inprocess"><span class="xref std std-term">inprocess</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The other process is an instance of the program
+<strong class="program">socket-only</strong> (source: <a class="reference download internal" download="" href="_downloads/e89f8da54bdee57884baaac2779db084/socket-only.cpp"><code class="xref download docutils literal notranslate"><span class="pre">socket-only.cpp</span></code></a>)</p>
+<ul>
+<li><p>There is one <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> in the process. It has a single
+<a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connector</span></a> for the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With this setup, the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> in the
+<strong class="program">inprocess-and-socket</strong> process will currently receive all
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> twice.</p>
+</div>
+<p>There are two ways to attach multiple <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a> to
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>:</p>
+<ol class="arabic simple">
+<li><p>Via <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration options</span></a>
+(<a class="reference internal" href="specification-config.html#specification-config-files"><span class="std std-ref">configuration file</span></a>,
+<a class="reference internal" href="specification-config.html#specification-config-environment-variables"><span class="std std-ref">environment variables</span></a>, etc.)</p></li>
+<li><p>Programmatically</p></li>
+</ol>
+<p>These two alternatives are described below.</p>
+<div class="section" id="via-configuration-options">
+<h3>Via Configuration Options<a class="headerlink" href="#via-configuration-options" title="Permalink to this headline">¶</a></h3>
+<p>When configured via the <a class="reference internal" href="concepts.html#configuration"><span class="std std-ref">configuration mechanism</span></a>, the multi-<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> setup will have a global
+effect in the following sense: it will affect all <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> in all processes which are not explicitly instantiated
+with a different set of <a class="reference internal" href="glossary.html#term-connector"><span class="xref std std-term">connectors</span></a>.</p>
+<p>In addition to the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> which is
+(currently) enabled by default, other <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a>
+can be enabled globally using a <a class="reference internal" href="specification-config.html#specification-config-files"><span class="std std-ref">configuration file</span></a> fragment like this:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[transport.inprocess]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="programmatically-c">
+<h3>Programmatically (C++)<a class="headerlink" href="#programmatically-c" title="Permalink to this headline">¶</a></h3>
+<p>The set of <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a> used by individual
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> or as a default by all newly created
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> can be configured by modifying
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb17ParticipantConfig9TransportE" title="rsb::ParticipantConfig::Transport"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::ParticipantConfig::Transport</span></code></a> objects.
+These objects contain, among other things, an option which
+controls whether a particular <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is enabled. A modified
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb17ParticipantConfigE" title="rsb::ParticipantConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::ParticipantConfig</span></code></a> object can be used in two ways:</p>
+<p>Globally for a Process</p>
+<blockquote>
+<div><p>The example programs <a class="reference download internal" download="" href="_downloads/fcf438f329c93205d8d0c97a6c20fd17/inprocess-and-socket.cpp"><code class="xref download docutils literal notranslate"><span class="pre">inprocess-and-socket.cpp</span></code></a> and
+<a class="reference download internal" download="" href="_downloads/e89f8da54bdee57884baaac2779db084/socket-only.cpp"><code class="xref download docutils literal notranslate"><span class="pre">socket-only.cpp</span></code></a> implement
+the inter-<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> setup described above by modifying the
+default <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> configuration in the
+<strong class="program">inprocess-and-socket</strong> process to include the
+<a class="reference internal" href="glossary.html#term-inprocess"><span class="xref std std-term">inprocess</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+</div></blockquote>
+<p>Locally for a <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">Participant</span></a></p>
+<blockquote>
+<div><p>In order to use a prepared <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb17ParticipantConfigE" title="rsb::ParticipantConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::ParticipantConfig</span></code></a>
+object only locally instead of installing it as a global default, it
+can be passed to the following methods:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7Factory12createReaderERK5ScopeRK17ParticipantConfigP11Participant" title="rsb::Factory::createReader"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createReader</span></code></a></p></li>
+<li><p><a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7Factory14createListenerERK5ScopeRK17ParticipantConfigP11Participant" title="rsb::Factory::createListener"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createListener</span></code></a></p></li>
+<li><p><a class="reference internal" href="api-cpp.html#_CPPv4I0EN3rsb7Factory14createInformerEN8InformerI8DataTypeE3PtrERK5ScopeRK17ParticipantConfigRKNSt6stringEP11Participant" title="rsb::Factory::createInformer"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createInformer</span></code></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In each of these cases, the modified configuration options will
+only effect the <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> created by the method call.</p>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

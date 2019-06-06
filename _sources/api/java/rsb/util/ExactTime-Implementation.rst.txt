@@ -1,0 +1,53 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: jnr.ffi LibraryLoader
+
+.. java:import:: jnr.ffi Platform
+
+.. java:import:: jnr.ffi Platform.OS
+
+.. java:import:: jnr.ffi Pointer
+
+.. java:import:: jnr.ffi Runtime
+
+.. java:import:: jnr.ffi Struct
+
+.. java:import:: jnr.ffi.annotations Out
+
+.. java:import:: jnr.ffi.annotations Transient
+
+ExactTime.Implementation
+========================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type::  interface Implementation
+   :outertype: ExactTime
+
+   Interface for internal implementation variants which may provide the time at a higher resolution.
+
+   :author: jwienke
+
+Methods
+-------
+currentTimeMicros
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  long currentTimeMicros()
+   :outertype: ExactTime.Implementation
+
+isFallback
+^^^^^^^^^^
+
+.. java:method::  boolean isFallback()
+   :outertype: ExactTime.Implementation
+
+works
+^^^^^
+
+.. java:method::  boolean works()
+   :outertype: ExactTime.Implementation
+

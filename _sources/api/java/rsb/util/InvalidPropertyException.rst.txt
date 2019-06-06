@@ -1,0 +1,51 @@
+InvalidPropertyException
+========================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public class InvalidPropertyException extends RuntimeException
+
+   Thrown in case a desired property does not exist.
+
+Constructors
+------------
+InvalidPropertyException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InvalidPropertyException()
+   :outertype: InvalidPropertyException
+
+   Constructor without message and cause.
+
+InvalidPropertyException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InvalidPropertyException(String message)
+   :outertype: InvalidPropertyException
+
+   Constructor with explanatory message.
+
+   :param message: the message
+
+InvalidPropertyException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InvalidPropertyException(String message, Throwable cause)
+   :outertype: InvalidPropertyException
+
+   Constructor with explanatory message and cause.
+
+   :param message: the message
+   :param cause: the cause
+
+InvalidPropertyException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InvalidPropertyException(Throwable cause)
+   :outertype: InvalidPropertyException
+
+   Constructor with only cause.
+
+   :param cause: the cause
+

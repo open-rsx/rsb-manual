@@ -1,0 +1,38 @@
+.. java:import:: java.util.concurrent TimeUnit
+
+.. java:import:: rsb Event
+
+TimeLimitedQueue
+================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public class TimeLimitedQueue extends LimitedQueue<Event>
+
+   A time and space limited queue of RSB \ :java:ref:`Event`\ s that discards past events older than a specified time limit. It will additionally discard old events when reaching a set maximum capacity.
+
+   :author: dklotz
+
+Constructors
+------------
+TimeLimitedQueue
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public TimeLimitedQueue(int capacity, long timeWindow, TimeUnit unit)
+   :outertype: TimeLimitedQueue
+
+   Creates a new queue with the specified maximum capacity and time window for keeping events in the queue.
+
+   :param capacity: maximum capacity before discarding events
+   :param timeWindow: time to keep events in the specified unit
+   :param unit: unit for the time window
+
+Methods
+-------
+add
+^^^
+
+.. java:method:: @Override public boolean add(Event event)
+   :outertype: TimeLimitedQueue
+

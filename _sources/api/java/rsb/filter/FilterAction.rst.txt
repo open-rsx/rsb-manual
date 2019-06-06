@@ -1,0 +1,30 @@
+FilterAction
+============
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public enum FilterAction
+
+   Possible actions that can happen to a \ :java:ref:`Filter`\  instance.
+
+   :author: swrede
+
+Enum Constants
+--------------
+ADD
+^^^
+
+.. java:field:: public static final FilterAction ADD
+   :outertype: FilterAction
+
+   Filter is added to a receiving route.
+
+REMOVE
+^^^^^^
+
+.. java:field:: public static final FilterAction REMOVE
+   :outertype: FilterAction
+
+   Filter is removed from a receiving route.
+

@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.patterns.future &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rsb.version" href="rsb.version.html" />
+    <link rel="prev" title="rsb.patterns" href="rsb.patterns.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rsb.html">rsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.converter.html">rsb.converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.filter.html">rsb.filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.patterns.html">rsb.patterns</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.patterns.future</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.version.html">rsb.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.patterns.future</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/user-level/rsb.patterns.future.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.patterns.future">
+<span id="rsb-patterns-future"></span><h1>rsb.patterns.future<a class="headerlink" href="#module-rsb.patterns.future" title="Permalink to this headline">¶</a></h1>
+<p>Contains an implementation of the future pattern.</p>
+<p><em>Code author: jmoringe</em></p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.patterns.future.DataFuture" title="rsb.patterns.future.DataFuture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFuture</span></code></a>()</p></td>
+<td><p>A <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> that automatically returns the payload of an <code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a>()</p></td>
+<td><p>Represents the results of in-progress operations.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.patterns.future.FutureError" title="rsb.patterns.future.FutureError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FutureError</span></code></a>(*args)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.patterns.future.FutureExecutionError" title="rsb.patterns.future.FutureExecutionError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FutureExecutionError</span></code></a>(*args)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.patterns.future.FutureTimeout" title="rsb.patterns.future.FutureTimeout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FutureTimeout</span></code></a>(*args)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="exception">
+<dt id="rsb.patterns.future.FutureError">
+<em class="property">exception </em><code class="sig-prename descclassname">rsb.patterns.future.</code><code class="sig-name descname">FutureError</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.FutureError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></a></p>
+<dl class="method">
+<dt id="rsb.patterns.future.FutureError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.FutureError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rsb.patterns.future.FutureError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#rsb.patterns.future.FutureError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="rsb.patterns.future.FutureExecutionError">
+<em class="property">exception </em><code class="sig-prename descclassname">rsb.patterns.future.</code><code class="sig-name descname">FutureExecutionError</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.FutureExecutionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.patterns.future.FutureError" title="rsb.patterns.future.FutureError"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.future.FutureError</span></code></a></p>
+<dl class="method">
+<dt id="rsb.patterns.future.FutureExecutionError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.FutureExecutionError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rsb.patterns.future.FutureExecutionError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#rsb.patterns.future.FutureExecutionError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="rsb.patterns.future.FutureTimeout">
+<em class="property">exception </em><code class="sig-prename descclassname">rsb.patterns.future.</code><code class="sig-name descname">FutureTimeout</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.FutureTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.patterns.future.FutureError" title="rsb.patterns.future.FutureError"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.future.FutureError</span></code></a></p>
+<dl class="method">
+<dt id="rsb.patterns.future.FutureTimeout.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.FutureTimeout.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rsb.patterns.future.FutureTimeout.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#rsb.patterns.future.FutureTimeout.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.patterns.future.DataFuture">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.patterns.future.</code><code class="sig-name descname">DataFuture</code><a class="headerlink" href="#rsb.patterns.future.DataFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.future.Future</span></code></a></p>
+<p>A <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> that automatically returns the payload of an <code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code>.</p>
+<p>Instances of this class are like ordinary <code class="xref py py-obj docutils literal notranslate"><span class="pre">Future`s,</span> <span class="pre">the</span> <span class="pre">only</span>
+<span class="pre">difference</span> <span class="pre">being</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">:obj:`get</span></code> method returns the payload of an
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code> object.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> object.</p>
+<dl class="method">
+<dt id="rsb.patterns.future.DataFuture.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">timeout=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.DataFuture.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to obtain and return the result of the represented operation.</p>
+<p>If necessary, wait for the operation to complete, and then
+retrieve its result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>timeout</strong> – The amount of time in seconds in which the operation has to
+complete.</p>
+</dd>
+<dt class="field-even">Type timeout</dt>
+<dd class="field-even"><p>float, optional</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the operation if it did complete successfully.</p>
+</dd>
+<dt class="field-even">Raises FutureExecutionException</dt>
+<dd class="field-even"><p>If the operation represented by the Future object failed.</p>
+</dd>
+<dt class="field-odd">Raises FutureTimeoutException</dt>
+<dd class="field-odd"><p>If the result does not become available within the amount of
+    time specified via <code class="docutils literal notranslate"><span class="pre">timeout</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.patterns.future.DataFuture.set_error">
+<code class="sig-name descname">set_error</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.DataFuture.set_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate a failure and notify all waiting consumers.</p>
+<p>Mark the operation represented by the <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> object as
+failed, set <code class="docutils literal notranslate"><span class="pre">message</span></code> as the error message and notify all
+threads waiting for the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – An error message that explains why/how the operation failed.</p>
+</dd>
+<dt class="field-even">Type message</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.patterns.future.DataFuture.set_result">
+<code class="sig-name descname">set_result</code><span class="sig-paren">(</span><em class="sig-param">result</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.DataFuture.set_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the result and notify all waiting consumers.</p>
+<p>Sets the result of the <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> to <code class="docutils literal notranslate"><span class="pre">result</span></code> and wakes all
+threads waiting for the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>result</strong> – The result of the <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.patterns.future.DataFuture.done">
+<em class="property">property </em><code class="sig-name descname">done</code><a class="headerlink" href="#rsb.patterns.future.DataFuture.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the represented operation is still in progress.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> is the represented operation finished successfully or
+failed.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.patterns.future.Future">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.patterns.future.</code><code class="sig-name descname">Future</code><a class="headerlink" href="#rsb.patterns.future.Future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Represents the results of in-progress operations.</p>
+<p>Methods of this class allow checking the state of the represented
+operation, waiting for the operation to finish and retrieving the
+result of the operation.</p>
+<p><em>Code author: jmoringe</em></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>&lt;<a class="reference external" href="http://docs.python.org/dev/library/concurrent.futures.html">http://docs.python.org/dev/library/concurrent.futures.html</a>&gt;_</p>
+</div>
+<p>Create a new <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> object.</p>
+<dl class="method">
+<dt id="rsb.patterns.future.Future.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">timeout=0</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.Future.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to obtain and return the result of the represented operation.</p>
+<p>If necessary, wait for the operation to complete, and then
+retrieve its result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>timeout</strong> – The amount of time in seconds in which the operation has to
+complete.</p>
+</dd>
+<dt class="field-even">Type timeout</dt>
+<dd class="field-even"><p>float, optional</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the operation if it did complete successfully.</p>
+</dd>
+<dt class="field-even">Raises FutureExecutionException</dt>
+<dd class="field-even"><p>If the operation represented by the Future object failed.</p>
+</dd>
+<dt class="field-odd">Raises FutureTimeoutException</dt>
+<dd class="field-odd"><p>If the result does not become available within the amount of
+    time specified via <code class="docutils literal notranslate"><span class="pre">timeout</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.patterns.future.Future.set_error">
+<code class="sig-name descname">set_error</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.Future.set_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate a failure and notify all waiting consumers.</p>
+<p>Mark the operation represented by the <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> object as
+failed, set <code class="docutils literal notranslate"><span class="pre">message</span></code> as the error message and notify all
+threads waiting for the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – An error message that explains why/how the operation failed.</p>
+</dd>
+<dt class="field-even">Type message</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.patterns.future.Future.set_result">
+<code class="sig-name descname">set_result</code><span class="sig-paren">(</span><em class="sig-param">result</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.future.Future.set_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the result and notify all waiting consumers.</p>
+<p>Sets the result of the <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> to <code class="docutils literal notranslate"><span class="pre">result</span></code> and wakes all
+threads waiting for the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>result</strong> – The result of the <a class="reference internal" href="#rsb.patterns.future.Future" title="rsb.patterns.future.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a> object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.patterns.future.Future.done">
+<em class="property">property </em><code class="sig-name descname">done</code><a class="headerlink" href="#rsb.patterns.future.Future.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the represented operation is still in progress.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> is the represented operation finished successfully or
+failed.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+.. java:import:: rsb AbstractActivatable
+
+AbstractConnector
+=================
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type:: @SuppressWarnings public abstract class AbstractConnector extends AbstractActivatable implements Connector
+
+   Inherits close method.
+
+   :author: jmoringe
+

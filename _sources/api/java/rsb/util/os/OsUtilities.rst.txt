@@ -1,0 +1,98 @@
+.. java:import:: java.net InetAddress
+
+.. java:import:: java.net UnknownHostException
+
+.. java:import:: java.util Locale
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+OsUtilities
+===========
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public final class OsUtilities
+
+   Utility class to perform various tasks related to details about the underlying operating system of a process.
+
+   :author: swrede, jwienke
+
+Methods
+-------
+deriveMachineType
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static MachineType deriveMachineType(String identifier)
+   :outertype: OsUtilities
+
+   Tries to guess a machine type from a name returned by \ :java:ref:`getOsArchitecture()`\ .
+
+   :param identifier: name of machine type, not \ ``null``\
+   :return: guessed machine type, not \ ``null``\
+
+deriveMachineTypeName
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String deriveMachineTypeName(String identifier)
+   :outertype: OsUtilities
+
+   Tries to determine a normalized machine type from a name returned by \ :java:ref:`getOsArchitecture()`\ .
+
+   :param identifier: name of machine type, not \ ``null``\
+   :return: guessed machine type, not \ ``null``\
+
+deriveOsFamily
+^^^^^^^^^^^^^^
+
+.. java:method:: public static OsFamily deriveOsFamily(String identifier)
+   :outertype: OsUtilities
+
+   Tries to determine the operating system family from a concrete operating system name returned by \ :java:ref:`getOsName()`\ .
+
+   :param identifier: the concrete operating system name, not \ ``null``\
+   :return: identified operating system family.
+
+deriveOsFamilyName
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String deriveOsFamilyName(String identifier)
+   :outertype: OsUtilities
+
+   Tries to determine a normalized operating system family from a concrete operating system name returned by \ :java:ref:`getOsName()`\ .
+
+   :param identifier: the concrete operating system name, not \ ``null``\
+   :return: identified operating system family.
+
+getLocalHostName
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String getLocalHostName()
+   :outertype: OsUtilities
+
+   Returns a host name derived from name resolution for localhost.
+
+   :return: host name or \ ``null``\  if not detectable
+
+getOsArchitecture
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String getOsArchitecture()
+   :outertype: OsUtilities
+
+   Returns the architecture of the operating system a process is being operated on.
+
+   :return: non-empty name string, not \ ``null``\
+
+getOsName
+^^^^^^^^^
+
+.. java:method:: public static String getOsName()
+   :outertype: OsUtilities
+
+   Returns the name of the operating system a process is currently being operated on.
+
+   :return: a non-empty string
+

@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spread Transport &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TCP-Socket Transport" href="specification-socket.html" />
+    <link rel="prev" title="Inprocess Transport" href="specification-inprocess.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="specification.html">Specification</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="specification-scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-event.html">Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-uris.html">URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-plugin.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="specification-converters.html">Converters</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="specification.html#transports">Transports</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="specification-inprocess.html">Inprocess Transport</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spread Transport</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#schema">Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notification-format">Notification Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fragmentation">Fragmentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hierarchical-bus">Hierarchical Bus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-names">Group Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quality-of-service">Quality of Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="specification-socket.html">TCP-Socket Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-yarp.html">YARP Transports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-ros.html">ROS Transports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-multiple-transports.html">Multi-transport Setups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-inter-transport-communication.html">Inter-transport Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification-transport-level-filtering.html">Transport-level Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html#higher-level-communication-patterns">Higher-Level Communication Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="specification.html">Specification</a> &raquo;</li>
+        
+      <li>Spread Transport</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification-spread.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="spread-transport">
+<span id="specification-spread"></span><h1>Spread Transport<a class="headerlink" href="#spread-transport" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the protocol used by the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-based
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with version 0.9 of RSB, the C++ implementation does
+no longer include the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> in the
+RSB core. Instead, the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is available as a
+<a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a>.</p>
+</div>
+<div class="section" id="schema">
+<span id="specification-spread-schema"></span><h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-uris.html#specification-uris"><span class="std std-ref">URIs</span></a></dt><dd><p>Use of URIs in RSB.</p>
+</dd>
+</dl>
+</div>
+<p>The <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> uses the <code class="docutils literal notranslate"><span class="pre">spread</span></code> URI schema.</p>
+</div>
+<div class="section" id="options">
+<span id="specification-spread-options"></span><h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-config.html#specification-config"><span class="std std-ref">Configuration</span></a></dt><dd><p>Specification of configuration mechanism.</p>
+</dd>
+</dl>
+</div>
+<p>The following <a class="reference internal" href="specification-config.html#specification-config"><span class="std std-ref">configuration</span></a>
+options are accepted by the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-based <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>                   <span class="n">Type</span>     <span class="n">Comment</span>
+<span class="o">+</span> <span class="n">transport</span>
+<span class="o">+--</span> <span class="n">spread</span>
+<span class="o">+----</span> <span class="n">host</span>             <span class="n">string</span>   <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">host</span> <span class="n">running</span> <span class="n">the</span> <span class="n">Spread</span> <span class="n">daemon</span>
+<span class="o">+----</span> <span class="n">port</span>             <span class="n">uint</span>     <span class="n">Port</span> <span class="n">on</span> <span class="n">which</span> <span class="n">Spread</span> <span class="n">daemon</span> <span class="n">runs</span>
+<span class="o">+----</span> <span class="n">maxfragmentsize</span>  <span class="n">uint</span>     <span class="n">Maximum</span> <span class="n">Spread</span> <span class="n">message</span> <span class="n">size</span>
+<span class="o">+----</span> <span class="n">tcpnodelay</span>       <span class="n">boolean</span>  <span class="n">Implementation</span> <span class="n">detail</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="notification-format">
+<h2>Notification Format<a class="headerlink" href="#notification-format" title="Permalink to this headline">¶</a></h2>
+<p>Data exchanged on the wire by the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-based
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> is encoded using <a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google protocol buffers</a>. A
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> message always contains a fragment of a
+<a class="reference internal" href="glossary.html#term-notification"><span class="xref std std-term">notification</span></a> elementary communication unit:</p>
+<div class="message-notifications-multi docutils container">
+<div class="message-notifications-hide docutils container">
+<p><em>message definitions are hidden</em></p>
+</div>
+<div class="message-notifications-show docutils container">
+<div class="highlight-protobuf notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">syntax</span> <span class="o">=</span> <span class="s">&quot;proto2&quot;</span><span class="p">;</span>
+
+<span class="kn">package</span> <span class="nn">rsb</span><span class="o">.</span><span class="n">protocol</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="s">&quot;rsb/protocol/Notification.proto&quot;</span><span class="p">;</span>
+
+<span class="k">option</span> <span class="na">java_outer_classname</span> <span class="o">=</span> <span class="s">&quot;FragmentedNotificationType&quot;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * A message which wraps the normal Notification and extends it with</span>
+<span class="cm"> * fragmentation information.</span>
+<span class="cm"> *</span>
+<span class="cm"> * This message is, for example, used in the Spread transport. See</span>
+<span class="cm"> * https://code.cor-lab.org/projects/rsb/wiki/SpreadProtocol for</span>
+<span class="cm"> * information regarding the event &lt;-&gt; notification transformation in</span>
+<span class="cm"> * this case.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Michael Goetting &lt;mgoettin@techfak.uni-bielefeld.de&gt;</span>
+<span class="cm"> * @author Johannes Wienke &lt;jwienke@techfak.uni-bielefeld.de&gt;</span>
+<span class="cm"> * @author Jan Moringen &lt;jmoringe@techfak.uni-bielefeld.de&gt;</span>
+<span class="cm"> */</span>
+<span class="kd">message</span> <span class="nc">FragmentedNotification</span> <span class="p">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The original notification in some cases with only required</span>
+<span class="cm">     * fields filled.</span>
+<span class="cm">     *</span>
+<span class="cm">     * The first fragment contains the full meta-data set whereas</span>
+<span class="cm">     * subsequent FragmentedNotification s only carry payload chunks</span>
+<span class="cm">     * in this field and the event id for association.</span>
+<span class="cm">     */</span>
+    <span class="k">required</span> <span class="n">Notification</span> <span class="na">notification</span>            <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The number of notifications an event was split into.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Splitting only happens when message size would have been to big</span>
+<span class="cm">     * for transmission in a single notification. 1 indicates a</span>
+<span class="cm">     * self-contained, i.e. not split, notification.</span>
+<span class="cm">     */</span>
+    <span class="k">required</span>  <span class="kt">uint32</span>      <span class="na">num_data_parts</span>          <span class="o">=</span> <span class="mi">2</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The index of the current fragment of a fragmented notification.</span>
+<span class="cm">     *</span>
+<span class="cm">     * The initial fragment has index 0.</span>
+<span class="cm">     */</span>
+    <span class="k">required</span> <span class="kt">uint32</span>       <span class="na">data_part</span>               <span class="o">=</span> <span class="mi">3</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="mi">0</span><span class="p">];</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-protobuf notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="na">syntax</span> <span class="o">=</span> <span class="s">&quot;proto2&quot;</span><span class="p">;</span>
+
+<span class="kn">package</span> <span class="nn">rsb</span><span class="o">.</span><span class="n">protocol</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="s">&quot;rsb/protocol/EventId.proto&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s">&quot;rsb/protocol/EventMetaData.proto&quot;</span><span class="p">;</span>
+
+<span class="k">option</span> <span class="na">java_outer_classname</span> <span class="o">=</span> <span class="s">&quot;NotificationType&quot;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * The Notification message is the wire format and serialization</span>
+<span class="cm"> * mechanism used by the RSB Spread transport and other transports.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Notification messages contain</span>
+<span class="cm"> *</span>
+<span class="cm"> * * event routing information,</span>
+<span class="cm"> * * event payloads</span>
+<span class="cm"> * * and optional event meta-data such as timestamps</span>
+<span class="cm"> *</span>
+<span class="cm"> * See</span>
+<span class="cm"> * https://docs.cor-lab.org/rsb-manual/trunk/html/specification-event.html</span>
+<span class="cm"> * for more information regarding events.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Sebastian Wrede &lt;swrede@techfak.uni-bielefeld.de&gt;</span>
+<span class="cm"> * @author Johannes Wienke &lt;jwienke@techfak.uni-bielefeld.de&gt;</span>
+<span class="cm"> * @author Jan Moringen &lt;jmoringe@techfak.uni-bielefeld.de&gt;</span>
+<span class="cm"> */</span>
+<span class="kd">message</span> <span class="nc">Notification</span> <span class="p">{</span>
+
+    <span class="c1">// Identity, transportation and routing information fields</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The unique ID of the event, consisting of the unique id of</span>
+<span class="cm">     * sending participant and the sequence number of the event.</span>
+<span class="cm">     *</span>
+<span class="cm">     * The odd field number is a historical artifact.</span>
+<span class="cm">     */</span>
+    <span class="k">required</span> <span class="n">EventId</span>     <span class="na">event_id</span>               <span class="o">=</span> <span class="mi">108</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The scope to which the encoded event was sent.</span>
+<span class="cm">     */</span>
+    <span class="k">optional</span> <span class="kt">bytes</span>      <span class="na">scope</span>                   <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * An ASCII-string designating the role of this event within a</span>
+<span class="cm">     * communication pattern.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Two such roles could be &quot;REQUEST&quot; and &quot;REPLY&quot; in RPC</span>
+<span class="cm">     * communication.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Note: The bytes type has been chosen to avoid UTF-8 de- and</span>
+<span class="cm">     * encoding.</span>
+<span class="cm">     */</span>
+    <span class="k">optional</span> <span class="kt">bytes</span>      <span class="na">method</span>                  <span class="o">=</span> <span class="mi">14</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">];</span>
+
+    <span class="c1">// Data fields</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * An ASCII-string designating the wire schema with which the</span>
+<span class="cm">     * event payload (in the &quot;data&quot; field) has been serialized.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Note: The bytes type has been chosen to avoid UTF-8 de- and</span>
+<span class="cm">     * encoding.</span>
+<span class="cm">     */</span>
+    <span class="k">optional</span> <span class="kt">bytes</span>      <span class="na">wire_schema</span>             <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * The serialized payload of the event.</span>
+<span class="cm">     */</span>
+    <span class="k">optional</span> <span class="kt">bytes</span>      <span class="na">data</span>                    <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+
+    <span class="c1">// A collection of id of other events which have in some way</span>
+    <span class="c1">// caused this event to be sent.</span>
+    <span class="k">repeated</span> <span class="n">EventId</span>    <span class="na">causes</span>                  <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+
+    <span class="c1">/// Meta-data fields</span>
+
+    <span class="c1">// meta-data storage</span>
+    <span class="k">optional</span> <span class="n">EventMetaData</span> <span class="na">meta_data</span>            <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="section" id="fragmentation">
+<h2>Fragmentation<a class="headerlink" href="#fragmentation" title="Permalink to this headline">¶</a></h2>
+<p>Because <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> has a message size limit, a single
+<a class="reference internal" href="glossary.html#term-notification"><span class="xref std std-term">notification</span></a> may not be sufficient to transport a whole
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> when the <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a> is large. Hence, <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>
+s may be encoded in several <code class="docutils literal notranslate"><span class="pre">FragmentedNotification</span></code> s which are
+sent sequentially. Multiple <code class="docutils literal notranslate"><span class="pre">FragmentedNotification</span></code> objects are
+constructed according to the following rules:</p>
+<ul class="simple">
+<li><p>The size of individual fragments (i.e. serialized size of the
+<code class="docutils literal notranslate"><span class="pre">FragmentedNotification</span></code> objects) must not exceed 100,000 octets</p></li>
+<li><p>Fragment numbers are in the range <code class="samp docutils literal notranslate"><span class="pre">[0,</span> <em><span class="pre">NUMBER-OF-FRAGMENTS</span></em> <span class="pre">-</span>
+<span class="pre">1]</span></code></p></li>
+<li><p>The fields which differ among <code class="docutils literal notranslate"><span class="pre">FragmentedNotification</span></code> s for one
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> are:</p>
+<ul>
+<li><p>The number of the fragment (<code class="docutils literal notranslate"><span class="pre">FragmentedNotification.data_part</span></code>
+field)</p></li>
+<li><p>The <a class="reference internal" href="glossary.html#term-payload"><span class="xref std std-term">payload</span></a> (<code class="docutils literal notranslate"><span class="pre">FragmentedNotification.notification.data</span></code>
+field)</p></li>
+<li><p>Which fields of the <code class="docutils literal notranslate"><span class="pre">Notification</span></code> embedded in
+<code class="docutils literal notranslate"><span class="pre">FragmentedNotification.notification</span></code> are present (see below)</p></li>
+</ul>
+</li>
+<li><p>Each of the <code class="docutils literal notranslate"><span class="pre">FragmentedNotification</span></code> objects contains a
+<code class="docutils literal notranslate"><span class="pre">Notification</span></code> object</p>
+<ul>
+<li><p>The <a class="reference internal" href="glossary.html#term-event-id"><span class="xref std std-term">event id</span></a> (<code class="docutils literal notranslate"><span class="pre">Notification.event_id</span></code> field) is always
+present (to specify the <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a> to which a fragment belongs)</p></li>
+<li><p>For the initial fragment (fragment number 0), all fields of the
+embedded <code class="docutils literal notranslate"><span class="pre">Notification</span></code> object are present</p></li>
+<li><p>For subsequent fragments (fragment number &gt;= 1), only the following
+fields of the embedded <code class="docutils literal notranslate"><span class="pre">Notification</span></code> object are present:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Notification.event_id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Notification.data</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="hierarchical-bus">
+<h2>Hierarchical Bus<a class="headerlink" href="#hierarchical-bus" title="Permalink to this headline">¶</a></h2>
+<p>The hierarchical bus is created by sending each message to multiple
+<a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-groups: a <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-group corresponding to its
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> as well as <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>-groups corresponding to all
+<a class="reference internal" href="glossary.html#term-superscope"><span class="xref std std-term">superscopes</span></a> including the root-<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>
+(<code class="docutils literal notranslate"><span class="pre">/</span></code>) (In <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> terminology this is called “multigroup
+multicast”). <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>’s protocol takes care of only transmitting
+the message to interested recipients and transmitting it only once to
+each of them.</p>
+<p>Example for <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/foo/bar/</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>super-scopes(/foo/bar/, include-self? = yes) = /, /foo/, /foo/bar/
+</pre></div>
+</div>
+</div>
+<div class="section" id="group-names">
+<h2>Group Names<a class="headerlink" href="#group-names" title="Permalink to this headline">¶</a></h2>
+<p>Group names are created by applying the following steps to the fully
+formal <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> string representation (<strong>including trailing
+slash</strong>):</p>
+<ol class="arabic simple">
+<li><p>Hash the scope string using <a class="reference external" href="http://en.wikipedia.org/wiki/MD5">MD5</a>.</p></li>
+<li><p>Convert the 16 bytes of output to a 32 character string by
+concatenating the <strong>zero-padded</strong> hex (base-16) representations of
+the individual bytes. Letters of the hex representation have to be
+lower case.</p></li>
+<li><p>Remove the final character of the hex representation of the hash.
+(Since <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> group names can only be 32 bytes long
+<em>including the 0-terminator</em>)</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span>         <span class="o">-&gt;</span> <span class="s2">&quot;6666cd76f96956469e7be39d750cc7d</span><span class="se">\0</span><span class="s2">&quot;</span>
+<span class="o">/</span><span class="n">foo</span><span class="o">/</span>     <span class="o">-&gt;</span> <span class="s2">&quot;4f87be8f6e593d167f5fd1ab238cfc2</span><span class="se">\0</span><span class="s2">&quot;</span>
+<span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">bar</span><span class="o">/</span> <span class="o">-&gt;</span> <span class="s2">&quot;1c184f3891344400380281315d9e738</span><span class="se">\0</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="quality-of-service">
+<h2>Quality of Service<a class="headerlink" href="#quality-of-service" title="Permalink to this headline">¶</a></h2>
+<p>The following table explains how the 2D RSB QoS settings are
+mapped to <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> message types:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 39%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Quality</p></th>
+<th class="head"><p>unreliable</p></th>
+<th class="head"><p>reliable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>unordered</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">UNRELIABLE_MESS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RELIABLE_MESS</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ordered</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIFO_MESS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FIFO_MESS</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>File(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C++</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-spread-cpp">https://github.com/open-rsx/rsb-spread-cpp</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/transport/spread</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Java</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-java">https://github.com/open-rsx/rsb-java</a> at <code class="docutils literal notranslate"><span class="pre">src/rsb/transport/spread</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p><code class="xref download docutils literal notranslate"><span class="pre">upstream/rsb-python/rsb/transport/rsbspread/__init__.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Lisp</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-cl">https://github.com/open-rsx/rsb-cl</a> at <code class="docutils literal notranslate"><span class="pre">src/transport/spread</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

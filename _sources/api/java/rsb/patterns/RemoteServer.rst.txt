@@ -1,0 +1,240 @@
+.. java:import:: java.util.concurrent ExecutionException
+
+.. java:import:: java.util.concurrent TimeUnit
+
+.. java:import:: java.util.concurrent TimeoutException
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb RemoteServerCreateArgs
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.patterns RemoteMethod.FuturePreparator
+
+RemoteServer
+============
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class RemoteServer extends Server<RemoteMethod>
+
+   Objects of this class represent remote servers in a way that allows calling methods on them as if they were local.
+
+   :author: jmoringe, swrede, jwienke
+
+Fields
+------
+DEFAULT_TIMEOUT
+^^^^^^^^^^^^^^^
+
+.. java:field:: public static final double DEFAULT_TIMEOUT
+   :outertype: RemoteServer
+
+   Default timeout used to wait for method replies before throwing an exception [sec].
+
+Constructors
+------------
+RemoteServer
+^^^^^^^^^^^^
+
+.. java:constructor:: public RemoteServer(RemoteServerCreateArgs args)
+   :outertype: RemoteServer
+
+   Create a new RemoteServer object that provides its methods under the scope @a scope.
+
+   :param args: The arguments to use for this new instance. The scope is the common super-scope under which the methods of the remote created server are provided.
+
+Methods
+-------
+addMethod
+^^^^^^^^^
+
+.. java:method::  RemoteMethod addMethod(String name) throws RSBException, InterruptedException
+   :outertype: RemoteServer
+
+   Creates a new method for this server with the specified name. Package private for unit testing. Do not use this externally otherwise.
+
+   :param name: name of the method
+   :throws RSBException: error creating the method
+   :throws InterruptedException: interrupted during creation and installation of new method
+   :return: the method instance for this new method
+
+call
+^^^^
+
+.. java:method:: public Event call(String name, Event event) throws RSBException, ExecutionException, TimeoutException, InterruptedException
+   :outertype: RemoteServer
+
+   Calls a method of the server using the method name and request data encapsulated in an \ :java:ref:`Event`\  instance. The method blocks until the server replied or until the timeout is reached.
+
+   :param name: name of the method to call
+   :param event: request data
+   :throws RSBException: communication errors or server-side errors
+   :throws TimeoutException: timeout waiting for the reply
+   :throws ExecutionException: in case the method failed on the server side
+   :throws InterruptedException: interrupted while waiting for the reply
+   :throws java.util.concurrent.CancellationException: waiting for the result was cancelled
+   :return: An event with the resulting data
+
+call
+^^^^
+
+.. java:method:: public Event call(String name, Event event, double timeout) throws RSBException, ExecutionException, TimeoutException, InterruptedException
+   :outertype: RemoteServer
+
+   Calls a method of the server using the method name and request data encapsulated in an \ :java:ref:`Event`\  instance. The method blocks until the server replied or until the specified timeout is reached.
+
+   :param name: name of the method to call
+   :param event: request data
+   :param timeout: seconds to wait for the reply
+   :throws RSBException: communication errors or server-side errors
+   :throws TimeoutException: timeout waiting for the reply
+   :throws ExecutionException: in case the method failed on the server side
+   :throws InterruptedException: interrupted while waiting for the reply
+   :throws java.util.concurrent.CancellationException: waiting for the result was cancelled
+   :return: An event with the resulting data
+
+call
+^^^^
+
+.. java:method:: public Event call(String name) throws RSBException, ExecutionException, TimeoutException, InterruptedException
+   :outertype: RemoteServer
+
+   Calls a method of the server without request parameter using the method name. The method blocks until the server replied or until the timeout is reached.
+
+   :param name: name of the method to call
+   :throws RSBException: communication errors or server-side errors
+   :throws TimeoutException: timeout waiting for the reply
+   :throws ExecutionException: in case the method failed on the server side
+   :throws InterruptedException: interrupted while waiting for the reply
+   :throws java.util.concurrent.CancellationException: waiting for the result was cancelled
+   :return: An event with the resulting data
+
+call
+^^^^
+
+.. java:method:: public Event call(String name, double timeout) throws RSBException, ExecutionException, TimeoutException, InterruptedException
+   :outertype: RemoteServer
+
+   Calls a method of the server without request parameter using the method name. The method blocks until the server replied or until the specified timeout is reached.
+
+   :param name: name of the method to call
+   :param timeout: seconds to wait for the reply
+   :throws RSBException: communication errors or server-side errors
+   :throws TimeoutException: timeout waiting for the reply
+   :throws ExecutionException: in case the method failed on the server side
+   :throws InterruptedException: interrupted while waiting for the reply
+   :throws java.util.concurrent.CancellationException: waiting for the result was cancelled
+   :return: An event with the resulting data
+
+call
+^^^^
+
+.. java:method:: public <ReplyType, RequestType> ReplyType call(String name, RequestType data) throws RSBException, ExecutionException, TimeoutException, InterruptedException
+   :outertype: RemoteServer
+
+   Calls a method of the server using the method name and plain request data. The method blocks until the server replied or until the timeout is reached.
+
+   :param name: name of the method to call
+   :param data: request data
+   :param <ReplyType>: the data type expected for the reply data
+   :param <RequestType>: the data type of the passed in request data
+   :throws RSBException: communication errors or server-side errors
+   :throws TimeoutException: timeout waiting for the reply
+   :throws ExecutionException: in case the method failed on the server side
+   :throws InterruptedException: interrupted while waiting for the reply
+   :throws java.util.concurrent.CancellationException: waiting for the result was cancelled
+   :return: An event with the resulting data
+
+call
+^^^^
+
+.. java:method:: public <ReplyType, RequestType> ReplyType call(String name, RequestType data, double timeout) throws RSBException, ExecutionException, TimeoutException, InterruptedException
+   :outertype: RemoteServer
+
+   Calls a method of the server using the method name and plain request data. The method blocks until the server replied or until the specified timeout is reached.
+
+   :param name: name of the method to call
+   :param data: request data
+   :param timeout: seconds to wait for the reply
+   :param <ReplyType>: the data type expected for the reply data
+   :param <RequestType>: the data type of the passed in request data
+   :throws RSBException: communication errors or server-side errors
+   :throws TimeoutException: timeout waiting for the reply
+   :throws ExecutionException: in case the method failed on the server side
+   :throws InterruptedException: interrupted while waiting for the reply
+   :throws java.util.concurrent.CancellationException: waiting for the result was cancelled
+   :return: An event with the resulting data
+
+callAsync
+^^^^^^^^^
+
+.. java:method:: public java.util.concurrent.Future<Event> callAsync(String name, Event event) throws RSBException
+   :outertype: RemoteServer
+
+   Calls a method of the server using the method name and request data encapsulated in an \ :java:ref:`Event`\  instance. The method returns immediately with a \ :java:ref:`java.util.concurrent.Future`\  instance.
+
+   :param name: name of the method to call
+   :param event: request data
+   :throws RSBException: communication errors or server-side errors
+   :return: A \ :java:ref:`java.util.concurrent.Future`\  instance to retrieve the result \ :java:ref:`Event`\
+
+callAsync
+^^^^^^^^^
+
+.. java:method:: public java.util.concurrent.Future<Event> callAsync(String name) throws RSBException
+   :outertype: RemoteServer
+
+   Calls a method of the server without request parameter using the method name. The method returns immediately with a \ :java:ref:`java.util.concurrent.Future`\  instance.
+
+   :param name: name of the method to call
+   :throws RSBException: communication errors or server-side errors
+   :return: A \ :java:ref:`java.util.concurrent.Future`\  instance to retrieve the result \ :java:ref:`Event`\
+
+callAsync
+^^^^^^^^^
+
+.. java:method:: public <ReplyType, RequestType> java.util.concurrent.Future<ReplyType> callAsync(String name, RequestType data) throws RSBException
+   :outertype: RemoteServer
+
+   Calls a method of the server using the method name and plain request data. The method returns immediately with a \ :java:ref:`java.util.concurrent.Future`\  instance.
+
+   :param name: name of the method to call
+   :param data: the data to transfer as the method's request parameter
+   :param <ReplyType>: the data type expected as the reply data
+   :param <RequestType>: the data type for the passed in request data
+   :throws RSBException: communication errors or server-side errors
+   :return: A \ :java:ref:`java.util.concurrent.Future`\  instance to retrieve the result data
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: @Override public Class<?> getDataType()
+   :outertype: RemoteServer
+
+getKind
+^^^^^^^
+
+.. java:method:: @Override public String getKind()
+   :outertype: RemoteServer
+
+getTimeout
+^^^^^^^^^^
+
+.. java:method:: public double getTimeout()
+   :outertype: RemoteServer
+
+   Returns the timeout used when waiting for replies from a server.
+
+   :return: timeout in seconds
+

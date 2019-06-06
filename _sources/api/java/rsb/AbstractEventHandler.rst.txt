@@ -1,0 +1,33 @@
+AbstractEventHandler
+====================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public abstract class AbstractEventHandler implements Handler
+
+   An interface for handlers that are interested in whole \ :java:ref:`Event`\  instances.
+
+   :author: swrede
+
+   **See also:** :java:ref:`Event`
+
+Methods
+-------
+handleEvent
+^^^^^^^^^^^
+
+.. java:method:: public abstract void handleEvent(Event event) throws InterruptedException
+   :outertype: AbstractEventHandler
+
+   Shall implement the real handling logic for an event.
+
+   :param event: the event to handle
+   :throws InterruptedException: Execution of the handler operation was interrupted
+
+internalNotify
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void internalNotify(Event event) throws InterruptedException
+   :outertype: AbstractEventHandler
+

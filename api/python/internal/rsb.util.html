@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.util &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rsb.introspection" href="rsb.introspection.html" />
+    <link rel="prev" title="rsb.eventprocessing" href="rsb.eventprocessing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rsb.eventprocessing.html">rsb.eventprocessing</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.util</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.introspection.html">rsb.introspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.html">rsb.transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.local.html">rsb.transport.local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.socket.html">rsb.transport.socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.util</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/internal/rsb.util.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.util">
+<span id="rsb-util"></span><h1>rsb.util<a class="headerlink" href="#module-rsb.util" title="Permalink to this headline">¶</a></h1>
+<p>Various helper classes and methods.</p>
+<p><em>Code author: jwienke</em></p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.util.get_logger_by_class" title="rsb.util.get_logger_by_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logger_by_class</span></code></a>(klass)</p></td>
+<td><p>Get a python logger instance based on a class instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.util.prefix" title="rsb.util.prefix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prefix</span></code></a>()</p></td>
+<td><p>Try to return the prefix that this code was installed into.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.util.time_to_unix_microseconds" title="rsb.util.time_to_unix_microseconds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_to_unix_microseconds</span></code></a>(time)</p></td>
+<td><p>Convert a floating point, seconds based time to a unix microseconds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.util.unix_microseconds_to_time" title="rsb.util.unix_microseconds_to_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unix_microseconds_to_time</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.util.OrderedQueueDispatcherPool" title="rsb.util.OrderedQueueDispatcherPool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderedQueueDispatcherPool</span></code></a>(thread_pool_size, …)</p></td>
+<td><p>A thread pool that dispatches messages to a list of receivers.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="rsb.util.OrderedQueueDispatcherPool">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.util.</code><code class="sig-name descname">OrderedQueueDispatcherPool</code><span class="sig-paren">(</span><em class="sig-param">thread_pool_size</em>, <em class="sig-param">del_func</em>, <em class="sig-param">filter_func=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.OrderedQueueDispatcherPool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A thread pool that dispatches messages to a list of receivers.</p>
+<p>The number of threads is usually smaller than the number of receivers and
+for each receiver it is guaranteed that messages arrive in the order they
+were published. No guarantees are given between different receivers.  All
+methods except #start and #stop are reentrant.</p>
+<p>The pool can be stopped and restarted at any time during the processing but
+these calls must be single-threaded.</p>
+<dl class="simple">
+<dt>Assumptions:</dt><dd><ul class="simple">
+<li><p>same subscriptions for multiple receivers unlikely, hence filtering done
+per receiver thread</p></li>
+</ul>
+</dd>
+</dl>
+<p><em>Code author: jwienke</em></p>
+<p>Construct a new pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thread_pool_size</strong> – number of threads for this pool</p></li>
+<li><p><strong>del_func</strong> – the strategy used to deliver messages of type M to receivers of
+type R. This will most likely be a simple delegate function
+mapping to a concrete method call.  Must be reentrant. callable
+with two arguments. First is the receiver of a message, second
+is the message to deliver</p></li>
+<li><p><strong>filter_func</strong> – Reentrant function used to filter messages per receiver.
+Default accepts every message. callable with two arguments.
+First is the receiver of a message, second is the message to
+filter. Must return a bool, true means to deliver the message,
+false rejects it.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type thread_pool_size</dt>
+<dd class="field-even"><p>int &gt;= 1</p>
+</dd>
+<dt class="field-odd">Type del_func</dt>
+<dd class="field-odd"><p>callable</p>
+</dd>
+<dt class="field-even">Type filter_func</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.util.OrderedQueueDispatcherPool.push">
+<code class="sig-name descname">push</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.OrderedQueueDispatcherPool.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Push a new message to be dispatched to all receivers in this pool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – message to dispatch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.util.OrderedQueueDispatcherPool.register_receiver">
+<code class="sig-name descname">register_receiver</code><span class="sig-paren">(</span><em class="sig-param">receiver</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.OrderedQueueDispatcherPool.register_receiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new receiver at the pool.</p>
+<p>Multiple registrations of the same receiver are possible resulting in
+being called multiple times for the same message (but effectively this
+destroys the guarantee about ordering given above because multiple
+message queues are used for every subscription).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>receiver</strong> – new receiver</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.util.OrderedQueueDispatcherPool.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.OrderedQueueDispatcherPool.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start processing and return immediately.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises RuntimeError</dt>
+<dd class="field-odd"><p>if the pool was already started and is running</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.util.OrderedQueueDispatcherPool.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.OrderedQueueDispatcherPool.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block until every thread has stopped working.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.util.OrderedQueueDispatcherPool.unregister_receiver">
+<code class="sig-name descname">unregister_receiver</code><span class="sig-paren">(</span><em class="sig-param">receiver</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.OrderedQueueDispatcherPool.unregister_receiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unregister all registrations of one receiver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>receiver</strong> – receiver to unregister</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if one or more receivers were unregistered, else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.util.get_logger_by_class">
+<code class="sig-prename descclassname">rsb.util.</code><code class="sig-name descname">get_logger_by_class</code><span class="sig-paren">(</span><em class="sig-param">klass</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.get_logger_by_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a python logger instance based on a class instance.</p>
+<p>The logger name will be a dotted string containing python module and class
+name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>klass</strong> – class instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>logger instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.util.prefix">
+<code class="sig-prename descclassname">rsb.util.</code><code class="sig-name descname">prefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to return the prefix that this code was installed into.</p>
+<p>This is done by guessing the install location from some rules.</p>
+<p>Adapted from
+<a class="reference external" href="http://ttboj.wordpress.com/2012/09/20/finding-your-software-install-prefix-from-inside-python/">http://ttboj.wordpress.com/2012/09/20/finding-your-software-install-prefix-from-inside-python/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>string path with the install prefix or empty string if not known</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.util.time_to_unix_microseconds">
+<code class="sig-prename descclassname">rsb.util.</code><code class="sig-name descname">time_to_unix_microseconds</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.time_to_unix_microseconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a floating point, seconds based time to a unix microseconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> – time since epoch in seconds + fractional part.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>time as integer with microseconds precision.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.util.unix_microseconds_to_time">
+<code class="sig-prename descclassname">rsb.util.</code><code class="sig-name descname">unix_microseconds_to_time</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.unix_microseconds_to_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

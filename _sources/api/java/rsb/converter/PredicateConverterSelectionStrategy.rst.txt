@@ -1,0 +1,52 @@
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util List
+
+.. java:import:: java.util.regex Pattern
+
+PredicateConverterSelectionStrategy
+===================================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class PredicateConverterSelectionStrategy<WireType> implements ConverterSelectionStrategy<WireType>
+
+   A converter selection strategy that uses predicates to select converters. Converters that are added first have a higher priority than converters added later.
+
+   :author: jwienke
+   :param <WireType>: the wire type of the converters maintained in this selection strategy.
+
+Methods
+-------
+addConverter
+^^^^^^^^^^^^
+
+.. java:method:: public void addConverter(Predicate predicate, Converter<WireType> converter)
+   :outertype: PredicateConverterSelectionStrategy
+
+   Adds a new converter to the strategy for the given predicate.
+
+   :param predicate: the predicate deciding whether this converter will be chosen or not
+   :param converter: the converter
+
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: PredicateConverterSelectionStrategy
+
+getConverter
+^^^^^^^^^^^^
+
+.. java:method:: @Override public Converter<WireType> getConverter(String key)
+   :outertype: PredicateConverterSelectionStrategy
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: PredicateConverterSelectionStrategy
+

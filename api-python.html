@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python API Documentation &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rsb" href="api/python/user-level/rsb.html" />
+    <link rel="prev" title="RuntimeOsUtilities.RuntimeNotAvailableException" href="api/java/rsb/util/os/RuntimeOsUtilities-RuntimeNotAvailableException.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python API Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-level-api">User-Level API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/python/user-level/rsb.html">rsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/user-level/rsb.converter.html">rsb.converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/user-level/rsb.filter.html">rsb.filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/user-level/rsb.patterns.html">rsb.patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/user-level/rsb.patterns.future.html">rsb.patterns.future</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/user-level/rsb.version.html">rsb.version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#internal-api">Internal API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/python/internal/rsb.eventprocessing.html">rsb.eventprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/internal/rsb.util.html">rsb.util</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/internal/rsb.introspection.html">rsb.introspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/internal/rsb.transport.html">rsb.transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/internal/rsb.transport.local.html">rsb.transport.local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/python/internal/rsb.transport.socket.html">rsb.transport.socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="api.html">API Documentation</a> &raquo;</li>
+        
+      <li>Python API Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api-python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="python-api-documentation">
+<span id="api-python"></span><h1>Python API Documentation<a class="headerlink" href="#python-api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="user-level-api">
+<h2>User-Level API<a class="headerlink" href="#user-level-api" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/user-level/rsb.html#module-rsb" title="rsb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb</span></code></a></p></td>
+<td><p>Contains the high-level user interface of RSB.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/python/user-level/rsb.converter.html#module-rsb.converter" title="rsb.converter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.converter</span></code></a></p></td>
+<td><p>Contains converter implementations and logic for registration and selection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/user-level/rsb.filter.html#module-rsb.filter" title="rsb.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.filter</span></code></a></p></td>
+<td><p>Contains filters which can be used to restrict the events received by clients.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/python/user-level/rsb.patterns.html#module-rsb.patterns" title="rsb.patterns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.patterns</span></code></a></p></td>
+<td><p>Contains communication pattern implementations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/user-level/rsb.patterns.future.html#module-rsb.patterns.future" title="rsb.patterns.future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.patterns.future</span></code></a></p></td>
+<td><p>Contains an implementation of the future pattern.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/python/user-level/rsb.version.html#module-rsb.version" title="rsb.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.version</span></code></a></p></td>
+<td><p>Provides runtime information about the version of RSB being currently used.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="internal-api">
+<h2>Internal API<a class="headerlink" href="#internal-api" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/internal/rsb.eventprocessing.html#module-rsb.eventprocessing" title="rsb.eventprocessing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.eventprocessing</span></code></a></p></td>
+<td><p>Contains code mediating between the user interface and the transport layer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/python/internal/rsb.util.html#module-rsb.util" title="rsb.util"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.util</span></code></a></p></td>
+<td><p>Various helper classes and methods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/internal/rsb.introspection.html#module-rsb.introspection" title="rsb.introspection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.introspection</span></code></a></p></td>
+<td><p>This package contains partial introspection functionality for RSB.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/python/internal/rsb.transport.html#module-rsb.transport" title="rsb.transport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.transport</span></code></a></p></td>
+<td><p>Contains the interface and bases classes for implementing RSB transports.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/internal/rsb.transport.local.html#module-rsb.transport.local" title="rsb.transport.local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.transport.local</span></code></a></p></td>
+<td><p>Contains a highly efficient in-process transport implementation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.transport.rsbspread</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/python/internal/rsb.transport.socket.html#module-rsb.transport.socket" title="rsb.transport.socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb.transport.socket</span></code></a></p></td>
+<td><p>Contains a transport based on point-to-point socket connections.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

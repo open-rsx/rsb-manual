@@ -1,0 +1,31 @@
+.. java:import:: rsb Event
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.transport OutConnector
+
+OutRouteConfigurator
+====================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public interface OutRouteConfigurator extends RouteConfigurator<OutConnector>
+
+   Implementing classes provide outgoing communication routes for \ :java:ref:`rsb.Participant`\ s.
+
+   :author: jwienke
+
+Methods
+-------
+publishSync
+^^^^^^^^^^^
+
+.. java:method::  void publishSync(Event event) throws RSBException
+   :outertype: OutRouteConfigurator
+
+   Sends an event. This method must only be called after activating the object with \ :java:ref:`activate()`\ .
+
+   :param event: event to send
+   :throws RSBException: sending error. e.g. impossible to convert data, transport error
+

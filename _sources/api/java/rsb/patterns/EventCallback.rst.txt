@@ -1,0 +1,35 @@
+.. java:import:: rsb Event
+
+EventCallback
+=============
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public abstract class EventCallback implements Callback
+
+   Implementations of this interface are used to provide the behavior of exposed methods.
+
+   :author: jmoringe
+
+Methods
+-------
+internalInvoke
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override @SuppressWarnings public Event internalInvoke(Event request) throws UserCodeException, InterruptedException
+   :outertype: EventCallback
+
+invoke
+^^^^^^
+
+.. java:method:: @SuppressWarnings public abstract Event invoke(Event request) throws Exception
+   :outertype: EventCallback
+
+   This method is called to invoke the actual behavior of an exposed method. Implementing user code must not swallow interruption state. Instead, it has to be passed to the outside world through an \ :java:ref:`InterruptedException`\ .
+
+   :param request: The argument passed to the associated method by the remote caller.
+   :throws InterruptedException: Indicates that the operation was interrupted.
+   :throws Exception: Can throw anything.
+   :return: A result that should be returned to the remote caller as the result of the calling the method.
+

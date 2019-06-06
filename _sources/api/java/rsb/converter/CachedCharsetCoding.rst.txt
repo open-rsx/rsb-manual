@@ -1,0 +1,54 @@
+.. java:import:: java.nio.charset Charset
+
+.. java:import:: java.nio.charset CharsetDecoder
+
+.. java:import:: java.nio.charset CharsetEncoder
+
+.. java:import:: java.nio.charset CodingErrorAction
+
+CachedCharsetCoding
+===================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class CachedCharsetCoding
+
+   Lazily creates and caches a \ :java:ref:`java.nio.CharsetEncoder`\ , \ :java:ref:`java.nio.CharsetDecoder`\  pair for each calling thread.
+
+   :author: jmoringe
+
+Constructors
+------------
+CachedCharsetCoding
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public CachedCharsetCoding(Charset charset)
+   :outertype: CachedCharsetCoding
+
+   Creates a per-thread cache for encoder-decoder pairs for the given character set.
+
+   :param charset: The character set that should be used for en- and decoding.
+
+Methods
+-------
+getDecoder
+^^^^^^^^^^
+
+.. java:method:: public CharsetDecoder getDecoder()
+   :outertype: CachedCharsetCoding
+
+   Returns the decoder for the current thread (potentially after creating it).
+
+   :return: The decoder.
+
+getEncoder
+^^^^^^^^^^
+
+.. java:method:: public CharsetEncoder getEncoder()
+   :outertype: CachedCharsetCoding
+
+   Returns the encoder for the current thread (potentially after creating it).
+
+   :return: The encoder.
+

@@ -1,0 +1,53 @@
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util List
+
+.. java:import:: java.util.regex Pattern
+
+PredicateConverterSelectionStrategy.RegExPredicate
+==================================================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public static class RegExPredicate implements Predicate
+   :outertype: PredicateConverterSelectionStrategy
+
+   A \ :java:ref:`Predicate`\  that checks keys against a given regular expression.
+
+   :author: jwienke
+
+Constructors
+------------
+RegExPredicate
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public RegExPredicate(Pattern pattern)
+   :outertype: PredicateConverterSelectionStrategy.RegExPredicate
+
+   Constructor.
+
+   :param pattern: the regular expression to use
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: PredicateConverterSelectionStrategy.RegExPredicate
+
+handlesKey
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean handlesKey(String key)
+   :outertype: PredicateConverterSelectionStrategy.RegExPredicate
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: PredicateConverterSelectionStrategy.RegExPredicate
+

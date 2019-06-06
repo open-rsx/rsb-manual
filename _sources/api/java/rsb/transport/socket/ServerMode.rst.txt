@@ -1,0 +1,38 @@
+ServerMode
+==========
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public enum ServerMode
+
+   An enum indicating which kind of server mode is requested by the user for the socket transport.
+
+   :author: jwienke
+
+Enum Constants
+--------------
+AUTO
+^^^^
+
+.. java:field:: public static final ServerMode AUTO
+   :outertype: ServerMode
+
+   Try to decide automatically whether a socket server is required and start one if this is the case. Otherwise, reuse an existing one.
+
+NO
+^^
+
+.. java:field:: public static final ServerMode NO
+   :outertype: ServerMode
+
+   Never be a socket server. Instead use an existing server or fail if none can be found.
+
+YES
+^^^
+
+.. java:field:: public static final ServerMode YES
+   :outertype: ServerMode
+
+   Always create a socket server. This may fail if a socket server with same settings already exists on the host / network.
+

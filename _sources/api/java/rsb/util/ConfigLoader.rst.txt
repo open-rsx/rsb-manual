@@ -1,0 +1,109 @@
+.. java:import:: java.io BufferedReader
+
+.. java:import:: java.io File
+
+.. java:import:: java.io FileInputStream
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.io InputStreamReader
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util List
+
+.. java:import:: java.util Locale
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Map.Entry
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+ConfigLoader
+============
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public class ConfigLoader
+
+   A class which loads the RSB configuration from different sources and stores it in a \ :java:ref:`Properties`\  object.
+
+   :author: jwienke, jmoringe
+
+Constructors
+------------
+ConfigLoader
+^^^^^^^^^^^^
+
+.. java:constructor:: public ConfigLoader(String prefix, String environmentPrefix)
+   :outertype: ConfigLoader
+
+   Creates a new instance with specific parameters.
+
+   :param prefix: installation prefix to search for the config files in \ ``prefix/etc/rsb.conf``\ .
+   :param environmentPrefix: prefix for environment variables
+
+ConfigLoader
+^^^^^^^^^^^^
+
+.. java:constructor:: public ConfigLoader()
+   :outertype: ConfigLoader
+
+   Uses "/" as the config file prefix and "RSB_" as the environment variable prefix.
+
+Methods
+-------
+load
+^^^^
+
+.. java:method:: @SuppressWarnings public Properties load(Properties results)
+   :outertype: ConfigLoader
+
+   Loads properties from the default sources. These are several config files and environment variables. The passed in instance is not cleared from existing properties before. If you need this, use \ :java:ref:`Properties.reset()`\ .
+
+   :param results: the instance to fill with new properties
+   :return: the result instance, now loaded
+
+loadEnv
+^^^^^^^
+
+.. java:method:: @SuppressWarnings public Properties loadEnv(Properties results)
+   :outertype: ConfigLoader
+
+   Loads properties from the environment variable. The passed in instance is not cleared before loading.
+
+   :param results: the instance to fill with new properties
+   :return: the passed in instance
+
+loadFile
+^^^^^^^^
+
+.. java:method:: @SuppressWarnings public Properties loadFile(File file, Properties results) throws IOException
+   :outertype: ConfigLoader
+
+   Reads options from a config file. Assumes that the file exists. The passed in instance is not cleared before loading from the file.
+
+   :param file: the file to read
+   :param results: the instance to fill with new properties
+   :throws IllegalArgumentException: if the file does not exist
+   :throws IOException: error reading the file
+   :return: the instance with properties
+
+loadFileIfAvailable
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public Properties loadFileIfAvailable(int index, File file, String description, Properties results)
+   :outertype: ConfigLoader
+
+   Loads a config file if the file exists. Reading errors are ignored. The passed in instance is not cleared before loading the file.
+
+   :param index: the index of the file in the configuration file cascade
+   :param file: the file to read, might not exist
+   :param description: a description of the file being loaded
+   :param results: the instance to fill with new properties
+   :return: the result instance with loaded properties
+

@@ -1,0 +1,81 @@
+.. java:import:: rsb Event
+
+.. java:import:: rsb ParticipantId
+
+OriginFilter
+============
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public class OriginFilter implements Filter
+
+   Events matched by this filter have to originate from a particular participant.
+
+   :author: swrede, jmoringe
+
+Constructors
+------------
+OriginFilter
+^^^^^^^^^^^^
+
+.. java:constructor:: public OriginFilter(ParticipantId origin, boolean invert)
+   :outertype: OriginFilter
+
+   Constructor.
+
+   :param origin: the desired origin of a received event, not \ ``null``\
+   :param invert: if \ ``true``\ , suppress events from the provided origin and allow all other events instead of only allowing events from that origin.
+   :throws IllegalArgumentException: origin is \ ``null``\
+
+OriginFilter
+^^^^^^^^^^^^
+
+.. java:constructor:: public OriginFilter(ParticipantId origin)
+   :outertype: OriginFilter
+
+   Constructor.
+
+   :param origin: only events from this origin are allowed, not \ ``null``\
+   :throws IllegalArgumentException: origin is \ ``null``\
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object that)
+   :outertype: OriginFilter
+
+getOrigin
+^^^^^^^^^
+
+.. java:method:: public ParticipantId getOrigin()
+   :outertype: OriginFilter
+
+   Returns the origin participant id this filter operates for.
+
+   :return: the id, not \ ``null``\
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: OriginFilter
+
+isInverted
+^^^^^^^^^^
+
+.. java:method:: public boolean isInverted()
+   :outertype: OriginFilter
+
+   Indicates whether the filter accepts events only from the id returned by \ :java:ref:`getOrigin()`\  or it only accepts events that do not originate from that origin.
+
+   :return: if \ ``true``\ , only events NOT originating from \ :java:ref:`getOrigin()`\  are allowed. If \ ``false``\ , only events from \ :java:ref:`getOrigin()`\  are allowed.
+
+match
+^^^^^
+
+.. java:method:: @Override public boolean match(Event event)
+   :outertype: OriginFilter
+

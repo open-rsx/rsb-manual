@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>InRouteConfigurator &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="MatchAndDispatchTask" href="MatchAndDispatchTask.html" />
+    <link rel="prev" title="EventReceivingStrategyFactory" href="EventReceivingStrategyFactory.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.eventprocessing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AbstractEventReceivingStrategy.html">AbstractEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultInRouteConfigurator.html">DefaultInRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultOutRouteConfigurator.html">DefaultOutRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventReceivingStrategy.html">EventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventReceivingStrategyFactory.html">EventReceivingStrategyFactory</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">InRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatchAndDispatchTask.html">MatchAndDispatchTask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OutRouteConfigurator.html">OutRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RouteConfigurator.html">RouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RouteConfiguratorUtility.html">RouteConfiguratorUtility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingleThreadEventReceivingStrategy.html">SingleThreadEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingleThreadFactory.html">SingleThreadFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UnorderedParallelEventReceivingStrategy.html">UnorderedParallelEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UnorderedParallelFactory.html">UnorderedParallelFactory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.eventprocessing</a> &raquo;</li>
+        
+      <li>InRouteConfigurator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/eventprocessing/InRouteConfigurator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="inrouteconfigurator">
+<h1>InRouteConfigurator<a class="headerlink" href="#inrouteconfigurator" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.eventprocessing.InRouteConfigurator">
+public interface <code class="sig-name descname">InRouteConfigurator</code> extends <a class="reference internal" href="RouteConfigurator.html#rsb.eventprocessing.RouteConfigurator" title="rsb.eventprocessing.RouteConfigurator">RouteConfigurator</a>&lt;<a class="reference internal" href="../transport/InConnector.html#rsb.transport.InConnector" title="rsb.transport.InConnector">InConnector</a>&gt;<a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementing classes provide ingoing communication routes for <a class="reference internal" href="../Participant.html#rsb.Participant" title="rsb.Participant"><code class="xref java java-ref docutils literal notranslate"><span class="pre">rsb.Participant</span></code></a>s. The methods <a class="reference internal" href="#rsb.eventprocessing.InRouteConfigurator.handlerAdded(Handler, boolean)" title="rsb.eventprocessing.InRouteConfigurator.handlerAdded(Handler, boolean)"><code class="xref java java-ref docutils literal notranslate"><span class="pre">handlerAdded(Handler,boolean)</span></code></a> and <a class="reference internal" href="#rsb.eventprocessing.InRouteConfigurator.handlerRemoved(Handler, boolean)" title="rsb.eventprocessing.InRouteConfigurator.handlerRemoved(Handler, boolean)"><code class="xref java java-ref docutils literal notranslate"><span class="pre">handlerRemoved(Handler,boolean)</span></code></a> need to be callable before and after calling <a class="reference internal" href="../Activatable.html#rsb.Activatable.activate()" title="rsb.Activatable.activate()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">activate()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filteradded">
+<h3>filterAdded<a class="headerlink" href="#filteradded" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.filterAdded(Filter)">
+ void <code class="sig-name descname">filterAdded</code><span class="sig-paren">(</span><a class="reference internal" href="../filter/Filter.html#rsb.filter.Filter" title="rsb.filter.Filter">Filter</a><em> filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.filterAdded(Filter)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in case a new filter was added and should be reflected by this route.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filter</strong> – the added filter</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="filterremoved">
+<h3>filterRemoved<a class="headerlink" href="#filterremoved" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.filterRemoved(Filter)">
+ boolean <code class="sig-name descname">filterRemoved</code><span class="sig-paren">(</span><a class="reference internal" href="../filter/Filter.html#rsb.filter.Filter" title="rsb.filter.Filter">Filter</a><em> filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.filterRemoved(Filter)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in a case a filter should be removed from the route.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filter</strong> – the filter to remove</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the filter was already active and was removed now, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="handleradded">
+<h3>handlerAdded<a class="headerlink" href="#handleradded" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.handlerAdded(Handler, boolean)">
+ void <code class="sig-name descname">handlerAdded</code><span class="sig-paren">(</span><a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler">Handler</a><em> handler</em>, boolean<em> wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.handlerAdded(Handler, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in case a <a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Handler</span></code></a> was added to the participant for which the route is being configured. This method should incorporate that handler into the route.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handler</strong> – the added handler</p></li>
+<li><p><strong>wait</strong> – if <code class="docutils literal notranslate"><span class="pre">true</span></code>, this method must wait with returning until the handler is fully active and can receive the next event. Otherwise it might return earlier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the handler to be fully removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="handlerremoved">
+<h3>handlerRemoved<a class="headerlink" href="#handlerremoved" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.handlerRemoved(Handler, boolean)">
+ boolean <code class="sig-name descname">handlerRemoved</code><span class="sig-paren">(</span><a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler">Handler</a><em> handler</em>, boolean<em> wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.handlerRemoved(Handler, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in case a <a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Handler</span></code></a> was remove from the participant for which the route is being configured. This method should remove that handler from the route.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handler</strong> – the removed handler</p></li>
+<li><p><strong>wait</strong> – if <code class="docutils literal notranslate"><span class="pre">true</span></code>, this method must wait with returning until the handler is fully removed and will not receive any more events.. Otherwise it might return earlier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the handler to be fully removed</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the handler was already available and is now removed, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="seteventreceivingstrategy">
+<h3>setEventReceivingStrategy<a class="headerlink" href="#seteventreceivingstrategy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.InRouteConfigurator.setEventReceivingStrategy(EventReceivingStrategy)">
+ void <code class="sig-name descname">setEventReceivingStrategy</code><span class="sig-paren">(</span><a class="reference internal" href="EventReceivingStrategy.html#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy">EventReceivingStrategy</a><em> strategy</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.InRouteConfigurator.setEventReceivingStrategy(EventReceivingStrategy)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the <a class="reference internal" href="EventReceivingStrategy.html#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref java java-ref docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a> to use by the configurator. Must be called directly after construction before any other method was called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>strategy</strong> – the new strategy</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

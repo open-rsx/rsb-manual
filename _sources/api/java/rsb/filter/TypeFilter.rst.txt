@@ -1,0 +1,47 @@
+.. java:import:: rsb Event
+
+TypeFilter
+==========
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public class TypeFilter implements Filter
+
+   A \ :java:ref:`Filter`\  that only accepts events which have a payload of a specific type. Events are accepted if their payload can be assigned to the desired class (ie. also subclasses are accepted).
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+TypeFilter
+^^^^^^^^^^
+
+.. java:constructor:: public TypeFilter(Class<?> type)
+   :outertype: TypeFilter
+
+   Constructor.
+
+   :param type: the desired payload type, not \ ``null``\
+   :throws IllegalArgumentException: type is \ ``null``\
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object that)
+   :outertype: TypeFilter
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: TypeFilter
+
+match
+^^^^^
+
+.. java:method:: @Override public boolean match(Event event)
+   :outertype: TypeFilter
+

@@ -1,0 +1,65 @@
+ConverterSignature
+==================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class ConverterSignature
+
+   Immutable object representing a converter signature. Used to index the converter maps.
+
+   :author: swrede
+
+Constructors
+------------
+ConverterSignature
+^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ConverterSignature(String schema, Class<?> dataType)
+   :outertype: ConverterSignature
+
+   Instantiates a new signature object.
+
+   :param schema: the wire schema produced by a converter
+   :param dataType: the datatype handled by a converter.
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public boolean equals(Object obj)
+   :outertype: ConverterSignature
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: public Class<?> getDataType()
+   :outertype: ConverterSignature
+
+   Returns the data type of the described converter.
+
+   :return: data type class
+
+getSchema
+^^^^^^^^^
+
+.. java:method:: public String getSchema()
+   :outertype: ConverterSignature
+
+   Returns the wire schema the described converter produces and reads.
+
+   :return: wire schema string
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public int hashCode()
+   :outertype: ConverterSignature
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: ConverterSignature
+

@@ -1,0 +1,53 @@
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util List
+
+.. java:import:: java.util.regex Pattern
+
+PredicateConverterSelectionStrategy.ExactKeyPredicate
+=====================================================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public static class ExactKeyPredicate implements Predicate
+   :outertype: PredicateConverterSelectionStrategy
+
+   Checks whether a key exactly matches a given template.
+
+   :author: jwienke
+
+Constructors
+------------
+ExactKeyPredicate
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ExactKeyPredicate(String desired)
+   :outertype: PredicateConverterSelectionStrategy.ExactKeyPredicate
+
+   Constructor.
+
+   :param desired: the desired key to search for
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: PredicateConverterSelectionStrategy.ExactKeyPredicate
+
+handlesKey
+^^^^^^^^^^
+
+.. java:method:: @Override public boolean handlesKey(String key)
+   :outertype: PredicateConverterSelectionStrategy.ExactKeyPredicate
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: PredicateConverterSelectionStrategy.ExactKeyPredicate
+

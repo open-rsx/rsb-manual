@@ -1,0 +1,1830 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic Communication &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="A Chat System" href="examples-chat.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="examples.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sending-data">Sending Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receiving-data">Receiving Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#receiving-data-synchronously">Receiving Data Synchronously</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#receiving-data-asynchronously">Receiving Data Asynchronously</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-procedure-calls">Remote Procedure Calls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#server">Server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples-chat.html">A Chat System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples-converters.html">Sending and Receiving Custom Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples-extension-points.html">Extension Points</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="examples.html">Examples</a> &raquo;</li>
+        
+      <li>Basic Communication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples-basic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="basic-communication">
+<span id="tutorial-basic"></span><h1>Basic Communication<a class="headerlink" href="#basic-communication" title="Permalink to this headline">¶</a></h1>
+<p>The essential form of communication in RSB consists in
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> sending and receiving <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. The following sections explain:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tutorial-send"><span class="std std-ref">Sending events</span></a> and the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a></p></li>
+<li><p><a class="reference internal" href="#tutorial-receive"><span class="std std-ref">Receiving events</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#tutorial-receive-sync"><span class="std std-ref">Receiving events synchronously</span></a> and
+the <a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a></p></li>
+<li><p><a class="reference internal" href="#tutorial-receive-async"><span class="std std-ref">Receiving events asynchronously</span></a>
+and the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tutorial-rpc"><span class="std std-ref">Remote Procedure Calls</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#tutorial-rpc-client"><span class="std std-ref">Calling provided methods</span></a> and the
+<a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a></p></li>
+<li><p><a class="reference internal" href="#tutorial-rpc-server"><span class="std std-ref">Providing methods</span></a> and the
+<a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="sending-data">
+<span id="tutorial-send"></span><h2>Sending Data<a class="headerlink" href="#sending-data" title="Permalink to this headline">¶</a></h2>
+<p>To send data in RSB, in the simplest case, an <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>
+has to be created for the desired destination <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> and the
+data then has to be passed to it.</p>
+<div class="sending-data-multi docutils container">
+<div class="sending-data-python docutils container">
+<p>A <a class="reference internal" href="api/python/user-level/rsb.html#rsb.Informer" title="rsb.Informer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.Informer</span></code></a> object is created by calling
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rsb.createInformer()</span></code> with</p>
+<ul class="simple">
+<li><p>the desired <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> (which can be specified as <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.7)"><span class="xref std std-ref">str</span></a> object, for example, a string literal)</p></li>
+<li><p>a <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> (which can be <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> to allow
+any kind of data)</p></li>
+</ul>
+<p>Once the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> has been created, data is published by
+calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.Informer.publishData()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" title="(in Python v3.7)"><span class="xref std std-ref">context manager protocol</span></a>
+implementation of RSB takes care of correctly deactivating the
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> at the end of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a>
+statement. In case you are not using a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement,
+the <a class="reference internal" href="api/python/user-level/rsb.html#rsb.Informer" title="rsb.Informer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.Informer</span></code></a> object has to be deactivated
+using its <a class="reference internal" href="api/python/user-level/rsb.html#rsb.Informer.deactivate" title="rsb.Informer.deactivate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.Informer.deactivate()</span></code></a> method at the end of use.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">rsb</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Pacify logger.</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
+
+    <span class="c1"># Create an informer for strings on scope &quot;/example/informer&quot;.</span>
+<span class="hll">    <span class="k">with</span> <span class="n">rsb</span><span class="o">.</span><span class="n">create_informer</span><span class="p">(</span><span class="s2">&quot;/example/informer&quot;</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span> <span class="k">as</span> <span class="n">informer</span><span class="p">:</span>
+</span>
+        <span class="c1"># Send and event using a method that directly accepts data.</span>
+<span class="hll">        <span class="n">informer</span><span class="o">.</span><span class="n">publish_data</span><span class="p">(</span><span class="s2">&quot;example payload&quot;</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/194c92918ff86030c4fd86210c1d2f3e/informer.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="sending-data-cpp docutils container">
+<p>A <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::Informer</span></code> object is created by calling
+obtaining the RSB factory via
+<code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::getInstance</span></code> and then calling its
+<a class="reference internal" href="api-cpp.html#_CPPv4I0EN3rsb7Factory14createInformerEN8InformerI8DataTypeE3PtrERK5ScopeRK17ParticipantConfigRKNSt6stringEP11Participant" title="rsb::Factory::createInformer"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createInformer</span></code></a> method with</p>
+<ul class="simple">
+<li><p>the desired <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> (which can be specified as
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::string</span></code> object, for example, a string
+literal)</p></li>
+<li><p>a <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> (which can be <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7AnyTypeE" title="rsb::AnyType"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::AnyType</span></code></a> to
+allow any kind of data)</p></li>
+</ul>
+<p>Once the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> has been created, data is published by
+calling <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb8Informer7publishEN5boost10shared_ptrI1TEE" title="rsb::Informer::publish"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Informer::publish</span></code></a>.</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Informer.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Factory.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// First get a factory instance that is used to create RSB domain</span>
+    <span class="c1">// objects.</span>
+<span class="hll">    <span class="n">Factory</span><span class="o">&amp;</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">getFactory</span><span class="p">();</span>
+</span>
+    <span class="c1">// Create an informer that is capable of sending events containing</span>
+    <span class="c1">// string data on the scope &quot;/example/informer&quot;.</span>
+<span class="hll">    <span class="n">Informer</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">informer</span>
+</span><span class="hll">        <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">createInformer</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">(</span><span class="s">&quot;/example/informer&quot;</span><span class="p">);</span>
+</span>
+    <span class="c1">// Create data to send over the informer. Data is always</span>
+    <span class="c1">// maintained in shared_ptr instances. Informer provides a typedef</span>
+    <span class="c1">// DataPtr of the appropriate type according to its template</span>
+    <span class="c1">// parameter</span>
+<span class="hll">    <span class="n">Informer</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">DataPtr</span> <span class="n">s</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">(</span><span class="s">&quot;example payload&quot;</span><span class="p">));</span>
+</span>
+    <span class="c1">// Send the data.</span>
+<span class="hll">    <span class="n">informer</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span>
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/534ba7e49a8b0836d8267640f98d1ec5/informer.cpp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="sending-data-java docutils container">
+<p>A <code class="docutils literal notranslate"><span class="pre">rsb.Informer</span></code> object is created by obtaining the RSB
+factory via <code class="docutils literal notranslate"><span class="pre">rsb.Factory.getInstance</span></code> and then calling its
+<code class="docutils literal notranslate"><span class="pre">rsb.Factory.createInformer</span></code> method with the desired
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> (which can be specified as a string literal). The
+generic parameter of the <code class="docutils literal notranslate"><span class="pre">rsb.Informer</span></code> class determines the
+<a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> of the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rsb.Informer</span></code> has to activated before and deactivated
+after use via the <code class="docutils literal notranslate"><span class="pre">rsb.Informer.activate</span></code> and
+<code class="docutils literal notranslate"><span class="pre">rsb.Informer.deactivate</span></code> methods.</p>
+<p>Once the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> has been created and activated, data
+is published by calling <code class="docutils literal notranslate"><span class="pre">rsb.Informer.send</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">rsb.examples</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">rsb.Factory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.Informer</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InformerExample</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+
+        <span class="c1">// Get a factory instance to create RSB objects.</span>
+        <span class="kd">final</span> <span class="n">Factory</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<span class="hll">
+</span><span class="hll">        <span class="c1">// Create an informer on scope &quot;/exmaple/informer&quot;.</span>
+</span>        <span class="kd">final</span> <span class="n">Informer</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">informer</span> <span class="o">=</span> <span class="n">factory</span>
+                <span class="o">.</span><span class="na">createInformer</span><span class="o">(</span><span class="s">&quot;/example/informer&quot;</span><span class="o">);</span>
+<span class="hll">
+</span>        <span class="c1">// Activate the informer to be ready for work</span>
+        <span class="n">informer</span><span class="o">.</span><span class="na">activate</span><span class="o">();</span>
+
+<span class="hll">        <span class="c1">// Send and event using a method that accepts the data and</span>
+</span>        <span class="c1">// automatically creates an appropriate event internally.</span>
+        <span class="n">informer</span><span class="o">.</span><span class="na">publish</span><span class="o">(</span><span class="s">&quot;example payload&quot;</span><span class="o">);</span>
+
+<span class="hll">        <span class="c1">// As there is no explicit removal model in java, always manually</span>
+</span>        <span class="c1">// deactivate the informer if it is not needed anymore</span>
+        <span class="n">informer</span><span class="o">.</span><span class="na">deactivate</span><span class="o">();</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/931677db640aca2c1101ffb11137c121/InformerExample.java"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="sending-data-cl docutils container">
+<p>The macro <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> can be used to create an
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> for a particular <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> and <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data
+type</span></a> (which can be <code class="docutils literal notranslate"><span class="pre">cl:t</span></code>). The method <code class="docutils literal notranslate"><span class="pre">rsb:send</span></code> can then
+be used to send data. <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> takes care of
+destroying the <a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> after use.</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">informer</span> <span class="ss">:informer</span> <span class="s">&quot;/example/informer&quot;</span>
+                                <span class="ss">:type</span> <span class="ss">&#39;string</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Sending first event~%&quot;</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">rsb:send</span> <span class="nv">informer</span> <span class="s">&quot;example payload&quot;</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">rsb:make-participant</span></code> can be used to obtain an
+<a class="reference internal" href="glossary.html#term-informer"><span class="xref std std-term">informer</span></a> without automatic destruction:</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*informer*</span> <span class="p">(</span><span class="nv">rsb:make-participant</span> <span class="ss">:informer</span> <span class="s">&quot;/example/informer&quot;</span>
+                                         <span class="ss">:type</span> <span class="ss">&#39;string</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Sending second event~%&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">rsb:send</span> <span class="vg">*informer*</span> <span class="s">&quot;example payload&quot;</span><span class="p">)</span>
+
+<span class="c1">;; The informer will participate in the channel until it is garbage</span>
+<span class="c1">;; collected or explicitly detached using the `rsb:detach&#39; function.</span>
+
+<span class="p">(</span><span class="nv">rsb:detach</span> <span class="vg">*informer*</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/cd655f4de1e9a04d468ea570f1e7994f/informer.lisp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="receiving-data">
+<span id="tutorial-receive"></span><h2>Receiving Data<a class="headerlink" href="#receiving-data" title="Permalink to this headline">¶</a></h2>
+<p>Receiving data can be performed in two different ways in RSB:</p>
+<p><a class="reference internal" href="#tutorial-receive-sync"><span class="std std-ref">Synchronous</span></a></p>
+<blockquote>
+<div><p>Wait until <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are received.</p>
+</div></blockquote>
+<p><a class="reference internal" href="#tutorial-receive-async"><span class="std std-ref">Asynchronous</span></a></p>
+<blockquote>
+<div><p>Continue execution and execute a callback function (called
+<a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handler</span></a> in RSB) when <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are
+received.</p>
+</div></blockquote>
+<p>The following two sections explain the two ways of receiving data.</p>
+<div class="section" id="receiving-data-synchronously">
+<span id="tutorial-receive-sync"></span><h3>Receiving Data Synchronously<a class="headerlink" href="#receiving-data-synchronously" title="Permalink to this headline">¶</a></h3>
+<p>To receive data synchronously, a <a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> object has to be
+created for the <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> from which <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> should
+be received. Then, individual <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> have to be
+retrieved explicitly from the <a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> object, hence synchronous
+receiving.</p>
+<div class="receive-data-sync-multi docutils container">
+<div class="receive-data-sync-python docutils container">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Synchronous receiving of data is not currently implemented in
+Python.</p>
+</div>
+</div>
+<div class="receive-data-sync-cpp docutils container">
+<p>A <a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> is created by obtaining the RSB factory
+via <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::getInstance</span></code> (line 16) and then
+calling its <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7Factory12createReaderERK5ScopeRK17ParticipantConfigP11Participant" title="rsb::Factory::createReader"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createReader</span></code></a> method with
+the desired <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> (which can be specified as
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::string</span></code> object, for example, a string literal,
+line 17).</p>
+<p>Once the <a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> has been created, individual
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are received by calling the
+<code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Reader::read</span></code> method (line 21).</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsc/misc/SignalWaiter.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Factory.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">initSignalWaiter</span><span class="p">();</span>
+
+    <span class="c1">// Set up the scope to receive on either from the command line</span>
+<span class="hll">    <span class="c1">// argument or use the default scope of the informer example.</span>
+</span><span class="hll">    <span class="n">Scope</span> <span class="n">scope</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">?</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="s">&quot;/example/informer&quot;</span><span class="p">);</span>
+</span>
+    <span class="c1">// Create a reader which synchronously receives events on the</span>
+    <span class="c1">// specified scope.</span>
+<span class="hll">    <span class="n">Factory</span><span class="o">&amp;</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">getFactory</span><span class="p">();</span>
+</span>    <span class="n">patterns</span><span class="o">::</span><span class="n">ReaderPtr</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">createReader</span><span class="p">(</span><span class="n">scope</span><span class="p">);</span>
+
+    <span class="c1">// Print events as they are received.</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">lastArrivedSignal</span><span class="p">()</span> <span class="o">==</span> <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">NO_SIGNAL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">EventPtr</span> <span class="n">event</span> <span class="o">=</span> <span class="n">reader</span><span class="o">-&gt;</span><span class="n">read</span><span class="p">();</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">event</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">suggestedExitCode</span><span class="p">(</span><span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">lastArrivedSignal</span><span class="p">());</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/84d58fa8b5a541e2f9a51f91692b736b/reader.cpp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="receive-data-sync-java docutils container">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Synchronous receiving of data is not currently implemented in
+Java.</p>
+</div>
+</div>
+<div class="receive-data-sync-cl docutils container">
+<p>The macro <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> can be used to create a
+<a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> for a particular <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>. The method
+<code class="docutils literal notranslate"><span class="pre">rsb:receive</span></code> can then be used to receive individual
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> data. <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> takes care
+of destroying the <a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> after use.</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">reader</span> <span class="ss">:reader</span> <span class="s">&quot;/example/informer&quot;</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">event</span> <span class="p">(</span><span class="nv">rsb.patterns.reader:receive</span> <span class="nv">reader</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Received event: ~A~%&quot;</span> <span class="nv">event</span><span class="p">)</span>
+    <span class="nv">event</span><span class="p">))</span> <span class="c1">; return the event</span>
+</pre></div>
+</td></tr></table></div>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">rsb:make-participant</span></code> can be used to obtain a
+<a class="reference internal" href="glossary.html#term-reader"><span class="xref std std-term">reader</span></a> without automatic destruction:</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*reader*</span> <span class="p">(</span><span class="nv">rsb:make-participant</span> <span class="ss">:reader</span> <span class="s">&quot;/example/informer&quot;</span><span class="p">))</span>
+
+<span class="c1">;; mark-start::receive/block</span>
+<span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">event</span> <span class="p">(</span><span class="nv">rsb.patterns.reader:receive</span> <span class="vg">*reader*</span> <span class="ss">:block?</span> <span class="no">t</span><span class="p">)))</span> <span class="c1">; block? defaults to t</span>
+  <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Received event: ~A~%&quot;</span> <span class="nv">event</span><span class="p">)</span>
+  <span class="nv">event</span><span class="p">)</span> <span class="c1">; return the event</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/6f7af47618857bf387717263ad681465/reader.lisp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="receiving-data-asynchronously">
+<span id="tutorial-receive-async"></span><h3>Receiving Data Asynchronously<a class="headerlink" href="#receiving-data-asynchronously" title="Permalink to this headline">¶</a></h3>
+<p>To receive data asynchronously, a <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> object has to be
+created for the <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> from which <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> should
+be received. Then, individual <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are received
+automatically and in parallel to the execution of the program. For
+each received <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>, a user-supplied callback function (a
+<a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handler</span></a> in RSB terminology) is executed to process the
+<a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">event</span></a>.</p>
+<div class="receive-data-async-multi docutils container">
+<div class="receive-data-async-python docutils container">
+<p>A <a class="reference internal" href="api/python/user-level/rsb.html#rsb.Listener" title="rsb.Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.Listener</span></code></a> object is created by calling
+<code class="xref py py-func docutils literal notranslate"><span class="pre">rsb.createListener()</span></code> with the desired <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>
+(which can be specified as <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq" title="(in Python v3.7)"><span class="xref std std-ref">str</span></a> object, for
+example, a string literal, line 16)</p>
+<p>Once the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> has been created, <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> can be added by calling
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.Listener.addHandler()</span></code> (line 20). Any
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">callable()</span></code></a> can be used as a <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handler</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" title="(in Python v3.7)"><span class="xref std std-ref">context manager protocol</span></a>
+implementation of RSB takes care of correctly deactivating the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> at the end of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a>
+statement. In case you are not using a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement,
+the <a class="reference internal" href="api/python/user-level/rsb.html#rsb.Listener" title="rsb.Listener"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.Listener</span></code></a> object has to be deactivated
+using its <a class="reference internal" href="api/python/user-level/rsb.html#rsb.Listener.deactivate" title="rsb.Listener.deactivate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.Listener.deactivate()</span></code></a> method at the end of use.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">rsb</span>
+
+
+<span class="n">_received_event</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Received event: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
+    <span class="n">_received_event</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span>    <span class="c1"># Pacify logger.</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
+
+<span class="hll">    <span class="c1"># Create a listener on the specified scope. The listener will</span>
+</span>    <span class="c1"># dispatch all received events asynchronously to all registered</span>
+    <span class="c1"># handlers.</span>
+    <span class="k">with</span> <span class="n">rsb</span><span class="o">.</span><span class="n">create_listener</span><span class="p">(</span><span class="s2">&quot;/example/informer&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+
+        <span class="c1"># Add a handler to handle received events. Handlers are callable</span>
+        <span class="c1"># objects with the received event as the single argument.</span>
+        <span class="n">listener</span><span class="o">.</span><span class="n">add_handler</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+
+        <span class="c1"># Wait for an event to arrive and terminate afterwards</span>
+        <span class="n">_received_event</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="c1"># Give the informer some more time to finish for the socket transport</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/608108a7adce764bc68b1484032445d1/listener.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="receive-data-async-cpp docutils container">
+<p>A <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> is created by obtaining the RSB factory
+via <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::getInstance</span></code> (line 19) and then
+calling its <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7Factory14createListenerERK5ScopeRK17ParticipantConfigP11Participant" title="rsb::Factory::createListener"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createListener</span></code></a> method
+with the desired <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> (which can be specified as
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::string</span></code> object, for example, a string literal,
+line 27).</p>
+<p>Once the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> has been created, individual
+<a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> can be added by calling the
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb8Listener10addHandlerE10HandlerPtrb" title="rsb::Listener::addHandler"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Listener::addHandler</span></code></a> method (line 36). In
+general, <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> are objects which implement
+the <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7HandlerE" title="rsb::Handler"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::Handler</span></code></a> interface. However, there are
+specialized <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> such as
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::DataFunctionHandler</span></code> which allow using
+different things such as ordinary functions as <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a>.</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsc/misc/SignalWaiter.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Handler.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Listener.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Factory.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">printData</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Received event: &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="hll">    <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">initSignalWaiter</span><span class="p">();</span>
+</span>
+    <span class="c1">// First get a factory instance that is used to create RSB</span>
+    <span class="c1">// objects.</span>
+    <span class="n">Factory</span><span class="o">&amp;</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">getFactory</span><span class="p">();</span>
+
+    <span class="c1">// Set up the scope to receive on either from the command line</span>
+    <span class="c1">// argument or use the default scope of the informer example.</span>
+<span class="hll">    <span class="n">Scope</span> <span class="n">scope</span><span class="p">((</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="s">&quot;/example/informer&quot;</span><span class="p">);</span>
+</span>
+    <span class="c1">// Create a listener that asynchronously receives events from the</span>
+    <span class="c1">// bus and dispatches them to registered handlers.</span>
+    <span class="n">ListenerPtr</span> <span class="n">listener</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">createListener</span><span class="p">(</span><span class="n">scope</span><span class="p">);</span>
+
+    <span class="c1">// Add a handler that is notified about every new event.  This</span>
+    <span class="c1">// time a special handler instance is used that wraps a function</span>
+    <span class="c1">// pointer of a function that is only interested in the received</span>
+<span class="hll">    <span class="c1">// data contained in the event and not the additional meta data</span>
+</span>    <span class="c1">// provided by the event instance. Other handlers exist that also</span>
+    <span class="c1">// receive Event instances, either as class instances or by</span>
+    <span class="c1">// wrapping function pointers.</span>
+    <span class="n">listener</span><span class="o">-&gt;</span><span class="n">addHandler</span><span class="p">(</span><span class="n">HandlerPtr</span><span class="p">(</span><span class="k">new</span> <span class="n">DataFunctionHandler</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">printData</span><span class="p">)));</span>
+
+    <span class="c1">// As events are received asynchronously we have to wait here for</span>
+    <span class="c1">// them.</span>
+    <span class="k">return</span> <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">suggestedExitCode</span><span class="p">(</span><span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">waitForSignal</span><span class="p">());</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/f07f5062ba3d0725c5c53f67a4ccbd76/listener.cpp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="receive-data-async-java docutils container">
+<p>A <code class="docutils literal notranslate"><span class="pre">rsb.Listener</span></code> object is created by obtaining the RSB
+factory via <code class="docutils literal notranslate"><span class="pre">rsb.Factory.getInstance</span></code> (line 15) and then
+calling its <code class="docutils literal notranslate"><span class="pre">rsb.Factory.createListener</span></code> method with the
+desired <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> (which can be specified as a string
+literal, line 20).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rsb.Listener</span></code> has to activated before and deactivated
+after use via the <code class="docutils literal notranslate"><span class="pre">rsb.Listener.activate</span></code> (line 21) and
+<code class="docutils literal notranslate"><span class="pre">rsb.Listener.deactivate</span></code> (line 34) methods.</p>
+<p>Once the <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> has been created and activated,
+<a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a> can be added by calling the
+<code class="docutils literal notranslate"><span class="pre">rsb.Listener.addHandler</span></code> method (line 26). Objects
+implementing the <code class="docutils literal notranslate"><span class="pre">rsb.Handler</span></code> interface can be used as
+<a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handlers</span></a>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">rsb.examples</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">rsb.AbstractEventHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.Event</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.Factory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.Listener</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EventListenerExample</span> <span class="kd">extends</span> <span class="n">AbstractEventHandler</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleEvent</span><span class="o">(</span><span class="kd">final</span> <span class="n">Event</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Received event &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+
+<span class="hll">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+</span>        <span class="c1">// Get a factory instance to create new RSB objects.</span>
+        <span class="kd">final</span> <span class="n">Factory</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+
+        <span class="c1">// Create a Listener instance on the specified scope that will</span>
+<span class="hll">        <span class="c1">// receive events and dispatch them asynchronously to all</span>
+</span><span class="hll">        <span class="c1">// registered handlers; activate the listener.</span>
+</span>        <span class="kd">final</span> <span class="n">Listener</span> <span class="n">listener</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">createListener</span><span class="o">(</span><span class="s">&quot;/example/informer&quot;</span><span class="o">);</span>
+        <span class="n">listener</span><span class="o">.</span><span class="na">activate</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+<span class="hll">            <span class="c1">// Add an EventHandler that will print events when they</span>
+</span>            <span class="c1">// are received.</span>
+            <span class="n">listener</span><span class="o">.</span><span class="na">addHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">EventListenerExample</span><span class="o">(),</span> <span class="kc">true</span><span class="o">);</span>
+
+            <span class="c1">// Wait for events.</span>
+            <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+<span class="hll">        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span>            <span class="c1">// Deactivate the listener after use.</span>
+            <span class="n">listener</span><span class="o">.</span><span class="na">deactivate</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/649b326cb527d51bce91019d5b70ed8b/EventListenerExample.java"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="receive-data-async-cl docutils container">
+<p>The macro <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> can be used to create a
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> for a particular <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>. Inside the
+lexical scope of <code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> (or for
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listeners</span></a> created differently), the macro
+<code class="docutils literal notranslate"><span class="pre">rsb:with-handler</span></code> can be used to add a <a class="reference internal" href="glossary.html#term-handler"><span class="xref std std-term">handler</span></a> to the
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a>. While the body of <code class="docutils literal notranslate"><span class="pre">rsb:with-handler</span></code>
+executes, <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a> are handled by the supplied
+code.</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">listener</span> <span class="ss">:listener</span> <span class="s">&quot;/example/informer&quot;</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">rsb:with-handler</span> <span class="nv">listener</span>
+      <span class="p">((</span><span class="nv">event</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Received event: ~A~%&quot;</span> <span class="nv">event</span><span class="p">))</span>
+    <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Waiting for events~%&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">sleep</span> <span class="mi">20</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">rsb:make-participant</span></code> can be used to obtain a
+<a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a> without automatic destruction:</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*listener*</span> <span class="p">(</span><span class="nv">rsb:make-participant</span> <span class="ss">:listener</span> <span class="s">&quot;/example/informer&quot;</span><span class="p">))</span>
+
+<span class="c1">;; Just after creation, the listener will not act upon received</span>
+<span class="c1">;; events. In order to process received events, handlers have to be</span>
+<span class="c1">;; added to the listener. A handler is a function of one argument, the</span>
+<span class="c1">;; event.</span>
+
+<span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">event</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Received event: ~A~%&quot;</span> <span class="nv">event</span><span class="p">))</span>
+      <span class="p">(</span><span class="nv">rsb.ep:handlers</span> <span class="vg">*listener*</span><span class="p">))</span>
+
+<span class="c1">;; The listener will participate in the channel until it is garbage</span>
+<span class="c1">;; collected or explicitly detached using the `rsb:detach&#39; function.</span>
+
+<span class="p">(</span><span class="nv">rsb:detach</span> <span class="vg">*listener*</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/66e14dee622b83f907919504ff8b4b28/listener.lisp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remote-procedure-calls">
+<span id="tutorial-rpc"></span><h2>Remote Procedure Calls<a class="headerlink" href="#remote-procedure-calls" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-request-reply.html#specification-request-reply"><span class="std std-ref">Request-Reply Communication</span></a></dt><dd><p>For a detailed description of the underlying implementation.</p>
+</dd>
+</dl>
+</div>
+<p>Remote procedure calls (RPCs) execute methods of objects located in
+different processes, and potentially different computers, than the
+calling entity. Some things are easier to implement using RPCs than
+using <a class="reference internal" href="glossary.html#term-event"><span class="xref std std-term">events</span></a>. However, using RPCs generally makes a
+system less flexible and often more error-prone. RSB includes
+means for providing and using a simple form of remote procedure calls.</p>
+<p>The following two sections describe</p>
+<ul class="simple">
+<li><p>the <a class="reference internal" href="#tutorial-rpc-client"><span class="std std-ref">client perspective</span></a> (calling remote
+methods)</p></li>
+<li><p>and the <a class="reference internal" href="#tutorial-rpc-server"><span class="std std-ref">server perspective</span></a> (providing
+remote methods).</p></li>
+</ul>
+<div class="section" id="client">
+<span id="tutorial-rpc-client"></span><h3>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
+<p>The RPC client calls methods provided by one or more RPC servers. In
+RSB, such an RPC client is implemented as a <a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote
+server</span></a> object which is similar to other <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>. Such an object has to be created in order to perform
+method calls.</p>
+<p>After the <a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> object has been created, a method can
+be called by supplying its name as string and, optionally, the
+parameter (there are only one or zero parameters). Methods can be
+called in blocking and non-blocking way:</p>
+<ul class="simple">
+<li><p>When called in a <strong>blocking</strong> way, the method call returns only
+after the server has processed the request and returned a result.</p></li>
+<li><p>When called in a <strong>non-blocking</strong> way, the method call returns
+immediately and the result can be obtained later, when the server
+completes its processing.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When a non-existent method is called (for example, because the name
+of the method has been misspelled), nothing happens: blocking calls
+block forever and non-blocking calls never provide a result.</p>
+<p>Conversely, if a method is provided by multiple servers, all
+servers process the request but only one reply is returned to the
+caller. It is unspecified, which reply is received by the caller,
+in such a situation.</p>
+</div>
+<div class="rpc-client-multi docutils container">
+<div class="rpc-client-python docutils container">
+<p>A <a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer</span></code></a> object is created by
+calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.createRemoteServer()</span></code> with the
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on which the service is provided (line 12). Remote
+methods can then be called on the
+<a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer</span></code></a> object as if they were
+ordinary Python methods using the function call syntax
+<code class="samp docutils literal notranslate"><em><span class="pre">OBJECT</span></em><span class="pre">.</span><em><span class="pre">METHOD</span></em><span class="pre">(</span><em><span class="pre">ARGUMENTS</span></em><span class="pre">)</span></code> (see line
+17). Asynchronous calls can be made by using the syntax
+<code class="samp docutils literal notranslate"><em><span class="pre">OBJECT</span></em><span class="pre">.</span><em><span class="pre">METHOD</span></em><span class="pre">.async(</span><em><span class="pre">ARGUMENTS</span></em><span class="pre">)</span></code> (see line 20).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" title="(in Python v3.7)"><span class="xref std std-ref">context manager protocol</span></a>
+implementation of RSB takes care of correctly deactivating the
+<a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> at the end of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a>
+statement. In case you are not using a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement,
+the <a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer</span></code></a> object has to be deactivated
+using its <a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.RemoteServer.deactivate" title="rsb.patterns.RemoteServer.deactivate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer.deactivate()</span></code></a> method at
+the end of use.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">rsb</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Pacify logger.</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
+
+    <span class="c1"># Create a RemoteServer object for the remote server at scope</span>
+    <span class="c1"># /example/server. Method calls should complete within five</span>
+    <span class="c1"># seconds.</span>
+<span class="hll">    <span class="k">with</span> <span class="n">rsb</span><span class="o">.</span><span class="n">create_remote_server</span><span class="p">(</span><span class="s1">&#39;/example/server&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">server</span><span class="p">:</span>
+</span>
+        <span class="c1"># Call the method &#39;echo&#39; on the remote server passing it a</span>
+        <span class="c1"># string argument. The server&#39;s reply is returned from the call as</span>
+        <span class="c1"># for a regular function call.</span>
+<span class="hll">        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;server replied to synchronous call: &quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+</span>            <span class="n">server</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">&#39;bla&#39;</span><span class="p">)))</span>
+
+<span class="hll">        <span class="c1"># Call the method &#39;echo&#39; again, this time asynchronously.</span>
+</span>        <span class="n">future</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">echo</span><span class="o">.</span><span class="n">asynchronous</span><span class="p">(</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>
+        <span class="c1"># do other things</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;server replied to asynchronous call: &quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">future</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/6586d6472f2a2b911f75e5aa4cd21b67/client.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="rpc-client-cpp docutils container">
+<p>A <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb8patterns12RemoteServerE" title="rsb::patterns::RemoteServer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::patterns::RemoteServer</span></code></a> object is created by
+calling <a class="reference internal" href="api-cpp.html#_CPPv4N3rsb7Factory18createRemoteServerERK5ScopeRK17ParticipantConfigRK17ParticipantConfigP11Participant" title="rsb::Factory::createRemoteServer"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createRemoteServer</span></code></a> with the
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on which the service is provided (lines 12 and
+13). Remote methods can then be called using the
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb8patterns12RemoteServer4callERKNSt6stringE8EventPtrj" title="rsb::patterns::RemoteServer::call"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::patterns::RemoteServer::call</span></code></a> method (see
+line 21) and the
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb8patterns12RemoteServer9callAsyncERKNSt6stringE8EventPtr" title="rsb::patterns::RemoteServer::callAsync"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::patterns::RemoteServer::callAsync</span></code></a> method (see
+lines 30 to 36). The expected return type is specified as a
+template argument to the function call while the argument type
+is derived from the supplied argument.</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Factory.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="o">::</span><span class="n">patterns</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="cm">/*argc*/</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="cm">/*argv*/</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Use the RSB factory to create a RemoteServer instance for the</span>
+    <span class="c1">// server at scope /example/server.</span>
+    <span class="n">Factory</span><span class="o">&amp;</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">getFactory</span><span class="p">();</span>
+<span class="hll">    <span class="n">RemoteServerPtr</span> <span class="n">remoteServer</span>
+</span><span class="hll">        <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">createRemoteServer</span><span class="p">(</span><span class="s">&quot;/example/server&quot;</span><span class="p">);</span>
+</span>
+    <span class="c1">// Call the method &quot;echo&quot;, passing it a string value as argument</span>
+    <span class="c1">// and accepting a string value as result. Note that the types of</span>
+    <span class="c1">// arguments and return values are defined by the server providing</span>
+    <span class="c1">// the respective methods and have to be matched in method calls.</span>
+    <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">request</span><span class="p">(</span><span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;bla&quot;</span><span class="p">));</span>
+    <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">result</span>
+<span class="hll">        <span class="o">=</span> <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">call</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+</span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Server replied: &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// Call the method &quot;echo&quot; without waiting for the call to return a</span>
+    <span class="c1">// result: instead of a result, a &quot;future&quot; object is returned,</span>
+    <span class="c1">// from which the actual result can be obtained at a later point</span>
+    <span class="c1">// in time. In this example, the future.get(10) call may block for</span>
+    <span class="c1">// up to 10 seconds and throw an exception if a result is not</span>
+    <span class="c1">// received within that time.</span>
+<span class="hll">    <span class="n">RemoteServer</span><span class="o">::</span><span class="n">DataFuture</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">future</span>
+</span><span class="hll">        <span class="o">=</span> <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">callAsync</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">// We could do something else here while the server processes the</span>
+</span><span class="hll">    <span class="c1">// call.</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Server replied: &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">future</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span>    <span class="c1">// Note: timeout is in seconds.</span>
+
+    <span class="c1">// Also call all the other methods once</span>
+    <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">call</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;void&quot;</span><span class="p">);</span>
+    <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">call</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;void2&quot;</span><span class="p">);</span>
+    <span class="p">{</span>
+        <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">request</span><span class="p">(</span><span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;bla&quot;</span><span class="p">));</span>
+        <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">call</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="s">&quot;echo2&quot;</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Server replied: &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">{</span>
+        <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">call</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="s">&quot;voidArg&quot;</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Server replied: &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">{</span>
+        <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">request</span><span class="p">(</span><span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;bla&quot;</span><span class="p">));</span>
+        <span class="n">remoteServer</span><span class="o">-&gt;</span><span class="n">call</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;voidReturn&quot;</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/324ce4c51b0a1f78565c4ed04e6e688f/client.cpp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="rpc-client-java docutils container">
+<p>A <code class="docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer</span></code> object is created by calling
+<code class="docutils literal notranslate"><span class="pre">rsb.Factory.createRemoteServer</span></code> with the <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on
+which the service is provided (line 10). Remote methods can then
+be called using the <code class="docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer.call</span></code> method
+(see line 18) and the <code class="docutils literal notranslate"><span class="pre">rsb.patterns.RemoteServer.callAsync</span></code>
+method (see lines 20 and 21).</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.Future</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">rsb.Factory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.patterns.RemoteServer</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClientExample</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+<span class="hll">        <span class="c1">// Get remote server object to call exposed request methods of</span>
+</span>        <span class="c1">// participants</span>
+        <span class="kd">final</span> <span class="n">RemoteServer</span> <span class="n">server</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">createRemoteServer</span><span class="o">(</span>
+                <span class="s">&quot;/example/server&quot;</span><span class="o">);</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">activate</span><span class="o">();</span>
+
+        <span class="c1">// Call remote method in blocking and non-blocking fashion and</span>
+        <span class="c1">// deactivate the server.</span>
+<span class="hll">        <span class="k">try</span> <span class="o">{</span>
+</span>
+<span class="hll">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Server replied: &quot;</span> <span class="o">+</span> <span class="n">server</span><span class="o">.</span><span class="na">call</span><span class="o">(</span><span class="s">&quot;echo&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">));</span>
+</span><span class="hll">
+</span>            <span class="kd">final</span> <span class="n">Future</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="na">callAsync</span><span class="o">(</span><span class="s">&quot;echo&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Server replied: &quot;</span>
+                    <span class="o">+</span> <span class="n">future</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">));</span>
+
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">server</span><span class="o">.</span><span class="na">deactivate</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/ae66f0a7ef7399012b25672c22405389/ClientExample.java"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="rpc-client-cl docutils container">
+<p>A <a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> can be created and managed with the
+<code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> macro. The
+<code class="docutils literal notranslate"><span class="pre">rsb.patterns.request-reply:call</span></code> method can be used on the
+<a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> object to call remote methods. The method
+name and the argument of the call have to be passed as the
+second and third argument respectively.</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">remote-server</span> <span class="ss">:remote-server</span> <span class="s">&quot;/example/clientserver&quot;</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Server replied: ~A~%&quot;</span>
+          <span class="p">(</span><span class="nv">rsb.patterns.request-reply:call</span> <span class="nv">remote-server</span> <span class="s">&quot;echo&quot;</span> <span class="s">&quot;bla&quot;</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">rsb:make-participant</span></code> can be used to obtain a
+<a class="reference internal" href="glossary.html#term-remote-server"><span class="xref std std-term">remote server</span></a> without automatic destruction:</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*remote-server*</span> <span class="p">(</span><span class="nv">rsb:make-participant</span> <span class="ss">:remote-server</span>
+                                              <span class="s">&quot;/example/clientserver&quot;</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nv">rsb.patterns.request-reply:call</span> <span class="vg">*remote-server*</span> <span class="s">&quot;echo&quot;</span> <span class="s">&quot;bla&quot;</span><span class="p">)</span>
+
+<span class="c1">;; The remote server will remain connected to the bus until it is</span>
+<span class="c1">;; garbage collected or explicitly detached using the `rsb:detach&#39;</span>
+<span class="c1">;; function.</span>
+
+<span class="p">(</span><span class="nv">rsb:detach</span> <span class="vg">*remote-server*</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Blocking and non-blocking calls are both performed by calling
+<code class="docutils literal notranslate"><span class="pre">rsb.patterns.request-reply:call</span></code>. The <code class="docutils literal notranslate"><span class="pre">:block?</span></code> keyword
+parameter controls blocking. <code class="docutils literal notranslate"><span class="pre">:block?</span> <span class="pre">nil</span></code> causes a future
+object to be returned from which the result can be obtained via
+<code class="docutils literal notranslate"><span class="pre">rsb.patterns.request-reply:future-result</span></code> at a later point in
+time.</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">remote-server</span> <span class="ss">:remote-server</span> <span class="s">&quot;/example/clientserver&quot;</span><span class="p">)</span>
+
+  <span class="c1">;; The default behavior of returning the reply payload can be</span>
+  <span class="c1">;; changed using the :return keyword parameter.</span>
+  <span class="p">(</span><span class="nv">rsb.patterns.request-reply:call</span> <span class="nv">remote-server</span> <span class="s">&quot;echo&quot;</span> <span class="s">&quot;bla&quot;</span>
+                                   <span class="ss">:return</span> <span class="ss">:event</span><span class="p">)</span>
+
+  <span class="c1">;; Non-blocking calls can be made using the :block? keyword</span>
+  <span class="c1">;; parameter. In that case, an object implementing the future</span>
+  <span class="c1">;; protocol is returned to represent the result of the computation.</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">future</span> <span class="p">(</span><span class="nv">rsb.patterns.request-reply:call</span> <span class="nv">remote-server</span> <span class="s">&quot;echo&quot;</span> <span class="s">&quot;bla&quot;</span>
+                                                 <span class="ss">:block?</span> <span class="no">nil</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">rsb.patterns.request-reply:future-result</span> <span class="nv">future</span><span class="p">))</span>
+
+  <span class="c1">;; These behaviors can be combined:</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">future</span> <span class="p">(</span><span class="nv">rsb.patterns.request-reply:call</span> <span class="nv">remote-server</span> <span class="s">&quot;echo&quot;</span> <span class="s">&quot;bla&quot;</span>
+                                                 <span class="ss">:block?</span> <span class="no">nil</span>
+                                                 <span class="ss">:return</span> <span class="ss">:event</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nv">rsb.patterns.request-reply:future-result</span> <span class="nv">future</span><span class="p">)))</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/d80385eb9f912aed004a249fa2c06845/client.lisp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="server">
+<span id="tutorial-rpc-server"></span><h3>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h3>
+<p>Methods which are callable via RPC are provided by <a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local
+server</span></a> objects which are similar to other <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>. To provide such methods a <a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> object
+has be created.</p>
+<p>After the <a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> object has been created, methods have
+to be registered, supplying the desired method name as a string and a
+callback function which implements the desired behavior of the method.</p>
+<div class="rpc-server-multi docutils container">
+<div class="rpc-server-python docutils container">
+<p>A <a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.LocalServer</span></code></a> object is created by
+calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.createLocalServer()</span></code> with the
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on which the service is provided (line
+12). Methods with their request and reply <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data types</span></a> and the <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">callable()</span></code></a> s implementing their
+behavior are registered using the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.patterns.LocalServer.addMethod()</span></code> method (line 21).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" title="(in Python v3.7)"><span class="xref std std-ref">context manager protocol</span></a>
+implementation of RSB takes care of correctly deactivating the
+<a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> at the end of the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a>
+statement. In case you are not using a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with" title="(in Python v3.7)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> statement,
+the <a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.patterns.LocalServer</span></code></a> object has to be deactivated
+using its <a class="reference internal" href="api/python/user-level/rsb.patterns.html#rsb.patterns.LocalServer.deactivate" title="rsb.patterns.LocalServer.deactivate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rsb.patterns.LocalServer.deactivate()</span></code></a> method at
+the end of use.</p>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">rsb</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Pacify logger.</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">()</span>
+
+    <span class="c1"># Create a LocalServer object that exposes its methods under the</span>
+<span class="hll">    <span class="c1"># scope /example/server.</span>
+</span>    <span class="k">with</span> <span class="n">rsb</span><span class="o">.</span><span class="n">create_local_server</span><span class="p">(</span><span class="s1">&#39;/example/server&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">server</span><span class="p">:</span>
+
+        <span class="c1"># Create a function which processes requests and returns a</span>
+        <span class="c1"># result. Note that the name of the function does not determine</span>
+<span class="hll">        <span class="c1"># the name of the exposed method. See addMethod below.</span>
+</span><span class="hll">        <span class="n">calls</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span>        <span class="n">condition</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">()</span>
+
+<span class="hll">        <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span>            <span class="k">with</span> <span class="n">condition</span><span class="p">:</span>
+                <span class="n">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">condition</span><span class="o">.</span><span class="n">notify_all</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">x</span>
+
+        <span class="c1"># Add the function to the server under the name &quot;echo&quot;.</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">add_method</span><span class="p">(</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="n">echo</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+
+        <span class="c1"># Wait for all method calls made by the example client (2)</span>
+        <span class="k">with</span> <span class="n">condition</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">calls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">condition</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="c1"># Give the client some more time to finish for the socket transport</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/6a75847037d15bec2ed6917057d02ec3/server.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="rpc-server-cpp docutils container">
+<p>A <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::patterns::Server</span></code> object is created by
+calling <code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::Factory::createServer</span></code> with the
+<a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on which the server should provide its service
+(line 20). Methods and the callback objects implementing their
+behavior can be registered using the
+<a class="reference internal" href="api-cpp.html#_CPPv4N3rsb8patterns11LocalServer14registerMethodERKNSt6stringE11CallbackPtr" title="rsb::patterns::LocalServer::registerMethod"><code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::patterns::LocalServer::registerMethod</span></code></a> method
+(see line 23). Callback classes are derived from
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">rsb::patterns::Server::Callback</span></code> (with template
+arguments specifying the request and reply <a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">data types</span></a>) and override the
+<code class="xref cpp cpp-member docutils literal notranslate"><span class="pre">rsb::patterns::Server::Callback::call</span></code> method (see
+lines 8 to 14).</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;boost/thread.hpp&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsc/misc/SignalWaiter.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;rsb/Factory.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="p">;</span>
+<span class="hll"><span class="k">using</span> <span class="k">namespace</span> <span class="n">rsb</span><span class="o">::</span><span class="n">patterns</span><span class="p">;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="k">class</span> <span class="nc">EchoCallback</span><span class="o">:</span> <span class="k">public</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">Callback</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">{</span>
+</span><span class="hll"><span class="k">public</span><span class="o">:</span>
+</span><span class="hll">    <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">call</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="cm">/*methodName*/</span><span class="p">,</span>
+</span><span class="hll">                                        <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">input</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">VoidVoidCallback</span><span class="o">:</span> <span class="k">public</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">Callback</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">call</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="cm">/*methodName*/</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;void-void method called&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+<span class="p">};</span>
+<span class="hll">
+</span><span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">echoFunction</span><span class="p">(</span>
+        <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">input</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">voidReturnFunction</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;void function called: &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">input</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">voidArgFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">voidVoidFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;void-void function called&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="cm">/*argc*/</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="cm">/*argv*/</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">initSignalWaiter</span><span class="p">();</span>
+
+    <span class="c1">// Use the RSB factory to create a Server instance that provides</span>
+    <span class="c1">// callable methods under the scope /example/server.</span>
+    <span class="n">Factory</span><span class="o">&amp;</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">getFactory</span><span class="p">();</span>
+    <span class="n">LocalServerPtr</span> <span class="n">server</span> <span class="o">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">createLocalServer</span><span class="p">(</span><span class="s">&quot;/example/server&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Register method with name and implementing callback object.</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">registerMethod</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">,</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">CallbackPtr</span><span class="p">(</span><span class="k">new</span> <span class="n">EchoCallback</span><span class="p">()));</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">registerMethod</span><span class="p">(</span><span class="s">&quot;void&quot;</span><span class="p">,</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">CallbackPtr</span><span class="p">(</span><span class="k">new</span> <span class="n">VoidVoidCallback</span><span class="p">()));</span>
+
+    <span class="c1">// The same is also possible by binding functions</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">registerMethod</span><span class="p">(</span><span class="s">&quot;echo2&quot;</span><span class="p">,</span>
+            <span class="n">LocalServer</span><span class="o">::</span><span class="n">CallbackPtr</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">FunctionCallback</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span>
+                            <span class="o">&amp;</span><span class="n">echoFunction</span><span class="p">)));</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">registerMethod</span><span class="p">(</span><span class="s">&quot;voidArg&quot;</span><span class="p">,</span>
+            <span class="n">LocalServer</span><span class="o">::</span><span class="n">CallbackPtr</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">FunctionCallback</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span>
+                            <span class="o">&amp;</span><span class="n">voidArgFunction</span><span class="p">)));</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">registerMethod</span><span class="p">(</span><span class="s">&quot;voidReturn&quot;</span><span class="p">,</span>
+            <span class="n">LocalServer</span><span class="o">::</span><span class="n">CallbackPtr</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">FunctionCallback</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span>
+                            <span class="o">&amp;</span><span class="n">voidReturnFunction</span><span class="p">)));</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">registerMethod</span><span class="p">(</span><span class="s">&quot;void2&quot;</span><span class="p">,</span>
+            <span class="n">LocalServer</span><span class="o">::</span><span class="n">CallbackPtr</span><span class="p">(</span>
+                    <span class="k">new</span> <span class="n">LocalServer</span><span class="o">::</span><span class="n">FunctionCallback</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">,</span> <span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span>
+                            <span class="o">&amp;</span><span class="n">voidVoidFunction</span><span class="p">)));</span>
+
+    <span class="c1">// Wait here so incoming method calls can be processed.</span>
+    <span class="k">return</span> <span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">suggestedExitCode</span><span class="p">(</span><span class="n">rsc</span><span class="o">::</span><span class="n">misc</span><span class="o">::</span><span class="n">waitForSignal</span><span class="p">());</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/ed1730998a4f71c51a535ceca70a87cd/server.cpp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="rpc-server-java docutils container">
+<p>A <code class="docutils literal notranslate"><span class="pre">rsb.patterns.LocalServer</span></code> object is created by calling
+<code class="docutils literal notranslate"><span class="pre">rsb.Factory.createLocalServer</span></code> with the <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> on
+which server should provide its service (line 20). Methods are
+registered by calling the <code class="docutils literal notranslate"><span class="pre">rsb.patterns.LocalServer.addMethod</span></code>
+method (see line 25) with a suitable callback object. The
+callback class supplies the behavior of server methods by
+overriding the <code class="docutils literal notranslate"><span class="pre">rsb.patterns.EventCallback.invoke</span></code> method (see
+lines 8 to 15).</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">rsb.examples</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">rsb.Event</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.Factory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.patterns.EventCallback</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">rsb.patterns.LocalServer</span><span class="o">;</span>
+
+<span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServerExample</span> <span class="o">{</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">EchoCallback</span> <span class="kd">extends</span> <span class="n">EventCallback</span> <span class="o">{</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="nd">@Override</span>
+</span><span class="hll">        <span class="kd">public</span> <span class="n">Event</span> <span class="nf">invoke</span><span class="o">(</span><span class="kd">final</span> <span class="n">Event</span> <span class="n">request</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getData</span><span class="o">());</span>
+</span><span class="hll">        <span class="o">}</span>
+</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+<span class="hll">        <span class="c1">// Get local server object which allows to expose remotely</span>
+</span><span class="hll">        <span class="c1">// callable methods.</span>
+</span>        <span class="kd">final</span> <span class="n">LocalServer</span> <span class="n">server</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">createLocalServer</span><span class="o">(</span>
+                <span class="s">&quot;/example/server&quot;</span><span class="o">);</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">activate</span><span class="o">();</span>
+<span class="hll">
+</span>        <span class="c1">// Add method an &quot;echo&quot; method, implemented by EchoCallback.</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">addMethod</span><span class="o">(</span><span class="s">&quot;echo&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">EchoCallback</span><span class="o">());</span>
+
+        <span class="c1">// Block until server.deactivate or process shutdown</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">waitForShutdown</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/81c529c0b46e25ea9b50a8f9d35221e8/ServerExample.java"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+<div class="rpc-server-cl docutils container">
+<p>A <a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> can be created and managed with the
+<code class="docutils literal notranslate"><span class="pre">rsb:with-participant</span></code> macro. The
+<code class="docutils literal notranslate"><span class="pre">rsb.patterns.request-reply:with-methods</span></code> macro can be used to
+register methods and their implementations in the <a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local
+server</span></a>.</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">rsb:with-participant</span> <span class="p">(</span><span class="nv">server</span> <span class="ss">:local-server</span> <span class="s">&quot;/example/clientserver&quot;</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">rsb.patterns.request-reply:with-methods</span> <span class="p">(</span><span class="nv">server</span><span class="p">)</span>
+      <span class="p">((</span><span class="s">&quot;echo&quot;</span> <span class="p">(</span><span class="nv">arg</span> <span class="nb">string</span><span class="p">)</span>
+         <span class="nv">arg</span><span class="p">))))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">rsb:make-participant</span></code> can be used to obtain a
+<a class="reference internal" href="glossary.html#term-local-server"><span class="xref std std-term">local server</span></a> without automatic destruction. Similarly,
+methods can be added without the
+<code class="docutils literal notranslate"><span class="pre">rsb.patterns.request-reply:with-methods</span></code> macro:</p>
+<div class="highlight-cl notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*local-server*</span> <span class="p">(</span><span class="nv">rsb:make-participant</span> <span class="ss">:local-server</span>
+                                             <span class="s">&quot;/example/clientserver&quot;</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nb">setf</span> <span class="p">(</span><span class="nv">rsb.patterns.request-reply:server-method</span> <span class="vg">*local-server*</span> <span class="s">&quot;echo&quot;</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">arg</span><span class="p">)</span> <span class="nv">arg</span><span class="p">))</span>
+
+<span class="c1">;; The local server and its methods will remain connected to the bus</span>
+<span class="c1">;; until they are garbage collected or explicitly detached using the</span>
+<span class="c1">;; `rsb:detach&#39; function.</span>
+
+<span class="p">(</span><span class="nv">rsb:detach</span> <span class="vg">*local-server*</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" download="" href="_downloads/f0cbc6546e3080294ec7d63d936e2db5/server.lisp"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">this</span> <span class="pre">example</span></code></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

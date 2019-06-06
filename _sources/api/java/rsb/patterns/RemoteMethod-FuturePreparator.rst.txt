@@ -1,0 +1,90 @@
+.. java:import:: java.lang.ref WeakReference
+
+.. java:import:: java.net URI
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.concurrent ConcurrentHashMap
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb EventId
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb InformerCreateArgs
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb ListenerCreateArgs
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.filter MethodFilter
+
+RemoteMethod.FuturePreparator
+=============================
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public static abstract class FuturePreparator<FutureDataType>
+   :outertype: RemoteMethod
+
+   Instances of this class are used to prepare a \ :java:ref:`Future`\  instance containing the desired result of the client from the reply \ :java:ref:`Event`\  instance.
+
+   :author: jwienke
+   :param <FutureDataType>: the data type of the contents inside the result future
+
+Constructors
+------------
+FuturePreparator
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public FuturePreparator(Future<FutureDataType> future)
+   :outertype: RemoteMethod.FuturePreparator
+
+   Creates a new instance with a \ :java:ref:`Future`\  instance that is eventually passed to the client. Internally a \ :java:ref:`WeakReference`\  will be used to track this future. This allows the client to ignore the result future in a way that we sometimes can notice this and avoid additional work.
+
+   :param future: the future to contain the final result.
+
+Methods
+-------
+error
+^^^^^
+
+.. java:method:: public void error(Throwable error)
+   :outertype: RemoteMethod.FuturePreparator
+
+   Method called in case of an error. The default implementation directly passes the given \ :java:ref:`Throwable`\  to the the \ :java:ref:`Future.error(Throwable)`\  method.
+
+   :param error: exception explaining the error
+
+getFuture
+^^^^^^^^^
+
+.. java:method:: public Future<FutureDataType> getFuture()
+   :outertype: RemoteMethod.FuturePreparator
+
+   Returns the future where the result should be prepared for.
+
+   :return: \ :java:ref:`Future`\  instance or \ ``null``\  if the client does not hold a reference on this future anymore. In such a case nothing needs to be done.
+
+result
+^^^^^^
+
+.. java:method:: public abstract void result(Event resultEvent)
+   :outertype: RemoteMethod.FuturePreparator
+
+   This method needs to be implemented with the conversion logic from the \ :java:ref:`Event`\  instance with the result to the final \ :java:ref:`Future`\  interface.
+
+   :param resultEvent: result event from the server call
+

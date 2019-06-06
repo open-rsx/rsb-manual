@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing Plugins &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Writing Converters" href="examples-writing-converters.html" />
+    <link rel="prev" title="Extension Points" href="examples-extension-points.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="examples.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples-basic.html">Basic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples-chat.html">A Chat System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples-converters.html">Sending and Receiving Custom Data Types</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="examples-extension-points.html">Extension Points</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Writing Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples-writing-converters.html">Writing Converters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples-extension-points.html#writing-filters">Writing Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples-extension-points.html#writing-connectors">Writing Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples-extension-points.html#writing-event-processing-strategies">Writing Event Processing Strategies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="examples.html">Examples</a> &raquo;</li>
+        
+          <li><a href="examples-extension-points.html">Extension Points</a> &raquo;</li>
+        
+      <li>Writing Plugins</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples-plugins.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="writing-plugins">
+<span id="tutorial-plugins"></span><h1>Writing Plugins<a class="headerlink" href="#writing-plugins" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-plugin.html#specification-plugin"><span class="std std-ref">Plugins</span></a></dt><dd><p><a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">Plugin</span></a> specification</p>
+</dd>
+</dl>
+</div>
+<div class="lang-multi docutils container">
+<div class="lang-cpp docutils container">
+<p>In the C++ implementation of RSB, a <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a> is a
+dynamically loadable library which defines the two symbols</p>
+<ol class="arabic simple">
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">rsc_plugin_init()</span></code></p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">rsc_plugin_shutdown()</span></code></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The macros <code class="xref c c-macro docutils literal notranslate"><span class="pre">RSC_PLUGIN_INIT_SYMBOL</span></code> and
+<code class="xref c c-macro docutils literal notranslate"><span class="pre">RSC_PLUGIN_SHUTDOWN_SYMBOL</span></code> should be used to
+define functions on the aforementioned symbols.</p>
+</div>
+<p>Any library can be made into an RSB <a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a> by
+adding a file, usually called <code class="file docutils literal notranslate"><span class="pre">Plugin.cc</span></code>, defining these
+two symbols. The <code class="file docutils literal notranslate"><span class="pre">Plugin.cc</span></code> file of a minimal RSB
+<a class="reference internal" href="glossary.html#term-plugin"><span class="xref std std-term">plugin</span></a> looks like this:</p>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;rsc/plugins/Provider.h&gt;</span><span class="cp"></span>
+
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
+
+    <span class="kt">void</span> <span class="n">RSC_PLUGIN_INIT_SYMBOL</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// initialization</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">RSC_PLUGIN_SHUTDOWN_SYMBOL</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// shutdown</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="lang-python docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not implemented yet</p>
+</div>
+</div>
+<div class="lang-java docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not implemented yet</p>
+</div>
+</div>
+<div class="lang-cl docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not implemented yet</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

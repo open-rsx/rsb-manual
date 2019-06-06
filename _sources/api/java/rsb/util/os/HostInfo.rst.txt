@@ -1,0 +1,54 @@
+HostInfo
+========
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public interface HostInfo
+
+   Interface for host information model classes.
+
+   :author: swrede
+
+Methods
+-------
+getHostId
+^^^^^^^^^
+
+.. java:method::  String getHostId()
+   :outertype: HostInfo
+
+   Returns a unique id describing a host. This ID should be as persistent as possible.
+
+   :return: string representation of the ID, might be \ ``null``\  in case it could not be determined
+
+getHostName
+^^^^^^^^^^^
+
+.. java:method::  String getHostName()
+   :outertype: HostInfo
+
+   Returns a human-readable host name that might change during runtime of the host.
+
+   :return: string, might be \ ``null``\  in case the host name could not be determined
+
+getMachineType
+^^^^^^^^^^^^^^
+
+.. java:method::  String getMachineType()
+   :outertype: HostInfo
+
+   Returns the computer architecture of this host.
+
+   :return: system architecture, might be \ ``null``\  in case it could not be determined
+
+getSoftwareType
+^^^^^^^^^^^^^^^
+
+.. java:method::  String getSoftwareType()
+   :outertype: HostInfo
+
+   Returns the name of the underlying software host system (OS).
+
+   :return: the name, might be \ ``null``\  in case it could not be determined
+

@@ -1,0 +1,66 @@
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb.filter Filter
+
+.. java:import:: rsb.transport EventHandler
+
+EventReceivingStrategy
+======================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public interface EventReceivingStrategy extends EventHandler, Activatable
+
+   An interface for strategies that dispatch received events to \ :java:ref:`Handler`\  s. Implementations have the task of freeing the caller of \ :java:ref:`handle(rsb.Event)`\  to dispatch the event in its thread.
+
+   :author: jwienke
+
+Methods
+-------
+addFilter
+^^^^^^^^^
+
+.. java:method::  void addFilter(Filter filter)
+   :outertype: EventReceivingStrategy
+
+   Adds a filter that is applied for all registered handlers some time after this method call.
+
+   :param filter: filter to add, not \ ``null``\
+
+addHandler
+^^^^^^^^^^
+
+.. java:method::  void addHandler(Handler handler, boolean wait) throws InterruptedException
+   :outertype: EventReceivingStrategy
+
+   Registers a handler that will be informed in case of received events.
+
+   :param handler: the handler to add, not \ ``null``\
+   :param wait: if \ ``true``\ , wait with returning from this method until the handler is fully functional and will receive the next issued event
+   :throws InterruptedException: interrupted while waiting for the handler to be installed
+
+removeFilter
+^^^^^^^^^^^^
+
+.. java:method::  void removeFilter(Filter filter)
+   :outertype: EventReceivingStrategy
+
+   Removes a filter that is remove for all registered handlers some time after this method call.
+
+   :param filter: filter to remove, not \ ``null``\
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method::  void removeHandler(Handler handler, boolean wait) throws InterruptedException
+   :outertype: EventReceivingStrategy
+
+   Removes a handler from the event dispatching. In case the given handler was not registered the call is silently ignored.
+
+   :param handler: the handler to remove
+   :param wait: if \ ``true``\ , wait with returning from this method until the handler cannot receive any more events
+   :throws InterruptedException: interrupted while waiting for the handler to be removed
+

@@ -1,0 +1,24 @@
+.. java:import:: rsb.plugin LoadingException
+
+.. java:import:: rsb.transport TransportRegistry
+
+Plugin
+======
+
+.. java:package:: rsb.transport.inprocess
+   :noindex:
+
+.. java:type:: public class Plugin implements rsb.plugin.Plugin
+
+   Plugin implementation for the inprocess transport.
+
+   :author: jwienke
+
+Methods
+-------
+initialize
+^^^^^^^^^^
+
+.. java:method:: @Override public void initialize() throws LoadingException
+   :outertype: Plugin
+

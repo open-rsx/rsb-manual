@@ -1,0 +1,31 @@
+QualityOfServiceSpec.Reliability
+================================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public enum Reliability
+   :outertype: QualityOfServiceSpec
+
+   Possible requirements on the reliability of events.
+
+   :author: jwienke
+
+Enum Constants
+--------------
+RELIABLE
+^^^^^^^^
+
+.. java:field:: public static final QualityOfServiceSpec.Reliability RELIABLE
+   :outertype: QualityOfServiceSpec.Reliability
+
+   Events will always be received, otherwise an error is generated.
+
+UNRELIABLE
+^^^^^^^^^^
+
+.. java:field:: public static final QualityOfServiceSpec.Reliability UNRELIABLE
+   :outertype: QualityOfServiceSpec.Reliability
+
+   Events may be dropped.
+

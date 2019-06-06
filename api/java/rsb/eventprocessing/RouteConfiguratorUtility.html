@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RouteConfiguratorUtility &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="SingleThreadEventReceivingStrategy" href="SingleThreadEventReceivingStrategy.html" />
+    <link rel="prev" title="RouteConfigurator" href="RouteConfigurator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.eventprocessing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AbstractEventReceivingStrategy.html">AbstractEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultInRouteConfigurator.html">DefaultInRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultOutRouteConfigurator.html">DefaultOutRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventReceivingStrategy.html">EventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventReceivingStrategyFactory.html">EventReceivingStrategyFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InRouteConfigurator.html">InRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatchAndDispatchTask.html">MatchAndDispatchTask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OutRouteConfigurator.html">OutRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RouteConfigurator.html">RouteConfigurator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RouteConfiguratorUtility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingleThreadEventReceivingStrategy.html">SingleThreadEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingleThreadFactory.html">SingleThreadFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UnorderedParallelEventReceivingStrategy.html">UnorderedParallelEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UnorderedParallelFactory.html">UnorderedParallelFactory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.eventprocessing</a> &raquo;</li>
+        
+      <li>RouteConfiguratorUtility</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/eventprocessing/RouteConfiguratorUtility.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="routeconfiguratorutility">
+<h1>RouteConfiguratorUtility<a class="headerlink" href="#routeconfiguratorutility" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility">
+public class <code class="sig-name descname">RouteConfiguratorUtility</code>&lt;ConnectorType extends Connector&gt;<a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility class that can be used via composition to implement some of the methods required by the <a class="reference internal" href="RouteConfigurator.html#rsb.eventprocessing.RouteConfigurator" title="rsb.eventprocessing.RouteConfigurator"><code class="xref java java-ref docutils literal notranslate"><span class="pre">RouteConfigurator</span></code></a> interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>&lt;ConnectorType&gt;</strong> – type of connectors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>RouteConfiguratorUtility<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.RouteConfiguratorUtility(Scope)">
+public <code class="sig-name descname">RouteConfiguratorUtility</code><span class="sig-paren">(</span><a class="reference internal" href="../Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.RouteConfiguratorUtility(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – the managed route operates on this scope</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activate">
+<h3>activate<a class="headerlink" href="#activate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.activate()">
+public void <code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.activate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the managed connectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – error activating</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="addconnector">
+<h3>addConnector<a class="headerlink" href="#addconnector" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.addConnector(ConnectorType)">
+public void <code class="sig-name descname">addConnector</code><span class="sig-paren">(</span>ConnectorType<em> connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.addConnector(ConnectorType)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a connector to use in this route.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – the connector to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="deactivate">
+<h3>deactivate<a class="headerlink" href="#deactivate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.deactivate()">
+public void <code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.deactivate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivate the managed connectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – error deactivating</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for connectors to terminate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getconnectors">
+<h3>getConnectors<a class="headerlink" href="#getconnectors" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.getConnectors()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;ConnectorType&gt; <code class="sig-name descname">getConnectors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.getConnectors()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the connectors used on the managed route.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of connectors</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gettransporturis">
+<h3>getTransportUris<a class="headerlink" href="#gettransporturis" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.getTransportUris()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/net/URI.html" title="java.net.URI">URI</a>&gt; <code class="sig-name descname">getTransportUris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.getTransportUris()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility method to implement <a class="reference internal" href="RouteConfigurator.html#rsb.eventprocessing.RouteConfigurator.getTransportUris()" title="rsb.eventprocessing.RouteConfigurator.getTransportUris()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">RouteConfigurator.getTransportUris()</span></code></a>. Iterates all transports and returns their URIs. Might only be possible, depending on the transports, if activated before.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html" title="java.lang.IllegalStateException"><strong>IllegalStateException</strong></a> – not activated</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>set of transport URIs, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isactive">
+<h3>isActive<a class="headerlink" href="#isactive" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.isActive()">
+public boolean <code class="sig-name descname">isActive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.isActive()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells whether already activated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if activated, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removeconnector">
+<h3>removeConnector<a class="headerlink" href="#removeconnector" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.RouteConfiguratorUtility.removeConnector(ConnectorType)">
+public boolean <code class="sig-name descname">removeConnector</code><span class="sig-paren">(</span>ConnectorType<em> connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.RouteConfiguratorUtility.removeConnector(ConnectorType)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a connector from the route if it existed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – the connector to remove</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the connector existed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

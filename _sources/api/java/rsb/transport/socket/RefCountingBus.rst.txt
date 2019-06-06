@@ -1,0 +1,93 @@
+.. java:import:: java.net URI
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+RefCountingBus
+==============
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class RefCountingBus extends AbstractActivatable implements Bus
+
+   A reference counting decorator for \ :java:ref:`Bus`\  instances. The wrapped instance is activated only to the first call to \ :java:ref:`activate()`\  and deactivated only when as many \ :java:ref:`deactivate()`\  calls are received as have been activate calls received.
+
+   :author: jwienke
+
+Constructors
+------------
+RefCountingBus
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public RefCountingBus(Bus bus, DeactivationHandler handler)
+   :outertype: RefCountingBus
+
+   Constructor.
+
+   :param bus: bus to manage
+   :param handler: handler to be called on deactivation of the bus
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: RefCountingBus
+
+addNotificationReceiver
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void addNotificationReceiver(NotificationReceiver receiver)
+   :outertype: RefCountingBus
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: RefCountingBus
+
+getContainedBus
+^^^^^^^^^^^^^^^
+
+.. java:method:: public Bus getContainedBus()
+   :outertype: RefCountingBus
+
+   Returns the underlying bus that is handled with reference counting. Do not call \ :java:ref:`Bus.activate()`\  or \ :java:ref:`Bus.deactivate()`\  on this instance!
+
+   :return: the managed bus
+
+getSocketOptions
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public SocketOptions getSocketOptions()
+   :outertype: RefCountingBus
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public URI getTransportUri()
+   :outertype: RefCountingBus
+
+handleOutgoing
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void handleOutgoing(Notification notification) throws RSBException
+   :outertype: RefCountingBus
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: RefCountingBus
+
+removeNotificationReceiver
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void removeNotificationReceiver(NotificationReceiver receiver)
+   :outertype: RefCountingBus
+

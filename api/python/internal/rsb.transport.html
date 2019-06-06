@@ -1,0 +1,653 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.transport &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rsb.transport.local" href="rsb.transport.local.html" />
+    <link rel="prev" title="rsb.introspection" href="rsb.introspection.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rsb.eventprocessing.html">rsb.eventprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.util.html">rsb.util</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.introspection.html">rsb.introspection</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.local.html">rsb.transport.local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.socket.html">rsb.transport.socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.transport</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/internal/rsb.transport.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.transport">
+<span id="rsb-transport"></span><h1>rsb.transport<a class="headerlink" href="#module-rsb.transport" title="Permalink to this headline">¶</a></h1>
+<p>Contains the interface and bases classes for implementing RSB transports.</p>
+<p><em>Code author: jmoringe</em></p>
+<p><em>Code author: jwienke</em></p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.get_transport_factory" title="rsb.transport.get_transport_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transport_factory</span></code></a>(name)</p></td>
+<td><p>Return a <code class="docutils literal notranslate"><span class="pre">TransportFactory</span></code> for the transport with the given name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.register_transport" title="rsb.transport.register_transport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_transport</span></code></a>(factory)</p></td>
+<td><p>Register a new transport.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Connector</span></code></a>([wire_type])</p></td>
+<td><p>Superclass for transport-specific connector classes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.ConverterSelectingConnector" title="rsb.transport.ConverterSelectingConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConverterSelectingConnector</span></code></a>(converters, **kwargs)</p></td>
+<td><p>Base class for connectors that use a map of converters for serialization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.InConnector" title="rsb.transport.InConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InConnector</span></code></a>([wire_type])</p></td>
+<td><p>Superclass for in-direction connectors that use asynchronous notification.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.OutConnector" title="rsb.transport.OutConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutConnector</span></code></a>([wire_type])</p></td>
+<td><p>Superclass for connectors sending events to the outside world.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.TransportFactory" title="rsb.transport.TransportFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransportFactory</span></code></a></p></td>
+<td><p>Creates connectors for a specific transport.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="rsb.transport.Connector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">Connector</code><span class="sig-paren">(</span><em class="sig-param">wire_type=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.Connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Superclass for transport-specific connector classes.</p>
+<p><em>Code author: jwienke</em></p>
+<p>Create a new connector with a serialization type wire_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_type</strong> – the type of serialized data used by this connector.</p>
+</dd>
+<dt class="field-even">Type wire_type</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.transport.Connector.activate">
+<em class="property">abstract </em><code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.Connector.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.Connector.deactivate">
+<em class="property">abstract </em><code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.Connector.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.Connector.set_quality_of_service_spec">
+<em class="property">abstract </em><code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.Connector.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.Connector.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.transport.Connector.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.Connector.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.transport.Connector.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the serialization type used for this connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>python serialization type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.ConverterSelectingConnector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">ConverterSelectingConnector</code><span class="sig-paren">(</span><em class="sig-param">converters</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.ConverterSelectingConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base class for connectors that use a map of converters for serialization.</p>
+<p>This class is intended to be used a superclass (or rather mixin class) for
+connector classes which have to store a map of converters and select
+converters for (de)serialization.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new connector with the specified converters.</p>
+<p>The new converter uses the converters in <code class="docutils literal notranslate"><span class="pre">converters</span></code> to
+deserialize notification and/or serialize events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>converters</strong> – The converter selection strategy that should be used by the
+connector. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the global map of converters for the
+wire-type of the connector is used.</p>
+</dd>
+<dt class="field-even">Type converters</dt>
+<dd class="field-even"><p>rsb.converter.ConverterSelectionStrategy</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.transport.ConverterSelectingConnector.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.ConverterSelectingConnector.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a converter that converts the supplied data to the wire-type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_type</strong> – the type of the object for which a suitable converter should
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>converter</p>
+</dd>
+<dt class="field-odd">Raises KeyError</dt>
+<dd class="field-odd"><p>no converter is available for the supplied data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.ConverterSelectingConnector.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.ConverterSelectingConnector.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable converter for the <code class="docutils literal notranslate"><span class="pre">wire_schema</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_schema</strong> – the wire-schema to or from which the returned converter should
+convert</p>
+</dd>
+<dt class="field-even">Type wire_schema</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>converter</p>
+</dd>
+<dt class="field-even">Raises KeyError</dt>
+<dd class="field-even"><p>no converter is available for the specified wire-schema.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.ConverterSelectingConnector.converter_map">
+<em class="property">property </em><code class="sig-name descname">converter_map</code><a class="headerlink" href="#rsb.transport.ConverterSelectingConnector.converter_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.InConnector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">InConnector</code><span class="sig-paren">(</span><em class="sig-param">wire_type=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.InConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.Connector</span></code></a></p>
+<p>Superclass for in-direction connectors that use asynchronous notification.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new connector with a serialization type wire_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_type</strong> – the type of serialized data used by this connector.</p>
+</dd>
+<dt class="field-even">Type wire_type</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.transport.InConnector.activate">
+<em class="property">abstract </em><code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.InConnector.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.InConnector.deactivate">
+<em class="property">abstract </em><code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.InConnector.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.InConnector.filter_notify">
+<em class="property">abstract </em><code class="sig-name descname">filter_notify</code><span class="sig-paren">(</span><em class="sig-param">filter_</em>, <em class="sig-param">action</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.InConnector.filter_notify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.InConnector.set_observer_action">
+<em class="property">abstract </em><code class="sig-name descname">set_observer_action</code><span class="sig-paren">(</span><em class="sig-param">action</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.InConnector.set_observer_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the action used by the connector to notify about incoming events.</p>
+<p>The call to this method must be thread-safe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>action</strong> – action called if a new message is received from the connector.
+Must accept an <code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code> as parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.InConnector.set_quality_of_service_spec">
+<em class="property">abstract </em><code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.InConnector.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.InConnector.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.transport.InConnector.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.InConnector.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.transport.InConnector.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the serialization type used for this connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>python serialization type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.OutConnector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">OutConnector</code><span class="sig-paren">(</span><em class="sig-param">wire_type=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.OutConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.Connector</span></code></a></p>
+<p>Superclass for connectors sending events to the outside world.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new connector with a serialization type wire_type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_type</strong> – the type of serialized data used by this connector.</p>
+</dd>
+<dt class="field-even">Type wire_type</dt>
+<dd class="field-even"><p>types.TypeType</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.transport.OutConnector.activate">
+<em class="property">abstract </em><code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.OutConnector.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.OutConnector.deactivate">
+<em class="property">abstract </em><code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.OutConnector.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.OutConnector.handle">
+<em class="property">abstract </em><code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.OutConnector.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send <code class="docutils literal notranslate"><span class="pre">event</span></code> and adapts its meta data with the actual send time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – event to send</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.OutConnector.set_quality_of_service_spec">
+<em class="property">abstract </em><code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.OutConnector.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.OutConnector.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.transport.OutConnector.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.OutConnector.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.transport.OutConnector.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the serialization type used for this connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>python serialization type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.TransportFactory">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">TransportFactory</code><a class="headerlink" href="#rsb.transport.TransportFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Creates connectors for a specific transport.</p>
+<dl class="method">
+<dt id="rsb.transport.TransportFactory.create_in_connector">
+<em class="property">abstract </em><code class="sig-name descname">create_in_connector</code><span class="sig-paren">(</span><em class="sig-param">converters</em>, <em class="sig-param">options</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.TransportFactory.create_in_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#rsb.transport.InConnector" title="rsb.transport.InConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InConnector</span></code></a> for the represented transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>converters</strong> – the converters to use for this type options(dict of str):
+options for the new connector</p>
+</dd>
+<dt class="field-even">Type converters</dt>
+<dd class="field-even"><p>ConverterSelectionStrategy</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new connector instance</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>rsb.transport.InConnector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.TransportFactory.create_out_connector">
+<em class="property">abstract </em><code class="sig-name descname">create_out_connector</code><span class="sig-paren">(</span><em class="sig-param">converters</em>, <em class="sig-param">options</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.TransportFactory.create_out_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#rsb.transport.OutConnector" title="rsb.transport.OutConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutConnector</span></code></a> for the represented transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>converters</strong> – the converters to use for this type options(dict of str):
+options for the new connector</p>
+</dd>
+<dt class="field-even">Type converters</dt>
+<dd class="field-even"><p>ConverterSelectionStrategy</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new connector instance</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>rsb.transport.OutConnector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.TransportFactory.name">
+<em class="property">abstract property </em><code class="sig-name descname">name</code><a class="headerlink" href="#rsb.transport.TransportFactory.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name representing this transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of the transport, non-empty</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.TransportFactory.remote">
+<em class="property">abstract property </em><code class="sig-name descname">remote</code><a class="headerlink" href="#rsb.transport.TransportFactory.remote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">true</span></code> if the transport performs remote communication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>does the transport perform remote communication?</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.transport.get_transport_factory">
+<code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">get_transport_factory</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.get_transport_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <code class="docutils literal notranslate"><span class="pre">TransportFactory</span></code> for the transport with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the transport</p>
+</dd>
+<dt class="field-even">Type name</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the <code class="docutils literal notranslate"><span class="pre">TransportFactory</span></code> instance</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>rsb.transport.TransportFactory</p>
+</dd>
+<dt class="field-odd">Raises KeyError</dt>
+<dd class="field-odd"><p>there is not transport with the given name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.transport.register_transport">
+<code class="sig-prename descclassname">rsb.transport.</code><code class="sig-name descname">register_transport</code><span class="sig-paren">(</span><em class="sig-param">factory</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.register_transport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a new transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>factory</strong> – the factory for the transport</p>
+</dd>
+<dt class="field-even">Type factory</dt>
+<dd class="field-even"><p>rsb.transport.TransportFactory</p>
+</dd>
+<dt class="field-odd">Raises ValueError</dt>
+<dd class="field-odd"><p>there is already a transport registered with this name or the given
+    factory argument is invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

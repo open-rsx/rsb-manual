@@ -1,0 +1,35 @@
+ParticipantObserver
+===================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public interface ParticipantObserver
+
+   Interface for observing \ :java:ref:`Participant`\  creation and destruction. Since methods of this interface are called during state switching of \ :java:ref:`Participant`\  instances, the \ :java:ref:`Participant.isActive()`\  method might still return an old state during calls to methods in this interface.
+
+   :author: swrede, jwienke, jmoringe
+
+Methods
+-------
+created
+^^^^^^^
+
+.. java:method::  void created(Participant participant, ParticipantCreateArgs<?> args)
+   :outertype: ParticipantObserver
+
+   Will be called in case a new \ :java:ref:`Participant`\  has just been created.
+
+   :param participant: the newly created participant
+   :param args: the arguments used for creating this participant
+
+destroyed
+^^^^^^^^^
+
+.. java:method::  void destroyed(Participant participant)
+   :outertype: ParticipantObserver
+
+   Will be called in case a \ :java:ref:`Participant`\  is about to be destroyed.
+
+   :param participant: the participant that will be destroyed
+

@@ -1,0 +1,42 @@
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb.util Properties
+
+ParticipantConfigCreator
+========================
+
+.. java:package:: rsb.config
+   :noindex:
+
+.. java:type:: public class ParticipantConfigCreator
+
+   Creates \ :java:ref:`ParticipantConfig`\  instances from configuration \ :java:ref:`Properties`\  instances.
+
+   :author: jwienke
+
+Methods
+-------
+create
+^^^^^^
+
+.. java:method:: public ParticipantConfig create(Properties properties)
+   :outertype: ParticipantConfigCreator
+
+   Create a new \ :java:ref:`ParticipantConfig`\  from the given properties.
+
+   :param properties: properties to use
+   :return: the new instance
+
+reconfigure
+^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public void reconfigure(ParticipantConfig config, Properties properties)
+   :outertype: ParticipantConfigCreator
+
+   Reconfigures an existing \ :java:ref:`ParticipantConfig`\  with options from a \ :java:ref:`Properties`\  object. This means that all options found in the properties object either override the existing ones in the participant config or are added in case they did not exist.
+
+   :param config: the config to modify
+   :param properties: the properties to use
+

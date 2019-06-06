@@ -1,0 +1,47 @@
+.. java:import:: java.util Map.Entry
+
+.. java:import:: java.util NoSuchElementException
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.util ExactTime
+
+.. java:import:: rsb.util.os RuntimeOsUtilities.RuntimeNotAvailableException
+
+PortableProcessInfo
+===================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public class PortableProcessInfo extends CommonProcessInfo
+
+   Cross-platform plain Java implementation of process info interface.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+PortableProcessInfo
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public PortableProcessInfo()
+   :outertype: PortableProcessInfo
+
+   Creates a new instance and initializes all provided values in \ :java:ref:`CommonProcessInfo`\ .
+
+Methods
+-------
+determineMainClassName
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String determineMainClassName()
+   :outertype: PortableProcessInfo
+
+   Tries to determine the fully-qualified main class name for the process this class is used in.
+
+   :throws NoSuchElementException: name cannot be determined
+   :return: fully qualified name, not \ ``null``\
+

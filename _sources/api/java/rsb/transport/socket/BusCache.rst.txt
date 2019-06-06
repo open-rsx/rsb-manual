@@ -1,0 +1,89 @@
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+BusCache
+========
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class BusCache
+
+   A cache for \ :java:ref:`Bus`\  instances based on the required \ :java:ref:`SocketOptions`\  . This class is thread-safe. For longer synchronized blocks use \ :java:ref:`getSynchronizer()`\ .
+
+   :author: jwienke
+
+Methods
+-------
+get
+^^^
+
+.. java:method:: public Bus get(SocketOptions options)
+   :outertype: BusCache
+
+   Returns a \ :java:ref:`Bus`\  instance for the given options or \ ``null``\  if no such instance is cached.
+
+   :param options: options to look up
+   :return: \ :java:ref:`Bus`\  instance or \ ``null``\
+
+getSynchronizer
+^^^^^^^^^^^^^^^
+
+.. java:method:: public Object getSynchronizer()
+   :outertype: BusCache
+
+   Clients may use the returned instance to synchronize on.
+
+   :return: object to synchronize on
+
+hasBus
+^^^^^^
+
+.. java:method:: public boolean hasBus(SocketOptions options)
+   :outertype: BusCache
+
+   Indicates whether a \ :java:ref:`Bus`\  instance with the given options is available or not.
+
+   :param options: options to look up
+   :return: \ ``true``\  if available, else \ ``false``\
+
+register
+^^^^^^^^
+
+.. java:method:: public void register(Bus bus)
+   :outertype: BusCache
+
+   Registers a new bus instance in the cache.
+
+   :param bus: bus to register
+   :throws IllegalArgumentException: there is already a bus with the given options
+
+register
+^^^^^^^^
+
+.. java:method:: public void register(Bus bus, boolean replace)
+   :outertype: BusCache
+
+   Registers a new bus instance in the cache and allows overriding existing instances.
+
+   :param bus: bus to registers
+   :param replace: if \ ``true``\ , replace existing instances with the same options instead of throwing an exception
+   :throws IllegalArgumentException: there is already a bus with the given options and replacing was not requested
+
+unregister
+^^^^^^^^^^
+
+.. java:method:: public void unregister(Bus bus)
+   :outertype: BusCache
+
+   Removes a bus from the cache if it was present.
+
+   :param bus: the bus to remove
+

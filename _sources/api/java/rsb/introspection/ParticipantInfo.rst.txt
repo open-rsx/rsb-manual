@@ -1,0 +1,99 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb ParticipantId
+
+.. java:import:: rsb Scope
+
+ParticipantInfo
+===============
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public class ParticipantInfo
+
+   Internal data holder for participant information. Used within introspection model.
+
+   :author: swrede, ssharma
+
+Constructors
+------------
+ParticipantInfo
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ParticipantInfo(String kind, ParticipantId id, ParticipantId parentId, Scope scope, Class<?> dataType, Set<URI> transportUris)
+   :outertype: ParticipantInfo
+
+   Creates a new instance.
+
+   :param kind: string representation of the type of participant being represented, not \ ``null``\
+   :param id: id of the participant, not \ ``null``\
+   :param parentId: id of the parent participant or \ ``null``\  if there is no parent
+   :param scope: scope of the participant, not \ ``null``\
+   :param dataType: data type of the participant or \ ``null``\  if not applicable
+   :param transportUris: URIs describing the transports for the represented participant. Must not be \ ``null``\ .
+
+Methods
+-------
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: public Class<?> getDataType()
+   :outertype: ParticipantInfo
+
+   Returns the participant's data type or \ ``null``\  if a single data type is not applicable for the type of participant.
+
+   :return: data type class or \ ``null``\
+
+getId
+^^^^^
+
+.. java:method:: public ParticipantId getId()
+   :outertype: ParticipantInfo
+
+   Returns the unique ID of the participant.
+
+   :return: participant id
+
+getKind
+^^^^^^^
+
+.. java:method:: public String getKind()
+   :outertype: ParticipantInfo
+
+   Returns a string representing the type of participant.
+
+   :return: string representation
+
+getParentId
+^^^^^^^^^^^
+
+.. java:method:: public ParticipantId getParentId()
+   :outertype: ParticipantInfo
+
+   Returns the id of the parent participant or \ ``null``\  in case there is no parent.
+
+   :return: participant id or \ ``null``\
+
+getScope
+^^^^^^^^
+
+.. java:method:: public Scope getScope()
+   :outertype: ParticipantInfo
+
+   Returns the scope the participant operates on.
+
+   :return: scope
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<URI> getTransportUris()
+   :outertype: ParticipantInfo
+
+   Returns the URIs describing the transports the represented participant uses.
+
+   :return: set of URIs, not \ ``null``\
+

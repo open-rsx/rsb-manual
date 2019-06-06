@@ -1,0 +1,25 @@
+FilterObserver
+==============
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public interface FilterObserver
+
+   Interface for classes that want to be notified about changes to registered \ :java:ref:`Filter`\  instances.
+
+   :author: jwienke, swrede
+
+Methods
+-------
+notify
+^^^^^^
+
+.. java:method::  void notify(Filter filter, FilterAction action)
+   :outertype: FilterObserver
+
+   Called in case a \ :java:ref:`Filter`\  was changed.
+
+   :param filter: the \ :java:ref:`Filter`\  that changes, not \ ``null``\
+   :param action: the action that was performed with this filter, not \ ``null``\
+

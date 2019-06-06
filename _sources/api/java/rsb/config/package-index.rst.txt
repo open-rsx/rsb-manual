@@ -1,0 +1,16 @@
+rsb.config
+==========
+
+Contains classes related to the configuration of participants.
+
+:author: jwienke
+
+.. java:package:: rsb.config
+
+.. toctree::
+   :maxdepth: 1
+
+   ParticipantConfig
+   ParticipantConfigCreator
+   TransportConfig
+

@@ -1,0 +1,77 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.net URISyntaxException
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb.transport EventHandler
+
+.. java:import:: rsb.util.os HostInfo
+
+.. java:import:: rsb.util.os HostInfoSelector
+
+.. java:import:: rsb.util.os ProcessInfo
+
+.. java:import:: rsb.util.os ProcessInfoSelector
+
+Bus
+===
+
+.. java:package:: rsb.transport.inprocess
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class Bus
+
+   Implement an inprocess channel for passing events between different connectors. Ingoing events via the \ :java:ref:`push(Event)`\  method are synchronously dispatched to all registered \ :java:ref:`EventHandler`\ s, which usually should be \ :java:ref:`InConnector`\  instances.
+
+   :author: jwienke
+
+Methods
+-------
+addHandler
+^^^^^^^^^^
+
+.. java:method:: public void addHandler(EventHandler handler)
+   :outertype: Bus
+
+   Add a handler to receive new events.
+
+   :param handler: the handler
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: public URI getTransportUri()
+   :outertype: Bus
+
+   Return the URI describing the transport manifested by this bus. Only valid if activated.
+
+   :throws IllegalStateException: instance is in wrong state to prepare the URI
+   :return: URI, not \ ``null``\
+
+push
+^^^^
+
+.. java:method:: public void push(Event event)
+   :outertype: Bus
+
+   Dispatch an event to all registered handlers.
+
+   :param event: the event to dispatch
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method:: public void removeHandler(EventHandler handler)
+   :outertype: Bus
+
+   Removes a handler from the event receiving. Once removed, no new events will be received.
+
+   :param handler: the handler
+

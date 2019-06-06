@@ -1,0 +1,118 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Collection
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantCreateArgs
+
+.. java:import:: rsb RSBException
+
+Server
+======
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public abstract class Server<MethodType extends Method> extends Participant
+
+   Objects of this class represent local or remote serves. A server is basically a collection of named methods that are bound to a specific scope. This class is primarily intended as a superclass for local and remote server classes.
+
+   :author: jmoringe
+   :param <MethodType>: The type of methods used in the subclasses
+
+Constructors
+------------
+Server
+^^^^^^
+
+.. java:constructor:: protected Server(ParticipantCreateArgs<?> args)
+   :outertype: Server
+
+   Constructs a new server.
+
+   :param args: arguments used for this server
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: Server
+
+addMethod
+^^^^^^^^^
+
+.. java:method:: protected void addMethod(String name, MethodType method, boolean overwrite)
+   :outertype: Server
+
+   Adds a method to the server.
+
+   :param name: name under which the method should be registered
+   :param method: the method instance
+   :param overwrite: if \ ``true``\ , overwrite an existing method with that name, else raise an exception
+   :throws IllegalArgumentException: method with the given name already exists and shall not be overwritten
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: Server
+
+getMethod
+^^^^^^^^^
+
+.. java:method:: public MethodType getMethod(String name)
+   :outertype: Server
+
+   Returns the method with the given name.
+
+   :param name: method name
+   :return: \ :java:ref:`Method`\  instance or \ ``null``\  if no method exists with this name
+
+getMethods
+^^^^^^^^^^
+
+.. java:method:: public Collection<MethodType> getMethods()
+   :outertype: Server
+
+   Return all methods of the server.
+
+   :return: A Collection containing all methods.
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: Server
+
+hasMethod
+^^^^^^^^^
+
+.. java:method:: public boolean hasMethod(String name)
+   :outertype: Server
+
+   Indicates whether a method with the given name is already registered.
+
+   :param name: name of the method
+   :return: \ ``true``\  if a method is registered with the given name, else \ ``false``\
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: Server
+

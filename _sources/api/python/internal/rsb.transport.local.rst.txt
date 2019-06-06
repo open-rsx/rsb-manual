@@ -1,0 +1,31 @@
+rsb.transport.local
+===================
+
+.. automodule:: rsb.transport.local
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      rsb_initialize
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Bus
+      InConnector
+      OutConnector
+      TransportFactory
+   
+   
+
+   
+   
+   

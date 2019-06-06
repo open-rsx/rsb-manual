@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reader &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="RemoteMethod" href="RemoteMethod.html" />
+    <link rel="prev" title="Method" href="Method.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.patterns</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Callback.html">Callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Callback-UserCodeException.html">Callback.UserCodeException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataCallback.html">DataCallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventCallback.html">EventCallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Future.html">Future</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalMethod.html">LocalMethod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalServer.html">LocalServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Method.html">Method</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteMethod.html">RemoteMethod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteMethod-FuturePreparator.html">RemoteMethod.FuturePreparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteServer.html">RemoteServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Server.html">Server</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.patterns</a> &raquo;</li>
+        
+      <li>Reader</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/patterns/Reader.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="reader">
+<h1>Reader<a class="headerlink" href="#reader" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.patterns.Reader">
+public class <code class="sig-name descname">Reader</code> extends <a class="reference internal" href="../Participant.html#rsb.Participant" title="rsb.Participant">Participant</a><a class="headerlink" href="#rsb.patterns.Reader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements synchronous event receiving as a pattern on top of the usual asynchronous participant types. Clients have to continuously poll for new events by calling the #read() method. Internally, a queue is used to buffer received events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Reader<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.patterns.Reader.Reader(ReaderCreateArgs, Factory)">
+public <code class="sig-name descname">Reader</code><span class="sig-paren">(</span><a class="reference internal" href="../ReaderCreateArgs.html#rsb.ReaderCreateArgs" title="rsb.ReaderCreateArgs">ReaderCreateArgs</a><em> args</em>, <a class="reference internal" href="../Factory.html#rsb.Factory" title="rsb.Factory">Factory</a><em> factory</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.Reader(ReaderCreateArgs, Factory)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – Arguments for creating the participant</p></li>
+<li><p><strong>factory</strong> – Factory instance used for creating the internal listener</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="../InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the reader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activate">
+<h3>activate<a class="headerlink" href="#activate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.activate()">
+public void <code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.activate()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="deactivate">
+<h3>deactivate<a class="headerlink" href="#deactivate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.deactivate()">
+public void <code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.deactivate()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getdatatype">
+<h3>getDataType<a class="headerlink" href="#getdatatype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.getDataType()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt; <code class="sig-name descname">getDataType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.getDataType()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getkind">
+<h3>getKind<a class="headerlink" href="#getkind" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.getKind()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getKind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.getKind()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="gettransporturis">
+<h3>getTransportUris<a class="headerlink" href="#gettransporturis" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.getTransportUris()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/net/URI.html" title="java.net.URI">URI</a>&gt; <code class="sig-name descname">getTransportUris</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.getTransportUris()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="isactive">
+<h3>isActive<a class="headerlink" href="#isactive" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.isActive()">
+public boolean <code class="sig-name descname">isActive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.isActive()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="read">
+<h3>read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.read()">
+public <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a> <code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.read()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next event without blocking. If available, returns the next event that was received.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – reading the event failed</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while reading</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an event of <code class="docutils literal notranslate"><span class="pre">null</span></code> if no unread event was received yet.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>read<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.Reader.read(long, TimeUnit)">
+public <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a> <code class="sig-name descname">read</code><span class="sig-paren">(</span>long<em> timeout</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html" title="java.util.concurrent.TimeUnit">TimeUnit</a><em> unit</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.Reader.read(long, TimeUnit)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next event and block until one is available. Waits up to the specified amount of time for receiving the next event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeout</strong> – the amount of time to wait</p></li>
+<li><p><strong>unit</strong> – the unit of the amount of time to wait</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – reading the event failed</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while reading</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an event of <code class="docutils literal notranslate"><span class="pre">null</span></code> if no unread event was received until timeout.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

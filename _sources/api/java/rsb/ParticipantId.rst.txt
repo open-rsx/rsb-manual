@@ -1,0 +1,87 @@
+.. java:import:: java.util UUID
+
+.. java:import:: rsb.util UUIDTools
+
+ParticipantId
+=============
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class ParticipantId
+
+   This class serves as a Uniform Resource Name to identify participants in an RSB system. At present, the URN is based on an UUID that is unique for each participant instance.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+ParticipantId
+^^^^^^^^^^^^^
+
+.. java:constructor:: public ParticipantId()
+   :outertype: ParticipantId
+
+   Creates a new random id.
+
+ParticipantId
+^^^^^^^^^^^^^
+
+.. java:constructor:: @SuppressWarnings public ParticipantId(byte[] bytes)
+   :outertype: ParticipantId
+
+   Creates an ID from a byte representation.
+
+   :param bytes: byte representation of the id.
+
+ParticipantId
+^^^^^^^^^^^^^
+
+.. java:constructor:: public ParticipantId(String sid)
+   :outertype: ParticipantId
+
+   Parses an id from its string form generated with \ :java:ref:`toString()`\ .
+
+   :param sid: string representation
+   :throws IllegalArgumentException: invalid string format
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: ParticipantId
+
+getUUID
+^^^^^^^
+
+.. java:method:: protected UUID getUUID()
+   :outertype: ParticipantId
+
+   Returns the underlying UUID for this participant id.
+
+   :return: uuid
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: ParticipantId
+
+toByteArray
+^^^^^^^^^^^
+
+.. java:method:: public byte[] toByteArray()
+   :outertype: ParticipantId
+
+   Returns the bytes representing the id.
+
+   :return: byte representing the id (length 16)
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: ParticipantId
+

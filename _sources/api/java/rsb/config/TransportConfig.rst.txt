@@ -1,0 +1,168 @@
+.. java:import:: java.util Map.Entry
+
+.. java:import:: rsb.converter ConverterRepository
+
+.. java:import:: rsb.util Properties
+
+.. java:import:: rsb.util Property
+
+TransportConfig
+===============
+
+.. java:package:: rsb.config
+   :noindex:
+
+.. java:type:: public class TransportConfig
+
+   Represents the configuration of a single transport.
+
+   :author: swrede, jmoringe
+
+Constructors
+------------
+TransportConfig
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public TransportConfig(String name, boolean enabled, Properties options)
+   :outertype: TransportConfig
+
+   Creates a new instance.
+
+   :param name: name of the transport
+   :param enabled: should this transport be enabled in participants or not?
+   :param options: transport-specific options
+
+TransportConfig
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public TransportConfig(String name, boolean enabled, Properties options, ConverterRepository<?> converters)
+   :outertype: TransportConfig
+
+   Creates a new instance.
+
+   :param name: name of the transport
+   :param enabled: should this transport be enabled in participants or not?
+   :param options: transport-specific options
+   :param converters: the converter selection strategy to use for the transport. \ ``null``\  indicates to use the system-wide configuration.
+
+TransportConfig
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: public TransportConfig(String name)
+   :outertype: TransportConfig
+
+   Creates a new instance. The transport will be disabled and options will be empty
+
+   :param name: name of the transport
+
+Methods
+-------
+copy
+^^^^
+
+.. java:method:: public TransportConfig copy()
+   :outertype: TransportConfig
+
+   Creates a new instance as a copy of this one in the sense of a deep copy apart from the converters.
+
+   :return: deep copy
+
+equals
+^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public boolean equals(Object obj)
+   :outertype: TransportConfig
+
+getConverters
+^^^^^^^^^^^^^
+
+.. java:method:: public ConverterRepository<?> getConverters()
+   :outertype: TransportConfig
+
+   Returns the desired converter repository for the transport.
+
+   :return: converter repository to use or \ ``null``\  in case the system-wide default shall be used.
+
+getConverters
+^^^^^^^^^^^^^
+
+.. java:method:: public ConverterRepository<?> getConverters(ConverterRepository<?> defaultInst)
+   :outertype: TransportConfig
+
+   Returns the desired converter repository for the transport or the provided default in case no desired instance is is specified.
+
+   :param defaultInst: instance to return in case no converter repository was specified inside this config
+   :return: converter repository to use or \ ``null``\  in case event the given default instance was \ ``null``\ .
+
+getName
+^^^^^^^
+
+.. java:method:: public String getName()
+   :outertype: TransportConfig
+
+   Returns the name of the transport.
+
+   :return: name string
+
+getOptions
+^^^^^^^^^^
+
+.. java:method:: public Properties getOptions()
+   :outertype: TransportConfig
+
+   Returns the transport-specific options.
+
+   :return: options specifically for the transport with a common prefix
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public int hashCode()
+   :outertype: TransportConfig
+
+isEnabled
+^^^^^^^^^
+
+.. java:method:: public boolean isEnabled()
+   :outertype: TransportConfig
+
+   Indicates whether the transport shall be enabled in participants or not.
+
+   :return: \ ``true``\  if transport shall be enabled, else \ ``false``\
+
+setConverters
+^^^^^^^^^^^^^
+
+.. java:method:: public void setConverters(ConverterRepository<?> converters)
+   :outertype: TransportConfig
+
+   Sets the converter repository to be used for this transport.
+
+   :param converters: converters to use or \ ``null``\  to indicate use of system-wide converters
+
+setEnabled
+^^^^^^^^^^
+
+.. java:method:: public void setEnabled(boolean enabled)
+   :outertype: TransportConfig
+
+   Sets whether the transport shall be enabled in participants.
+
+   :param enabled: \ ``true``\  to enable the transport, else \ ``false``\
+
+setOptions
+^^^^^^^^^^
+
+.. java:method:: public void setOptions(Properties options)
+   :outertype: TransportConfig
+
+   Sets the transport-specific options.
+
+   :param options: options specifically for this transport
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: TransportConfig
+

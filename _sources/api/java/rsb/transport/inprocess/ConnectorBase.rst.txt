@@ -1,0 +1,76 @@
+.. java:import:: rsb QualityOfServiceSpec
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.transport AbstractConnector
+
+ConnectorBase
+=============
+
+.. java:package:: rsb.transport.inprocess
+   :noindex:
+
+.. java:type:: abstract class ConnectorBase extends AbstractConnector
+
+   Base class for inprocess connectors handling the activation logic.
+
+   :author: jwienke
+
+Constructors
+------------
+ConnectorBase
+^^^^^^^^^^^^^
+
+.. java:constructor:: protected ConnectorBase(Bus bus)
+   :outertype: ConnectorBase
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: ConnectorBase
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: ConnectorBase
+
+getBus
+^^^^^^
+
+.. java:method:: protected Bus getBus()
+   :outertype: ConnectorBase
+
+getScope
+^^^^^^^^
+
+.. java:method:: protected Scope getScope()
+   :outertype: ConnectorBase
+
+   Returns the scope of this connector.
+
+   :return: scope or \ ``null``\  if not yet set
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: ConnectorBase
+
+setQualityOfServiceSpec
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public void setQualityOfServiceSpec(QualityOfServiceSpec spec)
+   :outertype: ConnectorBase
+
+setScope
+^^^^^^^^
+
+.. java:method:: @Override public void setScope(Scope scope)
+   :outertype: ConnectorBase
+

@@ -1,0 +1,80 @@
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.concurrent BlockingQueue
+
+.. java:import:: java.util.concurrent LinkedBlockingQueue
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb.filter Filter
+
+SingleThreadEventReceivingStrategy
+==================================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class SingleThreadEventReceivingStrategy extends AbstractActivatable implements EventReceivingStrategy
+
+   An \ :java:ref:`EventReceivingStrategy`\  that uses a single thread for all handlers.
+
+   :author: jwienke
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate()
+   :outertype: SingleThreadEventReceivingStrategy
+
+addFilter
+^^^^^^^^^
+
+.. java:method:: @Override public void addFilter(Filter filter)
+   :outertype: SingleThreadEventReceivingStrategy
+
+addHandler
+^^^^^^^^^^
+
+.. java:method:: @Override public void addHandler(Handler handler, boolean wait)
+   :outertype: SingleThreadEventReceivingStrategy
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws InterruptedException
+   :outertype: SingleThreadEventReceivingStrategy
+
+handle
+^^^^^^
+
+.. java:method:: @Override public void handle(Event event)
+   :outertype: SingleThreadEventReceivingStrategy
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: SingleThreadEventReceivingStrategy
+
+removeFilter
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void removeFilter(Filter filter)
+   :outertype: SingleThreadEventReceivingStrategy
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public void removeHandler(Handler handler, boolean wait) throws InterruptedException
+   :outertype: SingleThreadEventReceivingStrategy
+

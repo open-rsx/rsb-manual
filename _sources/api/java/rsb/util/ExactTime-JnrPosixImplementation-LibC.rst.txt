@@ -1,0 +1,37 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: jnr.ffi LibraryLoader
+
+.. java:import:: jnr.ffi Platform
+
+.. java:import:: jnr.ffi Platform.OS
+
+.. java:import:: jnr.ffi Pointer
+
+.. java:import:: jnr.ffi Runtime
+
+.. java:import:: jnr.ffi Struct
+
+.. java:import:: jnr.ffi.annotations Out
+
+.. java:import:: jnr.ffi.annotations Transient
+
+ExactTime.JnrPosixImplementation.LibC
+=====================================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: @SuppressWarnings public interface LibC
+   :outertype: ExactTime.JnrPosixImplementation
+
+Methods
+-------
+gettimeofday
+^^^^^^^^^^^^
+
+.. java:method::  int gettimeofday(Timeval timeval, Pointer unused)
+   :outertype: ExactTime.JnrPosixImplementation.LibC
+

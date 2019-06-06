@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RemoteServer &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Server" href="Server.html" />
+    <link rel="prev" title="RemoteMethod.FuturePreparator" href="RemoteMethod-FuturePreparator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.patterns</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="Callback.html">Callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Callback-UserCodeException.html">Callback.UserCodeException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DataCallback.html">DataCallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventCallback.html">EventCallback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Future.html">Future</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalMethod.html">LocalMethod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalServer.html">LocalServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Method.html">Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Reader.html">Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteMethod.html">RemoteMethod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteMethod-FuturePreparator.html">RemoteMethod.FuturePreparator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RemoteServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Server.html">Server</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.patterns</a> &raquo;</li>
+        
+      <li>RemoteServer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/patterns/RemoteServer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="remoteserver">
+<h1>RemoteServer<a class="headerlink" href="#remoteserver" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.patterns.RemoteServer">
+public class <code class="sig-name descname">RemoteServer</code> extends <a class="reference internal" href="Server.html#rsb.patterns.Server" title="rsb.patterns.Server">Server</a>&lt;<a class="reference internal" href="RemoteMethod.html#rsb.patterns.RemoteMethod" title="rsb.patterns.RemoteMethod">RemoteMethod</a>&gt;<a class="headerlink" href="#rsb.patterns.RemoteServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Objects of this class represent remote servers in a way that allows calling methods on them as if they were local.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jmoringe, swrede, jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-timeout">
+<h3>DEFAULT_TIMEOUT<a class="headerlink" href="#default-timeout" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="rsb.patterns.RemoteServer.DEFAULT_TIMEOUT">
+public static final double <code class="sig-name descname">DEFAULT_TIMEOUT</code><a class="headerlink" href="#rsb.patterns.RemoteServer.DEFAULT_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default timeout used to wait for method replies before throwing an exception [sec].</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>RemoteServer<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.patterns.RemoteServer.RemoteServer(RemoteServerCreateArgs)">
+public <code class="sig-name descname">RemoteServer</code><span class="sig-paren">(</span><a class="reference internal" href="../RemoteServerCreateArgs.html#rsb.RemoteServerCreateArgs" title="rsb.RemoteServerCreateArgs">RemoteServerCreateArgs</a><em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.RemoteServer(RemoteServerCreateArgs)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new RemoteServer object that provides its methods under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> – The arguments to use for this new instance. The scope is the common super-scope under which the methods of the remote created server are provided.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addmethod">
+<h3>addMethod<a class="headerlink" href="#addmethod" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.addMethod(String)">
+ <a class="reference internal" href="RemoteMethod.html#rsb.patterns.RemoteMethod" title="rsb.patterns.RemoteMethod">RemoteMethod</a> <code class="sig-name descname">addMethod</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.addMethod(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new method for this server with the specified name. Package private for unit testing. Do not use this externally otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the method</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – error creating the method</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted during creation and installation of new method</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the method instance for this new method</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="call">
+<h3>call<a class="headerlink" href="#call" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.call(String, Event)">
+public <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a> <code class="sig-name descname">call</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a><em> event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.call(String, Event)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server using the method name and request data encapsulated in an <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a> instance. The method blocks until the server replied or until the timeout is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>event</strong> – request data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p></li>
+<li><p><strong>TimeoutException</strong> – timeout waiting for the reply</p></li>
+<li><p><strong>ExecutionException</strong> – in case the method failed on the server side</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the reply</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html" title="java.util.concurrent.CancellationException"><strong>java.util.concurrent.CancellationException</strong></a> – waiting for the result was cancelled</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event with the resulting data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>call<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.call(String, Event, double)">
+public <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a> <code class="sig-name descname">call</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a><em> event</em>, double<em> timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.call(String, Event, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server using the method name and request data encapsulated in an <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a> instance. The method blocks until the server replied or until the specified timeout is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>event</strong> – request data</p></li>
+<li><p><strong>timeout</strong> – seconds to wait for the reply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p></li>
+<li><p><strong>TimeoutException</strong> – timeout waiting for the reply</p></li>
+<li><p><strong>ExecutionException</strong> – in case the method failed on the server side</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the reply</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html" title="java.util.concurrent.CancellationException"><strong>java.util.concurrent.CancellationException</strong></a> – waiting for the result was cancelled</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event with the resulting data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>call<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.call(String)">
+public <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a> <code class="sig-name descname">call</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.call(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server without request parameter using the method name. The method blocks until the server replied or until the timeout is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the method to call</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p></li>
+<li><p><strong>TimeoutException</strong> – timeout waiting for the reply</p></li>
+<li><p><strong>ExecutionException</strong> – in case the method failed on the server side</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the reply</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html" title="java.util.concurrent.CancellationException"><strong>java.util.concurrent.CancellationException</strong></a> – waiting for the result was cancelled</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event with the resulting data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>call<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.call(String, double)">
+public <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a> <code class="sig-name descname">call</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, double<em> timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.call(String, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server without request parameter using the method name. The method blocks until the server replied or until the specified timeout is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>timeout</strong> – seconds to wait for the reply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p></li>
+<li><p><strong>TimeoutException</strong> – timeout waiting for the reply</p></li>
+<li><p><strong>ExecutionException</strong> – in case the method failed on the server side</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the reply</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html" title="java.util.concurrent.CancellationException"><strong>java.util.concurrent.CancellationException</strong></a> – waiting for the result was cancelled</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event with the resulting data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>call<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.call(String, RequestType)">
+public &lt;ReplyType, RequestType&gt; ReplyType <code class="sig-name descname">call</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, RequestType<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.call(String, RequestType)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server using the method name and plain request data. The method blocks until the server replied or until the timeout is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>data</strong> – request data</p></li>
+<li><p><strong>&lt;ReplyType&gt;</strong> – the data type expected for the reply data</p></li>
+<li><p><strong>&lt;RequestType&gt;</strong> – the data type of the passed in request data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p></li>
+<li><p><strong>TimeoutException</strong> – timeout waiting for the reply</p></li>
+<li><p><strong>ExecutionException</strong> – in case the method failed on the server side</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the reply</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html" title="java.util.concurrent.CancellationException"><strong>java.util.concurrent.CancellationException</strong></a> – waiting for the result was cancelled</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event with the resulting data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h3>call<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.call(String, RequestType, double)">
+public &lt;ReplyType, RequestType&gt; ReplyType <code class="sig-name descname">call</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, RequestType<em> data</em>, double<em> timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.call(String, RequestType, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server using the method name and plain request data. The method blocks until the server replied or until the specified timeout is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>data</strong> – request data</p></li>
+<li><p><strong>timeout</strong> – seconds to wait for the reply</p></li>
+<li><p><strong>&lt;ReplyType&gt;</strong> – the data type expected for the reply data</p></li>
+<li><p><strong>&lt;RequestType&gt;</strong> – the data type of the passed in request data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p></li>
+<li><p><strong>TimeoutException</strong> – timeout waiting for the reply</p></li>
+<li><p><strong>ExecutionException</strong> – in case the method failed on the server side</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – interrupted while waiting for the reply</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CancellationException.html" title="java.util.concurrent.CancellationException"><strong>java.util.concurrent.CancellationException</strong></a> – waiting for the result was cancelled</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An event with the resulting data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="callasync">
+<h3>callAsync<a class="headerlink" href="#callasync" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.callAsync(String, Event)">
+public java.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html" title="java.util.package-summary">util</a>.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html" title="java.util.concurrent.package-summary">concurrent</a>.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future">Future</a>&lt;<a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a>&gt; <code class="sig-name descname">callAsync</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a><em> event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.callAsync(String, Event)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server using the method name and request data encapsulated in an <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a> instance. The method returns immediately with a <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future"><code class="xref java java-ref docutils literal notranslate"><span class="pre">java.util.concurrent.Future</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>event</strong> – request data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future"><code class="xref java java-ref docutils literal notranslate"><span class="pre">java.util.concurrent.Future</span></code></a> instance to retrieve the result <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id7">
+<h3>callAsync<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.callAsync(String)">
+public java.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html" title="java.util.package-summary">util</a>.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html" title="java.util.concurrent.package-summary">concurrent</a>.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future">Future</a>&lt;<a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a>&gt; <code class="sig-name descname">callAsync</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.callAsync(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server without request parameter using the method name. The method returns immediately with a <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future"><code class="xref java java-ref docutils literal notranslate"><span class="pre">java.util.concurrent.Future</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the method to call</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future"><code class="xref java java-ref docutils literal notranslate"><span class="pre">java.util.concurrent.Future</span></code></a> instance to retrieve the result <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id8">
+<h3>callAsync<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.callAsync(String, RequestType)">
+public &lt;ReplyType, RequestType&gt; java.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html" title="java.util.package-summary">util</a>.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html" title="java.util.concurrent.package-summary">concurrent</a>.<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future">Future</a>&lt;ReplyType&gt; <code class="sig-name descname">callAsync</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, RequestType<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.callAsync(String, RequestType)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls a method of the server using the method name and plain request data. The method returns immediately with a <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future"><code class="xref java java-ref docutils literal notranslate"><span class="pre">java.util.concurrent.Future</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the method to call</p></li>
+<li><p><strong>data</strong> – the data to transfer as the method’s request parameter</p></li>
+<li><p><strong>&lt;ReplyType&gt;</strong> – the data type expected as the reply data</p></li>
+<li><p><strong>&lt;RequestType&gt;</strong> – the data type for the passed in request data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="../RSBException.html#rsb.RSBException" title="rsb.RSBException"><strong>RSBException</strong></a> – communication errors or server-side errors</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" title="java.util.concurrent.Future"><code class="xref java java-ref docutils literal notranslate"><span class="pre">java.util.concurrent.Future</span></code></a> instance to retrieve the result data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getdatatype">
+<h3>getDataType<a class="headerlink" href="#getdatatype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.getDataType()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt; <code class="sig-name descname">getDataType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.getDataType()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getkind">
+<h3>getKind<a class="headerlink" href="#getkind" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.getKind()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getKind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.getKind()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="gettimeout">
+<h3>getTimeout<a class="headerlink" href="#gettimeout" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.patterns.RemoteServer.getTimeout()">
+public double <code class="sig-name descname">getTimeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.patterns.RemoteServer.getTimeout()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the timeout used when waiting for replies from a server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>timeout in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantId
+
+IntrospectionModel.IntrospectionModelObserver
+=============================================
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public interface IntrospectionModelObserver
+   :outertype: IntrospectionModel
+
+   Interface to implement when observing an instance of \ :java:ref:`IntrospectionModel`\ . Clients will only be called single-threaded.
+
+   :author: jwienke
+
+Methods
+-------
+participantAdded
+^^^^^^^^^^^^^^^^
+
+.. java:method::  void participantAdded(ParticipantInfo info)
+   :outertype: IntrospectionModel.IntrospectionModelObserver
+
+   Called in case a new participant has been added to the model.
+
+   :param info: information about the participant, not \ ``null``\
+
+participantRemoved
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void participantRemoved(ParticipantInfo info)
+   :outertype: IntrospectionModel.IntrospectionModelObserver
+
+   Called in case a participant has been removed from the model.
+
+   :param info: information about the participant, not \ ``null``\
+

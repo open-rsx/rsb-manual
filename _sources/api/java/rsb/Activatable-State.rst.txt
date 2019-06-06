@@ -1,0 +1,35 @@
+.. java:import:: java.io Closeable
+
+Activatable.State
+=================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: abstract class State
+   :outertype: Activatable
+
+   A utility base class which can be used to implement a state pattern which fulfills the \ :java:ref:`Activatable`\  interface. Classes implementing \ :java:ref:`Activatable`\  can create own state classes derived from this one to inherit the default behavior for \ :java:ref:`activate()`\  and \ :java:ref:`deactivate()`\ . The base implementations of \ :java:ref:`activate()`\  and \ :java:ref:`deactivate()`\  always throw an \ :java:ref:`IllegalStateException`\ .
+
+   :author: jwienke
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: public void activate() throws RSBException
+   :outertype: Activatable.State
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: public void deactivate() throws RSBException, InterruptedException
+   :outertype: Activatable.State
+
+isActive
+^^^^^^^^
+
+.. java:method:: public abstract boolean isActive()
+   :outertype: Activatable.State
+

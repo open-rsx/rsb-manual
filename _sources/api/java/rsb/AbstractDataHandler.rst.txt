@@ -1,0 +1,34 @@
+.. java:import:: java.util.logging Logger
+
+AbstractDataHandler
+===================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public abstract class AbstractDataHandler<DataType> implements Handler
+
+   A handler that receives the user payload of an event by extracting the data and casting them to the specified type.
+
+   :author: swrede
+   :param <DataType>: the desired target data type of the user handler. The event payload will be casted to this type
+
+Methods
+-------
+handleEvent
+^^^^^^^^^^^
+
+.. java:method:: public abstract void handleEvent(DataType data) throws InterruptedException
+   :outertype: AbstractDataHandler
+
+   Called with the extracted data.
+
+   :param data: data contained in the event to handle
+   :throws InterruptedException: Execution of the handler operation was interrupted
+
+internalNotify
+^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings @Override public void internalNotify(Event event) throws InterruptedException
+   :outertype: AbstractDataHandler
+

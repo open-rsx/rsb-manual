@@ -1,0 +1,111 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb ParticipantId
+
+.. java:import:: rsb Scope
+
+.. java:import:: rsb.converter ConversionException
+
+.. java:import:: rsb.converter Converter
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.converter NoSuchConverterException
+
+.. java:import:: rsb.converter UserData
+
+.. java:import:: rsb.converter WireContents
+
+.. java:import:: rsb.protocol EventIdType.EventId
+
+.. java:import:: rsb.protocol EventMetaDataType.EventMetaData
+
+.. java:import:: rsb.protocol EventMetaDataType.UserInfo
+
+.. java:import:: rsb.protocol EventMetaDataType.UserTime
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+.. java:import:: rsb.protocol NotificationType.Notification.Builder
+
+.. java:import:: com.google.protobuf ByteString
+
+ProtocolConversion
+==================
+
+.. java:package:: rsb.protocol
+   :noindex:
+
+.. java:type:: public final class ProtocolConversion
+
+   A utility class to converter between protocol buffers based classes and our user level types.
+
+   :author: jwienke
+
+Methods
+-------
+createEventIdBuilder
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static EventId.Builder createEventIdBuilder(rsb.EventId id)
+   :outertype: ProtocolConversion
+
+   Creates a build for the serialization of an \ :java:ref:`rsb.EventId`\ , filled with the contents of the given id.
+
+   :param id: the id to serialize
+   :return: the builder
+
+fillNotificationHeader
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static void fillNotificationHeader(Builder notificationBuilder, Event event, String wireSchema)
+   :outertype: ProtocolConversion
+
+   Fills the notification header in a builder instance.
+
+   :param notificationBuilder: the builder where fields should be filled
+   :param event: the event to serialize and to greb the data for the notification header from
+   :param wireSchema: the wire shema of the serialized data
+
+fromNotification
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public static Event fromNotification(Notification notification)
+   :outertype: ProtocolConversion
+
+   Build event from RSB Notification. Excludes user data de-serialization as it is bound to the converter configuration.
+
+   :param notification: \ :java:ref:`rsb.protocol.NotificationType.Notification`\  instance to deserialize
+   :return: deserialized \ :java:ref:`Event`\  instance
+
+fromNotification
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public static Event fromNotification(Notification notification, ByteBuffer serializedData, ConverterSelectionStrategy<ByteBuffer> converters) throws ConversionException
+   :outertype: ProtocolConversion
+
+   Builds an \ :java:ref:`Event`\  instance from a \ :java:ref:`rsb.protocol.NotificationType.Notification`\  and a \ :java:ref:`ByteBuffer`\  containing the event payload. This includes the deserialization of the payload using a specified converter strategy.
+
+   :param notification: the notification with the event meta data
+   :param serializedData: the serialized data
+   :param converters: converter strategy to use for deserializing the data
+   :throws ConversionException: unable to deserialize the data with the specified converter stategy
+   :return: the constructed and complete event including the payload
+
+serializeEventData
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static WireContents<ByteBuffer> serializeEventData(Event event, ConverterSelectionStrategy<ByteBuffer> converters) throws ConversionException
+   :outertype: ProtocolConversion
+
+   Serializes the payload contained in an \ :java:ref:`Event`\  instance using a specified \ :java:ref:`ConverterSelectionStrategy`\ .
+
+   :param event: event containing the data to serialize
+   :param converters: the converters to use
+   :throws ConversionException: error converting, e.g. no converter available or wrong class
+   :return: the serialized data including the generated wire schema
+

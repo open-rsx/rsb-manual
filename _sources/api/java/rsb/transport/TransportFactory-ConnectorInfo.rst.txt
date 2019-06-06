@@ -1,0 +1,62 @@
+.. java:import:: java.util Set
+
+.. java:import:: rsb InitializeException
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.util Properties
+
+TransportFactory.ConnectorInfo
+==============================
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type::  class ConnectorInfo
+   :outertype: TransportFactory
+
+   Instances of this class describe capabilities and properties of transport implementations.
+
+   :author: jmoringe
+
+Constructors
+------------
+ConnectorInfo
+^^^^^^^^^^^^^
+
+.. java:constructor:: public ConnectorInfo(String name, Set<String> schemas, Set<String> options, boolean remote)
+   :outertype: TransportFactory.ConnectorInfo
+
+   Creates a description for the transport implementation named @a name.
+
+   :param name: Name of the transport implementation
+   :param schemas: The schemas supported by the transport implementation.
+   :param options: Names of the configuration options accepted by the transport implementation.
+   :param remote: Indicates whether the transport performs remote communication.
+
+Methods
+-------
+getName
+^^^^^^^
+
+.. java:method:: public String getName()
+   :outertype: TransportFactory.ConnectorInfo
+
+getOptions
+^^^^^^^^^^
+
+.. java:method:: public Set<String> getOptions()
+   :outertype: TransportFactory.ConnectorInfo
+
+getSchemas
+^^^^^^^^^^
+
+.. java:method:: public Set<String> getSchemas()
+   :outertype: TransportFactory.ConnectorInfo
+
+isRemote
+^^^^^^^^
+
+.. java:method:: public boolean isRemote()
+   :outertype: TransportFactory.ConnectorInfo
+

@@ -1,0 +1,179 @@
+.. java:import:: java.io EOFException
+
+.. java:import:: java.io IOException
+
+.. java:import:: java.net URI
+
+.. java:import:: java.net URISyntaxException
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb AbstractActivatable
+
+.. java:import:: rsb.protocol NotificationType.Notification
+
+BusBase
+=======
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: @SuppressWarnings public abstract class BusBase extends AbstractActivatable implements Bus
+
+   A utility base class for the implementation of the \ :java:ref:`Bus`\  interface. This class offers methods for sending and receiving events to this bus as well as registration of internal Connectors (inward) and Connections (outward) which allow to send event notifications to external participants. Subclasses of this class should use this instance to synchronize on. Subclasses should call \ :java:ref:`deactivate()`\  when overriding this method to ensure that receiving threads are terminated properly.
+
+   :author: swrede, jwienke
+
+Constructors
+------------
+BusBase
+^^^^^^^
+
+.. java:constructor:: protected BusBase(SocketOptions options)
+   :outertype: BusBase
+
+   Constructor.
+
+   :param options: socket options to use
+
+Methods
+-------
+addConnection
+^^^^^^^^^^^^^
+
+.. java:method:: protected ReceiveThread addConnection(BusConnection con)
+   :outertype: BusBase
+
+   Registers a connection for the dispatching logic in \ :java:ref:`handleGlobally(rsb.protocol.NotificationType.Notification)`\  and creates a new instance of a thread receiving notifications from this connection. However, this thread is not started. It is the responsibility of the client calling this method to start the thread at an appropriate time. This manual handling is necessary as the procedure varies for bus server and clients.
+
+   :param con: the connection to register
+   :return: receiver thread for the added connection. Should be started using \ :java:ref:`Thread.start()`\  at an appropriate time.
+
+addNotificationReceiver
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void addNotificationReceiver(NotificationReceiver receiver)
+   :outertype: BusBase
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override @SuppressWarnings public void deactivate() throws RSBException, InterruptedException
+   :outertype: BusBase
+
+getSocketOptions
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public SocketOptions getSocketOptions()
+   :outertype: BusBase
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public URI getTransportUri()
+   :outertype: BusBase
+
+handleGlobally
+^^^^^^^^^^^^^^
+
+.. java:method:: @SuppressWarnings protected void handleGlobally(Notification notification, BusConnection ignoreConnection) throws RSBException
+   :outertype: BusBase
+
+   Dispatches the notification to registered connections.
+
+   :param notification: notification to dispatch
+   :param ignoreConnection: for dispatching, ignore this connection and do not pass the notification to this instance. Might be \ ``null``\  if this filtering is not required.
+   :throws RSBException: error during dispatching
+
+handleGlobally
+^^^^^^^^^^^^^^
+
+.. java:method:: protected void handleGlobally(Notification notification) throws RSBException
+   :outertype: BusBase
+
+   Dispatches the notification to registered connections.
+
+   :param notification: notification to dispatch
+   :throws RSBException: error during dispatching
+
+handleIncoming
+^^^^^^^^^^^^^^
+
+.. java:method:: public abstract void handleIncoming(Notification notification, BusConnection sourceConnection) throws RSBException
+   :outertype: BusBase
+
+   Implement this method to specify the behavior in case of an incoming notification received from a connection. Implementations can use the utility methods \ :java:ref:`handleLocally(rsb.protocol.NotificationType.Notification)`\  and \ :java:ref:`handleGlobally(rsb.protocol.NotificationType.Notification)`\  to implement their processing logic.
+
+   :param notification: the received connection
+   :param sourceConnection: the source \ :java:ref:`BusConnection`\  providing this Notification
+   :throws RSBException: processing error
+
+handleIncoming
+^^^^^^^^^^^^^^
+
+.. java:method:: public void handleIncoming(Notification notification) throws RSBException
+   :outertype: BusBase
+
+   Implement this method to specify the behavior in case of an incoming notification received from a connection. Implementations can use the utility methods \ :java:ref:`handleLocally(rsb.protocol.NotificationType.Notification)`\  and \ :java:ref:`handleGlobally(rsb.protocol.NotificationType.Notification)`\  or \ :java:ref:`handleGlobally(rsb.protocol.NotificationType.Notification,BusConnection)`\  to implement their processing logic. This method assumes that the notification was not received from a \ :java:ref:`BusConnection`\  and passes \ ``null``\  to \ :java:ref:`handleIncoming(rsb.protocol.NotificationType.Notification,BusConnection)`\  .
+
+   :param notification: the received connection
+   :throws RSBException: processing error
+
+handleLocally
+^^^^^^^^^^^^^
+
+.. java:method:: protected void handleLocally(Notification notification) throws RSBException
+   :outertype: BusBase
+
+   Dispatches the specified notifications to all registered \ :java:ref:`rsb.transport.socket.Bus.NotificationReceiver`\ s.
+
+   :param notification: the notification to dispatch
+   :throws RSBException: exception during dispatching
+
+handleOutgoing
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void handleOutgoing(Notification notification) throws RSBException
+   :outertype: BusBase
+
+numberOfConnections
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int numberOfConnections()
+   :outertype: BusBase
+
+   Indicates how many connections are currently registered.
+
+   :return: number of connections
+
+removeConnection
+^^^^^^^^^^^^^^^^
+
+.. java:method:: protected ReceiveThread removeConnection(BusConnection con)
+   :outertype: BusBase
+
+   Removes a connection from the dispatching logic. The connection is neither closed automatically nor is the receiving thread terminated.
+
+   :param con: the connection to remove
+   :return: the ReceiveThread responsible for this connection or \ ``null``\  if this connection was not part of the dispatching logic
+
+removeNotificationReceiver
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void removeNotificationReceiver(NotificationReceiver receiver)
+   :outertype: BusBase
+

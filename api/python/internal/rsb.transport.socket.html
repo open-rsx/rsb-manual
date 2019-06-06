@@ -1,0 +1,1294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rsb.transport.socket &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Support" href="../../../support.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/packages.html">Java API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../api-python.html#user-level-api">User-Level API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../api-python.html#internal-api">Internal API</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rsb.eventprocessing.html">rsb.eventprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.util.html">rsb.util</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.introspection.html">rsb.introspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.html">rsb.transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rsb.transport.local.html">rsb.transport.local</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rsb.transport.socket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../api-python.html">Python API Documentation</a> &raquo;</li>
+        
+      <li>rsb.transport.socket</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/python/internal/rsb.transport.socket.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="module-rsb.transport.socket">
+<span id="rsb-transport-socket"></span><h1>rsb.transport.socket<a class="headerlink" href="#module-rsb.transport.socket" title="Permalink to this headline">¶</a></h1>
+<p>Contains a transport based on point-to-point socket connections.</p>
+<p><em>Code author: jmoringe</em></p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.socket.get_bus_client_for" title="rsb.transport.socket.get_bus_client_for"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bus_client_for</span></code></a>(host, port, tcpnodelay, …)</p></td>
+<td><p>Return a bus client for the given end point and attach a connector to it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.socket.get_bus_server_for" title="rsb.transport.socket.get_bus_server_for"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bus_server_for</span></code></a>(host, port, tcpnodelay, …)</p></td>
+<td><p>Return a bus server for the given end point and attach a connector to it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.socket.remove_connector" title="rsb.transport.socket.remove_connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_connector</span></code></a>(bus, connector)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.socket.rsb_initialize" title="rsb.transport.socket.rsb_initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsb_initialize</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bus</span></code></a>()</p></td>
+<td><p>Instances of this class provide access to a socket-based bus.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.socket.BusClient" title="rsb.transport.socket.BusClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusClient</span></code></a>(host, port, tcpnodelay)</p></td>
+<td><p>Provides access to a bus by means of a client socket.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.socket.BusConnection" title="rsb.transport.socket.BusConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusConnection</span></code></a>([host, port, socket_, …])</p></td>
+<td><p>Implements a connection to a socket-based bus.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.socket.BusServer" title="rsb.transport.socket.BusServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusServer</span></code></a>(host, port, tcpnodelay[, backlog])</p></td>
+<td><p>Provides access to a socket-based bus for local and remote bus clients.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.socket.Connector" title="rsb.transport.socket.Connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Connector</span></code></a>(converters[, options])</p></td>
+<td><p>Base class for connectors that operate on a socket connection based bus.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.socket.InConnector" title="rsb.transport.socket.InConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InConnector</span></code></a>(**kwargs)</p></td>
+<td><p>Receives events from a bus represented by a socket connection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rsb.transport.socket.OutConnector" title="rsb.transport.socket.OutConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutConnector</span></code></a>(**kwargs)</p></td>
+<td><p>Sends events to a bus realized as a socket connection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rsb.transport.socket.TransportFactory" title="rsb.transport.socket.TransportFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransportFactory</span></code></a></p></td>
+<td><p><a class="reference internal" href="#rsb.transport.socket.TransportFactory" title="rsb.transport.socket.TransportFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransportFactory</span></code></a> implementation for the socket transport.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="rsb.transport.socket.Bus">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">Bus</code><a class="headerlink" href="#rsb.transport.socket.Bus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Instances of this class provide access to a socket-based bus.</p>
+<p>It is transparent for clients (connectors) of this class whether
+is accessed by running the bus server or by connecting to the bus
+server as a client.</p>
+<p>In-direction connectors add themselves as event sinks using the
+<a class="reference internal" href="#rsb.transport.socket.Bus.add_connector" title="rsb.transport.socket.Bus.add_connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_connector</span></code></a> method.</p>
+<p>Out-direction connectors submit events to the bus using the
+<a class="reference internal" href="#rsb.transport.socket.Bus.handle_outgoing" title="rsb.transport.socket.Bus.handle_outgoing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_outgoing</span></code></a> method.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.add_connection">
+<code class="sig-name descname">add_connection</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.add_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">connection</span></code> to the list of connections of this bus.</p>
+<p>This cause notifications send over this bus to be send through
+<code class="docutils literal notranslate"><span class="pre">connection</span></code> and notifications received via <code class="docutils literal notranslate"><span class="pre">connection</span></code> to be
+dispatched to connectors of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – The connection that should be added to this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.add_connector">
+<code class="sig-name descname">add_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.add_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">connector</span></code> to the list of connectors of this bus.</p>
+<p>Depending on the direction of <code class="docutils literal notranslate"><span class="pre">connector</span></code>, this causes
+<code class="docutils literal notranslate"><span class="pre">connector</span></code> to either receive or broadcast notifications via
+this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – The connector that should be added to this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.handle_incoming">
+<code class="sig-name descname">handle_incoming</code><span class="sig-paren">(</span><em class="sig-param">connection_and_notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.handle_incoming" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.handle_outgoing">
+<code class="sig-name descname">handle_outgoing</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.handle_outgoing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.remove_connection">
+<code class="sig-name descname">remove_connection</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.remove_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <code class="docutils literal notranslate"><span class="pre">connection</span></code> from the list of connections of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – The connection that should be removed from this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.remove_connector">
+<code class="sig-name descname">remove_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Bus.remove_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <code class="docutils literal notranslate"><span class="pre">connector</span></code> from the list of connectors of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – The connector that should be removed from this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#rsb.transport.socket.Bus.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.connections">
+<em class="property">property </em><code class="sig-name descname">connections</code><a class="headerlink" href="#rsb.transport.socket.Bus.connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attached connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of all connections to the bus.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.transport.socket.Bus.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Bus.lock">
+<em class="property">property </em><code class="sig-name descname">lock</code><a class="headerlink" href="#rsb.transport.socket.Bus.lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.BusClient">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">BusClient</code><span class="sig-paren">(</span><em class="sig-param">host</em>, <em class="sig-param">port</em>, <em class="sig-param">tcpnodelay</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.socket.Bus</span></code></a></p>
+<p>Provides access to a bus by means of a client socket.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new client connection on the specified host and port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – A hostname or address of the node on which the bus server
+listens.</p></li>
+<li><p><strong>port</strong> – The port on which the new bus server listens.</p></li>
+<li><p><strong>tcpnodelay</strong> – If True, the socket will be set to TCP_NODELAY.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type host</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Type port</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Type tcpnodelay</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.add_connection">
+<code class="sig-name descname">add_connection</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.add_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">connection</span></code> to the list of connections of this bus.</p>
+<p>This cause notifications send over this bus to be send through
+<code class="docutils literal notranslate"><span class="pre">connection</span></code> and notifications received via <code class="docutils literal notranslate"><span class="pre">connection</span></code> to be
+dispatched to connectors of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – The connection that should be added to this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.add_connector">
+<code class="sig-name descname">add_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.add_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">connector</span></code> to the list of connectors of this bus.</p>
+<p>Depending on the direction of <code class="docutils literal notranslate"><span class="pre">connector</span></code>, this causes
+<code class="docutils literal notranslate"><span class="pre">connector</span></code> to either receive or broadcast notifications via
+this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – The connector that should be added to this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.handle_incoming">
+<code class="sig-name descname">handle_incoming</code><span class="sig-paren">(</span><em class="sig-param">connection_and_notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.handle_incoming" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.handle_outgoing">
+<code class="sig-name descname">handle_outgoing</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.handle_outgoing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.remove_connection">
+<code class="sig-name descname">remove_connection</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.remove_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <code class="docutils literal notranslate"><span class="pre">connection</span></code> from the list of connections of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – The connection that should be removed from this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.remove_connector">
+<code class="sig-name descname">remove_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusClient.remove_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <code class="docutils literal notranslate"><span class="pre">connector</span></code> from the list of connectors of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – The connector that should be removed from this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#rsb.transport.socket.BusClient.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.connections">
+<em class="property">property </em><code class="sig-name descname">connections</code><a class="headerlink" href="#rsb.transport.socket.BusClient.connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attached connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of all connections to the bus.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.transport.socket.BusClient.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusClient.lock">
+<em class="property">property </em><code class="sig-name descname">lock</code><a class="headerlink" href="#rsb.transport.socket.BusClient.lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.BusConnection">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">BusConnection</code><span class="sig-paren">(</span><em class="sig-param">host=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">socket_=None</em>, <em class="sig-param">is_server=False</em>, <em class="sig-param">tcpnodelay=True</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rsb.eventprocessing.html#rsb.eventprocessing.BroadcastProcessor" title="rsb.eventprocessing.BroadcastProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.eventprocessing.BroadcastProcessor</span></code></a></p>
+<p>Implements a connection to a socket-based bus.</p>
+<p>The basic operations provided by this class are receiving an event by
+calling <a class="reference internal" href="#rsb.transport.socket.BusConnection.receive_notification" title="rsb.transport.socket.BusConnection.receive_notification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">receive_notification</span></code></a> and submitting an event to the bus by
+calling <a class="reference internal" href="#rsb.transport.socket.BusConnection.send_notification" title="rsb.transport.socket.BusConnection.send_notification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">send_notification</span></code></a>.</p>
+<p>In a process which act as a client for a particular bus, a single
+instance of this class is connected to the bus server and provides
+access to the bus for the process.</p>
+<p>A process which acts as the server for a particular bus, manages
+(via the <a class="reference internal" href="#rsb.transport.socket.BusServer" title="rsb.transport.socket.BusServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusServer</span></code></a> class) one <a class="reference internal" href="#rsb.transport.socket.BusConnection" title="rsb.transport.socket.BusConnection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusConnection</span></code></a> object for each
+client (remote process) connected to the bus.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Args:</p>
+<p>Returns:</p>
+<p>Create a new instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – Hostname or address of the bus server.</p></li>
+<li><p><strong>port</strong> – Port of the bus server.</p></li>
+<li><p><strong>socket</strong> – A socket object through which the new connection should access
+the bus.</p></li>
+<li><p><strong>is_server</strong> – if True, the created object will perform the server part of the
+handshake protocol.</p></li>
+<li><p><strong>tcpnodelay</strong> – If True, the socket will be set to TCP_NODELAY.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type host</dt>
+<dd class="field-even"><p>str or None</p>
+</dd>
+<dt class="field-odd">Type port</dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+<dt class="field-even">Type is_server</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Type tcpnodelay</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#rsb.transport.socket.get_bus_client_for" title="rsb.transport.socket.get_bus_client_for"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bus_client_for</span></code></a>, <a class="reference internal" href="#rsb.transport.socket.get_bus_server_for" title="rsb.transport.socket.get_bus_server_for"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bus_server_for</span></code></a>.</p>
+</div>
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.add_handler">
+<code class="sig-name descname">add_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.add_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.buffer_to_notification">
+<em class="property">static </em><code class="sig-name descname">buffer_to_notification</code><span class="sig-paren">(</span><em class="sig-param">serialized</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.buffer_to_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.dispatch">
+<code class="sig-name descname">dispatch</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.do_one_notification">
+<code class="sig-name descname">do_one_notification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.do_one_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.notification_to_buffer">
+<em class="property">static </em><code class="sig-name descname">notification_to_buffer</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.notification_to_buffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.receive_notification">
+<code class="sig-name descname">receive_notification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.receive_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.receive_notifications">
+<code class="sig-name descname">receive_notifications</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.receive_notifications" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.remove_handler">
+<code class="sig-name descname">remove_handler</code><span class="sig-paren">(</span><em class="sig-param">handler</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.remove_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.send_notification">
+<code class="sig-name descname">send_notification</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.send_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.shutdown">
+<code class="sig-name descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.wait_for_deactivation">
+<code class="sig-name descname">wait_for_deactivation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusConnection.wait_for_deactivation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.disconnect_hook">
+<em class="property">property </em><code class="sig-name descname">disconnect_hook</code><a class="headerlink" href="#rsb.transport.socket.BusConnection.disconnect_hook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusConnection.handlers">
+<em class="property">property </em><code class="sig-name descname">handlers</code><a class="headerlink" href="#rsb.transport.socket.BusConnection.handlers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.BusServer">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">BusServer</code><span class="sig-paren">(</span><em class="sig-param">host</em>, <em class="sig-param">port</em>, <em class="sig-param">tcpnodelay</em>, <em class="sig-param">backlog=5</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.socket.Bus</span></code></a></p>
+<p>Provides access to a socket-based bus for local and remote bus clients.</p>
+<p>Remote clients can connect to a server socket in order to send and
+receive events through the resulting socket connection.</p>
+<p>Local clients (connectors) use the usual <a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bus</span></code></a> interface to
+receive events submitted by remote clients and submit events which
+will be distributed to remote clients by the <a class="reference internal" href="#rsb.transport.socket.BusServer" title="rsb.transport.socket.BusServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusServer</span></code></a>.</p>
+<p><em>Code author: jmoringe</em></p>
+<p>Create a new instance on the given host and port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – A hostname or address identifying the interface to which the
+listen socket of the new bus server should be bound.</p></li>
+<li><p><strong>port</strong> – The port to which the listen socket of the new bus server
+should be bound.</p></li>
+<li><p><strong>tcpnodelay</strong> – If True, the socket will be set to TCP_NODELAY.</p></li>
+<li><p><strong>backlog</strong> – The maximum number of queued connection attempts.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type host</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Type port</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Type tcpnodelay</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Type backlog</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.accept_clients">
+<code class="sig-name descname">accept_clients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.accept_clients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.add_connection">
+<code class="sig-name descname">add_connection</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.add_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">connection</span></code> to the list of connections of this bus.</p>
+<p>This cause notifications send over this bus to be send through
+<code class="docutils literal notranslate"><span class="pre">connection</span></code> and notifications received via <code class="docutils literal notranslate"><span class="pre">connection</span></code> to be
+dispatched to connectors of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – The connection that should be added to this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.add_connector">
+<code class="sig-name descname">add_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.add_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">connector</span></code> to the list of connectors of this bus.</p>
+<p>Depending on the direction of <code class="docutils literal notranslate"><span class="pre">connector</span></code>, this causes
+<code class="docutils literal notranslate"><span class="pre">connector</span></code> to either receive or broadcast notifications via
+this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – The connector that should be added to this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.handle_incoming">
+<code class="sig-name descname">handle_incoming</code><span class="sig-paren">(</span><em class="sig-param">connection_and_notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.handle_incoming" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.handle_outgoing">
+<code class="sig-name descname">handle_outgoing</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.handle_outgoing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.remove_connection">
+<code class="sig-name descname">remove_connection</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.remove_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <code class="docutils literal notranslate"><span class="pre">connection</span></code> from the list of connections of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – The connection that should be removed from this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.remove_connector">
+<code class="sig-name descname">remove_connector</code><span class="sig-paren">(</span><em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.BusServer.remove_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove <code class="docutils literal notranslate"><span class="pre">connector</span></code> from the list of connectors of this bus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connector</strong> – The connector that should be removed from this bus.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#rsb.transport.socket.BusServer.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.connections">
+<em class="property">property </em><code class="sig-name descname">connections</code><a class="headerlink" href="#rsb.transport.socket.BusServer.connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attached connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of all connections to the bus.</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.connectors">
+<em class="property">property </em><code class="sig-name descname">connectors</code><a class="headerlink" href="#rsb.transport.socket.BusServer.connectors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.BusServer.lock">
+<em class="property">property </em><code class="sig-name descname">lock</code><a class="headerlink" href="#rsb.transport.socket.BusServer.lock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.Connector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">Connector</code><span class="sig-paren">(</span><em class="sig-param">converters</em>, <em class="sig-param">options=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rsb.transport.html#rsb.transport.Connector" title="rsb.transport.Connector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.Connector</span></code></a>, <a class="reference internal" href="rsb.transport.html#rsb.transport.ConverterSelectingConnector" title="rsb.transport.ConverterSelectingConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.ConverterSelectingConnector</span></code></a></p>
+<p>Base class for connectors that operate on a socket connection based bus.</p>
+<p>Instances of subclasses of this class receive events from a bus
+(represented by a <a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bus</span></code></a> object) that is accessed via a socket
+connection.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a converter that converts the supplied data to the wire-type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_type</strong> – the type of the object for which a suitable converter should
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>converter</p>
+</dd>
+<dt class="field-odd">Raises KeyError</dt>
+<dd class="field-odd"><p>no converter is available for the supplied data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable converter for the <code class="docutils literal notranslate"><span class="pre">wire_schema</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_schema</strong> – the wire-schema to or from which the returned converter should
+convert</p>
+</dd>
+<dt class="field-even">Type wire_schema</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>converter</p>
+</dd>
+<dt class="field-even">Raises KeyError</dt>
+<dd class="field-even"><p>no converter is available for the specified wire-schema.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.get_transport_url">
+<code class="sig-name descname">get_transport_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector.get_transport_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.set_quality_of_service_spec">
+<code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.Connector.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.bus">
+<em class="property">property </em><code class="sig-name descname">bus</code><a class="headerlink" href="#rsb.transport.socket.Connector.bus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.converter_map">
+<em class="property">property </em><code class="sig-name descname">converter_map</code><a class="headerlink" href="#rsb.transport.socket.Connector.converter_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.transport.socket.Connector.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.Connector.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.transport.socket.Connector.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the serialization type used for this connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>python serialization type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.InConnector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">InConnector</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.transport.socket.Connector" title="rsb.transport.socket.Connector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.socket.Connector</span></code></a>, <a class="reference internal" href="rsb.transport.html#rsb.transport.InConnector" title="rsb.transport.InConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.InConnector</span></code></a></p>
+<p>Receives events from a bus represented by a socket connection.</p>
+<p>Instances of this class receive events from a bus (represented by
+a <a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bus</span></code></a> object) that is accessed via a socket connection.</p>
+<p>The receiving and dispatching of events is done in push mode: each
+instance has a <a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bus</span></code></a> which pushes appropriate events into the
+instance. The connector deserializes event payloads and pushes the
+events into handlers (usually objects which implement some event
+processing strategy).</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.filter_notify">
+<code class="sig-name descname">filter_notify</code><span class="sig-paren">(</span><em class="sig-param">the_filter</em>, <em class="sig-param">action</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.filter_notify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a converter that converts the supplied data to the wire-type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_type</strong> – the type of the object for which a suitable converter should
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>converter</p>
+</dd>
+<dt class="field-odd">Raises KeyError</dt>
+<dd class="field-odd"><p>no converter is available for the supplied data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable converter for the <code class="docutils literal notranslate"><span class="pre">wire_schema</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_schema</strong> – the wire-schema to or from which the returned converter should
+convert</p>
+</dd>
+<dt class="field-even">Type wire_schema</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>converter</p>
+</dd>
+<dt class="field-even">Raises KeyError</dt>
+<dd class="field-even"><p>no converter is available for the specified wire-schema.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.get_transport_url">
+<code class="sig-name descname">get_transport_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.get_transport_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">notification</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.set_observer_action">
+<code class="sig-name descname">set_observer_action</code><span class="sig-paren">(</span><em class="sig-param">action</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.set_observer_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the action used by the connector to notify about incoming events.</p>
+<p>The call to this method must be thread-safe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>action</strong> – action called if a new message is received from the connector.
+Must accept an <code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code> as parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.set_quality_of_service_spec">
+<code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.InConnector.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.bus">
+<em class="property">property </em><code class="sig-name descname">bus</code><a class="headerlink" href="#rsb.transport.socket.InConnector.bus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.converter_map">
+<em class="property">property </em><code class="sig-name descname">converter_map</code><a class="headerlink" href="#rsb.transport.socket.InConnector.converter_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.transport.socket.InConnector.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.InConnector.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.transport.socket.InConnector.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the serialization type used for this connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>python serialization type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.OutConnector">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">OutConnector</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rsb.transport.socket.Connector" title="rsb.transport.socket.Connector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.socket.Connector</span></code></a>, <a class="reference internal" href="rsb.transport.html#rsb.transport.OutConnector" title="rsb.transport.OutConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.OutConnector</span></code></a></p>
+<p>Sends events to a bus realized as a socket connection.</p>
+<p>Instance of this class send events to a bus (represented by a
+<a class="reference internal" href="#rsb.transport.socket.Bus" title="rsb.transport.socket.Bus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bus</span></code></a> object) that is accessed via a socket connection.</p>
+<p><em>Code author: jmoringe</em></p>
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.deactivate">
+<code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.get_converter_for_data_type">
+<code class="sig-name descname">get_converter_for_data_type</code><span class="sig-paren">(</span><em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.get_converter_for_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a converter that converts the supplied data to the wire-type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_type</strong> – the type of the object for which a suitable converter should
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>converter</p>
+</dd>
+<dt class="field-odd">Raises KeyError</dt>
+<dd class="field-odd"><p>no converter is available for the supplied data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.get_converter_for_wire_schema">
+<code class="sig-name descname">get_converter_for_wire_schema</code><span class="sig-paren">(</span><em class="sig-param">wire_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.get_converter_for_wire_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable converter for the <code class="docutils literal notranslate"><span class="pre">wire_schema</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wire_schema</strong> – the wire-schema to or from which the returned converter should
+convert</p>
+</dd>
+<dt class="field-even">Type wire_schema</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>converter</p>
+</dd>
+<dt class="field-even">Raises KeyError</dt>
+<dd class="field-even"><p>no converter is available for the specified wire-schema.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.get_transport_url">
+<code class="sig-name descname">get_transport_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.get_transport_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send <code class="docutils literal notranslate"><span class="pre">event</span></code> and adapts its meta data with the actual send time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event</strong> – event to send</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.set_quality_of_service_spec">
+<code class="sig-name descname">set_quality_of_service_spec</code><span class="sig-paren">(</span><em class="sig-param">qos</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.OutConnector.set_quality_of_service_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.bus">
+<em class="property">property </em><code class="sig-name descname">bus</code><a class="headerlink" href="#rsb.transport.socket.OutConnector.bus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.converter_map">
+<em class="property">property </em><code class="sig-name descname">converter_map</code><a class="headerlink" href="#rsb.transport.socket.OutConnector.converter_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.scope">
+<em class="property">property </em><code class="sig-name descname">scope</code><a class="headerlink" href="#rsb.transport.socket.OutConnector.scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.OutConnector.wire_type">
+<em class="property">property </em><code class="sig-name descname">wire_type</code><a class="headerlink" href="#rsb.transport.socket.OutConnector.wire_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the serialization type used for this connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>python serialization type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rsb.transport.socket.TransportFactory">
+<em class="property">class </em><code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">TransportFactory</code><a class="headerlink" href="#rsb.transport.socket.TransportFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rsb.transport.html#rsb.transport.TransportFactory" title="rsb.transport.TransportFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">rsb.transport.TransportFactory</span></code></a></p>
+<p><a class="reference internal" href="#rsb.transport.socket.TransportFactory" title="rsb.transport.socket.TransportFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransportFactory</span></code></a> implementation for the socket transport.</p>
+<p><em>Code author: jwienke</em></p>
+<dl class="method">
+<dt id="rsb.transport.socket.TransportFactory.create_in_connector">
+<code class="sig-name descname">create_in_connector</code><span class="sig-paren">(</span><em class="sig-param">converters</em>, <em class="sig-param">options</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.TransportFactory.create_in_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#rsb.transport.socket.InConnector" title="rsb.transport.socket.InConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InConnector</span></code></a> for the represented transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>converters</strong> – the converters to use for this type options(dict of str):
+options for the new connector</p>
+</dd>
+<dt class="field-even">Type converters</dt>
+<dd class="field-even"><p>ConverterSelectionStrategy</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new connector instance</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>rsb.transport.InConnector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.TransportFactory.create_out_connector">
+<code class="sig-name descname">create_out_connector</code><span class="sig-paren">(</span><em class="sig-param">converters</em>, <em class="sig-param">options</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.TransportFactory.create_out_connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#rsb.transport.socket.OutConnector" title="rsb.transport.socket.OutConnector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutConnector</span></code></a> for the represented transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>converters</strong> – the converters to use for this type options(dict of str):
+options for the new connector</p>
+</dd>
+<dt class="field-even">Type converters</dt>
+<dd class="field-even"><p>ConverterSelectionStrategy</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new connector instance</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>rsb.transport.OutConnector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.TransportFactory.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#rsb.transport.socket.TransportFactory.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name representing this transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of the transport, non-empty</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rsb.transport.socket.TransportFactory.remote">
+<em class="property">property </em><code class="sig-name descname">remote</code><a class="headerlink" href="#rsb.transport.socket.TransportFactory.remote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">true</span></code> if the transport performs remote communication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>does the transport perform remote communication?</p>
+</dd>
+<dt class="field-even">Rtype</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.transport.socket.get_bus_client_for">
+<code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">get_bus_client_for</code><span class="sig-paren">(</span><em class="sig-param">host</em>, <em class="sig-param">port</em>, <em class="sig-param">tcpnodelay</em>, <em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.get_bus_client_for" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a bus client for the given end point and attach a connector to it.</p>
+<p>Return (creating it if necessary), a <a class="reference internal" href="#rsb.transport.socket.BusClient" title="rsb.transport.socket.BusClient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusClient</span></code></a> for the endpoint
+designated by <code class="docutils literal notranslate"><span class="pre">host</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code> and attach <code class="docutils literal notranslate"><span class="pre">connector</span></code> to
+it. Attaching <code class="docutils literal notranslate"><span class="pre">connector</span></code> marks the bus client as being in use
+and protects it from being destroyed in a race condition
+situation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – A hostname or address of the node on which the bus server listens.</p></li>
+<li><p><strong>port</strong> – The port on which the bus server listens.</p></li>
+<li><p><strong>tcpnodelay</strong> – If True, the socket will be set to TCP_NODELAY.</p></li>
+<li><p><strong>connector</strong> – A connector that should be attached to the bus client.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type host</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Type port</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Type tcpnodelay</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.transport.socket.get_bus_server_for">
+<code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">get_bus_server_for</code><span class="sig-paren">(</span><em class="sig-param">host</em>, <em class="sig-param">port</em>, <em class="sig-param">tcpnodelay</em>, <em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.get_bus_server_for" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a bus server for the given end point and attach a connector to it.</p>
+<p>Return (creating it if necessary), a <a class="reference internal" href="#rsb.transport.socket.BusServer" title="rsb.transport.socket.BusServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BusServer</span></code></a> for the endpoint
+designated by <code class="docutils literal notranslate"><span class="pre">host</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code> and attach <code class="docutils literal notranslate"><span class="pre">connector</span></code> to
+it. Attaching <code class="docutils literal notranslate"><span class="pre">connector</span></code> marks the bus server as being in use
+and protects it from being destroyed in a race condition
+situation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – A hostname or address identifying the interface to which the listen
+socket of the new bus server should be bound.</p></li>
+<li><p><strong>port</strong> – The port to which the listen socket of the new bus server should be
+bound.</p></li>
+<li><p><strong>tcpnodelay</strong> – If True, the socket will be set to TCP_NODELAY.</p></li>
+<li><p><strong>connector</strong> – A connector that should be attached to the bus server.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type host</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Type port</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Type tcpnodelay</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rsb.transport.socket.remove_connector">
+<code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">remove_connector</code><span class="sig-paren">(</span><em class="sig-param">bus</em>, <em class="sig-param">connector</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.remove_connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rsb.transport.socket.rsb_initialize">
+<code class="sig-prename descclassname">rsb.transport.socket.</code><code class="sig-name descname">rsb_initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.transport.socket.rsb_initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

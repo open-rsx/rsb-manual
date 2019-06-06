@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UnorderedParallelEventReceivingStrategy &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="UnorderedParallelFactory" href="UnorderedParallelFactory.html" />
+    <link rel="prev" title="SingleThreadFactory" href="SingleThreadFactory.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.eventprocessing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AbstractEventReceivingStrategy.html">AbstractEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultInRouteConfigurator.html">DefaultInRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DefaultOutRouteConfigurator.html">DefaultOutRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventReceivingStrategy.html">EventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventReceivingStrategyFactory.html">EventReceivingStrategyFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InRouteConfigurator.html">InRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MatchAndDispatchTask.html">MatchAndDispatchTask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OutRouteConfigurator.html">OutRouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RouteConfigurator.html">RouteConfigurator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RouteConfiguratorUtility.html">RouteConfiguratorUtility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingleThreadEventReceivingStrategy.html">SingleThreadEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="SingleThreadFactory.html">SingleThreadFactory</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UnorderedParallelEventReceivingStrategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UnorderedParallelFactory.html">UnorderedParallelFactory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.eventprocessing</a> &raquo;</li>
+        
+      <li>UnorderedParallelEventReceivingStrategy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/eventprocessing/UnorderedParallelEventReceivingStrategy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="unorderedparalleleventreceivingstrategy">
+<h1>UnorderedParallelEventReceivingStrategy<a class="headerlink" href="#unorderedparalleleventreceivingstrategy" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy">
+public class <code class="sig-name descname">UnorderedParallelEventReceivingStrategy</code> extends <a class="reference internal" href="AbstractEventReceivingStrategy.html#rsb.eventprocessing.AbstractEventReceivingStrategy" title="rsb.eventprocessing.AbstractEventReceivingStrategy">AbstractEventReceivingStrategy</a><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <a class="reference internal" href="EventReceivingStrategy.html#rsb.eventprocessing.EventReceivingStrategy" title="rsb.eventprocessing.EventReceivingStrategy"><code class="xref java java-ref docutils literal notranslate"><span class="pre">EventReceivingStrategy</span></code></a> that dispatches <a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Event</span></code></a>s using a thread pool but without any ordering guarantees.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>swrede</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activate">
+<h3>activate<a class="headerlink" href="#activate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.activate()">
+public void <code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.activate()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="addfilter">
+<h3>addFilter<a class="headerlink" href="#addfilter" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.addFilter(Filter)">
+public void <code class="sig-name descname">addFilter</code><span class="sig-paren">(</span><a class="reference internal" href="../filter/Filter.html#rsb.filter.Filter" title="rsb.filter.Filter">Filter</a><em> filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.addFilter(Filter)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="addhandler">
+<h3>addHandler<a class="headerlink" href="#addhandler" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.addHandler(Handler, boolean)">
+public void <code class="sig-name descname">addHandler</code><span class="sig-paren">(</span><a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler">Handler</a><em> handler</em>, boolean<em> wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.addHandler(Handler, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="deactivate">
+<h3>deactivate<a class="headerlink" href="#deactivate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.deactivate()">
+public void <code class="sig-name descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.deactivate()" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html" title="java.lang.InterruptedException"><strong>InterruptedException</strong></a> – thrown if waiting for shutdown was interrupted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gethandlers">
+<h3>getHandlers<a class="headerlink" href="#gethandlers" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.getHandlers()">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler">Handler</a>&gt; <code class="sig-name descname">getHandlers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.getHandlers()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the handlers registered in this strategy that will be notified of new events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of handlers</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="handle">
+<h3>handle<a class="headerlink" href="#handle" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.handle(Event)">
+public void <code class="sig-name descname">handle</code><span class="sig-paren">(</span><a class="reference internal" href="../Event.html#rsb.Event" title="rsb.Event">Event</a><em> event</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.handle(Event)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="isactive">
+<h3>isActive<a class="headerlink" href="#isactive" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.isActive()">
+public boolean <code class="sig-name descname">isActive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.isActive()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="removefilter">
+<h3>removeFilter<a class="headerlink" href="#removefilter" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.removeFilter(Filter)">
+public void <code class="sig-name descname">removeFilter</code><span class="sig-paren">(</span><a class="reference internal" href="../filter/Filter.html#rsb.filter.Filter" title="rsb.filter.Filter">Filter</a><em> filter</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.removeFilter(Filter)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="removehandler">
+<h3>removeHandler<a class="headerlink" href="#removehandler" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.removeHandler(Handler, boolean)">
+public void <code class="sig-name descname">removeHandler</code><span class="sig-paren">(</span><a class="reference internal" href="../Handler.html#rsb.Handler" title="rsb.Handler">Handler</a><em> handler</em>, boolean<em> wait</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.eventprocessing.UnorderedParallelEventReceivingStrategy.removeHandler(Handler, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

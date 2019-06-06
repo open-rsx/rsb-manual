@@ -1,0 +1,218 @@
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb.util ExactTime
+
+MetaData
+========
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class MetaData
+
+   Framework-supplied meta data attached to each event that give information e.g. about timing issues. In case you are setting timestamps manually, ensure to create these timestamps using \ :java:ref:`ExactTime`\  to get the highest possible resolution.
+
+   :author: jwienke
+
+Constructors
+------------
+MetaData
+^^^^^^^^
+
+.. java:constructor:: public MetaData()
+   :outertype: MetaData
+
+   Creates a new \ :java:ref:`MetaData`\  instance with creation time now.
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: MetaData
+
+getCreateTime
+^^^^^^^^^^^^^
+
+.. java:method:: public long getCreateTime()
+   :outertype: MetaData
+
+   Returns a time stamp that is automatically filled with the time the event instance was created by the language binding. This should usually reflect the time at which the notified condition most likely occurred in the sender. If event instances are reused, it has to be reset manually by the client. This timestamp is initially set to the creating time stamp of this instance.
+
+   :return: timestamp in microseconds
+
+getDeliverTime
+^^^^^^^^^^^^^^
+
+.. java:method:: public long getDeliverTime()
+   :outertype: MetaData
+
+   Returns the time at which an event was decoded and will be dispatched to the client as soon as possible (set directly before passing it to the client handler).
+
+   :return: timestamp in microseconds
+
+getReceiveTime
+^^^^^^^^^^^^^^
+
+.. java:method:: public long getReceiveTime()
+   :outertype: MetaData
+
+   Returns the time at which an event is received by listener in its encoded form.
+
+   :return: timestamp in microseconds
+
+getSendTime
+^^^^^^^^^^^
+
+.. java:method:: public long getSendTime()
+   :outertype: MetaData
+
+   Returns the time at which the generated notification for an event was sent on the bus (after serialization).
+
+   :return: timestamp in microseconds
+
+getUserInfo
+^^^^^^^^^^^
+
+.. java:method:: public String getUserInfo(String key)
+   :outertype: MetaData
+
+   Returns the user-defined string for the given key.
+
+   :param key: key to look up
+   :throws IllegalArgumentException: no info set for the specified key
+   :return: user info given for this key
+
+getUserTime
+^^^^^^^^^^^
+
+.. java:method:: public long getUserTime(String key)
+   :outertype: MetaData
+
+   Returns the user timestamp stored under the provided key.
+
+   :param key: key of the user-provided timestamp
+   :throws IllegalArgumentException: no timestamp stored und the provided key
+   :return: timetamp
+
+hasUserInfo
+^^^^^^^^^^^
+
+.. java:method:: public boolean hasUserInfo(String key)
+   :outertype: MetaData
+
+   Checks whether a user info exists under the provided key.
+
+   :param key: key to check
+   :return: \ ``true``\  if an info for the key is defined, else \ ``false``\
+
+hasUserTime
+^^^^^^^^^^^
+
+.. java:method:: public boolean hasUserTime(String key)
+   :outertype: MetaData
+
+   Checks whether a user-provided timestamp with the given key exists.
+
+   :param key: the key to check
+   :return: \ ``true``\  if a timestamp for the given key exists, else \ ``false``\
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: MetaData
+
+setCreateTime
+^^^^^^^^^^^^^
+
+.. java:method:: public void setCreateTime(long time)
+   :outertype: MetaData
+
+   Sets the time stamp that is automatically filled with the time the event instance was created by the language binding. This should usually reflect the time at which the notified condition most likely occurred in the sender. If event instances are reused, it has to be reset manually by the client.
+
+   :param time: timestamp in microseconds or 0 to use current system time
+
+setDeliverTime
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setDeliverTime(long time)
+   :outertype: MetaData
+
+   Sets the time at which an event was decoded and will be dispatched to the client as soon as possible (set directly before passing it to the client handler).
+
+   :param time: timestamp in microseconds or 0 to use current system time
+
+setReceiveTime
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setReceiveTime(long time)
+   :outertype: MetaData
+
+   Sets the time at which an event is received by listener in its encoded form.
+
+   :param time: timestamp in microseconds or 0 to use current system time
+
+setSendTime
+^^^^^^^^^^^
+
+.. java:method:: public void setSendTime(long time)
+   :outertype: MetaData
+
+   Sets the time at which the generated notification for an event was sent on the bus (after serialization).
+
+   :param time: timestamp in microseconds or 0 to use current system time
+
+setUserInfo
+^^^^^^^^^^^
+
+.. java:method:: public void setUserInfo(String key, String value)
+   :outertype: MetaData
+
+   Sets a user info with the specified key and value or replaces and already existing one.
+
+   :param key: the key to set
+   :param value: the user value
+
+setUserTime
+^^^^^^^^^^^
+
+.. java:method:: public void setUserTime(String key, long time)
+   :outertype: MetaData
+
+   Sets a user timestamp and replaces existing entries.
+
+   :param key: the key for the timestamp
+   :param time: time in microseconds or 0 to use current system time
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: MetaData
+
+userInfoKeys
+^^^^^^^^^^^^
+
+.. java:method:: public Set<String> userInfoKeys()
+   :outertype: MetaData
+
+   Returns all keys of user-defined infos.
+
+   :return: set of all defined keys
+
+userTimeKeys
+^^^^^^^^^^^^
+
+.. java:method:: public Set<String> userTimeKeys()
+   :outertype: MetaData
+
+   Returns the keys of all available user times.
+
+   :return: set of all keys
+

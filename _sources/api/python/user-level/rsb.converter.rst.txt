@@ -1,0 +1,56 @@
+rsb.converter
+=============
+
+.. automodule:: rsb.converter
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      get_global_converter_map
+      make_struct_based_converter
+      register_global_converter
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      BoolConverter
+      ByteArrayConverter
+      BytesConverter
+      Converter
+      ConverterMap
+      ConverterSelectionStrategy
+      DoubleConverter
+      EventsByScopeMapConverter
+      FloatConverter
+      IdentityConverter
+      Int32Converter
+      Int64Converter
+      NoneConverter
+      PredicateConverterList
+      ProtocolBufferConverter
+      SchemaAndByteArrayConverter
+      ScopeConverter
+      StringConverter
+      Uint32Converter
+      Uint64Converter
+      UnambiguousConverterMap
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      UnknownConverterError
+   
+   

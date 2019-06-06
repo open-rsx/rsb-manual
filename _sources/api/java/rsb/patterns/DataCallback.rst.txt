@@ -1,0 +1,37 @@
+.. java:import:: rsb Event
+
+DataCallback
+============
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type:: public abstract class DataCallback<ReplyType, RequestType> implements Callback
+
+   Implement the user behavior for a \ :java:ref:`LocalServer`\  method with a simple signature without events. This makes implementing callbacks simple, because no RSB \ :java:ref:`Event`\  instances need to be used. However, this e.g. prevents setting timestamps or further meta data of events. If you need such a behavior, please use \ :java:ref:`EventCallback`\ . In case you either do not need a request paramter or do not return any data, specify the respective java generics parameter as \ :java:ref:`Void`\ . You can then safely return \ ``null``\  if you have no result. In other cases, \ ``null``\  is explicitly not allowed. TODO check the null assumption
+
+   :author: jmoringe, jwienke
+   :param <ReplyType>: The type of data produced as replies to the implemented functionality.
+   :param <RequestType>: The type of data required as request parameter
+
+Methods
+-------
+internalInvoke
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override @SuppressWarnings public Event internalInvoke(Event request) throws UserCodeException, InterruptedException
+   :outertype: DataCallback
+
+invoke
+^^^^^^
+
+.. java:method:: @SuppressWarnings public abstract ReplyType invoke(RequestType request) throws Exception
+   :outertype: DataCallback
+
+   This method is called to invoke the actual behavior of an exposed method. Implementing user code must not swallow interruption state. Instead, it has to be passed to the outside world through an \ :java:ref:`InterruptedException`\ .
+
+   :param request: The argument passed to the associated method by the remote caller.
+   :throws InterruptedException: Indicates that the operation was interrupted.
+   :throws Exception: Can throw anything.
+   :return: A result that should be returned to the remote caller as the result of the calling the method.
+

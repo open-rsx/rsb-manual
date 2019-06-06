@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to the RSB Manual! (for version 1.0) &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="News" href="news.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to the RSB Manual! (for version 1.0)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="welcome-to-the-project-manual-for-version-version">
+<span id="rsb"></span><h1>Welcome to the RSB Manual! (for version 1.0)<a class="headerlink" href="#welcome-to-the-project-manual-for-version-version" title="Permalink to this headline">¶</a></h1>
+<p>The Robotics Service Bus (RSB) is a message-oriented,
+event-driven middleware aiming at scalable integration of robotics
+systems in diverse environments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This manual describes the development (or “master”) version of
+RSB.</p>
+<p>When possible, the most recent stable version of RSB should
+be used instead. That version is described in a <a class="reference external" href="../../0.18/html/index.html">separate manual</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+
+  
+
+    <h2>Contents</h2>
+
+    <table class="contentstable" align="center">
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/news.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="news.html">What's new in RSB 1.0?</a>
+            <br/>
+            <span class="linkdescr">The latest updates of RSB</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/whatis.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="concepts.html">What is RSB?</a>
+            <br/>
+            <span class="linkdescr">Get an overview of RSB concepts</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/install.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="install.html">Installation</a>
+            <br/>
+            <span class="linkdescr">Install RSB on your platform</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/troubleshooting.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="troubleshooting.html">Troubleshooting</a>
+            <br/>
+            <span class="linkdescr">Find solutions to common problems</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/contact.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="support.html">Support</a>
+            <br/>
+            <span class="linkdescr">Get support for RSB via email, chat, etc.</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/tutorial.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="examples.html">Examples</a>
+            <br/>
+            <span class="linkdescr">Study examples demonstrating how to use RSB</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/tools.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="tools.html">Tools</a>
+            <br/>
+            <span class="linkdescr">Tools for recording, manipulation and replay of events</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/specification.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="specification.html">Specification</a>
+            <br/>
+            <span class="linkdescr">Detailed descriptions of the protocols used by RSB</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon">
+            <img src="_static/api.svg" alt="">
+          </p>
+          <p class="biglink">
+            <a href="api.html">API</a>
+            <br/>
+            <span class="linkdescr">References for the programming interface of the language implementations</span>
+          </p>
+        </td>
+        <td width="50%">
+        </td>
+      </tr>
+    </table>
+
+    <p><strong>Indices and tables:</strong></p>
+    <table class="contentstable" align="center">
+      <tr>
+        <td width="50%">
+          <p class="icon"><img src="_static/search.svg"/></p>
+          <p class="biglink">
+            <a href="search.html">Search Page</a>
+            <br>
+            <span class="linkdescr">Search this documentation</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon"><img src="_static/index.svg"/></p>
+          <p class="biglink">
+            <a href="genindex.html">General Index</a>
+            <br>
+            <span class="linkdescr">All functions, classes, terms</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <p class="icon"><img src="_static/glossary.svg"/></p>
+          <p class="biglink">
+            <a href="glossary.html">Glossary</a>
+            <br>
+            <span class="linkdescr">Terms and definitions</span>
+          </p>
+        </td>
+        <td width="50%">
+          <p class="icon"><img src="_static/literature.svg"/></p>
+          <p class="biglink">
+            <a href="literature.html">Literature</a>
+            <br>
+            <span class="linkdescr">Relevant scientific literature</span>
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <div class="admonition note">
+      <p>
+        The design of this page has been lifted from the documentation of
+        the <a href="https://www.openrobots.org/wiki/morse">MORSE</a>
+        project.
+      </p>
+    </div>
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

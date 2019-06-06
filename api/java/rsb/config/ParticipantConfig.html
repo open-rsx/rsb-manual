@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ParticipantConfig &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="ParticipantConfigCreator" href="ParticipantConfigCreator.html" />
+    <link rel="prev" title="rsb.config" href="package-index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.config</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ParticipantConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantConfigCreator.html">ParticipantConfigCreator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TransportConfig.html">TransportConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.config</a> &raquo;</li>
+        
+      <li>ParticipantConfig</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/config/ParticipantConfig.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="participantconfig">
+<h1>ParticipantConfig<a class="headerlink" href="#participantconfig" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.config.ParticipantConfig">
+public class <code class="sig-name descname">ParticipantConfig</code><a class="headerlink" href="#rsb.config.ParticipantConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class describing the configuration of Participant instances. Whenever possible, this class contains API classes instead of configuration options. Options, on the other hand, are maintained inside <a class="reference internal" href="../util/Properties.html#rsb.util.Properties" title="rsb.util.Properties"><code class="xref java java-ref docutils literal notranslate"><span class="pre">rsb.util.Properties</span></code></a> instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>swrede, jmoringe, jwienke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="copy">
+<h3>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.copy()">
+public <a class="reference internal" href="#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a> <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.copy()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a deep copy of this instance. Most attributes are copied deeply.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>deep copy</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="equals">
+<h3>equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.equals(Object)">
+public boolean <code class="sig-name descname">equals</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> obj</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.equals(Object)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getenabledtransports">
+<h3>getEnabledTransports<a class="headerlink" href="#getenabledtransports" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.getEnabledTransports()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="TransportConfig.html#rsb.config.TransportConfig" title="rsb.config.TransportConfig">TransportConfig</a>&gt; <code class="sig-name descname">getEnabledTransports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.getEnabledTransports()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the set of transport configurations which represent enabled transports.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of transport configurations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getorcreatetransport">
+<h3>getOrCreateTransport<a class="headerlink" href="#getorcreatetransport" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.getOrCreateTransport(String)">
+public <a class="reference internal" href="TransportConfig.html#rsb.config.TransportConfig" title="rsb.config.TransportConfig">TransportConfig</a> <code class="sig-name descname">getOrCreateTransport</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> transportName</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.getOrCreateTransport(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a transport and, if necessary, creates the transport config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>transportName</strong> – name of the transport</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>config for that transport</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getreceivingstrategy">
+<h3>getReceivingStrategy<a class="headerlink" href="#getreceivingstrategy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.getReceivingStrategy()">
+public <a class="reference internal" href="../eventprocessing/EventReceivingStrategyFactory.html#rsb.eventprocessing.EventReceivingStrategyFactory" title="rsb.eventprocessing.EventReceivingStrategyFactory">EventReceivingStrategyFactory</a> <code class="sig-name descname">getReceivingStrategy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.getReceivingStrategy()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a factory for creating receiving strategy instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>factory</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gettransports">
+<h3>getTransports<a class="headerlink" href="#gettransports" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.getTransports()">
+public final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>, <a class="reference internal" href="TransportConfig.html#rsb.config.TransportConfig" title="rsb.config.TransportConfig">TransportConfig</a>&gt; <code class="sig-name descname">getTransports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.getTransports()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the internal map of available transport configurations by their names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>map from transport names to their configuration objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hastransport">
+<h3>hasTransport<a class="headerlink" href="#hastransport" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.hasTransport(String)">
+public boolean <code class="sig-name descname">hasTransport</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.hasTransport(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether there is a configuration for a transport with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the transport</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if a config for the transport exists, else <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hashcode">
+<h3>hashCode<a class="headerlink" href="#hashcode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.hashCode()">
+public int <code class="sig-name descname">hashCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.hashCode()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="isintrospectionenabled">
+<h3>isIntrospectionEnabled<a class="headerlink" href="#isintrospectionenabled" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.isIntrospectionEnabled()">
+public boolean <code class="sig-name descname">isIntrospectionEnabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.isIntrospectionEnabled()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether introspection should be enabled for participants with this config or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if participants shall be included in the introspection</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setintrospectionenabled">
+<h3>setIntrospectionEnabled<a class="headerlink" href="#setintrospectionenabled" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.setIntrospectionEnabled(boolean)">
+public void <code class="sig-name descname">setIntrospectionEnabled</code><span class="sig-paren">(</span>boolean<em> introspectionEnabled</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.setIntrospectionEnabled(boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whether introspection shall be enabled or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>introspectionEnabled</strong> – <code class="docutils literal notranslate"><span class="pre">true</span></code> for enabling</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setreceivingstrategy">
+<h3>setReceivingStrategy<a class="headerlink" href="#setreceivingstrategy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.setReceivingStrategy(EventReceivingStrategyFactory)">
+public void <code class="sig-name descname">setReceivingStrategy</code><span class="sig-paren">(</span><a class="reference internal" href="../eventprocessing/EventReceivingStrategyFactory.html#rsb.eventprocessing.EventReceivingStrategyFactory" title="rsb.eventprocessing.EventReceivingStrategyFactory">EventReceivingStrategyFactory</a><em> receivingStrategy</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.setReceivingStrategy(EventReceivingStrategyFactory)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter method for the event receiving strategy factory to use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>receivingStrategy</strong> – factory to use for creating receiving strategy instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.config.ParticipantConfig.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.config.ParticipantConfig.toString()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

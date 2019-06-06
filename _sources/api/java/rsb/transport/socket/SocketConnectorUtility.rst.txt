@@ -1,0 +1,91 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.converter ConverterSelectionStrategy
+
+.. java:import:: rsb.transport.socket RefCountingBus.DeactivationHandler
+
+SocketConnectorUtility
+======================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class SocketConnectorUtility
+
+   A class providing base functionality for \ :java:ref:`rsb.transport.Connector`\  implementations of the socket transport. It is intended to be used via composition. Provided methods are generally thread-safe if not indicated otherwise. The respective instance of this class is used for synchronizing in case clients of this class need to extend synchronized blocks or interact with the synchronization strategies of this class.
+
+   :author: jwienke
+
+Constructors
+------------
+SocketConnectorUtility
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public SocketConnectorUtility(SocketOptions socketOptions, ServerMode serverMode, ConverterSelectionStrategy<ByteBuffer> converters)
+   :outertype: SocketConnectorUtility
+
+   Constructor.
+
+   :param socketOptions: socket options to use
+   :param serverMode: the kind of server mode to use
+   :param converters: the converters to use for serialization
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: public void activate() throws RSBException
+   :outertype: SocketConnectorUtility
+
+   Acquires a new \ :java:ref:`Bus`\  instance and activates it respecting the requested \ :java:ref:`ServerMode`\ .
+
+   :throws RSBException: error initializing \ :java:ref:`Bus`\
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: public void deactivate() throws RSBException, InterruptedException
+   :outertype: SocketConnectorUtility
+
+   Deactivates the underlying bus instance.
+
+   :throws RSBException: error deactivating \ :java:ref:`Bus`\
+   :throws InterruptedException: interrupted while waiting for the bus to terminate
+
+getBus
+^^^^^^
+
+.. java:method:: public Bus getBus()
+   :outertype: SocketConnectorUtility
+
+   Returns the underlying bus instance when called after \ :java:ref:`activate()`\  .
+
+   :return: bus instance or \ ``null``\
+
+getConverters
+^^^^^^^^^^^^^
+
+.. java:method:: public ConverterSelectionStrategy<ByteBuffer> getConverters()
+   :outertype: SocketConnectorUtility
+
+   Returns the contained converters to use.
+
+   :return: converters
+
+isActive
+^^^^^^^^
+
+.. java:method:: public boolean isActive()
+   :outertype: SocketConnectorUtility
+
+   Indicates whether this class has been activated or not.
+
+   :return: \ ``true``\  if activated
+

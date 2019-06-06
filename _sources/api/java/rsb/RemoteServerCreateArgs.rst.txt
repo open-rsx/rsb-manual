@@ -1,0 +1,35 @@
+RemoteServerCreateArgs
+======================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class RemoteServerCreateArgs extends ParticipantCreateArgs<RemoteServerCreateArgs>
+
+   \ :java:ref:`ParticipantCreateArgs`\  for \ :java:ref:`rsb.patterns.RemoteServer`\  instances.
+
+   :author: jwienke, jmoringe
+
+Methods
+-------
+getTimeout
+^^^^^^^^^^
+
+.. java:method:: public Double getTimeout()
+   :outertype: RemoteServerCreateArgs
+
+   Returns the timeout to wait for method replies.
+
+   :return: timeout in seconds, 0 indicating to wait forever, \ ``null``\  indicating that implementations may decide on a reasonable timeout.
+
+setTimeout
+^^^^^^^^^^
+
+.. java:method:: public RemoteServerCreateArgs setTimeout(Double timeout)
+   :outertype: RemoteServerCreateArgs
+
+   Sets the timeout used when waiting for method replies.
+
+   :param timeout: a timeout in seconds or 0 to wait forever. \ ``null``\  means that the implementation shall choose a timeout.
+   :return: this instance
+

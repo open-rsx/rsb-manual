@@ -1,0 +1,72 @@
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util Collection
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util.concurrent ConcurrentHashMap
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+DefaultConverterRepository
+==========================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class DefaultConverterRepository<WireType> implements ConverterRepository<WireType>
+
+   A \ :java:ref:`ConverterRepository`\  implementation used as the default in RSB. The accessor methods return \ :java:ref:`ConverterSelectionStrategy`\  instances of type \ :java:ref:`UnambiguousConverterMap`\ . Adding a converter with the same signature as an existing one will replace the previous entry.
+
+   :param <WireType>: wire type of contained converters
+
+Methods
+-------
+addConverter
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void addConverter(Converter<WireType> converter)
+   :outertype: DefaultConverterRepository
+
+getConverterMap
+^^^^^^^^^^^^^^^
+
+.. java:method:: protected Map<ConverterSignature, Converter<WireType>> getConverterMap()
+   :outertype: DefaultConverterRepository
+
+   :return: the converterMap
+
+getConvertersForDeserialization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSelectionStrategy<WireType> getConvertersForDeserialization()
+   :outertype: DefaultConverterRepository
+
+getConvertersForSerialization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSelectionStrategy<WireType> getConvertersForSerialization()
+   :outertype: DefaultConverterRepository
+
+getDefaultConverterRepository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static DefaultConverterRepository<ByteBuffer> getDefaultConverterRepository()
+   :outertype: DefaultConverterRepository
+
+   Returns a global repository for wire type \ :java:ref:`ByteBuffer`\ .
+
+   :return: repository instance
+
+getRegisteredConverters
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Collection<Converter<WireType>> getRegisteredConverters()
+   :outertype: DefaultConverterRepository
+
+   Returns all converters that are currently contained in this repository.
+
+   :return: collection of contained converters, not \ ``null``\ , might be empty. Order has no significance
+

@@ -1,0 +1,27 @@
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+PluginManager
+=============
+
+.. java:package:: rsb.plugin
+   :noindex:
+
+.. java:type:: public class PluginManager
+
+   :author: jwienke
+
+Methods
+-------
+loadPlugins
+^^^^^^^^^^^
+
+.. java:method:: public void loadPlugins(Set<String> pluginNames) throws LoadingException
+   :outertype: PluginManager
+
+   :param pluginNames: Names of the plugins to load
+   :throws LoadingException: Loading a plugin failed
+

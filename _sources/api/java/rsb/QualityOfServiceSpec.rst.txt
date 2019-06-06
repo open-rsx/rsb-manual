@@ -1,0 +1,73 @@
+QualityOfServiceSpec
+====================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class QualityOfServiceSpec
+
+   Specification of desired quality of service settings for sending and receiving events. Specification given here are required "at least". This means concrete port instances can implement "better" QoS specs without any notification to the clients. Better is decided by the integer value of the specification enums. Higher values mean better services.
+
+   :author: jwienke
+
+Constructors
+------------
+QualityOfServiceSpec
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public QualityOfServiceSpec()
+   :outertype: QualityOfServiceSpec
+
+   Default specs with \ :java:ref:`Reliability.RELIABLE`\  and \ :java:ref:`Ordering.UNORDERED`\ .
+
+QualityOfServiceSpec
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public QualityOfServiceSpec(Ordering ordering, Reliability reliability)
+   :outertype: QualityOfServiceSpec
+
+   Constructor with specified settings.
+
+   :param ordering: desired ordering
+   :param reliability: desired reliability
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: QualityOfServiceSpec
+
+getOrdering
+^^^^^^^^^^^
+
+.. java:method:: public Ordering getOrdering()
+   :outertype: QualityOfServiceSpec
+
+   Returns the desired ordering setting.
+
+   :return: requested ordering setting
+
+getReliability
+^^^^^^^^^^^^^^
+
+.. java:method:: public Reliability getReliability()
+   :outertype: QualityOfServiceSpec
+
+   Returns the desired reliability setting.
+
+   :return: requested reliability setting
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: QualityOfServiceSpec
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: QualityOfServiceSpec
+

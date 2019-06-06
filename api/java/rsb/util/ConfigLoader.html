@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ConfigLoader &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="EventQueueAdapter" href="EventQueueAdapter.html" />
+    <link rel="prev" title="ByteHelpers" href="ByteHelpers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.util</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ByteHelpers.html">ByteHelpers</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ConfigLoader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventQueueAdapter.html">EventQueueAdapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime.html">ExactTime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-Implementation.html">ExactTime.Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-JnrPosixImplementation-LibC.html">ExactTime.JnrPosixImplementation.LibC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-JnrPosixImplementation-Timeval.html">ExactTime.JnrPosixImplementation.Timeval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FileReadingUtilities.html">FileReadingUtilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InvalidPropertyException.html">InvalidPropertyException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LimitedQueue.html">LimitedQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Property.html">Property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QueueAdapter.html">QueueAdapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QueueClosedException.html">QueueClosedException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeLimitedQueue.html">TimeLimitedQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UUIDTools.html">UUIDTools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.util</a> &raquo;</li>
+        
+      <li>ConfigLoader</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/util/ConfigLoader.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="configloader">
+<h1>ConfigLoader<a class="headerlink" href="#configloader" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.util.ConfigLoader">
+public class <code class="sig-name descname">ConfigLoader</code><a class="headerlink" href="#rsb.util.ConfigLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class which loads the RSB configuration from different sources and stores it in a <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Properties</span></code></a> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke, jmoringe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>ConfigLoader<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.ConfigLoader.ConfigLoader(String, String)">
+public <code class="sig-name descname">ConfigLoader</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> prefix</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> environmentPrefix</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.ConfigLoader.ConfigLoader(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new instance with specific parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> – installation prefix to search for the config files in <code class="docutils literal notranslate"><span class="pre">prefix/etc/rsb.conf</span></code>.</p></li>
+<li><p><strong>environmentPrefix</strong> – prefix for environment variables</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>ConfigLoader<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.ConfigLoader.ConfigLoader()">
+public <code class="sig-name descname">ConfigLoader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.ConfigLoader.ConfigLoader()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses “/” as the config file prefix and “<a href="#id3"><span class="problematic" id="id4">RSB_</span></a>” as the environment variable prefix.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="load">
+<h3>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.ConfigLoader.load(Properties)">
+public <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a> <code class="sig-name descname">load</code><span class="sig-paren">(</span><a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a><em> results</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.ConfigLoader.load(Properties)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads properties from the default sources. These are several config files and environment variables. The passed in instance is not cleared from existing properties before. If you need this, use <a class="reference internal" href="Properties.html#rsb.util.Properties.reset()" title="rsb.util.Properties.reset()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">Properties.reset()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>results</strong> – the instance to fill with new properties</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the result instance, now loaded</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="loadenv">
+<h3>loadEnv<a class="headerlink" href="#loadenv" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.ConfigLoader.loadEnv(Properties)">
+public <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a> <code class="sig-name descname">loadEnv</code><span class="sig-paren">(</span><a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a><em> results</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.ConfigLoader.loadEnv(Properties)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads properties from the environment variable. The passed in instance is not cleared before loading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>results</strong> – the instance to fill with new properties</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the passed in instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="loadfile">
+<h3>loadFile<a class="headerlink" href="#loadfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.ConfigLoader.loadFile(File, Properties)">
+public <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a> <code class="sig-name descname">loadFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html" title="java.io.File">File</a><em> file</em>, <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a><em> results</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.ConfigLoader.loadFile(File, Properties)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads options from a config file. Assumes that the file exists. The passed in instance is not cleared before loading from the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – the file to read</p></li>
+<li><p><strong>results</strong> – the instance to fill with new properties</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – if the file does not exist</p></li>
+<li><p><strong>IOException</strong> – error reading the file</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the instance with properties</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="loadfileifavailable">
+<h3>loadFileIfAvailable<a class="headerlink" href="#loadfileifavailable" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.ConfigLoader.loadFileIfAvailable(int, File, String, Properties)">
+public <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a> <code class="sig-name descname">loadFileIfAvailable</code><span class="sig-paren">(</span>int<em> index</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html" title="java.io.File">File</a><em> file</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> description</em>, <a class="reference internal" href="Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a><em> results</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.ConfigLoader.loadFileIfAvailable(int, File, String, Properties)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a config file if the file exists. Reading errors are ignored. The passed in instance is not cleared before loading the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – the index of the file in the configuration file cascade</p></li>
+<li><p><strong>file</strong> – the file to read, might not exist</p></li>
+<li><p><strong>description</strong> – a description of the file being loaded</p></li>
+<li><p><strong>results</strong> – the instance to fill with new properties</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the result instance with loaded properties</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+.. java:import:: rsb Event
+
+.. java:import:: rsb RSBException
+
+Callback.UserCodeException
+==========================
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type::  class UserCodeException extends RSBException
+   :outertype: Callback
+
+   Exception to be thrown by callbacks to indicate an error while processing the user code. Exceptions of this type will always have a cause.
+
+   :author: jwienke
+
+Constructors
+------------
+UserCodeException
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public UserCodeException(String message, Exception cause)
+   :outertype: Callback.UserCodeException
+
+   Constructor.
+
+   :param message: Description of the problem
+   :param cause: wrapped exception as the root cause, not \ ``null``\
+
+UserCodeException
+^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public UserCodeException(Exception cause)
+   :outertype: Callback.UserCodeException
+
+   Constructor.
+
+   :param cause: wrapped exception as the root cause, not \ ``null``\
+

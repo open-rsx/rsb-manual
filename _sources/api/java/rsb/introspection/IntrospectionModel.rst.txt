@@ -1,0 +1,104 @@
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Participant
+
+.. java:import:: rsb ParticipantId
+
+IntrospectionModel
+==================
+
+.. java:package:: rsb.introspection
+   :noindex:
+
+.. java:type:: public class IntrospectionModel
+
+   A model of existing participants in an RSB-based system. The model is a collection of participant representations and can be observed. The implementation is thread-safe. In case multiple operations need to be atomic, clients can synchronize on this class.
+
+   :author: swrede, ssharma, jwienke
+
+Methods
+-------
+addObserver
+^^^^^^^^^^^
+
+.. java:method:: public boolean addObserver(IntrospectionModelObserver observer)
+   :outertype: IntrospectionModel
+
+   Adds an observer to this model.
+
+   :param observer: observer to add, not \ ``null``\
+   :return: \ ``true``\  if the oberserver was newly added
+
+addParticipant
+^^^^^^^^^^^^^^
+
+.. java:method:: public void addParticipant(Participant participant, Participant parent)
+   :outertype: IntrospectionModel
+
+   Adds a participant to the model.
+
+   :param participant: the new participant, not \ ``null``\
+   :param parent: optionally the parent participant or \ ``null``\  if no parent exists
+
+getParticipant
+^^^^^^^^^^^^^^
+
+.. java:method:: public ParticipantInfo getParticipant(ParticipantId participantId)
+   :outertype: IntrospectionModel
+
+   Queries the database of known participants for the participant with the given uuid and returns the associated \ :java:ref:`ParticipantInfo`\  instance. Remember to synchronize on this instance in case you want to ensure that the participant still exists in the model when you operate with it.
+
+   :param participantId: the id of participant, not \ ``null``\
+   :return: the associated participant info or \ ``null``\  in case there is no participant with the given id
+
+getParticipants
+^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<ParticipantInfo> getParticipants()
+   :outertype: IntrospectionModel
+
+   Returns the collection of participants. Clients need to ensure synchronization on this instance when using the returned collection.
+
+   :return: set of participants
+
+isEmpty
+^^^^^^^
+
+.. java:method:: public boolean isEmpty()
+   :outertype: IntrospectionModel
+
+   Indicates whether any participants are known.
+
+   :return: \ ``true``\  if the model contains participants
+
+removeObserver
+^^^^^^^^^^^^^^
+
+.. java:method:: public boolean removeObserver(IntrospectionModelObserver observer)
+   :outertype: IntrospectionModel
+
+   Removes an observer from this model.
+
+   :param observer: observer to remove, not \ ``null``\
+   :return: \ ``true``\  if the observer existed and was removed
+
+removeParticipant
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void removeParticipant(Participant participant)
+   :outertype: IntrospectionModel
+
+   Removes a participant from the model.
+
+   :param participant: participant to remove, not \ ``null``\
+

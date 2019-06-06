@@ -1,0 +1,47 @@
+.. java:import:: java.util HashMap
+
+.. java:import:: java.util Map
+
+UnambiguousConverterMap
+=======================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class UnambiguousConverterMap<WireType> implements ConverterSelectionStrategy<WireType>
+
+   :author: swrede, jmoringe
+   :param <WireType>:
+
+Methods
+-------
+addConverter
+^^^^^^^^^^^^
+
+.. java:method:: public void addConverter(String key, Converter<WireType> converter)
+   :outertype: UnambiguousConverterMap
+
+   Adds a new converter to this map which will be registered under a given key.
+
+   :param key: the key
+   :param converter: the converter
+   :throws IllegalArgumentException: in case there already is a converter with the specified key
+
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: UnambiguousConverterMap
+
+getConverter
+^^^^^^^^^^^^
+
+.. java:method:: @Override public Converter<WireType> getConverter(String key)
+   :outertype: UnambiguousConverterMap
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: UnambiguousConverterMap
+

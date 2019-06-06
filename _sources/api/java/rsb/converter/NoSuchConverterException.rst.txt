@@ -1,0 +1,53 @@
+NoSuchConverterException
+========================
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class NoSuchConverterException extends RuntimeException
+
+   An exception indicating that no \ :java:ref:`Converter`\  is available for the intended operation.
+
+   :author: swrede
+
+Constructors
+------------
+NoSuchConverterException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public NoSuchConverterException()
+   :outertype: NoSuchConverterException
+
+   Constructs an exception with empty message and causing exception.
+
+NoSuchConverterException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public NoSuchConverterException(String message, Throwable cause)
+   :outertype: NoSuchConverterException
+
+   Constructs an exception with explanatory message and causing exception.
+
+   :param message: the message
+   :param cause: causing exception
+
+NoSuchConverterException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public NoSuchConverterException(String message)
+   :outertype: NoSuchConverterException
+
+   Constructs an exception with explanatory message.
+
+   :param message: the message
+
+NoSuchConverterException
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public NoSuchConverterException(Throwable cause)
+   :outertype: NoSuchConverterException
+
+   Constructs an exception with causing exception.
+
+   :param cause: causing exception
+

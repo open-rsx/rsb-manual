@@ -1,0 +1,22 @@
+.. java:import:: rsb InitializeException
+
+SingleThreadFactory
+===================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class SingleThreadFactory implements EventReceivingStrategyFactory
+
+   An \ :java:ref:`EventReceivingStrategyFactory`\  for \ :java:ref:`SingleThreadEventReceivingStrategy`\  instances.
+
+   :author: jwienke
+
+Methods
+-------
+create
+^^^^^^
+
+.. java:method:: @Override public EventReceivingStrategy create() throws InitializeException
+   :outertype: SingleThreadFactory
+

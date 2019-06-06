@@ -1,0 +1,64 @@
+.. java:import:: java.lang.reflect InvocationTargetException
+
+.. java:import:: java.lang.reflect Method
+
+.. java:import:: java.util List
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+RuntimeOsUtilities.RuntimeNotAvailableException
+===============================================
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public static class RuntimeNotAvailableException extends RuntimeException
+   :outertype: RuntimeOsUtilities
+
+   Indicates that a \ :java:ref:`java.lang.management.RuntimeMXBean`\  instance is not available on this system.
+
+   :author: jwienke
+
+Constructors
+------------
+RuntimeNotAvailableException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public RuntimeNotAvailableException()
+   :outertype: RuntimeOsUtilities.RuntimeNotAvailableException
+
+   Constructor.
+
+RuntimeNotAvailableException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public RuntimeNotAvailableException(String message, Throwable cause)
+   :outertype: RuntimeOsUtilities.RuntimeNotAvailableException
+
+   Constructor.
+
+   :param message: explanation
+   :param cause: cause
+
+RuntimeNotAvailableException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public RuntimeNotAvailableException(String message)
+   :outertype: RuntimeOsUtilities.RuntimeNotAvailableException
+
+   Constructor.
+
+   :param message: explanation
+
+RuntimeNotAvailableException
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public RuntimeNotAvailableException(Throwable cause)
+   :outertype: RuntimeOsUtilities.RuntimeNotAvailableException
+
+   Constructor.
+
+   :param cause: cause
+

@@ -1,0 +1,92 @@
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util LinkedList
+
+.. java:import:: java.util List
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.config ParticipantConfig
+
+.. java:import:: rsb.config ParticipantConfigCreator
+
+.. java:import:: rsb.converter DefaultConverters
+
+.. java:import:: rsb.introspection IntrospectionParticipantObserver
+
+.. java:import:: rsb.introspection LacksOsInformationException
+
+.. java:import:: rsb.patterns LocalServer
+
+.. java:import:: rsb.patterns Reader
+
+.. java:import:: rsb.patterns RemoteServer
+
+.. java:import:: rsb.plugin PluginManager
+
+.. java:import:: rsb.util ConfigLoader
+
+.. java:import:: rsb.util Properties
+
+Factory.ParticipantObserverManager
+==================================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public static final class ParticipantObserverManager
+   :outertype: Factory
+
+   A utility class to manage registered \ :java:ref:`ParticipantObserver`\  instances.
+
+   :author: swrede, jwienke, jmoringe
+
+Methods
+-------
+addObserver
+^^^^^^^^^^^
+
+.. java:method:: public void addObserver(ParticipantObserver observer)
+   :outertype: Factory.ParticipantObserverManager
+
+   Adds an observer to be notified on participant changes.
+
+   :param observer: the observer to add, not \ ``null``\
+
+notifyParticipantCreated
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void notifyParticipantCreated(Participant participant, ParticipantCreateArgs<?> args)
+   :outertype: Factory.ParticipantObserverManager
+
+   Notifies registered \ :java:ref:`ParticipantObserver`\  instances that a new \ :java:ref:`Participant`\  has been created.
+
+   :param participant: the new participant
+   :param args: the arguments used to create this participant
+
+notifyParticipantDestroyed
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void notifyParticipantDestroyed(Participant participant)
+   :outertype: Factory.ParticipantObserverManager
+
+   Notifies registered \ :java:ref:`ParticipantObserver`\  instances that a \ :java:ref:`Participant`\  is about to be destroyed.
+
+   :param participant: the participant to be destroyed
+
+removeObserver
+^^^^^^^^^^^^^^
+
+.. java:method:: public void removeObserver(ParticipantObserver observer)
+   :outertype: Factory.ParticipantObserverManager
+
+   Removes an observer in case it existed. Otherwise it does nothing.
+
+   :param observer: the observer to remove
+

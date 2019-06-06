@@ -1,0 +1,78 @@
+.. java:import:: java.net InetAddress
+
+SocketOptions
+=============
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public final class SocketOptions
+
+   A class representing the different options of socket-based communications.
+
+   :author: jwienke
+
+Constructors
+------------
+SocketOptions
+^^^^^^^^^^^^^
+
+.. java:constructor:: public SocketOptions(InetAddress address, int port, boolean tcpNoDelay)
+   :outertype: SocketOptions
+
+   Constructor.
+
+   :param address: host address
+   :param port: socket port
+   :param tcpNoDelay: wether to use tcp no delay or not
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: SocketOptions
+
+getAddress
+^^^^^^^^^^
+
+.. java:method:: public InetAddress getAddress()
+   :outertype: SocketOptions
+
+   Returns the host.
+
+   :return: host
+
+getPort
+^^^^^^^
+
+.. java:method:: public int getPort()
+   :outertype: SocketOptions
+
+   Returns the port.
+
+   :return: port
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: SocketOptions
+
+isTcpNoDelay
+^^^^^^^^^^^^
+
+.. java:method:: public boolean isTcpNoDelay()
+   :outertype: SocketOptions
+
+   Returns whether to use tcp no delay or not.
+
+   :return: \ ``true``\  to use, else \ ``false``\
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: SocketOptions
+

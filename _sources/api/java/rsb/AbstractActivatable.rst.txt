@@ -1,0 +1,22 @@
+.. java:import:: java.io IOException
+
+AbstractActivatable
+===================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public abstract class AbstractActivatable implements Activatable
+
+   Implements close method.
+
+   :author: jmoringe
+
+Methods
+-------
+close
+^^^^^
+
+.. java:method:: @Override public void close() throws IOException
+   :outertype: AbstractActivatable
+

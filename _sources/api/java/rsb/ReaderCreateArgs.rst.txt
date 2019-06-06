@@ -1,0 +1,12 @@
+ReaderCreateArgs
+================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class ReaderCreateArgs extends ParticipantCreateArgs<ReaderCreateArgs>
+
+   \ :java:ref:`ParticipantCreateArgs`\  for \ :java:ref:`Reader`\  instances.
+
+   :author: jwienke
+

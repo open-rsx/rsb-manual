@@ -1,0 +1,14 @@
+.. java:import:: rsb AbstractActivatable
+
+AbstractEventReceivingStrategy
+==============================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: @SuppressWarnings public abstract class AbstractEventReceivingStrategy extends AbstractActivatable implements EventReceivingStrategy
+
+   Inherits close method.
+
+   :author: jmoringe
+

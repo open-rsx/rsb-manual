@@ -1,0 +1,53 @@
+.. java:import:: java.net URI
+
+.. java:import:: rsb Activatable
+
+.. java:import:: rsb QualityOfServiceSpec
+
+.. java:import:: rsb Scope
+
+Connector
+=========
+
+.. java:package:: rsb.transport
+   :noindex:
+
+.. java:type:: public interface Connector extends Activatable
+
+   A generic interface for classes providing connection to a specific transport mechanism.
+
+   :author: jwienke, swrede
+
+Methods
+-------
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method::  URI getTransportUri()
+   :outertype: Connector
+
+   Return the URI describing this connector. Only valid if activated.
+
+   :throws IllegalStateException: instance is in wrong state to prepare the URI
+   :return: URI, not \ ``null``\
+
+setQualityOfServiceSpec
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void setQualityOfServiceSpec(QualityOfServiceSpec spec)
+   :outertype: Connector
+
+   Sets the quality of service requirements on sending and receiving event notifications.
+
+   :param spec: new spec to apply
+
+setScope
+^^^^^^^^
+
+.. java:method::  void setScope(Scope scope)
+   :outertype: Connector
+
+   Sets the scope this connector is working on. Needs to be called before the \ :java:ref:`activate()`\  method of the connector is called.
+
+   :param scope: the scope
+

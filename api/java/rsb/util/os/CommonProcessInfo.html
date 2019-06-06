@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CommonProcessInfo &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="HostInfo" href="HostInfo.html" />
+    <link rel="prev" title="CommonHostInfo" href="CommonHostInfo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb.util</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.util.os</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="CommonHostInfo.html">CommonHostInfo</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CommonProcessInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HostInfo.html">HostInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HostInfoSelector.html">HostInfoSelector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinuxHostInfo.html">LinuxHostInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LinuxProcessInfo.html">LinuxProcessInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OsUtilities.html">OsUtilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OsUtilities-MachineType.html">OsUtilities.MachineType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OsUtilities-OsFamily.html">OsUtilities.OsFamily</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PortableHostInfo.html">PortableHostInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PortableProcessInfo.html">PortableProcessInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProcessInfo.html">ProcessInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ProcessInfoSelector.html">ProcessInfoSelector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RuntimeOsUtilities.html">RuntimeOsUtilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RuntimeOsUtilities-RuntimeNotAvailableException.html">RuntimeOsUtilities.RuntimeNotAvailableException</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.util.os</a> &raquo;</li>
+        
+      <li>CommonProcessInfo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/api/java/rsb/util/os/CommonProcessInfo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="commonprocessinfo">
+<h1>CommonProcessInfo<a class="headerlink" href="#commonprocessinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.util.os.CommonProcessInfo">
+public abstract class <code class="sig-name descname">CommonProcessInfo</code> implements <a class="reference internal" href="ProcessInfo.html#rsb.util.os.ProcessInfo" title="rsb.util.os.ProcessInfo">ProcessInfo</a><a class="headerlink" href="#rsb.util.os.CommonProcessInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encapsulates common process info functionality shared between portable and non-portable subclasses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>swrede</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>CommonProcessInfo<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.os.CommonProcessInfo.CommonProcessInfo()">
+public <code class="sig-name descname">CommonProcessInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.CommonProcessInfo()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new instance and sets a common value for <a class="reference internal" href="ProcessInfo.html#rsb.util.os.ProcessInfo.getUserName()" title="rsb.util.os.ProcessInfo.getUserName()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">ProcessInfo.getUserName()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getarguments">
+<h3>getArguments<a class="headerlink" href="#getarguments" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.getArguments()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>&gt; <code class="sig-name descname">getArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.getArguments()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getpid">
+<h3>getPid<a class="headerlink" href="#getpid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.getPid()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a> <code class="sig-name descname">getPid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.getPid()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getprogramname">
+<h3>getProgramName<a class="headerlink" href="#getprogramname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.getProgramName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getProgramName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.getProgramName()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getstarttime">
+<h3>getStartTime<a class="headerlink" href="#getstarttime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.getStartTime()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Long.html" title="java.lang.Long">Long</a> <code class="sig-name descname">getStartTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.getStartTime()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getusername">
+<h3>getUserName<a class="headerlink" href="#getusername" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.getUserName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getUserName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.getUserName()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setarguments">
+<h3>setArguments<a class="headerlink" href="#setarguments" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.setArguments(List)">
+protected void <code class="sig-name descname">setArguments</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>&gt;<em> arguments</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.setArguments(List)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the command line arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arguments</strong> – the arguments</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setpid">
+<h3>setPid<a class="headerlink" href="#setpid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.setPid(Integer)">
+protected void <code class="sig-name descname">setPid</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a><em> pid</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.setPid(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the pid variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pid</strong> – the pid</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setprogramname">
+<h3>setProgramName<a class="headerlink" href="#setprogramname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.setProgramName(String)">
+protected void <code class="sig-name descname">setProgramName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> programName</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.setProgramName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the program name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>programName</strong> – the program name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setstarttime">
+<h3>setStartTime<a class="headerlink" href="#setstarttime" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.setStartTime(Long)">
+protected void <code class="sig-name descname">setStartTime</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Long.html" title="java.lang.Long">Long</a><em> startTime</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.setStartTime(Long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the process start time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>startTime</strong> – the process start time in microseconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setusername">
+<h3>setUserName<a class="headerlink" href="#setusername" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.os.CommonProcessInfo.setUserName(String)">
+protected void <code class="sig-name descname">setUserName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userName</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.os.CommonProcessInfo.setUserName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the user name variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>userName</strong> – user name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LimitedQueue &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Properties" href="Properties.html" />
+    <link rel="prev" title="InvalidPropertyException" href="InvalidPropertyException.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../package-index.html">rsb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb.util</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ByteHelpers.html">ByteHelpers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ConfigLoader.html">ConfigLoader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventQueueAdapter.html">EventQueueAdapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime.html">ExactTime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-Implementation.html">ExactTime.Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-JnrPosixImplementation-LibC.html">ExactTime.JnrPosixImplementation.LibC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ExactTime-JnrPosixImplementation-Timeval.html">ExactTime.JnrPosixImplementation.Timeval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FileReadingUtilities.html">FileReadingUtilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InvalidPropertyException.html">InvalidPropertyException</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LimitedQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Property.html">Property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QueueAdapter.html">QueueAdapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QueueClosedException.html">QueueClosedException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TimeLimitedQueue.html">TimeLimitedQueue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="UUIDTools.html">UUIDTools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb.util</a> &raquo;</li>
+        
+      <li>LimitedQueue</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/api/java/rsb/util/LimitedQueue.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="limitedqueue">
+<h1>LimitedQueue<a class="headerlink" href="#limitedqueue" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.util.LimitedQueue">
+public class <code class="sig-name descname">LimitedQueue</code>&lt;ElementType&gt; implements <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" title="java.util.concurrent.BlockingQueue">BlockingQueue</a>&lt;ElementType&gt;<a class="headerlink" href="#rsb.util.LimitedQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>A limited capacity BlockingQueue which overrides add in order to remove the oldest element when the size limit is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>&lt;ElementType&gt;</strong> – contained element type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>LimitedQueue<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="rsb.util.LimitedQueue.LimitedQueue(int)">
+public <code class="sig-name descname">LimitedQueue</code><span class="sig-paren">(</span>int<em> capacity</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.LimitedQueue(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a queue with the specified capacity. Oldest elements are removed on add in case the capacity limit is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>capacity</strong> – capacity of the queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add">
+<h3>add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.add(ElementType)">
+public boolean <code class="sig-name descname">add</code><span class="sig-paren">(</span>ElementType<em> e</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.add(ElementType)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="addall">
+<h3>addAll<a class="headerlink" href="#addall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.addAll(Collection)">
+public boolean <code class="sig-name descname">addAll</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;? extends ElementType&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.addAll(Collection)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="clear">
+<h3>clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.clear()">
+public void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.clear()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="contains">
+<h3>contains<a class="headerlink" href="#contains" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.contains(Object)">
+public boolean <code class="sig-name descname">contains</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.contains(Object)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="containsall">
+<h3>containsAll<a class="headerlink" href="#containsall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.containsAll(Collection)">
+public boolean <code class="sig-name descname">containsAll</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.containsAll(Collection)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="drainto">
+<h3>drainTo<a class="headerlink" href="#drainto" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.drainTo(Collection)">
+public int <code class="sig-name descname">drainTo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;? super ElementType&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.drainTo(Collection)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>drainTo<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.drainTo(Collection, int)">
+public int <code class="sig-name descname">drainTo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;? super ElementType&gt;<em> c</em>, int<em> maxElements</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.drainTo(Collection, int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="element">
+<h3>element<a class="headerlink" href="#element" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.element()">
+public ElementType <code class="sig-name descname">element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.element()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getqueue">
+<h3>getQueue<a class="headerlink" href="#getqueue" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.getQueue()">
+protected <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" title="java.util.concurrent.BlockingQueue">BlockingQueue</a>&lt;ElementType&gt; <code class="sig-name descname">getQueue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.getQueue()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the underlying queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>queue instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isempty">
+<h3>isEmpty<a class="headerlink" href="#isempty" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.isEmpty()">
+public boolean <code class="sig-name descname">isEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.isEmpty()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="iterator">
+<h3>iterator<a class="headerlink" href="#iterator" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.iterator()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" title="java.util.Iterator">Iterator</a>&lt;ElementType&gt; <code class="sig-name descname">iterator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.iterator()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="offer">
+<h3>offer<a class="headerlink" href="#offer" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.offer(ElementType)">
+public boolean <code class="sig-name descname">offer</code><span class="sig-paren">(</span>ElementType<em> e</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.offer(ElementType)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>offer<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.offer(ElementType, long, TimeUnit)">
+public boolean <code class="sig-name descname">offer</code><span class="sig-paren">(</span>ElementType<em> e</em>, long<em> timeout</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html" title="java.util.concurrent.TimeUnit">TimeUnit</a><em> unit</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.offer(ElementType, long, TimeUnit)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="peek">
+<h3>peek<a class="headerlink" href="#peek" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.peek()">
+public ElementType <code class="sig-name descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.peek()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="poll">
+<h3>poll<a class="headerlink" href="#poll" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.poll()">
+public ElementType <code class="sig-name descname">poll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.poll()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>poll<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.poll(long, TimeUnit)">
+public ElementType <code class="sig-name descname">poll</code><span class="sig-paren">(</span>long<em> timeout</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html" title="java.util.concurrent.TimeUnit">TimeUnit</a><em> unit</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.poll(long, TimeUnit)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="put">
+<h3>put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.put(ElementType)">
+public void <code class="sig-name descname">put</code><span class="sig-paren">(</span>ElementType<em> e</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.put(ElementType)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="remainingcapacity">
+<h3>remainingCapacity<a class="headerlink" href="#remainingcapacity" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.remainingCapacity()">
+public int <code class="sig-name descname">remainingCapacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.remainingCapacity()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="remove">
+<h3>remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.remove()">
+public ElementType <code class="sig-name descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.remove()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>remove<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.remove(Object)">
+public boolean <code class="sig-name descname">remove</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.remove(Object)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="removeall">
+<h3>removeAll<a class="headerlink" href="#removeall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.removeAll(Collection)">
+public boolean <code class="sig-name descname">removeAll</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.removeAll(Collection)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="retainall">
+<h3>retainAll<a class="headerlink" href="#retainall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.retainAll(Collection)">
+public boolean <code class="sig-name descname">retainAll</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" title="java.util.Collection">Collection</a>&lt;?&gt;<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.retainAll(Collection)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="size">
+<h3>size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.size()">
+public int <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.size()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="take">
+<h3>take<a class="headerlink" href="#take" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.take()">
+public ElementType <code class="sig-name descname">take</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.take()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="toarray">
+<h3>toArray<a class="headerlink" href="#toarray" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.toArray()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" title="java.lang.Object">Object</a>[] <code class="sig-name descname">toArray</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.toArray()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h3>toArray<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.util.LimitedQueue.toArray(TargetType[])">
+public &lt;TargetType&gt; TargetType[] <code class="sig-name descname">toArray</code><span class="sig-paren">(</span>TargetType[]<em> a</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.util.LimitedQueue.toArray(TargetType[])" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

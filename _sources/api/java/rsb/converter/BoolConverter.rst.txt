@@ -1,0 +1,44 @@
+.. java:import:: java.nio ByteBuffer
+
+BoolConverter
+=============
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class BoolConverter implements Converter<ByteBuffer>
+
+   A converter with wire type \ :java:ref:`ByteBuffer`\  that is capable of handling boolean values.
+
+   :author: jmoringe
+
+Fields
+------
+SIGNATURE
+^^^^^^^^^
+
+.. java:field:: public static final ConverterSignature SIGNATURE
+   :outertype: BoolConverter
+
+   Signature of \ :java:ref:`BoolConverter`\  instances.
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer bytes) throws ConversionException
+   :outertype: BoolConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: BoolConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object data) throws ConversionException
+   :outertype: BoolConverter
+

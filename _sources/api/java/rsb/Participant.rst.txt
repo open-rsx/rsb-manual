@@ -1,0 +1,137 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb Factory.ParticipantObserverManager
+
+.. java:import:: rsb.config ParticipantConfig
+
+Participant
+===========
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public abstract class Participant extends AbstractActivatable
+
+   Base class for all bus participants with an associated scope. Mainly holds references to the router and configuration-level objects. Implementing classes need to ensure that \ :java:ref:`activate()`\  and \ :java:ref:`deactivate()`\  are called in case these methods are overridden. Method \ :java:ref:`activate()`\  has to be called before setting up the active state. Method \ :java:ref:`activated()`\  needs to be called once all required internal details are set up and processing is possible now and \ :java:ref:`deactivate()`\  needs to be called before functionality is teared down.
+
+   :author: jwienke, swrede
+
+Constructors
+------------
+Participant
+^^^^^^^^^^^
+
+.. java:constructor:: protected Participant(ParticipantCreateArgs<?> args)
+   :outertype: Participant
+
+   Creates a new participant on the specified scope.
+
+   :param args: arguments used to create this participant
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: Participant
+
+activated
+^^^^^^^^^
+
+.. java:method:: protected void activated() throws RSBException
+   :outertype: Participant
+
+   Post-activation hook. To be called by subclasses after their activation has finished and they have effectively entered the active state.
+
+   :throws RSBException: activation hook failed
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: Participant
+
+getConfig
+^^^^^^^^^
+
+.. java:method:: public ParticipantConfig getConfig()
+   :outertype: Participant
+
+   Returns the \ :java:ref:`ParticipantConfig`\  used for this participant.
+
+   :return: instance not \ ``null``\
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: public abstract Class<?> getDataType()
+   :outertype: Participant
+
+   Returns the data type transfered by this participant.
+
+   :return: type class, \ ``null``\  if not applicable for this type of participant
+
+getId
+^^^^^
+
+.. java:method:: public ParticipantId getId()
+   :outertype: Participant
+
+   Returns the unique ID of this participant.
+
+   :return: the unique id of the participant
+
+getKind
+^^^^^^^
+
+.. java:method:: public abstract String getKind()
+   :outertype: Participant
+
+   Returns kind of participant in RSB terminology.
+
+   :return: Key describing participant. One of listener, informer, local-server, local-method, remote-server, remote-method
+
+getObserverManager
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: protected ParticipantObserverManager getObserverManager()
+   :outertype: Participant
+
+   Returns the observer manager to notify about participant changes.
+
+   :return: manager or \ ``null``\
+
+getScope
+^^^^^^^^
+
+.. java:method:: public Scope getScope()
+   :outertype: Participant
+
+   Returns the scope of this participant.
+
+   :return: scope of the participant, not \ ``null``\
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public abstract Set<URI> getTransportUris()
+   :outertype: Participant
+
+   Returns URIs describing the transports configured for this participants. Only valid if activated.
+
+   :throws IllegalStateException: participant is in wrong state to get these URIs
+   :return: set of transport URIs, not \ ``null``\
+
+setObserverManager
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setObserverManager(ParticipantObserverManager observerManager)
+   :outertype: Participant
+
+   Sets the observer manager to use for notifying deactivation. Internal use only!
+
+   :param observerManager: the observer manager to use or \ ``null``\  if not required
+

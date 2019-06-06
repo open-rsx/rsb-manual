@@ -1,0 +1,44 @@
+.. java:import:: java.nio ByteBuffer
+
+DoubleConverter
+===============
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class DoubleConverter implements Converter<ByteBuffer>
+
+   A converter with wire type \ :java:ref:`ByteBuffer`\  that is capable of handling doubles.
+
+   :author: jwienke
+
+Fields
+------
+SIGNATURE
+^^^^^^^^^
+
+.. java:field:: public static final ConverterSignature SIGNATURE
+   :outertype: DoubleConverter
+
+   Signature for \ :java:ref:`DoubleConverter`\  instances.
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer bytes) throws ConversionException
+   :outertype: DoubleConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: DoubleConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object data) throws ConversionException
+   :outertype: DoubleConverter
+

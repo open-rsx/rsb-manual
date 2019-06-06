@@ -1,0 +1,60 @@
+.. java:import:: java.io IOException
+
+.. java:import:: java.net Socket
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.nio ByteOrder
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb RSBException
+
+BusClientConnection
+===================
+
+.. java:package:: rsb.transport.socket
+   :noindex:
+
+.. java:type:: public class BusClientConnection extends BusConnectionBase
+
+   Instances of this class implement connections to a socket-based bus in the form of a client. The basic operations provided by this class are receiving an event notifications by calling receiveNotification and submitting an event to the bus by calling sendNotification. This class implements the fundamental RSB protocol for socket connections, e.g., the basic handshaking and the encoding/decoding of data packages for event notifications.
+
+   :author: swrede, jwienke
+
+   **See also:** <a
+        href="http://docs.cor-lab.de/rsb-manual/trunk/html/specification-socket.html">RSB
+        Specification for Socket Transport</a>
+
+Constructors
+------------
+BusClientConnection
+^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public BusClientConnection(SocketOptions options)
+   :outertype: BusClientConnection
+
+   Constructor.
+
+   :param options: socket options to use for the connection
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: BusClientConnection
+
+handshake
+^^^^^^^^^
+
+.. java:method:: @Override protected void handshake() throws RSBException
+   :outertype: BusClientConnection
+
+   Perform simple handshake as specified in RSB socket protocol.
+
+   :throws RSBException: error performing the handshake sequence
+

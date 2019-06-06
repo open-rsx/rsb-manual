@@ -1,0 +1,161 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Iterator
+
+.. java:import:: java.util List
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb.config TransportConfig
+
+.. java:import:: rsb.converter DefaultConverterRepository
+
+.. java:import:: rsb.eventprocessing DefaultInRouteConfigurator
+
+.. java:import:: rsb.eventprocessing InRouteConfigurator
+
+.. java:import:: rsb.filter Filter
+
+.. java:import:: rsb.transport TransportRegistry
+
+Listener
+========
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: public class Listener extends Participant
+
+   This class implements the receiving part of the Inform-Listen (n:m) communication pattern offered by RSB. Upon creation the Listener instance has to be provided with the scope of the channel to listen to. The Listener uses the common event handling mechanisms to process incoming events - in particular filtering of incoming events. Each time a event is received from an Informer, an Event object is dispatched to all Handlers associated to the Listener.
+
+   :author: swrede, jschaefe, jwienke
+
+Constructors
+------------
+Listener
+^^^^^^^^
+
+.. java:constructor::  Listener(ListenerCreateArgs args) throws InitializeException
+   :outertype: Listener
+
+   Creates a listener for a given scope and participant config.
+
+   :param args: arguments used to create this instance.
+   :throws InitializeException: error initializing the listener
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: Listener
+
+addFilter
+^^^^^^^^^
+
+.. java:method:: public void addFilter(Filter filter)
+   :outertype: Listener
+
+   Activates the specified filter for this informer.
+
+   :param filter: the filter to activate
+
+addHandler
+^^^^^^^^^^
+
+.. java:method:: public void addHandler(Handler handler, boolean wait) throws InterruptedException
+   :outertype: Listener
+
+   Register an event handler on this Listener to be notified about incoming events. All received events will be send to the registered listeners.
+
+   :param handler: the handler instance to be registered
+   :param wait: if set to @c true, this method will return only after the handler has completely been installed and will receive the next available message. Otherwise it may return earlier.
+   :throws InterruptedException: if waiting for installation is wanted but interrupted
+
+deactivate
+^^^^^^^^^^
+
+.. java:method:: @Override public void deactivate() throws RSBException, InterruptedException
+   :outertype: Listener
+
+getDataType
+^^^^^^^^^^^
+
+.. java:method:: @Override public Class<?> getDataType()
+   :outertype: Listener
+
+getFilterIterator
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Iterator<Filter> getFilterIterator()
+   :outertype: Listener
+
+   Returns an iterator overall active filters on this listener.
+
+   :return: filter iterator
+
+getFilters
+^^^^^^^^^^
+
+.. java:method:: public List<Filter> getFilters()
+   :outertype: Listener
+
+   Returns the filters currently being active on the listener.
+
+   :return: list of active filters
+
+getHandlerIterator
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Iterator<Handler> getHandlerIterator()
+   :outertype: Listener
+
+   Returns an iterator over all handlers attached to this listener.
+
+   :return: handler iterator
+
+getHandlers
+^^^^^^^^^^^
+
+.. java:method:: public List<Handler> getHandlers()
+   :outertype: Listener
+
+   Returns a list of handlers attached to this listener.
+
+   :return: list of handlers
+
+getKind
+^^^^^^^
+
+.. java:method:: @Override public String getKind()
+   :outertype: Listener
+
+getTransportUris
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<URI> getTransportUris()
+   :outertype: Listener
+
+isActive
+^^^^^^^^
+
+.. java:method:: @Override public boolean isActive()
+   :outertype: Listener
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method:: public void removeHandler(Handler handler, boolean wait) throws InterruptedException
+   :outertype: Listener
+
+   Remove an event listener from this Listener.
+
+   :param handler: the listener instance to be removed.
+   :param wait: if set to @c true, this method will return only after the handler has been completely removed from the event processing and will not be called anymore from this listener.
+   :throws InterruptedException: thrown if the method is interrupted while waiting for the handler to be removed
+

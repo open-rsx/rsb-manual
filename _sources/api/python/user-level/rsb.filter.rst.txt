@@ -1,0 +1,31 @@
+rsb.filter
+==========
+
+.. automodule:: rsb.filter
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      AbstractFilter
+      CauseFilter
+      FalseFilter
+      FilterAction
+      MethodFilter
+      OriginFilter
+      RecordingFalseFilter
+      RecordingTrueFilter
+      ScopeFilter
+      TrueFilter
+   
+   
+
+   
+   
+   

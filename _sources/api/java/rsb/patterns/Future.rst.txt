@@ -1,0 +1,95 @@
+.. java:import:: java.util.concurrent CancellationException
+
+.. java:import:: java.util.concurrent ExecutionException
+
+.. java:import:: java.util.concurrent TimeUnit
+
+.. java:import:: java.util.concurrent TimeoutException
+
+Future
+======
+
+.. java:package:: rsb.patterns
+   :noindex:
+
+.. java:type::  class Future<Data> implements java.util.concurrent.Future<Data>
+
+   This class provides an implementation of Java's Future interface for use with request invocations.
+
+   :author: jschaefe, swrede, jmoringe
+   :param <Data>: the type of the result data eventually arriving in this future
+
+   **See also:** :java:ref:`java.util.concurrent.Future`
+
+Methods
+-------
+cancel
+^^^^^^
+
+.. java:method:: @Override public boolean cancel(boolean mayInterrupt)
+   :outertype: Future
+
+complete
+^^^^^^^^
+
+.. java:method:: public void complete(Data val)
+   :outertype: Future
+
+   Fills the future with the result data and notifies waiting clients.
+
+   :param val: result data
+
+error
+^^^^^
+
+.. java:method:: public void error(Throwable exception)
+   :outertype: Future
+
+   Indicates an exception as a result of the waiting operation and notifies clients.
+
+   :param exception: the exception
+
+get
+^^^
+
+.. java:method:: @Override public Data get() throws ExecutionException, InterruptedException
+   :outertype: Future
+
+get
+^^^
+
+.. java:method:: public Data get(long timeout) throws ExecutionException, TimeoutException, InterruptedException
+   :outertype: Future
+
+   Convenience method for get(timeout, TimeUnit.MILLISECONDS).
+
+   :param timeout: wait this many milliseconds for a result
+   :throws ExecutionException: an error occurred in the provider of the result
+   :throws TimeoutException: timeout reached and no result received so far
+   :throws InterruptedException: if the current thread was interrupted while waiting
+   :return: the result
+
+   **See also:** :java:ref:`Future.get(long,TimeUnit)`
+
+get
+^^^
+
+.. java:method:: @SuppressWarnings @Override public Data get(long timeout, TimeUnit unit) throws ExecutionException, TimeoutException, InterruptedException
+   :outertype: Future
+
+isCancelled
+^^^^^^^^^^^
+
+.. java:method:: @Override public boolean isCancelled()
+   :outertype: Future
+
+isDone
+^^^^^^
+
+.. java:method:: @Override public boolean isDone()
+   :outertype: Future
+
+   Checks whether results are already available.
+
+   :return: true if results have already been passed to this callback
+

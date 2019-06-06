@@ -1,0 +1,53 @@
+LoadingException
+================
+
+.. java:package:: rsb.plugin
+   :noindex:
+
+.. java:type:: public class LoadingException extends RuntimeException
+
+   Represents an error while loading a specific plugin.
+
+   :author: jwienke
+
+Constructors
+------------
+LoadingException
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LoadingException()
+   :outertype: LoadingException
+
+   Constructs an exception with empty message and cause.
+
+LoadingException
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LoadingException(String message)
+   :outertype: LoadingException
+
+   Constructs an exception with an explanatory message.
+
+   :param message: the message
+
+LoadingException
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LoadingException(Throwable cause)
+   :outertype: LoadingException
+
+   Constructs an exception with causing \ :java:ref:`Throwable`\ .
+
+   :param cause: causing exception
+
+LoadingException
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public LoadingException(String message, Throwable cause)
+   :outertype: LoadingException
+
+   Constructs an exception with explanatory message and causing exception.
+
+   :param message: the message
+   :param cause: causing exception
+

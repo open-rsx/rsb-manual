@@ -1,0 +1,44 @@
+.. java:import:: java.nio ByteBuffer
+
+NullConverter
+=============
+
+.. java:package:: rsb.converter
+   :noindex:
+
+.. java:type:: public class NullConverter implements Converter<ByteBuffer>
+
+   A converter with wire type \ :java:ref:`ByteBuffer`\  that is capable of handling the null value.
+
+   :author: jmoringe
+
+Fields
+------
+SIGNATURE
+^^^^^^^^^
+
+.. java:field:: public static final ConverterSignature SIGNATURE
+   :outertype: NullConverter
+
+   Signature of \ :java:ref:`NullConverter`\  instances.
+
+Methods
+-------
+deserialize
+^^^^^^^^^^^
+
+.. java:method:: @Override public UserData<ByteBuffer> deserialize(String wireSchema, ByteBuffer bytes) throws ConversionException
+   :outertype: NullConverter
+
+getSignature
+^^^^^^^^^^^^
+
+.. java:method:: @Override public ConverterSignature getSignature()
+   :outertype: NullConverter
+
+serialize
+^^^^^^^^^
+
+.. java:method:: @Override public WireContents<ByteBuffer> serialize(Class<?> typeInfo, Object data) throws ConversionException
+   :outertype: NullConverter
+

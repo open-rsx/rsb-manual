@@ -1,0 +1,80 @@
+.. java:import:: java.net URI
+
+.. java:import:: java.util Collections
+
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb RSBException
+
+.. java:import:: rsb.filter Filter
+
+.. java:import:: rsb.filter FilterAction
+
+.. java:import:: rsb.transport EventHandler
+
+InConnector
+===========
+
+.. java:package:: rsb.transport.inprocess
+   :noindex:
+
+.. java:type:: public class InConnector extends ConnectorBase implements rsb.transport.InConnector, EventHandler
+
+   Implements a push-based connector for receiving events via the inprocess transport.
+
+   :author: jwienke
+
+Constructors
+------------
+InConnector
+^^^^^^^^^^^
+
+.. java:constructor:: public InConnector(Bus bus)
+   :outertype: InConnector
+
+   Creates a new push based connector for receiving events from a given \ :java:ref:`Bus`\  instance.
+
+   :param bus: the bus to receive from
+
+Methods
+-------
+activate
+^^^^^^^^
+
+.. java:method:: @Override public void activate() throws RSBException
+   :outertype: InConnector
+
+addHandler
+^^^^^^^^^^
+
+.. java:method:: @Override public void addHandler(EventHandler handler)
+   :outertype: InConnector
+
+getTransportUri
+^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public URI getTransportUri()
+   :outertype: InConnector
+
+handle
+^^^^^^
+
+.. java:method:: @Override public void handle(Event event)
+   :outertype: InConnector
+
+notify
+^^^^^^
+
+.. java:method:: @Override public void notify(Filter filter, FilterAction action)
+   :outertype: InConnector
+
+removeHandler
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean removeHandler(EventHandler handler)
+   :outertype: InConnector
+

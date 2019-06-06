@@ -1,0 +1,22 @@
+.. java:import:: rsb InitializeException
+
+UnorderedParallelFactory
+========================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class UnorderedParallelFactory implements EventReceivingStrategyFactory
+
+   An \ :java:ref:`EventReceivingStrategyFactory`\  for \ :java:ref:`UnorderedParallelEventReceivingStrategy`\  instances.
+
+   :author: jwienke
+
+Methods
+-------
+create
+^^^^^^
+
+.. java:method:: @Override public EventReceivingStrategy create() throws InitializeException
+   :outertype: UnorderedParallelFactory
+

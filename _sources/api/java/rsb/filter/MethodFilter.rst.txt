@@ -1,0 +1,34 @@
+.. java:import:: rsb Event
+
+MethodFilter
+============
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public class MethodFilter implements Filter
+
+   Filters for a specific method in the event.
+
+   :author: jwienke
+
+Constructors
+------------
+MethodFilter
+^^^^^^^^^^^^
+
+.. java:constructor:: public MethodFilter(String method)
+   :outertype: MethodFilter
+
+   Constructor.
+
+   :param method: method to allow
+
+Methods
+-------
+match
+^^^^^
+
+.. java:method:: @Override public boolean match(Event event)
+   :outertype: MethodFilter
+

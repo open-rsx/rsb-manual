@@ -1,0 +1,61 @@
+.. java:import:: java.util HashSet
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.logging Logger
+
+FilterObservable
+================
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public class FilterObservable
+
+   Utility class maintaining a list of \ :java:ref:`FilterObserver`\  instances and the required methods to notify these instances about filter changes. This class is not thread-safe.
+
+   :author: swrede, jwienke
+
+Methods
+-------
+addObserver
+^^^^^^^^^^^
+
+.. java:method:: public boolean addObserver(FilterObserver observer)
+   :outertype: FilterObservable
+
+   If not already registered, adds this observer to the list of registered observers.
+
+   :param observer: observer to add
+   :return: \ ``true``\  if the observer was actually newly registered.
+
+clearObservers
+^^^^^^^^^^^^^^
+
+.. java:method:: public void clearObservers()
+   :outertype: FilterObservable
+
+   Removes all registered observers.
+
+notifyObservers
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void notifyObservers(Filter filter, FilterAction action)
+   :outertype: FilterObservable
+
+   Notifies all registered observers about a change to a \ :java:ref:`Filter`\ .
+
+   :param filter: the filter that is affected, not \ ``null``\
+   :param action: the action performed to the filter, not \ ``null``\
+
+removeObserver
+^^^^^^^^^^^^^^
+
+.. java:method:: public boolean removeObserver(FilterObserver observer)
+   :outertype: FilterObservable
+
+   Removes a potentially registered observer.
+
+   :param observer: the observer to remove
+   :return: \ ``true``\  if the observer was previously registered and is now unregistered
+

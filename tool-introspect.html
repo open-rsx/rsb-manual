@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introspect &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Send" href="tool-send.html" />
+    <link rel="prev" title="Logger" href="tool-logger.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tool-info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-logger.html">Logger</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introspect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementations">Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tool-send.html">Send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-call.html">Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-timesync.html">Timesync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-bridge.html">Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-server.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-web.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-command-line-options.html">Common Commandline Options and Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="tools.html">Tools</a> &raquo;</li>
+        
+      <li>Introspect</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tool-introspect.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="introspect">
+<span id="tool-introspect"></span><h1>Introspect<a class="headerlink" href="#introspect" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="specification-introspection.html#specification-introspection"><span class="std std-ref">Introspection</span></a></dt><dd><p>Specification of the <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> protocol</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="samp docutils literal notranslate"><span class="pre">rsb</span> <span class="pre">introspect</span> <em><span class="pre">[OPTIONS]</span></em> <em><span class="pre">URI*</span></em></code></p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Display <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> information for hosts, processes and
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> reachable via the <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a> designated by <code class="samp docutils literal notranslate"><em><span class="pre">URI</span></em></code>s (zero or more URIs).</p>
+<p>When no URIs are supplied, the default <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> configuration
+is used.</p>
+<p>The usual <a class="reference internal" href="common-command-line-options.html#common-options"><span class="std std-ref">commandline options</span></a> and
+<a class="reference internal" href="common-command-line-options.html#common-environment-variables"><span class="std std-ref">environment variables</span></a> are
+accepted. Specialized commandline options:</p>
+<dl class="option">
+<dt id="cmdoption-introspect-style">
+<code class="sig-name descname">--style</code><code class="sig-prename descclassname"> SPEC</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">-s</code><code class="sig-prename descclassname"> SPEC</code><a class="headerlink" href="#cmdoption-introspect-style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify a processing style for <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> data and or
+events. <code class="samp docutils literal notranslate"><em><span class="pre">SPEC</span></em></code> has to be of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KIND</span> <span class="n">KEY1</span> <span class="n">VALUE1</span> <span class="n">KEY2</span> <span class="n">VALUE2</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>where keys and values are optional and depend on
+<code class="samp docutils literal notranslate"><em><span class="pre">KIND</span></em></code>. Examples (note that the single quotes have to be
+included only when within a shell):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>--style object-tree
+-s monitor
+-s <span class="s1">&#39;object-tree :delay 5&#39;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the <a class="reference internal" href="common-command-line-options.html#cmdoption-common-help-for"><code class="xref std std-option docutils literal notranslate"><span class="pre">common</span> <span class="pre">--help-for</span></code></a> <code class="docutils literal notranslate"><span class="pre">styles</span></code> or
+<a class="reference internal" href="common-command-line-options.html#cmdoption-common-help-for"><code class="xref std std-option docutils literal notranslate"><span class="pre">common</span> <span class="pre">--help-for</span></code></a> <code class="docutils literal notranslate"><span class="pre">all</span></code> options to display the full
+help text for this item.</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-introspect-response-timeout">
+<code class="sig-name descname">--response-timeout</code><code class="sig-prename descclassname"> SECONDS</code><a class="headerlink" href="#cmdoption-introspect-response-timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time in seconds to wait for responses to <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a>
+requests.</p>
+<p>In most systems, all replies should arrive within a few
+milliseconds. However, circumstances like heavily loaded system,
+degraded system performance or extreme communication latency may
+required larger values.</p>
+</dd></dl>
+
+<p>The output contains descriptions of</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">Participants</span></a> including</p>
+<ul>
+<li><p>Unique IDs</p></li>
+<li><p><a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">Scopes</span></a></p></li>
+<li><p><a class="reference internal" href="glossary.html#term-data-type"><span class="xref std std-term">Data types</span></a></p></li>
+</ul>
+</li>
+<li><p>Operating system processes including</p>
+<ul>
+<li><p>Program names</p></li>
+<li><p>Commandline options</p></li>
+<li><p>Start time</p></li>
+</ul>
+</li>
+<li><p>Hosts</p>
+<ul>
+<li><p>Hostname</p></li>
+<li><p>Estimated clock offset (relative to local host)</p></li>
+<li><p>Estimated communication latency (relative to local host)</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="concepts.html#uri-schema"><span class="std std-ref">URIs</span></a></dt><dd><p>For details regarding the URI syntax of <code class="samp docutils literal notranslate"><em><span class="pre">URI</span></em></code> for
+specifying <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> and <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a>.</p>
+</dd>
+<dt><a class="reference internal" href="common-command-line-options.html#common-options"><span class="std std-ref">Common Commandline Options</span></a></dt><dd><p>The usual commandline options are accepted.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb introspect
+</pre></div>
+</div>
+<p>In the above example, the <strong class="program">introspect</strong> command is used to
+<a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspect</span></a> all <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> that can be contacted the currently configured
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a>.</p>
+<p>For example, the output could look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fuchsit           UP      ( 10 s )
+│ Clock offset   &lt; 1 ms │ Machine type    x86               │ Software type    linux
+│ Latency        &lt; 1 ms │ Machine version …T9600  @ 2.80GHz │ Software version 3.16.0-4-686-pae
+└─016883          RUNNING ( 10 s ) logger --on-error continue -f and --style monitor/timeline socket:?server=1
+  │ Uptime       9 d    │ User        jmoringe
+  │ Latency   &lt; 1 ms    │ RSB Version 0.11.0
+  │ Transports socket://localhost:55555/
+  └─61582DC3      ACTIVE           LISTENER&lt;T&gt;            /
+</pre></div>
+</div>
+<p>This output should be interpreted as follows:</p>
+<ul class="simple">
+<li><p>RSB processes have been detected on one host with hostname
+“fuchsit”.</p></li>
+<li><p>The offset between the system clock of host “fuchsit” and the
+local host is less than one millisecond.</p></li>
+<li><p>The RSB communication latency between host “fuchsit” and the
+local host is less than one millisecond.</p></li>
+<li><p>One process with process id 016883 has been detected on host
+“fuchsit”. The process is executing the program “logger” with
+commandline arguments “–on-error continue -f …”.</p></li>
+<li><p>The process has been started by user jmoringe, has been running
+for nine days and is using an RSB implementation with
+version 0.11.0.</p></li>
+<li><p>Within the process, there is one <a class="reference internal" href="glossary.html#term-listener"><span class="xref std std-term">listener</span></a>
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> on <a class="reference internal" href="glossary.html#term-scope"><span class="xref std std-term">scope</span></a> <code class="docutils literal notranslate"><span class="pre">/</span></code>.  The unique id of the
+<a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participant</span></a> starts with <code class="docutils literal notranslate"><span class="pre">61582DC3</span></code>.</p></li>
+</ul>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb introspect socket: spread://somehost
+</pre></div>
+</div>
+<p>Gather <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> information via two <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transports</span></a>: the socket <a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a> and the <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>
+<a class="reference internal" href="glossary.html#term-transport"><span class="xref std std-term">transport</span></a>. The gathered information is merged as if all
+collected processes and <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a> were
+participant in a single RSB bus.</p>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb introspect --style monitor/object-tree
+</pre></div>
+</div>
+<p>Like the first example, but instead of printing one snapshot and
+exiting, continue gathering <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> information and
+periodically print an updated object tree.</p>
+</li>
+<li><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ rsb introspect --style monitor/events
+</pre></div>
+</div>
+<p>Continuously collect <a class="reference internal" href="glossary.html#term-introspection"><span class="xref std std-term">introspection</span></a> information and print
+information about significant changes in the observed
+system. Significant changes include start and termination of
+processes and addition and removal of <a class="reference internal" href="glossary.html#term-participant"><span class="xref std std-term">participants</span></a>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="implementations">
+<h2>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 19%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Implementation Language</p></th>
+<th class="head"><p>Project</p></th>
+<th class="head"><p>Repository Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Common Lisp</p></td>
+<td><p>rsb-tools-cl</p></td>
+<td><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-tools-cl">https://github.com/open-rsx/rsb-tools-cl</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

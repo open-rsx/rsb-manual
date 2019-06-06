@@ -1,0 +1,51 @@
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: jnr.ffi LibraryLoader
+
+.. java:import:: jnr.ffi Platform
+
+.. java:import:: jnr.ffi Platform.OS
+
+.. java:import:: jnr.ffi Pointer
+
+.. java:import:: jnr.ffi Runtime
+
+.. java:import:: jnr.ffi Struct
+
+.. java:import:: jnr.ffi.annotations Out
+
+.. java:import:: jnr.ffi.annotations Transient
+
+ExactTime.JnrPosixImplementation.Timeval
+========================================
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: public static final class Timeval extends Struct
+   :outertype: ExactTime.JnrPosixImplementation
+
+Fields
+------
+tv_sec
+^^^^^^
+
+.. java:field:: public final time_t tv_sec
+   :outertype: ExactTime.JnrPosixImplementation.Timeval
+
+tv_usec
+^^^^^^^
+
+.. java:field:: public final Signed32 tv_usec
+   :outertype: ExactTime.JnrPosixImplementation.Timeval
+
+Constructors
+------------
+Timeval
+^^^^^^^
+
+.. java:constructor::  Timeval(Runtime runtime)
+   :outertype: ExactTime.JnrPosixImplementation.Timeval
+

@@ -1,0 +1,80 @@
+.. java:import:: rsb.config ParticipantConfig
+
+ParticipantCreateArgs
+=====================
+
+.. java:package:: rsb
+   :noindex:
+
+.. java:type:: @SuppressWarnings public abstract class ParticipantCreateArgs<ConcreteClass extends ParticipantCreateArgs<?>>
+
+   A parameter object used to specify the various parameters that are required to construct new \ :java:ref:`Participant`\  instances. This class is intended for method chaining. Subclasses exist for each participant type.
+
+   :author: swrede, jwienke, jmoringe
+   :param <ConcreteClass>: The specific subclass that needs to be returned in setters for the method chaining pattern so that subclass setters are still available after using one of the setters in this class.
+
+Methods
+-------
+getConfig
+^^^^^^^^^
+
+.. java:method:: public ParticipantConfig getConfig()
+   :outertype: ParticipantCreateArgs
+
+   Returns the \ :java:ref:`ParticipantConfig`\  to be used for the new \ :java:ref:`Participant`\ .
+
+   :return: the config
+
+getParent
+^^^^^^^^^
+
+.. java:method:: public Participant getParent()
+   :outertype: ParticipantCreateArgs
+
+   Returns the parent \ :java:ref:`Participant`\  of the \ :java:ref:`Participant`\  to create.
+
+   :return: the parent of the \ :java:ref:`Participant`\  to create or \ ``null``\  if no parent.
+
+getScope
+^^^^^^^^
+
+.. java:method:: public Scope getScope()
+   :outertype: ParticipantCreateArgs
+
+   Returns the \ :java:ref:`Scope`\  to be used for the new \ :java:ref:`Participant`\ .
+
+   :return: the scope
+
+setConfig
+^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public ConcreteClass setConfig(ParticipantConfig config)
+   :outertype: ParticipantCreateArgs
+
+   Sets the \ :java:ref:`ParticipantConfig`\  to be used for the \ :java:ref:`Participant`\  .
+
+   :param config: new config to use. Can be \ ``null``\  in case the default configuration shall be used.
+   :return: this instance for method chaining.
+
+setParent
+^^^^^^^^^
+
+.. java:method:: @SuppressWarnings public ConcreteClass setParent(Participant parent)
+   :outertype: ParticipantCreateArgs
+
+   Sets the parent \ :java:ref:`Participant`\  of the \ :java:ref:`Participant`\  to create.
+
+   :param parent: the parent to set or \ ``null``\  for no parent
+   :return: this instance for method chaining
+
+setScope
+^^^^^^^^
+
+.. java:method:: @SuppressWarnings public ConcreteClass setScope(Scope scope)
+   :outertype: ParticipantCreateArgs
+
+   Sets the \ :java:ref:`Scope`\  to be used for the \ :java:ref:`Participant`\ .
+
+   :param scope: new scope to use. Must not be \ ``null``\ .
+   :return: this instance for method chaining.
+

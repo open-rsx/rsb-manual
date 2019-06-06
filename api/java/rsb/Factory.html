@@ -1,0 +1,1056 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Factory &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Factory.ParticipantObserverManager" href="Factory-ParticipantObserverManager.html" />
+    <link rel="prev" title="EventId" href="EventId.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing RSB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification.html">Specification</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api-cpp.html">C++ API Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../packages.html">Java API Documentation</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="package-index.html">rsb</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="AbstractActivatable.html">AbstractActivatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AbstractDataHandler.html">AbstractDataHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AbstractEventHandler.html">AbstractEventHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Activatable.html">Activatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Activatable-State.html">Activatable.State</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Event.html">Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="EventId.html">EventId</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Factory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Factory-ParticipantObserverManager.html">Factory.ParticipantObserverManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="FilteringHandler.html">FilteringHandler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Handler.html">Handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Informer.html">Informer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InformerCreateArgs.html">InformerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="InitializeException.html">InitializeException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ListenerCreateArgs.html">ListenerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="LocalServerCreateArgs.html">LocalServerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MetaData.html">MetaData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Participant.html">Participant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantCreateArgs.html">ParticipantCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantId.html">ParticipantId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ParticipantObserver.html">ParticipantObserver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec.html">QualityOfServiceSpec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec-Ordering.html">QualityOfServiceSpec.Ordering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="QualityOfServiceSpec-Reliability.html">QualityOfServiceSpec.Reliability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RSBException.html">RSBException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReaderCreateArgs.html">ReaderCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RemoteServerCreateArgs.html">RemoteServerCreateArgs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Scope.html">Scope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Version.html">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apps/package-index.html">rsb.apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config/package-index.html">rsb.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="converter/package-index.html">rsb.converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eventprocessing/package-index.html">rsb.eventprocessing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filter/package-index.html">rsb.filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introspection/package-index.html">rsb.introspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patterns/package-index.html">rsb.patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugin/package-index.html">rsb.plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="protocol/package-index.html">rsb.protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/package-index.html">rsb.transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/inprocess/package-index.html">rsb.transport.inprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transport/socket/package-index.html">rsb.transport.socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/package-index.html">rsb.util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util/os/package-index.html">rsb.util.os</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api-python.html">Python API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../packages.html">Java API Documentation</a> &raquo;</li>
+        
+          <li><a href="package-index.html">rsb</a> &raquo;</li>
+        
+      <li>Factory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api/java/rsb/Factory.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="factory">
+<h1>Factory<a class="headerlink" href="#factory" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="rsb.Factory">
+public final class <code class="sig-name descname">Factory</code><a class="headerlink" href="#rsb.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>A factory for RSB client-level objects. This class is a Singleton. It implements an observer pattern to notify about the creation and destruction of participants.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>jwienke, swrede</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addobserver">
+<h3>addObserver<a class="headerlink" href="#addobserver" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.addObserver(ParticipantObserver)">
+public void <code class="sig-name descname">addObserver</code><span class="sig-paren">(</span><a class="reference internal" href="ParticipantObserver.html#rsb.ParticipantObserver" title="rsb.ParticipantObserver">ParticipantObserver</a><em> observer</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.addObserver(ParticipantObserver)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an observer to be notified on participant changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>observer</strong> – the observer to add, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="createinformer">
+<h3>createInformer<a class="headerlink" href="#createinformer" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(Scope, Class)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(Scope, Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+<li><p><strong>type</strong> – type identifier of the informer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>createInformer<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(String, Class)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(String, Class)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+<li><p><strong>type</strong> – type identifier of the informer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>createInformer<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(Scope, Class, ParticipantConfig)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(Scope, Class, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+<li><p><strong>type</strong> – type identifier of the informer</p></li>
+<li><p><strong>config</strong> – participant config to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>createInformer<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(String, Class, ParticipantConfig)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="java.lang.Class">Class</a>&lt;?&gt;<em> type</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(String, Class, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+<li><p><strong>type</strong> – type identifier of the informer</p></li>
+<li><p><strong>config</strong> – participant config to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>createInformer<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(Scope)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>createInformer<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(String)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h3>createInformer<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(Scope, ParticipantConfig)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(Scope, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+<li><p><strong>config</strong> – participant config to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id7">
+<h3>createInformer<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(String, ParticipantConfig)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(String, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>scope</strong> – scope of the informer</p></li>
+<li><p><strong>config</strong> – participant config to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id8">
+<h3>createInformer<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createInformer(InformerCreateArgs)">
+public &lt;DataType&gt; <a class="reference internal" href="Informer.html#rsb.Informer" title="rsb.Informer">Informer</a>&lt;DataType&gt; <code class="sig-name descname">createInformer</code><span class="sig-paren">(</span><a class="reference internal" href="InformerCreateArgs.html#rsb.InformerCreateArgs" title="rsb.InformerCreateArgs">InformerCreateArgs</a><em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createInformer(InformerCreateArgs)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new informer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&lt;DataType&gt;</strong> – type of the data sent by this informer</p></li>
+<li><p><strong>args</strong> – Parameter object with create arguments for participant.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the informer</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – args is <code class="docutils literal notranslate"><span class="pre">null</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new informer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="createlistener">
+<h3>createListener<a class="headerlink" href="#createlistener" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createListener(Scope)">
+public <a class="reference internal" href="Listener.html#rsb.Listener" title="rsb.Listener">Listener</a> <code class="sig-name descname">createListener</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createListener(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new listener instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – scope of the listener</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the listener</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new listener</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id9">
+<h3>createListener<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createListener(String)">
+public <a class="reference internal" href="Listener.html#rsb.Listener" title="rsb.Listener">Listener</a> <code class="sig-name descname">createListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createListener(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new listener instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – scope of the listener</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the listener</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new listener</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id10">
+<h3>createListener<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createListener(String, ParticipantConfig)">
+public <a class="reference internal" href="Listener.html#rsb.Listener" title="rsb.Listener">Listener</a> <code class="sig-name descname">createListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createListener(String, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new listener instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – scope of the listener</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the listener</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new listener</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id11">
+<h3>createListener<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createListener(Scope, ParticipantConfig)">
+public <a class="reference internal" href="Listener.html#rsb.Listener" title="rsb.Listener">Listener</a> <code class="sig-name descname">createListener</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createListener(Scope, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new listener instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – scope of the listener</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the listener</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new listener</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id12">
+<h3>createListener<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createListener(ListenerCreateArgs)">
+public <a class="reference internal" href="Listener.html#rsb.Listener" title="rsb.Listener">Listener</a> <code class="sig-name descname">createListener</code><span class="sig-paren">(</span><a class="reference internal" href="ListenerCreateArgs.html#rsb.ListenerCreateArgs" title="rsb.ListenerCreateArgs">ListenerCreateArgs</a><em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createListener(ListenerCreateArgs)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new listener instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> – Parameter object with create arguments for participant.</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the listener</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – args is <code class="docutils literal notranslate"><span class="pre">null</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new listener</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="createlocalserver">
+<h3>createLocalServer<a class="headerlink" href="#createlocalserver" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createLocalServer(Scope)">
+public <a class="reference internal" href="patterns/LocalServer.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer">LocalServer</a> <code class="sig-name descname">createLocalServer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createLocalServer(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new LocalServer object which exposes methods under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – The scope under which methods of the LocalServer object should be exposed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new LocalServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id13">
+<h3>createLocalServer<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createLocalServer(Scope, ParticipantConfig)">
+public <a class="reference internal" href="patterns/LocalServer.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer">LocalServer</a> <code class="sig-name descname">createLocalServer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createLocalServer(Scope, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new LocalServer object which exposes methods under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope under which methods of the LocalServer object should be exposed.</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new LocalServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id14">
+<h3>createLocalServer<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createLocalServer(String, ParticipantConfig)">
+public <a class="reference internal" href="patterns/LocalServer.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer">LocalServer</a> <code class="sig-name descname">createLocalServer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createLocalServer(String, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new LocalServer object which exposes methods under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope under which methods of the LocalServer object should be exposed.</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new LocalServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id15">
+<h3>createLocalServer<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createLocalServer(String)">
+public <a class="reference internal" href="patterns/LocalServer.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer">LocalServer</a> <code class="sig-name descname">createLocalServer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createLocalServer(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new LocalServer object which exposes methods under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – The scope under which methods of the LocalServer object should be exposed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new LocalServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id16">
+<h3>createLocalServer<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createLocalServer(LocalServerCreateArgs)">
+public <a class="reference internal" href="patterns/LocalServer.html#rsb.patterns.LocalServer" title="rsb.patterns.LocalServer">LocalServer</a> <code class="sig-name descname">createLocalServer</code><span class="sig-paren">(</span><a class="reference internal" href="LocalServerCreateArgs.html#rsb.LocalServerCreateArgs" title="rsb.LocalServerCreateArgs">LocalServerCreateArgs</a><em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createLocalServer(LocalServerCreateArgs)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new LocalServer instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> – Parameter object with create arguments for participant.</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – args is <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new LocalServer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="createreader">
+<h3>createReader<a class="headerlink" href="#createreader" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createReader(Scope)">
+public <a class="reference internal" href="patterns/Reader.html#rsb.patterns.Reader" title="rsb.patterns.Reader">Reader</a> <code class="sig-name descname">createReader</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createReader(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – scope of the reader</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the reader</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new reader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id17">
+<h3>createReader<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createReader(String)">
+public <a class="reference internal" href="patterns/Reader.html#rsb.patterns.Reader" title="rsb.patterns.Reader">Reader</a> <code class="sig-name descname">createReader</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createReader(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – scope of the reader</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the reader</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new reader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id18">
+<h3>createReader<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createReader(String, ParticipantConfig)">
+public <a class="reference internal" href="patterns/Reader.html#rsb.patterns.Reader" title="rsb.patterns.Reader">Reader</a> <code class="sig-name descname">createReader</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createReader(String, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – scope of the reader</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the reader</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new reader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id19">
+<h3>createReader<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createReader(Scope, ParticipantConfig)">
+public <a class="reference internal" href="patterns/Reader.html#rsb.patterns.Reader" title="rsb.patterns.Reader">Reader</a> <code class="sig-name descname">createReader</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createReader(Scope, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – scope of the reader</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the reader</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new reader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id20">
+<h3>createReader<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createReader(ReaderCreateArgs)">
+public <a class="reference internal" href="patterns/Reader.html#rsb.patterns.Reader" title="rsb.patterns.Reader">Reader</a> <code class="sig-name descname">createReader</code><span class="sig-paren">(</span><a class="reference internal" href="ReaderCreateArgs.html#rsb.ReaderCreateArgs" title="rsb.ReaderCreateArgs">ReaderCreateArgs</a><em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createReader(ReaderCreateArgs)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new reader instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> – Parameter object with create arguments for the participant.</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="InitializeException.html#rsb.InitializeException" title="rsb.InitializeException"><strong>InitializeException</strong></a> – error initializing the reader</p></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – args is <code class="docutils literal notranslate"><span class="pre">null</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new reader</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="createremoteserver">
+<h3>createRemoteServer<a class="headerlink" href="#createremoteserver" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(Scope)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(Scope)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – The scope under which a remote server provides its methods.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new RemoteServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id21">
+<h3>createRemoteServer<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(String)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>scope</strong> – The scope under which a remote server provides its methods.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new RemoteServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id22">
+<h3>createRemoteServer<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(Scope, ParticipantConfig)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(Scope, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope under which a remote server provides its methods.</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new RemoteServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id23">
+<h3>createRemoteServer<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(String, ParticipantConfig)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(String, ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope under which a remote server provides its methods.</p></li>
+<li><p><strong>config</strong> – participant configuration to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new RemoteServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id24">
+<h3>createRemoteServer<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(Scope, double)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference internal" href="Scope.html#rsb.Scope" title="rsb.Scope">Scope</a><em> scope</em>, double<em> timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(Scope, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope under which a remote server provides its methods.</p></li>
+<li><p><strong>timeout</strong> – The amount of seconds methods calls should wait for their replies to arrive before failing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new RemoteServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id25">
+<h3>createRemoteServer<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(String, double)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> scope</em>, double<em> timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(String, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new RemoteServer object which is suitable for calling methods provided by a remote server under the scope &#64;a scope.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – The scope under which a remote server provides its methods.</p></li>
+<li><p><strong>timeout</strong> – The amount of seconds methods calls should wait for their replies to arrive before failing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new RemoteServer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id26">
+<h3>createRemoteServer<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.createRemoteServer(RemoteServerCreateArgs)">
+public <a class="reference internal" href="patterns/RemoteServer.html#rsb.patterns.RemoteServer" title="rsb.patterns.RemoteServer">RemoteServer</a> <code class="sig-name descname">createRemoteServer</code><span class="sig-paren">(</span><a class="reference internal" href="RemoteServerCreateArgs.html#rsb.RemoteServerCreateArgs" title="rsb.RemoteServerCreateArgs">RemoteServerCreateArgs</a><em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.createRemoteServer(RemoteServerCreateArgs)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new remote server instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> – Parameter object with create arguments for participant.</p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – args is <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new remote server</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getdefaultparticipantconfig">
+<h3>getDefaultParticipantConfig<a class="headerlink" href="#getdefaultparticipantconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.getDefaultParticipantConfig()">
+public <a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a> <code class="sig-name descname">getDefaultParticipantConfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.getDefaultParticipantConfig()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the participant config used per default for new participants. This instance might be modified but changes are only applied to newly created participants.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>default participant config</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getinstance">
+<h3>getInstance<a class="headerlink" href="#getinstance" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.getInstance()">
+public static <a class="reference internal" href="#rsb.Factory" title="rsb.Factory">Factory</a> <code class="sig-name descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.getInstance()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the one and only instance of this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>singleton factory instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getproperties">
+<h3>getProperties<a class="headerlink" href="#getproperties" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.getProperties()">
+public <a class="reference internal" href="util/Properties.html#rsb.util.Properties" title="rsb.util.Properties">Properties</a> <code class="sig-name descname">getProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.getProperties()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the default configuration properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>property instances</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removeobserver">
+<h3>removeObserver<a class="headerlink" href="#removeobserver" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.removeObserver(ParticipantObserver)">
+public void <code class="sig-name descname">removeObserver</code><span class="sig-paren">(</span><a class="reference internal" href="ParticipantObserver.html#rsb.ParticipantObserver" title="rsb.ParticipantObserver">ParticipantObserver</a><em> observer</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.removeObserver(ParticipantObserver)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an observer in case it existed. Otherwise it does nothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>observer</strong> – the observer to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdefaultparticipantconfig">
+<h3>setDefaultParticipantConfig<a class="headerlink" href="#setdefaultparticipantconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="rsb.Factory.setDefaultParticipantConfig(ParticipantConfig)">
+public void <code class="sig-name descname">setDefaultParticipantConfig</code><span class="sig-paren">(</span><a class="reference internal" href="config/ParticipantConfig.html#rsb.config.ParticipantConfig" title="rsb.config.ParticipantConfig">ParticipantConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#rsb.Factory.setDefaultParticipantConfig(ParticipantConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the default participant config used per default for new participants. This method is not thread-safe! Only use it when no other thread is creating participants!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – the new config to use, not <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – if the given config is <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

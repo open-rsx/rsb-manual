@@ -1,0 +1,49 @@
+.. java:import:: java.util Map
+
+.. java:import:: java.util Set
+
+.. java:import:: java.util.concurrent Callable
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: rsb Event
+
+.. java:import:: rsb Handler
+
+.. java:import:: rsb.filter Filter
+
+MatchAndDispatchTask
+====================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public class MatchAndDispatchTask implements Callable<Boolean>
+
+   :author: swrede
+
+Constructors
+------------
+MatchAndDispatchTask
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:constructor::  MatchAndDispatchTask(Handler handler, Set<Filter> filters, Event event, Map<Handler, Set<MatchAndDispatchTask>> handlerTasks)
+   :outertype: MatchAndDispatchTask
+
+   Constructor.
+
+   :param handler: handler to dispatch a received event to
+   :param filters: filter to apply before dispatching
+   :param event: the event to filter and eventually dispatch
+   :param handlerTasks: internal map of handlers and their associated tasks to remove this instance from once completed
+
+Methods
+-------
+call
+^^^^
+
+.. java:method:: @Override @SuppressWarnings public Boolean call()
+   :outertype: MatchAndDispatchTask
+

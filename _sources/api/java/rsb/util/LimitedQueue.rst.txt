@@ -1,0 +1,197 @@
+.. java:import:: java.util Collection
+
+.. java:import:: java.util Iterator
+
+.. java:import:: java.util.concurrent BlockingQueue
+
+.. java:import:: java.util.concurrent LinkedBlockingQueue
+
+.. java:import:: java.util.concurrent TimeUnit
+
+LimitedQueue
+============
+
+.. java:package:: rsb.util
+   :noindex:
+
+.. java:type:: @SuppressWarnings public class LimitedQueue<ElementType> implements BlockingQueue<ElementType>
+
+   A limited capacity BlockingQueue which overrides add in order to remove the oldest element when the size limit is reached.
+
+   :author: jwienke
+   :param <ElementType>: contained element type
+
+Constructors
+------------
+LimitedQueue
+^^^^^^^^^^^^
+
+.. java:constructor:: public LimitedQueue(int capacity)
+   :outertype: LimitedQueue
+
+   Creates a queue with the specified capacity. Oldest elements are removed on add in case the capacity limit is reached.
+
+   :param capacity: capacity of the queue
+
+Methods
+-------
+add
+^^^
+
+.. java:method:: @Override public boolean add(ElementType e)
+   :outertype: LimitedQueue
+
+addAll
+^^^^^^
+
+.. java:method:: @Override public boolean addAll(Collection<? extends ElementType> c)
+   :outertype: LimitedQueue
+
+clear
+^^^^^
+
+.. java:method:: @Override public void clear()
+   :outertype: LimitedQueue
+
+contains
+^^^^^^^^
+
+.. java:method:: @Override public boolean contains(Object o)
+   :outertype: LimitedQueue
+
+containsAll
+^^^^^^^^^^^
+
+.. java:method:: @Override public boolean containsAll(Collection<?> c)
+   :outertype: LimitedQueue
+
+drainTo
+^^^^^^^
+
+.. java:method:: @Override public int drainTo(Collection<? super ElementType> c)
+   :outertype: LimitedQueue
+
+drainTo
+^^^^^^^
+
+.. java:method:: @Override public int drainTo(Collection<? super ElementType> c, int maxElements)
+   :outertype: LimitedQueue
+
+element
+^^^^^^^
+
+.. java:method:: @Override public ElementType element()
+   :outertype: LimitedQueue
+
+getQueue
+^^^^^^^^
+
+.. java:method:: protected BlockingQueue<ElementType> getQueue()
+   :outertype: LimitedQueue
+
+   Returns the underlying queue.
+
+   :return: queue instance
+
+isEmpty
+^^^^^^^
+
+.. java:method:: @Override public boolean isEmpty()
+   :outertype: LimitedQueue
+
+iterator
+^^^^^^^^
+
+.. java:method:: @Override public Iterator<ElementType> iterator()
+   :outertype: LimitedQueue
+
+offer
+^^^^^
+
+.. java:method:: @Override public boolean offer(ElementType e)
+   :outertype: LimitedQueue
+
+offer
+^^^^^
+
+.. java:method:: @Override public boolean offer(ElementType e, long timeout, TimeUnit unit) throws InterruptedException
+   :outertype: LimitedQueue
+
+peek
+^^^^
+
+.. java:method:: @Override public ElementType peek()
+   :outertype: LimitedQueue
+
+poll
+^^^^
+
+.. java:method:: @Override public ElementType poll()
+   :outertype: LimitedQueue
+
+poll
+^^^^
+
+.. java:method:: @Override public ElementType poll(long timeout, TimeUnit unit) throws InterruptedException
+   :outertype: LimitedQueue
+
+put
+^^^
+
+.. java:method:: @Override public void put(ElementType e) throws InterruptedException
+   :outertype: LimitedQueue
+
+remainingCapacity
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public int remainingCapacity()
+   :outertype: LimitedQueue
+
+remove
+^^^^^^
+
+.. java:method:: @Override public ElementType remove()
+   :outertype: LimitedQueue
+
+remove
+^^^^^^
+
+.. java:method:: @Override public boolean remove(Object o)
+   :outertype: LimitedQueue
+
+removeAll
+^^^^^^^^^
+
+.. java:method:: @Override public boolean removeAll(Collection<?> c)
+   :outertype: LimitedQueue
+
+retainAll
+^^^^^^^^^
+
+.. java:method:: @Override public boolean retainAll(Collection<?> c)
+   :outertype: LimitedQueue
+
+size
+^^^^
+
+.. java:method:: @Override public int size()
+   :outertype: LimitedQueue
+
+take
+^^^^
+
+.. java:method:: @Override public ElementType take() throws InterruptedException
+   :outertype: LimitedQueue
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public Object[] toArray()
+   :outertype: LimitedQueue
+
+toArray
+^^^^^^^
+
+.. java:method:: @Override public <TargetType> TargetType[] toArray(TargetType[] a)
+   :outertype: LimitedQueue
+

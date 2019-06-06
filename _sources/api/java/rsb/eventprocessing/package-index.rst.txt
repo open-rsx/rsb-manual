@@ -1,0 +1,27 @@
+rsb.eventprocessing
+===================
+
+Contains classes handling the flow of events from Participants to the transport implementations and vice versa.
+
+:author: jwienke
+
+.. java:package:: rsb.eventprocessing
+
+.. toctree::
+   :maxdepth: 1
+
+   AbstractEventReceivingStrategy
+   DefaultInRouteConfigurator
+   DefaultOutRouteConfigurator
+   EventReceivingStrategy
+   EventReceivingStrategyFactory
+   InRouteConfigurator
+   MatchAndDispatchTask
+   OutRouteConfigurator
+   RouteConfigurator
+   RouteConfiguratorUtility
+   SingleThreadEventReceivingStrategy
+   SingleThreadFactory
+   UnorderedParallelEventReceivingStrategy
+   UnorderedParallelFactory
+

@@ -1,0 +1,31 @@
+rsb.util
+========
+
+.. automodule:: rsb.util
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      get_logger_by_class
+      prefix
+      time_to_unix_microseconds
+      unix_microseconds_to_time
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      OrderedQueueDispatcherPool
+   
+   
+
+   
+   
+   

@@ -1,0 +1,67 @@
+.. java:import:: rsb Event
+
+.. java:import:: rsb EventId
+
+CauseFilter
+===========
+
+.. java:package:: rsb.filter
+   :noindex:
+
+.. java:type:: public class CauseFilter implements Filter
+
+   Filter events based on cause.
+
+Constructors
+------------
+CauseFilter
+^^^^^^^^^^^
+
+.. java:constructor:: public CauseFilter(EventId cause, boolean invert)
+   :outertype: CauseFilter
+
+   Construct a cause filter.
+
+   :param cause: the cause
+   :param invert: invert he filter?
+
+CauseFilter
+^^^^^^^^^^^
+
+.. java:constructor:: public CauseFilter(EventId cause)
+   :outertype: CauseFilter
+
+   Construct a cause filter.
+
+   :param cause: the cause
+
+Methods
+-------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object that)
+   :outertype: CauseFilter
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: CauseFilter
+
+isInverted
+^^^^^^^^^^
+
+.. java:method:: public boolean isInverted()
+   :outertype: CauseFilter
+
+   Indicates whether the filter accepts events containing the specified event id in their cause vector or events that do not have that cause.
+
+   :return: if \ ``true``\ , only events NOT that do not have the specified event id in their cause vector are allowed. If \ ``false``\ , only events that have the specified event id in their cause vector are allowed.
+
+match
+^^^^^
+
+.. java:method:: @Override public boolean match(Event event)
+   :outertype: CauseFilter
+

@@ -1,0 +1,27 @@
+.. java:import:: rsb InitializeException
+
+EventReceivingStrategyFactory
+=============================
+
+.. java:package:: rsb.eventprocessing
+   :noindex:
+
+.. java:type:: public interface EventReceivingStrategyFactory
+
+   An abstract factory for creating \ :java:ref:`EventReceivingStrategy`\  instances.
+
+   :author: jwienke
+
+Methods
+-------
+create
+^^^^^^
+
+.. java:method::  EventReceivingStrategy create() throws InitializeException
+   :outertype: EventReceivingStrategyFactory
+
+   Create a new instance.
+
+   :throws InitializeException: error initializing the strategy
+   :return: the instance
+

@@ -1,0 +1,66 @@
+.. java:import:: java.util List
+
+ProcessInfo
+===========
+
+.. java:package:: rsb.util.os
+   :noindex:
+
+.. java:type:: public interface ProcessInfo
+
+   Interface for process information model classes.
+
+   :author: swrede
+
+Methods
+-------
+getArguments
+^^^^^^^^^^^^
+
+.. java:method::  List<String> getArguments()
+   :outertype: ProcessInfo
+
+   Returns the program's command line arguments.
+
+   :return: list of arguments, \ ``null``\  if not determined
+
+getPid
+^^^^^^
+
+.. java:method::  Integer getPid()
+   :outertype: ProcessInfo
+
+   Returns the pid of a process.
+
+   :return: the pid of the process, \ ``null``\  if not determined
+
+getProgramName
+^^^^^^^^^^^^^^
+
+.. java:method::  String getProgramName()
+   :outertype: ProcessInfo
+
+   Returns a string name describing the program.
+
+   :return: string name or \ ``null``\  if not determined
+
+getStartTime
+^^^^^^^^^^^^
+
+.. java:method::  Long getStartTime()
+   :outertype: ProcessInfo
+
+   Returns the process start time in microseconds.
+
+   :return: process start time, \ ``null``\  if not determined
+
+getUserName
+^^^^^^^^^^^
+
+.. java:method::  String getUserName()
+   :outertype: ProcessInfo
+
+   Returns the name of the user executing the process.
+
+   :return: user name or \ ``null``\  if not determined
+

@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>C++ Implementation &mdash; RSB 1.0-dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/multi.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/style.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Common Lisp Implementation" href="install-cl.html" />
+    <link rel="prev" title="Installation from Source" href="install-source.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RSB
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="install.html">Installing RSB</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install-binary.html">Installation of Pre-Generated Packages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="install-source.html">Installation from Source</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">C++ Implementation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#supported-operating-systems-and-compilers">Supported Operating Systems and Compilers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-of-rsc-rsbprotocol-and-project">Installation of RSC, RSBProtocol and RSB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install-cl.html">Common Lisp Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-java.html">Java Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-python.html">Python Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RSB</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="install.html">Installing RSB</a> &raquo;</li>
+        
+          <li><a href="install-source.html">Installation from Source</a> &raquo;</li>
+        
+      <li>C++ Implementation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install-cpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+  
+  <div class="section" id="c-implementation">
+<span id="install-cpp"></span><h1>C++ Implementation<a class="headerlink" href="#c-implementation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="supported-operating-systems-and-compilers">
+<h2>Supported Operating Systems and Compilers<a class="headerlink" href="#supported-operating-systems-and-compilers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Linux (GCC 4.x)</p></li>
+<li><p>MacOS (GCC 4.x, LLVM/clang 3.1)</p></li>
+<li><p>Windows (MS Visual Studio 9 2008)</p></li>
+<li><p>Windows (MS Visual Studio 10 20??)</p></li>
+</ul>
+<p>Other combinations may be possible but are currently untested.</p>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Required Dependencies</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.boost.org/">Boost</a>, Version 1.38 or newer</p></li>
+<li><p><a class="reference external" href="http://www.boost.org/doc/libs/1_42_0/libs/uuid/uuid.html">Boost.UUID</a></p>
+<ul>
+<li><p>Header-only library</p></li>
+<li><p>Included in <a class="reference external" href="http://www.boost.org/">Boost</a> since version 1.42</p></li>
+<li><p>Headers from this version can be used with all older versions of
+<a class="reference external" href="http://www.boost.org/">Boost</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://developers.google.com/protocol-buffers&lt;F37&gt;">Google Protocol Buffers</a></p>
+<ul>
+<li><p>Ubuntu GNU/Linux (Lucid) packages (<code class="docutils literal notranslate"><span class="pre">libprotobuf-dev</span></code>,
+<code class="docutils literal notranslate"><span class="pre">protobuf-compiler</span></code>) are ok</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://www.cmake.org/">CMake</a>, Version 2.8 or newer</p></li>
+</ul>
+<p>Optional Dependencies (building without these is possible, but some
+features will be missing)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.spread.org">Spread</a>, Version 4.0 or newer</p>
+<ul>
+<li><p>The Ubuntu GNU/Linux (Lucid) package does <strong>not</strong> work (since it contains
+the outdated version 3)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://www.doxygen.nl/">Doxygen</a> for generation of API documentation</p></li>
+<li><p><a class="reference external" href="http://ltp.sourceforge.net/coverage/lcov.php">Lcov</a> for code coverage analysis</p></li>
+<li><p><a class="reference external" href="http://sourceforge.net/apps/mediawiki/cppcheck/index.php?title=Main_Page">cppcheck</a> for static code analysis</p></li>
+</ul>
+<div class="section" id="installation-of-dependencies-on-debian-based-systems">
+<h3>Installation of Dependencies on Debian-based Systems<a class="headerlink" href="#installation-of-dependencies-on-debian-based-systems" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install libprotobuf-dev protobuf-compiler build-essential libboost-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-dependencies-on-macos-using-homebrew">
+<h3>Installation of Dependencies on MacOS using Homebrew<a class="headerlink" href="#installation-of-dependencies-on-macos-using-homebrew" title="Permalink to this headline">¶</a></h3>
+<p>For installing RSB and its dependencies from source on Darwin,
+we recommend to use <a class="reference external" href="http://mxcl.github.com/homebrew/">Homebrew</a>, an easy-to-use package manager for
+MacOS.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ brew install cmake boost protobuf
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-of-the-spread-toolkit">
+<span id="install-spread"></span><h3>Installation of the Spread Toolkit<a class="headerlink" href="#installation-of-the-spread-toolkit" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>, is a powerful transport layer which is natively
+supported in RSB. To install <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a>, source archives are
+available after registration for download
+<a class="reference external" href="http://www.spread.org/download/spread-src-4.1.0.tar.gz">http://www.spread.org/download/spread-src-4.1.0.tar.gz</a>. Installation of Spread is straightforward on MacOS
+and Linux as it has no external dependencies and comes with a standard
+configuration script.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the following sections, <code class="samp docutils literal notranslate"><em><span class="pre">prefix</span></em></code> specifies the target
+directory of the installation.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ tar xzf spread-src-4.1.0.tar.gz
+$ <span class="nb">cd</span> spread-src-4.1.0
+$ ./configure --prefix<span class="o">=</span><span class="nv">$prefix</span>
+$ make
+$ make install
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installation-of-rsc-rsbprotocol-and-project">
+<span id="install-cpp-rsb"></span><h2>Installation of RSC, RSBProtocol and RSB<a class="headerlink" href="#installation-of-rsc-rsbprotocol-and-project" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Clone RSB and its immediate dependencies from the <a class="reference external" href="http://git-scm.org">git</a>
+repository</p>
+<dl class="simple">
+<dt>RSC</dt><dd><p>“1.0” branch of <a class="reference external" href="https://code.cor-lab.de/git/rsc.git">https://code.cor-lab.de/git/rsc.git</a></p>
+</dd>
+<dt>RSB Protocol</dt><dd><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-protocol">https://github.com/open-rsx/rsb-protocol</a></p>
+</dd>
+<dt>RSB C++</dt><dd><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-cpp">https://github.com/open-rsx/rsb-cpp</a></p>
+</dd>
+<dt>Optionally: RSB C++ <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> plugin (in case you want to use the spread transport)</dt><dd><p>“1.0” branch of <a class="reference external" href="https://github.com/open-rsx/rsb-spread-cpp">https://github.com/open-rsx/rsb-spread-cpp</a></p>
+</dd>
+</dl>
+</li>
+<li><p>Build and install the C++ implementation of RSB and its
+dependencies in the order given below:</p>
+<ol class="arabic">
+<li><p>Build and install RSC Library</p>
+<pre class="literal-block">$ cd rsc
+$ mkdir -p build &amp;&amp; cd build
+$ cmake -DCMAKE_INSTALL_PREFIX=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code> ..
+$ make install</pre>
+</li>
+<li><p>Install RSB Protocol Definitions</p>
+<pre class="literal-block">$ cd rsb.git.protocol
+$ mkdir -p build &amp;&amp; cd build
+$ cmake -DCMAKE_INSTALL_PREFIX=<code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code> ..
+$ make install</pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These protocol definitions are shared across programming
+languages.</p>
+</div>
+</li>
+<li><p>Build and install the C++ implementation of RSB</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> rsb.git.cpp
+$ mkdir -p build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+$ cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$prefix</span> ..
+$ make install
+</pre></div>
+</div>
+</li>
+<li><p>Optionally, build and install the C++ <a class="reference internal" href="glossary.html#term-spread"><span class="xref std std-term">Spread</span></a> plugin  of RSB</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> rsb.git.spread-cpp
+$ mkdir -p build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+$ cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$prefix</span> ..
+$ make install
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The commands above only work, if all projects are installed into
+a common prefix (i.e. <code class="samp docutils literal notranslate"><em><span class="pre">PREFIX</span></em></code>). Otherwise, locations of
+required dependencies have to be specified explicitly. For
+example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/opt/rsb                          <span class="se">\</span>
+        -DRSC_DIR<span class="o">=</span>/opt/rsc/share/rsc                             <span class="se">\</span>
+        -DRSBProtocol_DIR<span class="o">=</span>/opt/rsb-prototcol/share/rsb-protocol <span class="se">\</span>
+        ..
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+  
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div role="contentinfo">
+        <span class="creativecommons">
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License"
+                     style="border-width:0; width:80px; height:15px; "
+                     src="https://i.creativecommons.org/l/by/4.0/80x15.png"/></a>
+            <span xmlns:dct="http://purl.org/dc/terms/"
+                  href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title"
+                  rel="dct:type">
+                The RSB documentation
+            </span>
+            is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a>.
+        </span>
+        <span class="lastupdated">
+            Last updated on Jun 06, 2019.
+        </span>
+    </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
