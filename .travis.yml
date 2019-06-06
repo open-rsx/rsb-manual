@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install protobuf-compiler cmake g++ git libboost-date-time-dev libboost-filesystem-dev libboost-program-options-dev libboost-regex-dev libboost-signals-dev libboost-system-dev libboost-thread-dev libprotobuf-dev protobuf-compiler lcov gcovr make unzip wget doxygen
 install:
-  - pip install git+https://github.com/sphinx-doc/sphinx.git@1.8 sphinx_rtd_theme javasphinx breathe upstream/rsb-python
+  - pip install git+https://github.com/sphinx-doc/sphinx.git@2.0 sphinx_rtd_theme javasphinx breathe upstream/rsb-python
 script:
   - ./build.sh
 deploy:
